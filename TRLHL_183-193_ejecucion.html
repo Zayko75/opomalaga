@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>TRLHL · Arts. 183-193 bis · Ejecución y liquidación del presupuesto</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   SISTEMA DE DISEÑO · "Académico Gamificado" · Bloque II
+   Temas 8, 9 y 10 · Auxiliar Administrativo
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --fs:16px;
+
+  --bg:#faf9f7;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #dcf5ee 0%, transparent 50%);
+  --surface:#ffffff;
+  --surface-2:#f4f3f0;
+  --surface-3:#eceae5;
+  --line:#e6e3dc;
+  --line-strong:#d4d0c7;
+
+  --ink:#15161c;
+  --ink-2:#5d616e;
+  --ink-3:#8b8f9c;
+
+  --brand:#5b3df5;
+  --brand-2:#7c5cff;
+  --brand-soft:#efeaff;
+  --brand-ring:rgba(91,61,245,.18);
+
+  --legal:#4338ca;  --legal-bg:#eeecff;
+  --ej:#059669;     --ej-bg:#e4f7f0;
+  --warn:#c2690a;   --warn-bg:#fdf1de;
+  --exc:#dc2626;    --exc-bg:#ffeceb;
+
+  --ok:#16a34a; --ok-soft:#e7f7ec;
+  --mid:#eab308; --mid-soft:#fdf6dd;
+  --off:#a1a1aa; --off-soft:#f1f1f3;
+
+  --sh-1:0 1px 2px rgba(20,20,30,.04), 0 2px 8px rgba(20,20,30,.04);
+  --sh-2:0 2px 6px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.07);
+  --sh-3:0 8px 20px rgba(91,61,245,.13), 0 24px 56px rgba(20,20,30,.10);
+  --sh-glow:0 0 0 4px var(--brand-ring);
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-full:999px;
+
+  --f-display:"Segoe UI Variable Display",system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-legal:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+
+  --t-h1:clamp(1.02rem,.95rem + .3vw,1.2rem);
+  --t-h2:clamp(1.2rem,1.05rem + .6vw,1.55rem);
+  --t-h3:clamp(1rem,.95rem + .25vw,1.12rem);
+  --t-sm:.86rem;
+  --t-xs:.75rem;
+
+  --e-out:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+
+  /* ── Compatibilidad con SVG y contenido generado ── */
+  --panel:var(--surface);
+  --ink2:var(--ink-2);
+  --acc:var(--brand);
+  --acc-soft:var(--brand-soft);
+  --g:var(--ok); --y:var(--mid); --r:var(--exc);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0b0f;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #1c1740 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #08302b 0%, transparent 50%);
+  --surface:#13151b;
+  --surface-2:#1a1d25;
+  --surface-3:#232733;
+  --line:#262a34;
+  --line-strong:#343947;
+
+  --ink:#eceef4;
+  --ink-2:#9ba2b3;
+  --ink-3:#6e7585;
+
+  --brand:#8b6dff;
+  --brand-2:#a78bff;
+  --brand-soft:#1e1a3d;
+  --brand-ring:rgba(139,109,255,.22);
+
+  --legal:#a5b4fc; --legal-bg:#191b3a;
+  --ej:#34d399;    --ej-bg:#0c2a24;
+  --warn:#fbbf24;  --warn-bg:#2e2110;
+  --exc:#fb7185;   --exc-bg:#331119;
+
+  --ok:#4ade80; --ok-soft:#0e2a19;
+  --mid:#facc15; --mid-soft:#2c2610;
+  --off:#5b6070; --off-soft:#1c1f27;
+
+  --sh-1:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sh-2:0 2px 6px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.4);
+  --sh-3:0 8px 20px rgba(139,109,255,.2), 0 24px 56px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);background-image:var(--bg-grad);
+  background-attachment:fixed;background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s var(--e-out),color .3s;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.022em;line-height:1.2}
+.num{font-variant-numeric:tabular-nums}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+
+/* ═══ HEADER ═══ */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{max-width:1280px;margin:0 auto;padding:.65rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;flex:1}
+.mark{
+  width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  font-weight:800;font-size:.8rem;letter-spacing:-.02em;text-decoration:none;
+  box-shadow:0 4px 14px var(--brand-ring);
+  transition:transform .3s var(--e-spring),box-shadow .3s;
+}
+.mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0}
+.top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
+  margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+
+button,select,input[type=search]{
+  font:inherit;font-size:var(--t-sm);font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:var(--r-sm);padding:.4rem .72rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .18s var(--e-spring),border-color .2s,background .2s,box-shadow .2s,color .2s;
+}
+button:hover{transform:translateY(-1.5px);border-color:var(--brand);box-shadow:var(--sh-1)}
+button:active{transform:translateY(0) scale(.97)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:none;box-shadow:var(--sh-glow)}
+input[type=search]{min-width:190px;cursor:text;font-weight:500}
+input[type=search]:focus{border-color:var(--brand)}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);padding:2px;gap:2px}
+.seg button{border:0;border-radius:calc(var(--r-sm) - 2px);padding:.32rem .68rem;background:transparent;box-shadow:none}
+.seg button:hover{transform:none;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 2px 8px var(--brand-ring)}
+
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:currentColor;opacity:.25;animation:rip .55s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(3.4);opacity:0}}
+
+.progress{position:absolute;left:0;bottom:-1px;height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--brand),var(--legal),var(--ej));transition:width .1s linear}
+
+/* ═══ LAYOUT ═══ */
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:1.8rem;padding:1.4rem 1.1rem 5rem}
+main{min-width:0}
+
+/* ═══ SIDEBAR ═══ */
+nav.side{
+  position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:.85rem;box-shadow:var(--sh-1);
+}
+nav.side h2{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:.5rem .4rem .5rem;font-weight:800}
+nav.side h2:first-child{margin-top:.1rem}
+nav.side a{
+  display:flex;align-items:baseline;gap:.5rem;padding:.36rem .55rem;border-radius:var(--r-sm);
+  text-decoration:none;color:var(--ink-2);font-size:var(--t-sm);font-weight:500;
+  position:relative;transition:background .22s,color .22s,transform .22s var(--e-out);
+}
+nav.side a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(3px);text-decoration:none}
+nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side a.on::before{content:"";position:absolute;left:-.85rem;top:20%;bottom:20%;width:3px;
+  border-radius:0 3px 3px 0;background:var(--brand)}
+nav.side a b{color:var(--ink-3);font-weight:800;font-size:var(--t-xs);font-variant-numeric:tabular-nums;flex:none;min-width:1.9em}
+nav.side a.on b{color:var(--brand)}
+.navtoggle{display:none}
+
+/* ═══ TARJETAS ═══ */
+section.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.5rem;margin-bottom:1.1rem;box-shadow:var(--sh-1);
+  transition:box-shadow .3s var(--e-out),border-color .3s;
+}
+section.card:hover{box-shadow:var(--sh-2)}
+section.card>h2{
+  margin:0 0 1rem;font-size:var(--t-h2);font-weight:800;
+  display:flex;align-items:center;gap:.6rem;
+}
+section.card>h2::before{
+  content:"";width:4px;height:1.05em;border-radius:99px;flex:none;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+
+/* ═══ ARTÍCULO ═══ */
+.art{scroll-margin-top:86px;padding-top:.4rem}
+.art + .art{margin-top:1.6rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+.art h2{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;font-size:var(--t-h3);
+  margin:0 0 .25rem;font-weight:800;letter-spacing:-.015em}
+.art h2 .num{
+  color:var(--brand);font-weight:800;font-family:var(--f-display);
+  background:var(--brand-soft);padding:.1rem .5rem;border-radius:var(--r-sm);
+  font-size:.92em;letter-spacing:-.02em;
+}
+.ubic{font-size:var(--t-xs);color:var(--ink-3);margin:0 0 .8rem;font-weight:600;
+  letter-spacing:.03em;text-transform:uppercase}
+
+/* ═══ IDEA CLAVE ═══ */
+.idea{
+  background:linear-gradient(100deg,var(--brand-soft),color-mix(in srgb,var(--brand-soft) 40%,transparent));
+  border-left:4px solid var(--brand);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.75rem 1rem;font-weight:650;margin:.7rem 0 1rem;position:relative;
+  font-size:.97rem;line-height:1.55;
+}
+
+/* ═══ ACORDEÓN ═══ */
+details.panel{
+  border:1px solid var(--line);border-radius:var(--r-md);margin:.6rem 0;
+  background:var(--surface);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+details.panel:hover{border-color:var(--line-strong)}
+details.panel[open]{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring)}
+details.panel>summary{
+  cursor:pointer;padding:.62rem .9rem;font-weight:700;font-size:.93rem;
+  list-style:none;display:flex;align-items:center;gap:.55rem;
+  transition:background .2s,color .2s;
+}
+details.panel>summary:hover{background:var(--surface-2)}
+details.panel[open]>summary{background:var(--brand-soft);color:var(--brand)}
+details.panel>summary::-webkit-details-marker{display:none}
+details.panel>summary::before{
+  content:"";width:16px;height:16px;flex:none;border-radius:5px;
+  background:var(--brand-soft);position:relative;transition:transform .3s var(--e-spring),background .25s;
+}
+details.panel>summary::after{
+  content:"";position:absolute;width:0;height:0;margin-left:5px;
+  border:4px solid transparent;border-left-color:var(--brand);
+  transition:transform .3s var(--e-spring);
+}
+details.panel[open]>summary::before{background:var(--surface)}
+details.panel[open]>summary::after{transform:rotate(90deg) translateX(-1px)}
+details.panel .body{padding:.3rem 1rem 1rem;font-size:.95rem;animation:slidein .35s var(--e-out)}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ═══ TEXTO LEGAL ═══ */
+.legal{
+  background:var(--legal-bg);border-left:4px solid var(--legal);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:.85rem 1.05rem;
+  font-family:var(--f-legal);font-size:.95rem;line-height:1.7;
+}
+.legal p{margin:.45rem 0}
+.legal .lbl{
+  font-family:var(--f-body);font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--legal);font-weight:800;display:block;margin-bottom:.4rem;
+}
+
+/* ═══ CAJAS SEMÁNTICAS ═══ */
+.box{
+  border-left:4px solid var(--line);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.72rem .95rem;margin:.65rem 0;font-size:.94rem;
+  transition:transform .25s var(--e-out),box-shadow .25s;
+}
+.box:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
+.box.ej{background:var(--ej-bg);border-color:var(--ej)}
+.box.warn{background:var(--warn-bg);border-color:var(--warn)}
+.box.exc{background:var(--exc-bg);border-color:var(--exc)}
+.box .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+  display:block;margin-bottom:.3rem}
+.box.ej .lbl{color:var(--ej)}
+.box.warn .lbl{color:var(--warn)}
+.box.exc .lbl{color:var(--exc)}
+
+.interp{
+  border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn-bg) 45%,transparent);
+  border-radius:var(--r-md);padding:.65rem .9rem;font-size:.9rem;margin:.6rem 0;
+}
+.interp .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);font-weight:800;display:block}
+
+/* ═══ TABLAS ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;margin:.7rem 0;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+th,td{padding:.5rem .68rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td + td, th + th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-size:var(--t-xs);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+tbody tr{transition:background .18s}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+tbody tr:hover{background:var(--brand-soft)}
+th.sortable{cursor:pointer;user-select:none;transition:color .2s,background .2s}
+th.sortable:hover{color:var(--brand);background:var(--brand-soft)}
+th.sortable::after{content:" ⇅";color:var(--ink-3);font-size:.7rem}
+
+ul,ol{margin:.5rem 0 .5rem 1.2rem;padding:0}
+li{margin:.26rem 0}
+li::marker{color:var(--brand);font-weight:700}
+
+/* ═══ TOOLTIPS ═══ */
+.t{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;
+  transition:background .2s,color .2s}
+.t:hover{background:var(--brand-soft);color:var(--brand);border-radius:3px}
+#tip{
+  position:fixed;z-index:99;max-width:330px;background:var(--ink);color:var(--bg);
+  padding:.6rem .78rem;border-radius:var(--r-md);font-size:.82rem;line-height:1.5;
+  display:none;box-shadow:0 8px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);
+}
+html[data-theme="dark"] #tip{background:#f0f1f5;color:#15161c}
+
+/* ═══ FLECHAS DE DIAGRAMA ═══
+   Un <path> con stroke pero sin fill toma el valor inicial (negro) y el
+   navegador cierra el trazo implícitamente: aparece un triángulo relleno
+   entre sus extremos. Forzamos fill:none para dejar solo la línea + la
+   punta del <marker>, que sí lleva su color. */
+svg path[stroke]:not([fill]){fill:none}
+svg polyline:not([fill]){fill:none}
+svg line{fill:none}
+
+/* ═══ SVG ═══ */
+svg{max-width:100%;height:auto;display:block;margin:.9rem auto}
+svg text{font-family:var(--f-body)}
+
+/* ═══ BUSCADOR ═══ */
+mark.hit{background:linear-gradient(180deg,transparent 55%,#ffe066 55%);color:inherit;
+  border-radius:2px;padding:0 1px;font-weight:600}
+html[data-theme="dark"] mark.hit{background:linear-gradient(180deg,transparent 55%,#8a6d00 55%);color:#fff}
+
+/* ═══ UTILIDADES ═══ */
+.hide{display:none !important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.small{font-size:var(--t-sm);color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:var(--t-xs);padding:.16rem .55rem;border-radius:var(--r-full);
+  background:var(--brand-soft);color:var(--brand);font-weight:800;letter-spacing:.02em;
+}
+
+/* ═══ HUECOS RELLENABLES ═══ */
+.gap{
+  display:inline-block;min-width:5.5em;border-bottom:2px solid var(--brand);
+  text-align:center;font-weight:700;color:transparent;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.gap.on,.gap:hover{color:var(--brand);background:var(--brand-soft);border-radius:4px 4px 0 0}
+
+/* ═══ REVELAR SOLUCIÓN ═══ */
+.revelar{
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;
+  font-weight:700;
+}
+.revelar:hover{box-shadow:var(--sh-3)}
+.sol{
+  margin-top:.7rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  background:var(--ej-bg);border-left:4px solid var(--ej);
+  animation:slidein .4s var(--e-out);
+}
+
+/* ═══ TEST ═══ */
+.opt{
+  display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;background:var(--surface);font-size:.94rem;
+  transition:border-color .22s,background .22s,transform .22s var(--e-out);
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateX(4px)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:650}
+.opt.ko{border-color:var(--exc);background:var(--exc-bg)}
+.opt input{margin-right:.5rem;accent-color:var(--brand)}
+
+#tscore,#semres{
+  font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLASHCARDS 3D · mazo con giro, vuelo de salida y sheen
+   ═══════════════════════════════════════════════════════════════ */
+#flash{--fc-e:cubic-bezier(.2,.8,.25,1);--fc-h:250px}
+
+/* — Escena — */
+.fc-stage{
+  perspective:1400px;perspective-origin:50% 45%;
+  padding:.4rem 0 .2rem;position:relative;
+}
+.fc-deck{position:relative;height:var(--fc-h);will-change:transform}
+
+/* — Cartas fantasma del mazo — */
+.fc-ghost{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .5s var(--fc-e),opacity .5s var(--fc-e);
+}
+.fc-ghost.g1{transform:translateY(9px) scale(.972);opacity:.75}
+.fc-ghost.g2{transform:translateY(18px) scale(.944);opacity:.45}
+.fc-deck.empty .fc-ghost{opacity:0;transform:translateY(26px) scale(.9)}
+
+/* — Elevación durante el giro — */
+.fc-lift{position:absolute;inset:0;transform-style:preserve-3d}
+.fc-lift.lift{animation:fcLift .78s var(--fc-e)}
+@keyframes fcLift{
+  0%,100%{transform:scale(1) translateY(0)}
+  45%{transform:scale(1.055) translateY(-16px)}
+}
+.fc-lift.out-ok{animation:fcOut .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.out-ko{animation:fcOutKo .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.in{animation:fcIn .48s var(--fc-e)}
+@keyframes fcOut{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(130%) rotate(17deg) scale(.85);opacity:0}
+}
+@keyframes fcOutKo{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(-130%) rotate(-17deg) scale(.85);opacity:0}
+}
+@keyframes fcIn{
+  0%{transform:translateY(26px) scale(.9);opacity:0}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+
+/* — La carta — */
+.fc-card{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transition:transform .78s var(--fc-e);
+  cursor:pointer;border-radius:var(--r-lg);
+}
+.fc-card:focus-visible{outline:none}
+.fc-card:focus-visible .fc-face{box-shadow:var(--sh-glow),var(--sh-2)}
+
+/* — Caras — */
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 2.2rem;text-align:center;overflow:hidden;
+  box-shadow:var(--sh-2);
+  transition:box-shadow .4s var(--fc-e);
+}
+.fc-card:hover .fc-face{box-shadow:var(--sh-3)}
+
+/* Anverso · pregunta */
+.fc-front{
+  background:
+    radial-gradient(120% 90% at 50% -20%, var(--brand-soft) 0%, transparent 60%),
+    var(--surface);
+  border:1.5px solid var(--line);color:var(--ink);
+}
+/* Reverso · respuesta */
+.fc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,var(--brand) 0%,#6d4bf7 45%,var(--c5,#0891b2) 130%);
+  border:1.5px solid transparent;color:#fff;
+}
+html[data-theme="dark"] .fc-back{
+  background:linear-gradient(145deg,#5f45c9 0%,#4b3aa8 45%,#0e6b85 130%);
+}
+.fc-back .fc-txt{color:#fff}
+.fc-back b,.fc-back strong{color:#fff;font-weight:800}
+
+/* — Sheen que barre al girar — */
+.fc-face::after{
+  content:"";position:absolute;top:-60%;left:-70%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);opacity:0;pointer-events:none;
+}
+.fc-lift.lift .fc-face::after{animation:fcSheen .78s var(--fc-e)}
+@keyframes fcSheen{
+  0%{opacity:0;left:-70%}
+  35%{opacity:1}
+  100%{opacity:0;left:150%}
+}
+
+/* — Etiqueta superior — */
+.fc-tag{
+  position:absolute;top:1rem;left:1.15rem;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.fc-front .fc-tag{color:var(--brand)}
+.fc-back .fc-tag{color:rgba(255,255,255,.9)}
+.fc-tag::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+  animation:fcPulse 2.2s ease-in-out infinite;
+}
+@keyframes fcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* — Índice tipo naipe — */
+.fc-pip{
+  position:absolute;font-family:var(--f-display);font-weight:800;
+  font-size:.78rem;letter-spacing:-.02em;opacity:.34;font-variant-numeric:tabular-nums;
+}
+.fc-pip.tr{top:1rem;right:1.15rem}
+.fc-pip.bl{bottom:1rem;left:1.15rem;transform:rotate(180deg)}
+.fc-front .fc-pip{color:var(--ink-2)}
+.fc-back .fc-pip{color:#fff;opacity:.55}
+
+/* — Texto — */
+.fc-txt{
+  font-size:clamp(1rem,.9rem + .55vw,1.28rem);font-weight:650;line-height:1.5;
+  max-width:44ch;letter-spacing:-.012em;
+}
+.fc-front .fc-txt{font-family:var(--f-display);font-weight:700}
+.fc-back .fc-txt{font-weight:600;line-height:1.6}
+.fc-hint{
+  position:absolute;bottom:1rem;left:0;right:0;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.fc-front .fc-hint{color:var(--ink-3)}
+.fc-back .fc-hint{color:rgba(255,255,255,.72)}
+.fc-hint .kbd{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:700;padding:.1rem .32rem;
+  border-radius:5px;border:1px solid currentColor;opacity:.75;
+}
+
+/* — Pantalla final — */
+.fc-done{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--ok-soft),var(--surface) 70%);
+  border:1.5px solid var(--ok);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;gap:.35rem;
+  animation:fcIn .5s var(--fc-e);box-shadow:var(--sh-2);
+}
+.fc-done .seal{
+  font-size:2.6rem;line-height:1;
+  animation:fcSeal .7s cubic-bezier(.2,1.5,.4,1);
+}
+@keyframes fcSeal{0%{transform:scale(0) rotate(-25deg);opacity:0}60%{transform:scale(1.2) rotate(6deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.fc-done h3{font-size:1.3rem;font-weight:800;margin:.2rem 0 0}
+.fc-done p{margin:0;color:var(--ink-2);font-size:var(--t-sm)}
+
+/* — Barra de progreso de la ronda — */
+.fc-bar{
+  height:6px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;margin:.95rem 0 .8rem;position:relative;
+}
+.fc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand),var(--c5,#0891b2));
+  transition:width .55s var(--fc-e);
+}
+
+/* — Controles — */
+.fc-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.fc-ctrls button{font-weight:700}
+#fcok{border-color:var(--ok);color:var(--ok)}
+#fcok:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+#fcko{border-color:var(--warn);color:var(--warn)}
+#fcko:hover{background:var(--warn);color:#fff;border-color:var(--warn)}
+#fcflip{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+#fcflip:hover{box-shadow:var(--sh-3)}
+
+.fc-score{display:inline-flex;gap:.45rem;margin-left:auto;align-items:center}
+.fc-pill{
+  font-size:var(--t-xs);font-weight:800;padding:.24rem .6rem;border-radius:var(--r-full);
+  font-variant-numeric:tabular-nums;border:1px solid;
+}
+.fc-pill.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.fc-pill.ko{color:var(--warn);border-color:var(--warn);background:var(--warn-bg)}
+.fc-pill.left{color:var(--ink-2);border-color:var(--line);background:var(--surface-2)}
+.fc-pill.bump{animation:fcBump .45s var(--e-spring)}
+@keyframes fcBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+@media(max-width:620px){
+  #flash{--fc-h:270px}
+  .fc-face{padding:1.7rem 1.3rem}
+  .fc-score{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-card{transition:none}
+  .fc-lift.lift,.fc-lift.in,.fc-lift.out-ok,.fc-lift.out-ko,.fc-face::after{animation:none !important}
+}
+@media print{.fc-stage,.fc-ctrls,.fc-bar{display:none !important}}
+/* ═══ RESPUESTA ESTRUCTURADA ═══ */
+.fc-face{justify-content:center}
+.fc-face.struct{justify-content:flex-start;text-align:left;padding-top:3.1rem;padding-bottom:3.1rem}
+.fc-body{
+  width:100%;max-width:46ch;margin:0 auto;
+  overflow-y:auto;max-height:100%;
+  scrollbar-width:thin;
+}
+.fc-body::-webkit-scrollbar{width:5px}
+.fc-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:99px;border:0}
+.fc-front .fc-body::-webkit-scrollbar-thumb{background:var(--line-strong)}
+
+/* — Veredicto Sí / No — */
+.fc-verdict{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-display);font-weight:800;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.26rem .72rem;border-radius:var(--r-full);margin-bottom:.85rem;
+  border:1.5px solid;animation:fcPopIn .45s var(--e-spring) backwards;animation-delay:.34s;
+}
+.fc-verdict.si{background:rgba(255,255,255,.16);border-color:rgba(190,255,215,.85);color:#d8ffe9}
+.fc-verdict.no{background:rgba(255,255,255,.16);border-color:rgba(255,205,205,.85);color:#ffdedd}
+@keyframes fcPopIn{0%{opacity:0;transform:scale(.7) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* — Párrafo — */
+.fc-p{margin:0;font-size:clamp(1rem,.92rem + .45vw,1.2rem);font-weight:600;line-height:1.6}
+.fc-face.struct .fc-p{font-size:clamp(.96rem,.9rem + .35vw,1.1rem)}
+
+/* — Lista enumerada — */
+.fc-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;counter-reset:fc}
+.fc-list li{
+  counter-increment:fc;position:relative;margin:0;
+  padding:.42rem .6rem .42rem 2.5rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.11);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.45;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-list li::before{
+  content:counter(fc);position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.9);color:var(--brand);
+  font-family:var(--f-display);font-weight:800;font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.fc-list.alpha li::before{content:counter(fc,lower-alpha)}
+.fc-list li:nth-child(1){animation-delay:.36s}
+.fc-list li:nth-child(2){animation-delay:.42s}
+.fc-list li:nth-child(3){animation-delay:.48s}
+.fc-list li:nth-child(4){animation-delay:.54s}
+.fc-list li:nth-child(5){animation-delay:.60s}
+.fc-list li:nth-child(n+6){animation-delay:.66s}
+@keyframes fcRow{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:none}}
+
+/* — Cláusulas contrapuestas — */
+.fc-clauses{display:grid;gap:.45rem}
+.fc-clauses p{
+  margin:0;padding:.45rem .7rem .45rem .95rem;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:rgba(255,255,255,.11);border-left:3px solid rgba(255,255,255,.55);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.5;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-clauses p:nth-child(1){animation-delay:.36s}
+.fc-clauses p:nth-child(2){animation-delay:.44s}
+.fc-clauses p:nth-child(3){animation-delay:.52s}
+
+/* — Negritas resaltadas en el reverso — */
+.fc-back .fc-body b,.fc-back .fc-body strong{
+  font-weight:800;background:rgba(255,255,255,.2);
+  padding:.03em .3em;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+
+/* — Cita legal al pie — */
+.fc-cite{
+  position:absolute;bottom:.95rem;left:0;right:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;letter-spacing:.02em;
+  color:rgba(255,255,255,.82);
+  animation:fcPopIn .5s var(--e-out) backwards;animation-delay:.5s;
+}
+.fc-cite::before,.fc-cite::after{
+  content:"";height:1px;width:clamp(18px,10%,52px);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45));
+}
+.fc-cite::after{background:linear-gradient(90deg,rgba(255,255,255,.45),transparent)}
+.fc-cite .s{font-size:.9rem;opacity:.75;font-family:var(--f-legal)}
+.fc-front .fc-cite{color:var(--ink-3)}
+.fc-front .fc-cite::before{background:linear-gradient(90deg,transparent,var(--line-strong))}
+.fc-front .fc-cite::after{background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+/* la pista se oculta si hay cita, para no amontonar */
+.fc-back .fc-cite ~ .fc-hint,.fc-back .fc-hint.muted{display:none}
+
+@media(max-width:620px){
+  #flash{--fc-h:320px}
+  .fc-face.struct{padding-top:2.9rem;padding-bottom:2.8rem}
+  .fc-list li{padding-left:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-verdict,.fc-list li,.fc-clauses p,.fc-cite{animation:none !important}
+}
+
+/* ═══ SEMÁFORO ═══ */
+.sembtn{
+  border-radius:var(--r-full);padding:.32rem .7rem;font-weight:700;font-size:var(--t-sm);
+}
+.sembtn[data-v="g"]:hover,.sembtn.on[data-v="g"]{background:var(--ok);color:#fff;border-color:var(--ok)}
+.sembtn[data-v="y"]:hover,.sembtn.on[data-v="y"]{background:var(--mid);color:#3d2f00;border-color:var(--mid)}
+.sembtn[data-v="r"]:hover,.sembtn.on[data-v="r"]{background:var(--exc);color:#fff;border-color:var(--exc)}
+
+/* ═══ CTA DE BLOQUE ═══ */
+a.blk{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  padding:.5rem .95rem;border-radius:var(--r-sm);font-weight:700;font-size:var(--t-sm);
+  text-decoration:none;box-shadow:0 2px 10px var(--brand-ring);
+  transition:transform .22s var(--e-spring),box-shadow .25s,gap .25s var(--e-out);
+}
+a.blk:hover{transform:translateY(-2px);box-shadow:var(--sh-3);gap:.75rem;text-decoration:none}
+a.blk::after{content:"→"}
+a.blk:active{transform:translateY(0) scale(.98)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr;padding-top:.9rem;gap:1rem}
+  nav.side{position:static;max-height:none}
+  nav.side.collapsed .navbody{display:none}
+  .navtoggle{display:block;width:100%;text-align:left;font-weight:700}
+  .grid2{grid-template-columns:1fr}
+  .top h1 .sub{white-space:normal}
+}
+@media(max-width:620px){
+  .top-in{padding:.55rem .8rem}
+  .tools{width:100%;margin-left:0}
+  input[type=search]{flex:1;min-width:0}
+  section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
+  table{font-size:.82rem}
+  th,td{padding:.4rem .5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  header.top,nav.side,.tools,.noprint,.progress{display:none !important}
+  body{background:#fff;background-image:none;font-size:11pt;color:#000}
+  .layout{display:block;max-width:none;padding:0}
+  section.card{border:0;padding:0;margin:0 0 1rem;break-inside:avoid;box-shadow:none}
+  details.panel{border:0;box-shadow:none}
+  details.panel .body{display:block !important}
+  details.panel>summary{padding-left:0}
+  .art{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  a{color:#000;text-decoration:none}
+}
+
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brandwrap">
+    <a class="mark" href="TEMA_8_indice.html" title="Volver al índice">B3</a>
+    <h1>Real Decreto Legislativo 2/2004 · TRLHL
+      <span class="sub">Título VI, Cap. I, Sección 3.ª — Ejecución y liquidación · Arts. 183 a 193 bis (tema 8, bloque 3)</span>
+    </h1>
+    </div>
+    <div class="tools noprint">
+      <input type="search" id="q" placeholder="Buscar en la página…" aria-label="Buscar">
+      <span class="seg" role="group" aria-label="Modo de vista">
+        <button data-view="legal" aria-pressed="false">Texto legal</button>
+        <button data-view="expl" aria-pressed="false">Explicación</button>
+        <button data-view="both" aria-pressed="true">Ambos</button>
+      </span>
+      <button id="fs-" aria-label="Reducir texto">A−</button>
+      <button id="fs+" aria-label="Aumentar texto">A+</button>
+      <span class="streak" id="streak" title="Días seguidos estudiando" style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);font-weight:800;font-size:.8rem">🔥<span class="num" id="streakN">0</span></span>
+      <button id="theme" aria-label="Cambiar tema">◐</button>
+      <button id="expand">Desplegar todo</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="progress" id="prog"></div>
+</header>
+<div class="layout">
+<nav class="side collapsed" id="side" aria-label="Índice">
+  <button class="navtoggle" id="navtoggle" aria-expanded="false">☰ Índice</button>
+  <div class="navbody" id="navbody"></div>
+</nav>
+<main id="main"></main>
+</div>
+<script>
+const GLOSARIO={
+ "presupuesto":"Documento contable y jurídico, aprobado por el Pleno, que fija el techo de gasto de un ejercicio y estima los ingresos con los que se financia. Ej.: el presupuesto de Utrera para 2026 autoriza gastar como máximo 78 M€.",
+ "credito":"Crédito presupuestario: la cantidad máxima de dinero autorizada para una finalidad concreta. Ej.: 120.000 € en la aplicación de 'mantenimiento de colegios'.",
+ "obligacion":"Obligación reconocida: la deuda que el Ayuntamiento admite formalmente que debe pagar, una vez comprobado que el servicio o suministro se ha prestado. Ej.: aprobada la factura del proveedor, nace la obligación.",
+ "derecho":"Derecho liquidado: el importe concreto que un tercero debe a la entidad local, una vez cuantificado. Ej.: liquidado el IBI de un inmueble en 340 €, ese es el derecho.",
+ "oa":"Organismo autónomo: ente con personalidad jurídica propia creado por la entidad local para gestionar un servicio (patronatos de deportes, de cultura, gerencias de urbanismo). Depende del Ayuntamiento pero tiene su propio presupuesto.",
+ "sociedad":"Sociedad mercantil local: empresa con forma de S.A. o S.L. cuyo capital pertenece a la entidad local (p. ej. la empresa municipal de aguas). No aprueba 'presupuesto', sino estados de previsión de gastos e ingresos.",
+ "bases":"Bases de ejecución: el 'reglamento de uso' del presupuesto. Adaptan las normas presupuestarias generales a la organización concreta de la entidad. Ej.: fijan qué órgano autoriza gastos de hasta 3.000 €.",
+ "estabilidad":"Estabilidad presupuestaria: exigencia de que las cuentas públicas no incurran en déficit estructural. Ej.: un ayuntamiento no puede presupuestar más gasto no financiero que ingresos no financieros.",
+ "afectacion":"No afectación: regla general de que todos los ingresos financian todo el gasto, sin que un ingreso concreto quede reservado a un gasto concreto. Ej.: lo recaudado por el IBI no está reservado a pagar el alumbrado.",
+ "bruto":"Principio de presupuesto bruto (o de integridad): derechos y obligaciones se anotan por su importe total, sin compensar unos con otros. Ej.: no se puede anotar la subvención 'ya descontados' los gastos del programa.",
+ "nivelacion":"Nivelación presupuestaria: que el total de ingresos previstos cubra el total de gastos autorizados; es decir, aprobar sin déficit inicial.",
+ "aplicacion":"Aplicación presupuestaria: la 'casilla' exacta donde vive cada euro de gasto, formada al cruzar la clasificación por programas con la económica. Ej.: 323/22103 (funcionamiento de centros docentes / combustibles).",
+ "vinculacion":"Nivel de vinculación jurídica: el nivel de agregación en el que el crédito es realmente limitativo; por debajo de él se puede mover el gasto sin tramitar una modificación de crédito (art. 172 TRLHL).",
+ "intervencion":"Intervención: el órgano de control interno de la entidad local, con función de fiscalización previa del gasto y de informe preceptivo del presupuesto. Lo desempeña un funcionario de habilitación nacional.",
+ "pleno":"Pleno: órgano colegiado formado por todos los concejales o diputados. Es el único competente para aprobar el presupuesto.",
+ "bop":"Boletín Oficial de la Provincia: diario oficial donde las entidades locales publican sus anuncios y acuerdos con efectos frente a terceros.",
+ "prorroga":"Prórroga presupuestaria: si el 1 de enero no ha entrado en vigor el presupuesto nuevo, sigue rigiendo automáticamente el anterior con sus créditos iniciales.",
+ "interesado":"Interesado: quien está legitimado para intervenir en un procedimiento. En el presupuesto, la ley define expresamente quiénes lo son (art. 170.1).",
+ "liquidacion":"Liquidación del presupuesto: cierre contable del ejercicio, que determina los derechos y obligaciones pendientes, el remanente de tesorería y el resultado presupuestario.",
+ "tcuentas":"Tribunal de Cuentas: órgano fiscalizador externo de las cuentas y la gestión económica del sector público, dependiente de las Cortes Generales.",
+ "conten":"Recurso contencioso-administrativo: impugnación ante los juzgados y tribunales de lo contencioso-administrativo, es decir, ya fuera de la propia Administración.",
+ "adop":"Fases ADOP: las cuatro etapas de la vida de un gasto — Autorización, Disposición, Reconocimiento de la obligación y Ordenación del pago.","autorizacion":"Autorización del gasto (fase A): acto por el que se acuerda realizar un gasto por una cuantía cierta o aproximada, reservando el crédito. Ej.: aprobar el expediente de contratación de una obra por 500.000 €.","disposicion":"Disposición o compromiso (fase D): acto por el que se acuerda la realización del gasto ya concretado en su importe exacto y con un tercero determinado. Ej.: adjudicar la obra a una empresa por 462.000 €.","reconocimiento":"Reconocimiento de la obligación (fase O): acto por el que se declara la existencia de un crédito exigible contra la entidad, tras acreditar la prestación. Ej.: aprobar la certificación de obra.","ordenacion":"Ordenación del pago (fase P): acto por el que el ordenador de pagos expide la orden de pago contra la tesorería.","ordenador":"Ordenador de pagos: en las entidades locales, el presidente. Es quien expide las órdenes de pago.","planfondos":"Plan de disposición de fondos: documento que fija el orden de prelación de los pagos de la tesorería. Lo establece el presidente.","ajustificar":"Pago a justificar: orden de pago expedida sin poder acompañar los documentos justificativos, que el perceptor debe justificar después. Ej.: fondos para una comisión de servicio.","cajafija":"Anticipo de caja fija: provisión de fondos de carácter permanente para atenciones periódicas o repetitivas (material de oficina, portes, dietas menores).","remtes":"Remanente de tesorería: magnitud que resulta de la liquidación y mide los recursos líquidos disponibles a fin de ejercicio. Fondos líquidos más derechos pendientes de cobro menos obligaciones pendientes de pago, con ajustes por dudoso cobro y por desviaciones de financiación.","dudoso":"Derechos de difícil o imposible recaudación: derechos liquidados que previsiblemente no se cobrarán y que deben minorarse del remanente de tesorería.","superavit":"Superávit inicial: aprobar el presupuesto con más ingresos previstos que gastos autorizados. Es la medida de último recurso frente a un remanente negativo."
+};
+const ARTS=[{n:183,t:"Régimen jurídico",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"La ejecución se rige por esta sección y, en lo demás, por las bases de ejecución.",literal:`<p>La ejecución de los créditos consignados en el presupuesto de gastos de las entidades locales se efectuará conforme a lo dispuesto en la presente sección y, complementariamente, por las normas que dicte cada entidad y queden plasmadas en las bases de ejecución del presupuesto.</p>`,dis:`<ul>
+<li><b>Fuente primaria:</b> la propia Sección 3.ª del TRLHL.</li>
+<li><b>Fuente complementaria:</b> las normas que dicte cada entidad y que queden plasmadas en las <span class="t" data-k="bases">bases de ejecución</span> del presupuesto.</li>
+<li><b>Consecuencia práctica:</b> no hay dos ayuntamientos con idéntico régimen de ejecución. La ley fija el esqueleto; las bases, el detalle.</li>
+</ul>`,llano:`<p>La ley dice cómo se gasta en lo esencial y deja que cada ayuntamiento escriba su propio manual de instrucciones. Ese manual son las bases de ejecución, que se aprueban con el presupuesto y valen para ese año.</p>`,porque:`<p>Un municipio de 800 habitantes y una gran ciudad no pueden tener el mismo circuito de firmas. La ley admite esa diversidad, pero la <b>encauza</b>: lo que decida la entidad tiene que estar escrito en las bases, aprobado por el Pleno y publicado con el presupuesto. Nada de prácticas informales.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el reglamento de régimen interior de una comunidad de vecinos: la ley de propiedad horizontal marca el marco y cada comunidad concreta los detalles.</li>
+<li><b>Real:</b> las bases de ejecución de un ayuntamiento fijan que los contratos menores hasta 3.000 € se aprueban por decreto de alcaldía en un solo acto ADO.</li>
+<li><b>Caso límite:</b> unas bases que pretendieran alterar el orden de prelación del art. 187 serían ilegales: complementan la ley, no la sustituyen (véase también el límite del art. 165.1).</li>
+</ul>`,noej:`<ul>
+<li><b>No es fuente</b> de la ejecución una instrucción verbal del alcalde no recogida en las bases.</li>
+<li><b>No pueden</b> las bases modificar lo legislado en materia de administración económica (art. 165.1).</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 165.1:</b> las bases de ejecución como contenido obligatorio del presupuesto y sus límites.</li>
+<li><b>Arts. 184 a 190:</b> el contenido de esta sección que las bases complementan.</li>
+</ul>`,trampas:`<ul>
+<li>Las bases son <b>complementarias</b>, nunca alternativas a la ley.</li>
+<li>Se aprueban <b>con el presupuesto</b> y para cada ejercicio.</li>
+</ul>`,ancla:`<p><b>"Ley primero, bases después."</b> Piensa en un traje de confección con arreglos: el patrón lo pone la ley, el sastre es cada entidad.</p>`,vis:`<svg viewBox="0 0 640 130" role="img" aria-label="Fuentes del régimen de ejecución">
+<rect x="60" y="35" width="230" height="60" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="175" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">1. Sección 3.ª del TRLHL</text>
+<text x="175" y="80" text-anchor="middle" font-size="11" fill="currentColor">arts. 183 a 193 bis</text>
+<text x="320" y="70" text-anchor="middle" font-size="16" fill="var(--ink2)">+</text>
+<rect x="350" y="35" width="230" height="60" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="465" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">2. Bases de ejecución</text>
+<text x="465" y="80" text-anchor="middle" font-size="11" fill="currentColor">normas propias de cada entidad</text>
+<text x="320" y="118" text-anchor="middle" font-size="11" fill="var(--ink2)">carácter complementario, nunca contrario a la ley</text>
+</svg>`},
+{n:184,t:"Fases del procedimiento de gestión de los gastos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"Todo gasto recorre cuatro fases: autorizar, comprometer, reconocer y ordenar el pago.",literal:`<p>1. La gestión del presupuesto de gastos se realizará en las siguientes fases cuyo contenido se establecerá reglamentariamente:</p><p>a) Autorización de gasto.</p><p>b) Disposición o compromiso de gasto.</p><p>c) Reconocimiento o liquidación de la obligación.</p><p>d) Ordenación de pago.</p><p>2. Las entidades locales podrán en la forma que reglamentariamente se establezca abarcar en un solo acto administrativo dos o más fases de ejecución de las enumeradas en el apartado anterior.</p>`,dis:`<table><thead><tr><th>Fase</th><th>Nombre legal</th><th>Qué se decide</th><th>Pregunta que responde</th></tr></thead><tbody>
+<tr><td><b>A</b></td><td><span class="t" data-k="autorizacion">Autorización de gasto</span></td><td>Se acuerda gastar, reservando crédito</td><td>¿Vamos a gastar?</td></tr>
+<tr><td><b>D</b></td><td><span class="t" data-k="disposicion">Disposición o compromiso</span></td><td>Se concreta con quién y por cuánto</td><td>¿Con quién y por cuánto?</td></tr>
+<tr><td><b>O</b></td><td><span class="t" data-k="reconocimiento">Reconocimiento o liquidación de la obligación</span></td><td>Se declara la deuda exigible</td><td>¿Ya lo han hecho? ¿Debemos?</td></tr>
+<tr><td><b>P</b></td><td><span class="t" data-k="ordenacion">Ordenación de pago</span></td><td>Se ordena pagar a la tesorería</td><td>¿Pagamos?</td></tr>
+</tbody></table>
+<ul>
+<li><b>Contenido de las fases:</b> se establecerá <b>reglamentariamente</b>.</li>
+<li><b>Acumulación (184.2):</b> las entidades pueden abarcar <b>dos o más fases en un solo acto administrativo</b>, en la forma reglamentariamente establecida. De ahí los documentos <b>AD</b>, <b>ADO</b> y <b>ADOP</b>.</li>
+</ul>`,llano:`<p>Gastar dinero público no es sacar la tarjeta. Primero se decide que se va a gastar y se aparta el dinero. Después se concreta a quién y cuánto. Cuando el proveedor ha cumplido, se reconoce que se le debe. Y por último se ordena a la tesorería que pague. Cuatro pasos: A, D, O, P. En gastos pequeños se pueden juntar en un solo papel.</p>`,porque:`<p>Cada fase es un <b>punto de control</b>. Si se pagara directamente, nadie comprobaría si había crédito, si el proveedor fue elegido legalmente o si el servicio se prestó de verdad. Separar la decisión de gastar de la decisión de pagar es lo que permite que la Intervención fiscalice antes de que el dinero salga. La acumulación existe porque aplicar cuatro pasos a la compra de un paquete de folios sería desproporcionado.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> una reforma en casa. Decides que vas a reformar y reservas el dinero (A); firmas presupuesto con el albañil (D); él termina y aceptas la factura (O); haces la transferencia (P).</li>
+<li><b>Real:</b> obra de asfaltado. <b>A</b>: aprobación del expediente de contratación por 500.000 €. <b>D</b>: adjudicación a la empresa por 462.000 €. <b>O</b>: aprobación de la certificación n.º 1 por 120.000 €. <b>P</b>: orden de pago de esos 120.000 €.</li>
+<li><b>Caso límite:</b> compra de una impresora por 400 € tramitada como contrato menor: un único decreto acumula A, D y O (documento ADO).</li>
+</ul>`,noej:`<ul>
+<li><b>No es una fase</b> el pago material: la ley llega hasta la <b>ordenación</b> del pago; la realización material corresponde a la tesorería (arts. 194 y ss.).</li>
+<li><b>No es acumulación</b> saltarse una fase: acumular es documentarlas juntas, no prescindir de ellas.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 185:</b> quién es competente en cada fase.</li>
+<li><b>Art. 189:</b> requisitos previos a la expedición de las órdenes de pago.</li>
+<li><b>Art. 219:</b> fiscalización previa, que se proyecta sobre estas fases.</li>
+</ul>`,trampas:`<ul>
+<li>El orden es <b>A-D-O-P</b>. Cuidado: "O" es de obligación (reconocimiento), no de ordenación.</li>
+<li>La letra c) del 184.1 dice "reconocimiento <b>o liquidación</b> de la obligación": son sinónimos legales aquí.</li>
+<li>La acumulación exige forma reglamentaria: no es libre.</li>
+</ul>`,ancla:`<p><b>ADOP</b> — "<b>A</b>parto el dinero, lo <b>D</b>oy a alguien, reconozco que lo debo (<b>O</b>bligación) y <b>P</b>ago".<br>Piensa en <i>adoptar</i> un gasto: primero decides, luego eliges, luego te haces cargo y por fin mantienes.</p>`,vis:`<svg viewBox="0 0 640 160" role="img" aria-label="Las cuatro fases de la gestión del gasto">
+<defs><marker id="f1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="15" y="45" width="130" height="58" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="80" y="68" text-anchor="middle" font-size="15" font-weight="700" fill="var(--acc)">A</text>
+<text x="80" y="86" text-anchor="middle" font-size="10" fill="currentColor">Autorización</text>
+<path d="M148 74 L 168 74" stroke="var(--acc)" stroke-width="2" marker-end="url(#f1)"/>
+<rect x="172" y="45" width="130" height="58" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="237" y="68" text-anchor="middle" font-size="15" font-weight="700" fill="var(--acc)">D</text>
+<text x="237" y="86" text-anchor="middle" font-size="10" fill="currentColor">Disposición o compromiso</text>
+<path d="M305 74 L 325 74" stroke="var(--acc)" stroke-width="2" marker-end="url(#f1)"/>
+<rect x="329" y="45" width="130" height="58" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="394" y="68" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ej)">O</text>
+<text x="394" y="86" text-anchor="middle" font-size="10" fill="currentColor">Reconocimiento de la obligación</text>
+<path d="M462 74 L 482 74" stroke="var(--acc)" stroke-width="2" marker-end="url(#f1)"/>
+<rect x="486" y="45" width="130" height="58" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="551" y="68" text-anchor="middle" font-size="15" font-weight="700" fill="var(--warn)">P</text>
+<text x="551" y="86" text-anchor="middle" font-size="10" fill="currentColor">Ordenación del pago</text>
+<text x="320" y="28" text-anchor="middle" font-size="11" fill="var(--ink2)">Cabe acumular dos o más fases en un solo acto: AD · ADO · ADOP (art. 184.2)</text>
+<text x="320" y="132" text-anchor="middle" font-size="11" fill="var(--ink2)">¿gastamos? → ¿con quién? → ¿lo han hecho? → ¡páguese!</text>
+</svg>`},
+{n:185,t:"Competencias en materia de gestión de gastos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"Autorizar y comprometer: presidente o Pleno. Reconocer la obligación: el presidente.",literal:`<p>1. Dentro del importe de los créditos autorizados en los presupuestos corresponderá la autorización y disposición de los gastos al presidente o al Pleno de la entidad de acuerdo con la atribución de competencias que establezca la normativa vigente.</p><p>2. Corresponderá al presidente de la corporación el reconocimiento y liquidación de las obligaciones derivadas de compromisos de gastos legalmente adquiridos.</p><p>3. Las facultades a que se refieren los apartados anteriores podrán desconcentrarse o delegarse en los términos previstos por el artículo 23 de la Ley 7/1985, de 2 de abril, que deberán recogerse para cada ejercicio, en las bases de ejecución del presupuesto.</p><p>4. En los organismos autónomos las facultades indicadas se ejercerán en los términos expuestos anteriormente, correspondiendo a los órganos de aquéllos a los que sus estatutos atribuyan dichas competencias.</p>`,dis:`<table><thead><tr><th>Fase</th><th>Órgano competente</th><th>Norma</th></tr></thead><tbody>
+<tr><td>Autorización y disposición (A y D)</td><td><b>Presidente o Pleno</b>, según la atribución de competencias de la normativa vigente</td><td>185.1</td></tr>
+<tr><td>Reconocimiento y liquidación de la obligación (O)</td><td><b>Presidente</b>, cuando derivan de compromisos legalmente adquiridos</td><td>185.2</td></tr>
+</tbody></table>
+<ul>
+<li><b>Límite común:</b> siempre "dentro del importe de los créditos autorizados".</li>
+<li><b>Desconcentración y delegación (185.3):</b> posibles en los términos del <b>art. 23 LBRL</b>, y deben recogerse <b>para cada ejercicio en las bases de ejecución</b>.</li>
+<li><b>Organismos autónomos (185.4):</b> las mismas reglas, correspondiendo a los órganos que designen sus <b>estatutos</b>.</li>
+</ul>`,llano:`<p>¿Quién firma cada paso? Autorizar y comprometer puede ser cosa del alcalde o del Pleno, según lo que diga la normativa de régimen local para cada tipo de gasto. Reconocer que se debe algo por un compromiso ya adquirido es siempre del alcalde. Y todo eso puede delegarse, pero la delegación tiene que estar escrita en las bases de ese año.</p>`,porque:`<p>El reparto no es caprichoso: las decisiones que comprometen políticamente (grandes contratos, plurianuales) suben al Pleno; la gestión ordinaria se queda en la presidencia. Que el <b>reconocimiento</b> de la obligación sea del presidente responde a que ahí ya no hay decisión política: solo comprobar que lo comprometido se ha cumplido. Y exigir que la delegación conste en las bases evita que nadie sepa quién firma qué.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> en una empresa familiar, el gerente compra el día a día y el consejo aprueba las inversiones grandes; pero pagar las facturas ya aprobadas lo firma siempre el gerente.</li>
+<li><b>Real:</b> las bases de ejecución de 2026 de un ayuntamiento delegan en la Junta de Gobierno Local la autorización y disposición de gastos superiores a 50.000 €, y mantienen en la Alcaldía el reconocimiento de obligaciones.</li>
+<li><b>Caso límite:</b> una delegación acordada por decreto en mayo pero no recogida en las bases: el art. 185.3 exige que las delegaciones se recojan en las bases para cada ejercicio.</li>
+</ul>`,noej:`<ul>
+<li><b>No corresponde a la Intervención</b> ninguna de estas fases: su papel es fiscalizar, no gestionar.</li>
+<li><b>No cabe</b> autorizar gasto por encima de los créditos autorizados (véanse arts. 172 y 173.5).</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 184:</b> las fases cuyo reparto competencial se regula aquí.</li>
+<li><b>Art. 23 LBRL:</b> régimen de delegación al que remite el 185.3.</li>
+<li><b>Art. 186:</b> la cuarta fase, la ordenación de pagos, con régimen propio.</li>
+<li><b>Art. 188:</b> responsabilidad personal de quien autoriza sin crédito.</li>
+</ul>`,trampas:`<ul>
+<li>El <b>reconocimiento de la obligación</b> es del <b>presidente</b>, aunque el gasto lo hubiera autorizado el Pleno.</li>
+<li>Las delegaciones han de recogerse <b>para cada ejercicio</b> en las bases: no valen indefinidamente por sí solas.</li>
+<li>En los OOAA mandan sus <b>estatutos</b>.</li>
+</ul>`,ancla:`<p><b>"A y D se reparten; la O es del alcalde."</b> Y la <b>P</b> también (art. 186): al presidente le corresponden las dos últimas letras de ADOP.</p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Competencias en las fases del gasto">
+<rect x="40" y="30" width="250" height="66" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="165" y="52" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">Fases A y D</text>
+<text x="165" y="72" text-anchor="middle" font-size="11" fill="currentColor">PRESIDENTE o PLENO</text>
+<text x="165" y="88" text-anchor="middle" font-size="10" fill="var(--ink2)">según la normativa vigente</text>
+<rect x="350" y="30" width="250" height="66" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="475" y="52" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">Fases O y P</text>
+<text x="475" y="72" text-anchor="middle" font-size="11" fill="currentColor">PRESIDENTE</text>
+<text x="475" y="88" text-anchor="middle" font-size="10" fill="var(--ink2)">arts. 185.2 y 186.1</text>
+<rect x="110" y="112" width="420" height="42" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="320" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Desconcentración o delegación: art. 23 LBRL</text>
+<text x="320" y="147" text-anchor="middle" font-size="10" fill="currentColor">debe recogerse para cada ejercicio en las bases de ejecución</text>
+</svg>`},
+{n:186,t:"Ordenación de pagos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"Ordena los pagos el presidente; se pueden crear unidades para ejecutarlo.",literal:`<p>1. Competen al presidente de la entidad local las funciones de ordenación de pagos.</p><p>2. El Pleno de la entidad local, a propuesta del presidente, podrá crear una unidad de ordenación de pagos que, bajo la superior autoridad de éste, ejerza las funciones administrativas de la ordenación de pagos.</p><p>3. El Pleno de las entidades locales de más de 500.000 habitantes de derecho, a propuesta del presidente, podrá asimismo crear una unidad central de tesorería que, bajo la superior autoridad de éste, ejerza las funciones de la ordenación de pagos.</p><p>4. La ordenación de pagos en los organismos autónomos la ejercerá el órgano de estos que, por estatutos, la tenga atribuida.</p>`,dis:`<ul>
+<li><b>Regla (186.1):</b> las funciones de <span class="t" data-k="ordenacion">ordenación de pagos</span> competen al <b>presidente</b> de la entidad local.</li>
+<li><b>Unidad de ordenación de pagos (186.2):</b> la crea el <b>Pleno a propuesta del presidente</b>; ejerce funciones <b>administrativas</b> bajo su superior autoridad. Sin requisito de población.</li>
+<li><b>Unidad central de tesorería (186.3):</b> solo en entidades de <b>más de 500.000 habitantes de derecho</b>; también la crea el Pleno a propuesta del presidente y ejerce las funciones de ordenación de pagos bajo su superior autoridad.</li>
+<li><b>Organismos autónomos (186.4):</b> ordena pagos el órgano que sus <b>estatutos</b> designen.</li>
+</ul>`,llano:`<p>El que da la orden de pagar es el alcalde. En ayuntamientos grandes ese trabajo es enorme, así que el Pleno puede crear una oficina que lo tramite en su nombre; y si el municipio pasa de medio millón de habitantes, puede crear además una unidad central de tesorería. En ambos casos el alcalde sigue siendo la autoridad superior.</p>`,porque:`<p>Concentrar la orden de pago en una sola autoridad hace <b>identificable la responsabilidad</b> (art. 188). Pero en una ciudad grande el volumen es inmanejable de forma personal, y por eso la ley permite crear estructura administrativa sin romper la cadena de responsabilidad: las unidades actúan siempre "bajo la superior autoridad" del presidente.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el titular de una cuenta que autoriza a un apoderado a firmar transferencias: la responsabilidad última sigue siendo suya.</li>
+<li><b>Real:</b> un ayuntamiento de 90.000 habitantes crea por acuerdo plenario, a propuesta del alcalde, una unidad de ordenación de pagos dentro de la Intervención General. No podría crear una unidad central de tesorería del 186.3: no alcanza los 500.000 habitantes.</li>
+<li><b>Caso límite:</b> en un organismo autónomo con estatutos que atribuyen la ordenación a su gerente, no la ejerce el alcalde (186.4).</li>
+</ul>`,noej:`<ul>
+<li><b>No es la tesorería</b> quien ordena el pago: la tesorería lo <b>materializa</b>. La orden nace del ordenador de pagos.</li>
+<li><b>No puede</b> el presidente crear por sí solo estas unidades: las crea el <b>Pleno</b>, a propuesta suya.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 187:</b> el plan de disposición de fondos al que deben ajustarse las órdenes.</li>
+<li><b>Art. 188:</b> responsabilidad personal de los ordenadores de pagos.</li>
+<li><b>Arts. 194 y ss.:</b> la tesorería, que ejecuta materialmente los pagos.</li>
+</ul>`,trampas:`<ul>
+<li><b>500.000 habitantes de derecho</b>: cifra exacta y adjetivo exacto.</li>
+<li>Las dos unidades son distintas: la del 186.2 ejerce funciones <b>administrativas</b>; la del 186.3, las <b>funciones de ordenación de pagos</b>.</li>
+<li>Ambas se crean por el <b>Pleno a propuesta del presidente</b>.</li>
+</ul>`,ancla:`<p><b>"El que ordena es el alcalde; la unidad solo tramita."</b><br>Cifra clave: <b>500.000</b> habitantes de derecho para la unidad central de tesorería.</p>`,vis:`<svg viewBox="0 0 640 175" role="img" aria-label="Ordenación de pagos y unidades posibles">
+<rect x="220" y="12" width="200" height="46" rx="8" fill="var(--acc-soft)" stroke="var(--acc)" stroke-width="2"/>
+<text x="320" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">PRESIDENTE</text>
+<text x="320" y="49" text-anchor="middle" font-size="10" fill="currentColor">ordenador de pagos (186.1)</text>
+<line x1="320" y1="58" x2="320" y2="74" stroke="var(--acc)" stroke-width="2"/>
+<line x1="165" y1="74" x2="475" y2="74" stroke="var(--acc)" stroke-width="2"/>
+<line x1="165" y1="74" x2="165" y2="90" stroke="var(--acc)" stroke-width="2"/>
+<line x1="475" y1="74" x2="475" y2="90" stroke="var(--acc)" stroke-width="2"/>
+<rect x="45" y="90" width="240" height="66" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="165" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Unidad de ordenación de pagos</text>
+<text x="165" y="128" text-anchor="middle" font-size="10" fill="var(--ink2)">funciones administrativas · 186.2</text>
+<text x="165" y="145" text-anchor="middle" font-size="10" fill="var(--ej)">sin límite de población</text>
+<rect x="355" y="90" width="240" height="66" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="475" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Unidad central de tesorería</text>
+<text x="475" y="128" text-anchor="middle" font-size="10" fill="var(--ink2)">funciones de ordenación · 186.3</text>
+<text x="475" y="145" text-anchor="middle" font-size="10" fill="var(--exc)">más de 500.000 habitantes de derecho</text>
+<text x="320" y="170" text-anchor="middle" font-size="10" fill="var(--ink2)">Ambas: creadas por el PLENO a propuesta del presidente, bajo su superior autoridad</text>
+</svg>`},
+{n:187,t:"Plan de disposición de fondos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"Los pagos siguen un plan que prioriza personal y deudas de años anteriores.",literal:`<p>La expedición de las órdenes de pago habrá de acomodarse al plan de disposición de fondos de la tesorería que se establezca por el presidente que, en todo caso, deberá recoger la prioridad de los gastos de personal y de las obligaciones contraídas en ejercicios anteriores.</p>`,dis:`<ul>
+<li><b>Instrumento:</b> el <span class="t" data-k="planfondos">plan de disposición de fondos</span> de la tesorería.</li>
+<li><b>Quién lo establece:</b> el <b>presidente</b>.</li>
+<li><b>Contenido mínimo obligatorio:</b> "en todo caso" debe recoger la <b>prioridad</b> de:
+<ol><li>los <b>gastos de personal</b>;</li><li>las <b>obligaciones contraídas en ejercicios anteriores</b>.</li></ol></li>
+<li><b>Efecto:</b> la expedición de las órdenes de pago debe <b>acomodarse</b> a ese plan.</li>
+</ul>`,llano:`<p>Cuando no hay dinero para pagarlo todo a la vez, hace falta un orden. Ese orden lo fija el alcalde en un documento, y la ley le impone dos prioridades que no puede saltarse: primero las nóminas y las deudas que vienen de años anteriores.</p>`,porque:`<p>Sin prelación, el pago se decidiría caso a caso, con riesgo de arbitrariedad y de trato de favor a unos acreedores frente a otros. Las dos prioridades legales protegen a quien no puede esperar (los empleados públicos, cuyo salario es alimenticio) y a quien ya lleva demasiado esperando (los acreedores de ejercicios cerrados).</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> una familia con problemas de liquidez que decide pagar siempre primero la hipoteca y la luz antes que cualquier capricho.</li>
+<li><b>Real:</b> el plan de disposición de fondos de un ayuntamiento establece este orden: 1) retribuciones de personal y cuotas sociales; 2) obligaciones de ejercicios cerrados; 3) amortización e intereses de deuda; 4) resto de acreedores por antigüedad de la factura.</li>
+<li><b>Caso límite:</b> una orden de pago a un proveedor reciente expedida saltándose ese orden contraviene el art. 187 y compromete la responsabilidad del ordenador.</li>
+</ul>`,noej:`<ul>
+<li><b>No lo aprueba el Pleno</b>: lo establece el <b>presidente</b>.</li>
+<li><b>No es una lista cerrada</b>: la ley fija dos prioridades mínimas y deja el resto al plan.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 186:</b> el ordenador de pagos que debe acomodarse al plan.</li>
+<li><b>Art. 196:</b> funciones de la tesorería, que ejecuta conforme a ese plan.</li>
+<li><b>Art. 135 CE y LO 2/2012:</b> prioridad absoluta del pago de intereses y capital de la deuda pública, que se superpone a esta regulación.</li>
+</ul>`,trampas:`<ul>
+<li>Las dos prioridades legales son <b>personal</b> y <b>obligaciones de ejercicios anteriores</b>. Se suele colar "los intereses de la deuda" como si estuviera en este artículo: no lo está (procede del art. 135 CE).</li>
+<li>Lo establece el <b>presidente</b>, no la Intervención ni la Tesorería.</li>
+</ul>`,ancla:`<p><b>"Primero la nómina, después lo viejo."</b> Dos prioridades, dos palabras: <b>PErsonal</b> y <b>PAsado</b>.</p>`,vis:`<svg viewBox="0 0 640 150" role="img" aria-label="Prioridades del plan de disposición de fondos">
+<rect x="150" y="12" width="340" height="34" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="34" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">Plan de disposición de fondos · lo fija el PRESIDENTE</text>
+<rect x="60" y="60" width="230" height="36" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="175" y="83" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">1.º Gastos de personal</text>
+<rect x="350" y="60" width="230" height="36" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="465" y="83" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">2.º Obligaciones de ejercicios anteriores</text>
+<rect x="150" y="106" width="340" height="34" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="320" y="128" text-anchor="middle" font-size="11" fill="var(--ink2)">3.º Resto de pagos, según el orden que fije el plan</text>
+</svg>`},
+{n:188,t:"Responsabilidad personal",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"Quien autoriza o paga sin crédito responde con su patrimonio; el interventor, si calla.",literal:`<p>Los ordenadores de gastos y de pagos, en todo caso, y los interventores de las entidades locales, cuando no adviertan por escrito su improcedencia, serán personalmente responsables de todo gasto que autoricen y de toda obligación que reconozcan, liquiden o paguen sin crédito suficiente.</p>`,dis:`<table><thead><tr><th>Sujeto</th><th>¿Cuándo responde?</th></tr></thead><tbody>
+<tr><td>Ordenadores de <b>gastos</b> y de <b>pagos</b></td><td><b>En todo caso</b></td></tr>
+<tr><td><span class="t" data-k="intervencion">Interventores</span></td><td>Solo <b>cuando no adviertan por escrito</b> su improcedencia</td></tr>
+</tbody></table>
+<ul>
+<li><b>Objeto de la responsabilidad:</b> todo gasto que autoricen y toda obligación que reconozcan, liquiden o paguen <b>sin crédito suficiente</b>.</li>
+<li><b>Carácter:</b> responsabilidad <b>personal</b>.</li>
+</ul>`,llano:`<p>Si alguien autoriza o paga sin que haya dinero presupuestado, responde él, con su propio patrimonio. El interventor se salva si lo advirtió por escrito; si se calló, responde igual que los demás.</p>`,porque:`<p>La nulidad del art. 173.5 anula el acto, pero no repara el daño ni disuade a nadie. La responsabilidad <b>personal</b> pone el riesgo donde está la decisión. Y la exigencia de advertencia <b>por escrito</b> convierte al interventor en un contrapeso real: su firma o su silencio tienen consecuencias.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el administrador de una comunidad que paga una obra no aprobada: responde él, no los vecinos.</li>
+<li><b>Real:</b> el alcalde ordena pagar 60.000 € de una obra sin crédito; la interventora había emitido reparo por escrito. La responsabilidad personal recae sobre el ordenador, no sobre ella.</li>
+<li><b>Caso límite:</b> misma situación, pero la interventora tramitó el pago sin advertir nada por escrito: responde también ella (art. 188).</li>
+</ul>`,noej:`<ul>
+<li><b>No basta</b> una advertencia verbal del interventor: la ley exige que sea <b>por escrito</b>.</li>
+<li><b>No exime</b> al ordenador que haya actuado por instrucción política o por urgencia.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 173.5:</b> nulidad de pleno derecho del compromiso sin crédito.</li>
+<li><b>Arts. 215 a 218:</b> reparos, efectos y discrepancias: el cauce formal de esa advertencia por escrito.</li>
+<li><b>Art. 222:</b> facultades del personal controlador.</li>
+</ul>`,trampas:`<ul>
+<li>"<b>En todo caso</b>" se predica de los ordenadores; la condición del escrito, solo de los interventores.</li>
+<li>Se responde de gastos <b>sin crédito suficiente</b>, no de cualquier irregularidad.</li>
+</ul>`,ancla:`<p><b>"El que firma, paga; el que calla, también."</b> El interventor solo se salva con papel.</p>`,vis:`<svg viewBox="0 0 640 145" role="img" aria-label="Responsabilidad personal por gasto sin crédito">
+<rect x="30" y="30" width="260" height="80" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="160" y="54" text-anchor="middle" font-size="12" font-weight="700" fill="var(--exc)">Ordenadores de gastos y pagos</text>
+<text x="160" y="76" text-anchor="middle" font-size="12" fill="currentColor">responden EN TODO CASO</text>
+<text x="160" y="96" text-anchor="middle" font-size="10" fill="var(--ink2)">gasto o pago sin crédito suficiente</text>
+<rect x="350" y="30" width="260" height="80" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="480" y="54" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)">Interventores</text>
+<text x="480" y="76" text-anchor="middle" font-size="12" fill="currentColor">solo si NO advierten por escrito</text>
+<text x="480" y="96" text-anchor="middle" font-size="10" fill="var(--ej)">el reparo escrito les exonera</text>
+<text x="320" y="132" text-anchor="middle" font-size="11" fill="var(--ink2)">Responsabilidad PERSONAL, además de la nulidad del art. 173.5</text>
+</svg>`},
+{n:189,t:"Requisitos previos a la expedición de órdenes de pago",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"Antes de pagar hay que acreditar que la prestación se hizo o que existe el derecho.",literal:`<p>1. Previamente a la expedición de las órdenes de pago con cargo a los presupuestos de la entidad local y de sus organismos autónomos habrá de acreditarse documentalmente ante el órgano que haya de reconocer las obligaciones la realización de la prestación o el derecho del acreedor de conformidad con los acuerdos que en su día autorizaron y comprometieron el gasto.</p><p>2. Los perceptores de subvenciones concedidas con cargo a los presupuestos de las entidades locales y de los organismos autónomos vendrán obligados a acreditar, antes de su percepción, que se encuentran al corriente de sus obligaciones fiscales con la entidad, así como, posteriormente, a justificar la aplicación de los fondos recibidos.</p>`,dis:`<ul>
+<li><b>Regla general (189.1):</b> previamente a la expedición de las órdenes de pago debe <b>acreditarse documentalmente</b>, ante el órgano que ha de reconocer las obligaciones, <b>la realización de la prestación</b> o el <b>derecho del acreedor</b>, conforme a los acuerdos que autorizaron y comprometieron el gasto.</li>
+<li><b>Regla especial para subvenciones (189.2):</b> los perceptores deben:
+<ol><li><b>antes de percibir</b>: acreditar que están <b>al corriente de sus obligaciones fiscales con la entidad</b>;</li>
+<li><b>después</b>: <b>justificar la aplicación</b> de los fondos recibidos.</li></ol></li>
+</ul>`,llano:`<p>No se paga contra promesas: hay que enseñar el papel que demuestra que el trabajo se hizo o que existe el derecho a cobrar. Y quien recibe una subvención tiene dos deberes: antes de cobrar, no tener deudas fiscales con el ayuntamiento; después de cobrar, explicar en qué se gastó el dinero.</p>`,porque:`<p>Es el punto donde la Administración comprueba que <b>ha recibido lo que pagó</b>. Sin esta acreditación, la fase de reconocimiento sería un trámite ciego. En subvenciones, la exigencia previa evita la contradicción de dar dinero a quien debe dinero, y la justificación posterior es lo que distingue una subvención de una donación.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> pagar al pintor cuando terminó y viste la habitación pintada, no antes.</li>
+<li><b>Real:</b> una asociación cultural recibe 12.000 € de subvención. Antes de cobrar aporta certificado de estar al corriente con el ayuntamiento; después presenta facturas y memoria de actividad justificando los 12.000 €.</li>
+<li><b>Caso límite:</b> una orden de pago que no puede acompañar la documentación en el momento de expedirse. No es ilegal: se expide <b>a justificar</b> por la vía del art. 190.</li>
+</ul>`,noej:`<ul>
+<li><b>No basta</b> con la factura si no acredita la realización de la prestación conforme a lo acordado.</li>
+<li><b>No se exige</b> estar al corriente con la Seguridad Social o con la AEAT en este precepto: la ley habla de obligaciones fiscales <b>con la entidad</b>. (La Ley 38/2003 sí añade otras exigencias.)</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 190:</b> la excepción de los pagos a justificar.</li>
+<li><b>Art. 184.1.c):</b> el reconocimiento de la obligación al que sirve esta acreditación.</li>
+<li><b>Ley 38/2003, General de Subvenciones</b> (documento 8 de la biblioteca): régimen completo de justificación y reintegro.</li>
+</ul>`,trampas:`<ul>
+<li>La acreditación es <b>previa</b> a la orden de pago y se hace <b>ante el órgano que reconoce</b> la obligación.</li>
+<li>En subvenciones hay <b>dos momentos</b>: antes (estar al corriente) y después (justificar).</li>
+</ul>`,ancla:`<p><b>"Primero el papel, luego el dinero."</b> En subvenciones: <b>antes limpio, después justificado</b>.</p>`,vis:`<svg viewBox="0 0 640 150" role="img" aria-label="Requisitos previos a la orden de pago">
+<defs><marker id="p1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="30" y="45" width="200" height="56" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="130" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Acreditación documental</text>
+<text x="130" y="87" text-anchor="middle" font-size="10" fill="var(--ink2)">prestación realizada o derecho del acreedor</text>
+<path d="M233 73 L 268 73" stroke="var(--acc)" stroke-width="2" marker-end="url(#p1)"/>
+<rect x="272" y="45" width="150" height="56" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="347" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Reconocimiento</text>
+<text x="347" y="88" text-anchor="middle" font-size="11" fill="currentColor">de la obligación</text>
+<path d="M425 73 L 460 73" stroke="var(--acc)" stroke-width="2" marker-end="url(#p1)"/>
+<rect x="464" y="45" width="150" height="56" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="539" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Orden de pago</text>
+<text x="539" y="88" text-anchor="middle" font-size="10" fill="currentColor">art. 186</text>
+<text x="320" y="24" text-anchor="middle" font-size="11" fill="var(--warn)">Subvenciones: antes de percibir, al corriente con la entidad · después, justificar la aplicación</text>
+<text x="320" y="133" text-anchor="middle" font-size="10" fill="var(--ink2)">Si no se puede documentar en el momento → pago A JUSTIFICAR (art. 190)</text>
+</svg>`},
+{n:190,t:"Pagos a justificar. Anticipos de caja fija",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"Si no hay papeles al pagar, el pago es a justificar: tres meses para rendir cuentas.",literal:`<p>1. Las órdenes de pago cuyos documentos no se puedan acompañar en el momento de su expedición, según previene el artículo anterior, tendrán el carácter de a justificar y se aplicarán a los correspondientes créditos presupuestarios.</p><p>2. Las bases de ejecución del presupuesto podrán establecer, previo informe de la Intervención, las normas que regulen la expedición de órdenes de pago a justificar con cargo a los presupuestos de gastos, determinando los criterios generales, los límites cuantitativos y los conceptos presupuestarios a los que sean aplicables.</p><p>Los perceptores de estas órdenes de pago quedarán obligados a justificar la aplicación de las cantidades percibidas en el plazo máximo de tres meses, y sujetos al régimen de responsabilidades que establece la normativa vigente.</p><p>En ningún caso podrán expedirse nuevas órdenes de pago a justificar, por los mismos conceptos presupuestarios, a perceptores que tuviesen aún en su poder fondos pendientes de justificación.</p><p>3. Para las atenciones de carácter periódico o repetitivo, los fondos librados a justificar podrán tener el carácter de anticipos de caja fija. Los perceptores de estos fondos quedarán obligados a justificar la aplicación de las cantidades percibidas a lo largo del ejercicio presupuestario en que se constituyó el anticipo.</p>`,dis:`<table><thead><tr><th></th><th><span class="t" data-k="ajustificar">Pagos a justificar</span></th><th><span class="t" data-k="cajafija">Anticipos de caja fija</span></th></tr></thead><tbody>
+<tr><th>Cuándo</th><td>No se pueden acompañar los documentos del art. 189 al expedir la orden</td><td>Atenciones de carácter <b>periódico o repetitivo</b></td></tr>
+<tr><th>Plazo de justificación</th><td><b>Tres meses</b> como máximo</td><td>A lo largo del <b>ejercicio</b> en que se constituyó el anticipo</td></tr>
+<tr><th>Aplicación</th><td>A los correspondientes créditos presupuestarios</td><td>Fondos librados a justificar con este carácter</td></tr>
+</tbody></table>
+<ul>
+<li><b>Regulación (190.2):</b> las <b>bases de ejecución</b>, previo <b>informe de la Intervención</b>, fijan criterios generales, <b>límites cuantitativos</b> y <b>conceptos presupuestarios</b> aplicables.</li>
+<li><b>Prohibición expresa:</b> no pueden expedirse nuevas órdenes a justificar <b>por los mismos conceptos presupuestarios</b> a perceptores que <b>aún tengan fondos pendientes de justificación</b>.</li>
+<li><b>Responsabilidad:</b> los perceptores quedan sujetos al régimen de responsabilidades vigente.</li>
+</ul>`,llano:`<p>A veces hay que entregar dinero antes de tener las facturas: un viaje, una compra urgente fuera. Eso es un pago a justificar, y quien lo recibe tiene tres meses para presentar los papeles. Si el gasto es pequeño y se repite (sellos, portes, café de una residencia), se usa una caja fija que se va reponiendo y se justifica dentro del año. Y hay una regla de sentido común: mientras no justifiques lo anterior, no te dan más por lo mismo.</p>`,porque:`<p>La regla del art. 189 es correcta pero rígida: hay gastos que no admiten esperar a la factura. La ley crea una válvula, pero la <b>rodea de cerrojos</b> —plazo, límites cuantitativos en las bases, informe de la Intervención y prohibición de acumular sin justificar— porque estos fondos son los que más se prestan a descontrol.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el dinero que le das a alguien para hacer la compra: te trae el cambio y el tique.</li>
+<li><b>Real:</b> se libran 1.500 € a justificar a un técnico municipal para inscripciones y desplazamientos a un congreso en marzo de 2026. Deberá justificarlos <b>antes de junio de 2026</b>.</li>
+<li><b>Caso límite:</b> ese mismo técnico pide en mayo otro pago a justificar del mismo concepto presupuestario sin haber justificado el anterior: <b>no puede expedirse</b> (art. 190.2).</li>
+</ul>`,noej:`<ul>
+<li><b>No es caja fija</b> un pago puntual y no repetitivo: la caja fija es para atenciones periódicas o repetitivas.</li>
+<li><b>No hay libertad</b> para expedirlos: solo en los conceptos y con los límites que fijen las bases, previo informe de Intervención.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 189:</b> la regla general que este artículo excepciona.</li>
+<li><b>Art. 165.1:</b> las bases de ejecución donde se regulan.</li>
+<li><b>Art. 219.2:</b> fiscalización previa limitada y control financiero posterior de estos fondos.</li>
+</ul>`,trampas:`<ul>
+<li><b>Tres meses</b> para los pagos a justificar; <b>a lo largo del ejercicio</b> para la caja fija. No es el mismo plazo.</li>
+<li>La prohibición de nuevas órdenes opera <b>por los mismos conceptos presupuestarios</b>, no de forma absoluta.</li>
+<li>Las bases los regulan <b>previo informe de la Intervención</b>.</li>
+</ul>`,ancla:`<p><b>"A justificar: tres meses. Caja fija: todo el año."</b><br>Y la regla del bar: <b>no se sirve otra copa a quien no ha pagado la anterior</b> (mismo concepto presupuestario).</p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Pagos a justificar y anticipos de caja fija">
+<rect x="30" y="25" width="270" height="90" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="165" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">PAGOS A JUSTIFICAR</text>
+<text x="165" y="70" text-anchor="middle" font-size="11" fill="currentColor">no se pueden aportar los documentos</text>
+<text x="165" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="var(--exc)">3 MESES para justificar</text>
+<text x="165" y="107" text-anchor="middle" font-size="10" fill="var(--ink2)">art. 190.1 y 2</text>
+<rect x="340" y="25" width="270" height="90" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="475" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">ANTICIPOS DE CAJA FIJA</text>
+<text x="475" y="70" text-anchor="middle" font-size="11" fill="currentColor">atenciones periódicas o repetitivas</text>
+<text x="475" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ej)">a lo largo del EJERCICIO</text>
+<text x="475" y="107" text-anchor="middle" font-size="10" fill="var(--ink2)">art. 190.3</text>
+<rect x="110" y="126" width="420" height="32" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="320" y="147" text-anchor="middle" font-size="11" fill="var(--warn)">Prohibido expedir nuevas órdenes por los mismos conceptos si hay fondos sin justificar</text>
+</svg>`},
+{n:191,t:"Cierre y liquidación del presupuesto",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"El 31 de diciembre se cierra, antes del 1 de marzo se liquida y la aprueba el presidente.",literal:`<p>1. El presupuesto de cada ejercicio se liquidará en cuanto a la recaudación de derechos y al pago de obligaciones el 31 de diciembre del año natural correspondiente, quedando a cargo de la Tesorería local los ingresos y pagos pendientes, según sus respectivas contracciones.</p><p>2. Las obligaciones reconocidas y liquidadas no satisfechas el último día del ejercicio, los derechos pendientes de cobro y los fondos líquidos a 31 de diciembre configurarán el remanente de tesorería de la entidad local. La cuantificación del remanente de tesorería deberá realizarse teniendo en cuenta los posibles ingresos afectados y minorando de acuerdo con lo que reglamentariamente se establezca los derechos pendientes de cobro que se consideren de difícil o imposible recaudación.</p><p>3. Las entidades locales deberán confeccionar la liquidación de su presupuesto antes del día primero de marzo del ejercicio siguiente.</p><p>La aprobación de la liquidación del presupuesto corresponde al presidente de la entidad local, previo informe de la Intervención.</p>`,dis:`<table><thead><tr><th>Apdo.</th><th>Contenido</th><th>Dato clave</th></tr></thead><tbody>
+<tr><td>191.1</td><td>Cierre en cuanto a recaudación de derechos y pago de obligaciones</td><td><b>31 de diciembre</b>; los pendientes quedan a cargo de la <b>Tesorería</b></td></tr>
+<tr><td>191.2</td><td>Configuración del <span class="t" data-k="remtes">remanente de tesorería</span></td><td>Obligaciones reconocidas y liquidadas no satisfechas + derechos pendientes de cobro + fondos líquidos a 31-XII</td></tr>
+<tr><td>191.2</td><td>Cuantificación</td><td>Teniendo en cuenta los <b>ingresos afectados</b> y minorando los derechos de <b>difícil o imposible recaudación</b></td></tr>
+<tr><td>191.3</td><td>Confección de la liquidación</td><td>Antes del <b>1 de marzo</b> del ejercicio siguiente</td></tr>
+<tr><td>191.3</td><td>Aprobación</td><td><b>Presidente</b>, previo <b>informe de la Intervención</b></td></tr>
+</tbody></table>`,llano:`<p>El 31 de diciembre se echa el cierre: lo que quedó por cobrar y por pagar pasa a la tesorería. Con esos tres datos —lo que debemos, lo que nos deben y lo que tenemos en el banco— se calcula el remanente de tesorería, que es la foto de si sobra o falta dinero. Todo eso hay que tenerlo hecho antes del 1 de marzo, y lo aprueba el alcalde con el informe del interventor.</p>`,porque:`<p>La liquidación es el <b>examen de la verdad</b> del presupuesto: dice qué se ejecutó realmente frente a lo que se autorizó. El remanente de tesorería es la magnitud de la que dependen decisiones muy relevantes (financiar suplementos, incorporar créditos, corregir déficit). Por eso la ley obliga a depurarlo con los <b>dudosos cobros</b>: un remanente inflado con deudas incobrables llevaría a gastar dinero que no existe.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el cierre de caja de un bar: caja, lo que te deben los clientes de cuenta y lo que debes a proveedores. Y descontar la cuenta de aquel que nunca va a pagar.</li>
+<li><b>Real:</b> a 31 de diciembre de 2026 un ayuntamiento tiene 3,2 M€ en fondos líquidos, 4,1 M€ de derechos pendientes de cobro y 2,7 M€ de obligaciones pendientes de pago. Minorados 1,6 M€ por dudoso cobro, el remanente resultante es de 3,0 M€. La interventora informa y el alcalde aprueba la liquidación el 26 de febrero de 2027.</li>
+<li><b>Caso límite:</b> si el resultado hubiera sido negativo, se activa el art. 193 en la primera sesión que celebre el Pleno.</li>
+</ul>`,noej:`<ul>
+<li><b>No aprueba la liquidación el Pleno</b>: la aprueba el <b>presidente</b>. Al Pleno se le <b>da cuenta</b> (art. 193.4).</li>
+<li><b>No es la cuenta general</b>: la liquidación es una parte de ella y tiene otro calendario y otro órgano.</li>
+<li><b>No coincide</b> remanente de tesorería con resultado presupuestario: son magnitudes distintas.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 193 y 193 bis:</b> qué hacer si el remanente es negativo y cómo minorar los dudosos cobros.</li>
+<li><b>Art. 177.4:</b> el remanente líquido de tesorería como recurso para financiar modificaciones.</li>
+<li><b>Art. 182:</b> la incorporación de remanentes exige recursos financieros suficientes.</li>
+<li><b>Art. 212:</b> la cuenta general, en la que se integra la liquidación.</li>
+</ul>`,trampas:`<ul>
+<li><b>1 de marzo</b>: confeccionar la liquidación. <b>31 de marzo</b>: remitir copia al Estado y a la CCAA (art. 193.5). Son dos fechas distintas y muy confundidas.</li>
+<li>Aprueba el <b>presidente</b>, previo informe de la <b>Intervención</b>.</li>
+<li>El remanente se minora por dudoso cobro y se calcula <b>teniendo en cuenta los ingresos afectados</b>.</li>
+</ul>`,ancla:`<p><b>"Cierro en diciembre, liquido en marzo, y firma el alcalde."</b><br>Remanente = <b>lo que tengo + lo que me deben − lo que debo</b>, quitando lo que no voy a cobrar.</p>`,vis:`<svg viewBox="0 0 640 190" role="img" aria-label="Cierre, liquidación y remanente de tesorería">
+<rect x="20" y="35" width="180" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="110" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Fondos líquidos</text>
+<text x="110" y="75" text-anchor="middle" font-size="10" fill="currentColor">a 31 de diciembre</text>
+<text x="215" y="66" text-anchor="middle" font-size="16" fill="var(--ink2)">+</text>
+<rect x="232" y="35" width="180" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="322" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Derechos pendientes</text>
+<text x="322" y="75" text-anchor="middle" font-size="10" fill="currentColor">de cobro</text>
+<text x="427" y="66" text-anchor="middle" font-size="16" fill="var(--ink2)">−</text>
+<rect x="444" y="35" width="180" height="52" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="534" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">Obligaciones</text>
+<text x="534" y="75" text-anchor="middle" font-size="10" fill="currentColor">reconocidas no satisfechas</text>
+<rect x="140" y="100" width="360" height="38" rx="8" fill="var(--acc-soft)" stroke="var(--acc)" stroke-width="2"/>
+<text x="320" y="124" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">= REMANENTE DE TESORERÍA</text>
+<text x="320" y="155" text-anchor="middle" font-size="10" fill="var(--warn)">minorando los derechos de difícil o imposible recaudación y atendiendo a los ingresos afectados</text>
+<text x="320" y="178" text-anchor="middle" font-size="11" fill="var(--ink2)">Liquidación confeccionada antes del 1 de marzo · la aprueba el PRESIDENTE previo informe de Intervención</text>
+</svg>`},
+{n:192,t:"Cierre y liquidación del presupuesto de organismos autónomos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"Los organismos autónomos liquidan igual, pero su aprobación sube al presidente de la entidad.",literal:`<p>1. La liquidación de los presupuestos de los organismos autónomos se ajustará a lo dispuesto en el apartado 1 del artículo anterior. Reglamentariamente se regularán las operaciones de cierre del ejercicio económico y de liquidación de los presupuestos, atendiendo al carácter de los citados organismos.</p><p>2. La liquidación de los presupuestos de los organismos autónomos, informada por la Intervención correspondiente y propuesta por el órgano competente de estos, será remitida a la entidad local para su aprobación por su presidente y a los efectos previstos en el artículo siguiente.</p>`,dis:`<ul>
+<li><b>192.1:</b> la liquidación de los OOAA se ajusta al art. 191.1 (cierre a 31 de diciembre). El reglamento regulará las operaciones de cierre atendiendo al <b>carácter</b> de cada organismo (administrativo o comercial e industrial: art. 164.2).</li>
+<li><b>192.2 — circuito:</b> <b>propuesta</b> del órgano competente del organismo → <b>informe</b> de la Intervención correspondiente → <b>remisión</b> a la entidad local → <b>aprobación por el presidente</b> de la entidad local → efectos del art. 193.</li>
+</ul>`,llano:`<p>El patronato o la gerencia cierran sus cuentas igual que el ayuntamiento, pero no se las aprueban ellos mismos: las proponen, el interventor informa y quien firma la aprobación es el alcalde de la entidad de la que dependen.</p>`,porque:`<p>Si cada organismo aprobara su propia liquidación, el grupo local no tendría una visión única ni un responsable identificable, y el remanente negativo de un patronato podría pasar desapercibido. Centralizar la aprobación en el presidente de la entidad matriz mantiene la <b>unidad del presupuesto general</b> del art. 164.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> las cuentas de una filial que las prepara su director pero las firma el administrador del grupo.</li>
+<li><b>Real:</b> el Patronato Municipal de Deportes cierra 2026 con un remanente negativo de 45.000 €. Propone su liquidación, la Intervención informa y el alcalde la aprueba: se activan entonces las medidas del art. 193 en el órgano competente del organismo.</li>
+</ul>`,noej:`<ul>
+<li><b>No la aprueba</b> el consejo rector del organismo: solo la propone.</li>
+<li><b>No queda al margen</b> del art. 193: la remisión final del 192.2 lo dice expresamente.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 191:</b> régimen general al que se remite.</li>
+<li><b>Art. 193:</b> los efectos a los que alude "a los efectos previstos en el artículo siguiente".</li>
+<li><b>Art. 164.2:</b> la clasificación de los organismos autónomos que condiciona las operaciones de cierre.</li>
+</ul>`,trampas:`<ul>
+<li>Tres intervinientes en orden: <b>propone</b> el organismo, <b>informa</b> la Intervención, <b>aprueba</b> el presidente de la entidad local.</li>
+<li>El apartado 1 solo se remite al <b>apartado 1</b> del art. 191, no a todo el artículo.</li>
+</ul>`,ancla:`<p><b>"Propone el hijo, informa el interventor, firma el padre."</b></p>`,vis:`<svg viewBox="0 0 640 120" role="img" aria-label="Circuito de liquidación de los organismos autónomos">
+<defs><marker id="o1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="20" y="35" width="160" height="50" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="100" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Órgano del OA</text>
+<text x="100" y="74" text-anchor="middle" font-size="10" fill="var(--ink2)">propone</text>
+<path d="M183 60 L 213 60" stroke="var(--acc)" stroke-width="2" marker-end="url(#o1)"/>
+<rect x="217" y="35" width="160" height="50" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="297" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Intervención</text>
+<text x="297" y="74" text-anchor="middle" font-size="10" fill="currentColor">informa</text>
+<path d="M380 60 L 410 60" stroke="var(--acc)" stroke-width="2" marker-end="url(#o1)"/>
+<rect x="414" y="35" width="200" height="50" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="514" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Presidente de la entidad local</text>
+<text x="514" y="74" text-anchor="middle" font-size="10" fill="currentColor">aprueba · efectos del art. 193</text>
+</svg>`},
+{n:193,t:"Liquidación del presupuesto con remanente de tesorería negativo. Remisión a otras Administraciones públicas",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"Remanente negativo: reducir gastos, si no operación de crédito, si no superávit inicial.",literal:`<p>1. En caso de liquidación del presupuesto con remanente de tesorería negativo, el Pleno de la corporación o el órgano competente del organismo autónomo, según corresponda, deberán proceder, en la primera sesión que celebren, a la reducción de gastos del nuevo presupuesto por cuantía igual al déficit producido. La expresada reducción sólo podrá revocarse por acuerdo del Pleno, a propuesta del presidente, y previo informe del Interventor, cuando el desarrollo normal del presupuesto y la situación de la tesorería lo consintiesen.</p><p>2. Si la reducción de gastos no resultase posible, se podrá acudir al concierto de operación de crédito por su importe, siempre que se den las condiciones señaladas en el artículo 177.5 de esta ley.</p><p>3. De no adoptarse ninguna de las medidas previstas en los dos apartados anteriores, el presupuesto del ejercicio siguiente habrá de aprobarse con un superávit inicial de cuantía no inferior al repetido déficit.</p><p>4. De la liquidación de cada uno de los presupuestos que integran el presupuesto general y de los estados financieros de las sociedades mercantiles dependientes de la entidad, una vez realizada su aprobación, se dará cuenta al Pleno en la primera sesión que celebre.</p><p>5. Las entidades locales remitirán copia de la liquidación de sus presupuestos a la Administración del Estado y a la comunidad autónoma antes de finalizar el mes de marzo del ejercicio siguiente al que corresponda.</p><p>La falta de remisión de la liquidación en el plazo señalado facultará a la Administración para utilizar como actuales, a cualquier efecto, los datos que conozca relativos a la entidad de que se trate.</p>`,dis:`<div class="box exc"><span class="lbl">Escalera de medidas ante remanente de tesorería negativo</span>
+<ol><li><b>Reducción de gastos</b> del nuevo presupuesto por cuantía <b>igual al déficit</b>, acordada por el Pleno (o el órgano competente del OA) <b>en la primera sesión que celebren</b>. Solo puede revocarse por acuerdo del Pleno, a propuesta del presidente y previo informe del Interventor, cuando el desarrollo del presupuesto y la tesorería lo consientan.</li>
+<li>Si la reducción <b>no resulta posible</b>: <b>operación de crédito</b> por su importe, siempre que se den las condiciones del <b>art. 177.5</b> (5 %, 25 % y cancelación antes de la renovación).</li>
+<li>Si no se adopta ninguna de las anteriores: el presupuesto del ejercicio siguiente debe aprobarse con <b><span class="t" data-k="superavit">superávit inicial</span></b> de cuantía <b>no inferior</b> al déficit.</li></ol></div>
+<ul>
+<li><b>193.4 — dar cuenta:</b> de la liquidación de cada presupuesto integrante y de los estados financieros de las sociedades dependientes, <b>una vez aprobada</b>, se da cuenta al <b>Pleno</b> en la <b>primera sesión</b> que celebre.</li>
+<li><b>193.5 — remisión:</b> copia de la liquidación al <b>Estado</b> y a la <b>comunidad autónoma</b> <b>antes de finalizar el mes de marzo</b> del ejercicio siguiente. Si no se remite, la Administración puede usar como actuales los datos que conozca.</li>
+</ul>`,llano:`<p>Si al cerrar el año resulta que faltan fondos, no se puede mirar hacia otro lado. Primero, recortar el presupuesto nuevo exactamente en lo que falta, y hay que hacerlo en la primera sesión del Pleno. Si no se puede recortar, pedir un préstamo con condiciones estrictas. Y si tampoco, el presupuesto del año siguiente tiene que nacer con superávit por al menos esa cantidad. Además, la liquidación se lleva al Pleno para su conocimiento y se manda al Estado y a la comunidad autónoma antes de que acabe marzo.</p>`,porque:`<p>Un remanente negativo significa que la entidad ha gastado más de lo que puede pagar. Si no se corrigiera, el desfase se arrastraría y crecería. La ley impone una <b>corrección automática y ordenada</b>, de menor a mayor coste: primero ajustar el gasto propio, después endeudarse (peor, porque traslada la carga al futuro) y, en último término, obligar a que el presupuesto siguiente genere el ahorro. La remisión al Estado y a la CCAA permite la supervisión externa.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> una familia que cierra el año con números rojos: primero recorta gastos, luego pide un préstamo y, si no, se impone ahorrar esa cantidad al año siguiente.</li>
+<li><b>Real:</b> liquidación de 2026 con remanente negativo de 620.000 €. En la primera sesión del Pleno de marzo de 2027 se acuerda reducir gastos del presupuesto de 2027 por esos 620.000 €. Copia de la liquidación se remite al Estado y a la Junta antes del 31 de marzo de 2027.</li>
+<li><b>Caso límite:</b> si el ayuntamiento no puede recortar sin dejar de prestar servicios obligatorios, podría acudir a una operación de crédito, pero solo si su importe anual no supera el 5 % de sus recursos corrientes y su carga financiera total se mantiene por debajo del 25 % (remisión al art. 177.5).</li>
+</ul>`,noej:`<ul>
+<li><b>No es opcional</b> el orden: la operación de crédito procede "si la reducción de gastos no resultase posible", no como alternativa libre.</li>
+<li><b>No se remite</b> la liquidación en cualquier momento: <b>antes de finalizar marzo</b>.</li>
+<li><b>No se aprueba</b> la liquidación por el Pleno: se le <b>da cuenta</b> (193.4).</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 191.2:</b> el cálculo del remanente que activa este artículo.</li>
+<li><b>Art. 177.5:</b> las condiciones que debe cumplir la operación de crédito.</li>
+<li><b>Art. 165.4:</b> el principio de aprobación sin déficit inicial, que aquí se refuerza exigiendo superávit.</li>
+<li><b>Art. 193 bis:</b> los mínimos de dudoso cobro que condicionan el cálculo.</li>
+</ul>`,trampas:`<ul>
+<li>El orden <b>1-2-3</b>: reducción → crédito → superávit inicial. Los tests cambian el orden o convierten el tercero en primero.</li>
+<li>"En la <b>primera sesión</b> que celebren": no hay un plazo en días.</li>
+<li>La revocación de la reducción exige tres cosas: acuerdo del <b>Pleno</b>, <b>propuesta del presidente</b> e <b>informe del Interventor</b>.</li>
+<li><b>Marzo</b> para remitir; <b>1 de marzo</b> para confeccionar (art. 191.3).</li>
+</ul>`,ancla:`<p><b>"Recorto, me endeudo o ahorro."</b> En ese orden y sin saltos.<br>Y el calendario de marzo: <b>día 1 se confecciona, fin de mes se remite</b>.</p>`,vis:`<svg viewBox="0 0 640 205" role="img" aria-label="Medidas ante un remanente de tesorería negativo">
+<defs><marker id="n1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--exc)"/></marker></defs>
+<rect x="185" y="10" width="270" height="36" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="320" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="var(--exc)">Remanente de tesorería NEGATIVO</text>
+<path d="M320 46 L 320 62" stroke="var(--exc)" stroke-width="2" marker-end="url(#n1)"/>
+<rect x="90" y="64" width="460" height="38" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">1.º REDUCIR GASTOS del nuevo presupuesto por cuantía igual al déficit</text>
+<text x="320" y="96" text-anchor="middle" font-size="10" fill="currentColor">acuerdo del Pleno en la primera sesión que celebre</text>
+<path d="M320 102 L 320 116" stroke="var(--exc)" stroke-width="2" marker-end="url(#n1)"/>
+<text x="360" y="114" font-size="9" fill="var(--ink2)">si no es posible</text>
+<rect x="90" y="118" width="460" height="34" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="320" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">2.º OPERACIÓN DE CRÉDITO con las condiciones del art. 177.5</text>
+<path d="M320 152 L 320 166" stroke="var(--exc)" stroke-width="2" marker-end="url(#n1)"/>
+<text x="365" y="164" font-size="9" fill="var(--ink2)">si tampoco</text>
+<rect x="90" y="168" width="460" height="34" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="320" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">3.º SUPERÁVIT INICIAL no inferior al déficit en el presupuesto siguiente</text>
+</svg>`},
+{n:"193bis",t:"Derechos de difícil o imposible recaudación",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 3.ª (Ejecución y liquidación)",idea:"Hay porcentajes mínimos obligatorios para descontar lo que no se va a cobrar.",literal:`<p>Las Entidades Locales deberán informar al Ministerio de Hacienda y Administraciones Públicas y a su Pleno, u órgano equivalente, del resultado de la aplicación de los criterios determinantes de los derechos de difícil o imposible recaudación con los siguientes límites mínimos:</p><p>a) Los derechos pendientes de cobro liquidados dentro de los presupuestos de los dos ejercicios anteriores al que corresponde la liquidación, se minorarán, como mínimo, en un 25 por ciento.</p><p>b) Los derechos pendientes de cobro liquidados dentro de los presupuestos del ejercicio tercero anterior al que corresponde la liquidación, se minorarán, como mínimo, en un 50 por ciento.</p><p>c) Los derechos pendientes de cobro liquidados dentro de los presupuestos de los ejercicios cuarto a quinto anteriores al que corresponde la liquidación, se minorarán, como mínimo, en un 75 por ciento.</p><p>d) Los derechos pendientes de cobro liquidados dentro de los presupuestos de los restantes ejercicios anteriores al que corresponde la liquidación, se minorarán en un 100 por ciento.</p>`,dis:`<ul>
+<li><b>Obligación:</b> informar al <b>Ministerio de Hacienda</b> y al <b>Pleno</b> (u órgano equivalente) del resultado de aplicar los criterios de <span class="t" data-k="dudoso">dudoso cobro</span>.</li>
+<li><b>Son límites MÍNIMOS:</b> la entidad puede minorar más, nunca menos.</li>
+</ul>
+<table><thead><tr><th>Antigüedad del derecho pendiente de cobro</th><th>Minoración mínima</th></tr></thead><tbody>
+<tr><td>Liquidados en los <b>dos ejercicios anteriores</b> al de la liquidación</td><td><b>25 %</b></td></tr>
+<tr><td>Liquidados en el <b>tercer ejercicio anterior</b></td><td><b>50 %</b></td></tr>
+<tr><td>Liquidados en los ejercicios <b>cuarto a quinto anteriores</b></td><td><b>75 %</b></td></tr>
+<tr><td><b>Restantes</b> ejercicios anteriores</td><td><b>100 %</b></td></tr>
+</tbody></table>`,llano:`<p>Contar como dinero disponible una deuda de hace ocho años que nadie va a pagar es engañarse. La ley pone una escala: cuanto más vieja es la deuda, mayor porcentaje hay que descontar del remanente. A partir del sexto año anterior, se descuenta entera.</p>`,porque:`<p>Antes de esta regla, cada entidad aplicaba su propio criterio y el remanente se inflaba a conveniencia para justificar más gasto. Al fijar <b>mínimos objetivos por antigüedad</b>, el legislador impide ese maquillaje y hace comparables los remanentes de todos los municipios.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el que te debe 50 € desde hace seis años: contablemente, ese dinero ya no existe.</li>
+<li><b>Real:</b> liquidación de 2026 con derechos pendientes: 400.000 € de 2025 y 2024 (minorar al menos 100.000 €), 200.000 € de 2023 (al menos 100.000 €), 160.000 € de 2022 y 2021 (al menos 120.000 €) y 90.000 € anteriores (los 90.000 € completos). Minoración mínima total: <b>410.000 €</b>.</li>
+<li><b>Caso límite:</b> si la entidad estima que una deuda reciente de 2025 es incobrable al 100 %, puede minorarla íntegramente: los porcentajes son suelos, no techos.</li>
+</ul>`,noej:`<ul>
+<li><b>No son porcentajes máximos</b>: la ley dice "límites mínimos".</li>
+<li><b>No es un cálculo interno</b>: hay que informar al Ministerio y al Pleno.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 191.2:</b> la minoración de los derechos de difícil o imposible recaudación en el remanente.</li>
+<li><b>Art. 193:</b> las medidas si, tras la minoración, el remanente resulta negativo.</li>
+</ul>`,trampas:`<ul>
+<li>La escala es <b>25 · 50 · 75 · 100</b>, y el primer tramo abarca <b>dos</b> ejercicios (los dos anteriores).</li>
+<li>El tercer tramo abarca los ejercicios <b>cuarto a quinto</b> anteriores.</li>
+<li>Se informa al <b>Ministerio de Hacienda y al Pleno</b>: dos destinatarios.</li>
+</ul>`,ancla:`<p><b>"Cuartos crecientes": 25 · 50 · 75 · 100.</b> Un cuarto por escalón, empezando por los dos años más recientes juntos.</p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Porcentajes mínimos de dudoso cobro">
+<line x1="50" y1="130" x2="600" y2="130" stroke="var(--line)" stroke-width="2"/>
+<rect x="70" y="105" width="110" height="25" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="125" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ej)">25 %</text>
+<text x="125" y="148" text-anchor="middle" font-size="10" fill="currentColor">dos ejercicios anteriores</text>
+<rect x="200" y="80" width="110" height="50" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="255" y="73" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ej)">50 %</text>
+<text x="255" y="148" text-anchor="middle" font-size="10" fill="currentColor">tercer ejercicio anterior</text>
+<rect x="330" y="55" width="110" height="75" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="385" y="48" text-anchor="middle" font-size="13" font-weight="700" fill="var(--warn)">75 %</text>
+<text x="385" y="148" text-anchor="middle" font-size="10" fill="currentColor">cuarto a quinto anteriores</text>
+<rect x="460" y="30" width="110" height="100" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="515" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="var(--exc)">100 %</text>
+<text x="515" y="148" text-anchor="middle" font-size="10" fill="currentColor">restantes ejercicios</text>
+<text x="320" y="15" text-anchor="middle" font-size="10" fill="var(--ink2)">límites MÍNIMOS de minoración · se puede minorar más, nunca menos</text>
+</svg>`}];
+</script>
+<script>
+const PLAZOS=[["31 de diciembre", "Cierre del presupuesto en cuanto a recaudación de derechos y pago de obligaciones", "Entidad", "191.1", "Los pendientes quedan a cargo de la Tesorería"], ["1 de marzo", "Confección de la liquidación del presupuesto", "Entidad", "191.3", "Del ejercicio siguiente. Aprueba el presidente previo informe de Intervención"], ["Fin de marzo", "Remisión de copia de la liquidación al Estado y a la comunidad autónoma", "Entidad", "193.5", "Su falta faculta a usar los datos conocidos"], ["Primera sesión", "Reducción de gastos si el remanente de tesorería es negativo", "Pleno", "193.1", "Igual cuantía que el déficit"], ["Primera sesión", "Dar cuenta al Pleno de la liquidación aprobada", "Presidente", "193.4", "También de los estados financieros de las sociedades"], ["3 meses", "Plazo máximo para justificar los pagos a justificar", "Perceptor", "190.2", "No caben nuevos por los mismos conceptos sin justificar"], ["El ejercicio", "Plazo para justificar los anticipos de caja fija", "Perceptor", "190.3", "Aquel en que se constituyó el anticipo"], ["500.000 habitantes", "Umbral para crear una unidad central de tesorería", "Pleno", "186.3", "Habitantes de derecho, a propuesta del presidente"], ["25 % / 50 % / 75 % / 100 %", "Minoración mínima de derechos de difícil o imposible recaudación", "Entidad", "193 bis", "Por antigüedad del derecho pendiente"], ["Prioridad legal", "Gastos de personal y obligaciones de ejercicios anteriores", "Presidente", "187", "Contenido mínimo del plan de disposición de fondos"]];
+const FLASH=[["¿Por qué normas se rige la ejecución del presupuesto de gastos?", "Por la Sección 3.ª del TRLHL y, <b>complementariamente</b>, por las bases de ejecución de cada entidad (art. 183)."], ["Enumera las cuatro fases de la gestión del gasto", "<b>A</b>utorización · <b>D</b>isposición o compromiso · Reconocimiento u <b>O</b>bligación · Ordenación del <b>P</b>ago (art. 184.1)."], ["¿Pueden acumularse las fases del gasto?", "Sí: en un solo acto administrativo pueden abarcarse dos o más fases, en la forma reglamentariamente establecida (art. 184.2)."], ["¿A quién corresponde la autorización y disposición de gastos?", "Al <b>presidente o al Pleno</b>, según la atribución de competencias de la normativa vigente (art. 185.1)."], ["¿Quién reconoce y liquida las obligaciones?", "El <b>presidente</b>, cuando derivan de compromisos legalmente adquiridos (art. 185.2)."], ["¿Dónde deben recogerse las delegaciones en materia de gestión de gastos?", "En las <b>bases de ejecución</b>, para cada ejercicio, conforme al art. 23 LBRL (art. 185.3)."], ["¿Quién ordena los pagos?", "El <b>presidente</b> de la entidad local (art. 186.1)."], ["¿Qué entidades pueden crear una unidad central de tesorería?", "Las de más de <b>500.000 habitantes de derecho</b>, por acuerdo del Pleno a propuesta del presidente (art. 186.3)."], ["¿Qué prioridades impone la ley al plan de disposición de fondos?", "Los <b>gastos de personal</b> y las <b>obligaciones contraídas en ejercicios anteriores</b> (art. 187)."], ["¿Quién establece el plan de disposición de fondos?", "El <b>presidente</b> (art. 187)."], ["¿Quiénes responden personalmente del gasto sin crédito?", "Los ordenadores de gastos y pagos <b>en todo caso</b>, y los interventores <b>cuando no adviertan por escrito</b> su improcedencia (art. 188)."], ["¿Qué debe acreditarse antes de expedir una orden de pago?", "La <b>realización de la prestación</b> o el derecho del acreedor, documentalmente y ante el órgano que reconoce la obligación (art. 189.1)."], ["Doble deber del perceptor de una subvención local", "Antes de cobrar: estar <b>al corriente de sus obligaciones fiscales con la entidad</b>. Después: <b>justificar</b> la aplicación de los fondos (art. 189.2)."], ["¿Qué es un pago a justificar y cuánto plazo hay?", "Orden de pago sin documentos justificativos en el momento de expedirse; se justifica en un máximo de <b>tres meses</b> (art. 190.1 y 2)."], ["¿Cuándo procede un anticipo de caja fija?", "Para atenciones de carácter <b>periódico o repetitivo</b>; se justifica a lo largo del ejercicio en que se constituyó (art. 190.3)."], ["¿Se puede librar un nuevo pago a justificar a quien no justificó el anterior?", "No, si es <b>por los mismos conceptos presupuestarios</b> y tiene fondos pendientes de justificación (art. 190.2)."], ["¿Qué tres magnitudes configuran el remanente de tesorería?", "Obligaciones reconocidas no satisfechas, derechos pendientes de cobro y fondos líquidos a 31 de diciembre (art. 191.2)."], ["¿Cuándo debe confeccionarse la liquidación y quién la aprueba?", "Antes del <b>1 de marzo</b> del ejercicio siguiente; la aprueba el <b>presidente</b> previo informe de la Intervención (art. 191.3)."], ["¿Cómo se aprueba la liquidación de un organismo autónomo?", "La propone su órgano competente, la informa la Intervención y la <b>aprueba el presidente de la entidad local</b> (art. 192.2)."], ["Escalera de medidas ante remanente negativo", "1) Reducir gastos por igual cuantía en la primera sesión del Pleno · 2) operación de crédito con las condiciones del art. 177.5 · 3) superávit inicial no inferior al déficit (art. 193)."], ["¿Cómo se revoca la reducción de gastos del art. 193.1?", "Por acuerdo del <b>Pleno</b>, a <b>propuesta del presidente</b> y previo <b>informe del Interventor</b>, si el presupuesto y la tesorería lo consienten."], ["¿Cuándo se remite la liquidación al Estado y a la CCAA?", "<b>Antes de finalizar el mes de marzo</b> del ejercicio siguiente (art. 193.5)."], ["Porcentajes mínimos de dudoso cobro", "<b>25 %</b> los dos ejercicios anteriores · <b>50 %</b> el tercero · <b>75 %</b> el cuarto y quinto · <b>100 %</b> los restantes (art. 193 bis)."], ["¿A quién se informa del resultado de aplicar los criterios de dudoso cobro?", "Al <b>Ministerio de Hacienda</b> y al <b>Pleno</b> u órgano equivalente (art. 193 bis)."], ["¿Aprueba el Pleno la liquidación del presupuesto?", "No: la aprueba el presidente. Al Pleno se le <b>da cuenta</b> en la primera sesión que celebre (arts. 191.3 y 193.4)."]];
+const TEST=[{"a": 184, "q": "Las fases de la gestión del presupuesto de gastos son, por este orden:", "o": [["autorización, disposición, reconocimiento de la obligación y ordenación del pago", 1, "Correcto: art. 184.1, las clásicas fases A-D-O-P."], ["autorización, ordenación del pago, disposición y pago material", 0, "El pago material no es una fase del art. 184 y el orden está alterado."], ["propuesta, fiscalización, aprobación y pago", 0, "Describe un circuito administrativo genérico, no las fases legales."], ["compromiso, autorización, pago y justificación", 0, "La autorización precede al compromiso, no al revés."]]}, {"a": 184, "q": "Las entidades locales pueden abarcar dos o más fases de ejecución del gasto en un solo acto administrativo.", "vf": true, "ok": true, "fb": "<b>Verdadero</b> (art. 184.2), en la forma que reglamentariamente se establezca. De ahí los documentos AD, ADO y ADOP."}, {"a": 185, "q": "El reconocimiento y liquidación de las obligaciones derivadas de compromisos legalmente adquiridos corresponde a:", "o": [["el presidente de la corporación", 1, "Correcto: art. 185.2, aunque el gasto lo hubiera autorizado el Pleno."], ["el Pleno, si él autorizó el gasto", 0, "No: el reconocimiento es siempre del presidente."], ["la Intervención", 0, "La Intervención fiscaliza; no gestiona ni reconoce obligaciones."], ["la Tesorería", 0, "La Tesorería materializa los pagos, no reconoce obligaciones."]]}, {"a": 186, "q": "Completa: «El Pleno de las entidades locales de más de ______ habitantes de derecho podrá crear una unidad central de tesorería».", "gap": "500.000", "fb": "<b>500.000 habitantes de derecho</b> (art. 186.3), a propuesta del presidente."}, {"a": 186, "q": "La unidad de ordenación de pagos del art. 186.2 la crea el presidente por decreto.", "vf": true, "ok": false, "fb": "<b>Falso.</b> La crea el <b>Pleno</b>, a propuesta del presidente, y actúa bajo su superior autoridad."}, {"a": 187, "q": "El plan de disposición de fondos deberá recoger en todo caso la prioridad de:", "o": [["los gastos de personal y las obligaciones contraídas en ejercicios anteriores", 1, "Correcto: son las dos prioridades legales del art. 187."], ["los intereses y el capital de la deuda pública", 0, "Esa prioridad procede del art. 135 CE y de la LO 2/2012, no del art. 187 TRLHL."], ["las subvenciones concedidas y los contratos menores", 0, "No figuran en el precepto."], ["los pagos a justificar y los anticipos de caja fija", 0, "No son una categoría de prelación de pagos."]]}, {"a": 188, "q": "¿Cuándo responden personalmente los interventores del gasto sin crédito suficiente?", "o": [["cuando no adviertan por escrito su improcedencia", 1, "Correcto: art. 188. El reparo escrito les exonera."], ["en todo caso, igual que los ordenadores", 0, "No: la ley reserva el 'en todo caso' a los ordenadores de gastos y pagos."], ["nunca: su función es solo informar", 0, "Sí responden si callan."], ["solo si el Pleno así lo acuerda", 0, "La responsabilidad no depende de acuerdo alguno."]]}, {"a": 189, "q": "El perceptor de una subvención municipal debe acreditar que está al corriente de sus obligaciones fiscales con la entidad:", "o": [["antes de percibir la subvención", 1, "Correcto: art. 189.2, y además debe justificar después la aplicación de los fondos."], ["al justificar la subvención", 0, "La justificación de la aplicación es posterior; la acreditación fiscal es previa."], ["solo si la subvención supera los 3.000 €", 0, "No hay umbral en el precepto."], ["no debe acreditarlo: basta la declaración responsable", 0, "El artículo impone la acreditación."]]}, {"a": 190, "q": "El plazo máximo para justificar un pago a justificar es de:", "o": [["tres meses", 1, "Correcto: art. 190.2."], ["un mes", 0, "No: un mes es el plazo del Pleno para resolver reclamaciones al presupuesto (art. 169.1)."], ["el ejercicio presupuestario", 0, "Ese es el plazo de los anticipos de caja fija (art. 190.3)."], ["seis meses", 0, "No figura en el precepto."]]}, {"a": 190, "q": "Los anticipos de caja fija se destinan a atenciones de carácter periódico o repetitivo.", "vf": true, "ok": true, "fb": "<b>Verdadero</b> (art. 190.3). Se justifican a lo largo del ejercicio presupuestario en que se constituyó el anticipo."}, {"a": 191, "q": "Completa: «Las entidades locales deberán confeccionar la liquidación de su presupuesto antes del día ______ del ejercicio siguiente».", "gap": "primero de marzo", "fb": "Antes del <b>1 de marzo</b> (art. 191.3). No lo confundas con la remisión al Estado y a la CCAA, que es antes de finalizar marzo (art. 193.5)."}, {"a": 191, "q": "La liquidación del presupuesto la aprueba:", "o": [["el presidente de la entidad local, previo informe de la Intervención", 1, "Correcto: art. 191.3."], ["el Pleno, por mayoría simple", 0, "No: al Pleno solo se le da cuenta (art. 193.4)."], ["la Comisión Especial de Cuentas", 0, "Esa interviene en la cuenta general (art. 212.2), no en la liquidación."], ["la Intervención", 0, "La Intervención informa, no aprueba."]]}, {"a": 191, "q": "¿Qué magnitudes configuran el remanente de tesorería?", "o": [["obligaciones reconocidas no satisfechas, derechos pendientes de cobro y fondos líquidos a 31 de diciembre", 1, "Correcto: art. 191.2, minorando los derechos de dudoso cobro y atendiendo a los ingresos afectados."], ["ingresos y gastos previstos en el presupuesto inicial", 0, "Eso es el presupuesto, no el remanente."], ["el resultado presupuestario del ejercicio", 0, "Es otra magnitud distinta."], ["los créditos incorporados del ejercicio anterior", 0, "No: los créditos incorporados se regulan en el art. 182."]]}, {"a": 193, "q": "Ante una liquidación con remanente de tesorería negativo, la primera medida es:", "o": [["reducir gastos del nuevo presupuesto por cuantía igual al déficit", 1, "Correcto: art. 193.1, en la primera sesión que celebre el Pleno."], ["concertar una operación de crédito", 0, "Solo si la reducción de gastos no resultase posible (art. 193.2)."], ["aprobar el presupuesto siguiente con superávit inicial", 0, "Es la tercera medida, cuando no se adopta ninguna de las anteriores (art. 193.3)."], ["solicitar autorización a la comunidad autónoma", 0, "No está prevista en el artículo."]]}, {"a": 193, "q": "La reducción de gastos acordada por remanente negativo es irrevocable.", "vf": true, "ok": false, "fb": "<b>Falso.</b> Puede revocarse por acuerdo del <b>Pleno</b>, a propuesta del presidente y previo informe del Interventor, cuando el desarrollo normal del presupuesto y la tesorería lo consientan (art. 193.1)."}, {"a": 193, "q": "La copia de la liquidación debe remitirse al Estado y a la comunidad autónoma:", "o": [["antes de finalizar el mes de marzo del ejercicio siguiente", 1, "Correcto: art. 193.5. Su falta faculta a la Administración para usar los datos que conozca."], ["antes del 1 de marzo", 0, "Esa es la fecha para <b>confeccionar</b> la liquidación (art. 191.3)."], ["antes del 15 de mayo", 0, "El 15 de mayo es la rendición de estados y cuentas para la cuenta general (art. 212.1)."], ["antes del 15 de octubre", 0, "El 15 de octubre es la rendición de la cuenta general al Tribunal de Cuentas (art. 223.2)."]]}, {"a": "193bis", "q": "Los derechos pendientes de cobro liquidados en el tercer ejercicio anterior se minorarán como mínimo en un:", "o": [["50 %", 1, "Correcto: art. 193 bis.b)."], ["25 %", 0, "El 25 % corresponde a los dos ejercicios anteriores."], ["75 %", 0, "El 75 % corresponde a los ejercicios cuarto a quinto anteriores."], ["100 %", 0, "El 100 % corresponde a los restantes ejercicios anteriores."]]}, {"a": "193bis", "q": "Los porcentajes del art. 193 bis son límites máximos de minoración.", "vf": true, "ok": false, "fb": "<b>Falso.</b> Son <b>límites mínimos</b>: se puede minorar más, nunca menos."}, {"a": 183, "q": "Completa: «La ejecución de los créditos se efectuará conforme a esta sección y, complementariamente, por las normas de cada entidad plasmadas en las ______ del presupuesto».", "gap": "bases de ejecución", "fb": "<b>Bases de ejecución</b> (art. 183). Son contenido obligatorio del presupuesto por el art. 165.1."}, {"a": 192, "q": "La liquidación del presupuesto de un organismo autónomo la aprueba:", "o": [["el presidente de la entidad local de la que depende", 1, "Correcto: art. 192.2, previa propuesta del órgano del organismo e informe de la Intervención."], ["el órgano competente del propio organismo autónomo", 0, "Ese órgano la <b>propone</b>, no la aprueba."], ["el Pleno de la entidad local", 0, "No: el Pleno recibe cuenta, no aprueba."], ["la Intervención del organismo", 0, "La Intervención informa."]]}];
+const CASOS=[{"t": "Caso 1 · Sigue el rastro de un gasto", "e": "El Ayuntamiento contrata la renovación del alumbrado de un barrio. Cronología: <b>(1)</b> 4 de febrero, el Pleno aprueba el expediente de contratación por 420.000 €; <b>(2)</b> 20 de marzo, se adjudica a una empresa por 388.000 €; <b>(3)</b> 30 de junio, se aprueba la certificación n.º 2 por 95.000 € tras informe favorable del director de obra; <b>(4)</b> 5 de julio, el alcalde expide la orden de pago; <b>(5)</b> 20 de julio, la tesorería transfiere el dinero. <b>Identifica las fases, los órganos y qué artículo aplica en cada paso.</b>", "s": "<p><b>(1) Fase A (autorización)</b> — art. 184.1.a). Órgano: el Pleno, conforme al reparto del art. 185.1 y a la normativa de régimen local.</p><p><b>(2) Fase D (disposición o compromiso)</b> — art. 184.1.b). Se concreta el tercero y el importe exacto.</p><p><b>(3) Fase O (reconocimiento de la obligación)</b> — art. 184.1.c). Corresponde al <b>presidente</b> (art. 185.2). Previamente se ha acreditado documentalmente la realización de la prestación, como exige el art. 189.1.</p><p><b>(4) Fase P (ordenación del pago)</b> — art. 184.1.d), competencia del presidente (art. 186.1), acomodándose al plan de disposición de fondos (art. 187).</p><p><b>(5) Pago material</b> — ya no es fase del art. 184: corresponde a la Tesorería (arts. 194 y ss.).</p><p><b>Nota:</b> si en cualquiera de esos pasos se hubiera actuado sin crédito suficiente, el acto sería nulo de pleno derecho (art. 173.5) y habría responsabilidad personal del ordenador y, si no reparó por escrito, del interventor (art. 188).</p>"}, {"t": "Caso 2 · La liquidación que sale mal", "e": "A 31 de diciembre de 2026, un ayuntamiento presenta: fondos líquidos 1.100.000 €; derechos pendientes de cobro 2.400.000 € (de los cuales 900.000 € de 2025-2024, 600.000 € de 2023, 500.000 € de 2022-2021 y 400.000 € anteriores); obligaciones pendientes de pago 3.000.000 €. <b>Calcula la minoración mínima por dudoso cobro, el remanente resultante y las medidas a adoptar.</b>", "s": "<p><b>1) Minoración mínima (art. 193 bis):</b> 900.000 × 25 % = 225.000 € · 600.000 × 50 % = 300.000 € · 500.000 × 75 % = 375.000 € · 400.000 × 100 % = 400.000 €. <b>Total mínimo: 1.300.000 €</b>.</p><p><b>2) Derechos computables:</b> 2.400.000 − 1.300.000 = <b>1.100.000 €</b>.</p><p><b>3) Remanente de tesorería (art. 191.2):</b> 1.100.000 (fondos líquidos) + 1.100.000 (derechos depurados) − 3.000.000 (obligaciones) = <b>−800.000 €</b>. Negativo.</p><p><b>4) Medidas (art. 193):</b> en la <b>primera sesión</b> que celebre, el Pleno debe reducir gastos del presupuesto de 2027 por 800.000 €. Si no fuera posible, cabe operación de crédito por ese importe con las condiciones del art. 177.5. Y si no se adopta ninguna, el presupuesto de 2028 deberá aprobarse con superávit inicial no inferior a 800.000 €.</p><p><b>5) Calendario:</b> liquidación confeccionada antes del <b>1 de marzo</b> de 2027 y aprobada por el alcalde previo informe de Intervención (art. 191.3); copia al Estado y a la comunidad autónoma antes de <b>finalizar marzo</b> (art. 193.5); cuenta al Pleno en la primera sesión (art. 193.4).</p>"}, {"t": "Caso 3 · El fondo que no se justifica", "e": "En abril de 2026 se libran 2.000 € a justificar a un funcionario para gastos de una feria de promoción. En julio no ha presentado justificación alguna y solicita otros 1.800 € del mismo concepto presupuestario para otra feria. Además, en la misma tesorería hay un anticipo de caja fija de 3.000 € para material de oficina constituido en enero. <b>¿Qué procede?</b>", "s": "<p><b>1) El plazo está incumplido.</b> Los pagos a justificar deben justificarse en un plazo máximo de <b>tres meses</b> (art. 190.2): vencía en julio. El perceptor queda sujeto al régimen de responsabilidades vigente.</p><p><b>2) La nueva orden no puede expedirse.</b> El art. 190.2 lo prohíbe expresamente: no caben nuevas órdenes a justificar <b>por los mismos conceptos presupuestarios</b> a perceptores con fondos pendientes de justificación.</p><p><b>3) El anticipo de caja fija es distinto.</b> Se justifica <b>a lo largo del ejercicio</b> en que se constituyó (art. 190.3), no en tres meses, porque atiende gastos periódicos o repetitivos. No se ve afectado por la situación anterior.</p><p><b>4) Marco:</b> todo ello dentro de los criterios, límites cuantitativos y conceptos que fijen las bases de ejecución, previo informe de la Intervención (art. 190.2).</p>"}];
+const SEMAFORO=["Fuentes de la ejecución: ley y bases — art. 183", "Las cuatro fases ADOP y su acumulación — art. 184", "Competencias: quién autoriza, compromete y reconoce — art. 185", "Ordenación de pagos y unidades posibles — art. 186", "Plan de disposición de fondos y sus prioridades — art. 187", "Responsabilidad personal de ordenadores e interventores — art. 188", "Acreditación previa y régimen de subvenciones — art. 189", "Pagos a justificar (3 meses) y anticipos de caja fija — art. 190", "Cierre, remanente de tesorería y liquidación — art. 191", "Liquidación de los organismos autónomos — art. 192", "Medidas ante remanente negativo y remisión de la liquidación — art. 193", "Porcentajes mínimos de dudoso cobro — art. 193 bis"];
+const INTRO_HTML="<section class=\"card\" id=\"intro\"><h2>Bloque 3 del tema 8 · Ejecución y liquidación</h2><p class=\"small\">Ya sabes cómo se aprueba el presupuesto (bloque 1) y cómo se modifica (bloque 2). Aquí se ve cómo se gasta de verdad —las cuatro fases del gasto y quién firma cada una— y cómo se cierra el año: liquidación, remanente de tesorería y qué hacer si sale negativo.</p><div class=\"box ej\"><span class=\"lbl\">La idea que ordena todo el bloque</span>Todo gasto recorre el camino <b>A-D-O-P</b>, y en cada escalón hay un órgano competente y un control. Al final del año se hace la foto: la <b>liquidación</b>, cuyo resultado más importante es el <b>remanente de tesorería</b>. Si esa foto sale en negativo, la ley obliga a corregir en un orden estricto.</div><div class=\"box warn\"><span class=\"lbl\">Advertencia de vigencia</span>Texto consolidado del RDLeg 2/2004 actualizado a <b>28 de enero de 2026</b>. Ten presente que la prioridad absoluta del pago de intereses y capital de la deuda pública procede del art. 135 CE y de la LO 2/2012, no de este texto. Verifica siempre en el BOE consolidado.</div><svg viewBox=\"0 0 660 235\" role=\"img\" aria-label=\"Mapa conceptual de la ejecución y liquidación\"><rect x=\"230\" y=\"8\" width=\"200\" height=\"36\" rx=\"9\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/><text x=\"330\" y=\"31\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">EL PRESUPUESTO EN MARCHA</text><line x1=\"330\" y1=\"44\" x2=\"330\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"130\" y1=\"60\" x2=\"530\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"130\" y1=\"60\" x2=\"130\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"330\" y1=\"60\" x2=\"330\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"530\" y1=\"60\" x2=\"530\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><rect x=\"25\" y=\"78\" width=\"210\" height=\"140\" rx=\"9\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/><text x=\"130\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--acc)\">CÓMO SE GASTA</text><text x=\"130\" y=\"126\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">183 · régimen</text><text x=\"130\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">184 · fases ADOP</text><text x=\"130\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">185 · competencias</text><text x=\"130\" y=\"186\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">186 y 187 · pagos</text><rect x=\"245\" y=\"78\" width=\"170\" height=\"140\" rx=\"9\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/><text x=\"330\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--warn)\">GARANTÍAS</text><text x=\"330\" y=\"126\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">188 · responsabilidad</text><text x=\"330\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">189 · acreditación</text><text x=\"330\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">190 · a justificar</text><text x=\"330\" y=\"186\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">y caja fija</text><rect x=\"425\" y=\"78\" width=\"210\" height=\"140\" rx=\"9\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/><text x=\"530\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--ej)\">CÓMO SE CIERRA</text><text x=\"530\" y=\"126\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">191 · liquidación</text><text x=\"530\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">192 · organismos</text><text x=\"530\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">193 · remanente negativo</text><text x=\"530\" y=\"186\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">193 bis · dudoso cobro</text></svg></section>";
+const RESUMEN_HTML="<section class=\"card\" id=\"resumen\"><h2>Resumen ejecutivo</h2><table><tbody><tr><th style=\"width:70px\">183</th><td>Ejecución: esta sección + <b>bases de ejecución</b> de cada entidad.</td></tr><tr><th>184</th><td>Fases <b>A-D-O-P</b>: autorización, disposición, reconocimiento de la obligación y ordenación del pago. Cabe acumularlas.</td></tr><tr><th>185</th><td>A y D: <b>presidente o Pleno</b>. O: <b>presidente</b>. Delegación por el art. 23 LBRL, recogida en las bases para cada ejercicio.</td></tr><tr><th>186</th><td>Ordena pagos el <b>presidente</b>. El Pleno puede crear unidad de ordenación de pagos y, si hay más de <b>500.000 habitantes de derecho</b>, unidad central de tesorería.</td></tr><tr><th>187</th><td>Plan de disposición de fondos del presidente, con prioridad de <b>personal</b> y de <b>obligaciones de ejercicios anteriores</b>.</td></tr><tr><th>188</th><td>Responsabilidad personal: ordenadores <b>en todo caso</b>; interventores si <b>no advierten por escrito</b>.</td></tr><tr><th>189</th><td>Acreditación documental previa de la prestación o del derecho. Subvenciones: al corriente <b>antes</b>, justificar <b>después</b>.</td></tr><tr><th>190</th><td>Pagos a justificar: <b>3 meses</b>. Anticipos de caja fija: gastos periódicos, justificación <b>en el ejercicio</b>. Prohibido repetir sin justificar.</td></tr><tr><th>191</th><td>Cierre a <b>31-DIC</b>. Remanente = fondos líquidos + derechos pendientes − obligaciones pendientes, depurado. Liquidación antes del <b>1 de marzo</b>, aprobada por el <b>presidente</b> previo informe de Intervención.</td></tr><tr><th>192</th><td>OOAA: propone su órgano, informa Intervención, <b>aprueba el presidente</b> de la entidad local.</td></tr><tr><th>193</th><td>Remanente negativo: <b>1)</b> reducir gastos en la primera sesión · <b>2)</b> operación de crédito del art. 177.5 · <b>3)</b> superávit inicial. Cuenta al Pleno y remisión al Estado y CCAA <b>antes de fin de marzo</b>.</td></tr><tr><th>193 bis</th><td>Dudoso cobro, mínimos: <b>25 %</b> (dos ejercicios anteriores) · <b>50 %</b> (tercero) · <b>75 %</b> (cuarto y quinto) · <b>100 %</b> (restantes).</td></tr></tbody></table><h2 style=\"margin-top:1.2rem\">Calendario de repaso espaciado</h2><table><thead><tr><th>Momento</th><th>Fecha</th><th>Qué hacer</th></tr></thead><tbody id=\"calbody\"></tbody></table></section>";
+</script><script>
+
+const main=document.getElementById('main');
+function panel(id,title,body,cls){return '<details class="panel '+(cls||'v-expl')+'"'+(id?' data-p="'+id+'"':'')+'><summary>'+title+'</summary><div class="body">'+body+'</div></details>';}
+let html='';
+
+html+=INTRO_HTML;
+/* ---------- ARTÍCULOS ---------- */
+ARTS.forEach(function(a){
+ html+='<section class="card art" id="art'+a.n+'">'
+ +'<h2><span class="num">Art. '+a.n+'</span> '+a.t+'</h2>'
+ +'<p class="ubic">'+a.ubic+'</p>'
+ +'<div class="idea v-expl">💡 '+a.idea+'</div>'
+ +'<div class="legal v-legal"><span class="lbl">Texto legal · literal</span>'+a.literal+'</div>'
+ +panel('','🔍 Disección estructural',a.dis)
+ +panel('','🗣️ Traducción a lenguaje llano',a.llano)
+ +panel('','❓ ¿Por qué existe este artículo?',a.porque)
+ +panel('','✅ Ejemplos','<div class="box ej"><span class="lbl">Ejemplos</span>'+a.ej+'</div>')
+ +panel('','🚫 No-ejemplos: dónde está la frontera','<div class="box exc"><span class="lbl">No-ejemplos</span>'+a.noej+'</div>')
+ +panel('','🔗 Conexiones con otros preceptos',a.conex)
+ +panel('','⚠️ Trampas y errores frecuentes','<div class="box warn"><span class="lbl">Cuidado</span>'+a.trampas+'</div>')
+ +panel('','🧠 Anclaje memorístico',a.ancla)
+ +'<div class="v-expl">'+a.vis+'</div>'
+ +'</section>';
+});
+
+/* ---------- PLAZOS ---------- */
+html+='<section class="card" id="plazos"><h2>Tabla de plazos y cifras</h2>'
++'<p class="small">Pulsa en las cabeceras para ordenar. Si solo te llevas una cosa de esta sesión, que sea esta tabla.</p>'
++'<table id="tplazos"><thead><tr><th class="sortable">Plazo / cifra</th><th class="sortable">Trámite</th><th class="sortable">Quién</th><th class="sortable">Art.</th><th>Matiz</th></tr></thead><tbody>';
+PLAZOS.forEach(function(p){html+='<tr><td><b>'+p[0]+'</b></td><td>'+p[1]+'</td><td>'+p[2]+'</td><td>'+p[3]+'</td><td class="small">'+p[4]+'</td></tr>';});
+html+='</tbody></table></section>';
+
+/* ---------- CASOS ---------- */
+html+='<section class="card" id="casos"><h2>Casos prácticos</h2><p class="small">Intenta resolverlos <b>antes</b> de abrir la solución: el esfuerzo de recuperar es lo que fija el aprendizaje.</p>';
+CASOS.forEach(function(c,i){
+ html+='<details class="panel"><summary>'+c.t+'</summary><div class="body"><p>'+c.e+'</p>'
+ +'<button class="revelar" data-i="'+i+'">Ver solución</button><div class="sol hide" id="sol'+i+'">'+c.s+'</div></div></details>';
+});
+html+='</section>';
+
+/* ---------- FLASHCARDS ---------- */
+html+='<section class="card noprint" id="flash"><h2>Flashcards</h2>'
++'<div id="fcbox" style="border:1px solid var(--line);border-radius:12px;padding:1.1rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer" tabindex="0" role="button" aria-label="Tarjeta: pulsa para girar"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.7rem">'
++'<button id="fcflip">Girar</button><button id="fcok">✔ Lo sabía</button><button id="fcko">↻ Repasar</button><button id="fcreset">Reiniciar</button>'
++'<span class="small" id="fccount"></span></div></section>';
+
+/* ---------- TEST ---------- */
+html+='<section class="card noprint" id="test"><h2>Test de autoevaluación</h2>'
++'<p class="small">Preguntas intercaladas de los diez artículos. Corrección inmediata y explicación de por qué falla cada opción incorrecta.</p>'
++'<div id="testbox"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem"><button id="tcorr">Corregir todo</button><button id="tfail">Repetir solo los fallos</button><button id="treset">Reiniciar test</button></div>'
++'<p id="tscore" class="small" style="margin-top:.6rem"></p></section>';
+
+/* ---------- SEMÁFORO ---------- */
+html+='<section class="card" id="semaforo"><h2>Semáforo de autoevaluación</h2>'
++'<p class="small">Marca honestamente cada concepto. Abajo se genera tu lista de repaso.</p><div id="sembox"></div>'
++'<div id="semres" style="margin-top:.8rem"></div></section>';
+
+html+=RESUMEN_HTML;
+/* ---------- GLOSARIO ---------- */
+html+='<section class="card" id="glosario"><h2>Glosario completo</h2><table><tbody id="glosbody"></tbody></table></section>';
+
+main.innerHTML=html;
+
+</script><script>
+
+/* ---------- ÍNDICE LATERAL ---------- */
+(function(){
+ var n='<h2>Artículos</h2>';
+ ARTS.forEach(function(a){n+='<a href="#art'+a.n+'"><b>'+a.n+'</b>'+a.t+'</a>';});
+ n+='<h2>Herramientas</h2>'
+  +'<a href="#plazos">Tabla de plazos</a><a href="#casos">Casos prácticos</a><a href="#flash">Flashcards</a>'
+  +'<a href="#test">Test</a><a href="#semaforo">Semáforo</a><a href="#resumen">Resumen y repaso</a><a href="#glosario">Glosario</a>';
+ document.getElementById('navbody').innerHTML=n;
+})();
+document.getElementById('navtoggle').onclick=function(){
+ var s=document.getElementById('side');s.classList.toggle('collapsed');
+ this.setAttribute('aria-expanded',s.classList.contains('collapsed')?'false':'true');
+};
+
+/* ---------- GLOSARIO Y TOOLTIPS ---------- */
+var LABEL={adop:"Fases ADOP",autorizacion:"Autorización (A)",disposicion:"Disposición (D)",reconocimiento:"Reconocimiento (O)",ordenacion:"Ordenación del pago (P)",ordenador:"Ordenador de pagos",planfondos:"Plan de disposición de fondos",ajustificar:"Pago a justificar",cajafija:"Anticipo de caja fija",remtes:"Remanente de tesorería",dudoso:"Derechos de dudoso cobro",superavit:"Superávit inicial",presupuesto:"Presupuesto",credito:"Crédito presupuestario",obligacion:"Obligación reconocida",derecho:"Derecho liquidado",oa:"Organismo autónomo",sociedad:"Sociedad mercantil local",bases:"Bases de ejecución",estabilidad:"Estabilidad presupuestaria",afectacion:"Principio de no afectación",bruto:"Principio de presupuesto bruto",nivelacion:"Nivelación presupuestaria",aplicacion:"Aplicación presupuestaria",vinculacion:"Nivel de vinculación jurídica",intervencion:"Intervención",pleno:"Pleno",bop:"Boletín Oficial de la Provincia",prorroga:"Prórroga presupuestaria",interesado:"Interesado",liquidacion:"Liquidación del presupuesto",tcuentas:"Tribunal de Cuentas",conten:"Recurso contencioso-administrativo"};
+(function(){var g='';Object.keys(GLOSARIO).forEach(function(k){g+='<tr><th style="width:210px">'+(LABEL[k]||k)+'</th><td>'+GLOSARIO[k]+'</td></tr>';});
+ document.getElementById('glosbody').innerHTML=g;})();
+var tip=document.getElementById('tip');
+function showTip(el){var k=el.getAttribute('data-k');if(!GLOSARIO[k])return;
+ tip.innerHTML='<b>'+(LABEL[k]||k)+'</b><br>'+GLOSARIO[k];tip.style.display='block';
+ var r=el.getBoundingClientRect();var top=r.bottom+8;var left=Math.min(r.left,window.innerWidth-340);
+ if(top+tip.offsetHeight>window.innerHeight)top=Math.max(8,r.top-tip.offsetHeight-8);
+ tip.style.top=top+'px';tip.style.left=Math.max(8,left)+'px';}
+function hideTip(){tip.style.display='none';}
+document.addEventListener('mouseover',function(e){var t=e.target.closest('.t');if(t)showTip(t);});
+document.addEventListener('mouseout',function(e){if(e.target.closest('.t'))hideTip();});
+document.addEventListener('click',function(e){var t=e.target.closest('.t');if(t){e.preventDefault();showTip(t);}else hideTip();});
+
+/* ---------- VISTA LEGAL / EXPLICACIÓN ---------- */
+document.querySelectorAll('[data-view]').forEach(function(b){
+ b.onclick=function(){
+  document.querySelectorAll('[data-view]').forEach(function(x){x.setAttribute('aria-pressed','false');});
+  b.setAttribute('aria-pressed','true');
+  var v=b.getAttribute('data-view');
+  document.querySelectorAll('.v-legal').forEach(function(e){e.classList.toggle('hide',v==='expl');});
+  document.querySelectorAll('.v-expl').forEach(function(e){e.classList.toggle('hide',v==='legal');});
+ };});
+
+/* ---------- DESPLEGAR / TEMA / FUENTE ---------- */
+var openAll=false;
+document.getElementById('expand').onclick=function(){
+ openAll=!openAll;document.querySelectorAll('details.panel').forEach(function(d){d.open=openAll;});
+ this.textContent=openAll?'Plegar todo':'Desplegar todo';};
+document.getElementById('theme').onclick=function(){
+ var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
+var fs=16;
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);document.documentElement.style.setProperty('--fs',fs+'px');};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);document.documentElement.style.setProperty('--fs',fs+'px');};
+
+/* ---------- PROGRESO Y NAV ACTIVA ---------- */
+window.addEventListener('scroll',function(){
+ var h=document.body.scrollHeight-window.innerHeight;
+ document.getElementById('prog').style.width=(h>0?(window.scrollY/h*100):0)+'%';
+ var cur=null;document.querySelectorAll('section.card').forEach(function(s){
+  if(s.getBoundingClientRect().top<120)cur=s.id;});
+ document.querySelectorAll('nav.side a').forEach(function(a){
+  a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ---------- BUSCADOR ---------- */
+var q=document.getElementById('q'),timer=null;
+function clearMarks(){document.querySelectorAll('mark.hit').forEach(function(m){
+ var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});}
+q.addEventListener('input',function(){
+ clearTimeout(timer);timer=setTimeout(function(){
+  clearMarks();
+  var term=q.value.trim();
+  document.querySelectorAll('section.card').forEach(function(s){s.classList.remove('hide');});
+  if(term.length<3)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  document.querySelectorAll('section.card').forEach(function(s){
+   var found=false;
+   var w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT,null);var nodes=[];
+   while(w.nextNode()){var nd=w.currentNode;
+    if(nd.parentNode.closest('script,style,mark'))continue;
+    if(rx.test(nd.nodeValue)){nodes.push(nd);rx.lastIndex=0;}}
+   nodes.forEach(function(nd){
+    found=true;
+    var span=document.createElement('span');
+    span.innerHTML=nd.nodeValue.replace(rx,function(m){return '<mark class="hit">'+m+'</mark>';});
+    nd.parentNode.replaceChild(span,nd);});
+   if(found){s.querySelectorAll('details.panel').forEach(function(d){if(d.querySelector('mark.hit'))d.open=true;});}
+   s.classList.toggle('hide',!found);
+  });
+ },220);});
+
+/* ---------- CASOS ---------- */
+document.querySelectorAll('.revelar').forEach(function(b){
+ b.onclick=function(){var s=document.getElementById('sol'+b.getAttribute('data-i'));
+  s.classList.toggle('hide');b.textContent=s.classList.contains('hide')?'Ver solución':'Ocultar solución';};});
+
+/* ---------- TABLA ORDENABLE ---------- */
+(function(){var t=document.getElementById('tplazos');var dir={};
+ t.querySelectorAll('th.sortable').forEach(function(th,i){
+  th.onclick=function(){
+   var tb=t.tBodies[0];var rows=[].slice.call(tb.rows);
+   dir[i]=!dir[i];
+   rows.sort(function(a,b){var x=a.cells[i].innerText.trim(),y=b.cells[i].innerText.trim();
+    return dir[i]?x.localeCompare(y,'es',{numeric:true}):y.localeCompare(x,'es',{numeric:true});});
+   rows.forEach(function(r){tb.appendChild(r);});};});})();
+
+/* ---------- FLASHCARDS ---------- */
+var order=FLASH.map(function(_,i){return i;}),fi=0,flipped=false,ok=0,ko=0;
+function drawFC(){
+ var box=document.getElementById('fcbox');
+ if(!order.length){box.innerHTML='<b>¡Ronda terminada!</b><br><span class="small">Pulsa Reiniciar para volver a empezar.</span>';
+  document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko;return;}
+ if(fi>=order.length)fi=0;
+ var c=FLASH[order[fi]];
+ box.innerHTML=flipped?'<div class="small" style="color:var(--acc);margin-bottom:.4rem">RESPUESTA</div><div>'+c[1]+'</div>'
+  :'<div class="small" style="color:var(--ink2);margin-bottom:.4rem">PREGUNTA '+(fi+1)+' / '+order.length+'</div><div style="font-weight:600;font-size:1.05rem">'+c[0]+'</div><div class="small" style="margin-top:.6rem;color:var(--ink2)">Piensa la respuesta y pulsa para girar</div>';
+ document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko+' · Quedan: '+order.length;
+}
+function flip(){flipped=!flipped;drawFC();}
+document.getElementById('fcbox').onclick=flip;
+document.getElementById('fcbox').onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
+document.getElementById('fcflip').onclick=flip;
+document.getElementById('fcok').onclick=function(){if(!order.length)return;ok++;order.splice(fi,1);flipped=false;drawFC();};
+document.getElementById('fcko').onclick=function(){if(!order.length)return;ko++;var m=order.splice(fi,1)[0];order.push(m);flipped=false;drawFC();};
+document.getElementById('fcreset').onclick=function(){order=FLASH.map(function(_,i){return i;});fi=0;ok=0;ko=0;flipped=false;drawFC();};
+drawFC();
+
+/* ---------- TEST ---------- */
+var state=TEST.map(function(){return{ans:null,done:false,right:false};});
+var visible=TEST.map(function(_,i){return i;});
+function drawTest(){
+ var h='';
+ visible.forEach(function(qi){
+  var t=TEST[qi],s=state[qi];
+  h+='<div style="border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;margin:.55rem 0" data-q="'+qi+'">';
+  h+='<div style="font-weight:600"><span class="chip">Art. '+t.a+'</span> '+t.q+'</div>';
+  if(t.o){
+   t.o.forEach(function(op,oi){
+    var mark='';
+    if(s.done){if(op[1])mark=' style="background:var(--ej-bg);border-color:var(--ej)"';
+     else if(s.ans===oi)mark=' style="background:var(--exc-bg);border-color:var(--exc)"';}
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'"'+mark+' style="'+(mark?mark.slice(8,-1):'')+';border:1px solid '+(s.ans===oi&&!s.done?'var(--acc)':'var(--line)')+';border-radius:8px;padding:.35rem .6rem;margin:.3rem 0;cursor:pointer">'+String.fromCharCode(97+oi)+') '+op[0]
+     +(s.done?'<div class="small" style="margin-top:.2rem">'+op[2]+'</div>':'')+'</div>';});
+  }else if(t.vf){
+   [['Verdadero',true],['Falso',false]].forEach(function(p,oi){
+    var sel=s.ans===oi;
+    var col=s.done?((p[1]===t.ok)?'var(--ej)':(sel?'var(--exc)':'var(--line)')):(sel?'var(--acc)':'var(--line)');
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'" style="display:inline-block;border:1px solid '+col+';border-radius:8px;padding:.3rem .9rem;margin:.3rem .4rem .3rem 0;cursor:pointer">'+p[0]+'</div>';});
+   if(s.done)h+='<div class="small" style="margin-top:.3rem">'+t.fb+'</div>';
+  }else{
+   h+='<input type="text" class="gap" data-q="'+qi+'" value="'+(s.ans||'')+'" placeholder="escribe tu respuesta" style="margin-top:.4rem;padding:.35rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);width:260px">';
+   if(s.done)h+='<div class="small" style="margin-top:.3rem;color:'+(s.right?'var(--ej)':'var(--exc)')+'">'+(s.right?'Correcto. ':'Respuesta correcta: <b>'+t.gap+'</b>. ')+t.fb+'</div>';
+  }
+  h+='</div>';});
+ document.getElementById('testbox').innerHTML=h;
+ document.querySelectorAll('.opt').forEach(function(o){
+  o.onclick=function(){var qi=+o.getAttribute('data-q');if(state[qi].done)return;
+   state[qi].ans=+o.getAttribute('data-o');drawTest();};});
+ document.querySelectorAll('.gap').forEach(function(g){
+  g.oninput=function(){state[+g.getAttribute('data-q')].ans=g.value;};});
+}
+function norm(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+document.getElementById('tcorr').onclick=function(){
+ var n=0,tot=visible.length;
+ visible.forEach(function(qi){var t=TEST[qi],s=state[qi];s.done=true;
+  if(t.o)s.right=(t.o[s.ans]&&t.o[s.ans][1]===1);
+  else if(t.vf)s.right=((s.ans===0)===t.ok);
+  else s.right=norm(s.ans)===norm(t.gap);
+  if(s.right)n++;});
+ drawTest();
+ var pct=tot?Math.round(n/tot*100):0;
+ document.getElementById('tscore').innerHTML='<b>Resultado: '+n+' / '+tot+' ('+pct+' %).</b> '
+  +(pct>=90?'Dominas el bloque. Pasa a los artículos 172 y siguientes.':pct>=70?'Buen nivel: repasa los fallos y vuelve mañana.':'Aún no está fijado: relee los artículos de los fallos y repite el test.');
+};
+document.getElementById('tfail').onclick=function(){
+ var f=visible.filter(function(qi){return state[qi].done&&!state[qi].right;});
+ if(!f.length){document.getElementById('tscore').innerHTML='<b>No hay fallos que repetir.</b>';return;}
+ visible=f;f.forEach(function(qi){state[qi]={ans:null,done:false,right:false};});
+ drawTest();document.getElementById('tscore').textContent='Repitiendo '+f.length+' preguntas falladas.';
+};
+document.getElementById('treset').onclick=function(){
+ state=TEST.map(function(){return{ans:null,done:false,right:false};});
+ visible=TEST.map(function(_,i){return i;});drawTest();document.getElementById('tscore').textContent='';};
+drawTest();
+
+/* ---------- SEMÁFORO ---------- */
+var sem=SEMAFORO.map(function(){return 0;});
+function drawSem(){
+ var h='<table><tbody>';
+ SEMAFORO.forEach(function(c,i){
+  h+='<tr><td>'+c+'</td><td style="width:150px;white-space:nowrap">'
+   +['🟢','🟡','🔴'].map(function(e,j){
+     var on=sem[i]===j+1;
+     return '<button class="sembtn" data-i="'+i+'" data-v="'+(j+1)+'" style="font-size:1rem;padding:.15rem .35rem;margin-right:.2rem;border-color:'+(on?'var(--acc)':'var(--line)')+';background:'+(on?'var(--acc-soft)':'var(--panel)')+'">'+e+'</button>';}).join('')
+   +'</td></tr>';});
+ h+='</tbody></table>';
+ document.getElementById('sembox').innerHTML=h;
+ document.querySelectorAll('.sembtn').forEach(function(b){
+  b.onclick=function(){sem[+b.getAttribute('data-i')]=+b.getAttribute('data-v');drawSem();};});
+ var rojos=[],ambar=[];
+ sem.forEach(function(v,i){if(v===3)rojos.push(SEMAFORO[i]);if(v===2)ambar.push(SEMAFORO[i]);});
+ var r='';
+ if(rojos.length)r+='<div class="box exc"><span class="lbl">Repasa hoy mismo</span><ul><li>'+rojos.join('</li><li>')+'</li></ul></div>';
+ if(ambar.length)r+='<div class="box warn"><span class="lbl">Refuerza en 24 h</span><ul><li>'+ambar.join('</li><li>')+'</li></ul></div>';
+ if(!rojos.length&&!ambar.length&&sem.some(function(v){return v===1;}))r='<div class="box ej"><span class="lbl">Bien</span>Todo lo marcado está en verde. Consolida con el test y vuelve en 3 días.</div>';
+ document.getElementById('semres').innerHTML=r;
+}
+drawSem();
+
+/* ---------- CALENDARIO DE REPASO ---------- */
+(function(){
+ var hoy=new Date();
+ function f(d){var x=new Date(hoy.getTime());x.setDate(x.getDate()+d);
+  return x.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});}
+ var filas=[['Hoy',f(0),"Lectura activa + test completo + semáforo. Dibuja de memoria la cadena ADOP con sus órganos."],['+24 horas',f(1),"Solo flashcards y tabla de plazos: 3 meses, 1 de marzo, fin de marzo, 500.000, 25-50-75-100."],['+3 días',f(3),"Caso práctico 2 (la liquidación que sale mal), rehaciendo el cálculo con otras cifras. Fallos del test."],['+7 días',f(7),"Explicar en voz alta qué es el remanente de tesorería y las tres medidas del art. 193. Casos 1 y 3."],['+21 días',f(21),"Test intercalado con los bloques 1 y 2 y con el bloque 4 (control y fiscalización)."]];
+ document.getElementById('calbody').innerHTML=filas.map(function(r){
+  return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('');
+})();
+
+</script>
+<script>
+/* ═══ Mejoras de interacción · Bloque II ═══ */
+(function(){
+"use strict";
+var K_THEME="oposi_bII_theme", K_FS="oposi_bII_fs", K_STREAK="oposi_bII_streak";
+function load(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return f;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var root=document.documentElement;
+
+/* Tema persistente (sobrescribe el toggle simple anterior) */
+var saved=load(K_THEME,null);
+if(saved){root.setAttribute("data-theme",saved);}
+else if(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches){root.setAttribute("data-theme","dark");}
+var bt=document.getElementById("theme");
+if(bt)bt.onclick=function(){
+  var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-theme",n);save(K_THEME,n);
+};
+
+/* Tamaño de texto persistente */
+var fs=load(K_FS,16);
+function setFs(v){fs=Math.max(13,Math.min(22,v));root.style.setProperty("--fs",fs+"px");save(K_FS,fs);}
+setFs(fs);
+var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
+if(bp)bp.onclick=function(){setFs(fs+1);};
+if(bm)bm.onclick=function(){setFs(fs-1);};
+
+/* Racha compartida con el índice */
+(function(){
+  var el=document.getElementById("streakN");if(!el)return;
+  var hoy=new Date().toISOString().slice(0,10);
+  var s=load(K_STREAK,{last:null,n:0});
+  if(s.last!==hoy){
+    var ayer=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    s.n=(s.last===ayer)?s.n+1:1;s.last=hoy;save(K_STREAK,s);
+  }
+  el.textContent=s.n;
+})();
+
+/* Reveal on scroll para las tarjetas */
+function reveal(){
+  var els=document.querySelectorAll("section.card:not(.rv)");
+  if(!els.length)return;
+  if(!("IntersectionObserver" in window)){return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:"0px 0px -30px 0px"});
+  Array.prototype.forEach.call(els,function(el){el.classList.add("rv");io.observe(el);});
+}
+
+/* Sección activa en el índice lateral */
+function spy(){
+  var links=document.querySelectorAll("nav.side a[href^='#']");
+  if(!links.length||!("IntersectionObserver" in window))return;
+  var map={};
+  Array.prototype.forEach.call(links,function(a){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(t)map[t.id]=a;
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        Array.prototype.forEach.call(links,function(a){a.classList.remove("on");});
+        if(map[en.target.id])map[en.target.id].classList.add("on");
+      }
+    });
+  },{rootMargin:"-80px 0px -70% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* Ripple en botones */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.classList.contains("navtoggle"))return;
+  var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement("span");
+  s.className="ripple";s.style.width=s.style.height=d+"px";
+  s.style.left=(e.clientX-r.left-d/2)+"px";s.style.top=(e.clientY-r.top-d/2)+"px";
+  b.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},560);
+});
+
+/* Atajos de teclado */
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea"))return;
+  if(e.key==="/"){var q=document.getElementById("q");if(q){e.preventDefault();q.focus();}}
+  if(e.key==="t"&&bt)bt.click();
+});
+
+/* El contenido se inyecta por JS: esperamos a que exista */
+function init(){reveal();spy();}
+if(document.getElementById("main")&&document.getElementById("main").children.length){init();}
+else{setTimeout(init,60);}
+addEventListener("load",function(){setTimeout(init,80);});
+})();
+
+</script>
+<script>
+
+/* ═══ Parser de respuestas: estructura semántica ═══ */
+var FCFMT=(function(){
+  var CITA=/\s*\(((?:arts?\.|DA\b|DT\b|disp\.)[^)]*)\)\s*\.?\s*$/i;
+  var strip=function(h){return h.replace(/<[^>]+>/g,"");};
+
+  function esc(s){return s;}
+
+  function parse(raw){
+    var out={verdict:null,cite:null,kind:"p",items:[],text:""};
+    var body=String(raw).trim();
+
+    /* 1 ── Cita legal al final */
+    var m=body.match(CITA);
+    if(m){out.cite=m[1].replace(/\s+/g," ").trim();body=body.slice(0,m.index).trim();}
+    body=body.replace(/[.;,\s]+$/,"");
+
+    /* 2 ── Veredicto Sí / No inicial */
+    var v=strip(body).match(/^(Sí|Sí,|No|No,)[.:,]?\s/);
+    if(v){
+      out.verdict=/^Sí/.test(v[1])?"si":"no";
+      body=body.replace(/^(<[^>]+>\s*)*(Sí|No)[.,:]?\s*/,"").trim();
+      body=body.replace(/^en\s/,"En ");
+    }
+
+    /* 3 ── Enumeración con · */
+    var parts=body.split(/\s+·\s+/);
+    if(parts.length>=2){
+      out.kind="list";
+      var letras=parts.filter(function(p){return /^\s*<?[a-h]\)/.test(strip(p));}).length;
+      out.marker = letras>=parts.length-1 ? "alpha" : "num";
+      out.items=parts.map(function(p){
+        return p.replace(/^\s*[a-h]\)\s*/,"").replace(/[.\s]+$/,"").trim();
+      }).filter(Boolean);
+      return out;
+    }
+
+    /* 4 ── Cláusulas contrapuestas con ; */
+    var semi=body.split(/;\s+/);
+    if(semi.length>=2&&semi.length<=3&&semi.every(function(s){return strip(s).length>14;})){
+      out.kind="clauses";
+      out.items=semi.map(function(s){return s.replace(/[.\s]+$/,"").trim();});
+      return out;
+    }
+
+    /* 5 ── Párrafo */
+    out.text=body;
+    return out;
+  }
+
+  function render(raw){
+    var d=parse(raw),h="";
+
+    if(d.verdict){
+      h+='<span class="fc-verdict '+d.verdict+'">'+(d.verdict==="si"?"✓ Sí":"✗ No")+'</span>';
+    }
+
+    if(d.kind==="list"){
+      h+='<ol class="fc-list '+d.marker+'">';
+      d.items.forEach(function(it){h+='<li>'+it+'</li>';});
+      h+='</ol>';
+    }else if(d.kind==="clauses"){
+      h+='<div class="fc-clauses">';
+      d.items.forEach(function(it){h+='<p>'+it+'</p>';});
+      h+='</div>';
+    }else if(d.text){
+      h+='<p class="fc-p">'+d.text+'</p>';
+    }
+
+    if(d.cite){
+      h+='<span class="fc-cite"><span class="s">§</span>'+d.cite+'</span>';
+    }
+    return {html:h,struct:(d.kind!=="p"||!!d.verdict||strip(raw).length>150)};
+  }
+  return {parse:parse,render:render};
+})();
+
+/* ═══ FLASHCARDS 3D ═══ */
+(function(){
+"use strict";
+function boot(){
+  var sec=document.getElementById("flash");
+  if(!sec||sec.dataset.fc3d)return false;
+  if(typeof FLASH==="undefined"||!FLASH||!FLASH.length)return false;
+  sec.dataset.fc3d="1";
+
+  var CARDS=FLASH, N=CARDS.length;
+  var order,fi,ok,ko,back,busy;
+
+  /* — Estructura — */
+  var h2=sec.querySelector("h2");
+  sec.innerHTML="";
+  if(h2)sec.appendChild(h2);
+  var intro=document.createElement("p");
+  intro.className="small";
+  intro.innerHTML="Piensa la respuesta <b>antes</b> de girar: el esfuerzo de recuperarla es lo que la fija. "
+    +'<span class="fc-hint" style="position:static;display:inline;color:inherit">'
+    +'<span class="kbd">espacio</span> girar · <span class="kbd">→</span> lo sabía · <span class="kbd">←</span> repasar</span>';
+  sec.appendChild(intro);
+
+  var stage=document.createElement("div");
+  stage.className="fc-stage";
+  stage.innerHTML=
+    '<div class="fc-deck" id="fcdeck">'
+    +'<span class="fc-ghost g2"></span><span class="fc-ghost g1"></span>'
+    +'<div class="fc-lift" id="fclift">'
+      +'<div class="fc-card" id="fcbox" tabindex="0" role="button" aria-label="Tarjeta. Pulsa para girar">'
+        +'<div class="fc-face fc-front">'
+          +'<span class="fc-tag">Pregunta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">Pulsa para girar</span>'
+        +'</div>'
+        +'<div class="fc-face fc-back">'
+          +'<span class="fc-tag">Respuesta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">¿La sabías?</span>'
+        +'</div>'
+      +'</div>'
+    +'</div></div>';
+  sec.appendChild(stage);
+
+  var bar=document.createElement("div");
+  bar.className="fc-bar";bar.innerHTML="<i></i>";
+  sec.appendChild(bar);
+
+  var ctr=document.createElement("div");
+  ctr.className="fc-ctrls noprint";
+  ctr.innerHTML='<button id="fcflip">⟲ Girar</button>'
+    +'<button id="fcok">✔ Lo sabía</button>'
+    +'<button id="fcko">↻ Repasar</button>'
+    +'<button id="fcreset">Reiniciar</button>'
+    +'<span class="fc-score">'
+      +'<span class="fc-pill ok" id="fcpok">0 sabidas</span>'
+      +'<span class="fc-pill ko" id="fcpko">0 repasar</span>'
+      +'<span class="fc-pill left" id="fccount">0</span>'
+    +'</span>';
+  sec.appendChild(ctr);
+
+  var deck=stage.querySelector("#fcdeck"), lift=stage.querySelector("#fclift"),
+      card=stage.querySelector("#fcbox"),
+      front=stage.querySelector(".fc-front"), backf=stage.querySelector(".fc-back"),
+      fill=bar.querySelector("i"),
+      pok=ctr.querySelector("#fcpok"), pko=ctr.querySelector("#fcpko"),
+      pleft=ctr.querySelector("#fccount");
+  var rot=0;
+
+  function reset(){
+    order=CARDS.map(function(_,i){return i;});
+    fi=0;ok=0;ko=0;back=false;busy=false;rot=0;
+    card.style.transition="none";card.style.transform="rotateY(0deg)";
+    void card.offsetWidth;card.style.transition="";
+    deck.classList.remove("empty");
+    var d=stage.querySelector(".fc-done");if(d)d.remove();
+    card.style.display="";
+    draw();
+  }
+
+  function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+
+  function draw(){
+    pok.textContent=ok+(ok===1?" sabida":" sabidas");
+    pko.textContent=ko+" repasar";
+    var done=N-order.length;
+    fill.style.width=(N?done/N*100:0)+"%";
+
+    if(!order.length){
+      pleft.textContent="0 quedan";
+      deck.classList.add("empty");
+      card.style.display="none";
+      if(!stage.querySelector(".fc-done")){
+        var d=document.createElement("div");
+        d.className="fc-done";
+        d.innerHTML='<span class="seal">🏆</span><h3>Ronda completada</h3>'
+          +'<p>'+ok+' de '+N+' a la primera'+(ko?' · '+ko+' necesitaron repaso':'')+'</p>';
+        deck.appendChild(d);
+      }
+      return;
+    }
+    if(fi>=order.length)fi=0;
+    pleft.textContent=order.length+(order.length===1?" queda":" quedan");
+
+    var c=CARDS[order[fi]];
+    front.querySelector(".fc-txt").innerHTML='<p class="fc-p">'+c[0]+'</p>';
+    var r=FCFMT.render(c[1]);
+    backf.querySelector(".fc-txt").innerHTML=r.html;
+    backf.classList.toggle("struct",r.struct);
+    var hint=backf.querySelector(".fc-hint");
+    if(hint)hint.classList.toggle("muted",/fc-cite/.test(r.html));
+    var pip=(done+1)+"/"+N;
+    Array.prototype.forEach.call(stage.querySelectorAll(".fc-pip"),function(p){p.textContent=pip;});
+  }
+
+  function flip(){
+    if(busy||!order.length)return;
+    back=!back;rot+=180;
+    card.style.transform="rotateY("+rot+"deg)";
+    card.setAttribute("aria-label",back?"Respuesta. Pulsa para volver":"Pregunta. Pulsa para girar");
+    lift.classList.remove("lift");void lift.offsetWidth;lift.classList.add("lift");
+  }
+
+  function next(good){
+    if(busy||!order.length)return;
+    busy=true;
+    if(good){ok++;bump(pok);}else{ko++;bump(pko);}
+    lift.classList.remove("lift");
+    lift.classList.add(good?"out-ok":"out-ko");
+    setTimeout(function(){
+      if(good){order.splice(fi,1);}
+      else{var m=order.splice(fi,1)[0];order.push(m);}
+      back=false;rot=0;
+      card.style.transition="none";card.style.transform="rotateY(0deg)";
+      void card.offsetWidth;card.style.transition="";
+      draw();
+      lift.classList.remove("out-ok","out-ko");
+      lift.classList.add("in");
+      setTimeout(function(){lift.classList.remove("in");busy=false;},480);
+    },460);
+  }
+
+  card.onclick=flip;
+  card.onkeydown=function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();flip();}
+    if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  };
+  ctr.querySelector("#fcflip").onclick=flip;
+  ctr.querySelector("#fcok").onclick=function(){next(true);};
+  ctr.querySelector("#fcko").onclick=function(){next(false);};
+  ctr.querySelector("#fcreset").onclick=reset;
+
+  /* Deslizar en táctil */
+  var x0=null,y0=null;
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  card.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){next(dx>0);}
+    x0=y0=null;
+  },{passive:true});
+
+  /* Atajos globales cuando el mazo está a la vista */
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    var r=stage.getBoundingClientRect();
+    if(r.bottom<80||r.top>innerHeight-80)return;
+    if(e.key===" "){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    else if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  });
+
+  reset();
+  return true;
+}
+if(!boot()){
+  var tries=0;
+  var iv=setInterval(function(){if(boot()||++tries>40)clearInterval(iv);},120);
+  addEventListener("load",function(){setTimeout(boot,100);});
+}
+})();
+
+</script>
+</body>
+</html>

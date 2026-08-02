@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>TRLHL · Arts. 208-212 y 213-223 · Cuenta general, control y fiscalización</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   SISTEMA DE DISEÑO · "Académico Gamificado" · Bloque II
+   Temas 8, 9 y 10 · Auxiliar Administrativo
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --fs:16px;
+
+  --bg:#faf9f7;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #dcf5ee 0%, transparent 50%);
+  --surface:#ffffff;
+  --surface-2:#f4f3f0;
+  --surface-3:#eceae5;
+  --line:#e6e3dc;
+  --line-strong:#d4d0c7;
+
+  --ink:#15161c;
+  --ink-2:#5d616e;
+  --ink-3:#8b8f9c;
+
+  --brand:#5b3df5;
+  --brand-2:#7c5cff;
+  --brand-soft:#efeaff;
+  --brand-ring:rgba(91,61,245,.18);
+
+  --legal:#4338ca;  --legal-bg:#eeecff;
+  --ej:#059669;     --ej-bg:#e4f7f0;
+  --warn:#c2690a;   --warn-bg:#fdf1de;
+  --exc:#dc2626;    --exc-bg:#ffeceb;
+
+  --ok:#16a34a; --ok-soft:#e7f7ec;
+  --mid:#eab308; --mid-soft:#fdf6dd;
+  --off:#a1a1aa; --off-soft:#f1f1f3;
+
+  --sh-1:0 1px 2px rgba(20,20,30,.04), 0 2px 8px rgba(20,20,30,.04);
+  --sh-2:0 2px 6px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.07);
+  --sh-3:0 8px 20px rgba(91,61,245,.13), 0 24px 56px rgba(20,20,30,.10);
+  --sh-glow:0 0 0 4px var(--brand-ring);
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-full:999px;
+
+  --f-display:"Segoe UI Variable Display",system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-legal:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+
+  --t-h1:clamp(1.02rem,.95rem + .3vw,1.2rem);
+  --t-h2:clamp(1.2rem,1.05rem + .6vw,1.55rem);
+  --t-h3:clamp(1rem,.95rem + .25vw,1.12rem);
+  --t-sm:.86rem;
+  --t-xs:.75rem;
+
+  --e-out:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+
+  /* ── Compatibilidad con SVG y contenido generado ── */
+  --panel:var(--surface);
+  --ink2:var(--ink-2);
+  --acc:var(--brand);
+  --acc-soft:var(--brand-soft);
+  --g:var(--ok); --y:var(--mid); --r:var(--exc);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0b0f;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #1c1740 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #08302b 0%, transparent 50%);
+  --surface:#13151b;
+  --surface-2:#1a1d25;
+  --surface-3:#232733;
+  --line:#262a34;
+  --line-strong:#343947;
+
+  --ink:#eceef4;
+  --ink-2:#9ba2b3;
+  --ink-3:#6e7585;
+
+  --brand:#8b6dff;
+  --brand-2:#a78bff;
+  --brand-soft:#1e1a3d;
+  --brand-ring:rgba(139,109,255,.22);
+
+  --legal:#a5b4fc; --legal-bg:#191b3a;
+  --ej:#34d399;    --ej-bg:#0c2a24;
+  --warn:#fbbf24;  --warn-bg:#2e2110;
+  --exc:#fb7185;   --exc-bg:#331119;
+
+  --ok:#4ade80; --ok-soft:#0e2a19;
+  --mid:#facc15; --mid-soft:#2c2610;
+  --off:#5b6070; --off-soft:#1c1f27;
+
+  --sh-1:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sh-2:0 2px 6px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.4);
+  --sh-3:0 8px 20px rgba(139,109,255,.2), 0 24px 56px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);background-image:var(--bg-grad);
+  background-attachment:fixed;background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s var(--e-out),color .3s;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.022em;line-height:1.2}
+.num{font-variant-numeric:tabular-nums}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+
+/* ═══ HEADER ═══ */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{max-width:1280px;margin:0 auto;padding:.65rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;flex:1}
+.mark{
+  width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  font-weight:800;font-size:.8rem;letter-spacing:-.02em;text-decoration:none;
+  box-shadow:0 4px 14px var(--brand-ring);
+  transition:transform .3s var(--e-spring),box-shadow .3s;
+}
+.mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0}
+.top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
+  margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+
+button,select,input[type=search]{
+  font:inherit;font-size:var(--t-sm);font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:var(--r-sm);padding:.4rem .72rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .18s var(--e-spring),border-color .2s,background .2s,box-shadow .2s,color .2s;
+}
+button:hover{transform:translateY(-1.5px);border-color:var(--brand);box-shadow:var(--sh-1)}
+button:active{transform:translateY(0) scale(.97)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:none;box-shadow:var(--sh-glow)}
+input[type=search]{min-width:190px;cursor:text;font-weight:500}
+input[type=search]:focus{border-color:var(--brand)}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);padding:2px;gap:2px}
+.seg button{border:0;border-radius:calc(var(--r-sm) - 2px);padding:.32rem .68rem;background:transparent;box-shadow:none}
+.seg button:hover{transform:none;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 2px 8px var(--brand-ring)}
+
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:currentColor;opacity:.25;animation:rip .55s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(3.4);opacity:0}}
+
+.progress{position:absolute;left:0;bottom:-1px;height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--brand),var(--legal),var(--ej));transition:width .1s linear}
+
+/* ═══ LAYOUT ═══ */
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:1.8rem;padding:1.4rem 1.1rem 5rem}
+main{min-width:0}
+
+/* ═══ SIDEBAR ═══ */
+nav.side{
+  position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:.85rem;box-shadow:var(--sh-1);
+}
+nav.side h2{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:.5rem .4rem .5rem;font-weight:800}
+nav.side h2:first-child{margin-top:.1rem}
+nav.side a{
+  display:flex;align-items:baseline;gap:.5rem;padding:.36rem .55rem;border-radius:var(--r-sm);
+  text-decoration:none;color:var(--ink-2);font-size:var(--t-sm);font-weight:500;
+  position:relative;transition:background .22s,color .22s,transform .22s var(--e-out);
+}
+nav.side a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(3px);text-decoration:none}
+nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side a.on::before{content:"";position:absolute;left:-.85rem;top:20%;bottom:20%;width:3px;
+  border-radius:0 3px 3px 0;background:var(--brand)}
+nav.side a b{color:var(--ink-3);font-weight:800;font-size:var(--t-xs);font-variant-numeric:tabular-nums;flex:none;min-width:1.9em}
+nav.side a.on b{color:var(--brand)}
+.navtoggle{display:none}
+
+/* ═══ TARJETAS ═══ */
+section.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.5rem;margin-bottom:1.1rem;box-shadow:var(--sh-1);
+  transition:box-shadow .3s var(--e-out),border-color .3s;
+}
+section.card:hover{box-shadow:var(--sh-2)}
+section.card>h2{
+  margin:0 0 1rem;font-size:var(--t-h2);font-weight:800;
+  display:flex;align-items:center;gap:.6rem;
+}
+section.card>h2::before{
+  content:"";width:4px;height:1.05em;border-radius:99px;flex:none;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+
+/* ═══ ARTÍCULO ═══ */
+.art{scroll-margin-top:86px;padding-top:.4rem}
+.art + .art{margin-top:1.6rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+.art h2{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;font-size:var(--t-h3);
+  margin:0 0 .25rem;font-weight:800;letter-spacing:-.015em}
+.art h2 .num{
+  color:var(--brand);font-weight:800;font-family:var(--f-display);
+  background:var(--brand-soft);padding:.1rem .5rem;border-radius:var(--r-sm);
+  font-size:.92em;letter-spacing:-.02em;
+}
+.ubic{font-size:var(--t-xs);color:var(--ink-3);margin:0 0 .8rem;font-weight:600;
+  letter-spacing:.03em;text-transform:uppercase}
+
+/* ═══ IDEA CLAVE ═══ */
+.idea{
+  background:linear-gradient(100deg,var(--brand-soft),color-mix(in srgb,var(--brand-soft) 40%,transparent));
+  border-left:4px solid var(--brand);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.75rem 1rem;font-weight:650;margin:.7rem 0 1rem;position:relative;
+  font-size:.97rem;line-height:1.55;
+}
+
+/* ═══ ACORDEÓN ═══ */
+details.panel{
+  border:1px solid var(--line);border-radius:var(--r-md);margin:.6rem 0;
+  background:var(--surface);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+details.panel:hover{border-color:var(--line-strong)}
+details.panel[open]{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring)}
+details.panel>summary{
+  cursor:pointer;padding:.62rem .9rem;font-weight:700;font-size:.93rem;
+  list-style:none;display:flex;align-items:center;gap:.55rem;
+  transition:background .2s,color .2s;
+}
+details.panel>summary:hover{background:var(--surface-2)}
+details.panel[open]>summary{background:var(--brand-soft);color:var(--brand)}
+details.panel>summary::-webkit-details-marker{display:none}
+details.panel>summary::before{
+  content:"";width:16px;height:16px;flex:none;border-radius:5px;
+  background:var(--brand-soft);position:relative;transition:transform .3s var(--e-spring),background .25s;
+}
+details.panel>summary::after{
+  content:"";position:absolute;width:0;height:0;margin-left:5px;
+  border:4px solid transparent;border-left-color:var(--brand);
+  transition:transform .3s var(--e-spring);
+}
+details.panel[open]>summary::before{background:var(--surface)}
+details.panel[open]>summary::after{transform:rotate(90deg) translateX(-1px)}
+details.panel .body{padding:.3rem 1rem 1rem;font-size:.95rem;animation:slidein .35s var(--e-out)}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ═══ TEXTO LEGAL ═══ */
+.legal{
+  background:var(--legal-bg);border-left:4px solid var(--legal);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:.85rem 1.05rem;
+  font-family:var(--f-legal);font-size:.95rem;line-height:1.7;
+}
+.legal p{margin:.45rem 0}
+.legal .lbl{
+  font-family:var(--f-body);font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--legal);font-weight:800;display:block;margin-bottom:.4rem;
+}
+
+/* ═══ CAJAS SEMÁNTICAS ═══ */
+.box{
+  border-left:4px solid var(--line);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.72rem .95rem;margin:.65rem 0;font-size:.94rem;
+  transition:transform .25s var(--e-out),box-shadow .25s;
+}
+.box:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
+.box.ej{background:var(--ej-bg);border-color:var(--ej)}
+.box.warn{background:var(--warn-bg);border-color:var(--warn)}
+.box.exc{background:var(--exc-bg);border-color:var(--exc)}
+.box .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+  display:block;margin-bottom:.3rem}
+.box.ej .lbl{color:var(--ej)}
+.box.warn .lbl{color:var(--warn)}
+.box.exc .lbl{color:var(--exc)}
+
+.interp{
+  border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn-bg) 45%,transparent);
+  border-radius:var(--r-md);padding:.65rem .9rem;font-size:.9rem;margin:.6rem 0;
+}
+.interp .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);font-weight:800;display:block}
+
+/* ═══ TABLAS ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;margin:.7rem 0;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+th,td{padding:.5rem .68rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td + td, th + th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-size:var(--t-xs);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+tbody tr{transition:background .18s}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+tbody tr:hover{background:var(--brand-soft)}
+th.sortable{cursor:pointer;user-select:none;transition:color .2s,background .2s}
+th.sortable:hover{color:var(--brand);background:var(--brand-soft)}
+th.sortable::after{content:" ⇅";color:var(--ink-3);font-size:.7rem}
+
+ul,ol{margin:.5rem 0 .5rem 1.2rem;padding:0}
+li{margin:.26rem 0}
+li::marker{color:var(--brand);font-weight:700}
+
+/* ═══ TOOLTIPS ═══ */
+.t{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;
+  transition:background .2s,color .2s}
+.t:hover{background:var(--brand-soft);color:var(--brand);border-radius:3px}
+#tip{
+  position:fixed;z-index:99;max-width:330px;background:var(--ink);color:var(--bg);
+  padding:.6rem .78rem;border-radius:var(--r-md);font-size:.82rem;line-height:1.5;
+  display:none;box-shadow:0 8px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);
+}
+html[data-theme="dark"] #tip{background:#f0f1f5;color:#15161c}
+
+/* ═══ FLECHAS DE DIAGRAMA ═══
+   Un <path> con stroke pero sin fill toma el valor inicial (negro) y el
+   navegador cierra el trazo implícitamente: aparece un triángulo relleno
+   entre sus extremos. Forzamos fill:none para dejar solo la línea + la
+   punta del <marker>, que sí lleva su color. */
+svg path[stroke]:not([fill]){fill:none}
+svg polyline:not([fill]){fill:none}
+svg line{fill:none}
+
+/* ═══ SVG ═══ */
+svg{max-width:100%;height:auto;display:block;margin:.9rem auto}
+svg text{font-family:var(--f-body)}
+
+/* ═══ BUSCADOR ═══ */
+mark.hit{background:linear-gradient(180deg,transparent 55%,#ffe066 55%);color:inherit;
+  border-radius:2px;padding:0 1px;font-weight:600}
+html[data-theme="dark"] mark.hit{background:linear-gradient(180deg,transparent 55%,#8a6d00 55%);color:#fff}
+
+/* ═══ UTILIDADES ═══ */
+.hide{display:none !important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.small{font-size:var(--t-sm);color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:var(--t-xs);padding:.16rem .55rem;border-radius:var(--r-full);
+  background:var(--brand-soft);color:var(--brand);font-weight:800;letter-spacing:.02em;
+}
+
+/* ═══ HUECOS RELLENABLES ═══ */
+.gap{
+  display:inline-block;min-width:5.5em;border-bottom:2px solid var(--brand);
+  text-align:center;font-weight:700;color:transparent;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.gap.on,.gap:hover{color:var(--brand);background:var(--brand-soft);border-radius:4px 4px 0 0}
+
+/* ═══ REVELAR SOLUCIÓN ═══ */
+.revelar{
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;
+  font-weight:700;
+}
+.revelar:hover{box-shadow:var(--sh-3)}
+.sol{
+  margin-top:.7rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  background:var(--ej-bg);border-left:4px solid var(--ej);
+  animation:slidein .4s var(--e-out);
+}
+
+/* ═══ TEST ═══ */
+.opt{
+  display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;background:var(--surface);font-size:.94rem;
+  transition:border-color .22s,background .22s,transform .22s var(--e-out);
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateX(4px)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:650}
+.opt.ko{border-color:var(--exc);background:var(--exc-bg)}
+.opt input{margin-right:.5rem;accent-color:var(--brand)}
+
+#tscore,#semres{
+  font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLASHCARDS 3D · mazo con giro, vuelo de salida y sheen
+   ═══════════════════════════════════════════════════════════════ */
+#flash{--fc-e:cubic-bezier(.2,.8,.25,1);--fc-h:250px}
+
+/* — Escena — */
+.fc-stage{
+  perspective:1400px;perspective-origin:50% 45%;
+  padding:.4rem 0 .2rem;position:relative;
+}
+.fc-deck{position:relative;height:var(--fc-h);will-change:transform}
+
+/* — Cartas fantasma del mazo — */
+.fc-ghost{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .5s var(--fc-e),opacity .5s var(--fc-e);
+}
+.fc-ghost.g1{transform:translateY(9px) scale(.972);opacity:.75}
+.fc-ghost.g2{transform:translateY(18px) scale(.944);opacity:.45}
+.fc-deck.empty .fc-ghost{opacity:0;transform:translateY(26px) scale(.9)}
+
+/* — Elevación durante el giro — */
+.fc-lift{position:absolute;inset:0;transform-style:preserve-3d}
+.fc-lift.lift{animation:fcLift .78s var(--fc-e)}
+@keyframes fcLift{
+  0%,100%{transform:scale(1) translateY(0)}
+  45%{transform:scale(1.055) translateY(-16px)}
+}
+.fc-lift.out-ok{animation:fcOut .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.out-ko{animation:fcOutKo .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.in{animation:fcIn .48s var(--fc-e)}
+@keyframes fcOut{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(130%) rotate(17deg) scale(.85);opacity:0}
+}
+@keyframes fcOutKo{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(-130%) rotate(-17deg) scale(.85);opacity:0}
+}
+@keyframes fcIn{
+  0%{transform:translateY(26px) scale(.9);opacity:0}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+
+/* — La carta — */
+.fc-card{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transition:transform .78s var(--fc-e);
+  cursor:pointer;border-radius:var(--r-lg);
+}
+.fc-card:focus-visible{outline:none}
+.fc-card:focus-visible .fc-face{box-shadow:var(--sh-glow),var(--sh-2)}
+
+/* — Caras — */
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 2.2rem;text-align:center;overflow:hidden;
+  box-shadow:var(--sh-2);
+  transition:box-shadow .4s var(--fc-e);
+}
+.fc-card:hover .fc-face{box-shadow:var(--sh-3)}
+
+/* Anverso · pregunta */
+.fc-front{
+  background:
+    radial-gradient(120% 90% at 50% -20%, var(--brand-soft) 0%, transparent 60%),
+    var(--surface);
+  border:1.5px solid var(--line);color:var(--ink);
+}
+/* Reverso · respuesta */
+.fc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,var(--brand) 0%,#6d4bf7 45%,var(--c5,#0891b2) 130%);
+  border:1.5px solid transparent;color:#fff;
+}
+html[data-theme="dark"] .fc-back{
+  background:linear-gradient(145deg,#5f45c9 0%,#4b3aa8 45%,#0e6b85 130%);
+}
+.fc-back .fc-txt{color:#fff}
+.fc-back b,.fc-back strong{color:#fff;font-weight:800}
+
+/* — Sheen que barre al girar — */
+.fc-face::after{
+  content:"";position:absolute;top:-60%;left:-70%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);opacity:0;pointer-events:none;
+}
+.fc-lift.lift .fc-face::after{animation:fcSheen .78s var(--fc-e)}
+@keyframes fcSheen{
+  0%{opacity:0;left:-70%}
+  35%{opacity:1}
+  100%{opacity:0;left:150%}
+}
+
+/* — Etiqueta superior — */
+.fc-tag{
+  position:absolute;top:1rem;left:1.15rem;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.fc-front .fc-tag{color:var(--brand)}
+.fc-back .fc-tag{color:rgba(255,255,255,.9)}
+.fc-tag::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+  animation:fcPulse 2.2s ease-in-out infinite;
+}
+@keyframes fcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* — Índice tipo naipe — */
+.fc-pip{
+  position:absolute;font-family:var(--f-display);font-weight:800;
+  font-size:.78rem;letter-spacing:-.02em;opacity:.34;font-variant-numeric:tabular-nums;
+}
+.fc-pip.tr{top:1rem;right:1.15rem}
+.fc-pip.bl{bottom:1rem;left:1.15rem;transform:rotate(180deg)}
+.fc-front .fc-pip{color:var(--ink-2)}
+.fc-back .fc-pip{color:#fff;opacity:.55}
+
+/* — Texto — */
+.fc-txt{
+  font-size:clamp(1rem,.9rem + .55vw,1.28rem);font-weight:650;line-height:1.5;
+  max-width:44ch;letter-spacing:-.012em;
+}
+.fc-front .fc-txt{font-family:var(--f-display);font-weight:700}
+.fc-back .fc-txt{font-weight:600;line-height:1.6}
+.fc-hint{
+  position:absolute;bottom:1rem;left:0;right:0;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.fc-front .fc-hint{color:var(--ink-3)}
+.fc-back .fc-hint{color:rgba(255,255,255,.72)}
+.fc-hint .kbd{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:700;padding:.1rem .32rem;
+  border-radius:5px;border:1px solid currentColor;opacity:.75;
+}
+
+/* — Pantalla final — */
+.fc-done{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--ok-soft),var(--surface) 70%);
+  border:1.5px solid var(--ok);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;gap:.35rem;
+  animation:fcIn .5s var(--fc-e);box-shadow:var(--sh-2);
+}
+.fc-done .seal{
+  font-size:2.6rem;line-height:1;
+  animation:fcSeal .7s cubic-bezier(.2,1.5,.4,1);
+}
+@keyframes fcSeal{0%{transform:scale(0) rotate(-25deg);opacity:0}60%{transform:scale(1.2) rotate(6deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.fc-done h3{font-size:1.3rem;font-weight:800;margin:.2rem 0 0}
+.fc-done p{margin:0;color:var(--ink-2);font-size:var(--t-sm)}
+
+/* — Barra de progreso de la ronda — */
+.fc-bar{
+  height:6px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;margin:.95rem 0 .8rem;position:relative;
+}
+.fc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand),var(--c5,#0891b2));
+  transition:width .55s var(--fc-e);
+}
+
+/* — Controles — */
+.fc-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.fc-ctrls button{font-weight:700}
+#fcok{border-color:var(--ok);color:var(--ok)}
+#fcok:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+#fcko{border-color:var(--warn);color:var(--warn)}
+#fcko:hover{background:var(--warn);color:#fff;border-color:var(--warn)}
+#fcflip{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+#fcflip:hover{box-shadow:var(--sh-3)}
+
+.fc-score{display:inline-flex;gap:.45rem;margin-left:auto;align-items:center}
+.fc-pill{
+  font-size:var(--t-xs);font-weight:800;padding:.24rem .6rem;border-radius:var(--r-full);
+  font-variant-numeric:tabular-nums;border:1px solid;
+}
+.fc-pill.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.fc-pill.ko{color:var(--warn);border-color:var(--warn);background:var(--warn-bg)}
+.fc-pill.left{color:var(--ink-2);border-color:var(--line);background:var(--surface-2)}
+.fc-pill.bump{animation:fcBump .45s var(--e-spring)}
+@keyframes fcBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+@media(max-width:620px){
+  #flash{--fc-h:270px}
+  .fc-face{padding:1.7rem 1.3rem}
+  .fc-score{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-card{transition:none}
+  .fc-lift.lift,.fc-lift.in,.fc-lift.out-ok,.fc-lift.out-ko,.fc-face::after{animation:none !important}
+}
+@media print{.fc-stage,.fc-ctrls,.fc-bar{display:none !important}}
+/* ═══ RESPUESTA ESTRUCTURADA ═══ */
+.fc-face{justify-content:center}
+.fc-face.struct{justify-content:flex-start;text-align:left;padding-top:3.1rem;padding-bottom:3.1rem}
+.fc-body{
+  width:100%;max-width:46ch;margin:0 auto;
+  overflow-y:auto;max-height:100%;
+  scrollbar-width:thin;
+}
+.fc-body::-webkit-scrollbar{width:5px}
+.fc-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:99px;border:0}
+.fc-front .fc-body::-webkit-scrollbar-thumb{background:var(--line-strong)}
+
+/* — Veredicto Sí / No — */
+.fc-verdict{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-display);font-weight:800;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.26rem .72rem;border-radius:var(--r-full);margin-bottom:.85rem;
+  border:1.5px solid;animation:fcPopIn .45s var(--e-spring) backwards;animation-delay:.34s;
+}
+.fc-verdict.si{background:rgba(255,255,255,.16);border-color:rgba(190,255,215,.85);color:#d8ffe9}
+.fc-verdict.no{background:rgba(255,255,255,.16);border-color:rgba(255,205,205,.85);color:#ffdedd}
+@keyframes fcPopIn{0%{opacity:0;transform:scale(.7) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* — Párrafo — */
+.fc-p{margin:0;font-size:clamp(1rem,.92rem + .45vw,1.2rem);font-weight:600;line-height:1.6}
+.fc-face.struct .fc-p{font-size:clamp(.96rem,.9rem + .35vw,1.1rem)}
+
+/* — Lista enumerada — */
+.fc-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;counter-reset:fc}
+.fc-list li{
+  counter-increment:fc;position:relative;margin:0;
+  padding:.42rem .6rem .42rem 2.5rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.11);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.45;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-list li::before{
+  content:counter(fc);position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.9);color:var(--brand);
+  font-family:var(--f-display);font-weight:800;font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.fc-list.alpha li::before{content:counter(fc,lower-alpha)}
+.fc-list li:nth-child(1){animation-delay:.36s}
+.fc-list li:nth-child(2){animation-delay:.42s}
+.fc-list li:nth-child(3){animation-delay:.48s}
+.fc-list li:nth-child(4){animation-delay:.54s}
+.fc-list li:nth-child(5){animation-delay:.60s}
+.fc-list li:nth-child(n+6){animation-delay:.66s}
+@keyframes fcRow{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:none}}
+
+/* — Cláusulas contrapuestas — */
+.fc-clauses{display:grid;gap:.45rem}
+.fc-clauses p{
+  margin:0;padding:.45rem .7rem .45rem .95rem;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:rgba(255,255,255,.11);border-left:3px solid rgba(255,255,255,.55);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.5;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-clauses p:nth-child(1){animation-delay:.36s}
+.fc-clauses p:nth-child(2){animation-delay:.44s}
+.fc-clauses p:nth-child(3){animation-delay:.52s}
+
+/* — Negritas resaltadas en el reverso — */
+.fc-back .fc-body b,.fc-back .fc-body strong{
+  font-weight:800;background:rgba(255,255,255,.2);
+  padding:.03em .3em;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+
+/* — Cita legal al pie — */
+.fc-cite{
+  position:absolute;bottom:.95rem;left:0;right:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;letter-spacing:.02em;
+  color:rgba(255,255,255,.82);
+  animation:fcPopIn .5s var(--e-out) backwards;animation-delay:.5s;
+}
+.fc-cite::before,.fc-cite::after{
+  content:"";height:1px;width:clamp(18px,10%,52px);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45));
+}
+.fc-cite::after{background:linear-gradient(90deg,rgba(255,255,255,.45),transparent)}
+.fc-cite .s{font-size:.9rem;opacity:.75;font-family:var(--f-legal)}
+.fc-front .fc-cite{color:var(--ink-3)}
+.fc-front .fc-cite::before{background:linear-gradient(90deg,transparent,var(--line-strong))}
+.fc-front .fc-cite::after{background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+/* la pista se oculta si hay cita, para no amontonar */
+.fc-back .fc-cite ~ .fc-hint,.fc-back .fc-hint.muted{display:none}
+
+@media(max-width:620px){
+  #flash{--fc-h:320px}
+  .fc-face.struct{padding-top:2.9rem;padding-bottom:2.8rem}
+  .fc-list li{padding-left:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-verdict,.fc-list li,.fc-clauses p,.fc-cite{animation:none !important}
+}
+
+/* ═══ SEMÁFORO ═══ */
+.sembtn{
+  border-radius:var(--r-full);padding:.32rem .7rem;font-weight:700;font-size:var(--t-sm);
+}
+.sembtn[data-v="g"]:hover,.sembtn.on[data-v="g"]{background:var(--ok);color:#fff;border-color:var(--ok)}
+.sembtn[data-v="y"]:hover,.sembtn.on[data-v="y"]{background:var(--mid);color:#3d2f00;border-color:var(--mid)}
+.sembtn[data-v="r"]:hover,.sembtn.on[data-v="r"]{background:var(--exc);color:#fff;border-color:var(--exc)}
+
+/* ═══ CTA DE BLOQUE ═══ */
+a.blk{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  padding:.5rem .95rem;border-radius:var(--r-sm);font-weight:700;font-size:var(--t-sm);
+  text-decoration:none;box-shadow:0 2px 10px var(--brand-ring);
+  transition:transform .22s var(--e-spring),box-shadow .25s,gap .25s var(--e-out);
+}
+a.blk:hover{transform:translateY(-2px);box-shadow:var(--sh-3);gap:.75rem;text-decoration:none}
+a.blk::after{content:"→"}
+a.blk:active{transform:translateY(0) scale(.98)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr;padding-top:.9rem;gap:1rem}
+  nav.side{position:static;max-height:none}
+  nav.side.collapsed .navbody{display:none}
+  .navtoggle{display:block;width:100%;text-align:left;font-weight:700}
+  .grid2{grid-template-columns:1fr}
+  .top h1 .sub{white-space:normal}
+}
+@media(max-width:620px){
+  .top-in{padding:.55rem .8rem}
+  .tools{width:100%;margin-left:0}
+  input[type=search]{flex:1;min-width:0}
+  section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
+  table{font-size:.82rem}
+  th,td{padding:.4rem .5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  header.top,nav.side,.tools,.noprint,.progress{display:none !important}
+  body{background:#fff;background-image:none;font-size:11pt;color:#000}
+  .layout{display:block;max-width:none;padding:0}
+  section.card{border:0;padding:0;margin:0 0 1rem;break-inside:avoid;box-shadow:none}
+  details.panel{border:0;box-shadow:none}
+  details.panel .body{display:block !important}
+  details.panel>summary{padding-left:0}
+  .art{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  a{color:#000;text-decoration:none}
+}
+
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brandwrap">
+    <a class="mark" href="TEMA_8_indice.html" title="Volver al índice">B4</a>
+    <h1>Real Decreto Legislativo 2/2004 · TRLHL
+      <span class="sub">Título VI, Cap. III (Sección 2.ª) y Cap. IV — Cuenta general · Control interno y externo · Arts. 208 a 212 y 213 a 223 (tema 8, bloque 4)</span>
+    </h1>
+    </div>
+    <div class="tools noprint">
+      <input type="search" id="q" placeholder="Buscar en la página…" aria-label="Buscar">
+      <span class="seg" role="group" aria-label="Modo de vista">
+        <button data-view="legal" aria-pressed="false">Texto legal</button>
+        <button data-view="expl" aria-pressed="false">Explicación</button>
+        <button data-view="both" aria-pressed="true">Ambos</button>
+      </span>
+      <button id="fs-" aria-label="Reducir texto">A−</button>
+      <button id="fs+" aria-label="Aumentar texto">A+</button>
+      <span class="streak" id="streak" title="Días seguidos estudiando" style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);font-weight:800;font-size:.8rem">🔥<span class="num" id="streakN">0</span></span>
+      <button id="theme" aria-label="Cambiar tema">◐</button>
+      <button id="expand">Desplegar todo</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="progress" id="prog"></div>
+</header>
+<div class="layout">
+<nav class="side collapsed" id="side" aria-label="Índice">
+  <button class="navtoggle" id="navtoggle" aria-expanded="false">☰ Índice</button>
+  <div class="navbody" id="navbody"></div>
+</nav>
+<main id="main"></main>
+</div>
+<script>
+const GLOSARIO={
+ "presupuesto":"Documento contable y jurídico, aprobado por el Pleno, que fija el techo de gasto de un ejercicio y estima los ingresos con los que se financia. Ej.: el presupuesto de Utrera para 2026 autoriza gastar como máximo 78 M€.",
+ "credito":"Crédito presupuestario: la cantidad máxima de dinero autorizada para una finalidad concreta. Ej.: 120.000 € en la aplicación de 'mantenimiento de colegios'.",
+ "obligacion":"Obligación reconocida: la deuda que el Ayuntamiento admite formalmente que debe pagar, una vez comprobado que el servicio o suministro se ha prestado. Ej.: aprobada la factura del proveedor, nace la obligación.",
+ "derecho":"Derecho liquidado: el importe concreto que un tercero debe a la entidad local, una vez cuantificado. Ej.: liquidado el IBI de un inmueble en 340 €, ese es el derecho.",
+ "oa":"Organismo autónomo: ente con personalidad jurídica propia creado por la entidad local para gestionar un servicio (patronatos de deportes, de cultura, gerencias de urbanismo). Depende del Ayuntamiento pero tiene su propio presupuesto.",
+ "sociedad":"Sociedad mercantil local: empresa con forma de S.A. o S.L. cuyo capital pertenece a la entidad local (p. ej. la empresa municipal de aguas). No aprueba 'presupuesto', sino estados de previsión de gastos e ingresos.",
+ "bases":"Bases de ejecución: el 'reglamento de uso' del presupuesto. Adaptan las normas presupuestarias generales a la organización concreta de la entidad. Ej.: fijan qué órgano autoriza gastos de hasta 3.000 €.",
+ "estabilidad":"Estabilidad presupuestaria: exigencia de que las cuentas públicas no incurran en déficit estructural. Ej.: un ayuntamiento no puede presupuestar más gasto no financiero que ingresos no financieros.",
+ "afectacion":"No afectación: regla general de que todos los ingresos financian todo el gasto, sin que un ingreso concreto quede reservado a un gasto concreto. Ej.: lo recaudado por el IBI no está reservado a pagar el alumbrado.",
+ "bruto":"Principio de presupuesto bruto (o de integridad): derechos y obligaciones se anotan por su importe total, sin compensar unos con otros. Ej.: no se puede anotar la subvención 'ya descontados' los gastos del programa.",
+ "nivelacion":"Nivelación presupuestaria: que el total de ingresos previstos cubra el total de gastos autorizados; es decir, aprobar sin déficit inicial.",
+ "aplicacion":"Aplicación presupuestaria: la 'casilla' exacta donde vive cada euro de gasto, formada al cruzar la clasificación por programas con la económica. Ej.: 323/22103 (funcionamiento de centros docentes / combustibles).",
+ "vinculacion":"Nivel de vinculación jurídica: el nivel de agregación en el que el crédito es realmente limitativo; por debajo de él se puede mover el gasto sin tramitar una modificación de crédito (art. 172 TRLHL).",
+ "intervencion":"Intervención: el órgano de control interno de la entidad local, con función de fiscalización previa del gasto y de informe preceptivo del presupuesto. Lo desempeña un funcionario de habilitación nacional.",
+ "pleno":"Pleno: órgano colegiado formado por todos los concejales o diputados. Es el único competente para aprobar el presupuesto.",
+ "bop":"Boletín Oficial de la Provincia: diario oficial donde las entidades locales publican sus anuncios y acuerdos con efectos frente a terceros.",
+ "prorroga":"Prórroga presupuestaria: si el 1 de enero no ha entrado en vigor el presupuesto nuevo, sigue rigiendo automáticamente el anterior con sus créditos iniciales.",
+ "interesado":"Interesado: quien está legitimado para intervenir en un procedimiento. En el presupuesto, la ley define expresamente quiénes lo son (art. 170.1).",
+ "liquidacion":"Liquidación del presupuesto: cierre contable del ejercicio, que determina los derechos y obligaciones pendientes, el remanente de tesorería y el resultado presupuestario.",
+ "tcuentas":"Tribunal de Cuentas: órgano fiscalizador externo de las cuentas y la gestión económica del sector público, dependiente de las Cortes Generales.",
+ "conten":"Recurso contencioso-administrativo: impugnación ante los juzgados y tribunales de lo contencioso-administrativo, es decir, ya fuera de la propia Administración.",
+ "cuentagral":"Cuenta general: documento que, al terminar el ejercicio, muestra la gestión realizada en sus aspectos económico, financiero, patrimonial y presupuestario. Es la rendición de cuentas anual de la entidad.","cec":"Comisión Especial de Cuentas: órgano del Pleno, formado por miembros de todos los grupos políticos, que informa preceptivamente la cuenta general antes de su aprobación.","fint":"Función interventora: modalidad de control interno que fiscaliza los actos con contenido económico antes de que produzcan efectos, para verificar que se ajustan a la legalidad.","cfin":"Control financiero: comprobación, por procedimientos de auditoría, del funcionamiento económico-financiero de los servicios, incluida la calidad de la información financiera y la eficacia y eficiencia.","cefic":"Control de eficacia: comprobación periódica del grado de cumplimiento de objetivos y del coste y rendimiento de los servicios o inversiones.","reparo":"Reparo: manifestación escrita de desacuerdo del órgano interventor con el fondo o la forma de un acto, documento o expediente, formulada antes de que se adopte el acuerdo.","discrepancia":"Discrepancia: desacuerdo del órgano gestor con el reparo formulado por la Intervención. La resuelve el presidente o, en dos casos, el Pleno.","fiscprevia":"Fiscalización previa: intervención crítica del acto antes de que se apruebe. Puede limitarse a comprobar unos extremos básicos si lo acuerda el Pleno.","tomarazon":"Toma de razón en contabilidad: simple anotación contable del derecho, que puede sustituir a la fiscalización previa de ingresos si lo acuerda el Pleno.","tutela":"Tutela financiera: competencia de la comunidad autónoma (o del Estado) de supervisión financiera sobre las entidades locales de su territorio.","ocex":"Órgano de control externo autonómico: institución fiscalizadora de una comunidad autónoma (Cámara de Cuentas de Andalucía, Sindicatura de Comptes…).","igae":"Intervención General de la Administración del Estado (IGAE): órgano de control interno de la Administración General del Estado y centro directivo de la contabilidad pública."
+};
+const ARTS=[{n:208,t:"Formación de la cuenta general",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 2.ª (Estados de cuentas anuales de las entidades locales)",idea:"Al acabar el año se forma la cuenta general: la foto completa de la gestión.",literal:`<p>Las entidades locales, a la terminación del ejercicio presupuestario, formarán la cuenta general que pondrá de manifiesto la gestión realizada en los aspectos económico, financiero, patrimonial y presupuestario.</p>`,dis:`<ul>
+<li><b>Cuándo:</b> a la terminación del ejercicio presupuestario.</li>
+<li><b>Qué es:</b> la <span class="t" data-k="cuentagral">cuenta general</span>, que pone de manifiesto la gestión realizada en <b>cuatro aspectos</b>: económico, financiero, patrimonial y presupuestario.</li>
+<li><b>Quién:</b> las entidades locales (materialmente, la Intervención la forma: art. 212.2).</li>
+</ul>`,llano:`<p>La liquidación cuenta cómo fue el presupuesto. La cuenta general va más allá: enseña también el patrimonio, la situación financiera y el resultado económico. Es el álbum completo del año, no solo la página del presupuesto.</p>`,porque:`<p>El presupuesto solo mide autorizaciones y ejecución de créditos. Pero un ayuntamiento tiene edificios, deudas, existencias y derechos: sin una cuenta que refleje el <b>patrimonio</b> y la <b>situación financiera</b>, sería imposible saber si la entidad es solvente. La cuenta general es el instrumento de la rendición de cuentas ante el Pleno, los vecinos y el Tribunal de Cuentas.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> la diferencia entre saber cuánto gastaste este mes y saber cuánto vale tu casa, cuánto debes al banco y cuánto tienes ahorrado.</li>
+<li><b>Real:</b> la cuenta general de 2026 de un ayuntamiento incluye balance, cuenta del resultado económico-patrimonial, estado de cambios en el patrimonio neto, estado de flujos de efectivo, liquidación del presupuesto y memoria.</li>
+<li><b>Caso límite:</b> una entidad con tratamiento contable simplificado presenta modelos simplificados, que reflejan en todo caso la situación financiera y la ejecución y liquidación de los presupuestos (art. 209.2).</li>
+</ul>`,noej:`<ul>
+<li><b>No es la liquidación</b>: la liquidación es una pieza de la cuenta general, con otro calendario y otro órgano de aprobación.</li>
+<li><b>No es el presupuesto</b>: este mira al futuro; la cuenta, al pasado.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 209:</b> contenido de la cuenta general.</li>
+<li><b>Art. 212:</b> rendición, publicidad y aprobación.</li>
+<li><b>Art. 191:</b> la liquidación, que se integra en ella.</li>
+</ul>`,trampas:`<ul>
+<li>Los <b>cuatro aspectos</b> son económico, financiero, patrimonial y presupuestario. Si un test dice "económico y presupuestario" solamente, está incompleto.</li>
+</ul>`,ancla:`<p><b>"E-F-P-P"</b>: <b>E</b>conómico, <b>F</b>inanciero, <b>P</b>atrimonial, <b>P</b>resupuestario. La cuenta general es la <b>foto de familia</b> del año, no el selfi del presupuesto.</p>`,vis:`<svg viewBox="0 0 640 140" role="img" aria-label="Los cuatro aspectos de la cuenta general">
+<rect x="215" y="12" width="210" height="34" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="35" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">CUENTA GENERAL</text>
+<line x1="320" y1="46" x2="320" y2="60" stroke="var(--acc)" stroke-width="2"/><line x1="90" y1="60" x2="550" y2="60" stroke="var(--acc)" stroke-width="2"/>
+<g font-size="11" text-anchor="middle" fill="currentColor">
+<line x1="90" y1="60" x2="90" y2="74" stroke="var(--acc)" stroke-width="2"/><rect x="25" y="74" width="130" height="36" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="90" y="97">Económico</text>
+<line x1="243" y1="60" x2="243" y2="74" stroke="var(--acc)" stroke-width="2"/><rect x="178" y="74" width="130" height="36" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="243" y="97">Financiero</text>
+<line x1="396" y1="60" x2="396" y2="74" stroke="var(--acc)" stroke-width="2"/><rect x="331" y="74" width="130" height="36" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="396" y="97">Patrimonial</text>
+<line x1="549" y1="60" x2="549" y2="74" stroke="var(--acc)" stroke-width="2"/><rect x="484" y="74" width="130" height="36" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="549" y="97">Presupuestario</text>
+</g>
+<text x="320" y="130" text-anchor="middle" font-size="11" fill="var(--ink2)">se forma a la terminación del ejercicio presupuestario</text>
+</svg>`},
+{n:209,t:"Contenido de la cuenta general de las entidades locales",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 2.ª (Estados de cuentas anuales de las entidades locales)",idea:"La cuenta general suma entidad, organismos y sociedades, más estados consolidados.",literal:`<p>1. La cuenta general estará integrada por:</p><p>a) La de la propia entidad.</p><p>b) La de los organismos autónomos.</p><p>c) Las de las sociedades mercantiles de capital íntegramente propiedad de las entidades locales.</p><p>2. Las cuentas a que se refieren los párrafos a) y b) del apartado anterior reflejarán la situación económico-financiera y patrimonial, los resultados económico-patrimoniales y la ejecución y liquidación de los presupuestos.</p><p>Para las entidades locales con tratamiento contable simplificado, se establecerán modelos simplificados de cuentas que reflejarán, en todo caso, la situación financiera y la ejecución y liquidación de los presupuestos.</p><p>3. Las cuentas a que se refiere el apartado 1.c) anterior serán, en todo caso, las que deban elaborarse de acuerdo con la normativa mercantil.</p><p>4. Las entidades locales unirán a la Cuenta General los estados consolidados que determine el Ministro de Hacienda y Función Pública, en los términos previstos en las normas de consolidación que apruebe para el sector público local conformes a las Normas para la formulación de cuentas anuales consolidadas en el ámbito del sector público.</p><p>A efectos de la obtención de los estados consolidados, las entidades controladas, directamente o indirectamente, por la entidad local no comprendidas en los apartados anteriores, las entidades multigrupo y las entidades asociadas deberán remitir sus cuentas anuales a la entidad local acompañadas, en su caso, del informe de auditoría.</p><p>Los conceptos de control y de entidad multigrupo y entidad asociada son los definidos en las Normas para la formulación de cuentas anuales consolidadas en el ámbito del sector público.</p><p>Los estados consolidados deberán acompañar a la Cuenta General, al menos, cuando ésta se someta a aprobación del Pleno de la Corporación.</p>`,dis:`<ul>
+<li><b>209.1 — integrantes:</b> a) la de la propia entidad; b) la de los <span class="t" data-k="oa">organismos autónomos</span>; c) las de las <b>sociedades mercantiles de capital íntegramente propiedad</b> de la entidad local.</li>
+<li><b>209.2 — contenido de a) y b):</b> situación económico-financiera y patrimonial, resultados económico-patrimoniales y ejecución y liquidación de los presupuestos. Para entidades con <b>tratamiento contable simplificado</b>, modelos simplificados que reflejen en todo caso la situación financiera y la ejecución y liquidación.</li>
+<li><b>209.3 — contenido de c):</b> las que deban elaborarse conforme a la <b>normativa mercantil</b>.</li>
+<li><b>209.4 — estados consolidados:</b> los que determine el <b>Ministro de Hacienda y Función Pública</b>. Las entidades controladas no incluidas antes, las <b>multigrupo</b> y las <b>asociadas</b> deben remitir sus cuentas anuales con el informe de auditoría, en su caso. Los estados consolidados acompañan a la cuenta general <b>al menos cuando esta se someta a aprobación del Pleno</b>.</li>
+</ul>`,llano:`<p>La cuenta general no es solo la del ayuntamiento: recoge también las de sus patronatos y las de sus empresas al 100 %. Y como además hay entidades participadas o controladas de otras formas, la ley obliga a que manden sus cuentas para poder elaborar unos estados consolidados que enseñen el grupo entero.</p>`,porque:`<p>Es la misma lógica del art. 164 aplicada al cierre: si cada ente rindiera cuentas por su lado, nadie vería la <b>dimensión real</b> del sector público local ni sus deudas cruzadas. La consolidación elimina duplicidades y enseña la posición neta del grupo, que es lo único relevante para juzgar la solvencia.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> las cuentas de un grupo empresarial: no basta con las de la matriz, hacen falta las de las filiales y una suma depurada.</li>
+<li><b>Real:</b> la cuenta general de 2026 de una diputación integra la de la propia diputación, la del organismo autónomo de gestión tributaria y la de su sociedad de servicios al 100 %, y acompaña estados consolidados que incluyen datos de un consorcio controlado y de una sociedad participada al 40 % (asociada).</li>
+<li><b>Caso límite:</b> una sociedad municipal al 55 % no integra la cuenta general por el 209.1.c) —que exige capital íntegro—, pero sí debe remitir sus cuentas anuales a efectos de consolidación (209.4).</li>
+</ul>`,noej:`<ul>
+<li><b>No se integran</b> como cuentas del 209.1 las de entidades multigrupo o asociadas: estas remiten sus cuentas <b>a efectos de consolidación</b>.</li>
+<li><b>No siguen</b> las sociedades el plan contable público: se rigen por la <b>normativa mercantil</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 164:</b> los mismos tres sujetos en la formación del presupuesto general.</li>
+<li><b>Art. 166.1.c):</b> el estado de consolidación como anexo del presupuesto.</li>
+<li><b>Art. 210:</b> quién determina contenido y estructura de esas cuentas.</li>
+<li><b>Art. 223.2:</b> rendición de esta cuenta general al Tribunal de Cuentas.</li>
+</ul>`,trampas:`<ul>
+<li>Sociedades: <b>capital íntegramente propiedad</b> de la entidad. El capital mayoritario no integra.</li>
+<li>Los estados consolidados acompañan <b>al menos</b> cuando la cuenta se somete a aprobación del Pleno.</li>
+<li>Las cuentas de las sociedades se elaboran conforme a la <b>normativa mercantil</b>, no al modelo público.</li>
+</ul>`,ancla:`<p><b>Los mismos tres de siempre: E-O-S</b> (Entidad, Organismos, Sociedades al 100 %). Y una cuarta capa que no integra pero suma: <b>consolidación</b> (controladas, multigrupo y asociadas).</p>`,vis:`<svg viewBox="0 0 640 190" role="img" aria-label="Composición de la cuenta general y consolidación">
+<rect x="225" y="8" width="190" height="34" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">CUENTA GENERAL</text>
+<line x1="320" y1="42" x2="320" y2="56" stroke="var(--acc)" stroke-width="2"/><line x1="115" y1="56" x2="525" y2="56" stroke="var(--acc)" stroke-width="2"/>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<line x1="115" y1="56" x2="115" y2="70" stroke="var(--acc)" stroke-width="2"/><rect x="30" y="70" width="170" height="48" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="115" y="90" font-weight="700">a) Propia entidad</text><text x="115" y="107">situación, resultados y liquidación</text>
+<line x1="320" y1="56" x2="320" y2="70" stroke="var(--acc)" stroke-width="2"/><rect x="235" y="70" width="170" height="48" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="320" y="90" font-weight="700">b) Organismos autónomos</text><text x="320" y="107">mismo contenido</text>
+<line x1="525" y1="56" x2="525" y2="70" stroke="var(--acc)" stroke-width="2"/><rect x="440" y="70" width="170" height="48" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="525" y="90" font-weight="700">c) Sociedades 100 %</text><text x="525" y="107">normativa mercantil</text>
+</g>
+<rect x="110" y="132" width="420" height="48" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="320" y="152" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">+ ESTADOS CONSOLIDADOS (209.4)</text>
+<text x="320" y="170" text-anchor="middle" font-size="10" fill="currentColor">entidades controladas, multigrupo y asociadas remiten sus cuentas anuales</text>
+</svg>`},
+{n:210,t:"Competencia",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 2.ª (Estados de cuentas anuales de las entidades locales)",idea:"El contenido y la estructura de las cuentas las fija el Ministerio de Hacienda.",literal:`<p>El contenido, estructura y normas de elaboración de las cuentas a que se refieren los párrafos a) y b) del apartado 1 del artículo anterior, se determinarán por el Ministerio de Hacienda, a propuesta de la Intervención General de la Administración del Estado.</p>`,dis:`<ul>
+<li><b>Objeto:</b> contenido, estructura y normas de elaboración de las cuentas de la <b>propia entidad</b> y de sus <b>organismos autónomos</b> (letras a y b del art. 209.1).</li>
+<li><b>Quién:</b> el <b>Ministerio de Hacienda</b>, a propuesta de la <span class="t" data-k="igae">Intervención General de la Administración del Estado</span>.</li>
+<li><b>Fuera quedan</b> las cuentas de las sociedades mercantiles, que siguen la normativa mercantil (art. 209.3).</li>
+</ul>`,llano:`<p>Para que las cuentas de 8.000 municipios se puedan comparar y sumar, alguien tiene que fijar el formato. Ese alguien es el Ministerio de Hacienda, y quien se lo propone técnicamente es la IGAE.</p>`,porque:`<p>La normalización contable es la condición para que exista control: sin un modelo común, ni el Tribunal de Cuentas ni el Ministerio podrían agregar la información del sector local ni detectar desviaciones. Es la misma lógica del art. 167 para la estructura presupuestaria.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el modelo oficial de la declaración de la renta: todos declaran distinto, pero en el mismo formulario.</li>
+<li><b>Real:</b> la Instrucción del modelo normal de contabilidad local, aprobada por Orden del Ministerio de Hacienda, fija el contenido del balance y de la memoria.</li>
+</ul>`,noej:`<ul>
+<li><b>No lo fija</b> cada entidad en sus bases de ejecución.</li>
+<li><b>No alcanza</b> a las sociedades mercantiles locales.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 167.1:</b> paralelo en materia de estructura presupuestaria.</li>
+<li><b>Art. 203 y ss.:</b> régimen de la contabilidad de las entidades locales.</li>
+</ul>`,trampas:`<ul>
+<li>La propuesta parte de la <b>IGAE</b>; la aprobación, del <b>Ministerio de Hacienda</b>.</li>
+<li>Solo alcanza a las cuentas de las <b>letras a) y b)</b> del art. 209.1.</li>
+</ul>`,ancla:`<p><b>"Propone la IGAE, dispone Hacienda."</b></p>`,vis:`<svg viewBox="0 0 640 115" role="img" aria-label="Competencia sobre el contenido de las cuentas">
+<defs><marker id="c1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="60" y="30" width="180" height="50" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="150" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">IGAE</text>
+<text x="150" y="70" text-anchor="middle" font-size="10" fill="var(--ink2)">propone</text>
+<path d="M244 55 L 290 55" stroke="var(--acc)" stroke-width="2" marker-end="url(#c1)"/>
+<rect x="294" y="30" width="280" height="50" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="434" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">MINISTERIO DE HACIENDA</text>
+<text x="434" y="70" text-anchor="middle" font-size="10" fill="currentColor">determina contenido, estructura y normas de elaboración</text>
+<text x="320" y="103" text-anchor="middle" font-size="10" fill="var(--ink2)">solo para las cuentas de la entidad y de sus organismos autónomos</text>
+</svg>`},
+{n:211,t:"Memorias que acompañan a la cuenta general",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 2.ª (Estados de cuentas anuales de las entidades locales)",idea:"Los municipios grandes añaden dos memorias: coste de los servicios y objetivos cumplidos.",literal:`<p>Los municipios de más de 50.000 habitantes y las demás entidades locales de ámbito superior acompañarán a la cuenta general:</p><p>a) Una memoria justificativa del coste y rendimiento de los servicios públicos.</p><p>b) Una memoria demostrativa del grado en que se hayan cumplido los objetivos programados con indicación de los previstos y alcanzados, con su coste.</p>`,dis:`<ul>
+<li><b>Sujetos obligados:</b> municipios de <b>más de 50.000 habitantes</b> y demás entidades locales de <b>ámbito superior</b> (diputaciones, cabildos, consejos insulares…).</li>
+<li><b>Documentos que se acompañan:</b>
+<ol><li><b>a)</b> memoria justificativa del <b>coste y rendimiento</b> de los servicios públicos;</li>
+<li><b>b)</b> memoria demostrativa del <b>grado de cumplimiento de los objetivos</b> programados, con indicación de los previstos y alcanzados y de su coste.</li></ol></li>
+</ul>`,llano:`<p>En las entidades grandes no basta con decir cuánto se gastó: hay que explicar cuánto cuesta cada servicio y qué se consiguió con él. Dos memorias: una de coste, otra de resultados.</p>`,porque:`<p>Es el germen de la <b>gestión por objetivos</b> en el mundo local: la cifra de gasto por sí sola no dice si el dinero se usó bien. Se exige solo a las entidades grandes por proporcionalidad: elaborar indicadores de coste y rendimiento requiere una estructura técnica que un municipio pequeño no tiene.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> no es lo mismo saber que gastaste 900 € en el gimnasio que saber cuántas veces fuiste.</li>
+<li><b>Real:</b> un ayuntamiento de 180.000 habitantes acompaña a su cuenta general una memoria que cifra el coste por usuario de la escuela infantil municipal en 4.850 €/año y el grado de cumplimiento del objetivo de plazas ofertadas en el 92 %.</li>
+<li><b>Caso límite:</b> una diputación provincial está obligada aunque su población no se mida por el umbral de 50.000: es entidad de ámbito superior al municipio.</li>
+</ul>`,noej:`<ul>
+<li><b>No están obligados</b> los municipios de 50.000 habitantes o menos: la ley dice "más de 50.000".</li>
+<li><b>No son parte</b> de la cuenta general en sentido estricto: la <b>acompañan</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 221:</b> control de eficacia, cuyo objeto coincide con el de estas memorias.</li>
+<li><b>Art. 209:</b> contenido de la cuenta general a la que se unen.</li>
+</ul>`,trampas:`<ul>
+<li>Umbral: <b>más de 50.000 habitantes</b>. No confundir con los 500.000 del art. 186.3.</li>
+<li>Son <b>dos</b> memorias, con objetos distintos: coste y rendimiento / cumplimiento de objetivos.</li>
+</ul>`,ancla:`<p><b>"Cuánto cuesta y para qué sirvió."</b> Dos memorias, dos preguntas. Umbral: <b>50.000</b>.</p>`,vis:`<svg viewBox="0 0 640 140" role="img" aria-label="Memorias que acompañan a la cuenta general">
+<rect x="180" y="10" width="280" height="34" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Municipios de más de 50.000 habitantes</text>
+<text x="320" y="58" text-anchor="middle" font-size="10" fill="var(--ink2)">y demás entidades locales de ámbito superior</text>
+<rect x="40" y="72" width="260" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="170" y="93" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">a) Coste y rendimiento</text>
+<text x="170" y="111" text-anchor="middle" font-size="10" fill="currentColor">de los servicios públicos</text>
+<rect x="340" y="72" width="260" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="470" y="93" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">b) Cumplimiento de objetivos</text>
+<text x="470" y="111" text-anchor="middle" font-size="10" fill="currentColor">previstos, alcanzados y su coste</text>
+</svg>`},
+{n:212,t:"Rendición, publicidad y aprobación de la cuenta general",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 2.ª (Estados de cuentas anuales de las entidades locales)",idea:"Rendir en mayo, informar en junio, exponer quince días y aprobar antes de octubre.",literal:`<p>1. Los estados y cuentas de la entidad local serán rendidas por su presidente antes del día 15 de mayo del ejercicio siguiente al que correspondan. Las de los organismos autónomos y sociedades mercantiles cuyo capital pertenezca íntegramente a aquélla, rendidas y propuestas inicialmente por los órganos competentes de estos, serán remitidas a la entidad local en el mismo plazo.</p><p>2. La cuenta general formada por la Intervención será sometida antes del día 1 de junio a informe de la Comisión Especial de Cuentas de la entidad local, que estará constituida por miembros de los distintos grupos políticos integrantes de la corporación.</p><p>3. La cuenta general, con el informe de la Comisión Especial a que se refiere el apartado anterior, será expuesta al público por plazo de 15 días durante los cuales los interesados podrán examinarla y presentar reclamaciones, reparos u observaciones. Examinados estos por la Comisión Especial y practicadas por esta cuantas comprobaciones estime necesarias emitirá nuevo informe.</p><p>4. Acompañada de los informes de la Comisión Especial y de las reclamaciones y reparos formulados, la cuenta general se someterá al Pleno de la corporación, para que, en su caso, pueda ser aprobada antes del día 1 de octubre.</p><p>5. Una vez que el Pleno se haya pronunciado sobre la Cuenta General, aprobándola o rechazándola, el presidente de la corporación la rendirá al Tribunal de Cuentas.</p>`,dis:`<table><thead><tr><th>Hito</th><th>Quién</th><th>Fecha</th></tr></thead><tbody>
+<tr><td>Rendición de estados y cuentas de la entidad</td><td><b>Presidente</b></td><td>Antes del <b>15 de mayo</b> del ejercicio siguiente</td></tr>
+<tr><td>Remisión de las cuentas de OOAA y sociedades 100 %</td><td>Órganos competentes de estos</td><td>Mismo plazo (antes del 15 de mayo)</td></tr>
+<tr><td>Formación de la cuenta general</td><td><b>Intervención</b></td><td>—</td></tr>
+<tr><td>Informe de la <span class="t" data-k="cec">Comisión Especial de Cuentas</span></td><td>Comisión con miembros de <b>todos los grupos políticos</b></td><td>Antes del <b>1 de junio</b></td></tr>
+<tr><td>Exposición al público</td><td>Interesados: reclamaciones, <b>reparos u observaciones</b></td><td><b>15 días</b></td></tr>
+<tr><td>Nuevo informe tras examinar lo presentado</td><td>Comisión Especial</td><td>—</td></tr>
+<tr><td>Aprobación</td><td><b>Pleno</b></td><td>Antes del <b>1 de octubre</b></td></tr>
+<tr><td>Rendición al Tribunal de Cuentas</td><td><b>Presidente</b>, se apruebe o se rechace</td><td>Art. 223.2: antes del <b>15 de octubre</b></td></tr>
+</tbody></table>`,llano:`<p>El alcalde rinde las cuentas antes del 15 de mayo; el interventor las junta y forma la cuenta general; una comisión con representantes de todos los grupos la informa antes del 1 de junio; se cuelga quince días para que cualquiera pueda mirarla y objetar; la comisión vuelve a informar; y el Pleno la aprueba antes del 1 de octubre. Aunque el Pleno la rechace, el alcalde tiene que enviarla al Tribunal de Cuentas.</p>`,porque:`<p>El calendario está pensado para que la cuenta llegue al Tribunal de Cuentas antes del 15 de octubre (art. 223.2). La <b>Comisión Especial de Cuentas</b> garantiza que la oposición examine las cuentas antes que el Pleno, y la exposición pública extiende ese control a los vecinos. Que la cuenta se rinda al Tribunal <b>aunque se rechace</b> impide que una mayoría incómoda bloquee la fiscalización externa: el control externo no depende de la voluntad política local.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> la junta de una comunidad: el administrador presenta cuentas, los vocales las revisan, se exponen y luego se votan. Si se rechazan, siguen existiendo.</li>
+<li><b>Real:</b> cuenta general de 2026 de un ayuntamiento: rendida el 8 de mayo de 2027, informada por la Comisión Especial el 26 de mayo, expuesta del 1 al 21 de junio con una reclamación de una asociación vecinal, nuevo informe el 3 de julio, aprobada por el Pleno el 24 de septiembre y rendida al Tribunal de Cuentas el 6 de octubre.</li>
+<li><b>Caso límite:</b> el Pleno rechaza la cuenta general. El presidente <b>igualmente</b> debe rendirla al Tribunal de Cuentas (art. 212.5).</li>
+</ul>`,noej:`<ul>
+<li><b>No forma la cuenta</b> el presidente: la forma la <b>Intervención</b>. El presidente <b>rinde</b>.</li>
+<li><b>No es potestativo</b> el informe de la Comisión Especial: es preceptivo.</li>
+<li><b>No impide</b> el rechazo plenario la rendición al Tribunal de Cuentas.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 209:</b> el contenido de lo que se rinde.</li>
+<li><b>Art. 223.2:</b> plazo de rendición al Tribunal de Cuentas.</li>
+<li><b>Art. 169.1:</b> los mismos 15 días de exposición pública del presupuesto: el paralelismo ayuda a recordarlo.</li>
+<li><b>Art. 116 LBRL:</b> regulación de la Comisión Especial de Cuentas.</li>
+</ul>`,trampas:`<ul>
+<li>Cuatro fechas encadenadas: <b>15 de mayo · 1 de junio · 15 días · 1 de octubre</b>. Y la quinta, del art. 223.2: <b>15 de octubre</b>.</li>
+<li>En la exposición pública caben "reclamaciones, <b>reparos u observaciones</b>": tres términos, más amplio que en el presupuesto.</li>
+<li>La Comisión Especial informa <b>dos veces</b> si hay alegaciones.</li>
+<li>"Para que, <b>en su caso</b>, pueda ser aprobada": el Pleno puede aprobarla o rechazarla.</li>
+</ul>`,ancla:`<p><b>La escalera de la cuenta general:</b> <b>15-M</b> rendir · <b>1-J</b> informar · <b>15 días</b> exponer · <b>1-O</b> aprobar · <b>15-O</b> al Tribunal.<br>Truco: los dos "unos" son de mes que empieza (junio y octubre) y los dos "quinces" abren y cierran (mayo y octubre).</p>`,vis:`<svg viewBox="0 0 640 200" role="img" aria-label="Calendario de la cuenta general">
+<defs><marker id="g1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<line x1="45" y1="100" x2="600" y2="100" stroke="var(--line)" stroke-width="3"/>
+<circle cx="80" cy="100" r="8" fill="var(--acc)"/><text x="80" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">15 MAY</text>
+<text x="80" y="128" text-anchor="middle" font-size="10" fill="currentColor">Presidente</text><text x="80" y="142" text-anchor="middle" font-size="10" fill="var(--ink2)">rinde cuentas</text>
+<circle cx="215" cy="100" r="8" fill="var(--acc)"/><text x="215" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">1 JUN</text>
+<text x="215" y="128" text-anchor="middle" font-size="10" fill="currentColor">Comisión Especial</text><text x="215" y="142" text-anchor="middle" font-size="10" fill="var(--ink2)">informa</text>
+<circle cx="350" cy="100" r="8" fill="var(--warn)"/><text x="350" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">15 DÍAS</text>
+<text x="350" y="128" text-anchor="middle" font-size="10" fill="currentColor">exposición pública</text><text x="350" y="142" text-anchor="middle" font-size="10" fill="var(--ink2)">+ nuevo informe</text>
+<circle cx="475" cy="100" r="8" fill="var(--ej)"/><text x="475" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">1 OCT</text>
+<text x="475" y="128" text-anchor="middle" font-size="10" fill="currentColor">PLENO</text><text x="475" y="142" text-anchor="middle" font-size="10" fill="var(--ink2)">aprueba o rechaza</text>
+<circle cx="580" cy="100" r="8" fill="var(--exc)"/><text x="580" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">15 OCT</text>
+<text x="580" y="128" text-anchor="middle" font-size="10" fill="currentColor">Tribunal</text><text x="580" y="142" text-anchor="middle" font-size="10" fill="var(--ink2)">de Cuentas</text>
+<text x="320" y="30" text-anchor="middle" font-size="11" fill="var(--ink2)">La cuenta general la FORMA la Intervención; el presidente la RINDE</text>
+<text x="320" y="180" text-anchor="middle" font-size="11" fill="var(--exc)">Aunque el Pleno la rechace, el presidente debe rendirla al Tribunal de Cuentas (212.5)</text>
+</svg>`},
+{n:213,t:"Control interno",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"El control interno tiene tres modalidades: interventora, financiera y de eficacia.",literal:`<p>Se ejercerán en las Entidades Locales con la extensión y efectos que se determina en los artículos siguientes las funciones de control interno respecto de su gestión económica, de los organismos autónomos y de las sociedades mercantiles de ellas dependientes, en sus modalidades de función interventora, función de control financiero, incluida la auditoría de cuentas de las entidades que se determinen reglamentariamente, y función de control de la eficacia.</p><p>A propuesta del Ministerio de Hacienda y Administraciones Públicas, el Gobierno establecerá las normas sobre los procedimientos de control, metodología de aplicación, criterios de actuación, derechos y deberes del personal controlador y destinatarios de los informes de control, que se deberán seguir en el desarrollo de las funciones de control indicadas en el apartado anterior.</p><p>Los órganos interventores de las Entidades Locales remitirán con carácter anual a la Intervención General de la Administración del Estado un informe resumen de los resultados de los citados controles desarrollados en cada ejercicio, en el plazo y con el contenido que se regulen en las normas indicadas en el párrafo anterior.</p>`,dis:`<ul>
+<li><b>Ámbito:</b> la gestión económica de la entidad, de sus <b>organismos autónomos</b> y de sus <b>sociedades mercantiles dependientes</b>.</li>
+<li><b>Tres modalidades:</b>
+<ol><li><span class="t" data-k="fint">función interventora</span>;</li>
+<li><span class="t" data-k="cfin">función de control financiero</span>, <b>incluida la auditoría de cuentas</b> de las entidades que se determinen reglamentariamente;</li>
+<li><span class="t" data-k="cefic">función de control de la eficacia</span>.</li></ol></li>
+<li><b>Normas de desarrollo:</b> las establece el <b>Gobierno</b>, a propuesta del Ministerio de Hacienda: procedimientos, metodología, criterios de actuación, derechos y deberes del personal controlador y destinatarios de los informes.</li>
+<li><b>Informe resumen anual:</b> los órganos interventores lo remiten a la <span class="t" data-k="igae">IGAE</span> con los resultados de los controles del ejercicio.</li>
+</ul>`,llano:`<p>La entidad se controla a sí misma por dentro, y lo hace de tres maneras: revisando cada acto antes de que produzca efectos (función interventora), auditando cómo funcionan los servicios (control financiero) y comprobando si se cumplen los objetivos (control de eficacia). Cada año hay que contarle a la IGAE cómo ha ido.</p>`,porque:`<p>Un solo tipo de control no basta. La función interventora mira la <b>legalidad, acto por acto y antes</b>; el control financiero mira el conjunto <b>después</b> y con técnicas de auditoría; el de eficacia mira si el dinero sirvió para algo. Sin las tres, se podría cumplir escrupulosamente la ley gastando muy mal. El informe anual a la IGAE existe porque, hasta su implantación, nadie tenía una visión agregada del control interno local.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> en una empresa: el visto bueno previo del jefe (interventora), la auditoría anual de cuentas (financiera) y la evaluación de resultados del equipo (eficacia).</li>
+<li><b>Real:</b> la Intervención de un ayuntamiento fiscaliza cada expediente de contratación, audita anualmente a la empresa municipal de aguas y elabora un informe de cumplimiento de objetivos de los servicios sociales; en abril remite a la IGAE el informe resumen del ejercicio anterior.</li>
+</ul>`,noej:`<ul>
+<li><b>No es control interno</b> la fiscalización del Tribunal de Cuentas: eso es control <b>externo</b> (art. 223).</li>
+<li><b>No lo regula</b> cada entidad: las normas de procedimiento las establece el <b>Gobierno</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Arts. 214 a 219:</b> desarrollo de la función interventora.</li>
+<li><b>Art. 220:</b> control financiero. <b>Art. 221:</b> control de eficacia.</li>
+<li><b>Art. 223:</b> control externo, del que se distingue.</li>
+</ul>`,trampas:`<ul>
+<li>Son <b>tres</b> modalidades, y la auditoría de cuentas se sitúa <b>dentro</b> del control financiero.</li>
+<li>El control interno alcanza también a las <b>sociedades mercantiles dependientes</b>.</li>
+<li>El informe resumen anual va a la <b>IGAE</b>, no al Tribunal de Cuentas.</li>
+</ul>`,ancla:`<p><b>"I-F-E"</b>: <b>I</b>nterventora (antes y por ley) · <b>F</b>inanciera (después y por auditoría) · <b>E</b>ficacia (objetivos).<br>Piensa en un <b>IFE</b>: tres cámaras vigilando la misma casa desde ángulos distintos.</p>`,vis:`<svg viewBox="0 0 640 175" role="img" aria-label="Las tres modalidades de control interno">
+<rect x="215" y="8" width="210" height="34" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">CONTROL INTERNO</text>
+<line x1="320" y1="42" x2="320" y2="56" stroke="var(--acc)" stroke-width="2"/><line x1="115" y1="56" x2="525" y2="56" stroke="var(--acc)" stroke-width="2"/>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<line x1="115" y1="56" x2="115" y2="70" stroke="var(--acc)" stroke-width="2"/><rect x="25" y="70" width="180" height="60" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="115" y="90" font-size="11" font-weight="700" fill="var(--acc)">Función interventora</text><text x="115" y="108">acto por acto</text><text x="115" y="122">arts. 214-219</text>
+<line x1="320" y1="56" x2="320" y2="70" stroke="var(--acc)" stroke-width="2"/><rect x="230" y="70" width="180" height="60" rx="6" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="320" y="90" font-size="11" font-weight="700" fill="var(--ej)">Control financiero</text><text x="320" y="108">auditoría del funcionamiento</text><text x="320" y="122">art. 220</text>
+<line x1="525" y1="56" x2="525" y2="70" stroke="var(--acc)" stroke-width="2"/><rect x="435" y="70" width="180" height="60" rx="6" fill="var(--warn-bg)" stroke="var(--warn)"/><text x="525" y="90" font-size="11" font-weight="700" fill="var(--warn)">Control de eficacia</text><text x="525" y="108">cumplimiento de objetivos</text><text x="525" y="122">art. 221</text>
+</g>
+<text x="320" y="158" text-anchor="middle" font-size="11" fill="var(--ink2)">Alcanza a la entidad, sus organismos autónomos y sus sociedades dependientes</text>
+<text x="320" y="172" text-anchor="middle" font-size="10" fill="var(--exc)">Informe resumen anual de resultados a la IGAE</text>
+</svg>`},
+{n:214,t:"Ámbito de aplicación y modalidades de ejercicio de la función interventora",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"La función interventora fiscaliza todo acto con contenido económico, en cuatro momentos.",literal:`<p>1. La función interventora tendrá por objeto fiscalizar todos los actos de las entidades locales y de sus organismos autónomos que den lugar al reconocimiento y liquidación de derechos y obligaciones o gastos de contenido económico, los ingresos y pagos que de aquéllos se deriven, y la recaudación, inversión y aplicación, en general, de los caudales públicos administrados, con el fin de que la gestión se ajuste a las disposiciones aplicables en cada caso.</p><p>2. El ejercicio de la expresada función comprenderá:</p><p>a) La intervención crítica o previa de todo acto, documento o expediente susceptible de producir derechos u obligaciones de contenido económico o movimiento de fondos de valores.</p><p>b) La intervención formal de la ordenación del pago.</p><p>c) La intervención material del pago.</p><p>d) La intervención y comprobación material de las inversiones y de la aplicación de las subvenciones.</p>`,dis:`<ul>
+<li><b>Objeto (214.1):</b> fiscalizar todos los actos de la entidad y de sus <b>organismos autónomos</b> que den lugar al reconocimiento y liquidación de <b>derechos y obligaciones o gastos</b> de contenido económico, los ingresos y pagos que se deriven, y la recaudación, inversión y aplicación de los caudales públicos. <b>Finalidad:</b> que la gestión se ajuste a las disposiciones aplicables.</li>
+<li><b>Contenido (214.2) — cuatro modalidades:</b>
+<ol><li><b>a)</b> intervención <b>crítica o previa</b> de todo acto, documento o expediente susceptible de producir derechos u obligaciones de contenido económico o movimiento de fondos de valores;</li>
+<li><b>b)</b> intervención <b>formal</b> de la ordenación del pago;</li>
+<li><b>c)</b> intervención <b>material</b> del pago;</li>
+<li><b>d)</b> intervención y <b>comprobación material</b> de las inversiones y de la aplicación de las subvenciones.</li></ol></li>
+</ul>`,llano:`<p>El interventor mira cuatro veces: antes de que se apruebe el gasto, cuando se ordena el pago, cuando el pago sale materialmente y, en obras y subvenciones, va a ver que aquello se hizo de verdad.</p>`,porque:`<p>Las tres primeras modalidades siguen la cadena del dinero (decisión → orden → salida). La cuarta existe porque en obras y subvenciones el papel puede ser impecable y la realidad no: alguien tiene que <b>ir a mirar</b>. Es la traducción práctica del principio de que el control no puede ser solo documental.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> revisar el presupuesto antes de encargar la obra, comprobar la transferencia y, además, subir a ver si el tejado está puesto.</li>
+<li><b>Real:</b> en una obra de 900.000 €, la Intervención fiscaliza el expediente de contratación (previa), la orden de pago de cada certificación (formal), la transferencia (material) y asiste al acta de recepción de la obra (comprobación material).</li>
+<li><b>Caso límite:</b> un contrato menor de 2.000 €: no está sometido a intervención previa por el art. 219.1, lo que no elimina las demás modalidades ni el control financiero posterior.</li>
+</ul>`,noej:`<ul>
+<li><b>No alcanza</b> literalmente a las sociedades mercantiles: el art. 214.1 habla de la entidad y sus <b>organismos autónomos</b> (las sociedades se someten a control financiero, art. 220).</li>
+<li><b>No es</b> la función interventora un control de oportunidad: verifica que la gestión se ajusta a las <b>disposiciones aplicables</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 184:</b> las fases del gasto sobre las que se proyecta.</li>
+<li><b>Art. 215 a 218:</b> qué ocurre cuando la Intervención discrepa.</li>
+<li><b>Art. 219:</b> excepciones y limitación de la fiscalización previa.</li>
+<li><b>Art. 220:</b> control financiero, que sí alcanza a las sociedades.</li>
+</ul>`,trampas:`<ul>
+<li><b>Cuatro</b> modalidades. La más olvidada es la <b>d)</b>: comprobación material de inversiones y subvenciones.</li>
+<li>Distingue "intervención <b>formal</b> de la ordenación del pago" de "intervención <b>material</b> del pago": son dos, no una.</li>
+<li>El ámbito subjetivo del 214.1 es la entidad y sus <b>organismos autónomos</b>.</li>
+</ul>`,ancla:`<p><b>"Antes, la orden, la salida y la obra."</b> Cuatro momentos: <b>P</b>revia · <b>F</b>ormal · <b>M</b>aterial · <b>C</b>omprobación material → <i>"Por Favor, Mira y Comprueba"</i>.</p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Modalidades de la función interventora">
+<defs><marker id="i1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="15" y="50" width="140" height="58" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="85" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">a) Previa o crítica</text>
+<text x="85" y="92" text-anchor="middle" font-size="10" fill="currentColor">antes del acuerdo</text>
+<path d="M158 79 L 176 79" stroke="var(--acc)" stroke-width="2" marker-end="url(#i1)"/>
+<rect x="180" y="50" width="140" height="58" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="250" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">b) Formal</text>
+<text x="250" y="92" text-anchor="middle" font-size="10" fill="currentColor">de la ordenación del pago</text>
+<path d="M323 79 L 341 79" stroke="var(--acc)" stroke-width="2" marker-end="url(#i1)"/>
+<rect x="345" y="50" width="140" height="58" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="415" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">c) Material</text>
+<text x="415" y="92" text-anchor="middle" font-size="10" fill="currentColor">del pago</text>
+<path d="M488 79 L 506 79" stroke="var(--acc)" stroke-width="2" marker-end="url(#i1)"/>
+<rect x="500" y="50" width="130" height="58" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="565" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">d) Comprobación</text>
+<text x="565" y="92" text-anchor="middle" font-size="10" fill="currentColor">material: obras y subvenciones</text>
+<text x="320" y="28" text-anchor="middle" font-size="11" fill="var(--ink2)">Objeto: que la gestión se ajuste a las disposiciones aplicables en cada caso</text>
+<text x="320" y="140" text-anchor="middle" font-size="10" fill="var(--ink2)">Ámbito: entidad local y sus organismos autónomos</text>
+</svg>`},
+{n:215,t:"Reparos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"Si el interventor está en desacuerdo, lo pone por escrito antes del acuerdo.",literal:`<p>Si en el ejercicio de la función interventora el órgano interventor se manifestara en desacuerdo con el fondo o con la forma de los actos, documentos o expedientes examinados, deberá formular sus reparos por escrito antes de la adopción del acuerdo o resolución.</p>`,dis:`<ul>
+<li><b>Presupuesto de hecho:</b> desacuerdo del órgano interventor con el <b>fondo o la forma</b> de los actos, documentos o expedientes examinados.</li>
+<li><b>Forma:</b> <span class="t" data-k="reparo">reparos</span> <b>por escrito</b>.</li>
+<li><b>Momento:</b> <b>antes</b> de la adopción del acuerdo o resolución.</li>
+<li><b>Carácter:</b> es un <b>deber</b> ("deberá formular"), no una facultad.</li>
+</ul>`,llano:`<p>Cuando el interventor ve algo que no cuadra —por el fondo o por la forma— tiene que decirlo por escrito y decirlo antes, no después de que se firme. Ese escrito es el reparo.</p>`,porque:`<p>Un control que llega después del acuerdo ya no evita el daño: solo lo documenta. Exigir que el reparo sea <b>previo y escrito</b> convierte la advertencia en un obstáculo real y, además, deja rastro: ese papel es el que después exonera al interventor (art. 188) y el que se remite al Tribunal de Cuentas (art. 218.3).</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el asesor que te avisa por escrito, antes de firmar el contrato, de que una cláusula es ilegal.</li>
+<li><b>Real:</b> la interventora detecta que un expediente de contratación carece del informe jurídico preceptivo y formula reparo por escrito antes de que la Junta de Gobierno adjudique.</li>
+<li><b>Caso límite:</b> reparo por el <b>fondo</b> (el gasto carece de crédito adecuado) frente a reparo por la <b>forma</b> (falta un trámite). Ambos caben en el art. 215; sus efectos suspensivos dependen del art. 216.</li>
+</ul>`,noej:`<ul>
+<li><b>No es reparo</b> una advertencia verbal ni una nota informal.</li>
+<li><b>No cabe</b> reparar después de adoptado el acuerdo: para eso está el control financiero posterior.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 216:</b> efectos del reparo, con o sin suspensión.</li>
+<li><b>Art. 217:</b> resolución de las discrepancias.</li>
+<li><b>Art. 188:</b> la advertencia escrita exonera de responsabilidad personal al interventor.</li>
+</ul>`,trampas:`<ul>
+<li>Cabe reparo por el <b>fondo o por la forma</b>: no solo por falta de crédito.</li>
+<li>Siempre <b>por escrito</b> y <b>antes</b> del acuerdo.</li>
+</ul>`,ancla:`<p><b>"Por escrito y antes."</b> Un reparo tardío o verbal no es un reparo.</p>`,vis:`<svg viewBox="0 0 640 125" role="img" aria-label="El reparo del órgano interventor">
+<rect x="40" y="35" width="200" height="55" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="140" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Expediente examinado</text>
+<text x="140" y="76" text-anchor="middle" font-size="10" fill="var(--ink2)">desacuerdo en fondo o forma</text>
+<text x="270" y="66" text-anchor="middle" font-size="16" fill="var(--warn)">→</text>
+<rect x="300" y="35" width="300" height="55" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="450" y="57" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)">REPARO POR ESCRITO</text>
+<text x="450" y="76" text-anchor="middle" font-size="11" fill="currentColor">antes de la adopción del acuerdo o resolución</text>
+<text x="320" y="113" text-anchor="middle" font-size="10" fill="var(--ink2)">Es un deber del órgano interventor, no una facultad</text>
+</svg>`},
+{n:216,t:"Efectos de los reparos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"El reparo de ingresos no para nada; el de gastos suspende en cuatro casos.",literal:`<p>1. Cuando la disconformidad se refiera al reconocimiento o liquidación de derechos a favor de las entidades locales o sus organismos autónomos, la oposición se formalizará en nota de reparo que, en ningún caso, suspenderá la tramitación del expediente.</p><p>2. Si el reparo afecta a la disposición de gastos, reconocimiento de obligaciones u ordenación de pagos, se suspenderá la tramitación del expediente hasta que aquél sea solventado en los siguientes casos:</p><p>a) Cuando se base en la insuficiencia de crédito o el propuesto no sea adecuado.</p><p>b) Cuando no hubieran sido fiscalizados los actos que dieron origen a las órdenes de pago.</p><p>c) En los casos de omisión en el expediente de requisitos o trámites esenciales.</p><p>d) Cuando el reparo derive de comprobaciones materiales de obras, suministros, adquisiciones y servicios.</p>`,dis:`<div class="grid2">
+<div class="box ej"><span class="lbl">Reparo en INGRESOS (216.1)</span>Si la disconformidad se refiere al <b>reconocimiento o liquidación de derechos</b>, se formaliza en <b>nota de reparo</b> que <b>en ningún caso suspende</b> la tramitación del expediente.</div>
+<div class="box exc"><span class="lbl">Reparo en GASTOS (216.2)</span>Si afecta a la <b>disposición de gastos</b>, <b>reconocimiento de obligaciones</b> u <b>ordenación de pagos</b>, <b>suspende</b> la tramitación hasta que se solvente, pero <b>solo en cuatro casos</b>.</div>
+</div>
+<table><thead><tr><th>Casos en que el reparo suspende (216.2)</th></tr></thead><tbody>
+<tr><td><b>a)</b> Insuficiencia de crédito o crédito propuesto <b>no adecuado</b></td></tr>
+<tr><td><b>b)</b> No haberse fiscalizado los actos que dieron origen a las órdenes de pago</td></tr>
+<tr><td><b>c)</b> Omisión en el expediente de <b>requisitos o trámites esenciales</b></td></tr>
+<tr><td><b>d)</b> Reparo derivado de <b>comprobaciones materiales</b> de obras, suministros, adquisiciones y servicios</td></tr>
+</tbody></table>`,llano:`<p>Si el interventor repara algo relacionado con cobrar, deja constancia pero el expediente sigue: nadie se arruina por cobrar de más o de menos con un papel mal hecho. Si repara algo relacionado con gastar, la cosa se para... pero solo en cuatro supuestos graves: falta de dinero, falta de fiscalización previa, falta de un trámite esencial o que la comprobación de la obra no cuadre.</p>`,porque:`<p>La suspensión es un arma poderosa: si cualquier reparo paralizara, la gestión se bloquearía. La ley la reserva a los casos en que continuar produciría un <b>daño irreversible o una ilegalidad grave</b>: gastar sin dinero, pagar sin control previo, saltarse un trámite esencial o pagar una obra que no está hecha. En los ingresos no hay riesgo equivalente, y por eso el reparo nunca suspende.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el freno de mano solo se usa en cuesta: no en cada semáforo.</li>
+<li><b>Real:</b> la Intervención repara el reconocimiento de una obligación de 78.000 € por insuficiencia de crédito: el expediente <b>queda suspendido</b> (216.2.a). En cambio, repara la liquidación de una tasa por error en el sujeto pasivo: se formaliza nota de reparo y el expediente <b>continúa</b> (216.1).</li>
+<li><b>Caso límite:</b> reparo por falta de un informe no esencial en un expediente de gasto: no encaja en las cuatro letras, así que <b>no suspende</b>, aunque deja constancia y puede acabar en el informe al Pleno del art. 218.</li>
+</ul>`,noej:`<ul>
+<li><b>No suspende</b> todo reparo de gasto: solo los de las cuatro letras.</li>
+<li><b>No suspende nunca</b> el reparo de ingresos.</li>
+<li><b>No es lo mismo</b> "requisitos o trámites esenciales" que cualquier defecto formal.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 215:</b> el reparo del que se predican estos efectos.</li>
+<li><b>Art. 217:</b> quién resuelve si el gestor no está de acuerdo.</li>
+<li><b>Art. 173.5:</b> nulidad del gasto sin crédito, que explica la letra a).</li>
+<li><b>Art. 214.2.d):</b> comprobaciones materiales, origen de la letra d).</li>
+</ul>`,trampas:`<ul>
+<li>"En ningún caso suspenderá" se predica de los <b>ingresos</b>.</li>
+<li>Las cuatro letras hay que saberlas: <b>crédito · falta de fiscalización previa · trámites esenciales · comprobación material</b>.</li>
+<li>El ámbito del 216.2 son <b>disposición de gastos, reconocimiento de obligaciones y ordenación de pagos</b>: fases D, O y P.</li>
+</ul>`,ancla:`<p><b>"Cobrar no para; gastar para, y solo por CUATRO."</b><br><b>C-F-T-C</b>: <b>C</b>rédito · <b>F</b>iscalización omitida · <b>T</b>rámites esenciales · <b>C</b>omprobación material.</p>`,vis:`<svg viewBox="0 0 640 205" role="img" aria-label="Efectos suspensivos del reparo">
+<rect x="215" y="8" width="210" height="34" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">REPARO (art. 215)</text>
+<path d="M270 42 L 170 60" stroke="var(--ej)" stroke-width="2"/><path d="M370 42 L 470 60" stroke="var(--exc)" stroke-width="2"/>
+<rect x="30" y="62" width="270" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="165" y="83" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">INGRESOS · derechos</text>
+<text x="165" y="102" text-anchor="middle" font-size="11" fill="currentColor">nota de reparo · NO suspende nunca</text>
+<rect x="340" y="62" width="270" height="52" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="475" y="83" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">GASTOS · fases D, O y P</text>
+<text x="475" y="102" text-anchor="middle" font-size="11" fill="currentColor">SUSPENDE, pero solo en 4 casos</text>
+<rect x="120" y="128" width="400" height="68" rx="8" fill="var(--panel)" stroke="var(--exc)"/>
+<text x="320" y="147" text-anchor="middle" font-size="10" fill="currentColor">a) insuficiencia o inadecuación de crédito</text>
+<text x="320" y="163" text-anchor="middle" font-size="10" fill="currentColor">b) actos no fiscalizados que originaron las órdenes de pago</text>
+<text x="320" y="179" text-anchor="middle" font-size="10" fill="currentColor">c) omisión de requisitos o trámites esenciales</text>
+<text x="320" y="193" text-anchor="middle" font-size="10" fill="currentColor">d) comprobaciones materiales de obras, suministros, adquisiciones y servicios</text>
+</svg>`},
+{n:217,t:"Discrepancias",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"Discrepa el gestor: resuelve el presidente, salvo dos casos que van al Pleno.",literal:`<p>1. Cuando el órgano a que afecte el reparo no esté de acuerdo con este, corresponderá al presidente de la entidad local resolver la discrepancia, siendo su resolución ejecutiva. Esta facultad no será delegable en ningún caso.</p><p>2. No obstante lo dispuesto en el apartado anterior, corresponderá al Pleno la resolución de las discrepancias cuando los reparos:</p><p>a) Se basen en insuficiencia o inadecuación de crédito.</p><p>b) Se refieran a obligaciones o gastos cuya aprobación sea de su competencia.</p>`,dis:`<ul>
+<li><b>Regla (217.1):</b> resuelve el <b>presidente</b>; su resolución es <b>ejecutiva</b> y la facultad es <b>indelegable en todo caso</b>.</li>
+<li><b>Excepciones (217.2) — resuelve el <b>Pleno</b> cuando los reparos:</b>
+<ol><li><b>a)</b> se basen en <b>insuficiencia o inadecuación de crédito</b>;</li>
+<li><b>b)</b> se refieran a obligaciones o gastos cuya <b>aprobación sea competencia del Pleno</b>.</li></ol></li>
+</ul>`,llano:`<p>Cuando el que gestiona no acepta el reparo, alguien tiene que decidir. Normalmente decide el alcalde, y su decisión se ejecuta; además, no puede encargarle esa decisión a nadie. Pero si el problema es que no hay dinero, o si el gasto lo tenía que aprobar el Pleno, entonces decide el Pleno.</p>`,porque:`<p>Que la facultad sea <b>indelegable</b> es la clave del artículo: levantar un reparo es asumir públicamente la responsabilidad de gastar contra el criterio del interventor, y esa responsabilidad no puede diluirse en un concejal delegado. Y cuando lo que falla es el crédito —el límite que aprobó el Pleno— o cuando el gasto era competencia plenaria, solo el Pleno puede decidir: nadie puede levantar por sí solo un límite que no fijó.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> quien puede saltarse la recomendación del asesor es el dueño, y no puede delegar esa firma en el encargado.</li>
+<li><b>Real:</b> reparo por omisión del informe técnico en una contratación de 40.000 € competencia de la Alcaldía: resuelve el alcalde. Reparo por insuficiencia de crédito en un gasto de 12.000 €: pese al importe pequeño, resuelve el <b>Pleno</b> (217.2.a).</li>
+<li><b>Caso límite:</b> el alcalde delega en la Junta de Gobierno la resolución de discrepancias: sería nulo, porque la facultad <b>no es delegable en ningún caso</b>.</li>
+</ul>`,noej:`<ul>
+<li><b>No decide la Intervención</b>: ha reparado, pero no resuelve la discrepancia.</li>
+<li><b>No depende</b> de la cuantía: depende de la <b>causa</b> del reparo y de la competencia sobre el gasto.</li>
+</ul>`,conex:`<ul>
+<li><b>Arts. 215 y 216:</b> reparo y sus efectos.</li>
+<li><b>Art. 218:</b> el informe al Pleno de las resoluciones contrarias a reparos.</li>
+<li><b>Art. 173.5:</b> el gasto sin crédito es nulo, aunque se levante el reparo.</li>
+</ul>`,trampas:`<ul>
+<li><b>"No será delegable en ningún caso"</b>: expresión literal muy preguntada.</li>
+<li>Las <b>dos</b> excepciones a favor del Pleno: crédito y competencia plenaria.</li>
+<li>La resolución del presidente es <b>ejecutiva</b>.</li>
+</ul>`,ancla:`<p><b>"Resuelve el alcalde, y no puede pasar el marrón."</b> Sube al Pleno por <b>C</b>rédito o por <b>C</b>ompetencia: las <b>dos C</b>.</p>`,vis:`<svg viewBox="0 0 640 175" role="img" aria-label="Resolución de discrepancias">
+<defs><marker id="d1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="200" y="8" width="240" height="36" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="320" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)">El gestor discrepa del reparo</text>
+<path d="M320 44 L 320 58" stroke="var(--acc)" stroke-width="2" marker-end="url(#d1)"/>
+<rect x="180" y="60" width="280" height="34" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="320" y="82" text-anchor="middle" font-size="11" fill="currentColor">¿El reparo es por crédito o el gasto es del Pleno?</text>
+<path d="M180 77 L 110 77 L 110 106" stroke="var(--acc)" stroke-width="2" marker-end="url(#d1)"/><text x="140" y="72" font-size="10" fill="var(--exc)">SÍ</text>
+<path d="M460 77 L 530 77 L 530 106" stroke="var(--acc)" stroke-width="2" marker-end="url(#d1)"/><text x="495" y="72" font-size="10" fill="var(--ej)">NO</text>
+<rect x="20" y="108" width="180" height="56" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="110" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">Resuelve el PLENO</text>
+<text x="110" y="149" text-anchor="middle" font-size="10" fill="currentColor">art. 217.2 a) y b)</text>
+<rect x="440" y="108" width="185" height="56" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="532" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Resuelve el PRESIDENTE</text>
+<text x="532" y="146" text-anchor="middle" font-size="10" fill="currentColor">ejecutiva e INDELEGABLE</text>
+</svg>`},
+{n:218,t:"Informes sobre resolución de discrepancias",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"Las decisiones contra los reparos se llevan al Pleno y al Tribunal de Cuentas.",literal:`<p>1. El órgano interventor elevará informe al Pleno de todas las resoluciones adoptadas por el Presidente de la Entidad Local contrarias a los reparos efectuados, así como un resumen de las principales anomalías detectadas en materia de ingresos. Dicho informe atenderá únicamente a aspectos y cometidos propios del ejercicio de la función fiscalizadora, sin incluir cuestiones de oportunidad o conveniencia de las actuaciones que fiscalice.</p><p>Lo contenido en este apartado constituirá un punto independiente en el orden del día de la correspondiente sesión plenaria.</p><p>El Presidente de la Corporación podrá presentar en el Pleno informe justificativo de su actuación.</p><p>2. Sin perjuicio de lo anterior, cuando existan discrepancias, el Presidente de la Entidad Local podrá elevar su resolución al órgano de control competente por razón de la materia de la Administración que tenga atribuida la tutela financiera.</p><p>3. El órgano interventor remitirá anualmente al Tribunal de Cuentas todas las resoluciones y acuerdos adoptados por el Presidente de la Entidad Local y por el Pleno de la Corporación contrarios a los reparos formulados, así como un resumen de las principales anomalías detectadas en materia de ingresos. A la citada documentación deberá acompañar, en su caso, los informes justificativos presentados por la Corporación local.</p>`,dis:`<ul>
+<li><b>218.1 — informe al Pleno:</b> el órgano interventor eleva informe de <b>todas</b> las resoluciones del presidente <b>contrarias a los reparos</b>, más un <b>resumen de las principales anomalías en materia de ingresos</b>. El informe atiende solo a aspectos de la función fiscalizadora, <b>sin entrar en oportunidad o conveniencia</b>. Constituye un <b>punto independiente del orden del día</b>. El presidente puede presentar informe justificativo de su actuación.</li>
+<li><b>218.2 — tutela financiera:</b> el presidente <b>podrá</b> elevar su resolución al órgano de control competente de la Administración que tenga atribuida la <span class="t" data-k="tutela">tutela financiera</span>.</li>
+<li><b>218.3 — Tribunal de Cuentas:</b> el órgano interventor remite <b>anualmente</b> todas las resoluciones y acuerdos <b>del presidente y del Pleno</b> contrarios a reparos, más el resumen de anomalías en ingresos, acompañando en su caso los informes justificativos de la corporación.</li>
+</ul>`,llano:`<p>Cuando el alcalde decide seguir adelante pese al reparo, eso no se queda en un cajón: el interventor lo lleva al Pleno como punto propio del orden del día, y una vez al año se lo manda todo al Tribunal de Cuentas. El alcalde puede defenderse por escrito, y si quiere puede pedir opinión a quien ejerce la tutela financiera.</p>`,porque:`<p>El reparo levantado sin publicidad sería inútil. Este artículo garantiza <b>transparencia y trazabilidad</b>: el Pleno se entera (y con punto independiente, para que no se diluya entre "ruegos y preguntas") y el órgano fiscalizador externo también. La prohibición de entrar en oportunidad protege el papel técnico del interventor: informa de legalidad, no hace política.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el acta que deja constancia de que el jefe decidió en contra del informe técnico, y que se envía a la matriz una vez al año.</li>
+<li><b>Real:</b> en 2026 el alcalde resolvió cuatro discrepancias en contra de los reparos. La interventora lleva el informe al Pleno de febrero de 2027 como punto independiente; el alcalde presenta informe justificativo; en abril, la Intervención remite todo al Tribunal de Cuentas junto con el resumen de anomalías en ingresos.</li>
+<li><b>Caso límite:</b> el informe de la interventora incluye una valoración sobre si la obra era o no prioritaria para la ciudad: excede su función, porque el 218.1 le prohíbe entrar en oportunidad o conveniencia.</li>
+</ul>`,noej:`<ul>
+<li><b>No se informa</b> solo de los reparos suspensivos: se informa de <b>todas</b> las resoluciones contrarias a reparos.</li>
+<li><b>No es facultativo</b> el informe al Pleno; sí lo es elevar la resolución al órgano de tutela financiera (218.2, "podrá").</li>
+<li><b>No va</b> al Tribunal de Cuentas caso a caso: la remisión es <b>anual</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 217:</b> las resoluciones que se informan.</li>
+<li><b>Art. 223:</b> el Tribunal de Cuentas como destinatario final.</li>
+<li><b>Art. 188:</b> el reparo escrito y su valor exonerador.</li>
+</ul>`,trampas:`<ul>
+<li><b>Punto independiente</b> del orden del día: expresión literal.</li>
+<li>Al Pleno se informa de las resoluciones <b>del presidente</b>; al Tribunal de Cuentas, de las <b>del presidente y del Pleno</b>.</li>
+<li>La remisión al Tribunal es <b>anual</b>.</li>
+<li>Nada de <b>oportunidad o conveniencia</b>.</li>
+</ul>`,ancla:`<p><b>"Al Pleno, en punto aparte; al Tribunal, una vez al año."</b><br>Y el límite del interventor: <b>legalidad sí, oportunidad no</b>.</p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Publicidad de las resoluciones contrarias a reparos">
+<defs><marker id="e1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="215" y="12" width="210" height="42" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="320" y="31" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Resoluciones contrarias</text>
+<text x="320" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">a los reparos</text>
+<path d="M240 54 L 150 78" stroke="var(--acc)" stroke-width="2" marker-end="url(#e1)"/>
+<path d="M400 54 L 490 78" stroke="var(--acc)" stroke-width="2" marker-end="url(#e1)"/>
+<rect x="25" y="82" width="260" height="66" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="155" y="103" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">PLENO</text>
+<text x="155" y="121" text-anchor="middle" font-size="10" fill="currentColor">informe del interventor</text>
+<text x="155" y="137" text-anchor="middle" font-size="10" fill="var(--exc)">punto independiente del orden del día</text>
+<rect x="355" y="82" width="260" height="66" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="485" y="103" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">TRIBUNAL DE CUENTAS</text>
+<text x="485" y="121" text-anchor="middle" font-size="10" fill="currentColor">remisión ANUAL</text>
+<text x="485" y="137" text-anchor="middle" font-size="10" fill="var(--ink2)">resoluciones del presidente y del Pleno</text>
+</svg>`},
+{n:219,t:"Fiscalización previa",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"Hay gastos exentos de fiscalización previa y una versión limitada con revisión posterior.",literal:`<p>1. No estarán sometidos a intervención previa los gastos de material no inventariable, contratos menores, así como los de carácter periódico y demás de tracto sucesivo, una vez intervenido el gasto correspondiente al período inicial del acto o contrato del que deriven o sus modificaciones, así como otros gastos menores de 3.005,06 euros que, de acuerdo con la normativa vigente, se hagan efectivos a través del sistema de anticipos de caja fija.</p><p>2. El Pleno podrá acordar, a propuesta del presidente y previo informe del órgano interventor, que la intervención previa se limite a comprobar los siguientes extremos:</p><p>a) La existencia de crédito presupuestario y que el propuesto es el adecuado a la naturaleza de gasto u obligación que se proponga contraer.</p><p>En los casos en que se trate de contraer compromisos de gastos de carácter plurianual se comprobará, además, si se cumple lo preceptuado en el artículo 174 de esta ley.</p><p>b) Que las obligaciones o gasto se generan por órgano competente.</p><p>c) Aquellos otros extremos que, por su trascendencia en el proceso de gestión, se determinen por el Pleno a propuesta del presidente.</p><p>El órgano interventor podrá formular las observaciones complementarias que considere conveniente, sin que estas tengan, en ningún caso, efectos suspensivos en la tramitación de los expedientes correspondientes.</p><p>3. Las obligaciones o gastos sometidos a la fiscalización limitada a que se refiere el apartado 2 de este artículo serán objeto de otra plena con posterioridad, ejercida sobre una muestra representativa de los actos, documentos o expedientes que dieron origen a la referida fiscalización, mediante la aplicación de técnicas de muestreo o auditoría, con el fin de verificar que se ajustan a las disposiciones aplicables en cada caso y determinar el grado del cumplimiento de la legalidad en la gestión de los créditos.</p><p>Los órganos de control interno que realicen las fiscalizaciones con posterioridad deberán emitir informe escrito en el que hagan constar cuantas observaciones y conclusiones se deduzcan de ellas. Estos informes se remitirán al Pleno con las observaciones que hubieran efectuado los órganos gestores.</p><p>4. Las entidades locales podrán determinar, mediante acuerdo del Pleno, la sustitución de la fiscalización previa de derechos por la inherente a la toma de razón en contabilidad y por actuaciones comprobatorias posteriores mediante la utilización de técnicas de muestreo o auditoría.</p>`,dis:`<div class="box ej"><span class="lbl">219.1 — No sometidos a intervención previa</span>
+<ul><li>gastos de <b>material no inventariable</b>;</li>
+<li><b>contratos menores</b>;</li>
+<li>gastos de carácter <b>periódico</b> y demás de <b>tracto sucesivo</b>, una vez intervenido el gasto del <b>período inicial</b> del acto o contrato del que deriven o sus modificaciones;</li>
+<li>otros gastos menores de <b>3.005,06 euros</b> que se hagan efectivos por el sistema de <span class="t" data-k="cajafija">anticipos de caja fija</span>.</li></ul></div>
+<div class="box warn"><span class="lbl">219.2 — Fiscalización previa limitada</span>La acuerda el <b>Pleno</b>, a propuesta del <b>presidente</b> y previo <b>informe del órgano interventor</b>. Se limita a comprobar:
+<ul><li><b>a)</b> existencia de <b>crédito</b> y que el propuesto es <b>adecuado</b> a la naturaleza del gasto. En compromisos plurianuales, además, el cumplimiento del <b>art. 174</b>;</li>
+<li><b>b)</b> que el gasto se genera por <b>órgano competente</b>;</li>
+<li><b>c)</b> otros extremos que, por su trascendencia, determine el <b>Pleno a propuesta del presidente</b>.</li></ul>
+El interventor puede formular <b>observaciones complementarias</b>, que <b>nunca tienen efectos suspensivos</b>.</div>
+<ul>
+<li><b>219.3 — fiscalización plena posterior:</b> los gastos fiscalizados de forma limitada se someten después a <b>fiscalización plena</b> sobre una <b>muestra representativa</b>, con técnicas de muestreo o auditoría. Se emite <b>informe escrito</b> que se remite al <b>Pleno</b> con las observaciones de los órganos gestores.</li>
+<li><b>219.4 — ingresos:</b> el <b>Pleno</b> puede sustituir la fiscalización previa de <b>derechos</b> por la <span class="t" data-k="tomarazon">toma de razón en contabilidad</span> y actuaciones comprobatorias posteriores mediante muestreo o auditoría.</li>
+</ul>`,llano:`<p>Fiscalizarlo absolutamente todo antes sería inviable. La ley exime de control previo a lo pequeño y repetitivo, permite que el Pleno reduzca la revisión previa a dos cosas esenciales —que haya dinero y que firme quien debe— y compensa esa rebaja con una revisión completa posterior por muestreo. Con los ingresos se puede ir más lejos: sustituir el control previo por una simple anotación contable y comprobar después.</p>`,porque:`<p>El control previo exhaustivo es caro y lento, y su rendimiento decrece en los gastos pequeños. La solución del legislador es <b>concentrar el control donde importa</b> —crédito y competencia— y trasladar el resto a un control posterior por muestreo, que es como funciona la auditoría moderna. El equilibrio se mantiene porque la rebaja siempre la decide el <b>Pleno</b>, con informe del interventor, y va acompañada de fiscalización plena posterior.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> en un aeropuerto no se abre todas las maletas: se pasan por el escáner y se abren unas cuantas al azar.</li>
+<li><b>Real:</b> el Pleno aprueba en 2026 el régimen de fiscalización limitada previa. La Intervención comprueba en cada expediente crédito, adecuación y órgano competente; al año siguiente audita una muestra del 10 % de los expedientes y remite informe al Pleno.</li>
+<li><b>Caso límite:</b> un contrato de mantenimiento de ascensores de tracto sucesivo: se fiscaliza el periodo inicial y sus modificaciones; las facturas mensuales posteriores quedan fuera de la intervención previa (219.1).</li>
+</ul>`,noej:`<ul>
+<li><b>No decide el interventor</b> limitar su propia fiscalización: lo acuerda el <b>Pleno</b>, aunque con su informe previo.</li>
+<li><b>No suspenden</b> las observaciones complementarias del 219.2.</li>
+<li><b>No desaparece</b> el control: la fiscalización limitada se compensa con la plena posterior por muestreo.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 214.2.a):</b> la intervención previa que aquí se excepciona o limita.</li>
+<li><b>Art. 174:</b> comprobación adicional en compromisos plurianuales.</li>
+<li><b>Art. 190.3:</b> los anticipos de caja fija a los que alude el 219.1.</li>
+<li><b>Art. 220:</b> control financiero, con el que enlaza el control posterior.</li>
+</ul>`,trampas:`<ul>
+<li>La cifra literal es <b>3.005,06 euros</b> (equivalente a las antiguas 500.000 pesetas) y va referida a gastos pagados por <b>anticipos de caja fija</b>.</li>
+<li>Los extremos básicos son <b>dos</b> (crédito adecuado y órgano competente) más los que añada el Pleno.</li>
+<li>La fiscalización plena posterior se hace sobre <b>muestra representativa</b> y su informe va al <b>Pleno</b>.</li>
+<li>La sustitución del 219.4 se refiere solo a los <b>derechos</b> (ingresos).</li>
+</ul>`,ancla:`<p><b>"Lo pequeño no se mira antes; lo demás, solo crédito y competencia."</b><br>Cifra que hay que memorizar: <b>3.005,06 €</b>. Y la compensación: <b>muestreo después</b>.</p>`,vis:`<svg viewBox="0 0 640 200" role="img" aria-label="Excepciones y limitación de la fiscalización previa">
+<rect x="20" y="15" width="290" height="80" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="165" y="36" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">NO sometidos a intervención previa</text>
+<text x="165" y="55" text-anchor="middle" font-size="10" fill="currentColor">material no inventariable · contratos menores</text>
+<text x="165" y="71" text-anchor="middle" font-size="10" fill="currentColor">periódicos y de tracto sucesivo (tras el inicial)</text>
+<text x="165" y="87" text-anchor="middle" font-size="10" fill="var(--exc)">gastos menores de 3.005,06 € por caja fija</text>
+<rect x="330" y="15" width="290" height="80" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="475" y="36" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Fiscalización limitada previa</text>
+<text x="475" y="55" text-anchor="middle" font-size="10" fill="currentColor">a) crédito existente y adecuado (+ art. 174)</text>
+<text x="475" y="71" text-anchor="middle" font-size="10" fill="currentColor">b) órgano competente</text>
+<text x="475" y="87" text-anchor="middle" font-size="10" fill="currentColor">c) lo que añada el Pleno</text>
+<rect x="120" y="112" width="400" height="42" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">FISCALIZACIÓN PLENA POSTERIOR sobre muestra representativa</text>
+<text x="320" y="147" text-anchor="middle" font-size="10" fill="currentColor">informe escrito al Pleno con las observaciones de los gestores</text>
+<text x="320" y="178" text-anchor="middle" font-size="10" fill="var(--ink2)">En ingresos, el Pleno puede sustituir la fiscalización previa por la toma de razón en contabilidad (219.4)</text>
+</svg>`},
+{n:220,t:"Ámbito de aplicación y finalidad del control financiero",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"El control financiero audita cómo funcionan los servicios y termina en el Pleno.",literal:`<p>1. El control financiero tendrá por objeto comprobar el funcionamiento en el aspecto económico-financiero de los servicios de las entidades locales, de sus organismos autónomos y de las sociedades mercantiles de ellas dependientes.</p><p>2. Dicho control tendrá por objeto informar acerca de la adecuada presentación de la información financiera, del cumplimiento de las normas y directrices que sean de aplicación y del grado de eficacia y eficiencia en la consecución de los objetivos previstos.</p><p>3. El control financiero se realizará por procedimientos de auditoría de acuerdo con las normas de auditoría del sector público.</p><p>4. Como resultado del control efectuado habrá de emitirse informe escrito en el que se haga constar cuantas observaciones y conclusiones se deduzcan del examen practicado. Los informes, conjuntamente con las alegaciones efectuadas por el órgano auditado, serán enviados al Pleno para su examen.</p>`,dis:`<ul>
+<li><b>Ámbito (220.1):</b> servicios de la entidad, de sus <b>organismos autónomos</b> y de sus <b>sociedades mercantiles dependientes</b>. Es más amplio que el de la función interventora.</li>
+<li><b>Objeto (220.2) — tres finalidades:</b>
+<ol><li>adecuada presentación de la <b>información financiera</b>;</li>
+<li><b>cumplimiento</b> de las normas y directrices aplicables;</li>
+<li>grado de <b>eficacia y eficiencia</b> en la consecución de los objetivos.</li></ol></li>
+<li><b>Método (220.3):</b> procedimientos de <b>auditoría</b>, conforme a las normas de auditoría del sector público.</li>
+<li><b>Resultado (220.4):</b> <b>informe escrito</b> con observaciones y conclusiones. Se envía al <b>Pleno</b> junto con las <b>alegaciones</b> del órgano auditado.</li>
+</ul>`,llano:`<p>Mientras la función interventora mira expediente a expediente y antes, el control financiero mira el conjunto y después, con técnicas de auditoría: si las cuentas reflejan la realidad, si se cumplen las normas y si el servicio funciona bien. Termina siempre en un informe escrito que va al Pleno, con la respuesta de los auditados.</p>`,porque:`<p>Hay problemas que ningún control previo detecta: un servicio legal pero ruinoso, una información contable formalmente correcta pero engañosa. El control financiero aporta la <b>mirada agregada y experta</b>. Que las alegaciones acompañen al informe garantiza contradicción: el auditado tiene derecho a explicarse ante el mismo órgano que recibe la crítica.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> la auditoría anual de una empresa, que no revisa cada factura sino el conjunto y emite opinión.</li>
+<li><b>Real:</b> control financiero de la empresa municipal de aguas: el informe concluye que la información financiera es adecuada, detecta incumplimientos en la contratación menor y señala un coste por metro cúbico un 18 % superior al de entidades comparables. Se remite al Pleno con las alegaciones de la empresa.</li>
+<li><b>Caso límite:</b> las sociedades mercantiles no están sujetas a la función interventora del art. 214, pero sí a este control financiero.</li>
+</ul>`,noej:`<ul>
+<li><b>No es previo</b>: opera con posterioridad y sobre el funcionamiento, no sobre actos concretos antes de aprobarse.</li>
+<li><b>No termina</b> en la Intervención: el informe va al <b>Pleno</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 213:</b> lo incluye entre las modalidades de control interno, con la auditoría de cuentas.</li>
+<li><b>Art. 219.3:</b> la fiscalización plena posterior, con técnicas semejantes.</li>
+<li><b>Art. 221:</b> control de eficacia, con el que comparte la mirada a los objetivos.</li>
+</ul>`,trampas:`<ul>
+<li>Alcanza a las <b>sociedades mercantiles dependientes</b>, a diferencia del art. 214.</li>
+<li>Tres finalidades: información financiera · cumplimiento normativo · <b>eficacia y eficiencia</b>.</li>
+<li>El informe se envía al Pleno <b>junto con las alegaciones</b> del auditado.</li>
+</ul>`,ancla:`<p><b>"Auditar el cómo funciona."</b> Tres preguntas: <b>¿informa bien? ¿cumple? ¿sirve?</b></p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Objeto y resultado del control financiero">
+<rect x="185" y="10" width="270" height="34" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="320" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">CONTROL FINANCIERO · auditoría</text>
+<line x1="320" y1="44" x2="320" y2="58" stroke="var(--ej)" stroke-width="2"/><line x1="115" y1="58" x2="525" y2="58" stroke="var(--ej)" stroke-width="2"/>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<line x1="115" y1="58" x2="115" y2="72" stroke="var(--ej)" stroke-width="2"/><rect x="25" y="72" width="180" height="44" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="115" y="92" font-weight="700">Información financiera</text><text x="115" y="108">¿se presenta adecuadamente?</text>
+<line x1="320" y1="58" x2="320" y2="72" stroke="var(--ej)" stroke-width="2"/><rect x="230" y="72" width="180" height="44" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="320" y="92" font-weight="700">Cumplimiento</text><text x="320" y="108">de normas y directrices</text>
+<line x1="525" y1="58" x2="525" y2="72" stroke="var(--ej)" stroke-width="2"/><rect x="435" y="72" width="180" height="44" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="525" y="92" font-weight="700">Eficacia y eficiencia</text><text x="525" y="108">en los objetivos previstos</text>
+</g>
+<rect x="150" y="126" width="340" height="32" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="147" text-anchor="middle" font-size="11" fill="var(--acc)">Informe escrito + alegaciones del auditado → al PLENO</text>
+</svg>`},
+{n:221,t:"Control de eficacia",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"El control de eficacia mira si se cumplen los objetivos y a qué coste.",literal:`<p>El control de eficacia tendrá por objeto la comprobación periódica del grado de cumplimiento de los objetivos, así como el análisis del coste de funcionamiento y del rendimiento de los respectivos servicios o inversiones.</p>`,dis:`<ul>
+<li><b>Objeto — tres elementos:</b>
+<ol><li>comprobación <b>periódica</b> del <b>grado de cumplimiento de los objetivos</b>;</li>
+<li>análisis del <b>coste de funcionamiento</b>;</li>
+<li>análisis del <b>rendimiento</b> de los respectivos servicios o inversiones.</li></ol></li>
+</ul>`,llano:`<p>No basta con gastar legalmente y con las cuentas cuadradas: hay que preguntarse si se consiguió lo que se prometió, cuánto costó mantenerlo y qué rindió. Eso es el control de eficacia, y se hace de forma periódica.</p>`,porque:`<p>Es la última pieza del sistema: la legalidad y la contabilidad pueden ser impecables mientras el dinero se dedica a servicios que nadie usa. Al exigir una comprobación <b>periódica</b> —no puntual— la ley busca que la evaluación forme parte de la gestión ordinaria, no de un examen excepcional.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> revisar cada trimestre si el gimnasio que pagas te sirve para algo y cuánto te cuesta cada sesión efectiva.</li>
+<li><b>Real:</b> el informe de control de eficacia de una biblioteca municipal concluye que el objetivo de 40.000 préstamos anuales se cumplió al 78 %, con un coste de funcionamiento de 310.000 € y un coste medio por préstamo de 9,94 €.</li>
+</ul>`,noej:`<ul>
+<li><b>No es control de legalidad</b>: no juzga si el gasto era conforme a derecho, sino si sirvió.</li>
+<li><b>No es esporádico</b>: la ley exige comprobación <b>periódica</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 211:</b> las memorias de coste, rendimiento y cumplimiento de objetivos de las entidades grandes.</li>
+<li><b>Art. 213:</b> es una de las tres modalidades de control interno.</li>
+<li><b>Art. 220.2:</b> el control financiero también evalúa eficacia y eficiencia.</li>
+</ul>`,trampas:`<ul>
+<li>Son <b>tres</b> objetos: cumplimiento de objetivos, coste de funcionamiento y rendimiento.</li>
+<li>La comprobación es <b>periódica</b>.</li>
+</ul>`,ancla:`<p><b>"¿Se cumplió, cuánto costó, qué rindió?"</b> Tres preguntas y ya tienes el artículo entero.</p>`,vis:`<svg viewBox="0 0 640 125" role="img" aria-label="Objeto del control de eficacia">
+<rect x="205" y="10" width="230" height="32" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="320" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)">CONTROL DE EFICACIA</text>
+<rect x="25" y="58" width="180" height="50" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="115" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Cumplimiento</text>
+<text x="115" y="97" text-anchor="middle" font-size="10" fill="var(--ink2)">de los objetivos</text>
+<rect x="230" y="58" width="180" height="50" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="320" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Coste</text>
+<text x="320" y="97" text-anchor="middle" font-size="10" fill="var(--ink2)">de funcionamiento</text>
+<rect x="435" y="58" width="180" height="50" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="525" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Rendimiento</text>
+<text x="525" y="97" text-anchor="middle" font-size="10" fill="var(--ink2)">de servicios o inversiones</text>
+</svg>`},
+{n:222,t:"Facultades del personal controlador",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"Los controladores actúan con plena independencia y pueden pedir y comprobar todo.",literal:`<p>Los funcionarios que tengan a su cargo la función interventora así como los que se designen para llevar a efecto los controles financiero y de eficacia, ejercerán su función con plena independencia y podrán recabar cuantos antecedentes consideren necesarios, efectuar el examen y comprobación de los libros, cuentas y documentos que consideren precisos, verificar arqueos y recuentos y solicitar de quien corresponda, cuando la naturaleza del acto, documento o expediente que deba ser intervenido lo requiera, los informes técnicos y asesoramientos que estimen necesarios.</p>`,dis:`<ul>
+<li><b>Sujetos:</b> funcionarios con la <b>función interventora</b> y los designados para los controles <b>financiero y de eficacia</b>.</li>
+<li><b>Garantía:</b> ejercen su función con <b>plena independencia</b>.</li>
+<li><b>Facultades:</b>
+<ol><li><b>recabar</b> cuantos antecedentes consideren necesarios;</li>
+<li><b>examinar y comprobar</b> libros, cuentas y documentos;</li>
+<li><b>verificar arqueos y recuentos</b>;</li>
+<li><b>solicitar informes técnicos y asesoramientos</b> cuando la naturaleza del acto lo requiera.</li></ol></li>
+</ul>`,llano:`<p>Para que el control sirva, quien controla no puede depender de a quien controla ni quedarse en la puerta. La ley se lo dice expresamente: independencia plena, y derecho a pedir papeles, revisar libros, contar el dinero de la caja y pedir ayuda técnica.</p>`,porque:`<p>Un interventor sin independencia sería un sello de goma. Sin facultades de investigación, un lector de expedientes. Este artículo es la <b>condición de posibilidad</b> de todo el capítulo: las funciones de los arts. 214 a 221 no se pueden ejercer si el controlador no puede exigir la información.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el auditor que aparece sin avisar y cuenta la caja del negocio.</li>
+<li><b>Real:</b> en el control financiero de la recaudación, la interventora verifica un arqueo sorpresa de la caja de la oficina de atención al contribuyente y solicita un informe técnico externo sobre la aplicación informática de recaudación.</li>
+</ul>`,noej:`<ul>
+<li><b>No puede</b> el órgano gestor negar antecedentes al controlador.</li>
+<li><b>No alcanza</b> la independencia a decidir sobre la gestión: controla, no gestiona.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 213:</b> el Gobierno regula derechos y deberes del personal controlador.</li>
+<li><b>Arts. 214 y 220:</b> las funciones que estas facultades hacen posibles.</li>
+<li><b>Art. 92 bis LBRL:</b> funcionarios de administración local con habilitación de carácter nacional.</li>
+</ul>`,trampas:`<ul>
+<li>La expresión literal es <b>"plena independencia"</b>.</li>
+<li>Entre las facultades está la de <b>verificar arqueos y recuentos</b>, que suele olvidarse.</li>
+</ul>`,ancla:`<p><b>"Pedir, mirar, contar y consultar."</b> Cuatro verbos y una garantía: <b>plena independencia</b>.</p>`,vis:`<svg viewBox="0 0 640 130" role="img" aria-label="Facultades del personal controlador">
+<rect x="180" y="10" width="280" height="32" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">PLENA INDEPENDENCIA</text>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="15" y="58" width="145" height="52" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="87" y="80" font-weight="700">Recabar</text><text x="87" y="97">antecedentes</text>
+<rect x="172" y="58" width="145" height="52" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="244" y="80" font-weight="700">Examinar</text><text x="244" y="97">libros, cuentas y documentos</text>
+<rect x="329" y="58" width="145" height="52" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="401" y="80" font-weight="700">Verificar</text><text x="401" y="97">arqueos y recuentos</text>
+<rect x="486" y="58" width="139" height="52" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="555" y="80" font-weight="700">Solicitar</text><text x="555" y="97">informes técnicos</text>
+</g>
+</svg>`},
+{n:223,t:"Control externo",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo IV (Control y fiscalización)",idea:"Fuera de casa controla el Tribunal de Cuentas, sin perjuicio de los órganos autonómicos.",literal:`<p>1. La fiscalización externa de las cuentas y de la gestión económica de las entidades locales y de todos los organismos y sociedades de ellas dependientes es función propia del Tribunal de Cuentas, con el alcance y condiciones que establece su ley orgánica reguladora y su ley de funcionamiento.</p><p>2. A tal efecto, las entidades locales rendirán al citado Tribunal, antes del día 15 de octubre de cada año, la cuenta general a que se refiere el artículo 209 de esta ley correspondiente al ejercicio económico anterior.</p><p>3. Una vez fiscalizadas las cuentas por el Tribunal, se someterá a la consideración de la entidad local la propuesta de corrección de las anomalías observadas y el ejercicio de las acciones procedentes, sin perjuicio, todo ello, de las actuaciones que puedan corresponder al Tribunal en los casos de exigencia de responsabilidad contable.</p><p>4. Lo establecido en el presente artículo se entiende sin menoscabo de las facultades que, en materia de fiscalización externa de las entidades locales, tengan atribuidas por sus Estatutos las comunidades autónomas.</p>`,dis:`<ul>
+<li><b>223.1 — competencia:</b> la fiscalización externa de las cuentas y de la gestión económica de las entidades locales y de <b>todos</b> los organismos y sociedades dependientes es función propia del <span class="t" data-k="tcuentas">Tribunal de Cuentas</span>, con el alcance de su ley orgánica y su ley de funcionamiento.</li>
+<li><b>223.2 — rendición:</b> las entidades locales rinden al Tribunal, antes del <b>15 de octubre</b> de cada año, la <b>cuenta general del ejercicio anterior</b> (art. 209).</li>
+<li><b>223.3 — resultado:</b> fiscalizadas las cuentas, se somete a la entidad la <b>propuesta de corrección</b> de las anomalías y el ejercicio de las acciones procedentes, sin perjuicio de la <b>responsabilidad contable</b> que pueda exigir el Tribunal.</li>
+<li><b>223.4 — órganos autonómicos:</b> todo ello sin menoscabo de las facultades de fiscalización externa que los <b>Estatutos</b> atribuyan a las comunidades autónomas (<span class="t" data-k="ocex">OCEX</span>: en Andalucía, la Cámara de Cuentas).</li>
+</ul>`,llano:`<p>Además del control de casa, hay un control de fuera: el Tribunal de Cuentas. Cada año, antes del 15 de octubre, hay que mandarle la cuenta general del año anterior. Si encuentra cosas mal, propone corregirlas y puede exigir responsabilidad contable a quien haya causado un daño a los fondos públicos. Y las comunidades autónomas pueden tener su propio órgano fiscalizador.</p>`,porque:`<p>El control interno lo ejercen funcionarios de la propia entidad: por muy independientes que sean, hace falta una <b>mirada externa</b> que no dependa de la corporación. Y como el daño a los fondos públicos no se repara solo señalándolo, el Tribunal puede exigir <b>responsabilidad contable</b>, es decir, la reintegración del perjuicio.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> la diferencia entre revisar tú tus cuentas y que las revise un auditor externo que no cobra de ti.</li>
+<li><b>Real:</b> un ayuntamiento rinde su cuenta general de 2026 al Tribunal de Cuentas el 3 de octubre de 2027 a través de la plataforma de rendición. La Cámara de Cuentas de Andalucía, en paralelo, incluye a la entidad en su informe anual del sector local.</li>
+<li><b>Caso límite:</b> el Pleno rechazó la cuenta general. Debe rendirse igualmente (art. 212.5) y el Tribunal la fiscaliza.</li>
+</ul>`,noej:`<ul>
+<li><b>No es control interno</b>: aquí no interviene la Intervención de la entidad como controladora, sino como rendidora de la información.</li>
+<li><b>No excluye</b> la fiscalización del Tribunal de Cuentas la existencia de un órgano autonómico: son compatibles.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 212.5:</b> el presidente rinde la cuenta general al Tribunal tras el pronunciamiento del Pleno.</li>
+<li><b>Art. 218.3:</b> remisión anual de resoluciones contrarias a reparos.</li>
+<li><b>Art. 171.2:</b> informe del Tribunal de Cuentas cuando se impugna la nivelación presupuestaria.</li>
+<li><b>Art. 136 CE:</b> el Tribunal de Cuentas como supremo órgano fiscalizador, dependiente de las Cortes Generales.</li>
+</ul>`,trampas:`<ul>
+<li><b>15 de octubre</b>: rendición al Tribunal de Cuentas. No confundir con el 1 de octubre (aprobación por el Pleno, art. 212.4) ni con el 15 de octubre del art. 168.4 (remisión del presupuesto al Pleno), que coinciden en fecha pero no en objeto.</li>
+<li>Se rinde la cuenta general <b>del ejercicio anterior</b>.</li>
+<li>La fiscalización externa alcanza a <b>todos</b> los organismos y sociedades dependientes.</li>
+</ul>`,ancla:`<p><b>"El 15 de octubre, al Tribunal."</b> Y recuerda que el 15 de octubre aparece dos veces en el tema 8: <b>presupuesto al Pleno</b> (168.4) y <b>cuenta general al Tribunal</b> (223.2).</p>`,vis:`<svg viewBox="0 0 640 175" role="img" aria-label="Control externo de las entidades locales">
+<defs><marker id="x1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="30" y="55" width="190" height="56" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="125" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Entidad local</text>
+<text x="125" y="96" text-anchor="middle" font-size="10" fill="var(--ink2)">y todos sus entes dependientes</text>
+<path d="M224 83 L 268 83" stroke="var(--acc)" stroke-width="2" marker-end="url(#x1)"/>
+<text x="246" y="72" text-anchor="middle" font-size="10" fill="var(--exc)">15 OCT</text>
+<rect x="272" y="45" width="200" height="76" rx="8" fill="var(--acc-soft)" stroke="var(--acc)" stroke-width="2"/>
+<text x="372" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">TRIBUNAL DE CUENTAS</text>
+<text x="372" y="90" text-anchor="middle" font-size="10" fill="currentColor">cuenta general del ejercicio anterior</text>
+<text x="372" y="108" text-anchor="middle" font-size="10" fill="var(--ink2)">propuesta de corrección · responsabilidad contable</text>
+<rect x="490" y="55" width="130" height="56" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="555" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">OCEX</text>
+<text x="555" y="96" text-anchor="middle" font-size="10" fill="currentColor">facultades autonómicas</text>
+<text x="481" y="87" text-anchor="middle" font-size="14" fill="var(--ink2)">+</text>
+<text x="320" y="150" text-anchor="middle" font-size="11" fill="var(--ink2)">Control EXTERNO, distinto del control interno de los arts. 213 a 222</text>
+</svg>`}];
+</script>
+<script>
+const PLAZOS=[["15 de mayo", "Rendición de los estados y cuentas de la entidad y remisión de las de OOAA y sociedades", "Presidente / órganos de los entes", "212.1", "Del ejercicio siguiente al que correspondan"], ["1 de junio", "Informe de la Comisión Especial de Cuentas sobre la cuenta general", "Comisión Especial", "212.2", "La cuenta la forma la Intervención"], ["15 días", "Exposición al público de la cuenta general con el informe de la Comisión", "Interesados", "212.3", "Reclamaciones, reparos u observaciones + nuevo informe"], ["1 de octubre", "Aprobación de la cuenta general", "Pleno", "212.4", "Puede aprobarla o rechazarla"], ["15 de octubre", "Rendición de la cuenta general al Tribunal de Cuentas", "Presidente", "223.2", "La del ejercicio económico anterior"], ["Más de 50.000 habitantes", "Umbral para acompañar las dos memorias a la cuenta general", "Municipios y entidades de ámbito superior", "211", "Coste y rendimiento · cumplimiento de objetivos"], ["3.005,06 euros", "Gastos menores por anticipos de caja fija excluidos de intervención previa", "Entidad", "219.1", "Junto con material no inventariable y contratos menores"], ["Anual", "Remisión al Tribunal de Cuentas de resoluciones contrarias a reparos", "Órgano interventor", "218.3", "Del presidente y del Pleno, con anomalías de ingresos"], ["Anual", "Informe resumen de los resultados del control interno a la IGAE", "Órgano interventor", "213", "En el plazo y contenido que fijen las normas del Gobierno"], ["Punto independiente", "Los reparos resueltos en contra se llevan al Pleno en punto propio del orden del día", "Órgano interventor", "218.1", "Sin entrar en oportunidad ni conveniencia"]];
+const FLASH=[["¿Qué pone de manifiesto la cuenta general?", "La gestión realizada en los aspectos <b>económico, financiero, patrimonial y presupuestario</b> (art. 208)."], ["¿Por qué cuentas está integrada la cuenta general?", "La de la propia entidad, la de los organismos autónomos y las de las sociedades mercantiles de <b>capital íntegramente</b> propiedad de la entidad (art. 209.1)."], ["¿Con qué normativa se elaboran las cuentas de las sociedades mercantiles locales?", "Con la <b>normativa mercantil</b> (art. 209.3)."], ["¿Quién determina el contenido y la estructura de las cuentas?", "El <b>Ministerio de Hacienda</b>, a propuesta de la <b>IGAE</b> (art. 210)."], ["¿Quién acompaña memorias a la cuenta general y cuáles?", "Los municipios de más de <b>50.000 habitantes</b> y entidades de ámbito superior: memoria de <b>coste y rendimiento</b> de los servicios y memoria de <b>cumplimiento de objetivos</b> (art. 211)."], ["Calendario de la cuenta general", "<b>15 de mayo</b> rendición · <b>1 de junio</b> informe de la Comisión Especial · <b>15 días</b> de exposición · <b>1 de octubre</b> aprobación por el Pleno · <b>15 de octubre</b> al Tribunal de Cuentas."], ["¿Quién forma la cuenta general?", "La <b>Intervención</b> (art. 212.2). El presidente rinde los estados y cuentas."], ["¿Qué ocurre si el Pleno rechaza la cuenta general?", "El presidente debe rendirla igualmente al <b>Tribunal de Cuentas</b> (art. 212.5)."], ["Modalidades del control interno", "<b>Función interventora</b>, <b>control financiero</b> (incluida auditoría de cuentas) y <b>control de eficacia</b> (art. 213)."], ["¿A quién se remite el informe resumen anual del control interno?", "A la <b>IGAE</b> (art. 213)."], ["Las cuatro modalidades de la función interventora", "Intervención <b>previa o crítica</b> · intervención <b>formal</b> de la ordenación del pago · intervención <b>material</b> del pago · <b>comprobación material</b> de inversiones y aplicación de subvenciones (art. 214.2)."], ["¿Cómo y cuándo se formula un reparo?", "<b>Por escrito</b> y <b>antes</b> de la adopción del acuerdo o resolución, por desacuerdo de fondo o de forma (art. 215)."], ["¿Suspende el reparo en materia de ingresos?", "No: se formaliza en <b>nota de reparo</b> que en ningún caso suspende la tramitación (art. 216.1)."], ["¿En qué cuatro casos suspende el reparo de gastos?", "Insuficiencia o inadecuación de crédito · actos no fiscalizados que originaron órdenes de pago · omisión de requisitos o trámites esenciales · comprobaciones materiales (art. 216.2)."], ["¿Quién resuelve las discrepancias?", "El <b>presidente</b>, con resolución ejecutiva e <b>indelegable en todo caso</b> (art. 217.1)."], ["¿Cuándo resuelve el Pleno las discrepancias?", "Si el reparo se basa en <b>insuficiencia o inadecuación de crédito</b> o se refiere a gastos cuya aprobación sea de su competencia (art. 217.2)."], ["¿Qué se lleva al Pleno como punto independiente del orden del día?", "El informe del interventor sobre las resoluciones del presidente <b>contrarias a los reparos</b> y el resumen de anomalías en ingresos (art. 218.1)."], ["¿Qué se remite anualmente al Tribunal de Cuentas en materia de reparos?", "Todas las resoluciones y acuerdos del <b>presidente y del Pleno</b> contrarios a reparos, con el resumen de anomalías de ingresos y los informes justificativos (art. 218.3)."], ["Gastos no sometidos a intervención previa", "Material no inventariable · contratos menores · periódicos y de tracto sucesivo tras el periodo inicial · otros gastos menores de <b>3.005,06 €</b> por anticipos de caja fija (art. 219.1)."], ["Extremos de la fiscalización limitada previa", "Existencia y adecuación del <b>crédito</b> (y art. 174 en plurianuales) · <b>órgano competente</b> · otros que determine el Pleno a propuesta del presidente (art. 219.2)."], ["¿Qué compensa la fiscalización limitada?", "Una <b>fiscalización plena posterior</b> sobre muestra representativa, con informe escrito al Pleno (art. 219.3)."], ["Finalidades del control financiero", "Adecuada presentación de la <b>información financiera</b>, <b>cumplimiento</b> de normas y directrices, y grado de <b>eficacia y eficiencia</b> (art. 220.2)."], ["¿Qué alcanza el control financiero que no alcanza la función interventora?", "Las <b>sociedades mercantiles dependientes</b> (arts. 220.1 frente a 214.1)."], ["Objeto del control de eficacia", "Comprobación periódica del <b>cumplimiento de objetivos</b> y análisis del <b>coste de funcionamiento</b> y del <b>rendimiento</b> de servicios o inversiones (art. 221)."], ["Facultades del personal controlador", "Plena independencia · recabar antecedentes · examinar libros, cuentas y documentos · verificar <b>arqueos y recuentos</b> · solicitar informes técnicos (art. 222)."], ["¿Quién ejerce el control externo y con qué plazo de rendición?", "El <b>Tribunal de Cuentas</b>; la cuenta general del ejercicio anterior se rinde antes del <b>15 de octubre</b> de cada año (art. 223)."]];
+const TEST=[{"a": 208, "q": "La cuenta general pone de manifiesto la gestión realizada en los aspectos:", "o": [["económico, financiero, patrimonial y presupuestario", 1, "Correcto: los cuatro aspectos del art. 208."], ["económico y presupuestario", 0, "Incompleto: faltan el financiero y el patrimonial."], ["presupuestario y de tesorería", 0, "No es la formulación legal."], ["contable y fiscal", 0, "No figura en el precepto."]]}, {"a": 209, "q": "Se integran en la cuenta general las cuentas de las sociedades mercantiles de capital mayoritariamente municipal.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 209.1.c) exige capital <b>íntegramente</b> propiedad de la entidad local. Las participadas remiten sus cuentas a efectos de los estados consolidados (209.4)."}, {"a": 211, "q": "¿Qué entidades deben acompañar a la cuenta general la memoria de coste y rendimiento de los servicios públicos?", "o": [["los municipios de más de 50.000 habitantes y las entidades de ámbito superior", 1, "Correcto: art. 211."], ["todos los municipios sin excepción", 0, "No: la obligación se limita por población y ámbito."], ["los municipios de más de 500.000 habitantes", 0, "Ese umbral es el de la unidad central de tesorería (art. 186.3)."], ["solo las diputaciones provinciales", 0, "También los municipios de más de 50.000 habitantes."]]}, {"a": 212, "q": "Completa: «Los estados y cuentas de la entidad local serán rendidas por su presidente antes del día ______».", "gap": "15 de mayo", "fb": "<b>15 de mayo</b> del ejercicio siguiente (art. 212.1). Después: 1 de junio (Comisión Especial), 15 días de exposición y 1 de octubre (Pleno)."}, {"a": 212, "q": "La cuenta general se somete a informe de la Comisión Especial de Cuentas antes del:", "o": [["1 de junio", 1, "Correcto: art. 212.2. La Comisión está formada por miembros de los distintos grupos políticos."], ["15 de mayo", 0, "Esa es la fecha de rendición por el presidente."], ["1 de octubre", 0, "Esa es la fecha límite de aprobación por el Pleno."], ["15 de octubre", 0, "Esa es la rendición al Tribunal de Cuentas (art. 223.2)."]]}, {"a": 212, "q": "Si el Pleno rechaza la cuenta general, no procede rendirla al Tribunal de Cuentas.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 212.5 exige que, una vez que el Pleno se pronuncie —aprobándola o rechazándola—, el presidente la rinda al Tribunal de Cuentas."}, {"a": 213, "q": "Las modalidades del control interno de las entidades locales son:", "o": [["función interventora, control financiero y control de eficacia", 1, "Correcto: art. 213, con la auditoría de cuentas incluida en el control financiero."], ["función interventora y control externo", 0, "El control externo (art. 223) no es control interno."], ["fiscalización previa, posterior y contable", 0, "No es la clasificación legal."], ["auditoría, tutela financiera y control de legalidad", 0, "No es la clasificación del art. 213."]]}, {"a": 214, "q": "¿Cuál NO es una modalidad de ejercicio de la función interventora?", "o": [["la auditoría de las sociedades mercantiles dependientes", 1, "Correcto: eso es control financiero (arts. 213 y 220), no función interventora."], ["la intervención crítica o previa", 0, "Sí lo es: art. 214.2.a)."], ["la intervención formal de la ordenación del pago", 0, "Sí lo es: art. 214.2.b)."], ["la comprobación material de las inversiones y de la aplicación de subvenciones", 0, "Sí lo es: art. 214.2.d)."]]}, {"a": 215, "q": "El reparo del órgano interventor debe formularse:", "o": [["por escrito y antes de la adopción del acuerdo o resolución", 1, "Correcto: art. 215, y puede referirse al fondo o a la forma."], ["por escrito, en el plazo de diez días desde el acuerdo", 0, "El reparo es previo, no posterior."], ["verbalmente en la sesión y por escrito después", 0, "La ley exige forma escrita y momento previo."], ["solo cuando afecte al fondo del expediente", 0, "También cabe por defectos de forma."]]}, {"a": 216, "q": "El reparo referido al reconocimiento o liquidación de derechos a favor de la entidad:", "o": [["se formaliza en nota de reparo que en ningún caso suspende la tramitación", 1, "Correcto: art. 216.1."], ["suspende siempre la tramitación del expediente", 0, "La suspensión se reserva a los cuatro casos del art. 216.2, referidos a gastos."], ["suspende si se basa en insuficiencia de crédito", 0, "Ese supuesto opera en gastos, no en derechos."], ["obliga a resolver al Pleno en todo caso", 0, "No es el efecto previsto."]]}, {"a": 216, "q": "¿Cuál de estos motivos NO determina la suspensión del expediente de gasto?", "o": [["la falta de un informe no esencial en el expediente", 1, "Correcto: el art. 216.2.c) exige omisión de requisitos o trámites <b>esenciales</b>."], ["la insuficiencia de crédito o su inadecuación", 0, "Sí suspende: letra a)."], ["que no se hubieran fiscalizado los actos que dieron origen a las órdenes de pago", 0, "Sí suspende: letra b)."], ["que el reparo derive de comprobaciones materiales de obras", 0, "Sí suspende: letra d)."]]}, {"a": 217, "q": "Completa: «La facultad del presidente de resolver las discrepancias no será ______ en ningún caso».", "gap": "delegable", "fb": "<b>Delegable</b> (art. 217.1). Además, su resolución es ejecutiva."}, {"a": 217, "q": "Corresponde al Pleno resolver la discrepancia cuando el reparo se basa en insuficiencia de crédito.", "vf": true, "ok": true, "fb": "<b>Verdadero</b> (art. 217.2.a). También cuando se refiera a gastos cuya aprobación sea competencia del Pleno."}, {"a": 218, "q": "El informe del interventor sobre resoluciones contrarias a reparos:", "o": [["constituye un punto independiente en el orden del día del Pleno", 1, "Correcto: art. 218.1. El presidente puede presentar informe justificativo."], ["se incluye en el turno de ruegos y preguntas", 0, "No: la ley exige punto independiente."], ["se remite solo al Tribunal de Cuentas", 0, "Va al Pleno y, anualmente, al Tribunal de Cuentas."], ["puede incluir valoraciones de oportunidad de la actuación fiscalizada", 0, "Lo prohíbe expresamente el art. 218.1."]]}, {"a": 219, "q": "Están excluidos de intervención previa los gastos menores de:", "o": [["3.005,06 euros que se hagan efectivos por anticipos de caja fija", 1, "Correcto: art. 219.1, junto con material no inventariable, contratos menores y gastos periódicos o de tracto sucesivo."], ["6.000 euros en todo caso", 0, "No es la cifra ni la condición legal."], ["3.005,06 euros, cualquiera que sea su forma de pago", 0, "La exclusión se vincula al sistema de anticipos de caja fija."], ["50.000 euros en contratos menores de obra", 0, "Los contratos menores están excluidos sin ese umbral en este precepto."]]}, {"a": 219, "q": "La fiscalización previa limitada la acuerda el propio órgano interventor.", "vf": true, "ok": false, "fb": "<b>Falso.</b> La acuerda el <b>Pleno</b>, a propuesta del presidente y previo informe del órgano interventor (art. 219.2)."}, {"a": 220, "q": "El control financiero se realiza:", "o": [["por procedimientos de auditoría, conforme a las normas de auditoría del sector público", 1, "Correcto: art. 220.3."], ["mediante intervención previa de cada expediente", 0, "Eso es función interventora, no control financiero."], ["exclusivamente sobre los organismos autónomos", 0, "Alcanza también a la entidad y a sus sociedades dependientes."], ["mediante toma de razón en contabilidad", 0, "Esa es la alternativa del art. 219.4 para la fiscalización previa de derechos."]]}, {"a": 221, "q": "El control de eficacia tiene por objeto:", "o": [["la comprobación periódica del cumplimiento de objetivos y el análisis del coste de funcionamiento y del rendimiento", 1, "Correcto: art. 221."], ["la comprobación de la legalidad de los actos de contenido económico", 0, "Eso es la función interventora (art. 214.1)."], ["la auditoría de las cuentas anuales", 0, "Se sitúa en el control financiero (art. 213)."], ["la fiscalización externa de la gestión económica", 0, "Eso corresponde al Tribunal de Cuentas (art. 223)."]]}, {"a": 222, "q": "Completa: «Los funcionarios que tengan a su cargo la función interventora ejercerán su función con ______ independencia».", "gap": "plena", "fb": "<b>Plena</b> independencia (art. 222), con facultades para recabar antecedentes, examinar libros, verificar arqueos y recuentos y solicitar informes técnicos."}, {"a": 223, "q": "Las entidades locales rinden la cuenta general al Tribunal de Cuentas antes del:", "o": [["15 de octubre de cada año, referida al ejercicio anterior", 1, "Correcto: art. 223.2."], ["1 de octubre de cada año", 0, "El 1 de octubre es la fecha límite de aprobación por el Pleno (art. 212.4)."], ["31 de marzo del ejercicio siguiente", 0, "Ese es el plazo de remisión de la liquidación al Estado y a la CCAA (art. 193.5)."], ["15 de mayo del ejercicio siguiente", 0, "Esa es la rendición de estados y cuentas por el presidente (art. 212.1)."]]}, {"a": 223, "q": "La fiscalización externa del Tribunal de Cuentas excluye la de los órganos de control externo autonómicos.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 223.4 dice que lo establecido se entiende <b>sin menoscabo</b> de las facultades que los Estatutos atribuyan a las comunidades autónomas."}];
+const CASOS=[{"t": "Caso 1 · El reparo que para (o no)", "e": "En el mismo ayuntamiento se producen cuatro situaciones: <b>(1)</b> la Intervención repara el reconocimiento de una obligación de 52.000 € porque el crédito propuesto no es adecuado a la naturaleza del gasto; <b>(2)</b> repara la liquidación de una tasa por error en la identificación del sujeto pasivo; <b>(3)</b> repara una orden de pago porque el expediente de contratación del que deriva nunca se fiscalizó; <b>(4)</b> repara la certificación final de una obra porque la comprobación material revela unidades no ejecutadas. <b>¿Qué expedientes se suspenden y quién resuelve si el gestor discrepa?</b>", "s": "<p><b>(1) Suspende</b> — art. 216.2.a): crédito no adecuado. Si el gestor discrepa, resuelve el <b>PLENO</b>, porque el reparo se basa en inadecuación de crédito (art. 217.2.a).</p><p><b>(2) NO suspende</b> — art. 216.1: el reparo afecta a la liquidación de <b>derechos</b>, se formaliza en nota de reparo y el expediente continúa. Si hubiera discrepancia, resolvería el <b>presidente</b> (art. 217.1), salvo que el gasto fuera competencia plenaria, lo que aquí no aplica.</p><p><b>(3) Suspende</b> — art. 216.2.b): no se fiscalizaron los actos que dieron origen a la orden de pago. Resuelve el <b>presidente</b>, de forma ejecutiva e indelegable.</p><p><b>(4) Suspende</b> — art. 216.2.d): reparo derivado de comprobación material de obras. Resuelve el presidente, salvo que la aprobación del gasto fuera del Pleno.</p><p><b>Después:</b> todas las resoluciones contrarias a los reparos se llevan al Pleno como <b>punto independiente</b> del orden del día (art. 218.1) y se remiten <b>anualmente</b> al Tribunal de Cuentas (art. 218.3).</p>"}, {"t": "Caso 2 · El calendario de la cuenta general", "e": "El alcalde rinde los estados y cuentas de 2026 el 22 de mayo de 2027. La Comisión Especial de Cuentas informa el 10 de junio. La cuenta se expone al público del 15 al 30 de junio y una asociación presenta observaciones. El Pleno la rechaza el 28 de septiembre. <b>Detecta los incumplimientos y di qué debe hacerse a continuación.</b>", "s": "<p><b>1) Rendición tardía.</b> El art. 212.1 exige rendirlas <b>antes del 15 de mayo</b>: el 22 de mayo incumple el plazo.</p><p><b>2) Informe tardío de la Comisión.</b> El art. 212.2 exige someterla a informe <b>antes del 1 de junio</b>: el 10 de junio también incumple.</p><p><b>3) Exposición correcta.</b> 15 días (art. 212.3). Presentadas observaciones, la Comisión Especial debe examinarlas, practicar las comprobaciones que estime necesarias y emitir <b>nuevo informe</b>. Ese trámite no puede omitirse.</p><p><b>4) Pronunciamiento en plazo.</b> El Pleno se pronuncia el 28 de septiembre, antes del 1 de octubre (art. 212.4). Que la rechace es una de las dos salidas posibles.</p><p><b>5) Qué procede ahora.</b> El presidente <b>debe rendirla igualmente al Tribunal de Cuentas</b> (art. 212.5), antes del <b>15 de octubre</b> de 2027 (art. 223.2). El rechazo plenario no bloquea la fiscalización externa.</p>"}, {"t": "Caso 3 · Rebajar el control sin perderlo", "e": "Un ayuntamiento con una Intervención de dos personas quiere aligerar la carga de trabajo. Propone: <b>(a)</b> dejar de fiscalizar previamente los contratos menores; <b>(b)</b> limitar la fiscalización previa del resto de gastos a comprobar el crédito y el órgano competente; <b>(c)</b> sustituir la fiscalización previa de los ingresos por su anotación contable; <b>(d)</b> que la interventora acuerde todo esto mediante resolución propia. <b>¿Qué es posible y con qué requisitos?</b>", "s": "<p><b>(a) Innecesario:</b> los contratos menores <b>ya están excluidos</b> de intervención previa por el art. 219.1, junto con el material no inventariable, los gastos periódicos y de tracto sucesivo tras el periodo inicial y los gastos menores de 3.005,06 € pagados por anticipos de caja fija.</p><p><b>(b) Posible</b> como fiscalización limitada previa (art. 219.2), comprobando la existencia y adecuación del crédito —y el art. 174 si hay compromisos plurianuales— y que el gasto se genera por órgano competente, más lo que añada el Pleno. Contrapartida obligatoria: <b>fiscalización plena posterior</b> sobre muestra representativa, con informe escrito al Pleno (art. 219.3).</p><p><b>(c) Posible</b> por acuerdo del <b>Pleno</b> (art. 219.4): sustitución por la toma de razón en contabilidad y actuaciones comprobatorias posteriores mediante muestreo o auditoría.</p><p><b>(d) No.</b> Ni (b) ni (c) los puede acordar la Intervención: los acuerda el <b>Pleno</b>, en el caso de (b) a propuesta del presidente y previo informe del órgano interventor. La Intervención informa, no decide sobre el alcance de su propio control.</p>"}];
+const SEMAFORO=["Qué es la cuenta general y qué muestra — art. 208", "Integrantes de la cuenta general y estados consolidados — art. 209", "Competencia sobre contenido y estructura — art. 210", "Memorias de las entidades de más de 50.000 habitantes — art. 211", "Calendario de la cuenta general: 15-M, 1-J, 15 días, 1-O — art. 212", "Las tres modalidades del control interno — art. 213", "Objeto y modalidades de la función interventora — art. 214", "Reparos: forma y momento — art. 215", "Efectos suspensivos y los cuatro casos — art. 216", "Resolución de discrepancias: presidente y Pleno — art. 217", "Informe al Pleno y remisión al Tribunal de Cuentas — art. 218", "Exclusiones y fiscalización limitada previa — art. 219", "Control financiero: objeto, método y destino del informe — art. 220", "Control de eficacia — art. 221", "Facultades del personal controlador — art. 222", "Control externo: Tribunal de Cuentas y OCEX — art. 223"];
+const INTRO_HTML="<section class=\"card\" id=\"intro\"><h2>Bloque 4 del tema 8 · Cuenta general, control y fiscalización</h2><p class=\"small\">Último tramo del tema 8. Primero, cómo se rinden las cuentas del ejercicio (arts. 208 a 212). Después, quién vigila: el control interno en sus tres modalidades (arts. 213 a 222) y el control externo del Tribunal de Cuentas (art. 223).</p><div class=\"box ej\"><span class=\"lbl\">La idea que ordena todo el bloque</span>Hay <b>dos círculos de control</b>. El de dentro lo ejercen funcionarios de la propia entidad y actúa antes (función interventora), después (control financiero) y sobre los resultados (control de eficacia). El de fuera lo ejerce el Tribunal de Cuentas sobre la cuenta general. La pieza que los une es la <b>cuenta general</b>: se forma dentro y se rinde fuera.</div><div class=\"box warn\"><span class=\"lbl\">Advertencia de vigencia</span>Texto consolidado del RDLeg 2/2004 actualizado a <b>28 de enero de 2026</b>. El régimen de control interno está desarrollado por el RD 424/2017, que precisa muchos de estos preceptos (procedimientos, informe resumen, plan anual de control financiero). Verifica siempre en el BOE consolidado.</div><svg viewBox=\"0 0 660 250\" role=\"img\" aria-label=\"Mapa conceptual de la cuenta general y el control\"><rect x=\"215\" y=\"8\" width=\"230\" height=\"36\" rx=\"9\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/><text x=\"330\" y=\"31\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">RENDIR CUENTAS Y CONTROLAR</text><line x1=\"330\" y1=\"44\" x2=\"330\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"130\" y1=\"60\" x2=\"530\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"130\" y1=\"60\" x2=\"130\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"330\" y1=\"60\" x2=\"330\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"530\" y1=\"60\" x2=\"530\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><rect x=\"25\" y=\"78\" width=\"210\" height=\"150\" rx=\"9\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/><text x=\"130\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--acc)\">LA CUENTA GENERAL</text><text x=\"130\" y=\"126\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">208 · qué es</text><text x=\"130\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">209 · qué integra</text><text x=\"130\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">210 y 211 · formato y memorias</text><text x=\"130\" y=\"192\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">212 · calendario</text><text x=\"130\" y=\"214\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">15-M · 1-J · 15 días · 1-O</text><rect x=\"245\" y=\"78\" width=\"170\" height=\"150\" rx=\"9\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/><text x=\"330\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--warn)\">CONTROL INTERNO</text><text x=\"330\" y=\"126\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">213 · modalidades</text><text x=\"330\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">214-219 · interventora</text><text x=\"330\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">220 · financiero</text><text x=\"330\" y=\"186\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">221 · eficacia</text><text x=\"330\" y=\"206\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">222 · facultades</text><rect x=\"425\" y=\"78\" width=\"210\" height=\"150\" rx=\"9\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/><text x=\"530\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--ej)\">CONTROL EXTERNO</text><text x=\"530\" y=\"130\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">223 · Tribunal de Cuentas</text><text x=\"530\" y=\"155\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">rendición antes del 15-OCT</text><text x=\"530\" y=\"180\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">responsabilidad contable</text><text x=\"530\" y=\"205\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">+ órganos autonómicos</text></svg></section>";
+const RESUMEN_HTML="<section class=\"card\" id=\"resumen\"><h2>Resumen ejecutivo</h2><table><tbody><tr><th style=\"width:70px\">208</th><td>Cuenta general: gestión en los aspectos <b>económico, financiero, patrimonial y presupuestario</b>.</td></tr><tr><th>209</th><td>Integra entidad + organismos autónomos + sociedades <b>100 %</b> (normativa mercantil). Estados <b>consolidados</b> con controladas, multigrupo y asociadas.</td></tr><tr><th>210</th><td>Contenido y estructura: <b>Ministerio de Hacienda</b> a propuesta de la <b>IGAE</b>.</td></tr><tr><th>211</th><td>Municipios de más de <b>50.000</b> habitantes y entidades de ámbito superior: memoria de <b>coste y rendimiento</b> y memoria de <b>objetivos</b>.</td></tr><tr><th>212</th><td><b>15-MAY</b> rendición · Intervención forma · <b>1-JUN</b> Comisión Especial · <b>15 días</b> de exposición y nuevo informe · <b>1-OCT</b> Pleno · se rinda al Tribunal aunque se rechace.</td></tr><tr><th>213</th><td>Control interno: <b>función interventora</b>, <b>control financiero</b> (con auditoría) y <b>control de eficacia</b>. Informe resumen anual a la <b>IGAE</b>.</td></tr><tr><th>214</th><td>Función interventora: previa o crítica · formal de la ordenación del pago · material del pago · <b>comprobación material</b> de inversiones y subvenciones.</td></tr><tr><th>215</th><td>Reparo: <b>por escrito</b> y <b>antes</b> del acuerdo, por fondo o forma.</td></tr><tr><th>216</th><td>Ingresos: nota de reparo, <b>no suspende</b>. Gastos: suspende solo por <b>crédito · falta de fiscalización previa · trámites esenciales · comprobación material</b>.</td></tr><tr><th>217</th><td>Discrepancias: resuelve el <b>presidente</b> (ejecutiva e <b>indelegable</b>); el <b>Pleno</b> si es por crédito o por competencia plenaria.</td></tr><tr><th>218</th><td>Informe al Pleno en <b>punto independiente</b>, sin oportunidad ni conveniencia. Remisión <b>anual</b> al Tribunal de Cuentas.</td></tr><tr><th>219</th><td>Sin intervención previa: material no inventariable, contratos menores, periódicos y de tracto sucesivo, y gastos menores de <b>3.005,06 €</b> por caja fija. Fiscalización <b>limitada</b> (crédito + órgano competente) acordada por el <b>Pleno</b>, con <b>plena posterior</b> por muestreo.</td></tr><tr><th>220</th><td>Control financiero por <b>auditoría</b>: información financiera, cumplimiento y <b>eficacia y eficiencia</b>. Informe + alegaciones al <b>Pleno</b>. Alcanza a las sociedades.</td></tr><tr><th>221</th><td>Control de eficacia: cumplimiento <b>periódico</b> de objetivos, coste de funcionamiento y rendimiento.</td></tr><tr><th>222</th><td><b>Plena independencia</b>: recabar antecedentes, examinar libros, verificar <b>arqueos y recuentos</b>, pedir informes técnicos.</td></tr><tr><th>223</th><td>Control externo: <b>Tribunal de Cuentas</b>, cuenta general del ejercicio anterior antes del <b>15-OCT</b>; propuesta de corrección y responsabilidad contable; sin menoscabo de los órganos autonómicos.</td></tr></tbody></table><h2 style=\"margin-top:1.2rem\">Calendario de repaso espaciado</h2><table><thead><tr><th>Momento</th><th>Fecha</th><th>Qué hacer</th></tr></thead><tbody id=\"calbody\"></tbody></table></section>";
+</script><script>
+
+const main=document.getElementById('main');
+function panel(id,title,body,cls){return '<details class="panel '+(cls||'v-expl')+'"'+(id?' data-p="'+id+'"':'')+'><summary>'+title+'</summary><div class="body">'+body+'</div></details>';}
+let html='';
+
+html+=INTRO_HTML;
+/* ---------- ARTÍCULOS ---------- */
+ARTS.forEach(function(a){
+ html+='<section class="card art" id="art'+a.n+'">'
+ +'<h2><span class="num">Art. '+a.n+'</span> '+a.t+'</h2>'
+ +'<p class="ubic">'+a.ubic+'</p>'
+ +'<div class="idea v-expl">💡 '+a.idea+'</div>'
+ +'<div class="legal v-legal"><span class="lbl">Texto legal · literal</span>'+a.literal+'</div>'
+ +panel('','🔍 Disección estructural',a.dis)
+ +panel('','🗣️ Traducción a lenguaje llano',a.llano)
+ +panel('','❓ ¿Por qué existe este artículo?',a.porque)
+ +panel('','✅ Ejemplos','<div class="box ej"><span class="lbl">Ejemplos</span>'+a.ej+'</div>')
+ +panel('','🚫 No-ejemplos: dónde está la frontera','<div class="box exc"><span class="lbl">No-ejemplos</span>'+a.noej+'</div>')
+ +panel('','🔗 Conexiones con otros preceptos',a.conex)
+ +panel('','⚠️ Trampas y errores frecuentes','<div class="box warn"><span class="lbl">Cuidado</span>'+a.trampas+'</div>')
+ +panel('','🧠 Anclaje memorístico',a.ancla)
+ +'<div class="v-expl">'+a.vis+'</div>'
+ +'</section>';
+});
+
+/* ---------- PLAZOS ---------- */
+html+='<section class="card" id="plazos"><h2>Tabla de plazos y cifras</h2>'
++'<p class="small">Pulsa en las cabeceras para ordenar. Si solo te llevas una cosa de esta sesión, que sea esta tabla.</p>'
++'<table id="tplazos"><thead><tr><th class="sortable">Plazo / cifra</th><th class="sortable">Trámite</th><th class="sortable">Quién</th><th class="sortable">Art.</th><th>Matiz</th></tr></thead><tbody>';
+PLAZOS.forEach(function(p){html+='<tr><td><b>'+p[0]+'</b></td><td>'+p[1]+'</td><td>'+p[2]+'</td><td>'+p[3]+'</td><td class="small">'+p[4]+'</td></tr>';});
+html+='</tbody></table></section>';
+
+/* ---------- CASOS ---------- */
+html+='<section class="card" id="casos"><h2>Casos prácticos</h2><p class="small">Intenta resolverlos <b>antes</b> de abrir la solución: el esfuerzo de recuperar es lo que fija el aprendizaje.</p>';
+CASOS.forEach(function(c,i){
+ html+='<details class="panel"><summary>'+c.t+'</summary><div class="body"><p>'+c.e+'</p>'
+ +'<button class="revelar" data-i="'+i+'">Ver solución</button><div class="sol hide" id="sol'+i+'">'+c.s+'</div></div></details>';
+});
+html+='</section>';
+
+/* ---------- FLASHCARDS ---------- */
+html+='<section class="card noprint" id="flash"><h2>Flashcards</h2>'
++'<div id="fcbox" style="border:1px solid var(--line);border-radius:12px;padding:1.1rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer" tabindex="0" role="button" aria-label="Tarjeta: pulsa para girar"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.7rem">'
++'<button id="fcflip">Girar</button><button id="fcok">✔ Lo sabía</button><button id="fcko">↻ Repasar</button><button id="fcreset">Reiniciar</button>'
++'<span class="small" id="fccount"></span></div></section>';
+
+/* ---------- TEST ---------- */
+html+='<section class="card noprint" id="test"><h2>Test de autoevaluación</h2>'
++'<p class="small">Preguntas intercaladas de los diez artículos. Corrección inmediata y explicación de por qué falla cada opción incorrecta.</p>'
++'<div id="testbox"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem"><button id="tcorr">Corregir todo</button><button id="tfail">Repetir solo los fallos</button><button id="treset">Reiniciar test</button></div>'
++'<p id="tscore" class="small" style="margin-top:.6rem"></p></section>';
+
+/* ---------- SEMÁFORO ---------- */
+html+='<section class="card" id="semaforo"><h2>Semáforo de autoevaluación</h2>'
++'<p class="small">Marca honestamente cada concepto. Abajo se genera tu lista de repaso.</p><div id="sembox"></div>'
++'<div id="semres" style="margin-top:.8rem"></div></section>';
+
+html+=RESUMEN_HTML;
+/* ---------- GLOSARIO ---------- */
+html+='<section class="card" id="glosario"><h2>Glosario completo</h2><table><tbody id="glosbody"></tbody></table></section>';
+
+main.innerHTML=html;
+
+</script><script>
+
+/* ---------- ÍNDICE LATERAL ---------- */
+(function(){
+ var n='<h2>Artículos</h2>';
+ ARTS.forEach(function(a){n+='<a href="#art'+a.n+'"><b>'+a.n+'</b>'+a.t+'</a>';});
+ n+='<h2>Herramientas</h2>'
+  +'<a href="#plazos">Tabla de plazos</a><a href="#casos">Casos prácticos</a><a href="#flash">Flashcards</a>'
+  +'<a href="#test">Test</a><a href="#semaforo">Semáforo</a><a href="#resumen">Resumen y repaso</a><a href="#glosario">Glosario</a>';
+ document.getElementById('navbody').innerHTML=n;
+})();
+document.getElementById('navtoggle').onclick=function(){
+ var s=document.getElementById('side');s.classList.toggle('collapsed');
+ this.setAttribute('aria-expanded',s.classList.contains('collapsed')?'false':'true');
+};
+
+/* ---------- GLOSARIO Y TOOLTIPS ---------- */
+var LABEL={cuentagral:"Cuenta general",cec:"Comisión Especial de Cuentas",fint:"Función interventora",cfin:"Control financiero",cefic:"Control de eficacia",reparo:"Reparo",discrepancia:"Discrepancia",fiscprevia:"Fiscalización previa",tomarazon:"Toma de razón",tutela:"Tutela financiera",ocex:"Órgano de control externo autonómico",igae:"IGAE",presupuesto:"Presupuesto",credito:"Crédito presupuestario",obligacion:"Obligación reconocida",derecho:"Derecho liquidado",oa:"Organismo autónomo",sociedad:"Sociedad mercantil local",bases:"Bases de ejecución",estabilidad:"Estabilidad presupuestaria",afectacion:"Principio de no afectación",bruto:"Principio de presupuesto bruto",nivelacion:"Nivelación presupuestaria",aplicacion:"Aplicación presupuestaria",vinculacion:"Nivel de vinculación jurídica",intervencion:"Intervención",pleno:"Pleno",bop:"Boletín Oficial de la Provincia",prorroga:"Prórroga presupuestaria",interesado:"Interesado",liquidacion:"Liquidación del presupuesto",tcuentas:"Tribunal de Cuentas",conten:"Recurso contencioso-administrativo"};
+(function(){var g='';Object.keys(GLOSARIO).forEach(function(k){g+='<tr><th style="width:210px">'+(LABEL[k]||k)+'</th><td>'+GLOSARIO[k]+'</td></tr>';});
+ document.getElementById('glosbody').innerHTML=g;})();
+var tip=document.getElementById('tip');
+function showTip(el){var k=el.getAttribute('data-k');if(!GLOSARIO[k])return;
+ tip.innerHTML='<b>'+(LABEL[k]||k)+'</b><br>'+GLOSARIO[k];tip.style.display='block';
+ var r=el.getBoundingClientRect();var top=r.bottom+8;var left=Math.min(r.left,window.innerWidth-340);
+ if(top+tip.offsetHeight>window.innerHeight)top=Math.max(8,r.top-tip.offsetHeight-8);
+ tip.style.top=top+'px';tip.style.left=Math.max(8,left)+'px';}
+function hideTip(){tip.style.display='none';}
+document.addEventListener('mouseover',function(e){var t=e.target.closest('.t');if(t)showTip(t);});
+document.addEventListener('mouseout',function(e){if(e.target.closest('.t'))hideTip();});
+document.addEventListener('click',function(e){var t=e.target.closest('.t');if(t){e.preventDefault();showTip(t);}else hideTip();});
+
+/* ---------- VISTA LEGAL / EXPLICACIÓN ---------- */
+document.querySelectorAll('[data-view]').forEach(function(b){
+ b.onclick=function(){
+  document.querySelectorAll('[data-view]').forEach(function(x){x.setAttribute('aria-pressed','false');});
+  b.setAttribute('aria-pressed','true');
+  var v=b.getAttribute('data-view');
+  document.querySelectorAll('.v-legal').forEach(function(e){e.classList.toggle('hide',v==='expl');});
+  document.querySelectorAll('.v-expl').forEach(function(e){e.classList.toggle('hide',v==='legal');});
+ };});
+
+/* ---------- DESPLEGAR / TEMA / FUENTE ---------- */
+var openAll=false;
+document.getElementById('expand').onclick=function(){
+ openAll=!openAll;document.querySelectorAll('details.panel').forEach(function(d){d.open=openAll;});
+ this.textContent=openAll?'Plegar todo':'Desplegar todo';};
+document.getElementById('theme').onclick=function(){
+ var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
+var fs=16;
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);document.documentElement.style.setProperty('--fs',fs+'px');};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);document.documentElement.style.setProperty('--fs',fs+'px');};
+
+/* ---------- PROGRESO Y NAV ACTIVA ---------- */
+window.addEventListener('scroll',function(){
+ var h=document.body.scrollHeight-window.innerHeight;
+ document.getElementById('prog').style.width=(h>0?(window.scrollY/h*100):0)+'%';
+ var cur=null;document.querySelectorAll('section.card').forEach(function(s){
+  if(s.getBoundingClientRect().top<120)cur=s.id;});
+ document.querySelectorAll('nav.side a').forEach(function(a){
+  a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ---------- BUSCADOR ---------- */
+var q=document.getElementById('q'),timer=null;
+function clearMarks(){document.querySelectorAll('mark.hit').forEach(function(m){
+ var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});}
+q.addEventListener('input',function(){
+ clearTimeout(timer);timer=setTimeout(function(){
+  clearMarks();
+  var term=q.value.trim();
+  document.querySelectorAll('section.card').forEach(function(s){s.classList.remove('hide');});
+  if(term.length<3)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  document.querySelectorAll('section.card').forEach(function(s){
+   var found=false;
+   var w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT,null);var nodes=[];
+   while(w.nextNode()){var nd=w.currentNode;
+    if(nd.parentNode.closest('script,style,mark'))continue;
+    if(rx.test(nd.nodeValue)){nodes.push(nd);rx.lastIndex=0;}}
+   nodes.forEach(function(nd){
+    found=true;
+    var span=document.createElement('span');
+    span.innerHTML=nd.nodeValue.replace(rx,function(m){return '<mark class="hit">'+m+'</mark>';});
+    nd.parentNode.replaceChild(span,nd);});
+   if(found){s.querySelectorAll('details.panel').forEach(function(d){if(d.querySelector('mark.hit'))d.open=true;});}
+   s.classList.toggle('hide',!found);
+  });
+ },220);});
+
+/* ---------- CASOS ---------- */
+document.querySelectorAll('.revelar').forEach(function(b){
+ b.onclick=function(){var s=document.getElementById('sol'+b.getAttribute('data-i'));
+  s.classList.toggle('hide');b.textContent=s.classList.contains('hide')?'Ver solución':'Ocultar solución';};});
+
+/* ---------- TABLA ORDENABLE ---------- */
+(function(){var t=document.getElementById('tplazos');var dir={};
+ t.querySelectorAll('th.sortable').forEach(function(th,i){
+  th.onclick=function(){
+   var tb=t.tBodies[0];var rows=[].slice.call(tb.rows);
+   dir[i]=!dir[i];
+   rows.sort(function(a,b){var x=a.cells[i].innerText.trim(),y=b.cells[i].innerText.trim();
+    return dir[i]?x.localeCompare(y,'es',{numeric:true}):y.localeCompare(x,'es',{numeric:true});});
+   rows.forEach(function(r){tb.appendChild(r);});};});})();
+
+/* ---------- FLASHCARDS ---------- */
+var order=FLASH.map(function(_,i){return i;}),fi=0,flipped=false,ok=0,ko=0;
+function drawFC(){
+ var box=document.getElementById('fcbox');
+ if(!order.length){box.innerHTML='<b>¡Ronda terminada!</b><br><span class="small">Pulsa Reiniciar para volver a empezar.</span>';
+  document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko;return;}
+ if(fi>=order.length)fi=0;
+ var c=FLASH[order[fi]];
+ box.innerHTML=flipped?'<div class="small" style="color:var(--acc);margin-bottom:.4rem">RESPUESTA</div><div>'+c[1]+'</div>'
+  :'<div class="small" style="color:var(--ink2);margin-bottom:.4rem">PREGUNTA '+(fi+1)+' / '+order.length+'</div><div style="font-weight:600;font-size:1.05rem">'+c[0]+'</div><div class="small" style="margin-top:.6rem;color:var(--ink2)">Piensa la respuesta y pulsa para girar</div>';
+ document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko+' · Quedan: '+order.length;
+}
+function flip(){flipped=!flipped;drawFC();}
+document.getElementById('fcbox').onclick=flip;
+document.getElementById('fcbox').onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
+document.getElementById('fcflip').onclick=flip;
+document.getElementById('fcok').onclick=function(){if(!order.length)return;ok++;order.splice(fi,1);flipped=false;drawFC();};
+document.getElementById('fcko').onclick=function(){if(!order.length)return;ko++;var m=order.splice(fi,1)[0];order.push(m);flipped=false;drawFC();};
+document.getElementById('fcreset').onclick=function(){order=FLASH.map(function(_,i){return i;});fi=0;ok=0;ko=0;flipped=false;drawFC();};
+drawFC();
+
+/* ---------- TEST ---------- */
+var state=TEST.map(function(){return{ans:null,done:false,right:false};});
+var visible=TEST.map(function(_,i){return i;});
+function drawTest(){
+ var h='';
+ visible.forEach(function(qi){
+  var t=TEST[qi],s=state[qi];
+  h+='<div style="border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;margin:.55rem 0" data-q="'+qi+'">';
+  h+='<div style="font-weight:600"><span class="chip">Art. '+t.a+'</span> '+t.q+'</div>';
+  if(t.o){
+   t.o.forEach(function(op,oi){
+    var mark='';
+    if(s.done){if(op[1])mark=' style="background:var(--ej-bg);border-color:var(--ej)"';
+     else if(s.ans===oi)mark=' style="background:var(--exc-bg);border-color:var(--exc)"';}
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'"'+mark+' style="'+(mark?mark.slice(8,-1):'')+';border:1px solid '+(s.ans===oi&&!s.done?'var(--acc)':'var(--line)')+';border-radius:8px;padding:.35rem .6rem;margin:.3rem 0;cursor:pointer">'+String.fromCharCode(97+oi)+') '+op[0]
+     +(s.done?'<div class="small" style="margin-top:.2rem">'+op[2]+'</div>':'')+'</div>';});
+  }else if(t.vf){
+   [['Verdadero',true],['Falso',false]].forEach(function(p,oi){
+    var sel=s.ans===oi;
+    var col=s.done?((p[1]===t.ok)?'var(--ej)':(sel?'var(--exc)':'var(--line)')):(sel?'var(--acc)':'var(--line)');
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'" style="display:inline-block;border:1px solid '+col+';border-radius:8px;padding:.3rem .9rem;margin:.3rem .4rem .3rem 0;cursor:pointer">'+p[0]+'</div>';});
+   if(s.done)h+='<div class="small" style="margin-top:.3rem">'+t.fb+'</div>';
+  }else{
+   h+='<input type="text" class="gap" data-q="'+qi+'" value="'+(s.ans||'')+'" placeholder="escribe tu respuesta" style="margin-top:.4rem;padding:.35rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);width:260px">';
+   if(s.done)h+='<div class="small" style="margin-top:.3rem;color:'+(s.right?'var(--ej)':'var(--exc)')+'">'+(s.right?'Correcto. ':'Respuesta correcta: <b>'+t.gap+'</b>. ')+t.fb+'</div>';
+  }
+  h+='</div>';});
+ document.getElementById('testbox').innerHTML=h;
+ document.querySelectorAll('.opt').forEach(function(o){
+  o.onclick=function(){var qi=+o.getAttribute('data-q');if(state[qi].done)return;
+   state[qi].ans=+o.getAttribute('data-o');drawTest();};});
+ document.querySelectorAll('.gap').forEach(function(g){
+  g.oninput=function(){state[+g.getAttribute('data-q')].ans=g.value;};});
+}
+function norm(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+document.getElementById('tcorr').onclick=function(){
+ var n=0,tot=visible.length;
+ visible.forEach(function(qi){var t=TEST[qi],s=state[qi];s.done=true;
+  if(t.o)s.right=(t.o[s.ans]&&t.o[s.ans][1]===1);
+  else if(t.vf)s.right=((s.ans===0)===t.ok);
+  else s.right=norm(s.ans)===norm(t.gap);
+  if(s.right)n++;});
+ drawTest();
+ var pct=tot?Math.round(n/tot*100):0;
+ document.getElementById('tscore').innerHTML='<b>Resultado: '+n+' / '+tot+' ('+pct+' %).</b> '
+  +(pct>=90?'Dominas el bloque. Pasa a los artículos 172 y siguientes.':pct>=70?'Buen nivel: repasa los fallos y vuelve mañana.':'Aún no está fijado: relee los artículos de los fallos y repite el test.');
+};
+document.getElementById('tfail').onclick=function(){
+ var f=visible.filter(function(qi){return state[qi].done&&!state[qi].right;});
+ if(!f.length){document.getElementById('tscore').innerHTML='<b>No hay fallos que repetir.</b>';return;}
+ visible=f;f.forEach(function(qi){state[qi]={ans:null,done:false,right:false};});
+ drawTest();document.getElementById('tscore').textContent='Repitiendo '+f.length+' preguntas falladas.';
+};
+document.getElementById('treset').onclick=function(){
+ state=TEST.map(function(){return{ans:null,done:false,right:false};});
+ visible=TEST.map(function(_,i){return i;});drawTest();document.getElementById('tscore').textContent='';};
+drawTest();
+
+/* ---------- SEMÁFORO ---------- */
+var sem=SEMAFORO.map(function(){return 0;});
+function drawSem(){
+ var h='<table><tbody>';
+ SEMAFORO.forEach(function(c,i){
+  h+='<tr><td>'+c+'</td><td style="width:150px;white-space:nowrap">'
+   +['🟢','🟡','🔴'].map(function(e,j){
+     var on=sem[i]===j+1;
+     return '<button class="sembtn" data-i="'+i+'" data-v="'+(j+1)+'" style="font-size:1rem;padding:.15rem .35rem;margin-right:.2rem;border-color:'+(on?'var(--acc)':'var(--line)')+';background:'+(on?'var(--acc-soft)':'var(--panel)')+'">'+e+'</button>';}).join('')
+   +'</td></tr>';});
+ h+='</tbody></table>';
+ document.getElementById('sembox').innerHTML=h;
+ document.querySelectorAll('.sembtn').forEach(function(b){
+  b.onclick=function(){sem[+b.getAttribute('data-i')]=+b.getAttribute('data-v');drawSem();};});
+ var rojos=[],ambar=[];
+ sem.forEach(function(v,i){if(v===3)rojos.push(SEMAFORO[i]);if(v===2)ambar.push(SEMAFORO[i]);});
+ var r='';
+ if(rojos.length)r+='<div class="box exc"><span class="lbl">Repasa hoy mismo</span><ul><li>'+rojos.join('</li><li>')+'</li></ul></div>';
+ if(ambar.length)r+='<div class="box warn"><span class="lbl">Refuerza en 24 h</span><ul><li>'+ambar.join('</li><li>')+'</li></ul></div>';
+ if(!rojos.length&&!ambar.length&&sem.some(function(v){return v===1;}))r='<div class="box ej"><span class="lbl">Bien</span>Todo lo marcado está en verde. Consolida con el test y vuelve en 3 días.</div>';
+ document.getElementById('semres').innerHTML=r;
+}
+drawSem();
+
+/* ---------- CALENDARIO DE REPASO ---------- */
+(function(){
+ var hoy=new Date();
+ function f(d){var x=new Date(hoy.getTime());x.setDate(x.getDate()+d);
+  return x.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});}
+ var filas=[['Hoy',f(0),"Lectura activa + test completo + semáforo. Dibuja de memoria el calendario de la cuenta general."],['+24 horas',f(1),"Solo flashcards y tabla de plazos: 15-M, 1-J, 15 días, 1-O, 15-O, 50.000, 3.005,06 €."],['+3 días',f(3),"Caso práctico 1 (el reparo que para o no) y repetición de los fallos del test."],['+7 días',f(7),"Explicar en voz alta las tres modalidades de control interno y los cuatro casos de suspensión. Casos 2 y 3."],['+21 días',f(21),"Test intercalado de todo el tema 8: bloques 1, 2, 3 y 4."]];
+ document.getElementById('calbody').innerHTML=filas.map(function(r){
+  return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('');
+})();
+
+</script>
+<script>
+/* ═══ Mejoras de interacción · Bloque II ═══ */
+(function(){
+"use strict";
+var K_THEME="oposi_bII_theme", K_FS="oposi_bII_fs", K_STREAK="oposi_bII_streak";
+function load(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return f;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var root=document.documentElement;
+
+/* Tema persistente (sobrescribe el toggle simple anterior) */
+var saved=load(K_THEME,null);
+if(saved){root.setAttribute("data-theme",saved);}
+else if(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches){root.setAttribute("data-theme","dark");}
+var bt=document.getElementById("theme");
+if(bt)bt.onclick=function(){
+  var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-theme",n);save(K_THEME,n);
+};
+
+/* Tamaño de texto persistente */
+var fs=load(K_FS,16);
+function setFs(v){fs=Math.max(13,Math.min(22,v));root.style.setProperty("--fs",fs+"px");save(K_FS,fs);}
+setFs(fs);
+var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
+if(bp)bp.onclick=function(){setFs(fs+1);};
+if(bm)bm.onclick=function(){setFs(fs-1);};
+
+/* Racha compartida con el índice */
+(function(){
+  var el=document.getElementById("streakN");if(!el)return;
+  var hoy=new Date().toISOString().slice(0,10);
+  var s=load(K_STREAK,{last:null,n:0});
+  if(s.last!==hoy){
+    var ayer=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    s.n=(s.last===ayer)?s.n+1:1;s.last=hoy;save(K_STREAK,s);
+  }
+  el.textContent=s.n;
+})();
+
+/* Reveal on scroll para las tarjetas */
+function reveal(){
+  var els=document.querySelectorAll("section.card:not(.rv)");
+  if(!els.length)return;
+  if(!("IntersectionObserver" in window)){return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:"0px 0px -30px 0px"});
+  Array.prototype.forEach.call(els,function(el){el.classList.add("rv");io.observe(el);});
+}
+
+/* Sección activa en el índice lateral */
+function spy(){
+  var links=document.querySelectorAll("nav.side a[href^='#']");
+  if(!links.length||!("IntersectionObserver" in window))return;
+  var map={};
+  Array.prototype.forEach.call(links,function(a){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(t)map[t.id]=a;
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        Array.prototype.forEach.call(links,function(a){a.classList.remove("on");});
+        if(map[en.target.id])map[en.target.id].classList.add("on");
+      }
+    });
+  },{rootMargin:"-80px 0px -70% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* Ripple en botones */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.classList.contains("navtoggle"))return;
+  var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement("span");
+  s.className="ripple";s.style.width=s.style.height=d+"px";
+  s.style.left=(e.clientX-r.left-d/2)+"px";s.style.top=(e.clientY-r.top-d/2)+"px";
+  b.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},560);
+});
+
+/* Atajos de teclado */
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea"))return;
+  if(e.key==="/"){var q=document.getElementById("q");if(q){e.preventDefault();q.focus();}}
+  if(e.key==="t"&&bt)bt.click();
+});
+
+/* El contenido se inyecta por JS: esperamos a que exista */
+function init(){reveal();spy();}
+if(document.getElementById("main")&&document.getElementById("main").children.length){init();}
+else{setTimeout(init,60);}
+addEventListener("load",function(){setTimeout(init,80);});
+})();
+
+</script>
+<script>
+
+/* ═══ Parser de respuestas: estructura semántica ═══ */
+var FCFMT=(function(){
+  var CITA=/\s*\(((?:arts?\.|DA\b|DT\b|disp\.)[^)]*)\)\s*\.?\s*$/i;
+  var strip=function(h){return h.replace(/<[^>]+>/g,"");};
+
+  function esc(s){return s;}
+
+  function parse(raw){
+    var out={verdict:null,cite:null,kind:"p",items:[],text:""};
+    var body=String(raw).trim();
+
+    /* 1 ── Cita legal al final */
+    var m=body.match(CITA);
+    if(m){out.cite=m[1].replace(/\s+/g," ").trim();body=body.slice(0,m.index).trim();}
+    body=body.replace(/[.;,\s]+$/,"");
+
+    /* 2 ── Veredicto Sí / No inicial */
+    var v=strip(body).match(/^(Sí|Sí,|No|No,)[.:,]?\s/);
+    if(v){
+      out.verdict=/^Sí/.test(v[1])?"si":"no";
+      body=body.replace(/^(<[^>]+>\s*)*(Sí|No)[.,:]?\s*/,"").trim();
+      body=body.replace(/^en\s/,"En ");
+    }
+
+    /* 3 ── Enumeración con · */
+    var parts=body.split(/\s+·\s+/);
+    if(parts.length>=2){
+      out.kind="list";
+      var letras=parts.filter(function(p){return /^\s*<?[a-h]\)/.test(strip(p));}).length;
+      out.marker = letras>=parts.length-1 ? "alpha" : "num";
+      out.items=parts.map(function(p){
+        return p.replace(/^\s*[a-h]\)\s*/,"").replace(/[.\s]+$/,"").trim();
+      }).filter(Boolean);
+      return out;
+    }
+
+    /* 4 ── Cláusulas contrapuestas con ; */
+    var semi=body.split(/;\s+/);
+    if(semi.length>=2&&semi.length<=3&&semi.every(function(s){return strip(s).length>14;})){
+      out.kind="clauses";
+      out.items=semi.map(function(s){return s.replace(/[.\s]+$/,"").trim();});
+      return out;
+    }
+
+    /* 5 ── Párrafo */
+    out.text=body;
+    return out;
+  }
+
+  function render(raw){
+    var d=parse(raw),h="";
+
+    if(d.verdict){
+      h+='<span class="fc-verdict '+d.verdict+'">'+(d.verdict==="si"?"✓ Sí":"✗ No")+'</span>';
+    }
+
+    if(d.kind==="list"){
+      h+='<ol class="fc-list '+d.marker+'">';
+      d.items.forEach(function(it){h+='<li>'+it+'</li>';});
+      h+='</ol>';
+    }else if(d.kind==="clauses"){
+      h+='<div class="fc-clauses">';
+      d.items.forEach(function(it){h+='<p>'+it+'</p>';});
+      h+='</div>';
+    }else if(d.text){
+      h+='<p class="fc-p">'+d.text+'</p>';
+    }
+
+    if(d.cite){
+      h+='<span class="fc-cite"><span class="s">§</span>'+d.cite+'</span>';
+    }
+    return {html:h,struct:(d.kind!=="p"||!!d.verdict||strip(raw).length>150)};
+  }
+  return {parse:parse,render:render};
+})();
+
+/* ═══ FLASHCARDS 3D ═══ */
+(function(){
+"use strict";
+function boot(){
+  var sec=document.getElementById("flash");
+  if(!sec||sec.dataset.fc3d)return false;
+  if(typeof FLASH==="undefined"||!FLASH||!FLASH.length)return false;
+  sec.dataset.fc3d="1";
+
+  var CARDS=FLASH, N=CARDS.length;
+  var order,fi,ok,ko,back,busy;
+
+  /* — Estructura — */
+  var h2=sec.querySelector("h2");
+  sec.innerHTML="";
+  if(h2)sec.appendChild(h2);
+  var intro=document.createElement("p");
+  intro.className="small";
+  intro.innerHTML="Piensa la respuesta <b>antes</b> de girar: el esfuerzo de recuperarla es lo que la fija. "
+    +'<span class="fc-hint" style="position:static;display:inline;color:inherit">'
+    +'<span class="kbd">espacio</span> girar · <span class="kbd">→</span> lo sabía · <span class="kbd">←</span> repasar</span>';
+  sec.appendChild(intro);
+
+  var stage=document.createElement("div");
+  stage.className="fc-stage";
+  stage.innerHTML=
+    '<div class="fc-deck" id="fcdeck">'
+    +'<span class="fc-ghost g2"></span><span class="fc-ghost g1"></span>'
+    +'<div class="fc-lift" id="fclift">'
+      +'<div class="fc-card" id="fcbox" tabindex="0" role="button" aria-label="Tarjeta. Pulsa para girar">'
+        +'<div class="fc-face fc-front">'
+          +'<span class="fc-tag">Pregunta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">Pulsa para girar</span>'
+        +'</div>'
+        +'<div class="fc-face fc-back">'
+          +'<span class="fc-tag">Respuesta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">¿La sabías?</span>'
+        +'</div>'
+      +'</div>'
+    +'</div></div>';
+  sec.appendChild(stage);
+
+  var bar=document.createElement("div");
+  bar.className="fc-bar";bar.innerHTML="<i></i>";
+  sec.appendChild(bar);
+
+  var ctr=document.createElement("div");
+  ctr.className="fc-ctrls noprint";
+  ctr.innerHTML='<button id="fcflip">⟲ Girar</button>'
+    +'<button id="fcok">✔ Lo sabía</button>'
+    +'<button id="fcko">↻ Repasar</button>'
+    +'<button id="fcreset">Reiniciar</button>'
+    +'<span class="fc-score">'
+      +'<span class="fc-pill ok" id="fcpok">0 sabidas</span>'
+      +'<span class="fc-pill ko" id="fcpko">0 repasar</span>'
+      +'<span class="fc-pill left" id="fccount">0</span>'
+    +'</span>';
+  sec.appendChild(ctr);
+
+  var deck=stage.querySelector("#fcdeck"), lift=stage.querySelector("#fclift"),
+      card=stage.querySelector("#fcbox"),
+      front=stage.querySelector(".fc-front"), backf=stage.querySelector(".fc-back"),
+      fill=bar.querySelector("i"),
+      pok=ctr.querySelector("#fcpok"), pko=ctr.querySelector("#fcpko"),
+      pleft=ctr.querySelector("#fccount");
+  var rot=0;
+
+  function reset(){
+    order=CARDS.map(function(_,i){return i;});
+    fi=0;ok=0;ko=0;back=false;busy=false;rot=0;
+    card.style.transition="none";card.style.transform="rotateY(0deg)";
+    void card.offsetWidth;card.style.transition="";
+    deck.classList.remove("empty");
+    var d=stage.querySelector(".fc-done");if(d)d.remove();
+    card.style.display="";
+    draw();
+  }
+
+  function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+
+  function draw(){
+    pok.textContent=ok+(ok===1?" sabida":" sabidas");
+    pko.textContent=ko+" repasar";
+    var done=N-order.length;
+    fill.style.width=(N?done/N*100:0)+"%";
+
+    if(!order.length){
+      pleft.textContent="0 quedan";
+      deck.classList.add("empty");
+      card.style.display="none";
+      if(!stage.querySelector(".fc-done")){
+        var d=document.createElement("div");
+        d.className="fc-done";
+        d.innerHTML='<span class="seal">🏆</span><h3>Ronda completada</h3>'
+          +'<p>'+ok+' de '+N+' a la primera'+(ko?' · '+ko+' necesitaron repaso':'')+'</p>';
+        deck.appendChild(d);
+      }
+      return;
+    }
+    if(fi>=order.length)fi=0;
+    pleft.textContent=order.length+(order.length===1?" queda":" quedan");
+
+    var c=CARDS[order[fi]];
+    front.querySelector(".fc-txt").innerHTML='<p class="fc-p">'+c[0]+'</p>';
+    var r=FCFMT.render(c[1]);
+    backf.querySelector(".fc-txt").innerHTML=r.html;
+    backf.classList.toggle("struct",r.struct);
+    var hint=backf.querySelector(".fc-hint");
+    if(hint)hint.classList.toggle("muted",/fc-cite/.test(r.html));
+    var pip=(done+1)+"/"+N;
+    Array.prototype.forEach.call(stage.querySelectorAll(".fc-pip"),function(p){p.textContent=pip;});
+  }
+
+  function flip(){
+    if(busy||!order.length)return;
+    back=!back;rot+=180;
+    card.style.transform="rotateY("+rot+"deg)";
+    card.setAttribute("aria-label",back?"Respuesta. Pulsa para volver":"Pregunta. Pulsa para girar");
+    lift.classList.remove("lift");void lift.offsetWidth;lift.classList.add("lift");
+  }
+
+  function next(good){
+    if(busy||!order.length)return;
+    busy=true;
+    if(good){ok++;bump(pok);}else{ko++;bump(pko);}
+    lift.classList.remove("lift");
+    lift.classList.add(good?"out-ok":"out-ko");
+    setTimeout(function(){
+      if(good){order.splice(fi,1);}
+      else{var m=order.splice(fi,1)[0];order.push(m);}
+      back=false;rot=0;
+      card.style.transition="none";card.style.transform="rotateY(0deg)";
+      void card.offsetWidth;card.style.transition="";
+      draw();
+      lift.classList.remove("out-ok","out-ko");
+      lift.classList.add("in");
+      setTimeout(function(){lift.classList.remove("in");busy=false;},480);
+    },460);
+  }
+
+  card.onclick=flip;
+  card.onkeydown=function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();flip();}
+    if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  };
+  ctr.querySelector("#fcflip").onclick=flip;
+  ctr.querySelector("#fcok").onclick=function(){next(true);};
+  ctr.querySelector("#fcko").onclick=function(){next(false);};
+  ctr.querySelector("#fcreset").onclick=reset;
+
+  /* Deslizar en táctil */
+  var x0=null,y0=null;
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  card.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){next(dx>0);}
+    x0=y0=null;
+  },{passive:true});
+
+  /* Atajos globales cuando el mazo está a la vista */
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    var r=stage.getBoundingClientRect();
+    if(r.bottom<80||r.top>innerHeight-80)return;
+    if(e.key===" "){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    else if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  });
+
+  reset();
+  return true;
+}
+if(!boot()){
+  var tries=0;
+  var iv=setInterval(function(){if(boot()||++tries>40)clearInterval(iv);},120);
+  addEventListener("load",function(){setTimeout(boot,100);});
+}
+})();
+
+</script>
+</body>
+</html>

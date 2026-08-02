@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>TRLHL · Arts. 162-171 · Contenido y aprobación del presupuesto</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   SISTEMA DE DISEÑO · "Académico Gamificado" · Bloque II
+   Temas 8, 9 y 10 · Auxiliar Administrativo
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --fs:16px;
+
+  --bg:#faf9f7;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #dcf5ee 0%, transparent 50%);
+  --surface:#ffffff;
+  --surface-2:#f4f3f0;
+  --surface-3:#eceae5;
+  --line:#e6e3dc;
+  --line-strong:#d4d0c7;
+
+  --ink:#15161c;
+  --ink-2:#5d616e;
+  --ink-3:#8b8f9c;
+
+  --brand:#5b3df5;
+  --brand-2:#7c5cff;
+  --brand-soft:#efeaff;
+  --brand-ring:rgba(91,61,245,.18);
+
+  --legal:#4338ca;  --legal-bg:#eeecff;
+  --ej:#059669;     --ej-bg:#e4f7f0;
+  --warn:#c2690a;   --warn-bg:#fdf1de;
+  --exc:#dc2626;    --exc-bg:#ffeceb;
+
+  --ok:#16a34a; --ok-soft:#e7f7ec;
+  --mid:#eab308; --mid-soft:#fdf6dd;
+  --off:#a1a1aa; --off-soft:#f1f1f3;
+
+  --sh-1:0 1px 2px rgba(20,20,30,.04), 0 2px 8px rgba(20,20,30,.04);
+  --sh-2:0 2px 6px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.07);
+  --sh-3:0 8px 20px rgba(91,61,245,.13), 0 24px 56px rgba(20,20,30,.10);
+  --sh-glow:0 0 0 4px var(--brand-ring);
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-full:999px;
+
+  --f-display:"Segoe UI Variable Display",system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-legal:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+
+  --t-h1:clamp(1.02rem,.95rem + .3vw,1.2rem);
+  --t-h2:clamp(1.2rem,1.05rem + .6vw,1.55rem);
+  --t-h3:clamp(1rem,.95rem + .25vw,1.12rem);
+  --t-sm:.86rem;
+  --t-xs:.75rem;
+
+  --e-out:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+
+  /* ── Compatibilidad con SVG y contenido generado ── */
+  --panel:var(--surface);
+  --ink2:var(--ink-2);
+  --acc:var(--brand);
+  --acc-soft:var(--brand-soft);
+  --g:var(--ok); --y:var(--mid); --r:var(--exc);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0b0f;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #1c1740 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #08302b 0%, transparent 50%);
+  --surface:#13151b;
+  --surface-2:#1a1d25;
+  --surface-3:#232733;
+  --line:#262a34;
+  --line-strong:#343947;
+
+  --ink:#eceef4;
+  --ink-2:#9ba2b3;
+  --ink-3:#6e7585;
+
+  --brand:#8b6dff;
+  --brand-2:#a78bff;
+  --brand-soft:#1e1a3d;
+  --brand-ring:rgba(139,109,255,.22);
+
+  --legal:#a5b4fc; --legal-bg:#191b3a;
+  --ej:#34d399;    --ej-bg:#0c2a24;
+  --warn:#fbbf24;  --warn-bg:#2e2110;
+  --exc:#fb7185;   --exc-bg:#331119;
+
+  --ok:#4ade80; --ok-soft:#0e2a19;
+  --mid:#facc15; --mid-soft:#2c2610;
+  --off:#5b6070; --off-soft:#1c1f27;
+
+  --sh-1:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sh-2:0 2px 6px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.4);
+  --sh-3:0 8px 20px rgba(139,109,255,.2), 0 24px 56px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);background-image:var(--bg-grad);
+  background-attachment:fixed;background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s var(--e-out),color .3s;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.022em;line-height:1.2}
+.num{font-variant-numeric:tabular-nums}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+
+/* ═══ HEADER ═══ */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{max-width:1280px;margin:0 auto;padding:.65rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;flex:1}
+.mark{
+  width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  font-weight:800;font-size:.8rem;letter-spacing:-.02em;text-decoration:none;
+  box-shadow:0 4px 14px var(--brand-ring);
+  transition:transform .3s var(--e-spring),box-shadow .3s;
+}
+.mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0}
+.top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
+  margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+
+button,select,input[type=search]{
+  font:inherit;font-size:var(--t-sm);font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:var(--r-sm);padding:.4rem .72rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .18s var(--e-spring),border-color .2s,background .2s,box-shadow .2s,color .2s;
+}
+button:hover{transform:translateY(-1.5px);border-color:var(--brand);box-shadow:var(--sh-1)}
+button:active{transform:translateY(0) scale(.97)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:none;box-shadow:var(--sh-glow)}
+input[type=search]{min-width:190px;cursor:text;font-weight:500}
+input[type=search]:focus{border-color:var(--brand)}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);padding:2px;gap:2px}
+.seg button{border:0;border-radius:calc(var(--r-sm) - 2px);padding:.32rem .68rem;background:transparent;box-shadow:none}
+.seg button:hover{transform:none;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 2px 8px var(--brand-ring)}
+
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:currentColor;opacity:.25;animation:rip .55s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(3.4);opacity:0}}
+
+.progress{position:absolute;left:0;bottom:-1px;height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--brand),var(--legal),var(--ej));transition:width .1s linear}
+
+/* ═══ LAYOUT ═══ */
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:1.8rem;padding:1.4rem 1.1rem 5rem}
+main{min-width:0}
+
+/* ═══ SIDEBAR ═══ */
+nav.side{
+  position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:.85rem;box-shadow:var(--sh-1);
+}
+nav.side h2{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:.5rem .4rem .5rem;font-weight:800}
+nav.side h2:first-child{margin-top:.1rem}
+nav.side a{
+  display:flex;align-items:baseline;gap:.5rem;padding:.36rem .55rem;border-radius:var(--r-sm);
+  text-decoration:none;color:var(--ink-2);font-size:var(--t-sm);font-weight:500;
+  position:relative;transition:background .22s,color .22s,transform .22s var(--e-out);
+}
+nav.side a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(3px);text-decoration:none}
+nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side a.on::before{content:"";position:absolute;left:-.85rem;top:20%;bottom:20%;width:3px;
+  border-radius:0 3px 3px 0;background:var(--brand)}
+nav.side a b{color:var(--ink-3);font-weight:800;font-size:var(--t-xs);font-variant-numeric:tabular-nums;flex:none;min-width:1.9em}
+nav.side a.on b{color:var(--brand)}
+.navtoggle{display:none}
+
+/* ═══ TARJETAS ═══ */
+section.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.5rem;margin-bottom:1.1rem;box-shadow:var(--sh-1);
+  transition:box-shadow .3s var(--e-out),border-color .3s;
+}
+section.card:hover{box-shadow:var(--sh-2)}
+section.card>h2{
+  margin:0 0 1rem;font-size:var(--t-h2);font-weight:800;
+  display:flex;align-items:center;gap:.6rem;
+}
+section.card>h2::before{
+  content:"";width:4px;height:1.05em;border-radius:99px;flex:none;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+
+/* ═══ ARTÍCULO ═══ */
+.art{scroll-margin-top:86px;padding-top:.4rem}
+.art + .art{margin-top:1.6rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+.art h2{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;font-size:var(--t-h3);
+  margin:0 0 .25rem;font-weight:800;letter-spacing:-.015em}
+.art h2 .num{
+  color:var(--brand);font-weight:800;font-family:var(--f-display);
+  background:var(--brand-soft);padding:.1rem .5rem;border-radius:var(--r-sm);
+  font-size:.92em;letter-spacing:-.02em;
+}
+.ubic{font-size:var(--t-xs);color:var(--ink-3);margin:0 0 .8rem;font-weight:600;
+  letter-spacing:.03em;text-transform:uppercase}
+
+/* ═══ IDEA CLAVE ═══ */
+.idea{
+  background:linear-gradient(100deg,var(--brand-soft),color-mix(in srgb,var(--brand-soft) 40%,transparent));
+  border-left:4px solid var(--brand);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.75rem 1rem;font-weight:650;margin:.7rem 0 1rem;position:relative;
+  font-size:.97rem;line-height:1.55;
+}
+
+/* ═══ ACORDEÓN ═══ */
+details.panel{
+  border:1px solid var(--line);border-radius:var(--r-md);margin:.6rem 0;
+  background:var(--surface);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+details.panel:hover{border-color:var(--line-strong)}
+details.panel[open]{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring)}
+details.panel>summary{
+  cursor:pointer;padding:.62rem .9rem;font-weight:700;font-size:.93rem;
+  list-style:none;display:flex;align-items:center;gap:.55rem;
+  transition:background .2s,color .2s;
+}
+details.panel>summary:hover{background:var(--surface-2)}
+details.panel[open]>summary{background:var(--brand-soft);color:var(--brand)}
+details.panel>summary::-webkit-details-marker{display:none}
+details.panel>summary::before{
+  content:"";width:16px;height:16px;flex:none;border-radius:5px;
+  background:var(--brand-soft);position:relative;transition:transform .3s var(--e-spring),background .25s;
+}
+details.panel>summary::after{
+  content:"";position:absolute;width:0;height:0;margin-left:5px;
+  border:4px solid transparent;border-left-color:var(--brand);
+  transition:transform .3s var(--e-spring);
+}
+details.panel[open]>summary::before{background:var(--surface)}
+details.panel[open]>summary::after{transform:rotate(90deg) translateX(-1px)}
+details.panel .body{padding:.3rem 1rem 1rem;font-size:.95rem;animation:slidein .35s var(--e-out)}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ═══ TEXTO LEGAL ═══ */
+.legal{
+  background:var(--legal-bg);border-left:4px solid var(--legal);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:.85rem 1.05rem;
+  font-family:var(--f-legal);font-size:.95rem;line-height:1.7;
+}
+.legal p{margin:.45rem 0}
+.legal .lbl{
+  font-family:var(--f-body);font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--legal);font-weight:800;display:block;margin-bottom:.4rem;
+}
+
+/* ═══ CAJAS SEMÁNTICAS ═══ */
+.box{
+  border-left:4px solid var(--line);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.72rem .95rem;margin:.65rem 0;font-size:.94rem;
+  transition:transform .25s var(--e-out),box-shadow .25s;
+}
+.box:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
+.box.ej{background:var(--ej-bg);border-color:var(--ej)}
+.box.warn{background:var(--warn-bg);border-color:var(--warn)}
+.box.exc{background:var(--exc-bg);border-color:var(--exc)}
+.box .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+  display:block;margin-bottom:.3rem}
+.box.ej .lbl{color:var(--ej)}
+.box.warn .lbl{color:var(--warn)}
+.box.exc .lbl{color:var(--exc)}
+
+.interp{
+  border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn-bg) 45%,transparent);
+  border-radius:var(--r-md);padding:.65rem .9rem;font-size:.9rem;margin:.6rem 0;
+}
+.interp .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);font-weight:800;display:block}
+
+/* ═══ TABLAS ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;margin:.7rem 0;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+th,td{padding:.5rem .68rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td + td, th + th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-size:var(--t-xs);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+tbody tr{transition:background .18s}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+tbody tr:hover{background:var(--brand-soft)}
+th.sortable{cursor:pointer;user-select:none;transition:color .2s,background .2s}
+th.sortable:hover{color:var(--brand);background:var(--brand-soft)}
+th.sortable::after{content:" ⇅";color:var(--ink-3);font-size:.7rem}
+
+ul,ol{margin:.5rem 0 .5rem 1.2rem;padding:0}
+li{margin:.26rem 0}
+li::marker{color:var(--brand);font-weight:700}
+
+/* ═══ TOOLTIPS ═══ */
+.t{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;
+  transition:background .2s,color .2s}
+.t:hover{background:var(--brand-soft);color:var(--brand);border-radius:3px}
+#tip{
+  position:fixed;z-index:99;max-width:330px;background:var(--ink);color:var(--bg);
+  padding:.6rem .78rem;border-radius:var(--r-md);font-size:.82rem;line-height:1.5;
+  display:none;box-shadow:0 8px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);
+}
+html[data-theme="dark"] #tip{background:#f0f1f5;color:#15161c}
+
+/* ═══ FLECHAS DE DIAGRAMA ═══
+   Un <path> con stroke pero sin fill toma el valor inicial (negro) y el
+   navegador cierra el trazo implícitamente: aparece un triángulo relleno
+   entre sus extremos. Forzamos fill:none para dejar solo la línea + la
+   punta del <marker>, que sí lleva su color. */
+svg path[stroke]:not([fill]){fill:none}
+svg polyline:not([fill]){fill:none}
+svg line{fill:none}
+
+/* ═══ SVG ═══ */
+svg{max-width:100%;height:auto;display:block;margin:.9rem auto}
+svg text{font-family:var(--f-body)}
+
+/* ═══ BUSCADOR ═══ */
+mark.hit{background:linear-gradient(180deg,transparent 55%,#ffe066 55%);color:inherit;
+  border-radius:2px;padding:0 1px;font-weight:600}
+html[data-theme="dark"] mark.hit{background:linear-gradient(180deg,transparent 55%,#8a6d00 55%);color:#fff}
+
+/* ═══ UTILIDADES ═══ */
+.hide{display:none !important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.small{font-size:var(--t-sm);color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:var(--t-xs);padding:.16rem .55rem;border-radius:var(--r-full);
+  background:var(--brand-soft);color:var(--brand);font-weight:800;letter-spacing:.02em;
+}
+
+/* ═══ HUECOS RELLENABLES ═══ */
+.gap{
+  display:inline-block;min-width:5.5em;border-bottom:2px solid var(--brand);
+  text-align:center;font-weight:700;color:transparent;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.gap.on,.gap:hover{color:var(--brand);background:var(--brand-soft);border-radius:4px 4px 0 0}
+
+/* ═══ REVELAR SOLUCIÓN ═══ */
+.revelar{
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;
+  font-weight:700;
+}
+.revelar:hover{box-shadow:var(--sh-3)}
+.sol{
+  margin-top:.7rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  background:var(--ej-bg);border-left:4px solid var(--ej);
+  animation:slidein .4s var(--e-out);
+}
+
+/* ═══ TEST ═══ */
+.opt{
+  display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;background:var(--surface);font-size:.94rem;
+  transition:border-color .22s,background .22s,transform .22s var(--e-out);
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateX(4px)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:650}
+.opt.ko{border-color:var(--exc);background:var(--exc-bg)}
+.opt input{margin-right:.5rem;accent-color:var(--brand)}
+
+#tscore,#semres{
+  font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLASHCARDS 3D · mazo con giro, vuelo de salida y sheen
+   ═══════════════════════════════════════════════════════════════ */
+#flash{--fc-e:cubic-bezier(.2,.8,.25,1);--fc-h:250px}
+
+/* — Escena — */
+.fc-stage{
+  perspective:1400px;perspective-origin:50% 45%;
+  padding:.4rem 0 .2rem;position:relative;
+}
+.fc-deck{position:relative;height:var(--fc-h);will-change:transform}
+
+/* — Cartas fantasma del mazo — */
+.fc-ghost{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .5s var(--fc-e),opacity .5s var(--fc-e);
+}
+.fc-ghost.g1{transform:translateY(9px) scale(.972);opacity:.75}
+.fc-ghost.g2{transform:translateY(18px) scale(.944);opacity:.45}
+.fc-deck.empty .fc-ghost{opacity:0;transform:translateY(26px) scale(.9)}
+
+/* — Elevación durante el giro — */
+.fc-lift{position:absolute;inset:0;transform-style:preserve-3d}
+.fc-lift.lift{animation:fcLift .78s var(--fc-e)}
+@keyframes fcLift{
+  0%,100%{transform:scale(1) translateY(0)}
+  45%{transform:scale(1.055) translateY(-16px)}
+}
+.fc-lift.out-ok{animation:fcOut .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.out-ko{animation:fcOutKo .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.in{animation:fcIn .48s var(--fc-e)}
+@keyframes fcOut{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(130%) rotate(17deg) scale(.85);opacity:0}
+}
+@keyframes fcOutKo{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(-130%) rotate(-17deg) scale(.85);opacity:0}
+}
+@keyframes fcIn{
+  0%{transform:translateY(26px) scale(.9);opacity:0}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+
+/* — La carta — */
+.fc-card{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transition:transform .78s var(--fc-e);
+  cursor:pointer;border-radius:var(--r-lg);
+}
+.fc-card:focus-visible{outline:none}
+.fc-card:focus-visible .fc-face{box-shadow:var(--sh-glow),var(--sh-2)}
+
+/* — Caras — */
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 2.2rem;text-align:center;overflow:hidden;
+  box-shadow:var(--sh-2);
+  transition:box-shadow .4s var(--fc-e);
+}
+.fc-card:hover .fc-face{box-shadow:var(--sh-3)}
+
+/* Anverso · pregunta */
+.fc-front{
+  background:
+    radial-gradient(120% 90% at 50% -20%, var(--brand-soft) 0%, transparent 60%),
+    var(--surface);
+  border:1.5px solid var(--line);color:var(--ink);
+}
+/* Reverso · respuesta */
+.fc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,var(--brand) 0%,#6d4bf7 45%,var(--c5,#0891b2) 130%);
+  border:1.5px solid transparent;color:#fff;
+}
+html[data-theme="dark"] .fc-back{
+  background:linear-gradient(145deg,#5f45c9 0%,#4b3aa8 45%,#0e6b85 130%);
+}
+.fc-back .fc-txt{color:#fff}
+.fc-back b,.fc-back strong{color:#fff;font-weight:800}
+
+/* — Sheen que barre al girar — */
+.fc-face::after{
+  content:"";position:absolute;top:-60%;left:-70%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);opacity:0;pointer-events:none;
+}
+.fc-lift.lift .fc-face::after{animation:fcSheen .78s var(--fc-e)}
+@keyframes fcSheen{
+  0%{opacity:0;left:-70%}
+  35%{opacity:1}
+  100%{opacity:0;left:150%}
+}
+
+/* — Etiqueta superior — */
+.fc-tag{
+  position:absolute;top:1rem;left:1.15rem;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.fc-front .fc-tag{color:var(--brand)}
+.fc-back .fc-tag{color:rgba(255,255,255,.9)}
+.fc-tag::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+  animation:fcPulse 2.2s ease-in-out infinite;
+}
+@keyframes fcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* — Índice tipo naipe — */
+.fc-pip{
+  position:absolute;font-family:var(--f-display);font-weight:800;
+  font-size:.78rem;letter-spacing:-.02em;opacity:.34;font-variant-numeric:tabular-nums;
+}
+.fc-pip.tr{top:1rem;right:1.15rem}
+.fc-pip.bl{bottom:1rem;left:1.15rem;transform:rotate(180deg)}
+.fc-front .fc-pip{color:var(--ink-2)}
+.fc-back .fc-pip{color:#fff;opacity:.55}
+
+/* — Texto — */
+.fc-txt{
+  font-size:clamp(1rem,.9rem + .55vw,1.28rem);font-weight:650;line-height:1.5;
+  max-width:44ch;letter-spacing:-.012em;
+}
+.fc-front .fc-txt{font-family:var(--f-display);font-weight:700}
+.fc-back .fc-txt{font-weight:600;line-height:1.6}
+.fc-hint{
+  position:absolute;bottom:1rem;left:0;right:0;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.fc-front .fc-hint{color:var(--ink-3)}
+.fc-back .fc-hint{color:rgba(255,255,255,.72)}
+.fc-hint .kbd{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:700;padding:.1rem .32rem;
+  border-radius:5px;border:1px solid currentColor;opacity:.75;
+}
+
+/* — Pantalla final — */
+.fc-done{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--ok-soft),var(--surface) 70%);
+  border:1.5px solid var(--ok);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;gap:.35rem;
+  animation:fcIn .5s var(--fc-e);box-shadow:var(--sh-2);
+}
+.fc-done .seal{
+  font-size:2.6rem;line-height:1;
+  animation:fcSeal .7s cubic-bezier(.2,1.5,.4,1);
+}
+@keyframes fcSeal{0%{transform:scale(0) rotate(-25deg);opacity:0}60%{transform:scale(1.2) rotate(6deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.fc-done h3{font-size:1.3rem;font-weight:800;margin:.2rem 0 0}
+.fc-done p{margin:0;color:var(--ink-2);font-size:var(--t-sm)}
+
+/* — Barra de progreso de la ronda — */
+.fc-bar{
+  height:6px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;margin:.95rem 0 .8rem;position:relative;
+}
+.fc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand),var(--c5,#0891b2));
+  transition:width .55s var(--fc-e);
+}
+
+/* — Controles — */
+.fc-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.fc-ctrls button{font-weight:700}
+#fcok{border-color:var(--ok);color:var(--ok)}
+#fcok:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+#fcko{border-color:var(--warn);color:var(--warn)}
+#fcko:hover{background:var(--warn);color:#fff;border-color:var(--warn)}
+#fcflip{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+#fcflip:hover{box-shadow:var(--sh-3)}
+
+.fc-score{display:inline-flex;gap:.45rem;margin-left:auto;align-items:center}
+.fc-pill{
+  font-size:var(--t-xs);font-weight:800;padding:.24rem .6rem;border-radius:var(--r-full);
+  font-variant-numeric:tabular-nums;border:1px solid;
+}
+.fc-pill.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.fc-pill.ko{color:var(--warn);border-color:var(--warn);background:var(--warn-bg)}
+.fc-pill.left{color:var(--ink-2);border-color:var(--line);background:var(--surface-2)}
+.fc-pill.bump{animation:fcBump .45s var(--e-spring)}
+@keyframes fcBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+@media(max-width:620px){
+  #flash{--fc-h:270px}
+  .fc-face{padding:1.7rem 1.3rem}
+  .fc-score{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-card{transition:none}
+  .fc-lift.lift,.fc-lift.in,.fc-lift.out-ok,.fc-lift.out-ko,.fc-face::after{animation:none !important}
+}
+@media print{.fc-stage,.fc-ctrls,.fc-bar{display:none !important}}
+/* ═══ RESPUESTA ESTRUCTURADA ═══ */
+.fc-face{justify-content:center}
+.fc-face.struct{justify-content:flex-start;text-align:left;padding-top:3.1rem;padding-bottom:3.1rem}
+.fc-body{
+  width:100%;max-width:46ch;margin:0 auto;
+  overflow-y:auto;max-height:100%;
+  scrollbar-width:thin;
+}
+.fc-body::-webkit-scrollbar{width:5px}
+.fc-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:99px;border:0}
+.fc-front .fc-body::-webkit-scrollbar-thumb{background:var(--line-strong)}
+
+/* — Veredicto Sí / No — */
+.fc-verdict{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-display);font-weight:800;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.26rem .72rem;border-radius:var(--r-full);margin-bottom:.85rem;
+  border:1.5px solid;animation:fcPopIn .45s var(--e-spring) backwards;animation-delay:.34s;
+}
+.fc-verdict.si{background:rgba(255,255,255,.16);border-color:rgba(190,255,215,.85);color:#d8ffe9}
+.fc-verdict.no{background:rgba(255,255,255,.16);border-color:rgba(255,205,205,.85);color:#ffdedd}
+@keyframes fcPopIn{0%{opacity:0;transform:scale(.7) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* — Párrafo — */
+.fc-p{margin:0;font-size:clamp(1rem,.92rem + .45vw,1.2rem);font-weight:600;line-height:1.6}
+.fc-face.struct .fc-p{font-size:clamp(.96rem,.9rem + .35vw,1.1rem)}
+
+/* — Lista enumerada — */
+.fc-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;counter-reset:fc}
+.fc-list li{
+  counter-increment:fc;position:relative;margin:0;
+  padding:.42rem .6rem .42rem 2.5rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.11);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.45;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-list li::before{
+  content:counter(fc);position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.9);color:var(--brand);
+  font-family:var(--f-display);font-weight:800;font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.fc-list.alpha li::before{content:counter(fc,lower-alpha)}
+.fc-list li:nth-child(1){animation-delay:.36s}
+.fc-list li:nth-child(2){animation-delay:.42s}
+.fc-list li:nth-child(3){animation-delay:.48s}
+.fc-list li:nth-child(4){animation-delay:.54s}
+.fc-list li:nth-child(5){animation-delay:.60s}
+.fc-list li:nth-child(n+6){animation-delay:.66s}
+@keyframes fcRow{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:none}}
+
+/* — Cláusulas contrapuestas — */
+.fc-clauses{display:grid;gap:.45rem}
+.fc-clauses p{
+  margin:0;padding:.45rem .7rem .45rem .95rem;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:rgba(255,255,255,.11);border-left:3px solid rgba(255,255,255,.55);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.5;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-clauses p:nth-child(1){animation-delay:.36s}
+.fc-clauses p:nth-child(2){animation-delay:.44s}
+.fc-clauses p:nth-child(3){animation-delay:.52s}
+
+/* — Negritas resaltadas en el reverso — */
+.fc-back .fc-body b,.fc-back .fc-body strong{
+  font-weight:800;background:rgba(255,255,255,.2);
+  padding:.03em .3em;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+
+/* — Cita legal al pie — */
+.fc-cite{
+  position:absolute;bottom:.95rem;left:0;right:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;letter-spacing:.02em;
+  color:rgba(255,255,255,.82);
+  animation:fcPopIn .5s var(--e-out) backwards;animation-delay:.5s;
+}
+.fc-cite::before,.fc-cite::after{
+  content:"";height:1px;width:clamp(18px,10%,52px);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45));
+}
+.fc-cite::after{background:linear-gradient(90deg,rgba(255,255,255,.45),transparent)}
+.fc-cite .s{font-size:.9rem;opacity:.75;font-family:var(--f-legal)}
+.fc-front .fc-cite{color:var(--ink-3)}
+.fc-front .fc-cite::before{background:linear-gradient(90deg,transparent,var(--line-strong))}
+.fc-front .fc-cite::after{background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+/* la pista se oculta si hay cita, para no amontonar */
+.fc-back .fc-cite ~ .fc-hint,.fc-back .fc-hint.muted{display:none}
+
+@media(max-width:620px){
+  #flash{--fc-h:320px}
+  .fc-face.struct{padding-top:2.9rem;padding-bottom:2.8rem}
+  .fc-list li{padding-left:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-verdict,.fc-list li,.fc-clauses p,.fc-cite{animation:none !important}
+}
+
+/* ═══ SEMÁFORO ═══ */
+.sembtn{
+  border-radius:var(--r-full);padding:.32rem .7rem;font-weight:700;font-size:var(--t-sm);
+}
+.sembtn[data-v="g"]:hover,.sembtn.on[data-v="g"]{background:var(--ok);color:#fff;border-color:var(--ok)}
+.sembtn[data-v="y"]:hover,.sembtn.on[data-v="y"]{background:var(--mid);color:#3d2f00;border-color:var(--mid)}
+.sembtn[data-v="r"]:hover,.sembtn.on[data-v="r"]{background:var(--exc);color:#fff;border-color:var(--exc)}
+
+/* ═══ CTA DE BLOQUE ═══ */
+a.blk{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  padding:.5rem .95rem;border-radius:var(--r-sm);font-weight:700;font-size:var(--t-sm);
+  text-decoration:none;box-shadow:0 2px 10px var(--brand-ring);
+  transition:transform .22s var(--e-spring),box-shadow .25s,gap .25s var(--e-out);
+}
+a.blk:hover{transform:translateY(-2px);box-shadow:var(--sh-3);gap:.75rem;text-decoration:none}
+a.blk::after{content:"→"}
+a.blk:active{transform:translateY(0) scale(.98)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr;padding-top:.9rem;gap:1rem}
+  nav.side{position:static;max-height:none}
+  nav.side.collapsed .navbody{display:none}
+  .navtoggle{display:block;width:100%;text-align:left;font-weight:700}
+  .grid2{grid-template-columns:1fr}
+  .top h1 .sub{white-space:normal}
+}
+@media(max-width:620px){
+  .top-in{padding:.55rem .8rem}
+  .tools{width:100%;margin-left:0}
+  input[type=search]{flex:1;min-width:0}
+  section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
+  table{font-size:.82rem}
+  th,td{padding:.4rem .5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  header.top,nav.side,.tools,.noprint,.progress{display:none !important}
+  body{background:#fff;background-image:none;font-size:11pt;color:#000}
+  .layout{display:block;max-width:none;padding:0}
+  section.card{border:0;padding:0;margin:0 0 1rem;break-inside:avoid;box-shadow:none}
+  details.panel{border:0;box-shadow:none}
+  details.panel .body{display:block !important}
+  details.panel>summary{padding-left:0}
+  .art{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  a{color:#000;text-decoration:none}
+}
+
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brandwrap">
+    <a class="mark" href="TEMA_8_indice.html" title="Volver al índice">B1</a>
+    <h1>Real Decreto Legislativo 2/2004 · TRLHL
+      <span class="sub">Título VI, Cap. I, Sección 1.ª — Contenido y aprobación del presupuesto · Arts. 162 a 171</span>
+    </h1>
+    </div>
+    <div class="tools noprint">
+      <input type="search" id="q" placeholder="Buscar en la página…" aria-label="Buscar">
+      <span class="seg" role="group" aria-label="Modo de vista">
+        <button data-view="legal" aria-pressed="false">Texto legal</button>
+        <button data-view="expl" aria-pressed="false">Explicación</button>
+        <button data-view="both" aria-pressed="true">Ambos</button>
+      </span>
+      <button id="fs-" aria-label="Reducir texto">A−</button>
+      <button id="fs+" aria-label="Aumentar texto">A+</button>
+      <span class="streak" id="streak" title="Días seguidos estudiando" style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);font-weight:800;font-size:.8rem">🔥<span class="num" id="streakN">0</span></span>
+      <button id="theme" aria-label="Cambiar tema">◐</button>
+      <button id="expand">Desplegar todo</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="progress" id="prog"></div>
+</header>
+<div class="layout">
+<nav class="side collapsed" id="side" aria-label="Índice">
+  <button class="navtoggle" id="navtoggle" aria-expanded="false">☰ Índice</button>
+  <div class="navbody" id="navbody"></div>
+</nav>
+<main id="main"></main>
+</div>
+<script>
+const GLOSARIO={
+ "presupuesto":"Documento contable y jurídico, aprobado por el Pleno, que fija el techo de gasto de un ejercicio y estima los ingresos con los que se financia. Ej.: el presupuesto de Utrera para 2026 autoriza gastar como máximo 78 M€.",
+ "credito":"Crédito presupuestario: la cantidad máxima de dinero autorizada para una finalidad concreta. Ej.: 120.000 € en la aplicación de 'mantenimiento de colegios'.",
+ "obligacion":"Obligación reconocida: la deuda que el Ayuntamiento admite formalmente que debe pagar, una vez comprobado que el servicio o suministro se ha prestado. Ej.: aprobada la factura del proveedor, nace la obligación.",
+ "derecho":"Derecho liquidado: el importe concreto que un tercero debe a la entidad local, una vez cuantificado. Ej.: liquidado el IBI de un inmueble en 340 €, ese es el derecho.",
+ "oa":"Organismo autónomo: ente con personalidad jurídica propia creado por la entidad local para gestionar un servicio (patronatos de deportes, de cultura, gerencias de urbanismo). Depende del Ayuntamiento pero tiene su propio presupuesto.",
+ "sociedad":"Sociedad mercantil local: empresa con forma de S.A. o S.L. cuyo capital pertenece a la entidad local (p. ej. la empresa municipal de aguas). No aprueba 'presupuesto', sino estados de previsión de gastos e ingresos.",
+ "bases":"Bases de ejecución: el 'reglamento de uso' del presupuesto. Adaptan las normas presupuestarias generales a la organización concreta de la entidad. Ej.: fijan qué órgano autoriza gastos de hasta 3.000 €.",
+ "estabilidad":"Estabilidad presupuestaria: exigencia de que las cuentas públicas no incurran en déficit estructural. Ej.: un ayuntamiento no puede presupuestar más gasto no financiero que ingresos no financieros.",
+ "afectacion":"No afectación: regla general de que todos los ingresos financian todo el gasto, sin que un ingreso concreto quede reservado a un gasto concreto. Ej.: lo recaudado por el IBI no está reservado a pagar el alumbrado.",
+ "bruto":"Principio de presupuesto bruto (o de integridad): derechos y obligaciones se anotan por su importe total, sin compensar unos con otros. Ej.: no se puede anotar la subvención 'ya descontados' los gastos del programa.",
+ "nivelacion":"Nivelación presupuestaria: que el total de ingresos previstos cubra el total de gastos autorizados; es decir, aprobar sin déficit inicial.",
+ "aplicacion":"Aplicación presupuestaria: la 'casilla' exacta donde vive cada euro de gasto, formada al cruzar la clasificación por programas con la económica. Ej.: 323/22103 (funcionamiento de centros docentes / combustibles).",
+ "vinculacion":"Nivel de vinculación jurídica: el nivel de agregación en el que el crédito es realmente limitativo; por debajo de él se puede mover el gasto sin tramitar una modificación de crédito (art. 172 TRLHL).",
+ "intervencion":"Intervención: el órgano de control interno de la entidad local, con función de fiscalización previa del gasto y de informe preceptivo del presupuesto. Lo desempeña un funcionario de habilitación nacional.",
+ "pleno":"Pleno: órgano colegiado formado por todos los concejales o diputados. Es el único competente para aprobar el presupuesto.",
+ "bop":"Boletín Oficial de la Provincia: diario oficial donde las entidades locales publican sus anuncios y acuerdos con efectos frente a terceros.",
+ "prorroga":"Prórroga presupuestaria: si el 1 de enero no ha entrado en vigor el presupuesto nuevo, sigue rigiendo automáticamente el anterior con sus créditos iniciales.",
+ "interesado":"Interesado: quien está legitimado para intervenir en un procedimiento. En el presupuesto, la ley define expresamente quiénes lo son (art. 170.1).",
+ "liquidacion":"Liquidación del presupuesto: cierre contable del ejercicio, que determina los derechos y obligaciones pendientes, el remanente de tesorería y el resultado presupuestario.",
+ "tcuentas":"Tribunal de Cuentas: órgano fiscalizador externo de las cuentas y la gestión económica del sector público, dependiente de las Cortes Generales.",
+ "conten":"Recurso contencioso-administrativo: impugnación ante los juzgados y tribunales de lo contencioso-administrativo, es decir, ya fuera de la propia Administración."
+};
+const ARTS=[
+{n:162,t:"Definición",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 1.ª (Contenido y aprobación)",
+idea:"El presupuesto pone en cifras el gasto máximo autorizado y el ingreso que se espera obtener.",
+literal:`<p>Los presupuestos generales de las entidades locales constituyen la expresión cifrada, conjunta y sistemática de las obligaciones que, como máximo, pueden reconocer la entidad, y sus organismos autónomos, y de los derechos que prevean liquidar durante el correspondiente ejercicio, así como de las previsiones de ingresos y gastos de las sociedades mercantiles cuyo capital social pertenezca íntegramente a la entidad local correspondiente.</p>`,
+dis:`<ul>
+<li><b>Supuesto de hecho:</b> toda entidad local que elabora su presupuesto general.</li>
+<li><b>Sujetos:</b> la entidad local, sus <span class="t" data-k="oa">organismos autónomos</span> y sus <span class="t" data-k="sociedad">sociedades mercantiles</span> íntegramente locales.</li>
+<li><b>Consecuencia jurídica:</b> el documento fija un <b>techo de gasto</b> vinculante y una <b>previsión</b> de ingresos.</li>
+<li><b>Tres adjetivos que hay que retener:</b> expresión <b>cifrada</b> (en euros, no en prosa), <b>conjunta</b> (todos los entes, un solo documento) y <b>sistemática</b> (ordenada según una estructura predeterminada).</li>
+</ul>
+<table><thead><tr><th>Lado</th><th>Naturaleza</th><th>¿Es un límite?</th></tr></thead><tbody>
+<tr><td>Gastos (<span class="t" data-k="obligacion">obligaciones</span>)</td><td>Autorización máxima</td><td><b>Sí</b>: no se puede reconocer más</td></tr>
+<tr><td>Ingresos (<span class="t" data-k="derecho">derechos</span>)</td><td>Previsión estimativa</td><td><b>No</b>: se puede recaudar más o menos</td></tr>
+</tbody></table>`,
+llano:`<p>Imagina la economía doméstica de una familia numerosa que además tiene dos negocios. El presupuesto es la hoja donde escriben: "este año no gastaremos más de 40.000 € y calculamos ingresar unos 41.000 €". La cifra de gasto es una promesa que les ata: no pueden pasarse. La de ingresos es un cálculo: pueden entrar más o menos euros de los previstos.</p>`,
+porque:`<p>Sin un techo cifrado y aprobado por el órgano representativo, quien gobierna podría comprometer dinero público sin control. El presupuesto convierte la decisión de gastar en una <b>autorización previa y pública</b>: el Pleno decide antes, no después. Y al exigir que sea <i>conjunto</i>, impide el truco de sacar gasto fuera del documento metiéndolo en organismos o empresas satélite.</p>`,
+ej:`<ul>
+<li><b>Cotidiano:</b> el tope de la tarjeta de crédito. El banco te fija 3.000 €: puedes gastar menos, nunca más. Lo que ingreses en la cuenta es otra cosa, y varía.</li>
+<li><b>Real:</b> el Ayuntamiento de Utrera aprueba para 2026 un presupuesto general de 78,4 M€, que integra el del Ayuntamiento (71 M€), el del Patronato Municipal de Deportes (2,9 M€) y los estados de previsión de la empresa municipal de aguas (4,5 M€).</li>
+<li><b>Caso límite:</b> una sociedad mercantil cuyo capital es un 60 % municipal y un 40 % privado. El art. 162 solo menciona las de capital <b>íntegramente</b> local; su tratamiento no se resuelve aquí, sino en el art. 166.1.b) (programa anual de actuación como anexo).</li>
+</ul>`,
+noej:`<ul>
+<li><b>No es presupuesto</b> el plan económico-financiero de saneamiento: es un plan de corrección, no una autorización de gasto.</li>
+<li><b>No es presupuesto</b> la <span class="t" data-k="liquidacion">liquidación</span>: esta mira hacia atrás (lo ejecutado), el presupuesto mira hacia delante (lo autorizado).</li>
+<li><b>No entra aquí</b> una fundación pública local o un consorcio: el art. 162 solo cita entidad, organismos autónomos y sociedades de capital íntegramente local.</li>
+</ul>`,
+conex:`<ul>
+<li><b>Art. 164:</b> desarrolla qué se integra en el presupuesto general.</li>
+<li><b>Art. 165.4:</b> el corolario del "máximo": cada presupuesto se aprueba sin déficit inicial.</li>
+<li><b>Art. 172:</b> los créditos son limitativos y vinculantes — la consecuencia práctica del "como máximo".</li>
+<li><b>Art. 173.5:</b> es nulo de pleno derecho el compromiso de gasto sin crédito.</li>
+</ul>`,
+trampas:`<ul>
+<li>Confundir los dos lados: los <b>gastos</b> son máximo; los <b>ingresos</b>, previsión. Es la pregunta de test más repetida de todo el artículo.</li>
+<li>La ley dice "obligaciones que, <b>como máximo</b>, pueden reconocer" — no dice "que deben gastar". Presupuestar no obliga a gastar.</li>
+<li>"Íntegramente" (100 % del capital) en el art. 162, frente a "titular único o partícipe mayoritario" en el art. 166.1.b). No son lo mismo.</li>
+</ul>`,
+ancla:`<p><b>Las tres C:</b> el presupuesto es <b>C</b>ifrado, <b>C</b>onjunto y sistemátiCo... mejor aún, imagina un <b>CCS</b>: <b>C</b>ifrada, <b>C</b>onjunta, <b>S</b>istemática.<br>
+<b>Para no invertir los lados:</b> "el <b>G</b>asto es <b>G</b>uillotina, el <b>I</b>ngreso es <b>I</b>ntuición".</p>`,
+vis:`<svg viewBox="0 0 640 200" role="img" aria-label="El gasto es un techo máximo; el ingreso una previsión">
+<rect x="30" y="30" width="250" height="140" rx="10" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<rect x="360" y="30" width="250" height="140" rx="10" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="155" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="var(--exc)">GASTOS</text>
+<text x="155" y="80" text-anchor="middle" font-size="12" fill="currentColor">Obligaciones que como</text>
+<text x="155" y="97" text-anchor="middle" font-size="12" fill="currentColor">máximo pueden reconocerse</text>
+<line x1="60" y1="115" x2="250" y2="115" stroke="var(--exc)" stroke-width="4"/>
+<text x="155" y="135" text-anchor="middle" font-size="11" fill="var(--exc)">TECHO · no se puede superar</text>
+<text x="155" y="158" text-anchor="middle" font-size="11" fill="currentColor">carácter limitativo</text>
+<text x="485" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ej)">INGRESOS</text>
+<text x="485" y="80" text-anchor="middle" font-size="12" fill="currentColor">Derechos que se prevea</text>
+<text x="485" y="97" text-anchor="middle" font-size="12" fill="currentColor">liquidar en el ejercicio</text>
+<path d="M390 118 q25 -14 48 0 t48 0 t48 0" fill="none" stroke="var(--ej)" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="485" y="138" text-anchor="middle" font-size="11" fill="var(--ej)">PREVISIÓN · puede variar</text>
+<text x="485" y="158" text-anchor="middle" font-size="11" fill="currentColor">carácter estimativo</text>
+<text x="320" y="105" text-anchor="middle" font-size="20" fill="var(--ink2)">≠</text>
+</svg>`},
+{n:163,t:"Ámbito temporal",ubic:"Título VI ▸ Cap. I ▸ Sección 1.ª",
+idea:"El presupuesto dura un año natural y cada ejercicio se queda con lo suyo.",
+literal:`<p>El ejercicio presupuestario coincidirá con el año natural y a él se imputarán:</p>
+<p>a) Los derechos liquidados en el ejercicio, cualquiera que sea el período de que deriven; y</p>
+<p>b) Las obligaciones reconocidas durante el ejercicio.</p>`,
+dis:`<ul>
+<li><b>Regla temporal:</b> ejercicio = año natural (1 de enero a 31 de diciembre). No cabe un ejercicio "de julio a junio".</li>
+<li><b>Criterio de imputación de ingresos:</b> el momento de la <b>liquidación</b> del derecho, <i>con independencia del período del que derive</i>.</li>
+<li><b>Criterio de imputación de gastos:</b> el momento del <b>reconocimiento</b> de la obligación.</li>
+</ul>`,
+llano:`<p>El año presupuestario es como una caja de zapatos con una etiqueta: "2026". Dentro se mete el papel del día en que se liquidó el cobro o se reconoció la deuda, aunque el hecho venga de antes. Si en marzo de 2026 el Ayuntamiento liquida un IBI atrasado de 2023, ese dinero va a la caja de 2026, no a la de 2023.</p>`,
+porque:`<p>Necesitas una regla clara de "a qué año pertenece cada euro", porque si no, dos ejercicios podrían disputarse el mismo apunte o ninguno lo recogería. Al fijar el <b>momento del acto administrativo</b> (liquidar, reconocer) y no el momento del hecho económico, la ley elige un criterio objetivo y verificable documentalmente.</p>`,
+ej:`<ul>
+<li><b>Cotidiano:</b> el extracto bancario. La compra la hiciste el 30 de diciembre, pero si el cargo entra el 2 de enero, aparece en el extracto de enero.</li>
+<li><b>Real:</b> el Ayuntamiento de Dos Hermanas liquida en abril de 2026 una plusvalía correspondiente a una transmisión de 2024 por 2.150 €. Se imputa al presupuesto de ingresos de <b>2026</b>.</li>
+<li><b>Caso límite:</b> una factura de suministro eléctrico de diciembre de 2025 que llega en enero de 2026 y se reconoce en 2026. Se imputa a 2026 — salvo que se acuda a la vía específica de reconocimiento extrajudicial de créditos, figura no regulada en este artículo.</li>
+</ul>`,
+noej:`<ul>
+<li><b>No</b> se imputa por la fecha del hecho imponible ni por la fecha de la factura: el criterio es la liquidación o el reconocimiento.</li>
+<li><b>No</b> cabe un ejercicio presupuestario de duración distinta al año natural, ni aunque la corporación se constituya a mitad de año.</li>
+</ul>`,
+conex:`<ul>
+<li><b>Art. 169.6:</b> si el 1 de enero no hay presupuesto en vigor, se prorroga el anterior — el ejercicio arranca igualmente.</li>
+<li><b>Art. 176:</b> anualidad presupuestaria: solo se aplican al presupuesto las obligaciones reconocidas hasta el fin del ejercicio.</li>
+</ul>`,
+trampas:`<ul>
+<li>La coletilla "<b>cualquiera que sea el período de que deriven</b>" va referida solo a los <b>derechos</b> (letra a), no a las obligaciones.</li>
+<li>"Año natural" ≠ "doce meses desde la aprobación".</li>
+</ul>`,
+ancla:`<p><b>"D de Derecho, D de la fecha en que se Declara"</b>. Y para el conjunto: <b>1-E a 31-D, sin excepción</b>.</p>`,
+vis:`<svg viewBox="0 0 640 150" role="img" aria-label="Línea temporal del ejercicio presupuestario">
+<line x1="40" y1="80" x2="600" y2="80" stroke="var(--line)" stroke-width="3"/>
+<circle cx="60" cy="80" r="7" fill="var(--acc)"/><circle cx="580" cy="80" r="7" fill="var(--acc)"/>
+<text x="60" y="108" text-anchor="middle" font-size="12" fill="currentColor">1 enero</text>
+<text x="580" y="108" text-anchor="middle" font-size="12" fill="currentColor">31 diciembre</text>
+<text x="320" y="46" text-anchor="middle" font-size="14" font-weight="700" fill="var(--acc)">EJERCICIO = AÑO NATURAL</text>
+<rect x="150" y="66" width="150" height="28" rx="6" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="225" y="85" text-anchor="middle" font-size="11" fill="var(--ej)">derechos liquidados</text>
+<rect x="350" y="66" width="170" height="28" rx="6" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="435" y="85" text-anchor="middle" font-size="11" fill="var(--exc)">obligaciones reconocidas</text>
+<text x="320" y="132" text-anchor="middle" font-size="11" fill="var(--ink2)">cuenta la fecha del acto, no la del hecho económico</text>
+</svg>`},
+{n:164,t:"Contenido del presupuesto general",ubic:"Título VI ▸ Cap. I ▸ Sección 1.ª",
+idea:"Un solo presupuesto general que suma tres piezas: entidad, organismos autónomos y sociedades.",
+literal:`<p>1. Las entidades locales elaborarán y aprobarán anualmente un presupuesto general en el que se integrarán:</p>
+<p>a) El presupuesto de la propia entidad.</p>
+<p>b) Los de los organismos autónomos dependientes de esta.</p>
+<p>c) Los estados de previsión de gastos e ingresos de las sociedades mercantiles cuyo capital social pertenezca íntegramente a la entidad local.</p>
+<p>2. Los organismos autónomos de las entidades locales se clasifican, a efectos de su régimen presupuestario y contable, en la forma siguiente:</p>
+<p>a) Organismos autónomos de carácter administrativo.</p>
+<p>b) Organismos autónomos de carácter comercial, industrial, financiero o análogo.</p>
+<p>Las normas de creación de cada organismo autónomo deberán indicar expresamente su carácter.</p>`,
+dis:`<ul>
+<li><b>Obligación:</b> elaborar y aprobar <b>anualmente</b> un presupuesto general. Es un deber, no una facultad.</li>
+<li><b>Tres integrantes:</b> presupuesto de la entidad + presupuestos de los <span class="t" data-k="oa">organismos autónomos</span> + <b>estados de previsión</b> de las sociedades de capital íntegramente local.</li>
+<li><b>Nota de vocabulario:</b> las sociedades no aportan "presupuesto", aportan "estados de previsión de gastos e ingresos". La ley cuida la palabra.</li>
+<li><b>Clasificación de los OOAA:</b> administrativos / comerciales, industriales, financieros o análogos. La norma de creación debe decir cuál es.</li>
+</ul>`,
+llano:`<p>Piensa en una empresa familiar con filiales. Cada filial hace sus cuentas, pero al final del año todo se presenta en un único cuaderno consolidado para que se vea el conjunto. El presupuesto general es ese cuaderno: dentro siguen distinguiéndose las piezas, pero se aprueban de golpe.</p>`,
+porque:`<p>Si cada organismo y cada empresa municipal aprobara sus cuentas por separado, nadie vería el tamaño real del sector público local, y sería fácil esconder gasto o deuda en entes satélite. La integración obliga a que el Pleno vea <b>la foto completa</b> antes de decidir. La clasificación de los OOAA existe porque un patronato de deportes (administrativo) y una gerencia de tipo comercial no pueden llevar el mismo régimen contable.</p>`,
+ej:`<ul>
+<li><b>Cotidiano:</b> la cuenta conjunta de una pareja que además mantiene cuentas individuales: para saber cómo va el año, hay que mirar las tres a la vez.</li>
+<li><b>Real:</b> el presupuesto general de la Diputación de Sevilla para 2026 integra el de la propia Diputación, el del OPAEF (organismo autónomo de gestión tributaria) y los estados de previsión de sus sociedades de capital 100 % provincial.</li>
+<li><b>Caso límite:</b> un consorcio adscrito al Ayuntamiento. No aparece en la lista del art. 164.1; su integración se resuelve por la normativa de estabilidad y de régimen jurídico, no por este artículo.</li>
+</ul>`,
+noej:`<ul>
+<li><b>No se integra</b> una sociedad mercantil con capital mixto (p. ej. 51 % municipal): el art. 164.1.c) exige capital íntegramente local. Sí aportará su programa anual de actuación como anexo (art. 166.1.b).</li>
+<li><b>No se integran</b> las entidades de ámbito territorial inferior al municipio como si fueran organismos autónomos: tienen su propio régimen.</li>
+</ul>`,
+conex:`<ul>
+<li><b>Art. 162:</b> definición — usa exactamente los mismos tres sujetos.</li>
+<li><b>Art. 166.1.c):</b> estado de consolidación, que es el anexo donde se ve la suma depurada.</li>
+<li><b>Art. 168.2 y 168.3:</b> plazo del 15 de septiembre para que OOAA y sociedades remitan sus documentos.</li>
+<li><b>Art. 168.5:</b> el acuerdo de aprobación es único: no se puede aprobar un integrante por separado.</li>
+</ul>`,
+trampas:`<ul>
+<li>Tres letras, tres sujetos: si un test añade "las fundaciones públicas locales" o "los consorcios", es falso respecto de este artículo.</li>
+<li>"Íntegramente" es la palabra clave de la letra c).</li>
+<li>Los OOAA son <b>dos</b> categorías, no tres. "Comercial, industrial, financiero o análogo" es <b>una sola</b> categoría con cuatro adjetivos.</li>
+</ul>`,
+ancla:`<p><b>E-O-S</b>: <b>E</b>ntidad, <b>O</b>rganismos autónomos, <b>S</b>ociedades. Imagina que el presupuesto general va montado en una moto de tres ruedas: si le quitas una, se cae.<br>Para los OOAA: <b>"A" y "CIFA"</b> → <b>A</b>dministrativos / <b>C</b>omercial, <b>I</b>ndustrial, <b>F</b>inanciero o <b>A</b>nálogo.</p>`,
+vis:`<svg viewBox="0 0 640 230" role="img" aria-label="Composición del presupuesto general">
+<rect x="200" y="12" width="240" height="46" rx="10" fill="var(--acc-soft)" stroke="var(--acc)" stroke-width="2"/>
+<text x="320" y="33" text-anchor="middle" font-size="14" font-weight="700" fill="var(--acc)">PRESUPUESTO GENERAL</text>
+<text x="320" y="50" text-anchor="middle" font-size="11" fill="var(--ink2)">aprobación única y anual (art. 168.5)</text>
+<line x1="320" y1="58" x2="320" y2="80" stroke="var(--acc)" stroke-width="2"/>
+<line x1="110" y1="80" x2="530" y2="80" stroke="var(--acc)" stroke-width="2"/>
+<line x1="110" y1="80" x2="110" y2="105" stroke="var(--acc)" stroke-width="2"/>
+<line x1="320" y1="80" x2="320" y2="105" stroke="var(--acc)" stroke-width="2"/>
+<line x1="530" y1="80" x2="530" y2="105" stroke="var(--acc)" stroke-width="2"/>
+<rect x="25" y="105" width="170" height="76" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="110" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">a) La propia entidad</text>
+<text x="110" y="149" text-anchor="middle" font-size="11" fill="var(--ink2)">Ayuntamiento,</text>
+<text x="110" y="165" text-anchor="middle" font-size="11" fill="var(--ink2)">Diputación…</text>
+<rect x="235" y="105" width="170" height="76" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="320" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">b) Organismos autónomos</text>
+<text x="320" y="149" text-anchor="middle" font-size="11" fill="var(--ink2)">administrativos /</text>
+<text x="320" y="165" text-anchor="middle" font-size="11" fill="var(--ink2)">comercial-industrial-financiero</text>
+<rect x="445" y="105" width="170" height="76" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="530" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">c) Sociedades 100 %</text>
+<text x="530" y="149" text-anchor="middle" font-size="11" fill="var(--ink2)">no "presupuesto":</text>
+<text x="530" y="165" text-anchor="middle" font-size="11" fill="var(--ink2)">estados de previsión</text>
+<text x="320" y="209" text-anchor="middle" font-size="11" fill="var(--ink2)">Capital mixto → fuera del art. 164; entra como anexo por el art. 166.1.b)</text>
+</svg>`},
+{n:165,t:"Contenido de los presupuestos integrantes",ubic:"Título VI ▸ Cap. I ▸ Sección 1.ª",
+idea:"Cada presupuesto lleva gastos, ingresos y bases de ejecución, y se aprueba sin déficit.",
+literal:`<p>1. El presupuesto general atenderá al cumplimiento del principio de estabilidad en los términos previstos en la Ley 18/2001, General de Estabilidad Presupuestaria, y contendrá para cada uno de los presupuestos que en él se integren:</p>
+<p>a) Los estados de gastos, en los que se incluirán, con la debida especificación, los créditos necesarios para atender al cumplimiento de las obligaciones.</p>
+<p>b) Los estados de ingresos, en los que figurarán las estimaciones de los distintos recursos económicos a liquidar durante el ejercicio.</p>
+<p>Asimismo, incluirá las bases de ejecución, que contendrán la adaptación de las disposiciones generales en materia presupuestaria a la organización y circunstancias de la propia entidad, así como aquellas otras necesarias para su acertada gestión, estableciendo cuantas prevenciones se consideren oportunas o convenientes para la mejor realización de los gastos y recaudación de los recursos, sin que puedan modificar lo legislado para la administración económica ni comprender preceptos de orden administrativo que requieran legalmente procedimiento y solemnidades específicas distintas de lo previsto para el presupuesto.</p>
+<p>2. Los recursos de la entidad local y de cada uno de sus organismos autónomos y sociedades mercantiles se destinarán a satisfacer el conjunto de sus respectivas obligaciones, salvo en el caso de ingresos específicos afectados a fines determinados.</p>
+<p>3. Los derechos liquidados y las obligaciones reconocidas se aplicarán a los presupuestos por su importe íntegro, quedando prohibido atender obligaciones mediante minoración de los derechos a liquidar o ya ingresados, salvo que la ley lo autorice de modo expreso.</p>
+<p>Se exceptúan de lo anterior las devoluciones de ingresos que se declaren indebidos por tribunal o autoridad competentes.</p>
+<p>4. Cada uno de los presupuestos que se integran en el presupuesto general deberá aprobarse sin déficit inicial.</p>`,
+dis:`<table><thead><tr><th>Apartado</th><th>Principio</th><th>Qué significa</th><th>Excepción</th></tr></thead><tbody>
+<tr><td>165.1</td><td><span class="t" data-k="estabilidad">Estabilidad</span></td><td>El presupuesto general debe respetarla</td><td>—</td></tr>
+<tr><td>165.1</td><td>Contenido</td><td>Estados de gastos + estados de ingresos + <span class="t" data-k="bases">bases de ejecución</span></td><td>—</td></tr>
+<tr><td>165.2</td><td><span class="t" data-k="afectacion">No afectación</span></td><td>Todos los recursos financian todas las obligaciones</td><td>Ingresos específicos afectados a fines determinados</td></tr>
+<tr><td>165.3</td><td><span class="t" data-k="bruto">Presupuesto bruto</span></td><td>Por importe íntegro; prohibido compensar</td><td>Ley que lo autorice expresamente; devoluciones de ingresos indebidos declaradas por tribunal o autoridad competente</td></tr>
+<tr><td>165.4</td><td><span class="t" data-k="nivelacion">Sin déficit inicial</span></td><td>Cada presupuesto integrante, no solo el general</td><td>—</td></tr>
+</tbody></table>
+<p class="small"><b>Límites de las bases de ejecución:</b> no pueden modificar lo legislado en materia de administración económica ni incluir preceptos administrativos que exijan procedimiento y solemnidades distintas de las del presupuesto.</p>`,
+llano:`<p>Cada presupuesto lleva tres cosas: la lista de lo que se puede gastar, la lista de lo que se espera ingresar y el manual de instrucciones de la casa (las bases de ejecución). Y tres reglas de juego limpio: el dinero es de todos para todo (salvo el que viene con destino marcado), las cifras se anotan enteras sin restar por debajo, y no se puede empezar el año con un agujero.</p>`,
+porque:`<p>El principio de <b>no afectación</b> evita que el presupuesto se convierta en un mosaico de bolsillos intocables que impide priorizar. El <b>presupuesto bruto</b> impide maquillar: si un servicio ingresa 100 y gasta 90, deben verse las dos cifras, no un "10" neto que oculta el volumen real. Y el <b>déficit inicial cero</b> evita aprobar de entrada un plan imposible que traslade el problema al año siguiente.</p>`,
+ej:`<ul>
+<li><b>Cotidiano (no afectación):</b> tu nómina no viene con etiquetas; pagas hipoteca, comida y gasolina desde el mismo bolsillo. Pero si tu abuela te da 300 € "para el máster", ese dinero sí está afectado.</li>
+<li><b>Real (afectación):</b> una subvención de la Junta de Andalucía de 180.000 € para rehabilitar el mercado de abastos solo puede financiar esa obra: es ingreso afectado, excepción del art. 165.2.</li>
+<li><b>Real (bruto):</b> la escuela infantil municipal ingresa 210.000 € en cuotas y gasta 260.000 €. Deben figurar ambas cifras; está prohibido presupuestar solo el saldo neto de 50.000 €.</li>
+<li><b>Caso límite:</b> devolución de un ingreso indebido declarada por sentencia. Aquí sí se minora el derecho: es la excepción expresa del art. 165.3, párrafo segundo.</li>
+</ul>`,
+noej:`<ul>
+<li><b>No es excepción a la no afectación</b> que el equipo de gobierno "quiera" destinar lo recaudado por la tasa de basura solo a limpieza: la afectación tiene que venir impuesta por la norma que crea el recurso.</li>
+<li><b>No cabe</b> que las bases de ejecución alteren el régimen de las modificaciones de crédito: eso es "lo legislado en materia de administración económica".</li>
+<li><b>Déficit inicial</b> no es lo mismo que <b>remanente de tesorería negativo</b>: el primero se refiere al momento de aprobar, el segundo al cierre del ejercicio.</li>
+</ul>`,
+conex:`<ul>
+<li><b>Art. 172:</b> los créditos son limitativos; las bases de ejecución fijan el <span class="t" data-k="vinculacion">nivel de vinculación</span>.</li>
+<li><b>Art. 167.4:</b> el control fiscal opera sobre el nivel de vinculación determinado según el art. 172.</li>
+<li><b>Art. 168.1.g):</b> el informe económico-financiero debe acreditar precisamente la "efectiva nivelación del presupuesto".</li>
+<li><b>Art. 170.2.c):</b> la manifiesta insuficiencia de ingresos es causa de reclamación — es el control de la nivelación por los interesados.</li>
+</ul>`,
+trampas:`<ul>
+<li>La remisión a la <b>Ley 18/2001</b> está desfasada: hoy rige la Ley Orgánica 2/2012, de Estabilidad Presupuestaria y Sostenibilidad Financiera. El texto consolidado conserva la cita antigua.</li>
+<li>"Sin déficit inicial" se predica de <b>cada uno</b> de los presupuestos integrantes, no solo del general.</li>
+<li>Las <b>bases de ejecución</b> son contenido obligatorio, pero no son un anexo (los anexos están en el art. 166). Se aprueban con el presupuesto.</li>
+<li>La excepción del art. 165.3 exige que la devolución la declare "tribunal o autoridad competentes": no vale la simple decisión de un gestor.</li>
+</ul>`,
+ancla:`<p><b>G-I-B</b>: <b>G</b>astos, <b>I</b>ngresos, <b>B</b>ases de ejecución. Y los tres principios, en orden de apartado: <b>2-3-4 = No afectación, Bruto, Sin déficit</b> → <i>"No Bebas Sin agua"</i>.</p>`,
+vis:`<svg viewBox="0 0 640 210" role="img" aria-label="Contenido y principios del artículo 165">
+<rect x="20" y="20" width="180" height="60" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="110" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="var(--exc)">Estados de gastos</text>
+<text x="110" y="64" text-anchor="middle" font-size="11" fill="currentColor">créditos con especificación</text>
+<rect x="230" y="20" width="180" height="60" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="320" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ej)">Estados de ingresos</text>
+<text x="320" y="64" text-anchor="middle" font-size="11" fill="currentColor">estimaciones de recursos</text>
+<rect x="440" y="20" width="180" height="60" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="530" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="var(--acc)">Bases de ejecución</text>
+<text x="530" y="64" text-anchor="middle" font-size="11" fill="currentColor">manual de la casa</text>
+<rect x="20" y="105" width="600" height="86" rx="10" fill="none" stroke="var(--line)" stroke-dasharray="5 4"/>
+<text x="320" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink2)">TRES PRINCIPIOS QUE LO ATRAVIESAN</text>
+<text x="130" y="152" text-anchor="middle" font-size="12" fill="currentColor">165.2 No afectación</text>
+<text x="130" y="171" text-anchor="middle" font-size="10" fill="var(--exc)">salvo ingresos afectados</text>
+<text x="320" y="152" text-anchor="middle" font-size="12" fill="currentColor">165.3 Importe íntegro</text>
+<text x="320" y="171" text-anchor="middle" font-size="10" fill="var(--exc)">salvo ley expresa / ingresos indebidos</text>
+<text x="510" y="152" text-anchor="middle" font-size="12" fill="currentColor">165.4 Sin déficit inicial</text>
+<text x="510" y="171" text-anchor="middle" font-size="10" fill="var(--ink2)">en cada presupuesto integrante</text>
+</svg>`}
+];
+</script>
+<script>
+ARTS.push(
+{n:166,t:"Anexos al presupuesto general",ubic:"Título VI ▸ Cap. I ▸ Sección 1.ª",
+idea:"Cuatro documentos se unen al presupuesto para enseñar el medio plazo y la deuda.",
+literal:`<p>1. Al presupuesto general se unirán como anexos:</p>
+<p>a) Los planes y programas de inversión y financiación que, para un plazo de cuatro años, podrán formular los municipios y demás entidades locales de ámbito supramunicipal.</p>
+<p>b) Los programas anuales de actuación, inversiones y financiación de las sociedades mercantiles de cuyo capital social sea titular único o partícipe mayoritario la entidad local.</p>
+<p>c) El estado de consolidación del presupuesto de la propia entidad con el de todos los presupuestos y estados de previsión de sus organismos autónomos y sociedades mercantiles.</p>
+<p>d) El estado de previsión de movimientos y situación de la deuda comprensiva del detalle de operaciones de crédito o de endeudamiento pendientes de reembolso al principio del ejercicio, de las nuevas operaciones previstas a realizar a lo largo del ejercicio y del volumen de endeudamiento al cierre del ejercicio económico, con distinción de operaciones a corto plazo, operaciones a largo plazo, de recurrencia al mercado de capitales y realizadas en divisas o similares, así como de las amortizaciones que se prevén realizar durante el mismo ejercicio.</p>
+<p>2. El plan de inversiones que deberá coordinarse, en su caso, con el programa de actuación y planes de etapas de planeamiento urbanístico, se completará con el programa financiero, que contendrá:</p>
+<p>a) La inversión prevista a realizar en cada uno de los cuatro ejercicios.</p>
+<p>b) Los ingresos por subvenciones, contribuciones especiales, cargas de urbanización, recursos patrimoniales y otros ingresos de capital que se prevean obtener en dichos ejercicios, así como una proyección del resto de los ingresos previstos en el citado período.</p>
+<p>c) Las operaciones de crédito que resulten necesarias para completar la financiación, con indicación de los costes que vayan a generar.</p>
+<p>3. De los planes y programas de inversión y financiación se dará cuenta, en su caso, al Pleno de la Corporación coincidiendo con la aprobación del presupuesto, debiendo ser objeto de revisión anual, añadiendo un nuevo ejercicio a sus previsiones.</p>`,
+dis:`<ul>
+<li><b>Cuatro anexos (166.1):</b> a) planes y programas de inversión y financiación a <b>cuatro años</b>; b) programas anuales de actuación de sociedades de capital <b>íntegro o mayoritario</b>; c) estado de <b>consolidación</b>; d) estado de previsión de movimientos y situación de la <b>deuda</b>.</li>
+<li><b>Naturaleza del anexo a):</b> potestativo — la ley dice "<b>podrán</b> formular".</li>
+<li><b>Contenido del programa financiero (166.2):</b> inversión de cada uno de los cuatro ejercicios + ingresos de capital previstos + operaciones de crédito necesarias con sus costes.</li>
+<li><b>Tramitación (166.3):</b> se <b>da cuenta</b> al <span class="t" data-k="pleno">Pleno</span> coincidiendo con la aprobación del presupuesto; revisión <b>anual</b> añadiendo un ejercicio nuevo.</li>
+</ul>`,
+llano:`<p>El presupuesto solo mira a un año, y hay decisiones que no caben en doce meses: un pabellón deportivo, un préstamo a quince años. Los anexos son las fotos que faltan: la película de las inversiones a cuatro años, lo que hacen las empresas municipales, la suma de todo el grupo sin duplicidades y el estado real de la deuda.</p>`,
+porque:`<p>Un presupuesto anual aislado engaña: puedes aprobar el primer año de una obra sin enseñar que arrastra tres años más de pagos, o endeudarte sin que se vea el volumen acumulado. Los anexos son el <b>antídoto contra el cortoplacismo</b>. El de consolidación evita contar dos veces las transferencias internas del grupo (lo que el Ayuntamiento da al patronato aparece como gasto y como ingreso).</p>`,
+ej:`<ul>
+<li><b>Cotidiano:</b> comprar un coche a plazos. La cuenta de este mes solo enseña la primera cuota; para saber si puedes, necesitas la tabla de los cuatro años y el saldo de tus préstamos.</li>
+<li><b>Real:</b> el Ayuntamiento de Alcalá de Guadaíra aprueba su presupuesto 2026 y adjunta un plan de inversiones 2026-2029 de 22 M€, con 6,4 M€ de subvenciones de la Diputación, 3 M€ de contribuciones especiales y un préstamo de 5 M€ a un coste estimado de 380.000 € en intereses.</li>
+<li><b>Caso límite:</b> una sociedad municipal con el 55 % del capital. No se integra en el presupuesto general (art. 164 exige el 100 %), pero <b>sí</b> aporta su programa anual de actuación como anexo (art. 166.1.b: "partícipe mayoritario").</li>
+</ul>`,
+noej:`<ul>
+<li><b>No es anexo</b> la memoria explicativa ni el informe económico-financiero: esos son <b>documentación</b> que acompaña al presupuesto en el art. 168.1. Es la confusión más frecuente entre ambos artículos.</li>
+<li><b>No es anexo</b> la plantilla de personal en cuanto tal; el art. 168.1.c) habla del "anexo de personal" como documentación del art. 168, no del 166.</li>
+<li><b>No se aprueban</b> los planes de inversión: se "da cuenta" de ellos al Pleno.</li>
+</ul>`,
+conex:`<ul>
+<li><b>Art. 164:</b> integrantes (100 % capital) frente a anexo del 166.1.b) (mayoritario). Fronteras distintas.</li>
+<li><b>Art. 168.4:</b> el presidente remite al Pleno el presupuesto "con los anexos y documentación complementaria detallados en el apartado 1 del artículo 166 y en el presente artículo".</li>
+<li><b>Arts. 48 y ss.:</b> régimen de las operaciones de crédito que se reflejan en el anexo de deuda.</li>
+</ul>`,
+trampas:`<ul>
+<li><b>Anexos (art. 166) ≠ documentación (art. 168.1).</b> Si te preguntan "¿qué se une como anexo?", la memoria explicativa NO vale.</li>
+<li>El plan de inversiones es a <b>cuatro años</b>, y se <b>revisa anualmente</b> añadiendo un ejercicio: no es un plan cerrado.</li>
+<li>Letra b): "titular único <b>o</b> partícipe mayoritario" — más amplio que el art. 164.</li>
+<li>La letra a) usa "<b>podrán</b>": el plan de inversiones es potestativo, aunque el anexo esté listado.</li>
+</ul>`,
+ancla:`<p><b>PICO-D</b> para los cuatro anexos: <b>P</b>lanes de inversión (4 años) · <b>I</b>ndustria municipal (programas de las sociedades) · <b>CO</b>nsolidación · <b>D</b>euda.<br>Imagen absurda que ayuda: un obrero con un <b>pico</b> cavando durante <b>cuatro</b> años para desenterrar la <b>deuda</b>.</p>`,
+vis:`<svg viewBox="0 0 640 220" role="img" aria-label="Los cuatro anexos del presupuesto general">
+<rect x="230" y="14" width="180" height="40" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="39" text-anchor="middle" font-size="13" font-weight="700" fill="var(--acc)">PRESUPUESTO GENERAL</text>
+<line x1="320" y1="54" x2="320" y2="70" stroke="var(--acc)" stroke-width="2"/>
+<line x1="90" y1="70" x2="550" y2="70" stroke="var(--acc)" stroke-width="2"/>
+<g font-size="11" fill="currentColor">
+<line x1="90" y1="70" x2="90" y2="92" stroke="var(--acc)" stroke-width="2"/>
+<rect x="20" y="92" width="140" height="92" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="90" y="112" text-anchor="middle" font-weight="700">a) Planes de</text>
+<text x="90" y="127" text-anchor="middle" font-weight="700">inversión</text>
+<text x="90" y="148" text-anchor="middle" fill="var(--acc)">4 años</text>
+<text x="90" y="166" text-anchor="middle" fill="var(--ink2)">potestativo</text>
+<line x1="243" y1="70" x2="243" y2="92" stroke="var(--acc)" stroke-width="2"/>
+<rect x="173" y="92" width="140" height="92" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="243" y="112" text-anchor="middle" font-weight="700">b) Programas de</text>
+<text x="243" y="127" text-anchor="middle" font-weight="700">sociedades</text>
+<text x="243" y="148" text-anchor="middle" fill="var(--acc)">único o mayoritario</text>
+<text x="243" y="166" text-anchor="middle" fill="var(--ink2)">anuales</text>
+<line x1="396" y1="70" x2="396" y2="92" stroke="var(--acc)" stroke-width="2"/>
+<rect x="326" y="92" width="140" height="92" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="396" y="112" text-anchor="middle" font-weight="700">c) Estado de</text>
+<text x="396" y="127" text-anchor="middle" font-weight="700">consolidación</text>
+<text x="396" y="148" text-anchor="middle" fill="var(--acc)">todo el grupo</text>
+<text x="396" y="166" text-anchor="middle" fill="var(--ink2)">sin duplicidades</text>
+<line x1="549" y1="70" x2="549" y2="92" stroke="var(--acc)" stroke-width="2"/>
+<rect x="479" y="92" width="140" height="92" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="549" y="112" text-anchor="middle" font-weight="700">d) Estado de</text>
+<text x="549" y="127" text-anchor="middle" font-weight="700">la deuda</text>
+<text x="549" y="148" text-anchor="middle" fill="var(--acc)">corto / largo plazo</text>
+<text x="549" y="166" text-anchor="middle" fill="var(--ink2)">y amortizaciones</text>
+</g>
+<text x="320" y="207" text-anchor="middle" font-size="11" fill="var(--ink2)">Regla de oro: ANEXOS = art. 166 · DOCUMENTACIÓN = art. 168.1</text>
+</svg>`},
+{n:167,t:"Estructura de los estados de ingresos y gastos",ubic:"Título VI ▸ Cap. I ▸ Sección 1.ª",
+idea:"El Ministerio fija el formato: cada euro de gasto se clasifica por finalidad y por naturaleza.",
+literal:`<p>1. El Ministerio de Hacienda y Administraciones Públicas establecerá con carácter general la estructura de los presupuestos de las entidades locales teniendo en cuenta la naturaleza económica de los ingresos y de los gastos, las finalidades u objetivos que con estos últimos se propongan conseguir y de acuerdo con los criterios que se establecen en los siguientes apartados de este artículo.</p>
+<p>2. Las entidades locales podrán clasificar los gastos e ingresos atendiendo a su propia estructura de acuerdo con sus reglamentos o decretos de organización.</p>
+<p>3. Los estados de gastos de los presupuestos generales de las entidades locales aplicarán las clasificaciones por programas y económica de acuerdo con los siguientes criterios:</p>
+<p>a) La clasificación por programas que constará de los siguientes niveles: el primero relativo al área de gasto, el segundo a la política de gasto, el tercero a los grupos de programas, que se subdividirán en programas. Esta clasificación podrá ampliarse en más niveles, relativos a subprogramas respectivamente.</p>
+<p>En todo caso, y con las peculiaridades que puedan concurrir en el ámbito de las entidades locales, los niveles de área de gasto y de política de gasto se ajustarán a los establecidos para la Administración del Estado.</p>
+<p>b) La clasificación económica presentará con separación los gastos corrientes y los gastos de capital, de acuerdo con los siguientes criterios:</p>
+<p>En los créditos para gastos corrientes se incluirán los de funcionamiento de los servicios, los de intereses y las transferencias corrientes.</p>
+<p>En los créditos para gastos de capital, los de inversiones reales, las transferencias de capital y las variaciones de activos y pasivos financieros.</p>
+<p>c) la clasificación económica constará de tres niveles, el primero relativo al capítulo, el segundo al artículo y el tercero al concepto. Esta clasificación podrá ampliarse en uno o dos niveles, relativos al subconcepto y la partida respectivamente.</p>
+<p>En todo caso, los niveles de capítulo y artículo habrán de ser los mismos que los establecidos para la Administración del Estado.</p>
+<p>4. La aplicación presupuestaria cuya expresión cifrada constituye el crédito presupuestario vendrá definida, al menos, por la conjunción de las clasificaciones por programas y económica, a nivel de grupo de programa o programa y concepto o subconcepto respectivamente.</p>
+<p>En el caso de que la entidad local opte por utilizar la clasificación orgánica, ésta integrará asimismo la aplicación presupuestaria.</p>
+<p>El control contable de los gastos se realizará sobre la aplicación presupuestaria antes definida y el fiscal sobre el nivel de vinculación determinado conforme dispone el artículo 172 de esta Ley.</p>
+<p>5. El Ministerio de Hacienda y Administraciones Públicas establecerá la estructura de la información de los presupuestos, de su ejecución y liquidación, a la que deberán ajustarse todas las entidades locales a efectos del cumplimiento de sus obligaciones de remisión de dicha información.</p>`,
+dis:`<ul>
+<li><b>Quién manda:</b> el Ministerio de Hacienda fija la estructura con carácter general (hoy, la Orden EHA/3565/2008, que también está en esta biblioteca).</li>
+<li><b>Dos clasificaciones obligatorias del gasto:</b> por <b>programas</b> (¿para qué se gasta?) y <b>económica</b> (¿en qué se gasta?).</li>
+<li><b>Una tercera, potestativa:</b> la <b>orgánica</b> (¿quién gasta?), según el art. 167.2 y 167.4.</li>
+</ul>
+<table><thead><tr><th>Clasificación</th><th>Niveles</th><th>Ampliable</th><th>Debe coincidir con el Estado</th></tr></thead><tbody>
+<tr><td>Por programas</td><td>Área de gasto ▸ Política de gasto ▸ Grupo de programas ▸ Programa</td><td>Sí: subprogramas</td><td>Área y política de gasto</td></tr>
+<tr><td>Económica</td><td>Capítulo ▸ Artículo ▸ Concepto</td><td>Sí: subconcepto y partida (uno o dos niveles)</td><td>Capítulo y artículo</td></tr>
+<tr><td>Orgánica</td><td>Según reglamento propio</td><td>—</td><td>No: es potestativa</td></tr>
+</tbody></table>
+<ul>
+<li><b><span class="t" data-k="aplicacion">Aplicación presupuestaria</span> (167.4):</b> como mínimo, grupo de programa o programa <b>+</b> concepto o subconcepto. Si se usa la orgánica, también la integra.</li>
+<li><b>Dos controles distintos:</b> el <b>contable</b> se hace sobre la aplicación presupuestaria; el <b>fiscal</b>, sobre el <span class="t" data-k="vinculacion">nivel de vinculación</span> del art. 172.</li>
+<li><b>Gasto corriente:</b> funcionamiento de los servicios, intereses y transferencias corrientes. <b>Gasto de capital:</b> inversiones reales, transferencias de capital y variaciones de activos y pasivos financieros.</li>
+</ul>`,
+llano:`<p>Todo euro de gasto lleva dos etiquetas. Una dice <b>para qué</b> (deporte, alumbrado, seguridad): es la clasificación por programas. Otra dice <b>en qué</b> (sueldos, luz, asfalto, intereses): es la económica. Al juntar las dos etiquetas obtienes la casilla exacta donde vive el dinero, que es la aplicación presupuestaria. Y si el Ayuntamiento quiere, puede añadir una tercera etiqueta: <b>quién</b> lo gasta (concejalía).</p>`,
+porque:`<p>Sin una estructura común, cada ayuntamiento clasificaría a su gusto y sería imposible comparar, consolidar ni fiscalizar nada. La doble clasificación responde a dos preguntas que ningún control puede eludir: la <b>económica</b> permite saber si el dinero se va en personal o en obras; la de <b>programas</b> permite saber si la ciudad está priorizando servicios sociales o fiestas. El Estado impone solo los niveles superiores para permitir la comparación agregada, dejando libertad en los inferiores.</p>`,
+ej:`<ul>
+<li><b>Cotidiano:</b> la lista de la compra de un supermercado. Un producto está a la vez en el pasillo "congelados" (dónde) y en la categoría "alimentación infantil" (para qué). Cruzando ambas etiquetas sabes exactamente qué has comprado.</li>
+<li><b>Real:</b> aplicación <b>323/22103</b> del presupuesto de un ayuntamiento: <i>323</i> es el grupo de programa "funcionamiento de centros docentes de enseñanza infantil y primaria" y <i>22103</i> el subconcepto "combustibles y carburantes". El crédito de esa casilla: 42.000 €.</li>
+<li><b>Caso límite:</b> si la entidad usa clasificación orgánica, la aplicación pasaría a ser <b>10/323/22103</b>, donde <i>10</i> identifica la Delegación de Educación. La ley lo permite pero no lo impone.</li>
+</ul>`,
+noej:`<ul>
+<li><b>No es libre</b> el nivel de capítulo y artículo: deben ser los mismos que los del Estado. La libertad empieza en el concepto.</li>
+<li><b>No</b> se clasifican los ingresos por programas: la clasificación por programas es exclusiva de los <b>estados de gastos</b> (art. 167.3).</li>
+<li><b>No</b> coincide aplicación presupuestaria con nivel de vinculación: son cosas distintas y con controles distintos.</li>
+</ul>`,
+conex:`<ul>
+<li><b>Orden EHA/3565/2008</b> (documento 6 de la biblioteca): desarrolla esta estructura con los códigos concretos.</li>
+<li><b>Art. 172:</b> define el carácter limitativo y vinculante de los créditos, base del control fiscal.</li>
+<li><b>Art. 165.1.a):</b> los créditos deben incluirse "con la debida especificación" — esa especificación es esta estructura.</li>
+</ul>`,
+trampas:`<ul>
+<li>Orden de los niveles económicos: <b>capítulo ▸ artículo ▸ concepto</b> (▸ subconcepto ▸ partida). Un test que ponga "concepto ▸ artículo ▸ capítulo" es falso.</li>
+<li>Cuidado con la palabra "artículo": aquí no es un artículo de la ley, es un nivel de la clasificación económica.</li>
+<li>La clasificación <b>orgánica es potestativa</b>; las otras dos, obligatorias.</li>
+<li>Control <b>contable</b> → aplicación presupuestaria. Control <b>fiscal</b> → nivel de vinculación. Se intercambian mucho en los tests.</li>
+</ul>`,
+ancla:`<p>Económica: <b>CApitulo · ARtículo · COncepto · SUbconcepto · PArtida</b> → <b>"CA-AR-CO-SU-PA"</b>, suena a trabalenguas y por eso se queda.<br>Programas: <b>Á</b>rea ▸ <b>P</b>olítica ▸ <b>G</b>rupo ▸ <b>P</b>rograma → <i>"Ápaga la luz, Grupo Pequeño"</i>.<br>Y el cruce: <b>programa + concepto = aplicación</b>.</p>`,
+vis:`<svg viewBox="0 0 640 260" role="img" aria-label="Las dos clasificaciones del gasto y la aplicación presupuestaria">
+<text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">POR PROGRAMAS · ¿para qué?</text>
+<rect x="45" y="30" width="210" height="26" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="150" y="48" text-anchor="middle" font-size="11" fill="currentColor">1. Área de gasto</text>
+<rect x="55" y="60" width="190" height="26" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="150" y="78" text-anchor="middle" font-size="11" fill="currentColor">2. Política de gasto</text>
+<rect x="65" y="90" width="170" height="26" rx="6" fill="var(--panel)" stroke="var(--acc)"/><text x="150" y="108" text-anchor="middle" font-size="11" fill="currentColor">3. Grupo de programas</text>
+<rect x="75" y="120" width="150" height="26" rx="6" fill="var(--panel)" stroke="var(--acc)"/><text x="150" y="138" text-anchor="middle" font-size="11" fill="currentColor">4. Programa</text>
+<rect x="85" y="150" width="130" height="24" rx="6" fill="none" stroke="var(--line)" stroke-dasharray="4 3"/><text x="150" y="167" text-anchor="middle" font-size="10" fill="var(--ink2)">(subprogramas)</text>
+<text x="470" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">ECONÓMICA · ¿en qué?</text>
+<rect x="365" y="30" width="210" height="26" rx="6" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="470" y="48" text-anchor="middle" font-size="11" fill="currentColor">1. Capítulo</text>
+<rect x="375" y="60" width="190" height="26" rx="6" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="470" y="78" text-anchor="middle" font-size="11" fill="currentColor">2. Artículo</text>
+<rect x="385" y="90" width="170" height="26" rx="6" fill="var(--panel)" stroke="var(--ej)"/><text x="470" y="108" text-anchor="middle" font-size="11" fill="currentColor">3. Concepto</text>
+<rect x="395" y="120" width="150" height="24" rx="6" fill="none" stroke="var(--line)" stroke-dasharray="4 3"/><text x="470" y="137" text-anchor="middle" font-size="10" fill="var(--ink2)">(subconcepto)</text>
+<rect x="405" y="148" width="130" height="24" rx="6" fill="none" stroke="var(--line)" stroke-dasharray="4 3"/><text x="470" y="165" text-anchor="middle" font-size="10" fill="var(--ink2)">(partida)</text>
+<text x="150" y="192" text-anchor="middle" font-size="10" fill="var(--exc)">Estado impone niveles 1 y 2</text>
+<text x="470" y="192" text-anchor="middle" font-size="10" fill="var(--exc)">Estado impone niveles 1 y 2</text>
+<path d="M150 200 L 300 218" stroke="var(--acc)" stroke-width="2" fill="none"/>
+<path d="M470 200 L 340 218" stroke="var(--ej)" stroke-width="2" fill="none"/>
+<rect x="180" y="218" width="280" height="34" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="320" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)">APLICACIÓN PRESUPUESTARIA = el crédito</text>
+</svg>`},
+{n:168,t:"Procedimiento de elaboración y aprobación inicial",ubic:"Título VI ▸ Cap. I ▸ Sección 1.ª",
+idea:"El presidente lo forma con siete documentos, recoge a sus entes y lo lleva al Pleno.",
+literal:`<p>1. El presupuesto de la Entidad Local será formado por su Presidente y a él habrá de unirse la siguiente documentación:</p>
+<p>a) Memoria explicativa de su contenido y de las principales modificaciones que presente en relación con el vigente.</p>
+<p>b) Liquidación del presupuesto del ejercicio anterior y avance de la del corriente, referida, al menos, a seis meses del ejercicio corriente.</p>
+<p>c) Anexo de personal de la Entidad Local.</p>
+<p>d) Anexo de las inversiones a realizar en el ejercicio.</p>
+<p>e) Anexo de beneficios fiscales en tributos locales conteniendo información detallada de los beneficios fiscales y su incidencia en los ingresos de cada Entidad Local.</p>
+<p>f) Anexo con información relativa a los convenios suscritos con las Comunidades Autónomas en materia de gasto social, con especificación de la cuantía de las obligaciones de pago y de los derechos económicos que se deben reconocer en el ejercicio al que se refiere el presupuesto general y de las obligaciones pendientes de pago y derechos económicos pendientes de cobro, reconocidos en ejercicios anteriores, así como de la aplicación o partida presupuestaria en la que se recogen, y la referencia a que dichos convenios incluyen la cláusula de retención de recursos del sistema de financiación a la que se refiere el artículo 57 bis de la Ley 7/1985, de 2 de abril, reguladora de las Bases del Régimen Local.</p>
+<p>g) Un informe económico-financiero, en el que se expongan las bases utilizadas para la evaluación de los ingresos y de las operaciones de crédito previstas, la suficiencia de los créditos para atender el cumplimiento de las obligaciones exigibles y los gastos de funcionamiento de los servicios y, en consecuencia, la efectiva nivelación del presupuesto.</p>
+<p>2. El presupuesto de cada uno de los organismos autónomos integrantes del general, propuesto inicialmente por el órgano competente de aquéllos, será remitido a la Entidad Local de la que dependan antes del 15 de septiembre de cada año, acompañado de la documentación detallada en el apartado anterior.</p>
+<p>3. Las sociedades mercantiles, incluso de aquellas en cuyo capital sea mayoritaria la participación de la Entidad Local, remitirán a ésta, antes del día 15 de septiembre de cada año, sus previsiones de gastos e ingresos, así como los programas anuales de actuación, inversiones y financiación para el ejercicio siguiente.</p>
+<p>4. Sobre la base de los presupuestos y estados de previsión a que se refieren los apartados anteriores, el presidente de la entidad formará el presupuesto general y lo remitirá, informado por la Intervención y con los anexos y documentación complementaria detallados en el apartado 1 del artículo 166 y en el presente artículo, al Pleno de la corporación antes del día 15 de octubre para su aprobación, enmienda o devolución.</p>
+<p>5. El acuerdo de aprobación, que será único, habrá de detallar los presupuestos que integran el presupuesto general, no pudiendo aprobarse ninguno de ellos separadamente.</p>`,
+dis:`<ul>
+<li><b>Sujeto que forma:</b> el <b>Presidente</b> (alcalde o presidente de la diputación). No la Intervención, no el Pleno.</li>
+<li><b>Sujeto que informa:</b> la <span class="t" data-k="intervencion">Intervención</span> (informe preceptivo antes de ir al Pleno).</li>
+<li><b>Sujeto que decide:</b> el <span class="t" data-k="pleno">Pleno</span>, que puede <b>aprobar, enmendar o devolver</b>.</li>
+</ul>
+<table><thead><tr><th>Hito</th><th>Quién</th><th>Fecha límite</th></tr></thead><tbody>
+<tr><td>Remisión del presupuesto de los organismos autónomos</td><td>Órgano competente del OA</td><td>Antes del <b>15 de septiembre</b></td></tr>
+<tr><td>Remisión de previsiones y programas de las sociedades</td><td>Sociedades mercantiles (incluso de capital mayoritario)</td><td>Antes del <b>15 de septiembre</b></td></tr>
+<tr><td>Remisión del presupuesto general al Pleno</td><td>Presidente, informado por Intervención</td><td>Antes del <b>15 de octubre</b></td></tr>
+</tbody></table>
+<p><b>Los siete documentos del art. 168.1:</b></p>
+<ol><li>Memoria explicativa</li><li>Liquidación del ejercicio anterior + avance del corriente (al menos <b>seis meses</b>)</li><li>Anexo de personal</li><li>Anexo de inversiones del ejercicio</li><li>Anexo de beneficios fiscales en tributos locales</li><li>Anexo de convenios con CCAA en materia de gasto social</li><li>Informe económico-financiero</li></ol>
+<p><b>Apartado 5:</b> acuerdo <b>único</b>, que detalla los presupuestos integrantes; prohibida la aprobación separada.</p>`,
+llano:`<p>El alcalde monta el rompecabezas. Antes del 15 de septiembre le llegan las piezas de los patronatos y de las empresas municipales. Con ellas y con siete documentos que explican y justifican las cifras, arma el presupuesto general, se lo pasa al interventor para que lo informe, y antes del 15 de octubre lo pone encima de la mesa del Pleno. El Pleno puede decir sí, cambiarlo o devolvérselo. Lo que no puede es aprobar solo una pieza.</p>`,
+porque:`<p>El calendario existe para que el presupuesto pueda estar en vigor el 1 de enero: si trabajas hacia atrás desde el 31 de diciembre, necesitas margen para exposición pública y reclamaciones (art. 169), y por eso el Pleno debe tenerlo el 15 de octubre. La <b>documentación</b> existe porque una cifra sin explicación no es controlable: la memoria dice qué cambia, la liquidación anterior enseña de dónde vienes, el informe económico-financiero acredita que los ingresos previstos son creíbles. Y el <b>acuerdo único</b> evita la trampa de aprobar el presupuesto de la entidad y dejar los de sus entes en el aire.</p>`,
+ej:`<ul>
+<li><b>Cotidiano:</b> montar un viaje familiar. Cada uno manda sus fechas antes de una fecha tope, tú haces el plan conjunto, se lo enseñas al que lleva las cuentas y luego lo somete a votación de todos. Nadie aprueba "solo su parte".</li>
+<li><b>Real:</b> el 10 de septiembre de 2026 el Patronato Municipal de Cultura de Écija remite su presupuesto de 1,2 M€; el 12 de septiembre la empresa municipal de vivienda remite sus previsiones; el 6 de octubre el alcalde, con el informe favorable de la Intervención, remite al Pleno el presupuesto general de 34,8 M€. El Pleno lo aprueba inicialmente el 14 de octubre.</li>
+<li><b>Caso límite:</b> el Pleno del 14 de octubre <b>devuelve</b> el presupuesto al presidente. El plazo del 15 de octubre ya está cumplido con la remisión; lo que peligra ahora es la aprobación definitiva del 31 de diciembre, y si no llega, opera la prórroga del art. 169.6.</li>
+</ul>`,
+noej:`<ul>
+<li><b>No forma el presupuesto</b> la Junta de Gobierno Local ni el interventor: lo forma el Presidente.</li>
+<li><b>No es aprobación definitiva</b> la del Pleno del art. 168: es <b>aprobación inicial</b>. La definitiva llega en el art. 169.</li>
+<li><b>No basta</b> con el avance de liquidación del ejercicio corriente: hace falta también la liquidación del anterior.</li>
+</ul>`,
+conex:`<ul>
+<li><b>Art. 166.1:</b> los anexos que se remiten junto con esta documentación.</li>
+<li><b>Art. 169:</b> lo que ocurre después de la aprobación inicial.</li>
+<li><b>Art. 165.4:</b> la nivelación que el informe económico-financiero debe acreditar.</li>
+<li><b>Art. 57 bis LBRL:</b> citado expresamente en la letra f) sobre convenios de gasto social.</li>
+</ul>`,
+trampas:`<ul>
+<li><b>15 de septiembre / 15 de octubre.</b> Es la pareja de fechas más preguntada. Y ojo: la ley dice "<b>antes del</b> día 15", no "el día 15".</li>
+<li>El apartado 3 incluye a las sociedades de capital <b>mayoritario</b> (no solo las del 100 %): más amplio que el art. 164.1.c).</li>
+<li>El avance de liquidación se refiere "<b>al menos</b>" a seis meses: es un mínimo, no una cifra exacta.</li>
+<li>El Pleno tiene tres salidas: aprobar, <b>enmendar</b> o <b>devolver</b>. Muchos tests omiten una de las tres.</li>
+<li>El informe de la <b>Intervención</b> es previo a la remisión al Pleno, no posterior.</li>
+</ul>`,
+ancla:`<p><b>Los siete documentos — "Mi Liquidación Puede Ir Bien Con Intervención":</b><br>
+<b>M</b>emoria · <b>L</b>iquidación y avance · <b>P</b>ersonal · <b>I</b>nversiones · <b>B</b>eneficios fiscales · <b>C</b>onvenios de gasto social · <b>I</b>nforme económico-financiero.</p>
+<p><b>Las fechas — "el 15 se repite":</b> 15 de <b>S</b>eptiembre los <b>S</b>atélites (organismos y sociedades) → 15 de <b>O</b>ctubre el pleno <b>O</b>ye al presidente → 31 de diciembre, cierre.</p>`,
+vis:`<svg viewBox="0 0 640 250" role="img" aria-label="Flujo de elaboración y aprobación inicial del presupuesto">
+<rect x="20" y="30" width="150" height="70" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="95" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Organismos autónomos</text>
+<text x="95" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">y sociedades</text>
+<text x="95" y="90" text-anchor="middle" font-size="11" fill="var(--exc)">antes del 15-SEP</text>
+<path d="M170 65 L 215 65" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar)"/>
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="218" y="20" width="170" height="90" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="303" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">PRESIDENTE</text>
+<text x="303" y="62" text-anchor="middle" font-size="11" fill="currentColor">forma el presupuesto</text>
+<text x="303" y="79" text-anchor="middle" font-size="11" fill="currentColor">general + 7 documentos</text>
+<text x="303" y="98" text-anchor="middle" font-size="11" fill="currentColor">+ anexos del art. 166</text>
+<path d="M388 65 L 433 65" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="436" y="34" width="90" height="62" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="481" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">INTERVENCIÓN</text>
+<text x="481" y="78" text-anchor="middle" font-size="11" fill="currentColor">informa</text>
+<path d="M481 96 L 481 130" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="356" y="134" width="250" height="66" rx="8" fill="var(--panel)" stroke="var(--acc)" stroke-width="2"/>
+<text x="481" y="156" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">PLENO · antes del 15-OCT</text>
+<text x="481" y="176" text-anchor="middle" font-size="11" fill="currentColor">aprueba · enmienda · devuelve</text>
+<text x="481" y="193" text-anchor="middle" font-size="11" fill="var(--exc)">acuerdo ÚNICO (168.5)</text>
+<rect x="20" y="134" width="300" height="66" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="170" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Documentación del art. 168.1</text>
+<text x="170" y="172" text-anchor="middle" font-size="10" fill="currentColor">Memoria · Liquidación+avance (6 meses) · Personal</text>
+<text x="170" y="189" text-anchor="middle" font-size="10" fill="currentColor">Inversiones · Beneficios fiscales · Convenios · Informe e-f</text>
+<text x="320" y="228" text-anchor="middle" font-size="11" fill="var(--ink2)">Resultado: APROBACIÓN INICIAL → continúa en el art. 169</text>
+</svg>`}
+);
+</script>
+<script>
+ARTS.push(
+{n:169,t:"Publicidad, aprobación definitiva y entrada en vigor",ubic:"Título VI ▸ Cap. I ▸ Sección 1.ª",
+idea:"Quince días al público, un mes para resolver quejas, definitivo antes del 31 de diciembre.",
+literal:`<p>1. Aprobado inicialmente el presupuesto general, se expondrá al público, previo anuncio en el boletín oficial de la provincia o, en su caso, de la comunidad autónoma uniprovincial, por 15 días, durante los cuales los interesados podrán examinarlos y presentar reclamaciones ante el Pleno. El presupuesto se considerará definitivamente aprobado si durante el citado plazo no se hubiesen presentado reclamaciones; en caso contrario, el Pleno dispondrá de un plazo de un mes para resolverlas.</p>
+<p>2. La aprobación definitiva del presupuesto general por el Pleno de la corporación habrá de realizarse antes del día 31 de diciembre del año anterior al del ejercicio en que deba aplicarse.</p>
+<p>3. El presupuesto general, definitivamente aprobado, será insertado en el boletín oficial de la corporación, si lo tuviera, y, resumido por capítulos de cada uno de los presupuestos que lo integran, en el de la provincia o, en su caso, de la comunidad autónoma uniprovincial.</p>
+<p>4. Del presupuesto general definitivamente aprobado se remitirá copia a la Administración del Estado y a la correspondiente comunidad autónoma. La remisión se realizará simultáneamente al envío al boletín oficial a que se refiere el apartado anterior.</p>
+<p>5. El presupuesto entrará en vigor, en el ejercicio correspondiente, una vez publicado en la forma prevista en el apartado 3 de este artículo.</p>
+<p>6. Si al iniciarse el ejercicio económico no hubiese entrado en vigor el presupuesto correspondiente, se considerará automáticamente prorrogado el del anterior, con sus créditos iniciales, sin perjuicio de las modificaciones que se realicen conforme a lo dispuesto en los artículos 177, 178 y 179 de esta ley y hasta la entrada en vigor del nuevo presupuesto. La prórroga no afectará a los créditos para servicios o programas que deban concluir en el ejercicio anterior o que estén financiados con crédito u otros ingresos específicos o afectados.</p>
+<p>7. La copia del presupuesto y de sus modificaciones deberá hallarse a disposición del público, a efectos informativos, desde su aprobación definitiva hasta la finalización del ejercicio.</p>`,
+dis:`<table><thead><tr><th>Apartado</th><th>Trámite</th><th>Plazo / dato clave</th></tr></thead><tbody>
+<tr><td>169.1</td><td>Anuncio en el <span class="t" data-k="bop">BOP</span> y exposición al público</td><td><b>15 días</b></td></tr>
+<tr><td>169.1</td><td>Si no hay reclamaciones</td><td>Aprobación definitiva <b>automática</b></td></tr>
+<tr><td>169.1</td><td>Si hay reclamaciones: el Pleno las resuelve</td><td><b>Un mes</b></td></tr>
+<tr><td>169.2</td><td>Aprobación definitiva por el Pleno</td><td>Antes del <b>31 de diciembre</b> del año anterior</td></tr>
+<tr><td>169.3</td><td>Publicación: íntegra en el boletín de la corporación (si lo hay) y <b>resumida por capítulos</b> en el BOP</td><td>—</td></tr>
+<tr><td>169.4</td><td>Copia al Estado y a la CCAA</td><td><b>Simultánea</b> al envío al boletín</td></tr>
+<tr><td>169.5</td><td>Entrada en vigor</td><td>Una vez <b>publicado</b> conforme al 169.3</td></tr>
+<tr><td>169.6</td><td><span class="t" data-k="prorroga">Prórroga automática</span></td><td>Con los <b>créditos iniciales</b> del anterior</td></tr>
+<tr><td>169.7</td><td>Copia a disposición del público</td><td>Desde la aprobación definitiva hasta el <b>fin del ejercicio</b></td></tr>
+</tbody></table>
+<p><b>Lo que NO se prorroga (169.6):</b> los créditos para servicios o programas que deban concluir en el ejercicio anterior, y los financiados con crédito u otros ingresos específicos o afectados.</p>`,
+llano:`<p>Aprobado el borrador, se cuelga en el tablón durante quince días para que cualquiera pueda mirarlo y quejarse. Si nadie se queja, queda aprobado solo, sin necesidad de una segunda votación. Si alguien se queja, el Pleno tiene un mes para contestar. Todo eso tiene que estar cerrado antes de que acabe el año. Después se publica un resumen en el boletín provincial y, con esa publicación, el presupuesto empieza a valer. Si el 1 de enero no está listo, se prorroga automáticamente el del año pasado, pero solo con sus cifras de partida.</p>`,
+porque:`<p>La exposición pública convierte el presupuesto en un acto <b>controlable por los vecinos</b>, no solo por la oposición. La aprobación definitiva automática cuando no hay reclamaciones evita paralizar la maquinaria por puro trámite. Y la prórroga es una <b>red de seguridad</b>: sin ella, un ayuntamiento sin presupuesto el 1 de enero no podría pagar ni las nóminas. Se prorrogan solo los créditos <i>iniciales</i> porque las modificaciones del año anterior respondían a necesidades ya agotadas.</p>`,
+ej:`<ul>
+<li><b>Cotidiano:</b> las normas de una comunidad de vecinos que se exponen en el portal antes de aplicarse: si nadie protesta en el plazo, quedan aprobadas.</li>
+<li><b>Real:</b> el Ayuntamiento de La Rinconada aprueba inicialmente su presupuesto el 20 de octubre de 2026; el anuncio sale en el BOP de Sevilla el 26 de octubre; en el plazo de exposición una asociación de vecinos presenta una reclamación por omisión de crédito; el Pleno la resuelve el 24 de noviembre y aprueba definitivamente; el resumen por capítulos se publica el 15 de diciembre y ese día entra en vigor para 2027.</li>
+<li><b>Caso límite:</b> el mismo ayuntamiento no logra aprobar definitivamente hasta el 20 de enero. Durante enero rige el presupuesto de 2026 <b>con sus créditos iniciales</b> — no con los aumentados por las modificaciones de 2026. Y una subvención finalista ya justificada no se prorroga.</li>
+</ul>`,
+noej:`<ul>
+<li><b>No entra en vigor</b> con la aprobación definitiva, sino con la <b>publicación</b> del resumen (art. 169.5).</li>
+<li><b>No se publica íntegro</b> en el BOP: se publica <b>resumido por capítulos</b>. Íntegro solo en el boletín de la propia corporación, si lo tiene.</li>
+<li><b>No hay segunda votación</b> si no se presentaron reclamaciones: la aprobación definitiva es automática.</li>
+<li><b>La prórroga no es una decisión:</b> opera "automáticamente", sin acuerdo que la declare.</li>
+</ul>`,
+conex:`<ul>
+<li><b>Art. 170:</b> quién puede reclamar y por qué causas durante esos 15 días.</li>
+<li><b>Art. 171:</b> qué recurso cabe una vez aprobado definitivamente.</li>
+<li><b>Arts. 177, 178 y 179:</b> modificaciones de crédito que sí pueden hacerse durante la prórroga.</li>
+<li><b>Art. 168.4:</b> el plazo del 15 de octubre existe justamente para que quepan estos 15 días y el mes de resolución antes del 31 de diciembre.</li>
+</ul>`,
+trampas:`<ul>
+<li><b>15 días</b> de exposición ≠ <b>un mes</b> para resolver reclamaciones ≠ <b>31 de diciembre</b> para aprobar definitivamente. Los tres se mezclan sin piedad en los tests.</li>
+<li>"Resumido <b>por capítulos</b>", no por artículos ni por conceptos.</li>
+<li>La remisión al Estado y a la CCAA es <b>simultánea</b> al envío al boletín, no posterior a la publicación.</li>
+<li>La prórroga es con los <b>créditos iniciales</b>; olvidar la palabra "iniciales" es el error clásico.</li>
+<li>El apartado 7 habla de disposición del público "a efectos informativos" hasta la <b>finalización del ejercicio</b>, no hasta la aprobación del siguiente.</li>
+</ul>
+<div class="interp"><span class="lbl">Interpretación / contexto — aportación externa</span>La ley dice "por 15 días" sin precisar su naturaleza. La doctrina y la práctica administrativa mayoritarias los computan como <b>hábiles</b>, por aplicación supletoria de las reglas de cómputo de la legislación de procedimiento administrativo común (art. 30 de la Ley 39/2015), pero el texto del TRLHL no lo dice expresamente. Conviene comprobar cómo lo formula la convocatoria a la que te presentas.</div>`,
+ancla:`<p><b>La escalera 15 · 1 · 31:</b> <b>15</b> días de exposición → <b>1</b> mes para resolver → <b>31</b> de diciembre, cierre.<br>
+<b>Para la entrada en vigor:</b> "no vale con aprobarlo; hay que <b>publicarlo</b>". Imagina un semáforo que no se pone verde hasta que sale en el boletín.<br>
+<b>Para la prórroga:</b> "vuelve el presupuesto viejo, pero <b>desnudo</b>" (sin las modificaciones).</p>`,
+vis:`<svg viewBox="0 0 640 300" role="img" aria-label="Procedimiento posterior a la aprobación inicial">
+<defs><marker id="ar2" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="200" y="10" width="240" height="36" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">APROBACIÓN INICIAL (art. 168)</text>
+<path d="M320 46 L 320 66" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar2)"/>
+<rect x="180" y="68" width="280" height="42" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="320" y="86" text-anchor="middle" font-size="11" fill="currentColor">Anuncio en BOP + exposición al público</text>
+<text x="320" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="var(--exc)">15 días</text>
+<path d="M180 89 L 120 89 L 120 140" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar2)"/>
+<path d="M460 89 L 520 89 L 520 140" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar2)"/>
+<rect x="30" y="142" width="180" height="60" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="120" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">SIN reclamaciones</text>
+<text x="120" y="182" text-anchor="middle" font-size="11" fill="currentColor">aprobado definitivamente</text>
+<text x="120" y="196" text-anchor="middle" font-size="10" fill="var(--ink2)">automáticamente</text>
+<rect x="430" y="142" width="180" height="60" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="520" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">CON reclamaciones</text>
+<text x="520" y="182" text-anchor="middle" font-size="11" fill="currentColor">el Pleno resuelve en</text>
+<text x="520" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="var(--exc)">1 mes</text>
+<path d="M120 202 L 120 224 L 320 224" stroke="var(--acc)" stroke-width="2"/>
+<path d="M520 202 L 520 224 L 320 224" stroke="var(--acc)" stroke-width="2"/>
+<path d="M320 224 L 320 238" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar2)"/>
+<rect x="150" y="240" width="340" height="52" rx="8" fill="var(--panel)" stroke="var(--acc)" stroke-width="2"/>
+<text x="320" y="259" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Definitiva antes del 31-DIC → publicación resumida por capítulos</text>
+<text x="320" y="277" text-anchor="middle" font-size="11" fill="currentColor">con la publicación → ENTRA EN VIGOR · si no: prórroga automática</text>
+</svg>`},
+{n:170,t:"Reclamación administrativa: legitimación activa y causas",ubic:"Título VI ▸ Cap. I ▸ Sección 1.ª",
+idea:"Solo ciertas personas y solo por tres motivos tasados puede reclamarse el presupuesto.",
+literal:`<p>1. A los efectos de lo dispuesto en el apartado 1 del artículo anterior, tendrán la consideración de interesados:</p>
+<p>a) Los habitantes en el territorio de la respectiva entidad local.</p>
+<p>b) Los que resulten directamente afectados, aunque no habiten en el territorio de la entidad local.</p>
+<p>c) Los colegios oficiales, cámaras oficiales, sindicatos, asociaciones y demás entidades legalmente constituidas para velar por intereses profesionales o económicos y vecinales, cuando actúen en defensa de los que les son propios.</p>
+<p>2. Únicamente podrán entablarse reclamaciones contra el presupuesto:</p>
+<p>a) Por no haberse ajustado su elaboración y aprobación a los trámites establecidos en esta ley.</p>
+<p>b) Por omitir el crédito necesario para el cumplimiento de obligaciones exigibles a la entidad local, en virtud de precepto legal o de cualquier otro título legítimo.</p>
+<p>c) Por ser de manifiesta insuficiencia los ingresos con relación a los gastos presupuestados o bien de estos respecto a las necesidades para las que esté previsto.</p>`,
+dis:`<div class="grid2">
+<div><p><b>¿Quién? — legitimación (170.1)</b></p><ul>
+<li><b>a)</b> Los <b>habitantes</b> del territorio. Basta con habitar: no se exige ser vecino empadronado ni contribuyente.</li>
+<li><b>b)</b> Los <b>directamente afectados</b>, aunque no habiten allí.</li>
+<li><b>c)</b> Colegios oficiales, cámaras oficiales, sindicatos, asociaciones y demás entidades legalmente constituidas para velar por intereses <b>profesionales, económicos o vecinales</b>, cuando actúen <b>en defensa de los propios</b>.</li>
+</ul></div>
+<div><p><b>¿Por qué? — causas tasadas (170.2)</b></p><ul>
+<li><b>a)</b> Defecto de <b>trámite</b>: la elaboración o aprobación no se ajustó a la ley.</li>
+<li><b>b)</b> <b>Omisión de crédito</b> necesario para obligaciones exigibles por precepto legal o cualquier otro título legítimo.</li>
+<li><b>c)</b> <b>Manifiesta insuficiencia</b>: de los ingresos respecto a los gastos, o de los gastos respecto a las necesidades previstas.</li>
+</ul></div>
+</div>
+<p class="small">La palabra <b>"únicamente"</b> del apartado 2 es determinante: la lista es cerrada. Cualquier otro motivo (discrepancia política, prioridades distintas) no sostiene una reclamación.</p>`,
+llano:`<p>No cualquiera puede quejarse, y no por cualquier cosa. Pueden quejarse los que viven allí, los que salen perjudicados aunque vivan fuera, y las organizaciones que defienden intereses del colectivo. Y solo por tres razones: que no se han cumplido los trámites, que falta dinero para algo que la ley obliga a pagar, o que las cuentas no cuadran de forma evidente. Que a uno no le guste en qué se gasta no es motivo.</p>`,
+porque:`<p>Si cualquier discrepancia fuera reclamable, el presupuesto quedaría bloqueado cada año por motivos políticos y la ciudad se paralizaría. Al mismo tiempo, negar toda reclamación dejaría a los vecinos sin defensa frente a ilegalidades. La solución del legislador es una <b>legitimación amplia</b> (casi cualquier habitante) combinada con unas <b>causas estrechas y objetivas</b>: se controla la legalidad y la solvencia del documento, no su orientación política.</p>`,
+ej:`<ul>
+<li><b>Cotidiano:</b> reclamar una nota de un examen. Puedes hacerlo por error de suma o por criterio mal aplicado; no porque el temario te parezca injusto.</li>
+<li><b>Real (causa b):</b> el presupuesto de 2026 de un ayuntamiento no consigna crédito para pagar una sentencia firme de 240.000 € por responsabilidad patrimonial. La empresa acreedora, aunque tenga domicilio en Madrid, es "directamente afectada" (170.1.b) y reclama por omisión de crédito necesario (170.2.b).</li>
+<li><b>Real (causa a):</b> el presupuesto se expuso al público solo 8 días. Un vecino reclama por defecto de trámite (170.2.a).</li>
+<li><b>Caso límite:</b> un sindicato reclama porque el anexo de personal no recoge plazas comprometidas en un acuerdo. Está legitimado por el 170.1.c) si actúa en defensa de intereses profesionales propios; el encaje será, según cómo se plantee, la letra a) o la b) del 170.2.</li>
+</ul>`,
+noej:`<ul>
+<li><b>No es causa</b> considerar que se destina poco dinero a cultura y demasiado a fiestas: es una discrepancia de oportunidad, no de legalidad.</li>
+<li><b>No está legitimada</b> una asociación que reclama sobre materias ajenas a sus fines: el art. 170.1.c) exige que actúe "en defensa de los que le son propios".</li>
+<li><b>No hay que ser contribuyente ni estar empadronado</b>: la letra a) habla de "habitantes en el territorio".</li>
+</ul>`,
+conex:`<ul>
+<li><b>Art. 169.1:</b> este artículo desarrolla quién puede presentar las reclamaciones de ese trámite.</li>
+<li><b>Art. 165.4:</b> el "sin déficit inicial" es lo que se protege con la causa c).</li>
+<li><b>Art. 173.5:</b> nulidad de los compromisos sin crédito — el otro lado de la causa b).</li>
+<li><b>Art. 4 de la Ley 39/2015:</b> concepto general de interesado, que aquí se sustituye por una definición específica.</li>
+</ul>`,
+trampas:`<ul>
+<li>La palabra <b>"únicamente"</b>: causas <b>tasadas</b>. Cualquier test que ofrezca "por cualquier motivo de legalidad" es falso.</li>
+<li>Letra b) del apartado 1: "aunque <b>no</b> habiten en el territorio". Se cuela a menudo negado.</li>
+<li>La causa c) tiene <b>dos direcciones</b>: ingresos insuficientes respecto a gastos, <b>y también</b> gastos insuficientes respecto a las necesidades previstas.</li>
+<li>Las reclamaciones se presentan <b>ante el Pleno</b> (art. 169.1), no ante el presidente.</li>
+</ul>`,
+ancla:`<p><b>Quién — "HAC":</b> <b>H</b>abitantes · <b>A</b>fectados directos · <b>C</b>olectivos organizados.<br>
+<b>Por qué — "TOM":</b> <b>T</b>rámites incumplidos · <b>O</b>misión de crédito · <b>M</b>anifiesta insuficiencia.<br>
+Imagen: un vecino llamado <b>Tom</b> que solo puede quejarse tres veces al año.</p>`,
+vis:`<svg viewBox="0 0 640 230" role="img" aria-label="Árbol de decisión de la reclamación contra el presupuesto">
+<defs><marker id="ar3" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="215" y="8" width="210" height="34" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">¿Quiero reclamar?</text>
+<path d="M320 42 L 320 58" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar3)"/>
+<rect x="185" y="60" width="270" height="34" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="320" y="82" text-anchor="middle" font-size="11" fill="currentColor">1) ¿Soy interesado del art. 170.1? (H-A-C)</text>
+<path d="M185 77 L 120 77 L 120 108" stroke="var(--exc)" stroke-width="2" marker-end="url(#ar3)"/>
+<text x="150" y="72" font-size="10" fill="var(--exc)">NO</text>
+<rect x="40" y="110" width="160" height="34" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="120" y="132" text-anchor="middle" font-size="11" fill="var(--exc)">Sin legitimación</text>
+<path d="M320 94 L 320 112" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar3)"/>
+<text x="332" y="107" font-size="10" fill="var(--ej)">SÍ</text>
+<rect x="215" y="114" width="380" height="34" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="405" y="136" text-anchor="middle" font-size="11" fill="currentColor">2) ¿Mi motivo es uno de los TRES del art. 170.2? (T-O-M)</text>
+<path d="M405 148 L 405 168" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar3)"/>
+<rect x="255" y="170" width="300" height="46" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="405" y="189" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Reclamación ante el PLENO en los 15 días</text>
+<text x="405" y="207" text-anchor="middle" font-size="10" fill="currentColor">el Pleno resuelve en 1 mes (art. 169.1)</text>
+<rect x="40" y="170" width="160" height="46" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="120" y="189" text-anchor="middle" font-size="11" fill="var(--exc)">Motivo no tasado:</text>
+<text x="120" y="206" text-anchor="middle" font-size="11" fill="var(--exc)">no cabe reclamar</text>
+<path d="M215 131 L 120 131 L 120 168" stroke="var(--exc)" stroke-width="2" marker-end="url(#ar3)"/>
+</svg>`},
+{n:171,t:"Recurso contencioso-administrativo",ubic:"Título VI ▸ Cap. I ▸ Sección 1.ª",
+idea:"Contra el presupuesto definitivo se va directo al juez, y el recurso no lo paraliza.",
+literal:`<p>1. Contra la aprobación definitiva del presupuesto podrá interponerse directamente recurso contencioso-administrativo, en la forma y plazos que establecen las normas de dicha jurisdicción.</p>
+<p>2. El Tribunal de Cuentas deberá informar previamente a la resolución del recurso cuando la impugnación afecte o se refiera a la nivelación presupuestaria.</p>
+<p>3. La interposición de recursos no suspenderá por sí sola la aplicación del presupuesto definitivamente aprobado por la corporación.</p>`,
+dis:`<ul>
+<li><b>Objeto del recurso:</b> la <b>aprobación definitiva</b> del presupuesto.</li>
+<li><b>Vía:</b> <span class="t" data-k="conten">contencioso-administrativa</span>, <b>directamente</b> — sin recurso administrativo previo (el presupuesto tiene naturaleza de disposición general).</li>
+<li><b>Forma y plazos:</b> los de la jurisdicción contencioso-administrativa (remisión externa; el TRLHL no fija plazo propio).</li>
+<li><b>Informe del <span class="t" data-k="tcuentas">Tribunal de Cuentas</span>:</b> preceptivo y <b>previo a la resolución del recurso</b>, solo cuando la impugnación afecte a la <span class="t" data-k="nivelacion">nivelación presupuestaria</span>.</li>
+<li><b>Efecto:</b> la interposición <b>no suspende</b> por sí sola la aplicación del presupuesto.</li>
+</ul>`,
+llano:`<p>Si el presupuesto ya está definitivamente aprobado y sigues sin estar conforme, no hay más escalones dentro del Ayuntamiento: vas al juzgado. Mientras el juez decide, el presupuesto sigue funcionando: el Ayuntamiento no se para. Y si lo que discutes es que las cuentas no cuadran, antes de que el juez resuelva tiene que hablar el Tribunal de Cuentas.</p>`,
+porque:`<p>El presupuesto es un instrumento vital: si un solo recurso pudiera suspenderlo, bastaría con impugnar cada diciembre para dejar sin actividad al municipio. De ahí la regla de <b>no suspensión automática</b>. Y como los jueces no son auditores, cuando el debate es técnico-contable (la nivelación) la ley les da un peritaje institucional: el informe del Tribunal de Cuentas.</p>`,
+ej:`<ul>
+<li><b>Cotidiano:</b> recurrir una multa de tráfico no impide que el plazo de pago siga corriendo: recurrir no es lo mismo que paralizar.</li>
+<li><b>Real:</b> resuelta su reclamación en sentido desestimatorio, una asociación de comerciantes interpone recurso contencioso-administrativo contra la aprobación definitiva del presupuesto 2026 de un ayuntamiento sevillano. El Ayuntamiento sigue ejecutando el presupuesto con normalidad mientras el juzgado tramita el asunto.</li>
+<li><b>Caso límite:</b> el recurso alega que los ingresos previstos por venta de suelo (3 M€) son ficticios y rompen la nivelación. Antes de resolver, el juzgado debe recabar informe del Tribunal de Cuentas (art. 171.2).</li>
+</ul>`,
+noej:`<ul>
+<li><b>No cabe</b> recurso de reposición previo: la vía es directa. (El presupuesto se considera disposición de carácter general.)</li>
+<li><b>No suspende</b> el presupuesto la mera interposición; otra cosa es que el órgano judicial acuerde una medida cautelar, que ya no es "por sí sola".</li>
+<li><b>No interviene</b> el Tribunal de Cuentas en cualquier recurso: solo si se discute la nivelación.</li>
+</ul>`,
+conex:`<ul>
+<li><b>Art. 169.2:</b> el acto recurrible es la aprobación definitiva regulada allí.</li>
+<li><b>Art. 170.2.c):</b> la insuficiencia de ingresos, que es exactamente el terreno de la nivelación del 171.2.</li>
+<li><b>Art. 165.4:</b> el mandato de aprobar sin déficit inicial que se está fiscalizando.</li>
+</ul>`,
+trampas:`<ul>
+<li>"<b>Directamente</b>": nada de recurso administrativo previo.</li>
+<li>El informe del Tribunal de Cuentas es <b>previo a la resolución del recurso</b>, no previo a su interposición ni previo a la aprobación del presupuesto.</li>
+<li>"No suspenderá <b>por sí sola</b>": la matización deja abierta la suspensión judicial acordada expresamente.</li>
+<li>Los plazos no están en el TRLHL: remite a las normas de la jurisdicción contencioso-administrativa.</li>
+</ul>`,
+ancla:`<p><b>"Directo, no para, y si es de cuadrar, el Tribunal ha de hablar."</b><br>Tres apartados, tres ideas: <b>1</b> directo · <b>2</b> Tribunal de Cuentas si hay nivelación · <b>3</b> no suspende.</p>`,
+vis:`<svg viewBox="0 0 640 170" role="img" aria-label="Régimen del recurso contra el presupuesto">
+<defs><marker id="ar4" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="20" y="55" width="160" height="50" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="100" y="76" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Aprobación</text>
+<text x="100" y="93" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">definitiva</text>
+<path d="M180 80 L 245 80" stroke="var(--acc)" stroke-width="2" marker-end="url(#ar4)"/>
+<text x="212" y="70" text-anchor="middle" font-size="10" fill="var(--ej)">directo</text>
+<rect x="248" y="45" width="170" height="70" rx="8" fill="var(--panel)" stroke="var(--acc)" stroke-width="2"/>
+<text x="333" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">Recurso</text>
+<text x="333" y="88" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">contencioso-adm.</text>
+<text x="333" y="105" text-anchor="middle" font-size="10" fill="var(--ink2)">plazos: normas de la jurisdicción</text>
+<path d="M418 65 L 470 45" stroke="var(--warn)" stroke-width="2" marker-end="url(#ar4)"/>
+<rect x="470" y="18" width="155" height="48" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="547" y="38" text-anchor="middle" font-size="10" font-weight="700" fill="var(--warn)">Tribunal de Cuentas</text>
+<text x="547" y="54" text-anchor="middle" font-size="10" fill="currentColor">solo si afecta a la nivelación</text>
+<path d="M418 98 L 470 118" stroke="var(--exc)" stroke-width="2" marker-end="url(#ar4)"/>
+<rect x="470" y="100" width="155" height="48" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="547" y="120" text-anchor="middle" font-size="10" font-weight="700" fill="var(--exc)">NO suspende</text>
+<text x="547" y="136" text-anchor="middle" font-size="10" fill="currentColor">"por sí sola" la aplicación</text>
+<text x="100" y="135" text-anchor="middle" font-size="10" fill="var(--ink2)">sin recurso previo</text>
+</svg>`}
+);
+</script>
+<script>
+const PLAZOS=[
+ ["15 de septiembre","Remisión a la entidad local del presupuesto de cada organismo autónomo","OOAA","168.2","Antes del día 15"],
+ ["15 de septiembre","Remisión de previsiones y programas de las sociedades mercantiles","Sociedades","168.3","Incluidas las de capital mayoritario"],
+ ["6 meses","Alcance mínimo del avance de liquidación del ejercicio corriente","Presidente","168.1.b)","\"Al menos\" seis meses"],
+ ["15 de octubre","Remisión del presupuesto general al Pleno","Presidente","168.4","Informado por la Intervención"],
+ ["15 días","Exposición al público tras la aprobación inicial","Interesados","169.1","Previo anuncio en el BOP"],
+ ["1 mes","Plazo del Pleno para resolver las reclamaciones presentadas","Pleno","169.1","Solo si hubo reclamaciones"],
+ ["31 de diciembre","Aprobación definitiva del presupuesto general","Pleno","169.2","Del año anterior al de aplicación"],
+ ["Hasta fin del ejercicio","Copia a disposición del público a efectos informativos","Entidad","169.7","Desde la aprobación definitiva"],
+ ["4 años","Horizonte de los planes y programas de inversión y financiación","Entidad","166.1.a)","Revisión anual añadiendo un ejercicio"],
+ ["Anual","Elaboración y aprobación del presupuesto general","Entidad","164.1","El ejercicio es el año natural (art. 163)"]
+];
+const FLASH=[
+ ["¿Cómo define el art. 162 el presupuesto?","Expresión <b>cifrada, conjunta y sistemática</b> de las obligaciones que <b>como máximo</b> pueden reconocerse y de los derechos que se prevea liquidar."],
+ ["¿El lado de ingresos del presupuesto es un límite?","No. Los <b>gastos</b> son máximo (limitativo); los <b>ingresos</b> son mera <b>previsión</b>."],
+ ["¿Con qué coincide el ejercicio presupuestario?","Con el <b>año natural</b> (art. 163)."],
+ ["¿Qué tres piezas integran el presupuesto general?","a) El de la propia entidad · b) los de los organismos autónomos · c) los <b>estados de previsión</b> de las sociedades de capital <b>íntegramente</b> local (art. 164.1)."],
+ ["¿Cómo se clasifican los organismos autónomos?","Administrativos, y comerciales, industriales, financieros o análogos (art. 164.2)."],
+ ["¿Qué contiene cada presupuesto integrante?","Estados de gastos, estados de ingresos y <b>bases de ejecución</b> (art. 165.1)."],
+ ["¿Qué principio recoge el art. 165.3?","<b>Presupuesto bruto</b>: importe íntegro, prohibido compensar; salvo ley expresa y devoluciones de ingresos indebidos declaradas por tribunal o autoridad competentes."],
+ ["¿Quién debe aprobarse sin déficit inicial?","<b>Cada uno</b> de los presupuestos que integran el general (art. 165.4), no solo el general."],
+ ["Nombra los cuatro anexos del art. 166.1","Planes de inversión (4 años) · programas de las sociedades (único o mayoritario) · estado de consolidación · estado de previsión de la deuda. <i>PICO-D</i>."],
+ ["¿Cuáles son los niveles de la clasificación económica?","Capítulo ▸ artículo ▸ concepto, ampliable a subconcepto y partida (art. 167.3.c)."],
+ ["¿Qué forma la aplicación presupuestaria?","La conjunción de la clasificación <b>por programas</b> (grupo de programa o programa) y la <b>económica</b> (concepto o subconcepto); más la orgánica si se usa (art. 167.4)."],
+ ["Control contable frente a control fiscal","El <b>contable</b> se hace sobre la aplicación presupuestaria; el <b>fiscal</b>, sobre el nivel de vinculación del art. 172."],
+ ["¿Quién forma el presupuesto y quién lo informa?","Lo <b>forma el Presidente</b>; lo <b>informa la Intervención</b>; lo aprueba el <b>Pleno</b> (art. 168)."],
+ ["Los siete documentos del art. 168.1","Memoria · Liquidación anterior y avance (≥6 meses) · Personal · Inversiones · Beneficios fiscales · Convenios de gasto social · Informe económico-financiero. <i>Mi Liquidación Puede Ir Bien Con Intervención</i>."],
+ ["Las tres fechas del procedimiento","15-SEP (OOAA y sociedades) · 15-OCT (al Pleno) · 31-DIC (aprobación definitiva)."],
+ ["¿Qué puede hacer el Pleno con el presupuesto remitido?","Aprobarlo, <b>enmendarlo</b> o <b>devolverlo</b> (art. 168.4)."],
+ ["¿Cuánto dura la exposición al público y qué pasa si nadie reclama?","<b>15 días</b>; si no hay reclamaciones, queda <b>definitivamente aprobado automáticamente</b> (art. 169.1)."],
+ ["¿Cuándo entra en vigor el presupuesto?","Una vez <b>publicado</b> el resumen por capítulos conforme al art. 169.3 (art. 169.5). No basta la aprobación."],
+ ["¿Cómo se publica en el BOP?","<b>Resumido por capítulos</b> de cada uno de los presupuestos integrantes (art. 169.3)."],
+ ["¿En qué consiste la prórroga del art. 169.6?","Prórroga <b>automática</b> del presupuesto anterior con sus <b>créditos iniciales</b>; no afecta a créditos de servicios o programas que debían concluir ni a los financiados con ingresos afectados."],
+ ["¿Quiénes son interesados para reclamar?","Habitantes · directamente afectados aunque no habiten · colegios, cámaras, sindicatos, asociaciones y entidades que defiendan intereses propios (art. 170.1). <i>H-A-C</i>."],
+ ["Las tres causas tasadas de reclamación","Trámites incumplidos · omisión de crédito necesario · manifiesta insuficiencia (art. 170.2). <i>T-O-M</i>."],
+ ["¿Cabe recurso administrativo antes del contencioso?","No: contra la aprobación definitiva se interpone <b>directamente</b> recurso contencioso-administrativo (art. 171.1)."],
+ ["¿Cuándo informa el Tribunal de Cuentas?","Previamente a la resolución del recurso, cuando la impugnación afecte a la <b>nivelación presupuestaria</b> (art. 171.2)."],
+ ["¿Suspende el recurso la aplicación del presupuesto?","No <b>por sí solo</b> (art. 171.3)."]
+];
+const TEST=[
+ {a:162,q:"Según el art. 162 TRLHL, el presupuesto general es la expresión…",o:[
+  ["cifrada, conjunta y sistemática",1,"Correcto: los tres adjetivos literales del artículo."],
+  ["contable, anual y provisional",0,"No: son adjetivos plausibles pero ninguno figura en el precepto."],
+  ["cifrada, individual y detallada",0,"Falla en 'individual': la ley exige que sea <b>conjunta</b>, precisamente para integrar entidad, organismos y sociedades."],
+  ["numérica, consolidada y periódica",0,"La consolidación existe (art. 166.1.c), pero no es el adjetivo de la definición."]]},
+ {a:162,q:"Los estados de ingresos del presupuesto fijan una cifra que no puede superarse.",vf:true,ok:false,
+  fb:"<b>Falso.</b> El carácter de máximo lo tienen las <b>obligaciones</b> (gastos). Los ingresos son <b>previsiones</b>: se puede recaudar más o menos. Es la confusión más penalizada del bloque."},
+ {a:163,q:"Completa: «El ejercicio presupuestario coincidirá con el ______».",gap:"año natural",
+  fb:"La respuesta literal es <b>año natural</b> (art. 163). No cabe un ejercicio de duración distinta."},
+ {a:164,q:"¿Qué NO se integra en el presupuesto general del art. 164.1?",o:[
+  ["Los consorcios adscritos a la entidad local",1,"Correcto: la lista es cerrada — entidad, organismos autónomos y sociedades de capital íntegramente local."],
+  ["El presupuesto de la propia entidad",0,"Sí se integra: letra a)."],
+  ["Los presupuestos de los organismos autónomos dependientes",0,"Sí se integran: letra b)."],
+  ["Los estados de previsión de las sociedades de capital íntegramente local",0,"Sí se integran: letra c)."]]},
+ {a:165,q:"El principio de no afectación del art. 165.2 admite una excepción:",o:[
+  ["los ingresos específicos afectados a fines determinados",1,"Correcto, es la excepción literal del apartado 2."],
+  ["las devoluciones de ingresos indebidos",0,"Esa es la excepción del apartado <b>3</b> (presupuesto bruto), no del 2."],
+  ["las subvenciones que decida el equipo de gobierno",0,"No: la afectación la impone la norma que regula el recurso, no la voluntad del gobierno local."],
+  ["los ingresos procedentes de operaciones de crédito",0,"No figura como excepción en el art. 165.2."]]},
+ {a:165,q:"El requisito de aprobación «sin déficit inicial» se predica únicamente del presupuesto general.",vf:true,ok:false,
+  fb:"<b>Falso.</b> El art. 165.4 lo exige a <b>cada uno</b> de los presupuestos que se integran en el general."},
+ {a:166,q:"¿Cuál de estos documentos es un ANEXO del art. 166.1 y no documentación del art. 168.1?",o:[
+  ["El estado de previsión de movimientos y situación de la deuda",1,"Correcto: art. 166.1.d)."],
+  ["La memoria explicativa del contenido",0,"Es documentación del art. 168.1.a). La confusión anexos/documentación es la trampa central de este bloque."],
+  ["El informe económico-financiero",0,"Documentación del art. 168.1.g)."],
+  ["El anexo de beneficios fiscales en tributos locales",0,"Documentación del art. 168.1.e), pese a llamarse 'anexo'."]]},
+ {a:166,q:"Los planes y programas de inversión y financiación se formulan para un plazo de…",o:[
+  ["cuatro años",1,"Correcto: art. 166.1.a), con revisión anual añadiendo un nuevo ejercicio."],
+  ["tres años",0,"No: tres años es el horizonte típico de otros instrumentos de estabilidad, no de este anexo."],
+  ["un año, como el presupuesto",0,"No: precisamente su función es superar el horizonte anual."],
+  ["seis años",0,"No figura en el precepto."]]},
+ {a:167,q:"Ordena correctamente los niveles de la clasificación económica del gasto:",o:[
+  ["capítulo ▸ artículo ▸ concepto",1,"Correcto (art. 167.3.c), ampliable a subconcepto y partida."],
+  ["concepto ▸ artículo ▸ capítulo",0,"Invertido. Va de lo general a lo particular."],
+  ["área de gasto ▸ política de gasto ▸ programa",0,"Esos son los niveles de la clasificación <b>por programas</b>, no de la económica."],
+  ["capítulo ▸ concepto ▸ artículo",0,"El artículo es el segundo nivel, antes que el concepto."]]},
+ {a:167,q:"El control fiscal de los gastos se realiza sobre la aplicación presupuestaria.",vf:true,ok:false,
+  fb:"<b>Falso.</b> El art. 167.4 distingue: el control <b>contable</b> se hace sobre la aplicación presupuestaria y el <b>fiscal</b> sobre el <b>nivel de vinculación</b> del art. 172."},
+ {a:168,q:"El presupuesto de los organismos autónomos debe remitirse a la entidad local antes del…",o:[
+  ["15 de septiembre",1,"Correcto: art. 168.2 (y el 168.3 fija la misma fecha para las sociedades)."],
+  ["15 de octubre",0,"Esa es la fecha límite para que el <b>presidente</b> remita el presupuesto general <b>al Pleno</b> (art. 168.4)."],
+  ["31 de diciembre",0,"Esa es la fecha límite de la <b>aprobación definitiva</b> (art. 169.2)."],
+  ["1 de septiembre",0,"No figura en el precepto."]]},
+ {a:168,q:"Completa: «El presupuesto de la Entidad Local será formado por su ______».",gap:"presidente",
+  fb:"Lo forma el <b>Presidente</b> (art. 168.1). La Intervención informa y el Pleno aprueba: tres papeles distintos que no deben mezclarse."},
+ {a:168,q:"Recibido el presupuesto general, el Pleno puede:",o:[
+  ["aprobarlo, enmendarlo o devolverlo",1,"Correcto: las tres salidas del art. 168.4."],
+  ["solo aprobarlo o rechazarlo",0,"Falta la enmienda y la devolución, que son salidas expresas."],
+  ["aprobarlo por partes separadas si lo estima conveniente",0,"Prohibido: el acuerdo es <b>único</b> (art. 168.5)."],
+  ["delegarlo en la Junta de Gobierno Local",0,"No: la aprobación del presupuesto es competencia indelegable del Pleno."]]},
+ {a:169,q:"Tras la aprobación inicial, el presupuesto se expone al público durante…",o:[
+  ["15 días",1,"Correcto: art. 169.1, previo anuncio en el BOP."],
+  ["20 días",0,"No: 20 días es plazo de otros procedimientos (p. ej. ordenanzas fiscales en otros preceptos), no de este."],
+  ["un mes",0,"Un mes es el plazo del <b>Pleno para resolver</b> las reclamaciones, no el de exposición."],
+  ["10 días",0,"No figura en el precepto."]]},
+ {a:169,q:"Si durante la exposición pública no se presentan reclamaciones, es necesaria una segunda votación del Pleno para la aprobación definitiva.",vf:true,ok:false,
+  fb:"<b>Falso.</b> El presupuesto «se considerará definitivamente aprobado» de forma automática (art. 169.1). Solo si hay reclamaciones vuelve el asunto al Pleno."},
+ {a:169,q:"La prórroga automática del presupuesto opera…",o:[
+  ["con los créditos iniciales del presupuesto anterior",1,"Correcto: art. 169.6. La palabra 'iniciales' es la clave."],
+  ["con los créditos definitivos, incluidas las modificaciones del ejercicio anterior",0,"No: las modificaciones no se arrastran. Error clásico."],
+  ["previo acuerdo expreso del Pleno declarándola",0,"No: es <b>automática</b>, sin necesidad de acuerdo."],
+  ["solo si lo autoriza la comunidad autónoma",0,"No existe tal autorización."]]},
+ {a:169,q:"En el boletín oficial de la provincia el presupuesto definitivo se publica…",o:[
+  ["resumido por capítulos de cada uno de los presupuestos que lo integran",1,"Correcto: art. 169.3."],
+  ["íntegro y con todos sus anexos",0,"Íntegro solo, en su caso, en el boletín de la propia corporación."],
+  ["resumido por artículos y conceptos",0,"El nivel de resumen es el <b>capítulo</b>."],
+  ["solo el importe total consolidado",0,"Insuficiente: la ley exige el desglose por capítulos de cada presupuesto integrante."]]},
+ {a:170,q:"¿Quién NO tiene la consideración de interesado a efectos de reclamar?",o:[
+  ["Cualquier ciudadano español, con independencia de su relación con el municipio",1,"Correcto: no hay acción popular. Hace falta habitar, resultar directamente afectado o ser entidad que defienda intereses propios."],
+  ["Los habitantes en el territorio de la entidad local",0,"Sí lo son: art. 170.1.a)."],
+  ["Los directamente afectados aunque no habiten en el territorio",0,"Sí lo son: art. 170.1.b)."],
+  ["Los sindicatos que actúen en defensa de intereses propios",0,"Sí lo son: art. 170.1.c)."]]},
+ {a:170,q:"Completa: «Únicamente podrán entablarse reclamaciones contra el presupuesto por defecto de trámites, por omitir el ______ necesario para el cumplimiento de obligaciones exigibles, y por manifiesta insuficiencia».",gap:"crédito",
+  fb:"<b>Crédito</b> (art. 170.2.b). Recuerda la regla <i>T-O-M</i>: Trámites, Omisión de crédito, Manifiesta insuficiencia."},
+ {a:171,q:"Contra la aprobación definitiva del presupuesto:",o:[
+  ["cabe directamente recurso contencioso-administrativo",1,"Correcto: art. 171.1, sin recurso administrativo previo."],
+  ["cabe recurso de reposición previo y potestativo",0,"No: la vía es directa."],
+  ["cabe recurso de alzada ante la comunidad autónoma",0,"No existe tal alzada: no hay relación jerárquica."],
+  ["no cabe recurso alguno",0,"Sí cabe, y además con legitimación amplia."]]},
+ {a:171,q:"La interposición del recurso suspende automáticamente la aplicación del presupuesto.",vf:true,ok:false,
+  fb:"<b>Falso.</b> El art. 171.3 dice que no suspenderá «por sí sola». Otra cosa es una suspensión acordada por el órgano judicial."},
+ {a:171,q:"Completa: «El Tribunal de Cuentas deberá informar previamente a la resolución del recurso cuando la impugnación afecte a la ______ presupuestaria».",gap:"nivelación",
+  fb:"<b>Nivelación</b> (art. 171.2). Conecta con el art. 165.4 (sin déficit inicial) y con el art. 170.2.c)."}
+];
+const CASOS=[
+ {t:"Caso 1 · El calendario que se tuerce",
+  e:"El Ayuntamiento de Marchena remite el presupuesto general de 2027 al Pleno el 20 de octubre de 2026. El Pleno lo aprueba inicialmente el 27 de octubre. El anuncio sale en el BOP el 3 de noviembre y una asociación de comerciantes presenta reclamación el 12 de noviembre por no haberse consignado crédito para una sentencia firme. El Pleno resuelve el 20 de diciembre desestimándola y aprueba definitivamente ese mismo día. El resumen por capítulos se publica en el BOP el 8 de enero de 2027. <b>¿Desde cuándo rige el presupuesto de 2027 y qué ocurre entre el 1 y el 8 de enero?</b>",
+  s:"<p><b>1) Defecto de plazo inicial:</b> la remisión al Pleno se hizo el 20 de octubre, incumpliendo el art. 168.4 (antes del 15 de octubre). Es una irregularidad de trámite reclamable por el art. 170.2.a), aunque no invalida por sí sola si no causa indefensión.</p><p><b>2) La reclamación:</b> la asociación está legitimada (art. 170.1.c) y el motivo encaja en el art. 170.2.b) — omisión de crédito para obligación exigible por título legítimo. El Pleno dispone de un mes para resolver (art. 169.1): resolver el 20 de diciembre está dentro de plazo si el de exposición terminó a mediados de noviembre.</p><p><b>3) Aprobación definitiva:</b> el 20 de diciembre, antes del 31 de diciembre. Cumple el art. 169.2.</p><p><b>4) Entrada en vigor:</b> el presupuesto <b>no entra en vigor hasta el 8 de enero</b>, porque el art. 169.5 la condiciona a la publicación del art. 169.3. Aprobar no es publicar.</p><p><b>5) Del 1 al 8 de enero:</b> rige la <b>prórroga automática</b> del presupuesto de 2026 con sus <b>créditos iniciales</b> (art. 169.6), sin necesidad de acuerdo alguno. Quedan fuera de la prórroga los créditos de programas que debían concluir en 2026 y los financiados con ingresos afectados.</p>"},
+ {t:"Caso 2 · ¿Anexo o documentación?",
+  e:"La interventora de una diputación revisa el expediente del presupuesto y encuentra estos documentos: (1) memoria explicativa, (2) estado de consolidación, (3) anexo de personal, (4) estado de previsión de la deuda, (5) informe económico-financiero, (6) programas anuales de actuación de una sociedad participada al 60 %, (7) anexo de beneficios fiscales. <b>Clasifícalos y detecta si falta algo.</b>",
+  s:"<p><b>Anexos del art. 166.1:</b> (2) estado de consolidación [letra c], (4) estado de previsión de la deuda [letra d], (6) programas anuales de la sociedad participada al 60 % [letra b: 'titular único <b>o partícipe mayoritario</b>' — encaja pese a no ser del 100 %].</p><p><b>Documentación del art. 168.1:</b> (1) memoria [a], (3) anexo de personal [c], (5) informe económico-financiero [g], (7) anexo de beneficios fiscales [e].</p><p><b>Faltan:</b> la <b>liquidación del ejercicio anterior y el avance del corriente</b> referido al menos a seis meses [168.1.b], el <b>anexo de inversiones del ejercicio</b> [168.1.d] y el <b>anexo de convenios con la CCAA en materia de gasto social</b> [168.1.f]. Como anexo potestativo podría faltar además el plan de inversiones a cuatro años [166.1.a].</p><p><b>Ojo:</b> esa sociedad al 60 % aporta anexo pero <b>no</b> se integra en el presupuesto general, porque el art. 164.1.c) exige capital <b>íntegramente</b> local.</p>"},
+ {t:"Caso 3 · La reclamación que no cabe",
+  e:"Un partido de la oposición presenta, dentro del plazo de exposición pública, una reclamación en la que sostiene que el presupuesto destina demasiado dinero a fiestas y poco a servicios sociales, y que la previsión de ingresos por venta de parcelas (4 M€) es irreal porque no hay comprador. <b>¿Prospera?</b>",
+  s:"<p><b>Primer motivo (prioridades de gasto): NO cabe.</b> El art. 170.2 dice «únicamente»: la lista de causas es tasada y no incluye la discrepancia sobre la orientación política del gasto. Es una cuestión de oportunidad, que se ventila en el debate y la votación, no en la reclamación.</p><p><b>Segundo motivo (ingresos irreales): SÍ cabe</b>, por la vía del art. 170.2.c) — manifiesta insuficiencia de los ingresos en relación con los gastos presupuestados. Está atacando la <b>nivelación</b> exigida por el art. 165.4.</p><p><b>Continuación:</b> si el Pleno desestima y el asunto llega al contencioso-administrativo, como la impugnación afecta a la nivelación presupuestaria, el <b>Tribunal de Cuentas deberá informar previamente a la resolución del recurso</b> (art. 171.2). Y el presupuesto seguirá aplicándose mientras tanto (art. 171.3).</p>"}
+];
+const SEMAFORO=[
+ "Distinguir gasto (máximo) de ingreso (previsión) — art. 162",
+ "Imputación temporal de derechos y obligaciones — art. 163",
+ "Los tres integrantes del presupuesto general — art. 164",
+ "Contenido y principios: no afectación, bruto, sin déficit — art. 165",
+ "Los cuatro anexos y su diferencia con la documentación — art. 166",
+ "Clasificaciones y aplicación presupuestaria — art. 167",
+ "Los siete documentos y el calendario 15-SEP / 15-OCT — art. 168",
+ "Exposición, aprobación definitiva y entrada en vigor — art. 169",
+ "La prórroga automática y sus límites — art. 169.6",
+ "Legitimación y causas tasadas de reclamación — art. 170",
+ "Régimen del recurso contencioso-administrativo — art. 171"
+];
+</script>
+<script>
+const main=document.getElementById('main');
+function panel(id,title,body,cls){return '<details class="panel '+(cls||'v-expl')+'"'+(id?' data-p="'+id+'"':'')+'><summary>'+title+'</summary><div class="body">'+body+'</div></details>';}
+let html='';
+
+/* ---------- INTRO ---------- */
+html+='<section class="card" id="intro"><h2>Cómo usar esta página</h2>'
++'<p class="small">Estás trabajando la <b>Sección 1.ª (Contenido y aprobación)</b> del Capítulo I del Título VI del TRLHL: los diez artículos que explican qué es el presupuesto local, qué lleva dentro y cómo se aprueba. Es el núcleo del tema 8 del temario.</p>'
++'<ul class="small"><li>Los bloques azules son <b>texto legal literal</b>. El resto es explicación.</li>'
++'<li>Las palabras <span class="t" data-k="credito">subrayadas con puntos</span> abren su definición al pasar el ratón o pulsarlas.</li>'
++'<li>Con el botón <b>Texto legal / Explicación / Ambos</b> cambias de vista; con <b>Desplegar todo</b> abres los paneles.</li>'
++'<li>Al final tienes tabla de plazos, casos prácticos, tarjetas, test y semáforo de autoevaluación.</li></ul>'
++'<div class="box warn"><span class="lbl">Advertencia de vigencia</span>El documento de la biblioteca refleja el texto consolidado del RDLeg 2/2004 <b>actualizado a 28 de enero de 2026</b>. Verifica siempre la vigencia en el BOE consolidado antes de dar por buena una redacción para un examen.</div>'
++'<svg viewBox="0 0 660 250" role="img" aria-label="Mapa conceptual de los artículos 162 a 171">'
++'<rect x="240" y="8" width="180" height="36" rx="9" fill="var(--acc)" stroke="var(--acc)"/><text x="330" y="31" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">PRESUPUESTO LOCAL</text>'
++'<line x1="330" y1="44" x2="330" y2="60" stroke="var(--acc)" stroke-width="2"/><line x1="120" y1="60" x2="540" y2="60" stroke="var(--acc)" stroke-width="2"/>'
++'<line x1="120" y1="60" x2="120" y2="78" stroke="var(--acc)" stroke-width="2"/><line x1="330" y1="60" x2="330" y2="78" stroke="var(--acc)" stroke-width="2"/><line x1="540" y1="60" x2="540" y2="78" stroke="var(--acc)" stroke-width="2"/>'
++'<rect x="25" y="78" width="190" height="150" rx="9" fill="var(--acc-soft)" stroke="var(--acc)"/>'
++'<text x="120" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">QUÉ ES</text>'
++'<text x="120" y="124" text-anchor="middle" font-size="11" fill="currentColor">162 · definición</text>'
++'<text x="120" y="144" text-anchor="middle" font-size="11" fill="currentColor">163 · año natural</text>'
++'<text x="120" y="164" text-anchor="middle" font-size="11" fill="currentColor">164 · qué integra</text>'
++'<text x="120" y="184" text-anchor="middle" font-size="11" fill="currentColor">165 · qué contiene</text>'
++'<text x="120" y="212" text-anchor="middle" font-size="10" fill="var(--ink2)">el documento</text>'
++'<rect x="235" y="78" width="190" height="150" rx="9" fill="var(--ej-bg)" stroke="var(--ej)"/>'
++'<text x="330" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">CÓMO SE PRESENTA</text>'
++'<text x="330" y="128" text-anchor="middle" font-size="11" fill="currentColor">166 · anexos</text>'
++'<text x="330" y="152" text-anchor="middle" font-size="11" fill="currentColor">167 · estructura</text>'
++'<text x="330" y="176" text-anchor="middle" font-size="11" fill="currentColor">168 · elaboración</text>'
++'<text x="330" y="212" text-anchor="middle" font-size="10" fill="var(--ink2)">forma y trámite</text>'
++'<rect x="445" y="78" width="190" height="150" rx="9" fill="var(--warn-bg)" stroke="var(--warn)"/>'
++'<text x="540" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)">CÓMO SE CIERRA</text>'
++'<text x="540" y="128" text-anchor="middle" font-size="11" fill="currentColor">169 · aprobación</text>'
++'<text x="540" y="152" text-anchor="middle" font-size="11" fill="currentColor">170 · reclamación</text>'
++'<text x="540" y="176" text-anchor="middle" font-size="11" fill="currentColor">171 · recurso</text>'
++'<text x="540" y="212" text-anchor="middle" font-size="10" fill="var(--ink2)">control y defensa</text>'
++'</svg></section>';
+
+/* ---------- ARTÍCULOS ---------- */
+ARTS.forEach(function(a){
+ html+='<section class="card art" id="art'+a.n+'">'
+ +'<h2><span class="num">Art. '+a.n+'</span> '+a.t+'</h2>'
+ +'<p class="ubic">'+a.ubic+'</p>'
+ +'<div class="idea v-expl">💡 '+a.idea+'</div>'
+ +'<div class="legal v-legal"><span class="lbl">Texto legal · literal</span>'+a.literal+'</div>'
+ +panel('','🔍 Disección estructural',a.dis)
+ +panel('','🗣️ Traducción a lenguaje llano',a.llano)
+ +panel('','❓ ¿Por qué existe este artículo?',a.porque)
+ +panel('','✅ Ejemplos','<div class="box ej"><span class="lbl">Ejemplos</span>'+a.ej+'</div>')
+ +panel('','🚫 No-ejemplos: dónde está la frontera','<div class="box exc"><span class="lbl">No-ejemplos</span>'+a.noej+'</div>')
+ +panel('','🔗 Conexiones con otros preceptos',a.conex)
+ +panel('','⚠️ Trampas y errores frecuentes','<div class="box warn"><span class="lbl">Cuidado</span>'+a.trampas+'</div>')
+ +panel('','🧠 Anclaje memorístico',a.ancla)
+ +'<div class="v-expl">'+a.vis+'</div>'
+ +'</section>';
+});
+
+/* ---------- PLAZOS ---------- */
+html+='<section class="card" id="plazos"><h2>Tabla de plazos y cifras</h2>'
++'<p class="small">Pulsa en las cabeceras para ordenar. Si solo te llevas una cosa de esta sesión, que sea esta tabla.</p>'
++'<table id="tplazos"><thead><tr><th class="sortable">Plazo / cifra</th><th class="sortable">Trámite</th><th class="sortable">Quién</th><th class="sortable">Art.</th><th>Matiz</th></tr></thead><tbody>';
+PLAZOS.forEach(function(p){html+='<tr><td><b>'+p[0]+'</b></td><td>'+p[1]+'</td><td>'+p[2]+'</td><td>'+p[3]+'</td><td class="small">'+p[4]+'</td></tr>';});
+html+='</tbody></table></section>';
+
+/* ---------- CASOS ---------- */
+html+='<section class="card" id="casos"><h2>Casos prácticos</h2><p class="small">Intenta resolverlos <b>antes</b> de abrir la solución: el esfuerzo de recuperar es lo que fija el aprendizaje.</p>';
+CASOS.forEach(function(c,i){
+ html+='<details class="panel"><summary>'+c.t+'</summary><div class="body"><p>'+c.e+'</p>'
+ +'<button class="revelar" data-i="'+i+'">Ver solución</button><div class="sol hide" id="sol'+i+'">'+c.s+'</div></div></details>';
+});
+html+='</section>';
+
+/* ---------- FLASHCARDS ---------- */
+html+='<section class="card noprint" id="flash"><h2>Flashcards</h2>'
++'<div id="fcbox" style="border:1px solid var(--line);border-radius:12px;padding:1.1rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer" tabindex="0" role="button" aria-label="Tarjeta: pulsa para girar"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.7rem">'
++'<button id="fcflip">Girar</button><button id="fcok">✔ Lo sabía</button><button id="fcko">↻ Repasar</button><button id="fcreset">Reiniciar</button>'
++'<span class="small" id="fccount"></span></div></section>';
+
+/* ---------- TEST ---------- */
+html+='<section class="card noprint" id="test"><h2>Test de autoevaluación</h2>'
++'<p class="small">Preguntas intercaladas de los diez artículos. Corrección inmediata y explicación de por qué falla cada opción incorrecta.</p>'
++'<div id="testbox"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem"><button id="tcorr">Corregir todo</button><button id="tfail">Repetir solo los fallos</button><button id="treset">Reiniciar test</button></div>'
++'<p id="tscore" class="small" style="margin-top:.6rem"></p></section>';
+
+/* ---------- SEMÁFORO ---------- */
+html+='<section class="card" id="semaforo"><h2>Semáforo de autoevaluación</h2>'
++'<p class="small">Marca honestamente cada concepto. Abajo se genera tu lista de repaso.</p><div id="sembox"></div>'
++'<div id="semres" style="margin-top:.8rem"></div></section>';
+
+/* ---------- RESUMEN ---------- */
+html+='<section class="card" id="resumen"><h2>Resumen ejecutivo</h2>'
++'<table><tbody>'
++'<tr><th style="width:70px">162</th><td>Expresión <b>cifrada, conjunta y sistemática</b>. Gastos = máximo; ingresos = previsión.</td></tr>'
++'<tr><th>163</th><td>Ejercicio = <b>año natural</b>. Se imputan derechos <b>liquidados</b> y obligaciones <b>reconocidas</b>.</td></tr>'
++'<tr><th>164</th><td>Integra: entidad + organismos autónomos + estados de previsión de sociedades <b>100 %</b>. OOAA: administrativos / comerciales-industriales-financieros.</td></tr>'
++'<tr><th>165</th><td>Contiene gastos, ingresos y <b>bases de ejecución</b>. Principios: no afectación · importe íntegro · <b>sin déficit inicial</b> en cada presupuesto.</td></tr>'
++'<tr><th>166</th><td>Cuatro anexos: planes de inversión (<b>4 años</b>) · programas de sociedades (único o mayoritario) · consolidación · deuda.</td></tr>'
++'<tr><th>167</th><td>Estructura del Ministerio. Programas (área ▸ política ▸ grupo ▸ programa) + económica (capítulo ▸ artículo ▸ concepto). <b>Aplicación presupuestaria</b> = cruce de ambas.</td></tr>'
++'<tr><th>168</th><td>Lo forma el <b>Presidente</b> con siete documentos; OOAA y sociedades antes del <b>15-SEP</b>; al Pleno antes del <b>15-OCT</b>, informado por Intervención; acuerdo <b>único</b>.</td></tr>'
++'<tr><th>169</th><td><b>15 días</b> de exposición · <b>1 mes</b> para resolver reclamaciones · definitiva antes del <b>31-DIC</b> · entra en vigor con la <b>publicación</b> resumida por capítulos · <b>prórroga automática</b> con créditos iniciales.</td></tr>'
++'<tr><th>170</th><td>Interesados: <b>H</b>abitantes · <b>A</b>fectados directos · <b>C</b>olectivos. Causas tasadas: <b>T</b>rámites · <b>O</b>misión de crédito · <b>M</b>anifiesta insuficiencia.</td></tr>'
++'<tr><th>171</th><td>Contencioso <b>directo</b> · Tribunal de Cuentas si afecta a la <b>nivelación</b> · <b>no suspende</b> por sí solo.</td></tr>'
++'</tbody></table>'
++'<h2 style="margin-top:1.2rem">Calendario de repaso espaciado</h2>'
++'<table><thead><tr><th>Momento</th><th>Fecha</th><th>Qué hacer</th></tr></thead><tbody id="calbody"></tbody></table>'
++'</section>';
+
+/* ---------- GLOSARIO ---------- */
+html+='<section class="card" id="glosario"><h2>Glosario completo</h2><table><tbody id="glosbody"></tbody></table></section>';
+
+main.innerHTML=html;
+</script>
+<script>
+/* ---------- ÍNDICE LATERAL ---------- */
+(function(){
+ var n='<h2>Artículos</h2>';
+ ARTS.forEach(function(a){n+='<a href="#art'+a.n+'"><b>'+a.n+'</b>'+a.t+'</a>';});
+ n+='<h2>Herramientas</h2>'
+  +'<a href="#plazos">Tabla de plazos</a><a href="#casos">Casos prácticos</a><a href="#flash">Flashcards</a>'
+  +'<a href="#test">Test</a><a href="#semaforo">Semáforo</a><a href="#resumen">Resumen y repaso</a><a href="#glosario">Glosario</a>';
+ document.getElementById('navbody').innerHTML=n;
+})();
+document.getElementById('navtoggle').onclick=function(){
+ var s=document.getElementById('side');s.classList.toggle('collapsed');
+ this.setAttribute('aria-expanded',s.classList.contains('collapsed')?'false':'true');
+};
+
+/* ---------- GLOSARIO Y TOOLTIPS ---------- */
+var LABEL={presupuesto:"Presupuesto",credito:"Crédito presupuestario",obligacion:"Obligación reconocida",derecho:"Derecho liquidado",oa:"Organismo autónomo",sociedad:"Sociedad mercantil local",bases:"Bases de ejecución",estabilidad:"Estabilidad presupuestaria",afectacion:"Principio de no afectación",bruto:"Principio de presupuesto bruto",nivelacion:"Nivelación presupuestaria",aplicacion:"Aplicación presupuestaria",vinculacion:"Nivel de vinculación jurídica",intervencion:"Intervención",pleno:"Pleno",bop:"Boletín Oficial de la Provincia",prorroga:"Prórroga presupuestaria",interesado:"Interesado",liquidacion:"Liquidación del presupuesto",tcuentas:"Tribunal de Cuentas",conten:"Recurso contencioso-administrativo"};
+(function(){var g='';Object.keys(GLOSARIO).forEach(function(k){g+='<tr><th style="width:210px">'+(LABEL[k]||k)+'</th><td>'+GLOSARIO[k]+'</td></tr>';});
+ document.getElementById('glosbody').innerHTML=g;})();
+var tip=document.getElementById('tip');
+function showTip(el){var k=el.getAttribute('data-k');if(!GLOSARIO[k])return;
+ tip.innerHTML='<b>'+(LABEL[k]||k)+'</b><br>'+GLOSARIO[k];tip.style.display='block';
+ var r=el.getBoundingClientRect();var top=r.bottom+8;var left=Math.min(r.left,window.innerWidth-340);
+ if(top+tip.offsetHeight>window.innerHeight)top=Math.max(8,r.top-tip.offsetHeight-8);
+ tip.style.top=top+'px';tip.style.left=Math.max(8,left)+'px';}
+function hideTip(){tip.style.display='none';}
+document.addEventListener('mouseover',function(e){var t=e.target.closest('.t');if(t)showTip(t);});
+document.addEventListener('mouseout',function(e){if(e.target.closest('.t'))hideTip();});
+document.addEventListener('click',function(e){var t=e.target.closest('.t');if(t){e.preventDefault();showTip(t);}else hideTip();});
+
+/* ---------- VISTA LEGAL / EXPLICACIÓN ---------- */
+document.querySelectorAll('[data-view]').forEach(function(b){
+ b.onclick=function(){
+  document.querySelectorAll('[data-view]').forEach(function(x){x.setAttribute('aria-pressed','false');});
+  b.setAttribute('aria-pressed','true');
+  var v=b.getAttribute('data-view');
+  document.querySelectorAll('.v-legal').forEach(function(e){e.classList.toggle('hide',v==='expl');});
+  document.querySelectorAll('.v-expl').forEach(function(e){e.classList.toggle('hide',v==='legal');});
+ };});
+
+/* ---------- DESPLEGAR / TEMA / FUENTE ---------- */
+var openAll=false;
+document.getElementById('expand').onclick=function(){
+ openAll=!openAll;document.querySelectorAll('details.panel').forEach(function(d){d.open=openAll;});
+ this.textContent=openAll?'Plegar todo':'Desplegar todo';};
+document.getElementById('theme').onclick=function(){
+ var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
+var fs=16;
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);document.documentElement.style.setProperty('--fs',fs+'px');};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);document.documentElement.style.setProperty('--fs',fs+'px');};
+
+/* ---------- PROGRESO Y NAV ACTIVA ---------- */
+window.addEventListener('scroll',function(){
+ var h=document.body.scrollHeight-window.innerHeight;
+ document.getElementById('prog').style.width=(h>0?(window.scrollY/h*100):0)+'%';
+ var cur=null;document.querySelectorAll('section.card').forEach(function(s){
+  if(s.getBoundingClientRect().top<120)cur=s.id;});
+ document.querySelectorAll('nav.side a').forEach(function(a){
+  a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ---------- BUSCADOR ---------- */
+var q=document.getElementById('q'),timer=null;
+function clearMarks(){document.querySelectorAll('mark.hit').forEach(function(m){
+ var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});}
+q.addEventListener('input',function(){
+ clearTimeout(timer);timer=setTimeout(function(){
+  clearMarks();
+  var term=q.value.trim();
+  document.querySelectorAll('section.card').forEach(function(s){s.classList.remove('hide');});
+  if(term.length<3)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  document.querySelectorAll('section.card').forEach(function(s){
+   var found=false;
+   var w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT,null);var nodes=[];
+   while(w.nextNode()){var nd=w.currentNode;
+    if(nd.parentNode.closest('script,style,mark'))continue;
+    if(rx.test(nd.nodeValue)){nodes.push(nd);rx.lastIndex=0;}}
+   nodes.forEach(function(nd){
+    found=true;
+    var span=document.createElement('span');
+    span.innerHTML=nd.nodeValue.replace(rx,function(m){return '<mark class="hit">'+m+'</mark>';});
+    nd.parentNode.replaceChild(span,nd);});
+   if(found){s.querySelectorAll('details.panel').forEach(function(d){if(d.querySelector('mark.hit'))d.open=true;});}
+   s.classList.toggle('hide',!found);
+  });
+ },220);});
+
+/* ---------- CASOS ---------- */
+document.querySelectorAll('.revelar').forEach(function(b){
+ b.onclick=function(){var s=document.getElementById('sol'+b.getAttribute('data-i'));
+  s.classList.toggle('hide');b.textContent=s.classList.contains('hide')?'Ver solución':'Ocultar solución';};});
+
+/* ---------- TABLA ORDENABLE ---------- */
+(function(){var t=document.getElementById('tplazos');var dir={};
+ t.querySelectorAll('th.sortable').forEach(function(th,i){
+  th.onclick=function(){
+   var tb=t.tBodies[0];var rows=[].slice.call(tb.rows);
+   dir[i]=!dir[i];
+   rows.sort(function(a,b){var x=a.cells[i].innerText.trim(),y=b.cells[i].innerText.trim();
+    return dir[i]?x.localeCompare(y,'es',{numeric:true}):y.localeCompare(x,'es',{numeric:true});});
+   rows.forEach(function(r){tb.appendChild(r);});};});})();
+
+/* ---------- FLASHCARDS ---------- */
+var order=FLASH.map(function(_,i){return i;}),fi=0,flipped=false,ok=0,ko=0;
+function drawFC(){
+ var box=document.getElementById('fcbox');
+ if(!order.length){box.innerHTML='<b>¡Ronda terminada!</b><br><span class="small">Pulsa Reiniciar para volver a empezar.</span>';
+  document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko;return;}
+ if(fi>=order.length)fi=0;
+ var c=FLASH[order[fi]];
+ box.innerHTML=flipped?'<div class="small" style="color:var(--acc);margin-bottom:.4rem">RESPUESTA</div><div>'+c[1]+'</div>'
+  :'<div class="small" style="color:var(--ink2);margin-bottom:.4rem">PREGUNTA '+(fi+1)+' / '+order.length+'</div><div style="font-weight:600;font-size:1.05rem">'+c[0]+'</div><div class="small" style="margin-top:.6rem;color:var(--ink2)">Piensa la respuesta y pulsa para girar</div>';
+ document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko+' · Quedan: '+order.length;
+}
+function flip(){flipped=!flipped;drawFC();}
+document.getElementById('fcbox').onclick=flip;
+document.getElementById('fcbox').onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
+document.getElementById('fcflip').onclick=flip;
+document.getElementById('fcok').onclick=function(){if(!order.length)return;ok++;order.splice(fi,1);flipped=false;drawFC();};
+document.getElementById('fcko').onclick=function(){if(!order.length)return;ko++;var m=order.splice(fi,1)[0];order.push(m);flipped=false;drawFC();};
+document.getElementById('fcreset').onclick=function(){order=FLASH.map(function(_,i){return i;});fi=0;ok=0;ko=0;flipped=false;drawFC();};
+drawFC();
+
+/* ---------- TEST ---------- */
+var state=TEST.map(function(){return{ans:null,done:false,right:false};});
+var visible=TEST.map(function(_,i){return i;});
+function drawTest(){
+ var h='';
+ visible.forEach(function(qi){
+  var t=TEST[qi],s=state[qi];
+  h+='<div style="border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;margin:.55rem 0" data-q="'+qi+'">';
+  h+='<div style="font-weight:600"><span class="chip">Art. '+t.a+'</span> '+t.q+'</div>';
+  if(t.o){
+   t.o.forEach(function(op,oi){
+    var mark='';
+    if(s.done){if(op[1])mark=' style="background:var(--ej-bg);border-color:var(--ej)"';
+     else if(s.ans===oi)mark=' style="background:var(--exc-bg);border-color:var(--exc)"';}
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'"'+mark+' style="'+(mark?mark.slice(8,-1):'')+';border:1px solid '+(s.ans===oi&&!s.done?'var(--acc)':'var(--line)')+';border-radius:8px;padding:.35rem .6rem;margin:.3rem 0;cursor:pointer">'+String.fromCharCode(97+oi)+') '+op[0]
+     +(s.done?'<div class="small" style="margin-top:.2rem">'+op[2]+'</div>':'')+'</div>';});
+  }else if(t.vf){
+   [['Verdadero',true],['Falso',false]].forEach(function(p,oi){
+    var sel=s.ans===oi;
+    var col=s.done?((p[1]===t.ok)?'var(--ej)':(sel?'var(--exc)':'var(--line)')):(sel?'var(--acc)':'var(--line)');
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'" style="display:inline-block;border:1px solid '+col+';border-radius:8px;padding:.3rem .9rem;margin:.3rem .4rem .3rem 0;cursor:pointer">'+p[0]+'</div>';});
+   if(s.done)h+='<div class="small" style="margin-top:.3rem">'+t.fb+'</div>';
+  }else{
+   h+='<input type="text" class="gap" data-q="'+qi+'" value="'+(s.ans||'')+'" placeholder="escribe tu respuesta" style="margin-top:.4rem;padding:.35rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);width:260px">';
+   if(s.done)h+='<div class="small" style="margin-top:.3rem;color:'+(s.right?'var(--ej)':'var(--exc)')+'">'+(s.right?'Correcto. ':'Respuesta correcta: <b>'+t.gap+'</b>. ')+t.fb+'</div>';
+  }
+  h+='</div>';});
+ document.getElementById('testbox').innerHTML=h;
+ document.querySelectorAll('.opt').forEach(function(o){
+  o.onclick=function(){var qi=+o.getAttribute('data-q');if(state[qi].done)return;
+   state[qi].ans=+o.getAttribute('data-o');drawTest();};});
+ document.querySelectorAll('.gap').forEach(function(g){
+  g.oninput=function(){state[+g.getAttribute('data-q')].ans=g.value;};});
+}
+function norm(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+document.getElementById('tcorr').onclick=function(){
+ var n=0,tot=visible.length;
+ visible.forEach(function(qi){var t=TEST[qi],s=state[qi];s.done=true;
+  if(t.o)s.right=(t.o[s.ans]&&t.o[s.ans][1]===1);
+  else if(t.vf)s.right=((s.ans===0)===t.ok);
+  else s.right=norm(s.ans)===norm(t.gap);
+  if(s.right)n++;});
+ drawTest();
+ var pct=tot?Math.round(n/tot*100):0;
+ document.getElementById('tscore').innerHTML='<b>Resultado: '+n+' / '+tot+' ('+pct+' %).</b> '
+  +(pct>=90?'Dominas el bloque. Pasa a los artículos 172 y siguientes.':pct>=70?'Buen nivel: repasa los fallos y vuelve mañana.':'Aún no está fijado: relee los artículos de los fallos y repite el test.');
+};
+document.getElementById('tfail').onclick=function(){
+ var f=visible.filter(function(qi){return state[qi].done&&!state[qi].right;});
+ if(!f.length){document.getElementById('tscore').innerHTML='<b>No hay fallos que repetir.</b>';return;}
+ visible=f;f.forEach(function(qi){state[qi]={ans:null,done:false,right:false};});
+ drawTest();document.getElementById('tscore').textContent='Repitiendo '+f.length+' preguntas falladas.';
+};
+document.getElementById('treset').onclick=function(){
+ state=TEST.map(function(){return{ans:null,done:false,right:false};});
+ visible=TEST.map(function(_,i){return i;});drawTest();document.getElementById('tscore').textContent='';};
+drawTest();
+
+/* ---------- SEMÁFORO ---------- */
+var sem=SEMAFORO.map(function(){return 0;});
+function drawSem(){
+ var h='<table><tbody>';
+ SEMAFORO.forEach(function(c,i){
+  h+='<tr><td>'+c+'</td><td style="width:150px;white-space:nowrap">'
+   +['🟢','🟡','🔴'].map(function(e,j){
+     var on=sem[i]===j+1;
+     return '<button class="sembtn" data-i="'+i+'" data-v="'+(j+1)+'" style="font-size:1rem;padding:.15rem .35rem;margin-right:.2rem;border-color:'+(on?'var(--acc)':'var(--line)')+';background:'+(on?'var(--acc-soft)':'var(--panel)')+'">'+e+'</button>';}).join('')
+   +'</td></tr>';});
+ h+='</tbody></table>';
+ document.getElementById('sembox').innerHTML=h;
+ document.querySelectorAll('.sembtn').forEach(function(b){
+  b.onclick=function(){sem[+b.getAttribute('data-i')]=+b.getAttribute('data-v');drawSem();};});
+ var rojos=[],ambar=[];
+ sem.forEach(function(v,i){if(v===3)rojos.push(SEMAFORO[i]);if(v===2)ambar.push(SEMAFORO[i]);});
+ var r='';
+ if(rojos.length)r+='<div class="box exc"><span class="lbl">Repasa hoy mismo</span><ul><li>'+rojos.join('</li><li>')+'</li></ul></div>';
+ if(ambar.length)r+='<div class="box warn"><span class="lbl">Refuerza en 24 h</span><ul><li>'+ambar.join('</li><li>')+'</li></ul></div>';
+ if(!rojos.length&&!ambar.length&&sem.some(function(v){return v===1;}))r='<div class="box ej"><span class="lbl">Bien</span>Todo lo marcado está en verde. Consolida con el test y vuelve en 3 días.</div>';
+ document.getElementById('semres').innerHTML=r;
+}
+drawSem();
+
+/* ---------- CALENDARIO DE REPASO ---------- */
+(function(){
+ var hoy=new Date();
+ function f(d){var x=new Date(hoy.getTime());x.setDate(x.getDate()+d);
+  return x.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});}
+ var filas=[
+  ['Hoy',f(0),'Lectura activa + test completo + marcar el semáforo.'],
+  ['+24 horas',f(1),'Solo flashcards y tabla de plazos. Sin releer el texto.'],
+  ['+3 días',f(3),'Test repitiendo únicamente los fallos + caso práctico 1.'],
+  ['+7 días',f(7),'Explicar en voz alta los arts. 168 y 169 sin mirar. Casos 2 y 3.'],
+  ['+21 días',f(21),'Test completo intercalado con los artículos nuevos que hayas trabajado.']
+ ];
+ document.getElementById('calbody').innerHTML=filas.map(function(r){
+  return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('');
+})();
+</script>
+<script>
+/* ═══ Mejoras de interacción · Bloque II ═══ */
+(function(){
+"use strict";
+var K_THEME="oposi_bII_theme", K_FS="oposi_bII_fs", K_STREAK="oposi_bII_streak";
+function load(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return f;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var root=document.documentElement;
+
+/* Tema persistente (sobrescribe el toggle simple anterior) */
+var saved=load(K_THEME,null);
+if(saved){root.setAttribute("data-theme",saved);}
+else if(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches){root.setAttribute("data-theme","dark");}
+var bt=document.getElementById("theme");
+if(bt)bt.onclick=function(){
+  var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-theme",n);save(K_THEME,n);
+};
+
+/* Tamaño de texto persistente */
+var fs=load(K_FS,16);
+function setFs(v){fs=Math.max(13,Math.min(22,v));root.style.setProperty("--fs",fs+"px");save(K_FS,fs);}
+setFs(fs);
+var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
+if(bp)bp.onclick=function(){setFs(fs+1);};
+if(bm)bm.onclick=function(){setFs(fs-1);};
+
+/* Racha compartida con el índice */
+(function(){
+  var el=document.getElementById("streakN");if(!el)return;
+  var hoy=new Date().toISOString().slice(0,10);
+  var s=load(K_STREAK,{last:null,n:0});
+  if(s.last!==hoy){
+    var ayer=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    s.n=(s.last===ayer)?s.n+1:1;s.last=hoy;save(K_STREAK,s);
+  }
+  el.textContent=s.n;
+})();
+
+/* Reveal on scroll para las tarjetas */
+function reveal(){
+  var els=document.querySelectorAll("section.card:not(.rv)");
+  if(!els.length)return;
+  if(!("IntersectionObserver" in window)){return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:"0px 0px -30px 0px"});
+  Array.prototype.forEach.call(els,function(el){el.classList.add("rv");io.observe(el);});
+}
+
+/* Sección activa en el índice lateral */
+function spy(){
+  var links=document.querySelectorAll("nav.side a[href^='#']");
+  if(!links.length||!("IntersectionObserver" in window))return;
+  var map={};
+  Array.prototype.forEach.call(links,function(a){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(t)map[t.id]=a;
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        Array.prototype.forEach.call(links,function(a){a.classList.remove("on");});
+        if(map[en.target.id])map[en.target.id].classList.add("on");
+      }
+    });
+  },{rootMargin:"-80px 0px -70% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* Ripple en botones */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.classList.contains("navtoggle"))return;
+  var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement("span");
+  s.className="ripple";s.style.width=s.style.height=d+"px";
+  s.style.left=(e.clientX-r.left-d/2)+"px";s.style.top=(e.clientY-r.top-d/2)+"px";
+  b.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},560);
+});
+
+/* Atajos de teclado */
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea"))return;
+  if(e.key==="/"){var q=document.getElementById("q");if(q){e.preventDefault();q.focus();}}
+  if(e.key==="t"&&bt)bt.click();
+});
+
+/* El contenido se inyecta por JS: esperamos a que exista */
+function init(){reveal();spy();}
+if(document.getElementById("main")&&document.getElementById("main").children.length){init();}
+else{setTimeout(init,60);}
+addEventListener("load",function(){setTimeout(init,80);});
+})();
+
+</script>
+<script>
+
+/* ═══ Parser de respuestas: estructura semántica ═══ */
+var FCFMT=(function(){
+  var CITA=/\s*\(((?:arts?\.|DA\b|DT\b|disp\.)[^)]*)\)\s*\.?\s*$/i;
+  var strip=function(h){return h.replace(/<[^>]+>/g,"");};
+
+  function esc(s){return s;}
+
+  function parse(raw){
+    var out={verdict:null,cite:null,kind:"p",items:[],text:""};
+    var body=String(raw).trim();
+
+    /* 1 ── Cita legal al final */
+    var m=body.match(CITA);
+    if(m){out.cite=m[1].replace(/\s+/g," ").trim();body=body.slice(0,m.index).trim();}
+    body=body.replace(/[.;,\s]+$/,"");
+
+    /* 2 ── Veredicto Sí / No inicial */
+    var v=strip(body).match(/^(Sí|Sí,|No|No,)[.:,]?\s/);
+    if(v){
+      out.verdict=/^Sí/.test(v[1])?"si":"no";
+      body=body.replace(/^(<[^>]+>\s*)*(Sí|No)[.,:]?\s*/,"").trim();
+      body=body.replace(/^en\s/,"En ");
+    }
+
+    /* 3 ── Enumeración con · */
+    var parts=body.split(/\s+·\s+/);
+    if(parts.length>=2){
+      out.kind="list";
+      var letras=parts.filter(function(p){return /^\s*<?[a-h]\)/.test(strip(p));}).length;
+      out.marker = letras>=parts.length-1 ? "alpha" : "num";
+      out.items=parts.map(function(p){
+        return p.replace(/^\s*[a-h]\)\s*/,"").replace(/[.\s]+$/,"").trim();
+      }).filter(Boolean);
+      return out;
+    }
+
+    /* 4 ── Cláusulas contrapuestas con ; */
+    var semi=body.split(/;\s+/);
+    if(semi.length>=2&&semi.length<=3&&semi.every(function(s){return strip(s).length>14;})){
+      out.kind="clauses";
+      out.items=semi.map(function(s){return s.replace(/[.\s]+$/,"").trim();});
+      return out;
+    }
+
+    /* 5 ── Párrafo */
+    out.text=body;
+    return out;
+  }
+
+  function render(raw){
+    var d=parse(raw),h="";
+
+    if(d.verdict){
+      h+='<span class="fc-verdict '+d.verdict+'">'+(d.verdict==="si"?"✓ Sí":"✗ No")+'</span>';
+    }
+
+    if(d.kind==="list"){
+      h+='<ol class="fc-list '+d.marker+'">';
+      d.items.forEach(function(it){h+='<li>'+it+'</li>';});
+      h+='</ol>';
+    }else if(d.kind==="clauses"){
+      h+='<div class="fc-clauses">';
+      d.items.forEach(function(it){h+='<p>'+it+'</p>';});
+      h+='</div>';
+    }else if(d.text){
+      h+='<p class="fc-p">'+d.text+'</p>';
+    }
+
+    if(d.cite){
+      h+='<span class="fc-cite"><span class="s">§</span>'+d.cite+'</span>';
+    }
+    return {html:h,struct:(d.kind!=="p"||!!d.verdict||strip(raw).length>150)};
+  }
+  return {parse:parse,render:render};
+})();
+
+/* ═══ FLASHCARDS 3D ═══ */
+(function(){
+"use strict";
+function boot(){
+  var sec=document.getElementById("flash");
+  if(!sec||sec.dataset.fc3d)return false;
+  if(typeof FLASH==="undefined"||!FLASH||!FLASH.length)return false;
+  sec.dataset.fc3d="1";
+
+  var CARDS=FLASH, N=CARDS.length;
+  var order,fi,ok,ko,back,busy;
+
+  /* — Estructura — */
+  var h2=sec.querySelector("h2");
+  sec.innerHTML="";
+  if(h2)sec.appendChild(h2);
+  var intro=document.createElement("p");
+  intro.className="small";
+  intro.innerHTML="Piensa la respuesta <b>antes</b> de girar: el esfuerzo de recuperarla es lo que la fija. "
+    +'<span class="fc-hint" style="position:static;display:inline;color:inherit">'
+    +'<span class="kbd">espacio</span> girar · <span class="kbd">→</span> lo sabía · <span class="kbd">←</span> repasar</span>';
+  sec.appendChild(intro);
+
+  var stage=document.createElement("div");
+  stage.className="fc-stage";
+  stage.innerHTML=
+    '<div class="fc-deck" id="fcdeck">'
+    +'<span class="fc-ghost g2"></span><span class="fc-ghost g1"></span>'
+    +'<div class="fc-lift" id="fclift">'
+      +'<div class="fc-card" id="fcbox" tabindex="0" role="button" aria-label="Tarjeta. Pulsa para girar">'
+        +'<div class="fc-face fc-front">'
+          +'<span class="fc-tag">Pregunta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">Pulsa para girar</span>'
+        +'</div>'
+        +'<div class="fc-face fc-back">'
+          +'<span class="fc-tag">Respuesta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">¿La sabías?</span>'
+        +'</div>'
+      +'</div>'
+    +'</div></div>';
+  sec.appendChild(stage);
+
+  var bar=document.createElement("div");
+  bar.className="fc-bar";bar.innerHTML="<i></i>";
+  sec.appendChild(bar);
+
+  var ctr=document.createElement("div");
+  ctr.className="fc-ctrls noprint";
+  ctr.innerHTML='<button id="fcflip">⟲ Girar</button>'
+    +'<button id="fcok">✔ Lo sabía</button>'
+    +'<button id="fcko">↻ Repasar</button>'
+    +'<button id="fcreset">Reiniciar</button>'
+    +'<span class="fc-score">'
+      +'<span class="fc-pill ok" id="fcpok">0 sabidas</span>'
+      +'<span class="fc-pill ko" id="fcpko">0 repasar</span>'
+      +'<span class="fc-pill left" id="fccount">0</span>'
+    +'</span>';
+  sec.appendChild(ctr);
+
+  var deck=stage.querySelector("#fcdeck"), lift=stage.querySelector("#fclift"),
+      card=stage.querySelector("#fcbox"),
+      front=stage.querySelector(".fc-front"), backf=stage.querySelector(".fc-back"),
+      fill=bar.querySelector("i"),
+      pok=ctr.querySelector("#fcpok"), pko=ctr.querySelector("#fcpko"),
+      pleft=ctr.querySelector("#fccount");
+  var rot=0;
+
+  function reset(){
+    order=CARDS.map(function(_,i){return i;});
+    fi=0;ok=0;ko=0;back=false;busy=false;rot=0;
+    card.style.transition="none";card.style.transform="rotateY(0deg)";
+    void card.offsetWidth;card.style.transition="";
+    deck.classList.remove("empty");
+    var d=stage.querySelector(".fc-done");if(d)d.remove();
+    card.style.display="";
+    draw();
+  }
+
+  function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+
+  function draw(){
+    pok.textContent=ok+(ok===1?" sabida":" sabidas");
+    pko.textContent=ko+" repasar";
+    var done=N-order.length;
+    fill.style.width=(N?done/N*100:0)+"%";
+
+    if(!order.length){
+      pleft.textContent="0 quedan";
+      deck.classList.add("empty");
+      card.style.display="none";
+      if(!stage.querySelector(".fc-done")){
+        var d=document.createElement("div");
+        d.className="fc-done";
+        d.innerHTML='<span class="seal">🏆</span><h3>Ronda completada</h3>'
+          +'<p>'+ok+' de '+N+' a la primera'+(ko?' · '+ko+' necesitaron repaso':'')+'</p>';
+        deck.appendChild(d);
+      }
+      return;
+    }
+    if(fi>=order.length)fi=0;
+    pleft.textContent=order.length+(order.length===1?" queda":" quedan");
+
+    var c=CARDS[order[fi]];
+    front.querySelector(".fc-txt").innerHTML='<p class="fc-p">'+c[0]+'</p>';
+    var r=FCFMT.render(c[1]);
+    backf.querySelector(".fc-txt").innerHTML=r.html;
+    backf.classList.toggle("struct",r.struct);
+    var hint=backf.querySelector(".fc-hint");
+    if(hint)hint.classList.toggle("muted",/fc-cite/.test(r.html));
+    var pip=(done+1)+"/"+N;
+    Array.prototype.forEach.call(stage.querySelectorAll(".fc-pip"),function(p){p.textContent=pip;});
+  }
+
+  function flip(){
+    if(busy||!order.length)return;
+    back=!back;rot+=180;
+    card.style.transform="rotateY("+rot+"deg)";
+    card.setAttribute("aria-label",back?"Respuesta. Pulsa para volver":"Pregunta. Pulsa para girar");
+    lift.classList.remove("lift");void lift.offsetWidth;lift.classList.add("lift");
+  }
+
+  function next(good){
+    if(busy||!order.length)return;
+    busy=true;
+    if(good){ok++;bump(pok);}else{ko++;bump(pko);}
+    lift.classList.remove("lift");
+    lift.classList.add(good?"out-ok":"out-ko");
+    setTimeout(function(){
+      if(good){order.splice(fi,1);}
+      else{var m=order.splice(fi,1)[0];order.push(m);}
+      back=false;rot=0;
+      card.style.transition="none";card.style.transform="rotateY(0deg)";
+      void card.offsetWidth;card.style.transition="";
+      draw();
+      lift.classList.remove("out-ok","out-ko");
+      lift.classList.add("in");
+      setTimeout(function(){lift.classList.remove("in");busy=false;},480);
+    },460);
+  }
+
+  card.onclick=flip;
+  card.onkeydown=function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();flip();}
+    if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  };
+  ctr.querySelector("#fcflip").onclick=flip;
+  ctr.querySelector("#fcok").onclick=function(){next(true);};
+  ctr.querySelector("#fcko").onclick=function(){next(false);};
+  ctr.querySelector("#fcreset").onclick=reset;
+
+  /* Deslizar en táctil */
+  var x0=null,y0=null;
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  card.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){next(dx>0);}
+    x0=y0=null;
+  },{passive:true});
+
+  /* Atajos globales cuando el mazo está a la vista */
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    var r=stage.getBoundingClientRect();
+    if(r.bottom<80||r.top>innerHeight-80)return;
+    if(e.key===" "){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    else if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  });
+
+  reset();
+  return true;
+}
+if(!boot()){
+  var tries=0;
+  var iv=setInterval(function(){if(boot()||++tries>40)clearInterval(iv);},120);
+  addEventListener("load",function(){setTimeout(boot,100);});
+}
+})();
+
+</script>
+</body>
+</html>

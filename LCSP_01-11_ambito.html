@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>LCSP · Arts. 1-11 · Objeto y ámbito de aplicación de la Ley</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   SISTEMA DE DISEÑO · "Académico Gamificado" · Bloque II
+   Temas 8, 9 y 10 · Auxiliar Administrativo
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --fs:16px;
+
+  --bg:#faf9f7;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #dcf5ee 0%, transparent 50%);
+  --surface:#ffffff;
+  --surface-2:#f4f3f0;
+  --surface-3:#eceae5;
+  --line:#e6e3dc;
+  --line-strong:#d4d0c7;
+
+  --ink:#15161c;
+  --ink-2:#5d616e;
+  --ink-3:#8b8f9c;
+
+  --brand:#5b3df5;
+  --brand-2:#7c5cff;
+  --brand-soft:#efeaff;
+  --brand-ring:rgba(91,61,245,.18);
+
+  --legal:#4338ca;  --legal-bg:#eeecff;
+  --ej:#059669;     --ej-bg:#e4f7f0;
+  --warn:#c2690a;   --warn-bg:#fdf1de;
+  --exc:#dc2626;    --exc-bg:#ffeceb;
+
+  --ok:#16a34a; --ok-soft:#e7f7ec;
+  --mid:#eab308; --mid-soft:#fdf6dd;
+  --off:#a1a1aa; --off-soft:#f1f1f3;
+
+  --sh-1:0 1px 2px rgba(20,20,30,.04), 0 2px 8px rgba(20,20,30,.04);
+  --sh-2:0 2px 6px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.07);
+  --sh-3:0 8px 20px rgba(91,61,245,.13), 0 24px 56px rgba(20,20,30,.10);
+  --sh-glow:0 0 0 4px var(--brand-ring);
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-full:999px;
+
+  --f-display:"Segoe UI Variable Display",system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-legal:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+
+  --t-h1:clamp(1.02rem,.95rem + .3vw,1.2rem);
+  --t-h2:clamp(1.2rem,1.05rem + .6vw,1.55rem);
+  --t-h3:clamp(1rem,.95rem + .25vw,1.12rem);
+  --t-sm:.86rem;
+  --t-xs:.75rem;
+
+  --e-out:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+
+  /* ── Compatibilidad con SVG y contenido generado ── */
+  --panel:var(--surface);
+  --ink2:var(--ink-2);
+  --acc:var(--brand);
+  --acc-soft:var(--brand-soft);
+  --g:var(--ok); --y:var(--mid); --r:var(--exc);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0b0f;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #1c1740 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #08302b 0%, transparent 50%);
+  --surface:#13151b;
+  --surface-2:#1a1d25;
+  --surface-3:#232733;
+  --line:#262a34;
+  --line-strong:#343947;
+
+  --ink:#eceef4;
+  --ink-2:#9ba2b3;
+  --ink-3:#6e7585;
+
+  --brand:#8b6dff;
+  --brand-2:#a78bff;
+  --brand-soft:#1e1a3d;
+  --brand-ring:rgba(139,109,255,.22);
+
+  --legal:#a5b4fc; --legal-bg:#191b3a;
+  --ej:#34d399;    --ej-bg:#0c2a24;
+  --warn:#fbbf24;  --warn-bg:#2e2110;
+  --exc:#fb7185;   --exc-bg:#331119;
+
+  --ok:#4ade80; --ok-soft:#0e2a19;
+  --mid:#facc15; --mid-soft:#2c2610;
+  --off:#5b6070; --off-soft:#1c1f27;
+
+  --sh-1:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sh-2:0 2px 6px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.4);
+  --sh-3:0 8px 20px rgba(139,109,255,.2), 0 24px 56px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);background-image:var(--bg-grad);
+  background-attachment:fixed;background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s var(--e-out),color .3s;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.022em;line-height:1.2}
+.num{font-variant-numeric:tabular-nums}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+
+/* ═══ HEADER ═══ */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{max-width:1280px;margin:0 auto;padding:.65rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;flex:1}
+.mark{
+  width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  font-weight:800;font-size:.8rem;letter-spacing:-.02em;text-decoration:none;
+  box-shadow:0 4px 14px var(--brand-ring);
+  transition:transform .3s var(--e-spring),box-shadow .3s;
+}
+.mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0}
+.top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
+  margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+
+button,select,input[type=search]{
+  font:inherit;font-size:var(--t-sm);font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:var(--r-sm);padding:.4rem .72rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .18s var(--e-spring),border-color .2s,background .2s,box-shadow .2s,color .2s;
+}
+button:hover{transform:translateY(-1.5px);border-color:var(--brand);box-shadow:var(--sh-1)}
+button:active{transform:translateY(0) scale(.97)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:none;box-shadow:var(--sh-glow)}
+input[type=search]{min-width:190px;cursor:text;font-weight:500}
+input[type=search]:focus{border-color:var(--brand)}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);padding:2px;gap:2px}
+.seg button{border:0;border-radius:calc(var(--r-sm) - 2px);padding:.32rem .68rem;background:transparent;box-shadow:none}
+.seg button:hover{transform:none;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 2px 8px var(--brand-ring)}
+
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:currentColor;opacity:.25;animation:rip .55s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(3.4);opacity:0}}
+
+.progress{position:absolute;left:0;bottom:-1px;height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--brand),var(--legal),var(--ej));transition:width .1s linear}
+
+/* ═══ LAYOUT ═══ */
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:1.8rem;padding:1.4rem 1.1rem 5rem}
+main{min-width:0}
+
+/* ═══ SIDEBAR ═══ */
+nav.side{
+  position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:.85rem;box-shadow:var(--sh-1);
+}
+nav.side h2{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:.5rem .4rem .5rem;font-weight:800}
+nav.side h2:first-child{margin-top:.1rem}
+nav.side a{
+  display:flex;align-items:baseline;gap:.5rem;padding:.36rem .55rem;border-radius:var(--r-sm);
+  text-decoration:none;color:var(--ink-2);font-size:var(--t-sm);font-weight:500;
+  position:relative;transition:background .22s,color .22s,transform .22s var(--e-out);
+}
+nav.side a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(3px);text-decoration:none}
+nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side a.on::before{content:"";position:absolute;left:-.85rem;top:20%;bottom:20%;width:3px;
+  border-radius:0 3px 3px 0;background:var(--brand)}
+nav.side a b{color:var(--ink-3);font-weight:800;font-size:var(--t-xs);font-variant-numeric:tabular-nums;flex:none;min-width:1.9em}
+nav.side a.on b{color:var(--brand)}
+.navtoggle{display:none}
+
+/* ═══ TARJETAS ═══ */
+section.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.5rem;margin-bottom:1.1rem;box-shadow:var(--sh-1);
+  transition:box-shadow .3s var(--e-out),border-color .3s;
+}
+section.card:hover{box-shadow:var(--sh-2)}
+section.card>h2{
+  margin:0 0 1rem;font-size:var(--t-h2);font-weight:800;
+  display:flex;align-items:center;gap:.6rem;
+}
+section.card>h2::before{
+  content:"";width:4px;height:1.05em;border-radius:99px;flex:none;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+
+/* ═══ ARTÍCULO ═══ */
+.art{scroll-margin-top:86px;padding-top:.4rem}
+.art + .art{margin-top:1.6rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+.art h2{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;font-size:var(--t-h3);
+  margin:0 0 .25rem;font-weight:800;letter-spacing:-.015em}
+.art h2 .num{
+  color:var(--brand);font-weight:800;font-family:var(--f-display);
+  background:var(--brand-soft);padding:.1rem .5rem;border-radius:var(--r-sm);
+  font-size:.92em;letter-spacing:-.02em;
+}
+.ubic{font-size:var(--t-xs);color:var(--ink-3);margin:0 0 .8rem;font-weight:600;
+  letter-spacing:.03em;text-transform:uppercase}
+
+/* ═══ IDEA CLAVE ═══ */
+.idea{
+  background:linear-gradient(100deg,var(--brand-soft),color-mix(in srgb,var(--brand-soft) 40%,transparent));
+  border-left:4px solid var(--brand);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.75rem 1rem;font-weight:650;margin:.7rem 0 1rem;position:relative;
+  font-size:.97rem;line-height:1.55;
+}
+
+/* ═══ ACORDEÓN ═══ */
+details.panel{
+  border:1px solid var(--line);border-radius:var(--r-md);margin:.6rem 0;
+  background:var(--surface);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+details.panel:hover{border-color:var(--line-strong)}
+details.panel[open]{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring)}
+details.panel>summary{
+  cursor:pointer;padding:.62rem .9rem;font-weight:700;font-size:.93rem;
+  list-style:none;display:flex;align-items:center;gap:.55rem;
+  transition:background .2s,color .2s;
+}
+details.panel>summary:hover{background:var(--surface-2)}
+details.panel[open]>summary{background:var(--brand-soft);color:var(--brand)}
+details.panel>summary::-webkit-details-marker{display:none}
+details.panel>summary::before{
+  content:"";width:16px;height:16px;flex:none;border-radius:5px;
+  background:var(--brand-soft);position:relative;transition:transform .3s var(--e-spring),background .25s;
+}
+details.panel>summary::after{
+  content:"";position:absolute;width:0;height:0;margin-left:5px;
+  border:4px solid transparent;border-left-color:var(--brand);
+  transition:transform .3s var(--e-spring);
+}
+details.panel[open]>summary::before{background:var(--surface)}
+details.panel[open]>summary::after{transform:rotate(90deg) translateX(-1px)}
+details.panel .body{padding:.3rem 1rem 1rem;font-size:.95rem;animation:slidein .35s var(--e-out)}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ═══ TEXTO LEGAL ═══ */
+.legal{
+  background:var(--legal-bg);border-left:4px solid var(--legal);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:.85rem 1.05rem;
+  font-family:var(--f-legal);font-size:.95rem;line-height:1.7;
+}
+.legal p{margin:.45rem 0}
+.legal .lbl{
+  font-family:var(--f-body);font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--legal);font-weight:800;display:block;margin-bottom:.4rem;
+}
+
+/* ═══ CAJAS SEMÁNTICAS ═══ */
+.box{
+  border-left:4px solid var(--line);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.72rem .95rem;margin:.65rem 0;font-size:.94rem;
+  transition:transform .25s var(--e-out),box-shadow .25s;
+}
+.box:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
+.box.ej{background:var(--ej-bg);border-color:var(--ej)}
+.box.warn{background:var(--warn-bg);border-color:var(--warn)}
+.box.exc{background:var(--exc-bg);border-color:var(--exc)}
+.box .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+  display:block;margin-bottom:.3rem}
+.box.ej .lbl{color:var(--ej)}
+.box.warn .lbl{color:var(--warn)}
+.box.exc .lbl{color:var(--exc)}
+
+.interp{
+  border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn-bg) 45%,transparent);
+  border-radius:var(--r-md);padding:.65rem .9rem;font-size:.9rem;margin:.6rem 0;
+}
+.interp .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);font-weight:800;display:block}
+
+/* ═══ TABLAS ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;margin:.7rem 0;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+th,td{padding:.5rem .68rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td + td, th + th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-size:var(--t-xs);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+tbody tr{transition:background .18s}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+tbody tr:hover{background:var(--brand-soft)}
+th.sortable{cursor:pointer;user-select:none;transition:color .2s,background .2s}
+th.sortable:hover{color:var(--brand);background:var(--brand-soft)}
+th.sortable::after{content:" ⇅";color:var(--ink-3);font-size:.7rem}
+
+ul,ol{margin:.5rem 0 .5rem 1.2rem;padding:0}
+li{margin:.26rem 0}
+li::marker{color:var(--brand);font-weight:700}
+
+/* ═══ TOOLTIPS ═══ */
+.t{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;
+  transition:background .2s,color .2s}
+.t:hover{background:var(--brand-soft);color:var(--brand);border-radius:3px}
+#tip{
+  position:fixed;z-index:99;max-width:330px;background:var(--ink);color:var(--bg);
+  padding:.6rem .78rem;border-radius:var(--r-md);font-size:.82rem;line-height:1.5;
+  display:none;box-shadow:0 8px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);
+}
+html[data-theme="dark"] #tip{background:#f0f1f5;color:#15161c}
+
+/* ═══ FLECHAS DE DIAGRAMA ═══
+   Un <path> con stroke pero sin fill toma el valor inicial (negro) y el
+   navegador cierra el trazo implícitamente: aparece un triángulo relleno
+   entre sus extremos. Forzamos fill:none para dejar solo la línea + la
+   punta del <marker>, que sí lleva su color. */
+svg path[stroke]:not([fill]){fill:none}
+svg polyline:not([fill]){fill:none}
+svg line{fill:none}
+
+/* ═══ SVG ═══ */
+svg{max-width:100%;height:auto;display:block;margin:.9rem auto}
+svg text{font-family:var(--f-body)}
+
+/* ═══ BUSCADOR ═══ */
+mark.hit{background:linear-gradient(180deg,transparent 55%,#ffe066 55%);color:inherit;
+  border-radius:2px;padding:0 1px;font-weight:600}
+html[data-theme="dark"] mark.hit{background:linear-gradient(180deg,transparent 55%,#8a6d00 55%);color:#fff}
+
+/* ═══ UTILIDADES ═══ */
+.hide{display:none !important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.small{font-size:var(--t-sm);color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:var(--t-xs);padding:.16rem .55rem;border-radius:var(--r-full);
+  background:var(--brand-soft);color:var(--brand);font-weight:800;letter-spacing:.02em;
+}
+
+/* ═══ HUECOS RELLENABLES ═══ */
+.gap{
+  display:inline-block;min-width:5.5em;border-bottom:2px solid var(--brand);
+  text-align:center;font-weight:700;color:transparent;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.gap.on,.gap:hover{color:var(--brand);background:var(--brand-soft);border-radius:4px 4px 0 0}
+
+/* ═══ REVELAR SOLUCIÓN ═══ */
+.revelar{
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;
+  font-weight:700;
+}
+.revelar:hover{box-shadow:var(--sh-3)}
+.sol{
+  margin-top:.7rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  background:var(--ej-bg);border-left:4px solid var(--ej);
+  animation:slidein .4s var(--e-out);
+}
+
+/* ═══ TEST ═══ */
+.opt{
+  display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;background:var(--surface);font-size:.94rem;
+  transition:border-color .22s,background .22s,transform .22s var(--e-out);
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateX(4px)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:650}
+.opt.ko{border-color:var(--exc);background:var(--exc-bg)}
+.opt input{margin-right:.5rem;accent-color:var(--brand)}
+
+#tscore,#semres{
+  font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLASHCARDS 3D · mazo con giro, vuelo de salida y sheen
+   ═══════════════════════════════════════════════════════════════ */
+#flash{--fc-e:cubic-bezier(.2,.8,.25,1);--fc-h:250px}
+
+/* — Escena — */
+.fc-stage{
+  perspective:1400px;perspective-origin:50% 45%;
+  padding:.4rem 0 .2rem;position:relative;
+}
+.fc-deck{position:relative;height:var(--fc-h);will-change:transform}
+
+/* — Cartas fantasma del mazo — */
+.fc-ghost{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .5s var(--fc-e),opacity .5s var(--fc-e);
+}
+.fc-ghost.g1{transform:translateY(9px) scale(.972);opacity:.75}
+.fc-ghost.g2{transform:translateY(18px) scale(.944);opacity:.45}
+.fc-deck.empty .fc-ghost{opacity:0;transform:translateY(26px) scale(.9)}
+
+/* — Elevación durante el giro — */
+.fc-lift{position:absolute;inset:0;transform-style:preserve-3d}
+.fc-lift.lift{animation:fcLift .78s var(--fc-e)}
+@keyframes fcLift{
+  0%,100%{transform:scale(1) translateY(0)}
+  45%{transform:scale(1.055) translateY(-16px)}
+}
+.fc-lift.out-ok{animation:fcOut .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.out-ko{animation:fcOutKo .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.in{animation:fcIn .48s var(--fc-e)}
+@keyframes fcOut{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(130%) rotate(17deg) scale(.85);opacity:0}
+}
+@keyframes fcOutKo{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(-130%) rotate(-17deg) scale(.85);opacity:0}
+}
+@keyframes fcIn{
+  0%{transform:translateY(26px) scale(.9);opacity:0}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+
+/* — La carta — */
+.fc-card{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transition:transform .78s var(--fc-e);
+  cursor:pointer;border-radius:var(--r-lg);
+}
+.fc-card:focus-visible{outline:none}
+.fc-card:focus-visible .fc-face{box-shadow:var(--sh-glow),var(--sh-2)}
+
+/* — Caras — */
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 2.2rem;text-align:center;overflow:hidden;
+  box-shadow:var(--sh-2);
+  transition:box-shadow .4s var(--fc-e);
+}
+.fc-card:hover .fc-face{box-shadow:var(--sh-3)}
+
+/* Anverso · pregunta */
+.fc-front{
+  background:
+    radial-gradient(120% 90% at 50% -20%, var(--brand-soft) 0%, transparent 60%),
+    var(--surface);
+  border:1.5px solid var(--line);color:var(--ink);
+}
+/* Reverso · respuesta */
+.fc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,var(--brand) 0%,#6d4bf7 45%,var(--c5,#0891b2) 130%);
+  border:1.5px solid transparent;color:#fff;
+}
+html[data-theme="dark"] .fc-back{
+  background:linear-gradient(145deg,#5f45c9 0%,#4b3aa8 45%,#0e6b85 130%);
+}
+.fc-back .fc-txt{color:#fff}
+.fc-back b,.fc-back strong{color:#fff;font-weight:800}
+
+/* — Sheen que barre al girar — */
+.fc-face::after{
+  content:"";position:absolute;top:-60%;left:-70%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);opacity:0;pointer-events:none;
+}
+.fc-lift.lift .fc-face::after{animation:fcSheen .78s var(--fc-e)}
+@keyframes fcSheen{
+  0%{opacity:0;left:-70%}
+  35%{opacity:1}
+  100%{opacity:0;left:150%}
+}
+
+/* — Etiqueta superior — */
+.fc-tag{
+  position:absolute;top:1rem;left:1.15rem;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.fc-front .fc-tag{color:var(--brand)}
+.fc-back .fc-tag{color:rgba(255,255,255,.9)}
+.fc-tag::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+  animation:fcPulse 2.2s ease-in-out infinite;
+}
+@keyframes fcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* — Índice tipo naipe — */
+.fc-pip{
+  position:absolute;font-family:var(--f-display);font-weight:800;
+  font-size:.78rem;letter-spacing:-.02em;opacity:.34;font-variant-numeric:tabular-nums;
+}
+.fc-pip.tr{top:1rem;right:1.15rem}
+.fc-pip.bl{bottom:1rem;left:1.15rem;transform:rotate(180deg)}
+.fc-front .fc-pip{color:var(--ink-2)}
+.fc-back .fc-pip{color:#fff;opacity:.55}
+
+/* — Texto — */
+.fc-txt{
+  font-size:clamp(1rem,.9rem + .55vw,1.28rem);font-weight:650;line-height:1.5;
+  max-width:44ch;letter-spacing:-.012em;
+}
+.fc-front .fc-txt{font-family:var(--f-display);font-weight:700}
+.fc-back .fc-txt{font-weight:600;line-height:1.6}
+.fc-hint{
+  position:absolute;bottom:1rem;left:0;right:0;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.fc-front .fc-hint{color:var(--ink-3)}
+.fc-back .fc-hint{color:rgba(255,255,255,.72)}
+.fc-hint .kbd{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:700;padding:.1rem .32rem;
+  border-radius:5px;border:1px solid currentColor;opacity:.75;
+}
+
+/* — Pantalla final — */
+.fc-done{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--ok-soft),var(--surface) 70%);
+  border:1.5px solid var(--ok);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;gap:.35rem;
+  animation:fcIn .5s var(--fc-e);box-shadow:var(--sh-2);
+}
+.fc-done .seal{
+  font-size:2.6rem;line-height:1;
+  animation:fcSeal .7s cubic-bezier(.2,1.5,.4,1);
+}
+@keyframes fcSeal{0%{transform:scale(0) rotate(-25deg);opacity:0}60%{transform:scale(1.2) rotate(6deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.fc-done h3{font-size:1.3rem;font-weight:800;margin:.2rem 0 0}
+.fc-done p{margin:0;color:var(--ink-2);font-size:var(--t-sm)}
+
+/* — Barra de progreso de la ronda — */
+.fc-bar{
+  height:6px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;margin:.95rem 0 .8rem;position:relative;
+}
+.fc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand),var(--c5,#0891b2));
+  transition:width .55s var(--fc-e);
+}
+
+/* — Controles — */
+.fc-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.fc-ctrls button{font-weight:700}
+#fcok{border-color:var(--ok);color:var(--ok)}
+#fcok:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+#fcko{border-color:var(--warn);color:var(--warn)}
+#fcko:hover{background:var(--warn);color:#fff;border-color:var(--warn)}
+#fcflip{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+#fcflip:hover{box-shadow:var(--sh-3)}
+
+.fc-score{display:inline-flex;gap:.45rem;margin-left:auto;align-items:center}
+.fc-pill{
+  font-size:var(--t-xs);font-weight:800;padding:.24rem .6rem;border-radius:var(--r-full);
+  font-variant-numeric:tabular-nums;border:1px solid;
+}
+.fc-pill.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.fc-pill.ko{color:var(--warn);border-color:var(--warn);background:var(--warn-bg)}
+.fc-pill.left{color:var(--ink-2);border-color:var(--line);background:var(--surface-2)}
+.fc-pill.bump{animation:fcBump .45s var(--e-spring)}
+@keyframes fcBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+@media(max-width:620px){
+  #flash{--fc-h:270px}
+  .fc-face{padding:1.7rem 1.3rem}
+  .fc-score{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-card{transition:none}
+  .fc-lift.lift,.fc-lift.in,.fc-lift.out-ok,.fc-lift.out-ko,.fc-face::after{animation:none !important}
+}
+@media print{.fc-stage,.fc-ctrls,.fc-bar{display:none !important}}
+/* ═══ RESPUESTA ESTRUCTURADA ═══ */
+.fc-face{justify-content:center}
+.fc-face.struct{justify-content:flex-start;text-align:left;padding-top:3.1rem;padding-bottom:3.1rem}
+.fc-body{
+  width:100%;max-width:46ch;margin:0 auto;
+  overflow-y:auto;max-height:100%;
+  scrollbar-width:thin;
+}
+.fc-body::-webkit-scrollbar{width:5px}
+.fc-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:99px;border:0}
+.fc-front .fc-body::-webkit-scrollbar-thumb{background:var(--line-strong)}
+
+/* — Veredicto Sí / No — */
+.fc-verdict{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-display);font-weight:800;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.26rem .72rem;border-radius:var(--r-full);margin-bottom:.85rem;
+  border:1.5px solid;animation:fcPopIn .45s var(--e-spring) backwards;animation-delay:.34s;
+}
+.fc-verdict.si{background:rgba(255,255,255,.16);border-color:rgba(190,255,215,.85);color:#d8ffe9}
+.fc-verdict.no{background:rgba(255,255,255,.16);border-color:rgba(255,205,205,.85);color:#ffdedd}
+@keyframes fcPopIn{0%{opacity:0;transform:scale(.7) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* — Párrafo — */
+.fc-p{margin:0;font-size:clamp(1rem,.92rem + .45vw,1.2rem);font-weight:600;line-height:1.6}
+.fc-face.struct .fc-p{font-size:clamp(.96rem,.9rem + .35vw,1.1rem)}
+
+/* — Lista enumerada — */
+.fc-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;counter-reset:fc}
+.fc-list li{
+  counter-increment:fc;position:relative;margin:0;
+  padding:.42rem .6rem .42rem 2.5rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.11);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.45;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-list li::before{
+  content:counter(fc);position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.9);color:var(--brand);
+  font-family:var(--f-display);font-weight:800;font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.fc-list.alpha li::before{content:counter(fc,lower-alpha)}
+.fc-list li:nth-child(1){animation-delay:.36s}
+.fc-list li:nth-child(2){animation-delay:.42s}
+.fc-list li:nth-child(3){animation-delay:.48s}
+.fc-list li:nth-child(4){animation-delay:.54s}
+.fc-list li:nth-child(5){animation-delay:.60s}
+.fc-list li:nth-child(n+6){animation-delay:.66s}
+@keyframes fcRow{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:none}}
+
+/* — Cláusulas contrapuestas — */
+.fc-clauses{display:grid;gap:.45rem}
+.fc-clauses p{
+  margin:0;padding:.45rem .7rem .45rem .95rem;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:rgba(255,255,255,.11);border-left:3px solid rgba(255,255,255,.55);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.5;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-clauses p:nth-child(1){animation-delay:.36s}
+.fc-clauses p:nth-child(2){animation-delay:.44s}
+.fc-clauses p:nth-child(3){animation-delay:.52s}
+
+/* — Negritas resaltadas en el reverso — */
+.fc-back .fc-body b,.fc-back .fc-body strong{
+  font-weight:800;background:rgba(255,255,255,.2);
+  padding:.03em .3em;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+
+/* — Cita legal al pie — */
+.fc-cite{
+  position:absolute;bottom:.95rem;left:0;right:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;letter-spacing:.02em;
+  color:rgba(255,255,255,.82);
+  animation:fcPopIn .5s var(--e-out) backwards;animation-delay:.5s;
+}
+.fc-cite::before,.fc-cite::after{
+  content:"";height:1px;width:clamp(18px,10%,52px);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45));
+}
+.fc-cite::after{background:linear-gradient(90deg,rgba(255,255,255,.45),transparent)}
+.fc-cite .s{font-size:.9rem;opacity:.75;font-family:var(--f-legal)}
+.fc-front .fc-cite{color:var(--ink-3)}
+.fc-front .fc-cite::before{background:linear-gradient(90deg,transparent,var(--line-strong))}
+.fc-front .fc-cite::after{background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+/* la pista se oculta si hay cita, para no amontonar */
+.fc-back .fc-cite ~ .fc-hint,.fc-back .fc-hint.muted{display:none}
+
+@media(max-width:620px){
+  #flash{--fc-h:320px}
+  .fc-face.struct{padding-top:2.9rem;padding-bottom:2.8rem}
+  .fc-list li{padding-left:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-verdict,.fc-list li,.fc-clauses p,.fc-cite{animation:none !important}
+}
+
+/* ═══ SEMÁFORO ═══ */
+.sembtn{
+  border-radius:var(--r-full);padding:.32rem .7rem;font-weight:700;font-size:var(--t-sm);
+}
+.sembtn[data-v="g"]:hover,.sembtn.on[data-v="g"]{background:var(--ok);color:#fff;border-color:var(--ok)}
+.sembtn[data-v="y"]:hover,.sembtn.on[data-v="y"]{background:var(--mid);color:#3d2f00;border-color:var(--mid)}
+.sembtn[data-v="r"]:hover,.sembtn.on[data-v="r"]{background:var(--exc);color:#fff;border-color:var(--exc)}
+
+/* ═══ CTA DE BLOQUE ═══ */
+a.blk{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  padding:.5rem .95rem;border-radius:var(--r-sm);font-weight:700;font-size:var(--t-sm);
+  text-decoration:none;box-shadow:0 2px 10px var(--brand-ring);
+  transition:transform .22s var(--e-spring),box-shadow .25s,gap .25s var(--e-out);
+}
+a.blk:hover{transform:translateY(-2px);box-shadow:var(--sh-3);gap:.75rem;text-decoration:none}
+a.blk::after{content:"→"}
+a.blk:active{transform:translateY(0) scale(.98)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr;padding-top:.9rem;gap:1rem}
+  nav.side{position:static;max-height:none}
+  nav.side.collapsed .navbody{display:none}
+  .navtoggle{display:block;width:100%;text-align:left;font-weight:700}
+  .grid2{grid-template-columns:1fr}
+  .top h1 .sub{white-space:normal}
+}
+@media(max-width:620px){
+  .top-in{padding:.55rem .8rem}
+  .tools{width:100%;margin-left:0}
+  input[type=search]{flex:1;min-width:0}
+  section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
+  table{font-size:.82rem}
+  th,td{padding:.4rem .5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  header.top,nav.side,.tools,.noprint,.progress{display:none !important}
+  body{background:#fff;background-image:none;font-size:11pt;color:#000}
+  .layout{display:block;max-width:none;padding:0}
+  section.card{border:0;padding:0;margin:0 0 1rem;break-inside:avoid;box-shadow:none}
+  details.panel{border:0;box-shadow:none}
+  details.panel .body{display:block !important}
+  details.panel>summary{padding-left:0}
+  .art{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  a{color:#000;text-decoration:none}
+}
+
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brandwrap">
+    <a class="mark" href="INDICE_temas_8_9_10.html" title="Volver al índice">T9</a>
+    <h1>Real Decreto Legislativo 2/2004 · TRLHL
+      <span class="sub">Ley 9/2017 · Título Preliminar, Capítulo I — Objeto y ámbito de aplicación · Arts. 1 a 11 (tema 9)</span>
+    </h1>
+    </div>
+    <div class="tools noprint">
+      <input type="search" id="q" placeholder="Buscar en la página…" aria-label="Buscar">
+      <span class="seg" role="group" aria-label="Modo de vista">
+        <button data-view="legal" aria-pressed="false">Texto legal</button>
+        <button data-view="expl" aria-pressed="false">Explicación</button>
+        <button data-view="both" aria-pressed="true">Ambos</button>
+      </span>
+      <button id="fs-" aria-label="Reducir texto">A−</button>
+      <button id="fs+" aria-label="Aumentar texto">A+</button>
+      <span class="streak" id="streak" title="Días seguidos estudiando" style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);font-weight:800;font-size:.8rem">🔥<span class="num" id="streakN">0</span></span>
+      <button id="theme" aria-label="Cambiar tema">◐</button>
+      <button id="expand">Desplegar todo</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="progress" id="prog"></div>
+</header>
+<div class="layout">
+<nav class="side collapsed" id="side" aria-label="Índice">
+  <button class="navtoggle" id="navtoggle" aria-expanded="false">☰ Índice</button>
+  <div class="navbody" id="navbody"></div>
+</nav>
+<main id="main"></main>
+</div>
+<script>
+const GLOSARIO={
+ "presupuesto":"Documento contable y jurídico, aprobado por el Pleno, que fija el techo de gasto de un ejercicio y estima los ingresos con los que se financia. Ej.: el presupuesto de Utrera para 2026 autoriza gastar como máximo 78 M€.",
+ "credito":"Crédito presupuestario: la cantidad máxima de dinero autorizada para una finalidad concreta. Ej.: 120.000 € en la aplicación de 'mantenimiento de colegios'.",
+ "obligacion":"Obligación reconocida: la deuda que el Ayuntamiento admite formalmente que debe pagar, una vez comprobado que el servicio o suministro se ha prestado. Ej.: aprobada la factura del proveedor, nace la obligación.",
+ "derecho":"Derecho liquidado: el importe concreto que un tercero debe a la entidad local, una vez cuantificado. Ej.: liquidado el IBI de un inmueble en 340 €, ese es el derecho.",
+ "oa":"Organismo autónomo: ente con personalidad jurídica propia creado por la entidad local para gestionar un servicio (patronatos de deportes, de cultura, gerencias de urbanismo). Depende del Ayuntamiento pero tiene su propio presupuesto.",
+ "sociedad":"Sociedad mercantil local: empresa con forma de S.A. o S.L. cuyo capital pertenece a la entidad local (p. ej. la empresa municipal de aguas). No aprueba 'presupuesto', sino estados de previsión de gastos e ingresos.",
+ "bases":"Bases de ejecución: el 'reglamento de uso' del presupuesto. Adaptan las normas presupuestarias generales a la organización concreta de la entidad. Ej.: fijan qué órgano autoriza gastos de hasta 3.000 €.",
+ "estabilidad":"Estabilidad presupuestaria: exigencia de que las cuentas públicas no incurran en déficit estructural. Ej.: un ayuntamiento no puede presupuestar más gasto no financiero que ingresos no financieros.",
+ "afectacion":"No afectación: regla general de que todos los ingresos financian todo el gasto, sin que un ingreso concreto quede reservado a un gasto concreto. Ej.: lo recaudado por el IBI no está reservado a pagar el alumbrado.",
+ "bruto":"Principio de presupuesto bruto (o de integridad): derechos y obligaciones se anotan por su importe total, sin compensar unos con otros. Ej.: no se puede anotar la subvención 'ya descontados' los gastos del programa.",
+ "nivelacion":"Nivelación presupuestaria: que el total de ingresos previstos cubra el total de gastos autorizados; es decir, aprobar sin déficit inicial.",
+ "aplicacion":"Aplicación presupuestaria: la 'casilla' exacta donde vive cada euro de gasto, formada al cruzar la clasificación por programas con la económica. Ej.: 323/22103 (funcionamiento de centros docentes / combustibles).",
+ "vinculacion":"Nivel de vinculación jurídica: el nivel de agregación en el que el crédito es realmente limitativo; por debajo de él se puede mover el gasto sin tramitar una modificación de crédito (art. 172 TRLHL).",
+ "intervencion":"Intervención: el órgano de control interno de la entidad local, con función de fiscalización previa del gasto y de informe preceptivo del presupuesto. Lo desempeña un funcionario de habilitación nacional.",
+ "pleno":"Pleno: órgano colegiado formado por todos los concejales o diputados. Es el único competente para aprobar el presupuesto.",
+ "bop":"Boletín Oficial de la Provincia: diario oficial donde las entidades locales publican sus anuncios y acuerdos con efectos frente a terceros.",
+ "prorroga":"Prórroga presupuestaria: si el 1 de enero no ha entrado en vigor el presupuesto nuevo, sigue rigiendo automáticamente el anterior con sus créditos iniciales.",
+ "interesado":"Interesado: quien está legitimado para intervenir en un procedimiento. En el presupuesto, la ley define expresamente quiénes lo son (art. 170.1).",
+ "liquidacion":"Liquidación del presupuesto: cierre contable del ejercicio, que determina los derechos y obligaciones pendientes, el remanente de tesorería y el resultado presupuestario.",
+ "tcuentas":"Tribunal de Cuentas: órgano fiscalizador externo de las cuentas y la gestión económica del sector público, dependiente de las Cortes Generales.",
+ "conten":"Recurso contencioso-administrativo: impugnación ante los juzgados y tribunales de lo contencioso-administrativo, es decir, ya fuera de la propia Administración.",
+ "oneroso":"Contrato oneroso: aquel en el que el contratista obtiene algún tipo de beneficio económico, directo o indirecto. Es el rasgo que convierte un negocio en contrato sujeto a la LCSP.","pa":"Administración Pública (a efectos de la LCSP): subconjunto del sector público formado por las entidades de las letras a), b), c) y l) del art. 3.1 y ciertos consorcios y entidades de derecho público que no se financian con ingresos de mercado. Son las únicas que celebran contratos administrativos.","poderadj":"Poder adjudicador: entidad que, aunque no sea Administración Pública, está sometida a las reglas de contratación por estar financiada, controlada o dirigida mayoritariamente por el sector público y satisfacer necesidades de interés general no industriales ni mercantiles.","sectorpub":"Sector público (a efectos de la LCSP): el círculo más amplio del art. 3.1, que va de la Administración General del Estado a las asociaciones constituidas por cualquiera de esas entidades.","cpv":"Vocabulario común de contratos públicos (CPV): nomenclatura europea de códigos que identifica de forma uniforme el objeto de cada contrato. Ej.: 45233222-1 = trabajos de pavimentación.","sara":"Contrato sujeto a regulación armonizada (SARA): el que, por su tipo, entidad contratante y valor estimado, queda sometido a las reglas de las directivas europeas, con más publicidad y recurso especial.","necint":"Necesidades de interés general que no tengan carácter industrial o mercantil: criterio europeo para identificar a un poder adjudicador. Se refiere a actividades que el mercado no cubre en condiciones normales de competencia y riesgo.","convenio":"Convenio: acuerdo entre entidades públicas (o con privados) con contenido distinto del propio de un contrato, sin contraprestación de mercado. Si su contenido es el de un contrato, no cabe llamarlo convenio para eludir la ley.","encomienda":"Encomienda de gestión: encargo de la realización material de actividades entre órganos o entidades administrativas, regulado en la LRJSP. No implica cesión de titularidad ni de los elementos sustantivos de la competencia.","patrimonial":"Contrato patrimonial: negocio sobre bienes inmuebles, valores negociables y propiedades incorporales (compraventa, arrendamiento, permuta…). Es privado y se rige por la legislación patrimonial.","domipub":"Dominio público: bienes destinados a un uso o servicio público. Su uso privativo se otorga por autorizaciones y concesiones demaniales, no por contratos de la LCSP.","principios":"Principios de la contratación pública: libertad de acceso, publicidad y transparencia, no discriminación e igualdad de trato, integridad y eficiencia en el uso de los fondos públicos."
+};
+const ARTS=[{n:1,t:"Objeto y finalidad",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 1.ª (Objeto y ámbito de aplicación)",idea:"Regular la contratación pública para que sea limpia, competitiva y eficiente.",literal:`<p>1. La presente Ley tiene por objeto regular la contratación del sector público, a fin de garantizar que la misma se ajusta a los principios de libertad de acceso a las licitaciones, publicidad y transparencia de los procedimientos, y no discriminación e igualdad de trato entre los licitadores; y de asegurar, en conexión con el objetivo de estabilidad presupuestaria y control del gasto, y el principio de integridad, una eficiente utilización de los fondos destinados a la realización de obras, la adquisición de bienes y la contratación de servicios mediante la exigencia de la definición previa de las necesidades a satisfacer, la salvaguarda de la libre competencia y la selección de la oferta económicamente más ventajosa.</p><p>2. Es igualmente objeto de esta Ley la regulación del régimen jurídico aplicable a los efectos, cumplimiento y extinción de los contratos administrativos, en atención a los fines institucionales de carácter público que a través de los mismos se tratan de realizar.</p><p>3. En toda contratación pública se incorporarán de manera transversal y preceptiva criterios sociales y medioambientales siempre que guarde relación con el objeto del contrato, en la convicción de que su inclusión proporciona una mejor relación calidad-precio en la prestación contractual, así como una mayor y mejor eficiencia en la utilización de los fondos públicos. Igualmente se facilitará el acceso a la contratación pública de las pequeñas y medianas empresas, así como de las empresas de economía social.</p>`,dis:`<table><thead><tr><th>Apdo.</th><th>Contenido</th><th>Palabras clave</th></tr></thead><tbody>
+<tr><td>1.1</td><td>Objeto: regular la contratación del sector público</td><td><b>Principios</b>: libertad de acceso · publicidad y transparencia · no discriminación e igualdad de trato · integridad · eficiencia. <b>Instrumentos</b>: definición previa de las necesidades · salvaguarda de la libre competencia · selección de la <b>oferta económicamente más ventajosa</b></td></tr>
+<tr><td>1.2</td><td>Objeto también: régimen jurídico de <b>efectos, cumplimiento y extinción</b> de los contratos administrativos</td><td>por sus fines institucionales de carácter público</td></tr>
+<tr><td>1.3</td><td>Criterios <b>sociales y medioambientales</b> de manera <b>transversal y preceptiva</b>, siempre que guarden relación con el objeto del contrato</td><td>+ facilitar el acceso de <b>PYMES</b> y <b>empresas de economía social</b></td></tr>
+</tbody></table>`,llano:`<p>Cuando la Administración compra, no puede elegir a quien le apetezca ni pagar lo que quiera. Esta ley existe para que cualquiera pueda presentarse, para que se sepa lo que se contrata y por cuánto, para que nadie tenga ventaja y para que el dinero público rinda. Y desde 2017, además, para que cada contrato empuje objetivos sociales y ambientales y para que las pequeñas empresas puedan participar.</p>`,porque:`<p>La contratación pública mueve en torno al 10-15 % del PIB. Sin reglas, sería el terreno natural del favoritismo y de la corrupción. Los principios del art. 1.1 no son decorativos: son el <b>canon de interpretación</b> de toda la ley, y los tribunales los usan para resolver lo que la letra no prevé. El apartado 3 marca el cambio de filosofía de la LCSP: la compra pública deja de ser solo un gasto y pasa a ser una <b>política pública</b>.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> las normas de un concurso de plazas: bases públicas, mismos requisitos para todos y un criterio de selección conocido de antemano.</li>
+<li><b>Real:</b> el Ayuntamiento de Sevilla licita la limpieza de colegios por 3,4 M€. Publica el anuncio, admite a cualquier empresa que reúna la solvencia exigida, incluye como criterio la estabilidad de la plantilla y divide el contrato en lotes para que puedan concurrir PYMES.</li>
+<li><b>Caso límite:</b> un criterio de adjudicación que premie tener sede en el municipio: vulnera la no discriminación del art. 1.1, aunque persiga un fin social, porque no guarda relación con el objeto del contrato.</li>
+</ul>`,noej:`<ul>
+<li><b>No es objeto</b> de esta ley la actividad de fomento (subvenciones): tiene su propia ley, la 38/2003.</li>
+<li><b>No basta</b> con invocar lo social: los criterios deben <b>guardar relación con el objeto del contrato</b>.</li>
+<li><b>El apartado 2</b> se refiere solo a los contratos <b>administrativos</b>: efectos, cumplimiento y extinción.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 132:</b> principios de igualdad, transparencia y libre competencia en la adjudicación.</li>
+<li><b>Art. 145:</b> mejor relación calidad-precio y criterios de adjudicación.</li>
+<li><b>Art. 28:</b> necesidad e idoneidad del contrato: la "definición previa de las necesidades" del art. 1.1.</li>
+<li><b>Art. 99.3:</b> división en lotes, instrumento de acceso de las PYMES.</li>
+</ul>`,trampas:`<ul>
+<li>La ley ya no habla de "oferta económicamente más ventajosa" solo como precio: el art. 145 la vincula a la <b>mejor relación calidad-precio</b>.</li>
+<li>Los criterios sociales y medioambientales son <b>transversales y preceptivos</b>, no opcionales, pero condicionados a que <b>se relacionen con el objeto</b>.</li>
+<li>Cuidado: la <b>integridad</b> y la <b>estabilidad presupuestaria</b> también aparecen en el apartado 1.</li>
+</ul>`,ancla:`<p><b>Los principios — "LPNIE":</b> <b>L</b>ibertad de acceso · <b>P</b>ublicidad y transparencia · <b>N</b>o discriminación e igualdad · <b>I</b>ntegridad · <b>E</b>ficiencia.<br>Y el trío del apartado 3: <b>social, ambiental y PYMES</b>.</p>`,vis:`<svg viewBox="0 0 640 195" role="img" aria-label="Objeto y principios de la LCSP">
+<rect x="200" y="10" width="240" height="36" rx="9" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">OBJETO DE LA LCSP</text>
+<line x1="320" y1="46" x2="320" y2="60" stroke="var(--acc)" stroke-width="2"/><line x1="140" y1="60" x2="500" y2="60" stroke="var(--acc)" stroke-width="2"/>
+<line x1="140" y1="60" x2="140" y2="76" stroke="var(--acc)" stroke-width="2"/><line x1="500" y1="60" x2="500" y2="76" stroke="var(--acc)" stroke-width="2"/>
+<rect x="25" y="76" width="230" height="72" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="140" y="97" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">1.1 Regular la contratación</text>
+<text x="140" y="116" text-anchor="middle" font-size="10" fill="currentColor">libertad de acceso · publicidad</text>
+<text x="140" y="132" text-anchor="middle" font-size="10" fill="currentColor">igualdad · integridad · eficiencia</text>
+<rect x="385" y="76" width="230" height="72" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="500" y="97" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">1.2 Régimen de los contratos</text>
+<text x="500" y="116" text-anchor="middle" font-size="10" fill="currentColor">administrativos: efectos,</text>
+<text x="500" y="132" text-anchor="middle" font-size="10" fill="currentColor">cumplimiento y extinción</text>
+<rect x="120" y="158" width="400" height="32" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="320" y="179" text-anchor="middle" font-size="11" fill="var(--warn)">1.3 Criterios sociales y medioambientales, transversales y preceptivos · acceso de PYMES</text>
+</svg>`},
+{n:2,t:"Ámbito de aplicación",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 1.ª (Objeto y ámbito de aplicación)",idea:"Se aplica a los contratos onerosos que celebren las entidades del sector público.",literal:`<p>1. Son contratos del sector público y, en consecuencia, están sometidos a la presente Ley en la forma y términos previstos en la misma, los contratos onerosos, cualquiera que sea su naturaleza jurídica, que celebren las entidades enumeradas en el artículo 3.</p><p>Se entenderá que un contrato tiene carácter oneroso en los casos en que el contratista obtenga algún tipo de beneficio económico, ya sea de forma directa o indirecta.</p><p>2. Están también sujetos a la presente Ley, en los términos que en ella se señalan, los contratos subvencionados por entidades que tengan la consideración de poderes adjudicadores que celebren otras personas físicas o jurídicas en los supuestos previstos en el artículo 23 relativo a los contratos subvencionados sujetos a una regulación armonizada.</p><p>3. La aplicación de esta Ley a los contratos que celebren las Comunidades Autónomas y las entidades que integran la Administración Local, o los organismos dependientes de las mismas, así como a los contratos subvencionados por cualquiera de estas entidades, se efectuará en los términos previstos en la Disposición final primera de la presente Ley relativa a los títulos competenciales.</p><p>4. A los efectos de identificar las prestaciones que son objeto de los contratos regulados en esta Ley, se utilizará el «Vocabulario común de contratos públicos», aprobado por el Reglamento (CE) n.º 2195/2002 del Parlamento Europeo y del Consejo de 5 de noviembre de 2002, por el que se aprueba el Vocabulario común de contratos públicos (CPV), o normativa comunitaria que le sustituya.</p>`,dis:`<ul>
+<li><b>2.1 — regla general:</b> son contratos del sector público los contratos <b>onerosos</b>, <b>cualquiera que sea su naturaleza jurídica</b>, celebrados por las entidades del <b>art. 3</b>. Se entiende <span class="t" data-k="oneroso">oneroso</span> cuando el contratista obtiene <b>algún tipo de beneficio económico, directo o indirecto</b>.</li>
+<li><b>2.2 — extensión:</b> también los <b>contratos subvencionados</b> por poderes adjudicadores que celebren otras personas físicas o jurídicas, en los supuestos del <b>art. 23</b>.</li>
+<li><b>2.3 — CCAA y entidades locales:</b> la aplicación a sus contratos y a los subvencionados por ellas se hace en los términos de la <b>disposición final primera</b> (títulos competenciales).</li>
+<li><b>2.4 — identificación de prestaciones:</b> se utiliza el <span class="t" data-k="cpv">Vocabulario común de contratos públicos (CPV)</span>, Reglamento (CE) 2195/2002 o la norma que lo sustituya.</li>
+</ul>
+<div class="box ej"><span class="lbl">Las dos llaves del ámbito objetivo</span><b>1)</b> Que sea un contrato <b>oneroso</b> (hay beneficio económico para el contratista). <b>2)</b> Que lo celebre una entidad del <b>art. 3</b>. Si falta cualquiera de las dos, la LCSP no se aplica por esta vía.</div>`,llano:`<p>La ley entra en juego cuando una entidad pública firma un contrato del que la otra parte saca dinero, se llame como se llame ese contrato. Da igual la etiqueta: lo que importa es que haya beneficio económico y que quien contrata esté en la lista del artículo 3. Y para saber exactamente qué se está comprando, se usa un diccionario europeo de códigos, el CPV.</p>`,porque:`<p>La definición amplísima —"cualquiera que sea su naturaleza jurídica"— existe precisamente para <b>impedir la huida del derecho administrativo</b>: no se puede escapar de la ley poniéndole otro nombre al contrato. Y la precisión sobre el beneficio "directo o indirecto" cierra la vía de los contratos aparentemente gratuitos en los que el contratista se cobra explotando el servicio o la publicidad.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> da igual que lo llames "acuerdo", "colaboración" o "convenio": si te pagan por hacer algo, es un contrato.</li>
+<li><b>Real:</b> un ayuntamiento firma con una empresa la instalación gratuita de marquesinas a cambio de explotar su publicidad. No hay pago directo, pero el contratista obtiene <b>beneficio económico indirecto</b>: es contrato oneroso sujeto a la LCSP.</li>
+<li><b>Caso límite:</b> una obra financiada en más del 50 % por una diputación y contratada por una asociación privada. No la celebra una entidad del art. 3, pero puede ser <b>contrato subvencionado</b> sujeto a regulación armonizada (arts. 2.2 y 23).</li>
+</ul>`,noej:`<ul>
+<li><b>No entra</b> una donación pura a favor de la Administración: falta la onerosidad para el contratista.</li>
+<li><b>No entra</b> un contrato oneroso entre dos empresas privadas sin financiación pública ni entidad del art. 3.</li>
+<li><b>No decide</b> el nombre del negocio: decide su contenido.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 3:</b> la lista de entidades a la que remite el 2.1.</li>
+<li><b>Art. 23:</b> contratos subvencionados sujetos a regulación armonizada.</li>
+<li><b>Art. 12:</b> calificación de los contratos.</li>
+<li><b>Disposición final primera:</b> títulos competenciales.</li>
+</ul>`,trampas:`<ul>
+<li>"<b>Cualquiera que sea su naturaleza jurídica</b>": la etiqueta no salva del ámbito de la ley.</li>
+<li>El beneficio puede ser <b>directo o indirecto</b>.</li>
+<li>El <b>CPV</b> es un reglamento europeo (2195/2002), no una norma española.</li>
+</ul>`,ancla:`<p><b>"Oneroso + entidad del art. 3 = LCSP."</b> Dos llaves y una cerradura.<br>Y la muletilla que hay que recordar palabra por palabra: <b>"cualquiera que sea su naturaleza jurídica"</b>.</p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Ámbito objetivo de aplicación">
+<rect x="40" y="30" width="230" height="60" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="155" y="53" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">¿Es ONEROSO?</text>
+<text x="155" y="72" text-anchor="middle" font-size="10" fill="currentColor">beneficio económico directo o indirecto</text>
+<text x="300" y="65" text-anchor="middle" font-size="18" fill="var(--ink2)">+</text>
+<rect x="330" y="30" width="230" height="60" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="445" y="53" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">¿Lo celebra una entidad del art. 3?</text>
+<text x="445" y="72" text-anchor="middle" font-size="10" fill="currentColor">ámbito subjetivo</text>
+<rect x="170" y="104" width="300" height="34" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">CONTRATO DEL SECTOR PÚBLICO</text>
+<text x="320" y="156" text-anchor="middle" font-size="10" fill="var(--ink2)">+ contratos subvencionados del art. 23 · prestaciones identificadas con el CPV</text>
+</svg>`},
+{n:3,t:"Ámbito subjetivo",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 1.ª (Objeto y ámbito de aplicación)",idea:"Tres círculos concéntricos: sector público, poderes adjudicadores y Administraciones Públicas.",literal:`<p>1. A los efectos de esta Ley, se considera que forman parte del sector público las siguientes entidades:</p><p>a) La Administración General del Estado, las Administraciones de las Comunidades Autónomas, las Ciudades Autónomas de Ceuta y Melilla y las Entidades que integran la Administración Local.</p><p>b) Las Entidades Gestoras y los Servicios Comunes de la Seguridad Social.</p><p>c) Los Organismos Autónomos, las Universidades Públicas y las autoridades administrativas independientes.</p><p>d) Los consorcios dotados de personalidad jurídica propia a los que se refiere la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público, y la legislación de régimen local, así como los consorcios regulados por la legislación aduanera.</p><p>e) Las fundaciones públicas. A efectos de esta Ley, se entenderá por fundaciones públicas aquellas que reúnan alguno de los siguientes requisitos:</p><p>1.º Que se constituyan de forma inicial, con una aportación mayoritaria, directa o indirecta, de una o varias entidades integradas en el sector público, o bien reciban dicha aportación con posterioridad a su constitución.</p><p>2.º Que el patrimonio de la fundación esté integrado en más de un 50 por ciento por bienes o derechos aportados o cedidos por sujetos integrantes del sector público con carácter permanente.</p><p>3.º Que la mayoría de derechos de voto en su patronato corresponda a representantes del sector público.</p><p>f) Las Mutuas colaboradoras con la Seguridad Social.</p><p>g) Las Entidades Públicas Empresariales a las que se refiere la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público, y cualesquiera entidades de derecho público con personalidad jurídica propia vinculadas a un sujeto que pertenezca al sector público o dependientes del mismo.</p><p>h) Las sociedades mercantiles en cuyo capital social la participación, directa o indirecta, de entidades de las mencionadas en las letras a), b), c), d), e), g) y h) del presente apartado sea superior al 50 por 100, o en los casos en que sin superar ese porcentaje, se encuentre respecto de las referidas entidades en el supuesto previsto en el artículo 5 del texto refundido de la Ley del Mercado de Valores, aprobado por Real Decreto Legislativo 4/2015, de 23 de octubre.</p><p>i) Los fondos sin personalidad jurídica.</p><p>j) Cualesquiera entidades con personalidad jurídica propia, que hayan sido creadas específicamente para satisfacer necesidades de interés general que no tengan carácter industrial o mercantil, siempre que uno o varios sujetos pertenecientes al sector público financien mayoritariamente su actividad, controlen su gestión, o nombren a más de la mitad de los miembros de su órgano de administración, dirección o vigilancia.</p><p>k) Las asociaciones constituidas por las entidades mencionadas en las letras anteriores.</p><p>l) A los efectos de esta Ley, se entiende que también forman parte del sector público las Diputaciones Forales y las Juntas Generales de los Territorios Históricos del País Vasco en lo que respecta a su actividad de contratación.</p><p>2. Dentro del sector público, y a los efectos de esta Ley, tendrán la consideración de Administraciones Públicas las siguientes entidades:</p><p>a) Las mencionadas en las letras a), b), c), y l) del apartado primero del presente artículo.</p><p>b) Los consorcios y otras entidades de derecho público, en las que dándose las circunstancias establecidas en la letra d) del apartado siguiente para poder ser considerados poder adjudicador y estando vinculados a una o varias Administraciones Públicas o dependientes de las mismas, no se financien mayoritariamente con ingresos de mercado. Se entiende que se financian mayoritariamente con ingresos de mercado cuando tengan la consideración de productor de mercado de conformidad con el Sistema Europeo de Cuentas.</p><p>3. Se considerarán poderes adjudicadores, a efectos de esta Ley, las siguientes entidades:</p><p>a) Las Administraciones Públicas.</p><p>b) Las fundaciones públicas.</p><p>c) Las Mutuas colaboradoras con la Seguridad Social.</p><p>d) Todas las demás entidades con personalidad jurídica propia distintas de las expresadas en las letras anteriores que hayan sido creadas específicamente para satisfacer necesidades de interés general que no tengan carácter industrial o mercantil, siempre que uno o varios sujetos que deban considerarse poder adjudicador de acuerdo con los criterios de este apartado 3, bien financien mayoritariamente su actividad; bien controlen su gestión; o bien nombren a más de la mitad de los miembros de su órgano de administración, dirección o vigilancia.</p><p>e) Las asociaciones constituidas por las entidades mencionadas en las letras anteriores.</p><p>4. Los partidos políticos, en el sentido definido en el artículo 1 de la Ley Orgánica 8/2007, de Financiación de los Partidos Políticos; así como las organizaciones sindicales reguladas en la Ley Orgánica 11/1985, de 2 de agosto, de Libertad Sindical, y las organizaciones empresariales y asociaciones profesionales a las que se refiere la Ley 19/1977, de 1 de abril, sobre regulación del derecho de asociación sindical, además de las fundaciones y asociaciones vinculadas a cualquiera de ellos, cuando cumplan los requisitos para ser poder adjudicador de acuerdo con la letra d) del apartado 3 del presente artículo, y respecto de los contratos sujetos a regulación armonizada deberán actuar conforme a los principios de publicidad, concurrencia, transparencia, igualdad y no discriminación sin perjuicio del respeto a la autonomía de la voluntad y de la confidencialidad cuando sea procedente.</p><p>Los sujetos obligados deberán aprobar unas instrucciones internas en materia de contratación que se adecuarán a lo previsto en el párrafo anterior y a la normativa comunitaria, y que deberán ser informadas antes de su aprobación por el órgano al que corresponda su asesoramiento jurídico. Estas instrucciones deberán publicarse en sus respectivas páginas web.</p><p>5. Asimismo, quedarán sujetos a esta Ley las Corporaciones de derecho público cuando cumplan los requisitos para ser poder adjudicador de acuerdo con el apartado tercero, letra d) del presente artículo.</p>`,dis:`<div class="box warn"><span class="lbl">La clave del artículo</span>El art. 3 define <b>tres círculos</b>, y de ellos depende <b>cuánta ley</b> se aplica: cuanto más cerca del núcleo, más intenso el régimen. El círculo grande es el <b>sector público</b> (3.1); dentro está el de los <b>poderes adjudicadores</b> (3.3); y en el centro, las <b>Administraciones Públicas</b> (3.2), las únicas que celebran contratos administrativos.</div>
+<table><thead><tr><th>Círculo</th><th>Quiénes</th><th>Consecuencia</th></tr></thead><tbody>
+<tr><td><b>3.1 <span class="t" data-k="sectorpub">Sector público</span></b></td><td>a) AGE, CCAA, Ceuta y Melilla y Entidades locales · b) Entidades Gestoras y Servicios Comunes de la Seguridad Social · c) Organismos Autónomos, Universidades Públicas y autoridades administrativas independientes · d) consorcios · e) fundaciones públicas · f) Mutuas colaboradoras · g) Entidades Públicas Empresariales y demás entidades de derecho público · h) sociedades mercantiles con participación pública <b>superior al 50 %</b> (o control del art. 5 TR Ley del Mercado de Valores) · i) fondos sin personalidad jurídica · j) entidades creadas para satisfacer <span class="t" data-k="necint">necesidades de interés general no industriales ni mercantiles</span> financiadas, controladas o dirigidas mayoritariamente por el sector público · k) asociaciones constituidas por las anteriores · l) Diputaciones Forales y Juntas Generales del País Vasco</td><td>Sujeción a la ley "en la forma y términos previstos en ella"</td></tr>
+<tr><td><b>3.2 <span class="t" data-k="pa">Administraciones Públicas</span></b></td><td>Las de las letras <b>a), b), c) y l)</b> del 3.1 · y los consorcios y entidades de derecho público que, siendo poder adjudicador y estando vinculados a Administraciones, <b>no se financien mayoritariamente con ingresos de mercado</b></td><td>Régimen más intenso: contratos administrativos</td></tr>
+<tr><td><b>3.3 <span class="t" data-k="poderadj">Poderes adjudicadores</span></b></td><td>a) Administraciones Públicas · b) fundaciones públicas · c) Mutuas colaboradoras · d) demás entidades creadas para necesidades de interés general no industriales ni mercantiles financiadas, controladas o dirigidas mayoritariamente por poderes adjudicadores · e) asociaciones de las anteriores</td><td>Reglas europeas de publicidad y recurso especial</td></tr>
+</tbody></table>
+<ul>
+<li><b>Fundaciones públicas (3.1.e):</b> basta <b>uno</b> de tres requisitos — aportación mayoritaria pública inicial o posterior; patrimonio integrado en más del <b>50 %</b> por bienes públicos con carácter permanente; mayoría de derechos de voto públicos en el patronato.</li>
+<li><b>3.4 — partidos, sindicatos y organizaciones empresariales:</b> cuando reúnan los requisitos de poder adjudicador de la letra d) y respecto de contratos <b>SARA</b>, deben actuar conforme a publicidad, concurrencia, transparencia, igualdad y no discriminación, y aprobar <b>instrucciones internas</b> informadas por su asesoría jurídica y publicadas en su web.</li>
+<li><b>3.5 — Corporaciones de derecho público</b> (colegios profesionales, cámaras): sujetas cuando cumplan los requisitos de poder adjudicador de la letra d).</li>
+</ul>`,llano:`<p>Imagina tres circunferencias, una dentro de otra. La más grande, el sector público: ahí cabe casi todo lo que huela a público, hasta las sociedades mercantiles con más del 50 % de capital público. Dentro hay una segunda: los poderes adjudicadores, que son los que hacen cosas de interés general y viven del dinero público, aunque tengan forma privada. Y en el centro, las Administraciones Públicas propiamente dichas. Cuanto más al centro estés, más dura es la ley contigo.</p>`,porque:`<p>Sin esta gradación, o se aplicaba el régimen administrativo completo a una sociedad mercantil pública —haciéndola inoperante— o se dejaba fuera de control a entes públicos con forma privada. Los tres círculos permiten <b>ajustar la intensidad del control</b> a la naturaleza de cada ente. El concepto de <b>poder adjudicador</b> es de origen europeo y es deliberadamente funcional: no pregunta por la forma jurídica, sino por quién paga, quién manda y para qué sirve la entidad.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el descuento de empleado: hay quien es plantilla, quien es contratado externo y quien solo colabora. Todos están "en la empresa", pero con condiciones distintas.</li>
+<li><b>Real (círculo 1):</b> Aguas del Huesna, S.A., con capital 100 % de entidades locales, es sector público (3.1.h) y poder adjudicador, pero <b>no</b> Administración Pública: no celebra contratos administrativos.</li>
+<li><b>Real (círculo 3):</b> el Colegio de Abogados de Sevilla, corporación de derecho público, queda sujeto cuando cumpla los requisitos de la letra d) del 3.3 (art. 3.5).</li>
+<li><b>Caso límite:</b> una fundación con solo el 30 % de aportación pública inicial, pero cuyo patronato está controlado en su mayoría por representantes públicos: es fundación pública, porque basta <b>uno</b> de los tres requisitos del 3.1.e).</li>
+</ul>`,noej:`<ul>
+<li><b>No es Administración Pública</b> una entidad pública empresarial ni una sociedad mercantil pública, aunque sí son sector público.</li>
+<li><b>No es poder adjudicador</b> una entidad creada para una actividad <b>industrial o mercantil</b> en competencia real, aunque sea de capital público.</li>
+<li><b>No basta</b> la participación pública del 50 % exacta en sociedades: el 3.1.h) exige participación <b>superior</b> al 50 %, salvo el supuesto de control del mercado de valores.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 2.1:</b> remite a este artículo para delimitar el ámbito.</li>
+<li><b>Arts. 25 y 26:</b> contratos administrativos y privados, según se sea o no Administración Pública.</li>
+<li><b>Art. 19:</b> los SARA, cuyo régimen depende de la condición de poder adjudicador.</li>
+<li><b>Art. 2 y 3 LRJSP</b> (documento 2 de la biblioteca): concepto general de sector público institucional.</li>
+</ul>`,trampas:`<ul>
+<li><b>Tres círculos, no dos.</b> Y el orden en la ley es contraintuitivo: 3.1 sector público, 3.2 Administraciones Públicas, 3.3 poderes adjudicadores.</li>
+<li>Las <b>Universidades Públicas</b> y las <b>autoridades administrativas independientes</b> son Administración Pública (letra c).</li>
+<li>Las <b>fundaciones públicas</b> y las <b>Mutuas colaboradoras</b> son poder adjudicador (3.3.b y c) pero <b>no</b> Administración Pública.</li>
+<li>Sociedades mercantiles: participación <b>superior al 50 %</b>, directa o indirecta.</li>
+<li>El 3.4 (partidos y sindicatos) solo opera respecto de contratos <b>sujetos a regulación armonizada</b>.</li>
+</ul>`,ancla:`<p><b>Tres círculos, de fuera adentro:</b> <b>S</b>ector público → <b>P</b>oderes adjudicadores → <b>A</b>dministraciones Públicas. Piensa en una <b>SPA</b>: se entra por el vestuario grande y se llega a la piscina pequeña.<br><b>Administraciones Públicas = a, b, c y l</b> ("las cuatro letras de siempre") + consorcios sin ingresos de mercado.<br><b>Fundación pública:</b> basta <b>una</b> de tres: dinero, patrimonio (50 %) o votos.</p>`,vis:`<svg viewBox="0 0 640 250" role="img" aria-label="Los tres círculos del ámbito subjetivo">
+<circle cx="200" cy="125" r="115" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<circle cx="200" cy="130" r="80" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<circle cx="200" cy="140" r="45" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="200" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">SECTOR PÚBLICO (3.1)</text>
+<text x="200" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">PODERES ADJUDICADORES (3.3)</text>
+<text x="200" y="136" text-anchor="middle" font-size="10" font-weight="700" fill="var(--warn)">ADMINISTRACIONES</text>
+<text x="200" y="150" text-anchor="middle" font-size="10" font-weight="700" fill="var(--warn)">PÚBLICAS (3.2)</text>
+<text x="200" y="166" text-anchor="middle" font-size="9" fill="currentColor">a, b, c y l</text>
+<rect x="340" y="30" width="285" height="60" rx="8" fill="var(--panel)" stroke="var(--warn)"/>
+<text x="482" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="var(--warn)">Administraciones Públicas</text>
+<text x="482" y="67" text-anchor="middle" font-size="9" fill="currentColor">AGE, CCAA, EELL · Seguridad Social · OOAA,</text>
+<text x="482" y="81" text-anchor="middle" font-size="9" fill="currentColor">Universidades y autoridades independientes · forales</text>
+<rect x="340" y="100" width="285" height="60" rx="8" fill="var(--panel)" stroke="var(--ej)"/>
+<text x="482" y="120" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ej)">Poderes adjudicadores</text>
+<text x="482" y="137" text-anchor="middle" font-size="9" fill="currentColor">+ fundaciones públicas · Mutuas colaboradoras</text>
+<text x="482" y="151" text-anchor="middle" font-size="9" fill="currentColor">+ entidades de interés general no mercantil</text>
+<rect x="340" y="170" width="285" height="66" rx="8" fill="var(--panel)" stroke="var(--acc)"/>
+<text x="482" y="190" text-anchor="middle" font-size="10" font-weight="700" fill="var(--acc)">Resto del sector público</text>
+<text x="482" y="207" text-anchor="middle" font-size="9" fill="currentColor">EPE y entidades de derecho público · sociedades</text>
+<text x="482" y="221" text-anchor="middle" font-size="9" fill="currentColor">con más del 50 % de capital · fondos sin personalidad</text>
+<text x="482" y="234" text-anchor="middle" font-size="9" fill="currentColor">consorcios · asociaciones de las anteriores</text>
+</svg>`},
+{n:4,t:"Régimen aplicable a los negocios jurídicos excluidos",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 2.ª (Negocios y contratos excluidos)",idea:"Lo excluido se rige por sus normas, pero los principios de la ley sirven para las lagunas.",literal:`<p>Las relaciones jurídicas, negocios y contratos citados en esta sección quedan excluidos del ámbito de la presente Ley, y se regirán por sus normas especiales, aplicándose los principios de esta Ley para resolver las dudas y lagunas que pudieran presentarse.</p>`,dis:`<ul>
+<li><b>Efecto:</b> las relaciones jurídicas, negocios y contratos de la Sección 2.ª <b>quedan excluidos</b> del ámbito de la ley.</li>
+<li><b>Régimen aplicable:</b> sus <b>normas especiales</b>.</li>
+<li><b>Cláusula de cierre:</b> se aplican los <b>principios</b> de la LCSP para resolver <b>dudas y lagunas</b>.</li>
+</ul>`,llano:`<p>Estar excluido no significa estar en tierra de nadie. Cada negocio excluido tiene su propia normativa, y cuando esa normativa no llegue o no esté clara, se vuelve a los principios de esta ley: publicidad, igualdad, transparencia, no discriminación.</p>`,porque:`<p>Si la exclusión fuera absoluta, bastaría con encajar un contrato en cualquiera de las rendijas de los arts. 5 a 11 para contratar sin ninguna regla. La <b>aplicación supletoria de los principios</b> impide ese vacío: el excluido escapa del procedimiento, no de la ética de la contratación pública.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> un juego con reglas propias en el que, ante una jugada no prevista, se recurre al reglamento general del deporte.</li>
+<li><b>Real:</b> la venta de una parcela municipal se rige por la legislación patrimonial (art. 9.2), pero si esa legislación no aclara cómo dar publicidad a la licitación, se acude a los principios de publicidad y concurrencia de la LCSP.</li>
+<li><b>Caso límite:</b> un convenio del art. 6 cuyo contenido resulta ser el propio de un contrato de servicios: entonces no hay exclusión que valga, porque el propio art. 6.1 la condiciona a que el contenido no sea contractual.</li>
+</ul>`,noej:`<ul>
+<li><b>No significa</b> ausencia de reglas ni de control.</li>
+<li><b>No se aplican</b> los procedimientos de la LCSP a lo excluido: solo sus <b>principios</b>, y solo para dudas y lagunas.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 1.1:</b> los principios a los que remite.</li>
+<li><b>Arts. 5 a 11:</b> el catálogo completo de exclusiones.</li>
+<li><b>Art. 4 LPAC / art. 12 CC:</b> técnica general de la supletoriedad y de la analogía.</li>
+</ul>`,trampas:`<ul>
+<li>Se aplican los <b>principios</b>, no las normas ni los procedimientos.</li>
+<li>Solo para <b>dudas y lagunas</b>: no desplazan a la normativa especial.</li>
+</ul>`,ancla:`<p><b>"Fuera de la ley, pero no fuera de sus principios."</b> Un artículo de una sola frase que hay que saber literal.</p>`,vis:`<svg viewBox="0 0 640 130" role="img" aria-label="Régimen de los negocios excluidos">
+<rect x="30" y="35" width="200" height="60" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="130" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">Negocio EXCLUIDO</text>
+<text x="130" y="78" text-anchor="middle" font-size="10" fill="currentColor">arts. 5 a 11</text>
+<text x="255" y="70" text-anchor="middle" font-size="16" fill="var(--ink2)">→</text>
+<rect x="280" y="35" width="160" height="60" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="360" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Normas especiales</text>
+<text x="360" y="78" text-anchor="middle" font-size="10" fill="currentColor">régimen propio</text>
+<text x="463" y="70" text-anchor="middle" font-size="16" fill="var(--ink2)">→</text>
+<rect x="485" y="35" width="130" height="60" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="550" y="55" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ej)">Dudas y lagunas:</text>
+<text x="550" y="73" text-anchor="middle" font-size="10" fill="currentColor">principios</text>
+<text x="550" y="88" text-anchor="middle" font-size="10" fill="currentColor">de la LCSP</text>
+</svg>`},
+{n:5,t:"Negocios jurídicos y contratos excluidos en el ámbito de la Defensa y de la Seguridad",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 2.ª (Negocios y contratos excluidos)",idea:"Fuera lo de defensa y seguridad que tiene su propia ley o procedimiento internacional.",literal:`<p>1. Quedan excluidos del ámbito de la presente Ley los convenios incluidos en el ámbito del artículo 346 del Tratado de Funcionamiento de la Unión Europea que se concluyan en el sector de la defensa y la seguridad.</p><p>2. Se excluyen, asimismo, del ámbito de la presente Ley los contratos de obras, suministros y servicios que se celebren en el ámbito de la seguridad o de la defensa que estén comprendidos dentro del ámbito de aplicación de la Ley 24/2011, de 1 de agosto, de contratos del sector público en los ámbitos de la defensa y de la seguridad; así como los contratos a los que no resulte de aplicación la citada Ley en virtud de su artículo 7.</p><p>Quedan también excluidos los contratos de concesiones de obras y concesiones de servicios, que se celebren en el ámbito de la seguridad y de la defensa, en los que concurra alguna de las circunstancias siguientes:</p><p>a) Que sean adjudicados en el marco de un programa de cooperación basado en la investigación y el desarrollo de un nuevo producto y, en su caso, también relacionados con el ciclo de vida del mismo o partes de dicho ciclo, siempre que participen en el programa al menos dos Estados miembros de la Unión Europea.</p><p>b) Los que se adjudiquen en un tercer Estado no miembro de la Unión Europea para efectuar compras, incluidas las de carácter civil, cuando las Fuerzas Armadas estén desplegadas fuera del territorio de la Unión y las necesidades operativas hagan necesario que estos contratos se concluyan con empresarios situados en la zona de operaciones. A los efectos de esta Ley, se entenderán incluidos en la zona de operaciones los territorios de influencia de esta y las bases logísticas avanzadas.</p><p>c) Las concesiones que se adjudiquen a otro Estado en relación con obras y servicios directamente relacionados con el equipo militar sensible, u obras y servicios específicamente con fines militares, u obras y servicios sensibles.</p><p>3. Lo establecido en los dos apartados anteriores se aplicará aún en el supuesto de que parte de las prestaciones correspondientes estén sometidas a la presente Ley, y no se haya optado por adjudicar un contrato separado por cada una de las distintas prestaciones que constituyan el objeto del contrato.</p><p>No obstante, constituirá una condición necesaria para la aplicación de lo señalado en el párrafo anterior el hecho de que la opción entre adjudicar un único contrato o varios contratos por separado no se ejerza con el objetivo de excluir el contrato o contratos del ámbito de aplicación de la presente Ley.</p><p>4. Quedan excluidos, también, del ámbito de la presente Ley los contratos y convenios que se celebren en los ámbitos de la defensa o de la seguridad y que deban adjudicarse de conformidad con un procedimiento de contratación específico que haya sido establecido de alguna de las siguientes maneras:</p><p>a) En virtud de un acuerdo o convenio internacional celebrado de conformidad con el Tratado de Funcionamiento de la Unión Europea con uno o varios Estados no signatarios de este último, relativo a las obras, suministros o servicios que resulten necesarios para la explotación o el desarrollo conjunto de un proyecto por los Estados firmantes.</p><p>b) En virtud de un acuerdo o convenio internacional relativo al estacionamiento de tropas y que se refiera a las empresas de un Estado Miembro de la Unión Europea o de un tercer Estado.</p><p>c) En virtud de las normas de contratación establecidas por una organización internacional o por una institución financiera internacional, cuando además los contratos que se adjudiquen estén financiados íntegramente o en su mayor parte por esa institución.</p>`,dis:`<ul>
+<li><b>5.1:</b> convenios del <b>art. 346 TFUE</b> concluidos en el sector de la defensa y la seguridad.</li>
+<li><b>5.2:</b> contratos de <b>obras, suministros y servicios</b> del ámbito de seguridad o defensa incluidos en la <b>Ley 24/2011</b>, y los que no le resulten aplicables por su art. 7. También las <b>concesiones de obras y de servicios</b> en ese ámbito cuando concurra alguna de estas circunstancias:
+<ol><li><b>a)</b> programa de cooperación basado en investigación y desarrollo de un nuevo producto con al menos <b>dos Estados miembros</b>;</li>
+<li><b>b)</b> adjudicados en un tercer Estado para compras con las Fuerzas Armadas <b>desplegadas fuera de la Unión</b> cuando las necesidades operativas exijan contratar en la zona de operaciones;</li>
+<li><b>c)</b> concesiones adjudicadas a <b>otro Estado</b> sobre equipo militar sensible u obras y servicios con fines militares o sensibles.</li></ol></li>
+<li><b>5.3 — antifraude:</b> la exclusión opera aunque parte de las prestaciones esté sujeta a la ley y no se hayan adjudicado por separado, <b>siempre que</b> la opción de contrato único no se haya ejercido <b>con el objetivo de excluir</b> el contrato del ámbito de la ley.</li>
+<li><b>5.4:</b> contratos y convenios de defensa o seguridad con procedimiento específico establecido por: a) acuerdo internacional con Estados no signatarios del TFUE para un proyecto conjunto; b) acuerdo sobre <b>estacionamiento de tropas</b>; c) normas de una <b>organización internacional o institución financiera internacional</b> que financie el contrato íntegra o mayoritariamente.</li>
+</ul>`,llano:`<p>Lo militar y lo de seguridad tiene sus propias reglas, porque no se puede publicar en el perfil del contratante la compra de material sensible. La ley lo saca de su ámbito, pero pone un cortafuegos: si mezclas prestaciones normales con prestaciones militares en un solo contrato <b>para escapar de la ley</b>, la exclusión no vale.</p>`,porque:`<p>El art. 346 TFUE permite a los Estados proteger sus intereses esenciales de seguridad, y ese es el fundamento europeo de toda la exclusión. Pero como el argumento de la seguridad nacional es un comodín peligroso, el legislador añade en el apartado 3 una <b>cláusula antiabuso</b> explícita: la finalidad elusiva desactiva la exclusión.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> una empresa con área confidencial: sigue habiendo reglas, pero no las mismas ni con la misma publicidad.</li>
+<li><b>Real:</b> la adquisición de sistemas de comunicaciones cifradas para las Fuerzas Armadas se rige por la Ley 24/2011, no por la LCSP (art. 5.2).</li>
+<li><b>Caso límite:</b> un contrato que engloba el suministro de material militar y, de paso, la limpieza de las oficinas de un ministerio. Si la unión se hizo para evitar licitar la limpieza, la exclusión <b>no</b> ampara esa parte (art. 5.3).</li>
+</ul>`,noej:`<ul>
+<li><b>No basta</b> con que el contrato lo firme el Ministerio de Defensa: tiene que estar en el ámbito material de la Ley 24/2011 o en las circunstancias del 5.2.</li>
+<li><b>No hay exclusión</b> si la agrupación de prestaciones persigue eludir la ley.</li>
+</ul>`,conex:`<ul>
+<li><b>Ley 24/2011</b>, de contratos del sector público en los ámbitos de la defensa y de la seguridad.</li>
+<li><b>Art. 346 TFUE:</b> intereses esenciales de seguridad.</li>
+<li><b>Art. 18:</b> contratos mixtos, con criterios análogos de no elusión.</li>
+</ul>`,trampas:`<ul>
+<li>La <b>cláusula antiabuso</b> del 5.3 es lo más preguntable: la exclusión decae si la opción de contrato único busca eludir la ley.</li>
+<li>La letra a) del 5.2 exige <b>al menos dos Estados miembros</b>.</li>
+<li>En el 5.4.c) la financiación debe ser <b>íntegra o mayoritaria</b> de la organización o institución internacional.</li>
+</ul>`,ancla:`<p><b>"Defensa fuera, salvo que la mezcla sea trampa."</b> Recuerda el número mágico europeo: <b>art. 346 TFUE</b>.</p>`,vis:`<svg viewBox="0 0 640 155" role="img" aria-label="Exclusiones en defensa y seguridad">
+<rect x="20" y="25" width="290" height="66" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="165" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">EXCLUIDO</text>
+<text x="165" y="64" text-anchor="middle" font-size="10" fill="currentColor">convenios del art. 346 TFUE · contratos de la Ley 24/2011</text>
+<text x="165" y="80" text-anchor="middle" font-size="10" fill="currentColor">concesiones con las tres circunstancias del 5.2</text>
+<rect x="330" y="25" width="290" height="66" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="475" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">También excluidos (5.4)</text>
+<text x="475" y="64" text-anchor="middle" font-size="10" fill="currentColor">procedimiento específico por acuerdo internacional,</text>
+<text x="475" y="80" text-anchor="middle" font-size="10" fill="currentColor">estacionamiento de tropas u organización internacional</text>
+<rect x="120" y="104" width="400" height="42" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="320" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">CLÁUSULA ANTIABUSO (5.3)</text>
+<text x="320" y="139" text-anchor="middle" font-size="10" fill="currentColor">no vale unir prestaciones en un solo contrato para eludir la ley</text>
+</svg>`},
+{n:6,t:"Convenios y encomiendas de gestión",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 2.ª (Negocios y contratos excluidos)",idea:"Los convenios y las encomiendas quedan fuera si de verdad no son contratos encubiertos.",literal:`<p>1. Quedan excluidos del ámbito de la presente Ley los convenios, cuyo contenido no esté comprendido en el de los contratos regulados en esta Ley o en normas administrativas especiales celebrados entre sí por la Administración General del Estado, las Entidades Gestoras y los Servicios Comunes de la Seguridad Social, las Universidades Públicas, las Comunidades Autónomas y las Ciudades Autónomas de Ceuta y Melilla, las Entidades locales, las entidades con personalidad jurídico pública de ellas dependientes y las entidades con personalidad jurídico privada, siempre que, en este último caso, tengan la condición de poder adjudicador.</p><p>Su exclusión queda condicionada al cumplimiento de las siguientes condiciones:</p><p>a) Las entidades intervinientes no han de tener vocación de mercado, la cual se presumirá cuando realicen en el mercado abierto un porcentaje igual o superior al 20 por ciento de las actividades objeto de colaboración. Para el cálculo de dicho porcentaje se tomará en consideración el promedio del volumen de negocios total u otro indicador alternativo de actividad apropiado, como los gastos soportados considerados en relación con la prestación que constituya el objeto del convenio en los tres ejercicios anteriores a la adjudicación del contrato. Cuando, debido a la fecha de creación o de inicio de actividad o a la reorganización de las actividades, el volumen de negocios u otro indicador alternativo de actividad apropiado, como los gastos, no estuvieran disponibles respecto de los tres ejercicios anteriores o hubieran perdido su vigencia, será suficiente con demostrar que el cálculo del nivel de actividad se corresponde con la realidad, en especial, mediante proyecciones de negocio.</p><p>b) Que el convenio establezca o desarrolle una cooperación entre las entidades participantes con la finalidad de garantizar que los servicios públicos que les incumben se prestan de modo que se logren los objetivos que tienen en común.</p><p>c) Que el desarrollo de la cooperación se guíe únicamente por consideraciones relacionadas con el interés público.</p><p>2. Estarán también excluidos del ámbito de la presente Ley los convenios que celebren las entidades del sector público con personas físicas o jurídicas sujetas al derecho privado, siempre que su contenido no esté comprendido en el de los contratos regulados en esta Ley o en normas administrativas especiales.</p><p>3. Asimismo, quedan excluidas del ámbito de la presente Ley las encomiendas de gestión reguladas en la legislación vigente en materia de régimen jurídico del sector público.</p>`,dis:`<div class="box exc"><span class="lbl">Condición previa e ineludible</span>Para que un <span class="t" data-k="convenio">convenio</span> quede excluido, su <b>contenido no puede estar comprendido en el de los contratos regulados en esta ley o en normas administrativas especiales</b>. Si lo está, es un contrato, se llame como se llame.</div>
+<ul>
+<li><b>6.1 — convenios entre entidades públicas</b> (AGE, Entidades Gestoras y Servicios Comunes de la Seguridad Social, Universidades Públicas, CCAA, Ceuta y Melilla, Entidades locales, entidades públicas dependientes y entidades privadas que sean poder adjudicador). Además del requisito de contenido, <b>tres condiciones acumulativas</b>:
+<ol><li><b>a)</b> que las entidades <b>no tengan vocación de mercado</b>, que se presume cuando realicen en el mercado abierto un porcentaje <b>igual o superior al 20 %</b> de las actividades objeto de colaboración (promedio de los <b>tres ejercicios</b> anteriores);</li>
+<li><b>b)</b> que el convenio establezca o desarrolle una <b>cooperación</b> para lograr objetivos comunes de servicio público;</li>
+<li><b>c)</b> que la cooperación se guíe <b>únicamente</b> por consideraciones de interés público.</li></ol></li>
+<li><b>6.2 — convenios con privados:</b> excluidos siempre que su contenido no sea el de un contrato regulado en esta ley o en normas administrativas especiales.</li>
+<li><b>6.3 — <span class="t" data-k="encomienda">encomiendas de gestión</span></b> reguladas en la legislación de régimen jurídico del sector público (art. 11 LRJSP): excluidas.</li>
+</ul>`,llano:`<p>Dos administraciones pueden cooperar mediante un convenio sin licitar, pero solo si de verdad están cooperando y no comprándose servicios entre ellas. Por eso la ley pone tres filtros: que no actúen como empresas en el mercado (menos del 20 % de esa actividad), que persigan objetivos comunes y que solo les mueva el interés público. Y antes de nada: si el contenido del convenio es el de un contrato, no hay convenio que valga.</p>`,porque:`<p>El convenio fue durante años la <b>puerta trasera</b> de la contratación pública: bastaba con llamar convenio a un contrato de servicios para no licitar. La LCSP, siguiendo la jurisprudencia europea sobre cooperación horizontal, cierra esa puerta con un requisito de contenido y tres condiciones objetivas. El umbral del <b>20 %</b> traduce en cifra la idea de que quien opera en el mercado debe competir en el mercado.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> dos vecinos que comparten el coste del arreglo del tejado común (cooperación) no es lo mismo que uno contratando al otro para que se lo arregle (contrato).</li>
+<li><b>Real:</b> convenio entre una diputación y varios municipios para gestionar conjuntamente un servicio de emergencias, sin que ninguna de las entidades preste ese servicio en el mercado abierto: excluido (art. 6.1).</li>
+<li><b>Caso límite:</b> un consorcio público que factura el 35 % de su actividad de recogida de residuos a clientes privados firma un "convenio" con un ayuntamiento para recogerle la basura. Se presume <b>vocación de mercado</b> (supera el 20 %) y el contenido es el de un contrato de servicios: hay que licitar.</li>
+</ul>`,noej:`<ul>
+<li><b>No es convenio excluido</b> aquel cuyo contenido coincide con un contrato de la ley, aunque lo firmen dos administraciones.</li>
+<li><b>No basta</b> con cumplir una de las tres condiciones del 6.1: son <b>acumulativas</b>.</li>
+<li><b>No son encomiendas de gestión</b> los encargos a medios propios personificados: esos se regulan en el art. 32 y <b>no</b> están excluidos, sino sujetos a requisitos.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 32:</b> encargos a medios propios personificados, figura distinta de la encomienda del 6.3.</li>
+<li><b>Arts. 47 a 53 LRJSP</b> (documento 2 de la biblioteca): régimen general de los convenios.</li>
+<li><b>Art. 11 LRJSP:</b> encomienda de gestión.</li>
+<li><b>Art. 4:</b> régimen supletorio de principios.</li>
+</ul>`,trampas:`<ul>
+<li>El umbral es <b>igual o superior al 20 %</b>, calculado sobre el promedio de los <b>tres ejercicios</b> anteriores.</li>
+<li>La condición de contenido ("que no esté comprendido en el de los contratos regulados") es <b>previa</b> a las tres condiciones.</li>
+<li>La cooperación debe guiarse <b>únicamente</b> por el interés público.</li>
+<li>No confundas <b>encomienda de gestión</b> (excluida, art. 6.3) con <b>encargo a medio propio</b> (art. 32, no excluido).</li>
+</ul>`,ancla:`<p><b>"Convenio sí, contrato disfrazado no."</b><br>Tres condiciones: <b>sin mercado (20 %) · cooperación · solo interés público</b>. Regla del 20: si un quinto de tu actividad la vendes fuera, eres empresa.</p>`,vis:`<svg viewBox="0 0 640 200" role="img" aria-label="Requisitos de exclusión de los convenios">
+<defs><marker id="cv" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="170" y="8" width="300" height="34" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">¿El contenido es el de un contrato de la ley?</text>
+<path d="M170 25 L 90 25 L 90 58" stroke="var(--exc)" stroke-width="2" marker-end="url(#cv)"/><text x="120" y="20" font-size="10" fill="var(--exc)">SÍ</text>
+<rect x="20" y="60" width="150" height="42" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="95" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="var(--exc)">Es CONTRATO</text>
+<text x="95" y="95" text-anchor="middle" font-size="10" fill="currentColor">hay que licitar</text>
+<path d="M320 42 L 320 58" stroke="var(--ej)" stroke-width="2" marker-end="url(#cv)"/><text x="335" y="55" font-size="10" fill="var(--ej)">NO</text>
+<rect x="200" y="60" width="420" height="42" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="410" y="86" text-anchor="middle" font-size="11" fill="currentColor">Y además, las tres condiciones del art. 6.1 (acumulativas)</text>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="30" y="118" width="180" height="62" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="120" y="140" font-weight="700">a) Sin vocación</text><text x="120" y="156">de mercado</text><text x="120" y="172" fill="var(--exc)">menos del 20 %</text>
+<rect x="230" y="118" width="180" height="62" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="320" y="140" font-weight="700">b) Cooperación</text><text x="320" y="156">para objetivos</text><text x="320" y="172">comunes</text>
+<rect x="430" y="118" width="180" height="62" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="520" y="140" font-weight="700">c) Solo interés</text><text x="520" y="156">público</text><text x="520" y="172">como guía</text>
+</g>
+</svg>`},
+{n:7,t:"Negocios jurídicos y contratos excluidos en el ámbito internacional",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 2.ª (Negocios y contratos excluidos)",idea:"Fuera los acuerdos entre Estados y lo que se rija por procedimientos internacionales.",literal:`<p>1. Se excluyen del ámbito de la presente Ley los acuerdos que celebre el Estado con otros Estados o con otros sujetos de derecho internacional.</p><p>2. Estarán también excluidos del ámbito de la presente Ley los contratos que deban adjudicarse de conformidad con un procedimiento de contratación específico que haya sido establecido en virtud de un instrumento jurídico, celebrado de conformidad con el Tratado de Funcionamiento de la Unión Europea con uno o varios Estados no signatarios de este último, que cree obligaciones de derecho internacional relativo a las obras, suministros o servicios que resulten necesarios para la ejecución o la realización conjunta de un proyecto por sus signatarios.</p><p>3. Asimismo, quedarán excluidos del ámbito de la presente Ley los contratos que deban adjudicarse de conformidad con un procedimiento de contratación específico que haya sido establecido en virtud de las normas de contratación aprobadas por una organización internacional o por una institución financiera internacional, siempre y cuando estén financiados íntegramente o mayoritariamente por esa institución.</p>`,dis:`<ul>
+<li><b>7.1:</b> acuerdos que celebre el <b>Estado</b> con otros Estados o con otros <b>sujetos de derecho internacional</b>.</li>
+<li><b>7.2:</b> contratos que deban adjudicarse conforme a un procedimiento específico establecido en un <b>instrumento jurídico celebrado con Estados no signatarios del TFUE</b> que cree obligaciones de derecho internacional, relativo a obras, suministros o servicios necesarios para la ejecución o realización conjunta de un proyecto por los signatarios.</li>
+<li><b>7.3:</b> contratos con procedimiento específico establecido por normas de una <b>organización internacional</b> o de una <b>institución financiera internacional</b>, siempre que estén financiados <b>íntegra o mayoritariamente</b> por esa institución.</li>
+</ul>`,llano:`<p>Cuando España pacta con otro país o con una organización internacional, no se le puede exigir que aplique su ley interna de contratos: manda el instrumento internacional. Y si quien pone el dinero es un organismo internacional, se siguen sus reglas.</p>`,porque:`<p>Es una exigencia de coherencia del <b>derecho internacional</b>: un Estado no puede imponer unilateralmente su procedimiento de contratación a un acuerdo bilateral o a un proyecto financiado por el Banco Mundial. La condición de financiación mayoritaria evita el abuso: quien paga, pone las reglas, pero si paga poco, no puede desplazar la ley nacional.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> en una obra pagada por tu comunidad y por el ayuntamiento, quien aporta casi todo suele fijar el procedimiento.</li>
+<li><b>Real:</b> un proyecto de cooperación financiado en un 80 % por el Banco Europeo de Inversiones que impone su propio procedimiento de licitación: excluido por el art. 7.3.</li>
+<li><b>Caso límite:</b> un proyecto financiado al 30 % por una institución financiera internacional: <b>no</b> alcanza la financiación mayoritaria y por tanto no opera la exclusión.</li>
+</ul>`,noej:`<ul>
+<li><b>No están excluidos</b> los contratos ordinarios celebrados en el extranjero por la Administración española si no responden a un instrumento internacional.</li>
+<li><b>No basta</b> con la participación de una organización internacional: hace falta procedimiento específico y financiación íntegra o mayoritaria en el 7.3.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 5.4:</b> exclusiones internacionales paralelas en el ámbito de defensa y seguridad.</li>
+<li><b>Art. 4:</b> aplicación supletoria de los principios.</li>
+</ul>`,trampas:`<ul>
+<li>Los tres apartados exigen matices distintos: <b>7.1</b> sujetos de derecho internacional; <b>7.2</b> Estados <b>no signatarios</b> del TFUE; <b>7.3</b> financiación <b>íntegra o mayoritaria</b>.</li>
+<li>El 7.1 se refiere al <b>Estado</b>, no a cualquier entidad del sector público.</li>
+</ul>`,ancla:`<p><b>"Si el acuerdo es entre Estados o el dinero es de fuera, mandan sus reglas."</b></p>`,vis:`<svg viewBox="0 0 640 140" role="img" aria-label="Exclusiones en el ámbito internacional">
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="20" y="30" width="190" height="80" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="115" y="55" font-size="11" font-weight="700" fill="var(--acc)">7.1</text><text x="115" y="76">Acuerdos del Estado</text><text x="115" y="92">con otros Estados o sujetos</text><text x="115" y="106">de derecho internacional</text>
+<rect x="225" y="30" width="190" height="80" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="320" y="55" font-size="11" font-weight="700" fill="var(--acc)">7.2</text><text x="320" y="76">Instrumento jurídico con</text><text x="320" y="92">Estados no signatarios del TFUE</text><text x="320" y="106">para un proyecto conjunto</text>
+<rect x="430" y="30" width="190" height="80" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="525" y="55" font-size="11" font-weight="700" fill="var(--ej)">7.3</text><text x="525" y="76">Organización o institución</text><text x="525" y="92">financiera internacional</text><text x="525" y="106" fill="var(--exc)">financiación íntegra o mayoritaria</text>
+</g>
+</svg>`},
+{n:8,t:"Negocios y contratos excluidos en el ámbito de la Investigación, el Desarrollo y la Innovación",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 2.ª (Negocios y contratos excluidos)",idea:"La I+D queda fuera, salvo que el poder adjudicador se lo quede todo y lo pague todo.",literal:`<p>Quedan excluidos de la presente Ley los contratos de investigación y desarrollo, excepto aquellos que además de estar incluidos en los códigos CPV 73000000-2 (servicios de investigación y desarrollo y servicios de consultoría conexos); 73100000-3 (servicio de investigación y desarrollo experimental); 73110000-6 (servicios de investigación);</p><p>73111000-3 (servicios de laboratorio de investigación); 73112000-0 (servicios de investigación marina); 73120000-9 (servicios de desarrollo experimental); 73300000-5 (diseño y ejecución en materia de investigación y desarrollo); 73420000-2 (estudio de previabilidad y demostración tecnológica) y 73430000-5 (ensayo y evaluación), cumplan las dos condiciones siguientes:</p><p>a) Que los beneficios pertenezcan exclusivamente al poder adjudicador para su utilización en el ejercicio de su propia actividad.</p><p>b) Que el servicio prestado sea remunerado íntegramente por el poder adjudicador.</p>`,dis:`<ul>
+<li><b>Regla:</b> quedan excluidos los contratos de <b>investigación y desarrollo</b>.</li>
+<li><b>Excepción (vuelven a la ley):</b> los que, estando en los códigos <span class="t" data-k="cpv">CPV</span> enumerados (73000000-2, 73100000-3, 73110000-6, 73111000-3, 73112000-0, 73120000-9, 73300000-5, 73420000-2 y 73430000-5), cumplan <b>las dos condiciones a la vez</b>:
+<ol><li><b>a)</b> que los beneficios pertenezcan <b>exclusivamente al poder adjudicador</b> para su propia actividad;</li>
+<li><b>b)</b> que el servicio sea <b>remunerado íntegramente</b> por el poder adjudicador.</li></ol></li>
+</ul>
+<div class="box warn"><span class="lbl">Cómo se lee este artículo</span>Está redactado al revés de lo que uno espera: la <b>regla</b> es la exclusión y la <b>excepción</b> es la sujeción. Si el poder adjudicador paga todo y se queda todo, ya no es fomento de la investigación: es una compra ordinaria, y por eso se somete a la ley.</div>`,llano:`<p>Financiar investigación no es lo mismo que comprar un servicio de investigación. Si la Administración reparte el riesgo y los resultados con quien investiga, eso queda fuera de la ley. Pero si paga la factura entera y se queda con todos los beneficios, entonces está comprando y tiene que licitar.</p>`,porque:`<p>La contratación pública de I+D es una <b>herramienta de política científica</b>: exigir licitación ordinaria para cofinanciar investigación estratégica ahogaría la innovación. Ahora bien, cuando no hay riesgo compartido ni resultados compartidos, la operación económica es idéntica a la compra de cualquier servicio, y someterla a la ley evita que la etiqueta "I+D" sirva para adjudicar a dedo.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> no es lo mismo apoyar económicamente a un inventor a cambio de compartir la patente que encargarle un invento pagándoselo entero.</li>
+<li><b>Real:</b> un ayuntamiento cofinancia con una universidad un proyecto de sensores de calidad del aire cuyos resultados serán compartidos y publicables: excluido. Si en cambio paga íntegramente el desarrollo y se reserva en exclusiva su uso, el contrato <b>vuelve</b> a la LCSP.</li>
+<li><b>Caso límite:</b> contrato de I+D con código CPV no incluido en la lista: aunque se cumplan las dos condiciones, la excepción no opera y la exclusión se mantiene.</li>
+</ul>`,noej:`<ul>
+<li><b>No basta</b> con una de las dos condiciones: son <b>cumulativas</b>.</li>
+<li><b>No es I+D excluida</b> la simple compra de equipamiento científico: eso es un contrato de suministro.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 2.4:</b> el CPV como instrumento de identificación de prestaciones.</li>
+<li><b>Art. 177 y ss.:</b> asociación para la innovación, procedimiento pensado para I+D dentro de la ley.</li>
+</ul>`,trampas:`<ul>
+<li>El artículo funciona al revés: <b>regla = exclusión</b>; excepción = sujeción.</li>
+<li>Dos condiciones <b>acumulativas</b>: beneficios exclusivos + remuneración íntegra.</li>
+<li>La excepción exige además estar en los <b>códigos CPV</b> listados.</li>
+</ul>`,ancla:`<p><b>"Si lo pago todo y me lo quedo todo, licito."</b> Dos "todos" y vuelves a la ley.</p>`,vis:`<svg viewBox="0 0 640 150" role="img" aria-label="Contratos de I+D excluidos y su excepción">
+<rect x="35" y="30" width="240" height="70" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="155" y="55" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">REGLA: I+D EXCLUIDA</text>
+<text x="155" y="76" text-anchor="middle" font-size="10" fill="currentColor">riesgo y resultados compartidos</text>
+<text x="300" y="70" text-anchor="middle" font-size="16" fill="var(--ink2)">≠</text>
+<rect x="325" y="20" width="290" height="90" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="470" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">EXCEPCIÓN: vuelve a la LCSP</text>
+<text x="470" y="62" text-anchor="middle" font-size="10" fill="currentColor">códigos CPV listados</text>
+<text x="470" y="79" text-anchor="middle" font-size="10" fill="currentColor">a) beneficios exclusivos del poder adjudicador</text>
+<text x="470" y="95" text-anchor="middle" font-size="10" fill="currentColor">b) remuneración íntegra por el poder adjudicador</text>
+<text x="320" y="133" text-anchor="middle" font-size="10" fill="var(--warn)">Las dos condiciones han de darse conjuntamente</text>
+</svg>`},
+{n:9,t:"Relaciones jurídicas, negocios y contratos excluidos en el ámbito del dominio público y en el ámbito patrimonial",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 2.ª (Negocios y contratos excluidos)",idea:"El dominio público y los negocios sobre inmuebles y valores van por su legislación.",literal:`<p>1. Se encuentran excluidas de la presente Ley las autorizaciones y concesiones sobre bienes de dominio público y los contratos de explotación de bienes patrimoniales distintos a los definidos en el artículo 14, que se regularán por su legislación específica salvo en los casos en que expresamente se declaren de aplicación las prescripciones de la presente Ley.</p><p>2. Quedan, asimismo, excluidos de la presente Ley los contratos de compraventa, donación, permuta, arrendamiento y demás negocios jurídicos análogos sobre bienes inmuebles, valores negociables y propiedades incorporales, a no ser que recaigan sobre programas de ordenador y deban ser calificados como contratos de suministro o servicios, que tendrán siempre el carácter de contratos privados y se regirán por la legislación patrimonial. En estos contratos solo podrán incluirse prestaciones que sean propias de los contratos típicos regulados en la Sección 1.ª del Capítulo II del Título Preliminar, si el valor estimado de las mismas no es superior al 50 por 100 del importe total del negocio y, a su vez, mantienen con la prestación característica del contrato patrimonial relaciones de vinculación y complementariedad en los términos previstos en el artículo 34.2.</p>`,dis:`<ul>
+<li><b>9.1 — dominio público:</b> excluidas las <b>autorizaciones y concesiones sobre bienes de <span class="t" data-k="domipub">dominio público</span></b> y los contratos de explotación de bienes patrimoniales distintos de los definidos en el <b>art. 14</b> (concesión de obras). Se rigen por su legislación específica, salvo declaración expresa de aplicación de la LCSP.</li>
+<li><b>9.2 — negocios patrimoniales:</b> excluidos la <b>compraventa, donación, permuta, arrendamiento y demás negocios análogos</b> sobre <b>bienes inmuebles, valores negociables y propiedades incorporales</b>. Son siempre <b>contratos privados</b> y se rigen por la <b>legislación patrimonial</b>.
+<ul><li><b>Excepción:</b> si recaen sobre <b>programas de ordenador</b> y deben calificarse como suministro o servicios, quedan sujetos.</li>
+<li><b>Límite a la mezcla:</b> en estos negocios solo pueden incluirse prestaciones típicas de los contratos de la Sección 1.ª del Capítulo II si su valor estimado <b>no supera el 50 %</b> del importe total del negocio y mantienen con la prestación característica relaciones de <b>vinculación y complementariedad</b> (art. 34.2).</li></ul></li>
+</ul>`,llano:`<p>Cuando el Ayuntamiento vende un solar, alquila un local o da una concesión de un quiosco en la playa, no está comprando nada: está gestionando su patrimonio o su dominio público. Eso tiene su propia legislación. Ahora bien, no vale colar dentro de la venta de un edificio la reforma completa del edificio: si la parte contractual pasa del 50 %, no cabe la exclusión.</p>`,porque:`<p>La LCSP regula la Administración cuando <b>compra</b>, no cuando <b>administra o vende</b> lo suyo: ahí la lógica es la del derecho patrimonial y de bienes. La regla del 50 % existe porque estos negocios se prestaron históricamente a incluir obras y servicios sin licitar, escondidos tras la venta o el arrendamiento de un inmueble.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> no es lo mismo comprar muebles para tu casa que vender tu casa: son operaciones de naturaleza distinta.</li>
+<li><b>Real:</b> el arrendamiento por un ayuntamiento de un local para oficinas municipales: contrato <b>privado</b> y patrimonial, excluido (art. 9.2). La concesión de un chiringuito en dominio público marítimo-terrestre: excluida (art. 9.1).</li>
+<li><b>Caso límite:</b> permuta de una parcela municipal a cambio de que el adquirente construya un centro de día. Si el valor de la obra supera el 50 % del negocio, no cabe tratarlo como negocio patrimonial excluido: hay contrato de obras.</li>
+</ul>`,noej:`<ul>
+<li><b>No está excluida</b> la <b>concesión de obras</b> del art. 14, aunque recaiga sobre dominio público: está expresamente exceptuada en el 9.1.</li>
+<li><b>No están excluidos</b> los negocios sobre <b>programas de ordenador</b> calificables como suministro o servicios.</li>
+<li><b>No es negocio patrimonial excluido</b> la compra de bienes muebles: eso es un contrato de suministro.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 14:</b> concesión de obras, expresamente excluida de la exclusión.</li>
+<li><b>Art. 34.2:</b> vinculación y complementariedad de prestaciones.</li>
+<li><b>Art. 26:</b> contratos privados.</li>
+<li><b>Ley 33/2003</b>, del Patrimonio de las Administraciones Públicas, y la legislación patrimonial local.</li>
+</ul>`,trampas:`<ul>
+<li>El límite es el <b>50 % del importe total</b> del negocio, medido por <b>valor estimado</b>.</li>
+<li>La exclusión del 9.1 <b>no</b> alcanza a la concesión de obras del art. 14.</li>
+<li>Los <b>programas de ordenador</b> son la excepción expresa del 9.2.</li>
+<li>Estos contratos son <b>siempre privados</b>.</li>
+</ul>`,ancla:`<p><b>"Comprar sí, vender no."</b> Si la Administración gestiona lo suyo (dominio público o patrimonio), fuera de la LCSP.<br>Y el freno: <b>50 %</b> de prestaciones contractuales, más vinculación y complementariedad.</p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Exclusiones patrimoniales y de dominio público">
+<rect x="25" y="25" width="280" height="72" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="165" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">9.1 Dominio público</text>
+<text x="165" y="66" text-anchor="middle" font-size="10" fill="currentColor">autorizaciones y concesiones demaniales</text>
+<text x="165" y="83" text-anchor="middle" font-size="10" fill="var(--warn)">salvo la concesión de obras del art. 14</text>
+<rect x="335" y="25" width="280" height="72" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="475" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">9.2 Negocios patrimoniales</text>
+<text x="475" y="66" text-anchor="middle" font-size="10" fill="currentColor">inmuebles, valores y propiedades incorporales</text>
+<text x="475" y="83" text-anchor="middle" font-size="10" fill="var(--warn)">salvo programas de ordenador</text>
+<rect x="130" y="110" width="380" height="44" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="129" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Límite a la mezcla de prestaciones</text>
+<text x="320" y="146" text-anchor="middle" font-size="10" fill="currentColor">valor estimado no superior al 50 % + vinculación y complementariedad</text>
+</svg>`},
+{n:10,t:"Negocios y contratos excluidos en el ámbito financiero",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 2.ª (Negocios y contratos excluidos)",idea:"Fuera lo financiero: valores, Banco de España, rescates europeos, préstamos y tesorería.",literal:`<p>Están excluidos del ámbito de la presente Ley los contratos relativos a servicios financieros relacionados con la emisión, compra, venta o transferencia de valores o de otros instrumentos financieros en el sentido de la Directiva 2004/39/CE, del Parlamento Europeo y del Consejo, de 21 de abril de 2004, relativa a los mercados de instrumentos financieros, por la que se modifican las Directivas 85/611/CEE y 93/6/CEE, del Consejo y la Directiva 2000/12/CE, del Parlamento Europeo y del Consejo y se deroga la Directiva 93/22/ CEE, del Consejo. Asimismo quedan excluidos los servicios prestados por el Banco de España y las operaciones realizadas con la Facilidad Europea de Estabilización Financiera y el Mecanismo Europeo de Estabilidad y los contratos de préstamo y operaciones de tesorería, estén o no relacionados con la emisión, venta, compra o transferencia de valores o de otros instrumentos financieros.</p>`,dis:`<ul>
+<li><b>Servicios financieros</b> relacionados con la <b>emisión, compra, venta o transferencia de valores</b> o de otros instrumentos financieros (Directiva 2004/39/CE, mercados de instrumentos financieros).</li>
+<li>Servicios prestados por el <b>Banco de España</b>.</li>
+<li>Operaciones realizadas con la <b>Facilidad Europea de Estabilización Financiera</b> y el <b>Mecanismo Europeo de Estabilidad</b>.</li>
+<li>Los <b>contratos de préstamo</b> y las <b>operaciones de tesorería</b>, <b>estén o no</b> relacionados con la emisión, venta, compra o transferencia de valores u otros instrumentos financieros.</li>
+</ul>`,llano:`<p>Cuando una entidad pública pide un préstamo, emite deuda o mueve su tesorería, no está comprando bienes ni servicios: está operando en el mercado financiero, donde las condiciones cambian cada hora. La ley lo deja fuera.</p>`,porque:`<p>Un procedimiento de licitación dura semanas; una operación financiera se cierra en minutos y su precio varía por momentos. Someterla al procedimiento ordinario sería <b>materialmente imposible</b> y perjudicial para el interés público. La coletilla "estén o no relacionados con valores" cierra cualquier discusión sobre los préstamos: siempre fuera.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> pedir una hipoteca no es lo mismo que contratar una reforma: negocias con bancos, no publicas un pliego.</li>
+<li><b>Real:</b> un ayuntamiento concierta un préstamo de 4 M€ para financiar inversiones: excluido de la LCSP (art. 10), aunque sí sujeto al régimen de operaciones de crédito de los arts. 48 y ss. del TRLHL y a las autorizaciones que procedan.</li>
+<li><b>Caso límite:</b> la contratación del servicio de <b>asesoramiento jurídico</b> para preparar una emisión de deuda no es un servicio financiero de los del art. 10: es un contrato de servicios sujeto a la ley.</li>
+</ul>`,noej:`<ul>
+<li><b>No está excluida</b> la contratación de servicios bancarios ordinarios ajenos a estas operaciones, ni los seguros.</li>
+<li><b>No está excluida</b> la consultoría o asistencia relacionada con la operación financiera.</li>
+</ul>`,conex:`<ul>
+<li><b>Arts. 48 a 55 TRLHL</b> (documento 5 de la biblioteca): régimen de las operaciones de crédito de las entidades locales.</li>
+<li><b>Art. 177.5 TRLHL:</b> condiciones para financiar gasto corriente con operaciones de crédito.</li>
+<li><b>Art. 4:</b> aplicación de los principios ante lagunas.</li>
+</ul>`,trampas:`<ul>
+<li>Los <b>préstamos y operaciones de tesorería</b> están excluidos <b>en todo caso</b> ("estén o no relacionados").</li>
+<li>Los <b>seguros</b> no aparecen en este artículo: son contratos de servicios sujetos a la ley.</li>
+<li>El <b>Banco de España</b> se cita expresamente.</li>
+</ul>`,ancla:`<p><b>"Dinero por dinero, fuera."</b> Valores, Banco de España, rescates europeos, préstamos y tesorería. Los <b>seguros no</b>: esos sí licitan.</p>`,vis:`<svg viewBox="0 0 640 145" role="img" aria-label="Exclusiones en el ámbito financiero">
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="15" y="35" width="145" height="60" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/><text x="87" y="60" font-weight="700">Valores e</text><text x="87" y="76">instrumentos financieros</text>
+<rect x="172" y="35" width="145" height="60" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/><text x="244" y="60" font-weight="700">Servicios del</text><text x="244" y="76">Banco de España</text>
+<rect x="329" y="35" width="145" height="60" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/><text x="401" y="60" font-weight="700">FEEF y MEDE</text><text x="401" y="76">rescates europeos</text>
+<rect x="486" y="35" width="139" height="60" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/><text x="555" y="60" font-weight="700">Préstamos y</text><text x="555" y="76">tesorería</text>
+</g>
+<text x="320" y="120" text-anchor="middle" font-size="11" fill="var(--warn)">Los préstamos, estén o no relacionados con valores · Los seguros NO están aquí: sí se licitan</text>
+</svg>`},
+{n:11,t:"Otros negocios o contratos excluidos",ubic:"Título Preliminar (Disposiciones generales) ▸ Capítulo I (Objeto y ámbito de aplicación de la Ley) ▸ Sección 2.ª (Negocios y contratos excluidos)",idea:"Cajón de sastre: funcionarios, tarifas, arbitraje, entregas, campañas y servicios sociales.",literal:`<p>1. La relación de servicio de los funcionarios públicos y los contratos regulados en la legislación laboral queda excluida del ámbito de la presente Ley.</p><p>2. Se excluyen, asimismo, de la presente Ley las relaciones jurídicas consistentes en la prestación de un servicio público cuya utilización por los usuarios requiera el abono de una tarifa, tasa o precio público de aplicación general.</p><p>3. Los contratos relativos a servicios de arbitraje y conciliación quedan excluidos de la presente Ley.</p><p>4. Asimismo, están excluidos los contratos por los que una entidad del sector público se obligue a entregar bienes o derechos o a prestar algún servicio, sin perjuicio de que el adquirente de los bienes o el receptor de los servicios, si es una entidad del sector público sujeta a esta Ley, deba ajustarse a sus prescripciones para la celebración del correspondiente contrato.</p><p>5. Se encuentran, asimismo, excluidos los contratos que tengan por objeto servicios relacionados con campañas políticas, incluidos en los códigos CPV 79341400-0, 92111230-3 y 92111240-6, cuando sean adjudicados por un partido político.</p><p>6. Queda excluida de la presente Ley la prestación de servicios sociales por entidades privadas, siempre que esta se realice sin necesidad de celebrar contratos públicos, a través, entre otros medios, de la simple financiación de estos servicios o la concesión de licencias o autorizaciones a todas las entidades que cumplan las condiciones previamente fijadas por el poder adjudicador, sin límites ni cuotas, y que dicho sistema garantice una publicidad suficiente y se ajuste a los principios de transparencia y no discriminación.</p>`,dis:`<table><thead><tr><th>Apdo.</th><th>Qué se excluye</th><th>Matiz</th></tr></thead><tbody>
+<tr><td>11.1</td><td>La <b>relación de servicio de los funcionarios</b> públicos y los contratos regulados en la <b>legislación laboral</b></td><td>Personal, no compras</td></tr>
+<tr><td>11.2</td><td>Relaciones consistentes en la prestación de un <b>servicio público</b> cuya utilización requiera el abono de una <b>tarifa, tasa o precio público de aplicación general</b></td><td>La relación con el usuario, no la contratación del servicio</td></tr>
+<tr><td>11.3</td><td>Contratos de servicios de <b>arbitraje y conciliación</b></td><td>—</td></tr>
+<tr><td>11.4</td><td>Contratos por los que una entidad del sector público <b>se obliga a entregar bienes o derechos o a prestar un servicio</b></td><td>Si el adquirente o receptor es otra entidad del sector público sujeta a la ley, <b>esta sí</b> debe ajustarse a la ley para celebrar el contrato</td></tr>
+<tr><td>11.5</td><td>Servicios relacionados con <b>campañas políticas</b> (CPV 79341400-0, 92111230-3 y 92111240-6)</td><td>Solo cuando los adjudique un <b>partido político</b></td></tr>
+<tr><td>11.6</td><td>Prestación de <b>servicios sociales por entidades privadas</b> sin necesidad de celebrar contratos públicos</td><td>Mediante financiación simple o licencias/autorizaciones a todas las entidades que cumplan condiciones previas, <b>sin límites ni cuotas</b>, con publicidad suficiente y respeto a transparencia y no discriminación</td></tr>
+</tbody></table>`,llano:`<p>Este artículo recoge lo que no encaja en ningún otro: contratar personal no es contratación pública; pagar el autobús con una tarifa tampoco; el arbitraje se queda fuera; cuando la Administración es la que entrega o presta, la exclusión mira al que da, no al que recibe; las campañas de los partidos son suyas; y los servicios sociales prestados por entidades privadas mediante sistemas abiertos de acreditación no necesitan licitación.</p>`,porque:`<p>Cada apartado responde a una lógica distinta: el <b>empleo público</b> tiene su propio derecho; la relación con el <b>usuario de un servicio</b> es estatutaria, no contractual; el <b>arbitraje</b> se basa en la confianza de las partes; y el apartado 6 responde a la idea europea de que los <b>sistemas de acreditación abiertos</b> —donde entra todo el que cumple, sin cupo— no restringen la competencia y por tanto no exigen licitación.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> contratar a un empleado no es comprar un servicio; pagar el billete de metro tampoco es firmar un contrato público.</li>
+<li><b>Real (11.2):</b> el usuario que paga 1,40 € por el autobús urbano no celebra un contrato sujeto a la LCSP; en cambio, el contrato entre el ayuntamiento y la empresa que presta el servicio <b>sí</b> lo está.</li>
+<li><b>Real (11.6):</b> un sistema de acreditación de centros de día abierto a todas las entidades que cumplan los requisitos, sin número máximo, con publicidad: excluido.</li>
+<li><b>Caso límite (11.4):</b> una diputación vende suelo industrial a un ayuntamiento. Para la diputación es negocio excluido; el ayuntamiento, en cuanto adquirente sujeto a la ley, <b>sí</b> debe ajustarse a sus prescripciones para celebrarlo.</li>
+</ul>`,noej:`<ul>
+<li><b>No excluye</b> el 11.2 la contratación del servicio público con el operador: solo la relación con el usuario.</li>
+<li><b>No excluye</b> el 11.5 las campañas institucionales de una Administración: solo las de los partidos.</li>
+<li><b>No excluye</b> el 11.6 los conciertos sociales con cupo o número limitado de plazas: la exclusión exige un sistema <b>sin límites ni cuotas</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 3.4:</b> obligaciones de los partidos políticos como poderes adjudicadores en contratos SARA.</li>
+<li><b>Art. 15:</b> concesión de servicios, figura con la que contrasta el 11.2.</li>
+<li><b>Disposición adicional cuadragésima novena y ss.:</b> contratación de servicios a las personas.</li>
+<li><b>Texto refundido del Estatuto Básico del Empleado Público:</b> régimen de la relación de servicio del 11.1.</li>
+</ul>`,trampas:`<ul>
+<li>El 11.2 exige que la tarifa, tasa o precio público sea de <b>aplicación general</b>.</li>
+<li>El 11.4 tiene doble cara: excluye para quien entrega, obliga a quien recibe si es sector público sujeto a la ley.</li>
+<li>El 11.5 solo opera si el adjudicador es un <b>partido político</b>.</li>
+<li>El 11.6 exige <b>sin límites ni cuotas</b> y <b>publicidad suficiente</b>: si hay cupo, no hay exclusión.</li>
+</ul>`,ancla:`<p><b>Seis cajones — "FUNTA-CAS":</b> <b>FUN</b>cionarios y laboral · <b>TA</b>rifas · <b>Ca</b>onciliación y arbitraje · <b>A</b>l entregar bienes · <b>S</b>ervicios sociales... y en medio, las <b>campañas de los partidos</b>.<br>Más fácil aún: <b>persona, precio, pleito, entrega, política y social</b>.</p>`,vis:`<svg viewBox="0 0 640 175" role="img" aria-label="Otros negocios o contratos excluidos">
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="15" y="25" width="195" height="58" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/><text x="112" y="47" font-weight="700" fill="var(--exc)">11.1 Personal</text><text x="112" y="66">funcionarios y contratos laborales</text>
+<rect x="222" y="25" width="195" height="58" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/><text x="320" y="47" font-weight="700" fill="var(--exc)">11.2 Tarifas</text><text x="320" y="66">tasa o precio público general</text>
+<rect x="429" y="25" width="195" height="58" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/><text x="527" y="47" font-weight="700" fill="var(--exc)">11.3 Arbitraje</text><text x="527" y="66">y conciliación</text>
+<rect x="15" y="93" width="195" height="58" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/><text x="112" y="115" font-weight="700" fill="var(--warn)">11.4 Entrega de bienes</text><text x="112" y="132">el receptor público sí se ajusta</text>
+<rect x="222" y="93" width="195" height="58" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/><text x="320" y="115" font-weight="700" fill="var(--exc)">11.5 Campañas políticas</text><text x="320" y="132">adjudicadas por un partido</text>
+<rect x="429" y="93" width="195" height="58" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="527" y="115" font-weight="700" fill="var(--ej)">11.6 Servicios sociales</text><text x="527" y="132">sistema abierto, sin cuotas</text>
+</g>
+<text x="320" y="169" text-anchor="middle" font-size="10" fill="var(--ink2)">Persona · precio · pleito · entrega · política · social</text>
+</svg>`}];
+</script>
+<script>
+const PLAZOS=[["Más del 50 %", "Participación pública en una sociedad mercantil para ser sector público", "Sociedades", "3.1.h)", "Directa o indirecta; o control del art. 5 TRLMV"], ["Más del 50 %", "Patrimonio de una fundación aportado por el sector público con carácter permanente", "Fundaciones", "3.1.e) 2.º", "Basta uno de los tres requisitos de la letra e)"], ["Más de la mitad", "Miembros del órgano de administración, dirección o vigilancia nombrados por el sector público", "Entidades del 3.1.j) y 3.3.d)", "3.1.j)", "Alternativa a financiar o controlar mayoritariamente"], ["Mayoría de votos", "Representantes públicos en el patronato de una fundación", "Fundaciones", "3.1.e) 3.º", "Tercer requisito alternativo"], ["20 % o más", "Actividad en mercado abierto que presume vocación de mercado e impide excluir el convenio", "Entidades cooperantes", "6.1.a)", "Promedio de los tres ejercicios anteriores"], ["Tres ejercicios", "Periodo de cálculo del volumen de negocios para el umbral del 20 %", "Entidades cooperantes", "6.1.a)", "O indicador alternativo de actividad"], ["No superior al 50 %", "Valor estimado de prestaciones típicas incluidas en un negocio patrimonial", "Entidad", "9.2", "Además, vinculación y complementariedad (art. 34.2)"], ["Dos Estados miembros", "Mínimo para el programa de cooperación en I+D del ámbito de defensa", "Estados", "5.2.a)", "Nuevo producto y, en su caso, su ciclo de vida"], ["Íntegra o mayoritaria", "Financiación por organización o institución financiera internacional", "Organismo internacional", "7.3 y 5.4.c)", "Condición para excluir"], ["Sin límites ni cuotas", "Requisito del sistema abierto de prestación de servicios sociales", "Entidades privadas", "11.6", "Con publicidad suficiente, transparencia y no discriminación"]];
+const FLASH=[["Enumera los principios del art. 1.1 LCSP", "Libertad de acceso a las licitaciones · publicidad y transparencia · no discriminación e igualdad de trato · integridad · eficiente utilización de los fondos."], ["¿Qué exige el art. 1.3?", "Incorporar de manera <b>transversal y preceptiva</b> criterios sociales y medioambientales cuando guarden relación con el objeto del contrato, y facilitar el acceso de <b>PYMES</b> y empresas de economía social."], ["¿Cuándo un contrato es oneroso?", "Cuando el contratista obtiene <b>algún tipo de beneficio económico, directo o indirecto</b> (art. 2.1)."], ["¿Qué contratos sujeta la LCSP según el art. 2.1?", "Los contratos <b>onerosos</b>, <b>cualquiera que sea su naturaleza jurídica</b>, celebrados por las entidades del art. 3."], ["¿Para qué sirve el CPV?", "Para identificar las prestaciones objeto de los contratos: Vocabulario común de contratos públicos, Reglamento (CE) 2195/2002 (art. 2.4)."], ["¿Qué entidades son Administración Pública a efectos de la LCSP?", "Las de las letras a), b), c) y l) del art. 3.1, y los consorcios y entidades de derecho público que, siendo poder adjudicador y vinculados a Administraciones, no se financien mayoritariamente con ingresos de mercado (art. 3.2)."], ["¿Quiénes son poderes adjudicadores?", "Administraciones Públicas · fundaciones públicas · Mutuas colaboradoras con la Seguridad Social · entidades creadas para necesidades de interés general no industriales ni mercantiles financiadas, controladas o dirigidas mayoritariamente por poderes adjudicadores · asociaciones de las anteriores (art. 3.3)."], ["¿Cuándo una sociedad mercantil es sector público?", "Cuando la participación pública, directa o indirecta, sea <b>superior al 50 %</b>, o exista el control del art. 5 del TR de la Ley del Mercado de Valores (art. 3.1.h)."], ["¿Cuándo una fundación es pública?", "Cuando cumpla <b>alguno</b> de estos: aportación mayoritaria pública inicial o posterior; más del <b>50 %</b> del patrimonio aportado por el sector público con carácter permanente; mayoría de votos públicos en el patronato (art. 3.1.e)."], ["¿Están sujetos los partidos políticos y sindicatos?", "Cuando cumplan los requisitos de poder adjudicador de la letra d) del 3.3 y respecto de contratos <b>SARA</b>: deben respetar publicidad, concurrencia, transparencia, igualdad y no discriminación, y aprobar instrucciones internas publicadas en su web (art. 3.4)."], ["¿Y las Corporaciones de derecho público?", "Sujetas cuando cumplan los requisitos para ser poder adjudicador del art. 3.3.d) (art. 3.5)."], ["¿Qué régimen tienen los negocios excluidos?", "Sus <b>normas especiales</b>, aplicándose los <b>principios</b> de la LCSP para resolver dudas y lagunas (art. 4)."], ["¿Qué cláusula antiabuso contiene el art. 5?", "La exclusión no opera si la opción de adjudicar un único contrato en vez de varios se ejerce <b>con el objetivo de excluir</b> el contrato del ámbito de la ley (art. 5.3)."], ["Condición previa para excluir un convenio", "Que su contenido <b>no esté comprendido</b> en el de los contratos regulados en la ley o en normas administrativas especiales (art. 6.1 y 6.2)."], ["Las tres condiciones del art. 6.1", "Que las entidades no tengan vocación de mercado (menos del <b>20 %</b> de actividad en mercado abierto) · que el convenio desarrolle una <b>cooperación</b> para objetivos comunes · que se guíe <b>únicamente</b> por el interés público."], ["¿Están excluidas las encomiendas de gestión?", "Sí, las reguladas en la legislación de régimen jurídico del sector público (art. 6.3). No confundir con los encargos a medios propios del art. 32."], ["¿Cuándo un contrato de I+D vuelve a la LCSP?", "Cuando, estando en los códigos CPV listados, los beneficios pertenezcan <b>exclusivamente</b> al poder adjudicador y el servicio sea <b>remunerado íntegramente</b> por él (art. 8)."], ["¿Qué negocios patrimoniales quedan excluidos?", "Compraventa, donación, permuta, arrendamiento y análogos sobre <b>inmuebles, valores negociables y propiedades incorporales</b>; son siempre contratos privados y se rigen por la legislación patrimonial (art. 9.2)."], ["¿Qué excepción tiene la exclusión patrimonial?", "Los que recaigan sobre <b>programas de ordenador</b> y deban calificarse como suministro o servicios (art. 9.2)."], ["Límite a la inclusión de prestaciones en un negocio patrimonial", "Valor estimado <b>no superior al 50 %</b> del importe total del negocio, y con vinculación y complementariedad conforme al art. 34.2."], ["¿Qué queda excluido en el ámbito financiero?", "Servicios financieros sobre valores e instrumentos financieros · servicios del <b>Banco de España</b> · operaciones con la FEEF y el MEDE · <b>préstamos y operaciones de tesorería</b>, estén o no relacionados con valores (art. 10)."], ["¿Están excluidos los contratos de seguro?", "No: no figuran en el art. 10, son contratos de servicios sujetos a la ley."], ["¿Qué excluye el art. 11.2?", "Las relaciones consistentes en la prestación de un servicio público cuya utilización requiera el abono de una <b>tarifa, tasa o precio público de aplicación general</b>."], ["¿Qué matiz tiene el art. 11.4?", "Excluye el contrato para la entidad que entrega bienes o presta el servicio, pero el <b>adquirente o receptor</b>, si es sector público sujeto a la ley, debe ajustarse a sus prescripciones."], ["¿Cuándo se excluye la prestación de servicios sociales por entidades privadas?", "Cuando se realice sin necesidad de contratos públicos, mediante financiación simple o licencias y autorizaciones a todas las entidades que cumplan condiciones previas, <b>sin límites ni cuotas</b>, con publicidad suficiente (art. 11.6)."]];
+const TEST=[{"a": 1, "q": "¿Cuál de estos NO es un principio enunciado en el art. 1.1 LCSP?", "o": [["la primacía del precio más bajo como criterio de adjudicación", 1, "Correcto: la ley habla de la oferta económicamente más ventajosa y, en el art. 145, de la mejor relación calidad-precio, no del precio más bajo como principio."], ["la libertad de acceso a las licitaciones", 0, "Sí lo es."], ["la publicidad y transparencia de los procedimientos", 0, "Sí lo es."], ["la no discriminación e igualdad de trato entre los licitadores", 0, "Sí lo es."]]}, {"a": 1, "q": "Los criterios sociales y medioambientales se incorporan a la contratación pública de manera potestativa.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 1.3 los impone de manera <b>transversal y preceptiva</b>, siempre que guarden relación con el objeto del contrato."}, {"a": 2, "q": "Un contrato se entiende oneroso cuando:", "o": [["el contratista obtiene algún tipo de beneficio económico, directo o indirecto", 1, "Correcto: definición literal del art. 2.1."], ["la Administración paga un precio cierto en dinero", 0, "Insuficiente: el beneficio puede ser indirecto y no dinerario."], ["su valor estimado supera los umbrales europeos", 0, "Eso determina si es SARA, no si es oneroso."], ["así lo califica el pliego", 0, "La onerosidad es objetiva, no depende de la calificación del pliego."]]}, {"a": 2, "q": "Completa: «Son contratos del sector público los contratos onerosos, ______ que sea su naturaleza jurídica, que celebren las entidades enumeradas en el artículo 3».", "gap": "cualquiera", "fb": "<b>Cualquiera</b> que sea su naturaleza jurídica (art. 2.1). Es la cláusula que impide huir de la ley cambiándole el nombre al contrato."}, {"a": 3, "q": "¿Cuál de estas entidades tiene la consideración de Administración Pública a efectos de la LCSP?", "o": [["las Universidades Públicas", 1, "Correcto: letra c) del art. 3.1, incluida entre las Administraciones Públicas por el art. 3.2.a)."], ["las fundaciones públicas", 0, "Son poder adjudicador (3.3.b) pero no Administración Pública."], ["las entidades públicas empresariales", 0, "Son sector público, pero no Administración Pública."], ["las Mutuas colaboradoras con la Seguridad Social", 0, "Son poder adjudicador (3.3.c), no Administración Pública."]]}, {"a": 3, "q": "Una sociedad mercantil forma parte del sector público cuando la participación pública sea igual o superior al 50 %.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 3.1.h) exige participación, directa o indirecta, <b>superior</b> al 50 %, o el supuesto de control del art. 5 del TR de la Ley del Mercado de Valores."}, {"a": 3, "q": "Para que una fundación sea pública a efectos de la LCSP:", "o": [["basta con que concurra alguno de los tres requisitos del art. 3.1.e)", 1, "Correcto: aportación mayoritaria pública, más del 50 % del patrimonio o mayoría de votos en el patronato."], ["deben concurrir los tres requisitos conjuntamente", 0, "No: la ley dice «alguno de los siguientes requisitos»."], ["debe estar participada al 100 % por el sector público", 0, "No se exige."], ["debe ser Administración Pública", 0, "Las fundaciones públicas nunca son Administración Pública a estos efectos."]]}, {"a": 4, "q": "Los negocios excluidos de la LCSP:", "o": [["se rigen por sus normas especiales, aplicándose los principios de la ley para dudas y lagunas", 1, "Correcto: art. 4."], ["quedan sin régimen jurídico aplicable", 0, "No: tienen sus normas especiales."], ["se rigen supletoriamente por los procedimientos de la LCSP", 0, "Se aplican los <b>principios</b>, no los procedimientos."], ["deben licitarse igualmente por procedimiento abierto", 0, "No: están excluidos del ámbito de la ley."]]}, {"a": 5, "q": "En el ámbito de la defensa, la exclusión decae cuando:", "o": [["la opción de adjudicar un único contrato se ejerce con el objetivo de excluirlo del ámbito de la ley", 1, "Correcto: cláusula antiabuso del art. 5.3."], ["participan al menos dos Estados miembros", 0, "Al contrario: es una de las circunstancias que permiten excluir concesiones (5.2.a)."], ["las Fuerzas Armadas están desplegadas fuera de la Unión", 0, "También es un supuesto de exclusión (5.2.b)."], ["la financiación procede de una institución financiera internacional", 0, "Es otro supuesto de exclusión (5.4.c)."]]}, {"a": 6, "q": "Se presume que una entidad tiene vocación de mercado, impidiendo excluir el convenio, cuando realiza en mercado abierto un porcentaje de actividad:", "o": [["igual o superior al 20 %", 1, "Correcto: art. 6.1.a), calculado sobre el promedio de los tres ejercicios anteriores."], ["superior al 50 %", 0, "Ese umbral es el de la participación societaria del art. 3.1.h)."], ["igual o superior al 10 %", 0, "No es la cifra del precepto."], ["superior al 25 %", 0, "No es la cifra del precepto."]]}, {"a": 6, "q": "Un convenio entre dos administraciones queda excluido aunque su contenido coincida con el de un contrato de servicios de la ley.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 6.1 condiciona la exclusión a que el contenido <b>no esté comprendido</b> en el de los contratos regulados en la ley o en normas administrativas especiales."}, {"a": 6, "q": "Completa: «Quedan excluidas del ámbito de la presente Ley las ______ de gestión reguladas en la legislación vigente en materia de régimen jurídico del sector público».", "gap": "encomiendas", "fb": "<b>Encomiendas</b> de gestión (art. 6.3). No confundirlas con los encargos a medios propios personificados del art. 32, que no están excluidos."}, {"a": 7, "q": "Los contratos adjudicados conforme a las normas de una institución financiera internacional quedan excluidos:", "o": [["si están financiados íntegra o mayoritariamente por esa institución", 1, "Correcto: art. 7.3."], ["en todo caso, cualquiera que sea la financiación", 0, "No: la financiación íntegra o mayoritaria es condición."], ["solo si los adjudica el Estado", 0, "El precepto no lo limita así."], ["solo si superan los umbrales de regulación armonizada", 0, "El umbral no interviene en esta exclusión."]]}, {"a": 8, "q": "Un contrato de investigación y desarrollo queda sujeto a la LCSP cuando:", "o": [["los beneficios pertenecen exclusivamente al poder adjudicador y este lo remunera íntegramente", 1, "Correcto: las dos condiciones cumulativas del art. 8, además de estar en los códigos CPV listados."], ["los resultados se publican y se comparten con el contratista", 0, "Ese es el supuesto típico de exclusión."], ["su valor estimado supera los umbrales europeos", 0, "El umbral no interviene en esta regla."], ["lo celebra una universidad pública", 0, "El sujeto no es el criterio del art. 8."]]}, {"a": 9, "q": "¿Cuál de estos negocios NO está excluido por el art. 9?", "o": [["la concesión de obras definida en el artículo 14", 1, "Correcto: el art. 9.1 excluye la explotación de bienes patrimoniales «distintos a los definidos en el artículo 14»."], ["la autorización sobre un bien de dominio público", 0, "Sí está excluida: art. 9.1."], ["el arrendamiento de un inmueble por la Administración", 0, "Sí está excluido: art. 9.2."], ["la permuta de un bien inmueble municipal", 0, "Sí está excluida: art. 9.2."]]}, {"a": 9, "q": "En un negocio patrimonial solo pueden incluirse prestaciones típicas de los contratos de la ley si su valor estimado no supera el:", "o": [["50 % del importe total del negocio", 1, "Correcto: art. 9.2, y además con vinculación y complementariedad del art. 34.2."], ["20 % del importe total", 0, "El 20 % es el umbral de vocación de mercado del art. 6.1.a)."], ["30 % del importe total", 0, "No es la cifra del precepto."], ["100 %: no hay límite", 0, "Sí hay límite expreso."]]}, {"a": 10, "q": "Están excluidos del ámbito de la LCSP:", "o": [["los contratos de préstamo y las operaciones de tesorería, estén o no relacionados con la emisión de valores", 1, "Correcto: art. 10, con esa coletilla literal."], ["los contratos de seguro de los edificios municipales", 0, "No están excluidos: son contratos de servicios sujetos a la ley."], ["los servicios de asesoramiento jurídico sobre una emisión de deuda", 0, "Son contratos de servicios sujetos a la ley."], ["los contratos de suministro energético", 0, "Sujetos a la ley."]]}, {"a": 11, "q": "El art. 11.4 excluye los contratos por los que una entidad del sector público se obliga a entregar bienes o prestar un servicio. Ello significa que:", "o": [["si el adquirente es una entidad del sector público sujeta a la ley, esta sí debe ajustarse a sus prescripciones", 1, "Correcto: el propio art. 11.4 lo dice expresamente."], ["ninguna de las dos partes queda sujeta a la ley", 0, "El receptor público sí queda sujeto."], ["la exclusión solo opera entre Administraciones Públicas", 0, "El precepto habla de entidades del sector público."], ["se excluye únicamente la entrega de bienes inmuebles", 0, "Alcanza a bienes, derechos y servicios."]]}, {"a": 11, "q": "La prestación de servicios sociales por entidades privadas queda excluida aunque el sistema establezca cuotas o número máximo de entidades.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 11.6 exige que el sistema opere <b>sin límites ni cuotas</b>, con publicidad suficiente y respeto a la transparencia y no discriminación."}, {"a": 3, "q": "Completa: «Se considerarán poderes adjudicadores las entidades creadas específicamente para satisfacer necesidades de interés general que no tengan carácter ______ o mercantil».", "gap": "industrial", "fb": "<b>Industrial</b> (art. 3.3.d). Es el criterio funcional europeo, junto con la financiación, el control o el nombramiento mayoritario."}];
+const CASOS=[{"t": "Caso 1 · ¿Dentro o fuera de la ley?", "e": "Clasifica estos seis negocios de un ayuntamiento: <b>(1)</b> compra de 40 ordenadores; <b>(2)</b> arrendamiento de un local para la sede de la policía local; <b>(3)</b> préstamo de 2 M€ con un banco; <b>(4)</b> convenio con la Diputación para gestionar conjuntamente un servicio de emergencias, sin actividad de mercado de ninguna de las dos; <b>(5)</b> contratación de un abogado externo para un pleito; <b>(6)</b> concesión de un quiosco en un parque municipal.", "s": "<p><b>(1) Sujeto.</b> Contrato de suministro, oneroso y celebrado por entidad del art. 3.</p><p><b>(2) Excluido</b> por el art. 9.2: arrendamiento sobre bien inmueble. Es contrato <b>privado</b> y se rige por la legislación patrimonial.</p><p><b>(3) Excluido</b> por el art. 10: contrato de préstamo, esté o no relacionado con valores. Sujeto, eso sí, al régimen de operaciones de crédito del TRLHL.</p><p><b>(4) Excluido</b> por el art. 6.1, siempre que el contenido no sea el propio de un contrato, no haya vocación de mercado (menos del 20 % de actividad en mercado abierto), exista cooperación para objetivos comunes y solo guíe el interés público.</p><p><b>(5) Sujeto.</b> Contrato de servicios. Ojo: el art. 11.3 excluye el <b>arbitraje y la conciliación</b>, no la defensa jurídica.</p><p><b>(6) Excluido</b> por el art. 9.1: concesión sobre bien de dominio público, regida por la legislación patrimonial y de bienes.</p><p><b>En todos los excluidos</b> se aplican los principios de la LCSP para dudas y lagunas (art. 4).</p>"}, {"t": "Caso 2 · Los tres círculos", "e": "Sitúa cada entidad en su círculo (sector público / poder adjudicador / Administración Pública): <b>(a)</b> la Universidad de Sevilla; <b>(b)</b> una fundación municipal de cultura cuyo patronato está controlado por el ayuntamiento; <b>(c)</b> una sociedad municipal de aguas con capital 100 % público; <b>(d)</b> una empresa pública que fabrica y vende productos en competencia con el sector privado; <b>(e)</b> el Colegio Oficial de Arquitectos.", "s": "<p><b>(a) Universidad de Sevilla:</b> los tres círculos. Es sector público (3.1.c), poder adjudicador (3.3.a) y <b>Administración Pública</b> (3.2.a). Celebra contratos administrativos.</p><p><b>(b) Fundación municipal:</b> es fundación pública (3.1.e, por mayoría de votos en el patronato), sector público y <b>poder adjudicador</b> (3.3.b), pero <b>no</b> Administración Pública.</p><p><b>(c) Sociedad de aguas:</b> sector público (3.1.h, participación superior al 50 %). Será poder adjudicador si satisface necesidades de interés general no industriales ni mercantiles, que es lo habitual en el ciclo del agua. Nunca Administración Pública.</p><p><b>(d) Empresa pública en competencia:</b> sector público si cumple el 3.1.h), pero <b>no</b> poder adjudicador, porque su actividad tiene carácter industrial o mercantil.</p><p><b>(e) Colegio de Arquitectos:</b> corporación de derecho público; queda sujeta cuando cumpla los requisitos de poder adjudicador de la letra d) del art. 3.3 (art. 3.5).</p><p><b>Regla que se deduce:</b> el círculo determina el régimen. Solo las Administraciones Públicas celebran contratos administrativos (art. 25).</p>"}, {"t": "Caso 3 · El convenio sospechoso", "e": "Un consorcio público de residuos, que factura el 28 % de su actividad a clientes privados, firma con un ayuntamiento un documento llamado «convenio de colaboración» por el que se compromete a recoger la basura del municipio a cambio de 900.000 € anuales. La interventora pregunta si procede licitar. <b>Analízalo paso a paso.</b>", "s": "<p><b>1) Primer filtro — el contenido (art. 6.1).</b> El objeto es la recogida de residuos a cambio de precio: contenido propio de un <b>contrato de servicios</b> (art. 17) o, si hubiera transferencia del riesgo operacional, de una <b>concesión de servicios</b> (art. 15). Solo con esto la exclusión ya decae.</p><p><b>2) Segundo filtro — vocación de mercado (art. 6.1.a).</b> El consorcio realiza el <b>28 %</b> de su actividad en mercado abierto, por encima del umbral del <b>20 %</b>: se presume vocación de mercado. Segunda razón para no excluir.</p><p><b>3) Tercer filtro — cooperación (art. 6.1.b y c).</b> No hay cooperación para objetivos comunes: hay un prestador y un pagador. Es una relación de intercambio, no de colaboración.</p><p><b>4) Conclusión.</b> No cabe convenio: hay que <b>licitar</b>. Llamarlo convenio no cambia su naturaleza, por aplicación del art. 2.1 («cualquiera que sea su naturaleza jurídica»).</p><p><b>5) Alternativa legal.</b> Si el consorcio reuniera los requisitos de <b>medio propio personificado</b>, cabría un encargo del art. 32 — figura distinta de la encomienda de gestión del art. 6.3 y sujeta a sus propios requisitos, entre ellos el control análogo y el 80 % de actividad para el poder adjudicador.</p>"}];
+const SEMAFORO=["Objeto, principios y criterios transversales — art. 1", "Ámbito objetivo: onerosidad y CPV — art. 2", "Los tres círculos del ámbito subjetivo — art. 3", "Administración Pública frente a poder adjudicador — art. 3.2 y 3.3", "Régimen de los negocios excluidos — art. 4", "Exclusiones de defensa y seguridad y cláusula antiabuso — art. 5", "Convenios: requisito de contenido y tres condiciones — art. 6", "Encomiendas de gestión frente a encargos a medios propios — art. 6.3", "Exclusiones internacionales — art. 7", "I+D: regla de exclusión y excepción — art. 8", "Dominio público y negocios patrimoniales — art. 9", "Exclusiones financieras — art. 10", "Otros excluidos: personal, tarifas, arbitraje, entregas, campañas y servicios sociales — art. 11"];
+const INTRO_HTML="<section class=\"card\" id=\"intro\"><h2>Tema 9 · Objeto y ámbito de aplicación de la LCSP</h2><p class=\"small\">Primera parte de la Ley 9/2017: qué persigue la ley (art. 1), a qué contratos se aplica (art. 2), a qué entidades alcanza (art. 3) y qué queda fuera (arts. 4 a 11). Es el artículo 3 el que decide, en la práctica, el régimen jurídico de todo lo demás.</p><div class=\"box ej\"><span class=\"lbl\">La idea que ordena todo el tema</span>Para saber si la LCSP se aplica hay que responder <b>tres preguntas en cadena</b>: <b>1)</b> ¿es un contrato oneroso? (art. 2) · <b>2)</b> ¿lo celebra una entidad del art. 3, y en qué círculo está? · <b>3)</b> ¿encaja en alguna de las exclusiones de los arts. 5 a 11? Si supera las tres, la ley se aplica; y con qué intensidad lo dirá el círculo del art. 3.</div><div class=\"box warn\"><span class=\"lbl\">Advertencia de vigencia</span>Texto consolidado de la Ley 9/2017 con <b>última modificación de 26 de diciembre de 2025</b>. La LCSP se modifica con frecuencia y los umbrales europeos se actualizan cada dos años por reglamentos delegados. Verifica siempre en el BOE consolidado.</div><svg viewBox=\"0 0 660 215\" role=\"img\" aria-label=\"Mapa conceptual del tema 9\"><rect x=\"215\" y=\"8\" width=\"230\" height=\"36\" rx=\"9\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/><text x=\"330\" y=\"31\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">¿SE APLICA LA LCSP?</text><line x1=\"330\" y1=\"44\" x2=\"330\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"130\" y1=\"60\" x2=\"530\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"130\" y1=\"60\" x2=\"130\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"330\" y1=\"60\" x2=\"330\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"530\" y1=\"60\" x2=\"530\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><rect x=\"25\" y=\"78\" width=\"210\" height=\"120\" rx=\"9\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/><text x=\"130\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--acc)\">1 · QUÉ Y PARA QUÉ</text><text x=\"130\" y=\"126\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 1 · objeto y principios</text><text x=\"130\" y=\"148\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 2 · contratos onerosos</text><text x=\"130\" y=\"176\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">la puerta de entrada</text><rect x=\"245\" y=\"78\" width=\"170\" height=\"120\" rx=\"9\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/><text x=\"330\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--ej)\">2 · A QUIÉN</text><text x=\"330\" y=\"128\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 3 · tres círculos</text><text x=\"330\" y=\"150\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">sector público ▸ poderes</text><text x=\"330\" y=\"168\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">adjudicadores ▸ AAPP</text><text x=\"330\" y=\"190\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">decide el régimen</text><rect x=\"425\" y=\"78\" width=\"210\" height=\"120\" rx=\"9\" fill=\"var(--exc-bg)\" stroke=\"var(--exc)\"/><text x=\"530\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--exc)\">3 · QUÉ QUEDA FUERA</text><text x=\"530\" y=\"124\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 4 · régimen de lo excluido</text><text x=\"530\" y=\"144\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">arts. 5-8 · defensa, convenios,</text><text x=\"530\" y=\"160\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">internacional, I+D</text><text x=\"530\" y=\"180\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">arts. 9-11 · patrimonio, finanzas y otros</text></svg></section>";
+const RESUMEN_HTML="<section class=\"card\" id=\"resumen\"><h2>Resumen ejecutivo</h2><table><tbody><tr><th style=\"width:60px\">1</th><td>Objeto: regular la contratación pública con <b>libertad de acceso, publicidad y transparencia, no discriminación e igualdad, integridad y eficiencia</b>; régimen de efectos, cumplimiento y extinción de los contratos administrativos; criterios sociales y ambientales <b>transversales y preceptivos</b> y acceso de PYMES.</td></tr><tr><th>2</th><td>Contratos <b>onerosos</b> (beneficio directo o indirecto), <b>cualquiera que sea su naturaleza jurídica</b>, de entidades del art. 3; más los <b>subvencionados</b> del art. 23. Prestaciones identificadas por <b>CPV</b>.</td></tr><tr><th>3</th><td><b>Sector público</b> (3.1, letras a a l) ▸ <b>Poderes adjudicadores</b> (3.3) ▸ <b>Administraciones Públicas</b> (3.2: letras a, b, c y l + consorcios sin ingresos de mercado). Sociedades: participación <b>superior al 50 %</b>. Fundaciones públicas: basta <b>uno</b> de tres requisitos. Partidos y sindicatos: SARA e instrucciones internas.</td></tr><tr><th>4</th><td>Lo excluido se rige por sus <b>normas especiales</b> + <b>principios</b> de la LCSP para dudas y lagunas.</td></tr><tr><th>5</th><td>Defensa y seguridad: art. 346 TFUE, Ley 24/2011, concesiones con tres circunstancias y procedimientos internacionales. <b>Cláusula antiabuso</b> en el 5.3.</td></tr><tr><th>6</th><td>Convenios: solo si su contenido <b>no es contractual</b>, y con tres condiciones — sin vocación de mercado (<b>20 %</b>), cooperación y solo interés público. <b>Encomiendas de gestión</b> excluidas.</td></tr><tr><th>7</th><td>Internacional: acuerdos entre Estados · instrumentos con Estados no signatarios del TFUE · organizaciones e instituciones financieras internacionales con financiación <b>íntegra o mayoritaria</b>.</td></tr><tr><th>8</th><td>I+D excluida, <b>salvo</b> CPV listados con beneficios <b>exclusivos</b> y remuneración <b>íntegra</b> del poder adjudicador.</td></tr><tr><th>9</th><td>Dominio público y negocios patrimoniales (inmuebles, valores, propiedades incorporales): excluidos y <b>privados</b>. Salvo programas de ordenador. Prestaciones típicas: máximo <b>50 %</b> del negocio.</td></tr><tr><th>10</th><td>Financiero: valores e instrumentos financieros · Banco de España · FEEF y MEDE · <b>préstamos y tesorería</b>, estén o no relacionados con valores.</td></tr><tr><th>11</th><td>Personal · tarifas de servicios públicos · arbitraje y conciliación · entrega de bienes (el receptor público sí se ajusta) · campañas de partidos · servicios sociales por sistemas abiertos <b>sin límites ni cuotas</b>.</td></tr></tbody></table><h2 style=\"margin-top:1.2rem\">Calendario de repaso espaciado</h2><table><thead><tr><th>Momento</th><th>Fecha</th><th>Qué hacer</th></tr></thead><tbody id=\"calbody\"></tbody></table></section>";
+</script><script>
+
+const main=document.getElementById('main');
+function panel(id,title,body,cls){return '<details class="panel '+(cls||'v-expl')+'"'+(id?' data-p="'+id+'"':'')+'><summary>'+title+'</summary><div class="body">'+body+'</div></details>';}
+let html='';
+
+html+=INTRO_HTML;
+/* ---------- ARTÍCULOS ---------- */
+ARTS.forEach(function(a){
+ html+='<section class="card art" id="art'+a.n+'">'
+ +'<h2><span class="num">Art. '+a.n+'</span> '+a.t+'</h2>'
+ +'<p class="ubic">'+a.ubic+'</p>'
+ +'<div class="idea v-expl">💡 '+a.idea+'</div>'
+ +'<div class="legal v-legal"><span class="lbl">Texto legal · literal</span>'+a.literal+'</div>'
+ +panel('','🔍 Disección estructural',a.dis)
+ +panel('','🗣️ Traducción a lenguaje llano',a.llano)
+ +panel('','❓ ¿Por qué existe este artículo?',a.porque)
+ +panel('','✅ Ejemplos','<div class="box ej"><span class="lbl">Ejemplos</span>'+a.ej+'</div>')
+ +panel('','🚫 No-ejemplos: dónde está la frontera','<div class="box exc"><span class="lbl">No-ejemplos</span>'+a.noej+'</div>')
+ +panel('','🔗 Conexiones con otros preceptos',a.conex)
+ +panel('','⚠️ Trampas y errores frecuentes','<div class="box warn"><span class="lbl">Cuidado</span>'+a.trampas+'</div>')
+ +panel('','🧠 Anclaje memorístico',a.ancla)
+ +'<div class="v-expl">'+a.vis+'</div>'
+ +'</section>';
+});
+
+/* ---------- PLAZOS ---------- */
+html+='<section class="card" id="plazos"><h2>Tabla de plazos y cifras</h2>'
++'<p class="small">Pulsa en las cabeceras para ordenar. Si solo te llevas una cosa de esta sesión, que sea esta tabla.</p>'
++'<table id="tplazos"><thead><tr><th class="sortable">Plazo / cifra</th><th class="sortable">Trámite</th><th class="sortable">Quién</th><th class="sortable">Art.</th><th>Matiz</th></tr></thead><tbody>';
+PLAZOS.forEach(function(p){html+='<tr><td><b>'+p[0]+'</b></td><td>'+p[1]+'</td><td>'+p[2]+'</td><td>'+p[3]+'</td><td class="small">'+p[4]+'</td></tr>';});
+html+='</tbody></table></section>';
+
+/* ---------- CASOS ---------- */
+html+='<section class="card" id="casos"><h2>Casos prácticos</h2><p class="small">Intenta resolverlos <b>antes</b> de abrir la solución: el esfuerzo de recuperar es lo que fija el aprendizaje.</p>';
+CASOS.forEach(function(c,i){
+ html+='<details class="panel"><summary>'+c.t+'</summary><div class="body"><p>'+c.e+'</p>'
+ +'<button class="revelar" data-i="'+i+'">Ver solución</button><div class="sol hide" id="sol'+i+'">'+c.s+'</div></div></details>';
+});
+html+='</section>';
+
+/* ---------- FLASHCARDS ---------- */
+html+='<section class="card noprint" id="flash"><h2>Flashcards</h2>'
++'<div id="fcbox" style="border:1px solid var(--line);border-radius:12px;padding:1.1rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer" tabindex="0" role="button" aria-label="Tarjeta: pulsa para girar"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.7rem">'
++'<button id="fcflip">Girar</button><button id="fcok">✔ Lo sabía</button><button id="fcko">↻ Repasar</button><button id="fcreset">Reiniciar</button>'
++'<span class="small" id="fccount"></span></div></section>';
+
+/* ---------- TEST ---------- */
+html+='<section class="card noprint" id="test"><h2>Test de autoevaluación</h2>'
++'<p class="small">Preguntas intercaladas de los diez artículos. Corrección inmediata y explicación de por qué falla cada opción incorrecta.</p>'
++'<div id="testbox"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem"><button id="tcorr">Corregir todo</button><button id="tfail">Repetir solo los fallos</button><button id="treset">Reiniciar test</button></div>'
++'<p id="tscore" class="small" style="margin-top:.6rem"></p></section>';
+
+/* ---------- SEMÁFORO ---------- */
+html+='<section class="card" id="semaforo"><h2>Semáforo de autoevaluación</h2>'
++'<p class="small">Marca honestamente cada concepto. Abajo se genera tu lista de repaso.</p><div id="sembox"></div>'
++'<div id="semres" style="margin-top:.8rem"></div></section>';
+
+html+=RESUMEN_HTML;
+/* ---------- GLOSARIO ---------- */
+html+='<section class="card" id="glosario"><h2>Glosario completo</h2><table><tbody id="glosbody"></tbody></table></section>';
+
+main.innerHTML=html;
+
+</script><script>
+
+/* ---------- ÍNDICE LATERAL ---------- */
+(function(){
+ var n='<h2>Artículos</h2>';
+ ARTS.forEach(function(a){n+='<a href="#art'+a.n+'"><b>'+a.n+'</b>'+a.t+'</a>';});
+ n+='<h2>Herramientas</h2>'
+  +'<a href="#plazos">Tabla de plazos</a><a href="#casos">Casos prácticos</a><a href="#flash">Flashcards</a>'
+  +'<a href="#test">Test</a><a href="#semaforo">Semáforo</a><a href="#resumen">Resumen y repaso</a><a href="#glosario">Glosario</a>';
+ document.getElementById('navbody').innerHTML=n;
+})();
+document.getElementById('navtoggle').onclick=function(){
+ var s=document.getElementById('side');s.classList.toggle('collapsed');
+ this.setAttribute('aria-expanded',s.classList.contains('collapsed')?'false':'true');
+};
+
+/* ---------- GLOSARIO Y TOOLTIPS ---------- */
+var LABEL={oneroso:"Carácter oneroso",pa:"Administración Pública",poderadj:"Poder adjudicador",sectorpub:"Sector público",cpv:"CPV",sara:"Contrato SARA",necint:"Necesidades de interés general",convenio:"Convenio",encomienda:"Encomienda de gestión",patrimonial:"Contrato patrimonial",domipub:"Dominio público",principios:"Principios de la contratación",presupuesto:"Presupuesto",credito:"Crédito presupuestario",obligacion:"Obligación reconocida",derecho:"Derecho liquidado",oa:"Organismo autónomo",sociedad:"Sociedad mercantil local",bases:"Bases de ejecución",estabilidad:"Estabilidad presupuestaria",afectacion:"Principio de no afectación",bruto:"Principio de presupuesto bruto",nivelacion:"Nivelación presupuestaria",aplicacion:"Aplicación presupuestaria",vinculacion:"Nivel de vinculación jurídica",intervencion:"Intervención",pleno:"Pleno",bop:"Boletín Oficial de la Provincia",prorroga:"Prórroga presupuestaria",interesado:"Interesado",liquidacion:"Liquidación del presupuesto",tcuentas:"Tribunal de Cuentas",conten:"Recurso contencioso-administrativo"};
+(function(){var g='';Object.keys(GLOSARIO).forEach(function(k){g+='<tr><th style="width:210px">'+(LABEL[k]||k)+'</th><td>'+GLOSARIO[k]+'</td></tr>';});
+ document.getElementById('glosbody').innerHTML=g;})();
+var tip=document.getElementById('tip');
+function showTip(el){var k=el.getAttribute('data-k');if(!GLOSARIO[k])return;
+ tip.innerHTML='<b>'+(LABEL[k]||k)+'</b><br>'+GLOSARIO[k];tip.style.display='block';
+ var r=el.getBoundingClientRect();var top=r.bottom+8;var left=Math.min(r.left,window.innerWidth-340);
+ if(top+tip.offsetHeight>window.innerHeight)top=Math.max(8,r.top-tip.offsetHeight-8);
+ tip.style.top=top+'px';tip.style.left=Math.max(8,left)+'px';}
+function hideTip(){tip.style.display='none';}
+document.addEventListener('mouseover',function(e){var t=e.target.closest('.t');if(t)showTip(t);});
+document.addEventListener('mouseout',function(e){if(e.target.closest('.t'))hideTip();});
+document.addEventListener('click',function(e){var t=e.target.closest('.t');if(t){e.preventDefault();showTip(t);}else hideTip();});
+
+/* ---------- VISTA LEGAL / EXPLICACIÓN ---------- */
+document.querySelectorAll('[data-view]').forEach(function(b){
+ b.onclick=function(){
+  document.querySelectorAll('[data-view]').forEach(function(x){x.setAttribute('aria-pressed','false');});
+  b.setAttribute('aria-pressed','true');
+  var v=b.getAttribute('data-view');
+  document.querySelectorAll('.v-legal').forEach(function(e){e.classList.toggle('hide',v==='expl');});
+  document.querySelectorAll('.v-expl').forEach(function(e){e.classList.toggle('hide',v==='legal');});
+ };});
+
+/* ---------- DESPLEGAR / TEMA / FUENTE ---------- */
+var openAll=false;
+document.getElementById('expand').onclick=function(){
+ openAll=!openAll;document.querySelectorAll('details.panel').forEach(function(d){d.open=openAll;});
+ this.textContent=openAll?'Plegar todo':'Desplegar todo';};
+document.getElementById('theme').onclick=function(){
+ var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
+var fs=16;
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);document.documentElement.style.setProperty('--fs',fs+'px');};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);document.documentElement.style.setProperty('--fs',fs+'px');};
+
+/* ---------- PROGRESO Y NAV ACTIVA ---------- */
+window.addEventListener('scroll',function(){
+ var h=document.body.scrollHeight-window.innerHeight;
+ document.getElementById('prog').style.width=(h>0?(window.scrollY/h*100):0)+'%';
+ var cur=null;document.querySelectorAll('section.card').forEach(function(s){
+  if(s.getBoundingClientRect().top<120)cur=s.id;});
+ document.querySelectorAll('nav.side a').forEach(function(a){
+  a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ---------- BUSCADOR ---------- */
+var q=document.getElementById('q'),timer=null;
+function clearMarks(){document.querySelectorAll('mark.hit').forEach(function(m){
+ var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});}
+q.addEventListener('input',function(){
+ clearTimeout(timer);timer=setTimeout(function(){
+  clearMarks();
+  var term=q.value.trim();
+  document.querySelectorAll('section.card').forEach(function(s){s.classList.remove('hide');});
+  if(term.length<3)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  document.querySelectorAll('section.card').forEach(function(s){
+   var found=false;
+   var w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT,null);var nodes=[];
+   while(w.nextNode()){var nd=w.currentNode;
+    if(nd.parentNode.closest('script,style,mark'))continue;
+    if(rx.test(nd.nodeValue)){nodes.push(nd);rx.lastIndex=0;}}
+   nodes.forEach(function(nd){
+    found=true;
+    var span=document.createElement('span');
+    span.innerHTML=nd.nodeValue.replace(rx,function(m){return '<mark class="hit">'+m+'</mark>';});
+    nd.parentNode.replaceChild(span,nd);});
+   if(found){s.querySelectorAll('details.panel').forEach(function(d){if(d.querySelector('mark.hit'))d.open=true;});}
+   s.classList.toggle('hide',!found);
+  });
+ },220);});
+
+/* ---------- CASOS ---------- */
+document.querySelectorAll('.revelar').forEach(function(b){
+ b.onclick=function(){var s=document.getElementById('sol'+b.getAttribute('data-i'));
+  s.classList.toggle('hide');b.textContent=s.classList.contains('hide')?'Ver solución':'Ocultar solución';};});
+
+/* ---------- TABLA ORDENABLE ---------- */
+(function(){var t=document.getElementById('tplazos');var dir={};
+ t.querySelectorAll('th.sortable').forEach(function(th,i){
+  th.onclick=function(){
+   var tb=t.tBodies[0];var rows=[].slice.call(tb.rows);
+   dir[i]=!dir[i];
+   rows.sort(function(a,b){var x=a.cells[i].innerText.trim(),y=b.cells[i].innerText.trim();
+    return dir[i]?x.localeCompare(y,'es',{numeric:true}):y.localeCompare(x,'es',{numeric:true});});
+   rows.forEach(function(r){tb.appendChild(r);});};});})();
+
+/* ---------- FLASHCARDS ---------- */
+var order=FLASH.map(function(_,i){return i;}),fi=0,flipped=false,ok=0,ko=0;
+function drawFC(){
+ var box=document.getElementById('fcbox');
+ if(!order.length){box.innerHTML='<b>¡Ronda terminada!</b><br><span class="small">Pulsa Reiniciar para volver a empezar.</span>';
+  document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko;return;}
+ if(fi>=order.length)fi=0;
+ var c=FLASH[order[fi]];
+ box.innerHTML=flipped?'<div class="small" style="color:var(--acc);margin-bottom:.4rem">RESPUESTA</div><div>'+c[1]+'</div>'
+  :'<div class="small" style="color:var(--ink2);margin-bottom:.4rem">PREGUNTA '+(fi+1)+' / '+order.length+'</div><div style="font-weight:600;font-size:1.05rem">'+c[0]+'</div><div class="small" style="margin-top:.6rem;color:var(--ink2)">Piensa la respuesta y pulsa para girar</div>';
+ document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko+' · Quedan: '+order.length;
+}
+function flip(){flipped=!flipped;drawFC();}
+document.getElementById('fcbox').onclick=flip;
+document.getElementById('fcbox').onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
+document.getElementById('fcflip').onclick=flip;
+document.getElementById('fcok').onclick=function(){if(!order.length)return;ok++;order.splice(fi,1);flipped=false;drawFC();};
+document.getElementById('fcko').onclick=function(){if(!order.length)return;ko++;var m=order.splice(fi,1)[0];order.push(m);flipped=false;drawFC();};
+document.getElementById('fcreset').onclick=function(){order=FLASH.map(function(_,i){return i;});fi=0;ok=0;ko=0;flipped=false;drawFC();};
+drawFC();
+
+/* ---------- TEST ---------- */
+var state=TEST.map(function(){return{ans:null,done:false,right:false};});
+var visible=TEST.map(function(_,i){return i;});
+function drawTest(){
+ var h='';
+ visible.forEach(function(qi){
+  var t=TEST[qi],s=state[qi];
+  h+='<div style="border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;margin:.55rem 0" data-q="'+qi+'">';
+  h+='<div style="font-weight:600"><span class="chip">Art. '+t.a+'</span> '+t.q+'</div>';
+  if(t.o){
+   t.o.forEach(function(op,oi){
+    var mark='';
+    if(s.done){if(op[1])mark=' style="background:var(--ej-bg);border-color:var(--ej)"';
+     else if(s.ans===oi)mark=' style="background:var(--exc-bg);border-color:var(--exc)"';}
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'"'+mark+' style="'+(mark?mark.slice(8,-1):'')+';border:1px solid '+(s.ans===oi&&!s.done?'var(--acc)':'var(--line)')+';border-radius:8px;padding:.35rem .6rem;margin:.3rem 0;cursor:pointer">'+String.fromCharCode(97+oi)+') '+op[0]
+     +(s.done?'<div class="small" style="margin-top:.2rem">'+op[2]+'</div>':'')+'</div>';});
+  }else if(t.vf){
+   [['Verdadero',true],['Falso',false]].forEach(function(p,oi){
+    var sel=s.ans===oi;
+    var col=s.done?((p[1]===t.ok)?'var(--ej)':(sel?'var(--exc)':'var(--line)')):(sel?'var(--acc)':'var(--line)');
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'" style="display:inline-block;border:1px solid '+col+';border-radius:8px;padding:.3rem .9rem;margin:.3rem .4rem .3rem 0;cursor:pointer">'+p[0]+'</div>';});
+   if(s.done)h+='<div class="small" style="margin-top:.3rem">'+t.fb+'</div>';
+  }else{
+   h+='<input type="text" class="gap" data-q="'+qi+'" value="'+(s.ans||'')+'" placeholder="escribe tu respuesta" style="margin-top:.4rem;padding:.35rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);width:260px">';
+   if(s.done)h+='<div class="small" style="margin-top:.3rem;color:'+(s.right?'var(--ej)':'var(--exc)')+'">'+(s.right?'Correcto. ':'Respuesta correcta: <b>'+t.gap+'</b>. ')+t.fb+'</div>';
+  }
+  h+='</div>';});
+ document.getElementById('testbox').innerHTML=h;
+ document.querySelectorAll('.opt').forEach(function(o){
+  o.onclick=function(){var qi=+o.getAttribute('data-q');if(state[qi].done)return;
+   state[qi].ans=+o.getAttribute('data-o');drawTest();};});
+ document.querySelectorAll('.gap').forEach(function(g){
+  g.oninput=function(){state[+g.getAttribute('data-q')].ans=g.value;};});
+}
+function norm(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+document.getElementById('tcorr').onclick=function(){
+ var n=0,tot=visible.length;
+ visible.forEach(function(qi){var t=TEST[qi],s=state[qi];s.done=true;
+  if(t.o)s.right=(t.o[s.ans]&&t.o[s.ans][1]===1);
+  else if(t.vf)s.right=((s.ans===0)===t.ok);
+  else s.right=norm(s.ans)===norm(t.gap);
+  if(s.right)n++;});
+ drawTest();
+ var pct=tot?Math.round(n/tot*100):0;
+ document.getElementById('tscore').innerHTML='<b>Resultado: '+n+' / '+tot+' ('+pct+' %).</b> '
+  +(pct>=90?'Dominas el bloque. Pasa a los artículos 172 y siguientes.':pct>=70?'Buen nivel: repasa los fallos y vuelve mañana.':'Aún no está fijado: relee los artículos de los fallos y repite el test.');
+};
+document.getElementById('tfail').onclick=function(){
+ var f=visible.filter(function(qi){return state[qi].done&&!state[qi].right;});
+ if(!f.length){document.getElementById('tscore').innerHTML='<b>No hay fallos que repetir.</b>';return;}
+ visible=f;f.forEach(function(qi){state[qi]={ans:null,done:false,right:false};});
+ drawTest();document.getElementById('tscore').textContent='Repitiendo '+f.length+' preguntas falladas.';
+};
+document.getElementById('treset').onclick=function(){
+ state=TEST.map(function(){return{ans:null,done:false,right:false};});
+ visible=TEST.map(function(_,i){return i;});drawTest();document.getElementById('tscore').textContent='';};
+drawTest();
+
+/* ---------- SEMÁFORO ---------- */
+var sem=SEMAFORO.map(function(){return 0;});
+function drawSem(){
+ var h='<table><tbody>';
+ SEMAFORO.forEach(function(c,i){
+  h+='<tr><td>'+c+'</td><td style="width:150px;white-space:nowrap">'
+   +['🟢','🟡','🔴'].map(function(e,j){
+     var on=sem[i]===j+1;
+     return '<button class="sembtn" data-i="'+i+'" data-v="'+(j+1)+'" style="font-size:1rem;padding:.15rem .35rem;margin-right:.2rem;border-color:'+(on?'var(--acc)':'var(--line)')+';background:'+(on?'var(--acc-soft)':'var(--panel)')+'">'+e+'</button>';}).join('')
+   +'</td></tr>';});
+ h+='</tbody></table>';
+ document.getElementById('sembox').innerHTML=h;
+ document.querySelectorAll('.sembtn').forEach(function(b){
+  b.onclick=function(){sem[+b.getAttribute('data-i')]=+b.getAttribute('data-v');drawSem();};});
+ var rojos=[],ambar=[];
+ sem.forEach(function(v,i){if(v===3)rojos.push(SEMAFORO[i]);if(v===2)ambar.push(SEMAFORO[i]);});
+ var r='';
+ if(rojos.length)r+='<div class="box exc"><span class="lbl">Repasa hoy mismo</span><ul><li>'+rojos.join('</li><li>')+'</li></ul></div>';
+ if(ambar.length)r+='<div class="box warn"><span class="lbl">Refuerza en 24 h</span><ul><li>'+ambar.join('</li><li>')+'</li></ul></div>';
+ if(!rojos.length&&!ambar.length&&sem.some(function(v){return v===1;}))r='<div class="box ej"><span class="lbl">Bien</span>Todo lo marcado está en verde. Consolida con el test y vuelve en 3 días.</div>';
+ document.getElementById('semres').innerHTML=r;
+}
+drawSem();
+
+/* ---------- CALENDARIO DE REPASO ---------- */
+(function(){
+ var hoy=new Date();
+ function f(d){var x=new Date(hoy.getTime());x.setDate(x.getDate()+d);
+  return x.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});}
+ var filas=[['Hoy',f(0),"Lectura activa + test completo + semáforo. Dibuja de memoria los tres círculos del art. 3."],['+24 horas',f(1),"Solo flashcards y tabla de cifras: 50 %, 20 %, tres ejercicios, dos Estados miembros."],['+3 días',f(3),"Caso práctico 1 (¿dentro o fuera?) rehecho con otros ejemplos. Fallos del test."],['+7 días',f(7),"Explicar en voz alta la diferencia entre Administración Pública, poder adjudicador y sector público. Casos 2 y 3."],['+21 días',f(21),"Test intercalado con el tema 10 (tipos contractuales y contratos administrativos y privados)."]];
+ document.getElementById('calbody').innerHTML=filas.map(function(r){
+  return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('');
+})();
+
+</script>
+<script>
+/* ═══ Mejoras de interacción · Bloque II ═══ */
+(function(){
+"use strict";
+var K_THEME="oposi_bII_theme", K_FS="oposi_bII_fs", K_STREAK="oposi_bII_streak";
+function load(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return f;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var root=document.documentElement;
+
+/* Tema persistente (sobrescribe el toggle simple anterior) */
+var saved=load(K_THEME,null);
+if(saved){root.setAttribute("data-theme",saved);}
+else if(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches){root.setAttribute("data-theme","dark");}
+var bt=document.getElementById("theme");
+if(bt)bt.onclick=function(){
+  var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-theme",n);save(K_THEME,n);
+};
+
+/* Tamaño de texto persistente */
+var fs=load(K_FS,16);
+function setFs(v){fs=Math.max(13,Math.min(22,v));root.style.setProperty("--fs",fs+"px");save(K_FS,fs);}
+setFs(fs);
+var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
+if(bp)bp.onclick=function(){setFs(fs+1);};
+if(bm)bm.onclick=function(){setFs(fs-1);};
+
+/* Racha compartida con el índice */
+(function(){
+  var el=document.getElementById("streakN");if(!el)return;
+  var hoy=new Date().toISOString().slice(0,10);
+  var s=load(K_STREAK,{last:null,n:0});
+  if(s.last!==hoy){
+    var ayer=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    s.n=(s.last===ayer)?s.n+1:1;s.last=hoy;save(K_STREAK,s);
+  }
+  el.textContent=s.n;
+})();
+
+/* Reveal on scroll para las tarjetas */
+function reveal(){
+  var els=document.querySelectorAll("section.card:not(.rv)");
+  if(!els.length)return;
+  if(!("IntersectionObserver" in window)){return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:"0px 0px -30px 0px"});
+  Array.prototype.forEach.call(els,function(el){el.classList.add("rv");io.observe(el);});
+}
+
+/* Sección activa en el índice lateral */
+function spy(){
+  var links=document.querySelectorAll("nav.side a[href^='#']");
+  if(!links.length||!("IntersectionObserver" in window))return;
+  var map={};
+  Array.prototype.forEach.call(links,function(a){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(t)map[t.id]=a;
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        Array.prototype.forEach.call(links,function(a){a.classList.remove("on");});
+        if(map[en.target.id])map[en.target.id].classList.add("on");
+      }
+    });
+  },{rootMargin:"-80px 0px -70% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* Ripple en botones */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.classList.contains("navtoggle"))return;
+  var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement("span");
+  s.className="ripple";s.style.width=s.style.height=d+"px";
+  s.style.left=(e.clientX-r.left-d/2)+"px";s.style.top=(e.clientY-r.top-d/2)+"px";
+  b.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},560);
+});
+
+/* Atajos de teclado */
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea"))return;
+  if(e.key==="/"){var q=document.getElementById("q");if(q){e.preventDefault();q.focus();}}
+  if(e.key==="t"&&bt)bt.click();
+});
+
+/* El contenido se inyecta por JS: esperamos a que exista */
+function init(){reveal();spy();}
+if(document.getElementById("main")&&document.getElementById("main").children.length){init();}
+else{setTimeout(init,60);}
+addEventListener("load",function(){setTimeout(init,80);});
+})();
+
+</script>
+<script>
+
+/* ═══ Parser de respuestas: estructura semántica ═══ */
+var FCFMT=(function(){
+  var CITA=/\s*\(((?:arts?\.|DA\b|DT\b|disp\.)[^)]*)\)\s*\.?\s*$/i;
+  var strip=function(h){return h.replace(/<[^>]+>/g,"");};
+
+  function esc(s){return s;}
+
+  function parse(raw){
+    var out={verdict:null,cite:null,kind:"p",items:[],text:""};
+    var body=String(raw).trim();
+
+    /* 1 ── Cita legal al final */
+    var m=body.match(CITA);
+    if(m){out.cite=m[1].replace(/\s+/g," ").trim();body=body.slice(0,m.index).trim();}
+    body=body.replace(/[.;,\s]+$/,"");
+
+    /* 2 ── Veredicto Sí / No inicial */
+    var v=strip(body).match(/^(Sí|Sí,|No|No,)[.:,]?\s/);
+    if(v){
+      out.verdict=/^Sí/.test(v[1])?"si":"no";
+      body=body.replace(/^(<[^>]+>\s*)*(Sí|No)[.,:]?\s*/,"").trim();
+      body=body.replace(/^en\s/,"En ");
+    }
+
+    /* 3 ── Enumeración con · */
+    var parts=body.split(/\s+·\s+/);
+    if(parts.length>=2){
+      out.kind="list";
+      var letras=parts.filter(function(p){return /^\s*<?[a-h]\)/.test(strip(p));}).length;
+      out.marker = letras>=parts.length-1 ? "alpha" : "num";
+      out.items=parts.map(function(p){
+        return p.replace(/^\s*[a-h]\)\s*/,"").replace(/[.\s]+$/,"").trim();
+      }).filter(Boolean);
+      return out;
+    }
+
+    /* 4 ── Cláusulas contrapuestas con ; */
+    var semi=body.split(/;\s+/);
+    if(semi.length>=2&&semi.length<=3&&semi.every(function(s){return strip(s).length>14;})){
+      out.kind="clauses";
+      out.items=semi.map(function(s){return s.replace(/[.\s]+$/,"").trim();});
+      return out;
+    }
+
+    /* 5 ── Párrafo */
+    out.text=body;
+    return out;
+  }
+
+  function render(raw){
+    var d=parse(raw),h="";
+
+    if(d.verdict){
+      h+='<span class="fc-verdict '+d.verdict+'">'+(d.verdict==="si"?"✓ Sí":"✗ No")+'</span>';
+    }
+
+    if(d.kind==="list"){
+      h+='<ol class="fc-list '+d.marker+'">';
+      d.items.forEach(function(it){h+='<li>'+it+'</li>';});
+      h+='</ol>';
+    }else if(d.kind==="clauses"){
+      h+='<div class="fc-clauses">';
+      d.items.forEach(function(it){h+='<p>'+it+'</p>';});
+      h+='</div>';
+    }else if(d.text){
+      h+='<p class="fc-p">'+d.text+'</p>';
+    }
+
+    if(d.cite){
+      h+='<span class="fc-cite"><span class="s">§</span>'+d.cite+'</span>';
+    }
+    return {html:h,struct:(d.kind!=="p"||!!d.verdict||strip(raw).length>150)};
+  }
+  return {parse:parse,render:render};
+})();
+
+/* ═══ FLASHCARDS 3D ═══ */
+(function(){
+"use strict";
+function boot(){
+  var sec=document.getElementById("flash");
+  if(!sec||sec.dataset.fc3d)return false;
+  if(typeof FLASH==="undefined"||!FLASH||!FLASH.length)return false;
+  sec.dataset.fc3d="1";
+
+  var CARDS=FLASH, N=CARDS.length;
+  var order,fi,ok,ko,back,busy;
+
+  /* — Estructura — */
+  var h2=sec.querySelector("h2");
+  sec.innerHTML="";
+  if(h2)sec.appendChild(h2);
+  var intro=document.createElement("p");
+  intro.className="small";
+  intro.innerHTML="Piensa la respuesta <b>antes</b> de girar: el esfuerzo de recuperarla es lo que la fija. "
+    +'<span class="fc-hint" style="position:static;display:inline;color:inherit">'
+    +'<span class="kbd">espacio</span> girar · <span class="kbd">→</span> lo sabía · <span class="kbd">←</span> repasar</span>';
+  sec.appendChild(intro);
+
+  var stage=document.createElement("div");
+  stage.className="fc-stage";
+  stage.innerHTML=
+    '<div class="fc-deck" id="fcdeck">'
+    +'<span class="fc-ghost g2"></span><span class="fc-ghost g1"></span>'
+    +'<div class="fc-lift" id="fclift">'
+      +'<div class="fc-card" id="fcbox" tabindex="0" role="button" aria-label="Tarjeta. Pulsa para girar">'
+        +'<div class="fc-face fc-front">'
+          +'<span class="fc-tag">Pregunta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">Pulsa para girar</span>'
+        +'</div>'
+        +'<div class="fc-face fc-back">'
+          +'<span class="fc-tag">Respuesta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">¿La sabías?</span>'
+        +'</div>'
+      +'</div>'
+    +'</div></div>';
+  sec.appendChild(stage);
+
+  var bar=document.createElement("div");
+  bar.className="fc-bar";bar.innerHTML="<i></i>";
+  sec.appendChild(bar);
+
+  var ctr=document.createElement("div");
+  ctr.className="fc-ctrls noprint";
+  ctr.innerHTML='<button id="fcflip">⟲ Girar</button>'
+    +'<button id="fcok">✔ Lo sabía</button>'
+    +'<button id="fcko">↻ Repasar</button>'
+    +'<button id="fcreset">Reiniciar</button>'
+    +'<span class="fc-score">'
+      +'<span class="fc-pill ok" id="fcpok">0 sabidas</span>'
+      +'<span class="fc-pill ko" id="fcpko">0 repasar</span>'
+      +'<span class="fc-pill left" id="fccount">0</span>'
+    +'</span>';
+  sec.appendChild(ctr);
+
+  var deck=stage.querySelector("#fcdeck"), lift=stage.querySelector("#fclift"),
+      card=stage.querySelector("#fcbox"),
+      front=stage.querySelector(".fc-front"), backf=stage.querySelector(".fc-back"),
+      fill=bar.querySelector("i"),
+      pok=ctr.querySelector("#fcpok"), pko=ctr.querySelector("#fcpko"),
+      pleft=ctr.querySelector("#fccount");
+  var rot=0;
+
+  function reset(){
+    order=CARDS.map(function(_,i){return i;});
+    fi=0;ok=0;ko=0;back=false;busy=false;rot=0;
+    card.style.transition="none";card.style.transform="rotateY(0deg)";
+    void card.offsetWidth;card.style.transition="";
+    deck.classList.remove("empty");
+    var d=stage.querySelector(".fc-done");if(d)d.remove();
+    card.style.display="";
+    draw();
+  }
+
+  function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+
+  function draw(){
+    pok.textContent=ok+(ok===1?" sabida":" sabidas");
+    pko.textContent=ko+" repasar";
+    var done=N-order.length;
+    fill.style.width=(N?done/N*100:0)+"%";
+
+    if(!order.length){
+      pleft.textContent="0 quedan";
+      deck.classList.add("empty");
+      card.style.display="none";
+      if(!stage.querySelector(".fc-done")){
+        var d=document.createElement("div");
+        d.className="fc-done";
+        d.innerHTML='<span class="seal">🏆</span><h3>Ronda completada</h3>'
+          +'<p>'+ok+' de '+N+' a la primera'+(ko?' · '+ko+' necesitaron repaso':'')+'</p>';
+        deck.appendChild(d);
+      }
+      return;
+    }
+    if(fi>=order.length)fi=0;
+    pleft.textContent=order.length+(order.length===1?" queda":" quedan");
+
+    var c=CARDS[order[fi]];
+    front.querySelector(".fc-txt").innerHTML='<p class="fc-p">'+c[0]+'</p>';
+    var r=FCFMT.render(c[1]);
+    backf.querySelector(".fc-txt").innerHTML=r.html;
+    backf.classList.toggle("struct",r.struct);
+    var hint=backf.querySelector(".fc-hint");
+    if(hint)hint.classList.toggle("muted",/fc-cite/.test(r.html));
+    var pip=(done+1)+"/"+N;
+    Array.prototype.forEach.call(stage.querySelectorAll(".fc-pip"),function(p){p.textContent=pip;});
+  }
+
+  function flip(){
+    if(busy||!order.length)return;
+    back=!back;rot+=180;
+    card.style.transform="rotateY("+rot+"deg)";
+    card.setAttribute("aria-label",back?"Respuesta. Pulsa para volver":"Pregunta. Pulsa para girar");
+    lift.classList.remove("lift");void lift.offsetWidth;lift.classList.add("lift");
+  }
+
+  function next(good){
+    if(busy||!order.length)return;
+    busy=true;
+    if(good){ok++;bump(pok);}else{ko++;bump(pko);}
+    lift.classList.remove("lift");
+    lift.classList.add(good?"out-ok":"out-ko");
+    setTimeout(function(){
+      if(good){order.splice(fi,1);}
+      else{var m=order.splice(fi,1)[0];order.push(m);}
+      back=false;rot=0;
+      card.style.transition="none";card.style.transform="rotateY(0deg)";
+      void card.offsetWidth;card.style.transition="";
+      draw();
+      lift.classList.remove("out-ok","out-ko");
+      lift.classList.add("in");
+      setTimeout(function(){lift.classList.remove("in");busy=false;},480);
+    },460);
+  }
+
+  card.onclick=flip;
+  card.onkeydown=function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();flip();}
+    if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  };
+  ctr.querySelector("#fcflip").onclick=flip;
+  ctr.querySelector("#fcok").onclick=function(){next(true);};
+  ctr.querySelector("#fcko").onclick=function(){next(false);};
+  ctr.querySelector("#fcreset").onclick=reset;
+
+  /* Deslizar en táctil */
+  var x0=null,y0=null;
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  card.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){next(dx>0);}
+    x0=y0=null;
+  },{passive:true});
+
+  /* Atajos globales cuando el mazo está a la vista */
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    var r=stage.getBoundingClientRect();
+    if(r.bottom<80||r.top>innerHeight-80)return;
+    if(e.key===" "){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    else if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  });
+
+  reset();
+  return true;
+}
+if(!boot()){
+  var tries=0;
+  var iv=setInterval(function(){if(boot()||++tries>40)clearInterval(iv);},120);
+  addEventListener("load",function(){setTimeout(boot,100);});
+}
+})();
+
+</script>
+</body>
+</html>

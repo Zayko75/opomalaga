@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>TRLHL · Arts. 172-182 · Los créditos y sus modificaciones</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   SISTEMA DE DISEÑO · "Académico Gamificado" · Bloque II
+   Temas 8, 9 y 10 · Auxiliar Administrativo
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --fs:16px;
+
+  --bg:#faf9f7;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #dcf5ee 0%, transparent 50%);
+  --surface:#ffffff;
+  --surface-2:#f4f3f0;
+  --surface-3:#eceae5;
+  --line:#e6e3dc;
+  --line-strong:#d4d0c7;
+
+  --ink:#15161c;
+  --ink-2:#5d616e;
+  --ink-3:#8b8f9c;
+
+  --brand:#5b3df5;
+  --brand-2:#7c5cff;
+  --brand-soft:#efeaff;
+  --brand-ring:rgba(91,61,245,.18);
+
+  --legal:#4338ca;  --legal-bg:#eeecff;
+  --ej:#059669;     --ej-bg:#e4f7f0;
+  --warn:#c2690a;   --warn-bg:#fdf1de;
+  --exc:#dc2626;    --exc-bg:#ffeceb;
+
+  --ok:#16a34a; --ok-soft:#e7f7ec;
+  --mid:#eab308; --mid-soft:#fdf6dd;
+  --off:#a1a1aa; --off-soft:#f1f1f3;
+
+  --sh-1:0 1px 2px rgba(20,20,30,.04), 0 2px 8px rgba(20,20,30,.04);
+  --sh-2:0 2px 6px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.07);
+  --sh-3:0 8px 20px rgba(91,61,245,.13), 0 24px 56px rgba(20,20,30,.10);
+  --sh-glow:0 0 0 4px var(--brand-ring);
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-full:999px;
+
+  --f-display:"Segoe UI Variable Display",system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-legal:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+
+  --t-h1:clamp(1.02rem,.95rem + .3vw,1.2rem);
+  --t-h2:clamp(1.2rem,1.05rem + .6vw,1.55rem);
+  --t-h3:clamp(1rem,.95rem + .25vw,1.12rem);
+  --t-sm:.86rem;
+  --t-xs:.75rem;
+
+  --e-out:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+
+  /* ── Compatibilidad con SVG y contenido generado ── */
+  --panel:var(--surface);
+  --ink2:var(--ink-2);
+  --acc:var(--brand);
+  --acc-soft:var(--brand-soft);
+  --g:var(--ok); --y:var(--mid); --r:var(--exc);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0b0f;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #1c1740 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #08302b 0%, transparent 50%);
+  --surface:#13151b;
+  --surface-2:#1a1d25;
+  --surface-3:#232733;
+  --line:#262a34;
+  --line-strong:#343947;
+
+  --ink:#eceef4;
+  --ink-2:#9ba2b3;
+  --ink-3:#6e7585;
+
+  --brand:#8b6dff;
+  --brand-2:#a78bff;
+  --brand-soft:#1e1a3d;
+  --brand-ring:rgba(139,109,255,.22);
+
+  --legal:#a5b4fc; --legal-bg:#191b3a;
+  --ej:#34d399;    --ej-bg:#0c2a24;
+  --warn:#fbbf24;  --warn-bg:#2e2110;
+  --exc:#fb7185;   --exc-bg:#331119;
+
+  --ok:#4ade80; --ok-soft:#0e2a19;
+  --mid:#facc15; --mid-soft:#2c2610;
+  --off:#5b6070; --off-soft:#1c1f27;
+
+  --sh-1:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sh-2:0 2px 6px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.4);
+  --sh-3:0 8px 20px rgba(139,109,255,.2), 0 24px 56px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);background-image:var(--bg-grad);
+  background-attachment:fixed;background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s var(--e-out),color .3s;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.022em;line-height:1.2}
+.num{font-variant-numeric:tabular-nums}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+
+/* ═══ HEADER ═══ */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{max-width:1280px;margin:0 auto;padding:.65rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;flex:1}
+.mark{
+  width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  font-weight:800;font-size:.8rem;letter-spacing:-.02em;text-decoration:none;
+  box-shadow:0 4px 14px var(--brand-ring);
+  transition:transform .3s var(--e-spring),box-shadow .3s;
+}
+.mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0}
+.top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
+  margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+
+button,select,input[type=search]{
+  font:inherit;font-size:var(--t-sm);font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:var(--r-sm);padding:.4rem .72rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .18s var(--e-spring),border-color .2s,background .2s,box-shadow .2s,color .2s;
+}
+button:hover{transform:translateY(-1.5px);border-color:var(--brand);box-shadow:var(--sh-1)}
+button:active{transform:translateY(0) scale(.97)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:none;box-shadow:var(--sh-glow)}
+input[type=search]{min-width:190px;cursor:text;font-weight:500}
+input[type=search]:focus{border-color:var(--brand)}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);padding:2px;gap:2px}
+.seg button{border:0;border-radius:calc(var(--r-sm) - 2px);padding:.32rem .68rem;background:transparent;box-shadow:none}
+.seg button:hover{transform:none;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 2px 8px var(--brand-ring)}
+
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:currentColor;opacity:.25;animation:rip .55s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(3.4);opacity:0}}
+
+.progress{position:absolute;left:0;bottom:-1px;height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--brand),var(--legal),var(--ej));transition:width .1s linear}
+
+/* ═══ LAYOUT ═══ */
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:1.8rem;padding:1.4rem 1.1rem 5rem}
+main{min-width:0}
+
+/* ═══ SIDEBAR ═══ */
+nav.side{
+  position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:.85rem;box-shadow:var(--sh-1);
+}
+nav.side h2{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:.5rem .4rem .5rem;font-weight:800}
+nav.side h2:first-child{margin-top:.1rem}
+nav.side a{
+  display:flex;align-items:baseline;gap:.5rem;padding:.36rem .55rem;border-radius:var(--r-sm);
+  text-decoration:none;color:var(--ink-2);font-size:var(--t-sm);font-weight:500;
+  position:relative;transition:background .22s,color .22s,transform .22s var(--e-out);
+}
+nav.side a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(3px);text-decoration:none}
+nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side a.on::before{content:"";position:absolute;left:-.85rem;top:20%;bottom:20%;width:3px;
+  border-radius:0 3px 3px 0;background:var(--brand)}
+nav.side a b{color:var(--ink-3);font-weight:800;font-size:var(--t-xs);font-variant-numeric:tabular-nums;flex:none;min-width:1.9em}
+nav.side a.on b{color:var(--brand)}
+.navtoggle{display:none}
+
+/* ═══ TARJETAS ═══ */
+section.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.5rem;margin-bottom:1.1rem;box-shadow:var(--sh-1);
+  transition:box-shadow .3s var(--e-out),border-color .3s;
+}
+section.card:hover{box-shadow:var(--sh-2)}
+section.card>h2{
+  margin:0 0 1rem;font-size:var(--t-h2);font-weight:800;
+  display:flex;align-items:center;gap:.6rem;
+}
+section.card>h2::before{
+  content:"";width:4px;height:1.05em;border-radius:99px;flex:none;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+
+/* ═══ ARTÍCULO ═══ */
+.art{scroll-margin-top:86px;padding-top:.4rem}
+.art + .art{margin-top:1.6rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+.art h2{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;font-size:var(--t-h3);
+  margin:0 0 .25rem;font-weight:800;letter-spacing:-.015em}
+.art h2 .num{
+  color:var(--brand);font-weight:800;font-family:var(--f-display);
+  background:var(--brand-soft);padding:.1rem .5rem;border-radius:var(--r-sm);
+  font-size:.92em;letter-spacing:-.02em;
+}
+.ubic{font-size:var(--t-xs);color:var(--ink-3);margin:0 0 .8rem;font-weight:600;
+  letter-spacing:.03em;text-transform:uppercase}
+
+/* ═══ IDEA CLAVE ═══ */
+.idea{
+  background:linear-gradient(100deg,var(--brand-soft),color-mix(in srgb,var(--brand-soft) 40%,transparent));
+  border-left:4px solid var(--brand);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.75rem 1rem;font-weight:650;margin:.7rem 0 1rem;position:relative;
+  font-size:.97rem;line-height:1.55;
+}
+
+/* ═══ ACORDEÓN ═══ */
+details.panel{
+  border:1px solid var(--line);border-radius:var(--r-md);margin:.6rem 0;
+  background:var(--surface);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+details.panel:hover{border-color:var(--line-strong)}
+details.panel[open]{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring)}
+details.panel>summary{
+  cursor:pointer;padding:.62rem .9rem;font-weight:700;font-size:.93rem;
+  list-style:none;display:flex;align-items:center;gap:.55rem;
+  transition:background .2s,color .2s;
+}
+details.panel>summary:hover{background:var(--surface-2)}
+details.panel[open]>summary{background:var(--brand-soft);color:var(--brand)}
+details.panel>summary::-webkit-details-marker{display:none}
+details.panel>summary::before{
+  content:"";width:16px;height:16px;flex:none;border-radius:5px;
+  background:var(--brand-soft);position:relative;transition:transform .3s var(--e-spring),background .25s;
+}
+details.panel>summary::after{
+  content:"";position:absolute;width:0;height:0;margin-left:5px;
+  border:4px solid transparent;border-left-color:var(--brand);
+  transition:transform .3s var(--e-spring);
+}
+details.panel[open]>summary::before{background:var(--surface)}
+details.panel[open]>summary::after{transform:rotate(90deg) translateX(-1px)}
+details.panel .body{padding:.3rem 1rem 1rem;font-size:.95rem;animation:slidein .35s var(--e-out)}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ═══ TEXTO LEGAL ═══ */
+.legal{
+  background:var(--legal-bg);border-left:4px solid var(--legal);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:.85rem 1.05rem;
+  font-family:var(--f-legal);font-size:.95rem;line-height:1.7;
+}
+.legal p{margin:.45rem 0}
+.legal .lbl{
+  font-family:var(--f-body);font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--legal);font-weight:800;display:block;margin-bottom:.4rem;
+}
+
+/* ═══ CAJAS SEMÁNTICAS ═══ */
+.box{
+  border-left:4px solid var(--line);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.72rem .95rem;margin:.65rem 0;font-size:.94rem;
+  transition:transform .25s var(--e-out),box-shadow .25s;
+}
+.box:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
+.box.ej{background:var(--ej-bg);border-color:var(--ej)}
+.box.warn{background:var(--warn-bg);border-color:var(--warn)}
+.box.exc{background:var(--exc-bg);border-color:var(--exc)}
+.box .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+  display:block;margin-bottom:.3rem}
+.box.ej .lbl{color:var(--ej)}
+.box.warn .lbl{color:var(--warn)}
+.box.exc .lbl{color:var(--exc)}
+
+.interp{
+  border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn-bg) 45%,transparent);
+  border-radius:var(--r-md);padding:.65rem .9rem;font-size:.9rem;margin:.6rem 0;
+}
+.interp .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);font-weight:800;display:block}
+
+/* ═══ TABLAS ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;margin:.7rem 0;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+th,td{padding:.5rem .68rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td + td, th + th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-size:var(--t-xs);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+tbody tr{transition:background .18s}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+tbody tr:hover{background:var(--brand-soft)}
+th.sortable{cursor:pointer;user-select:none;transition:color .2s,background .2s}
+th.sortable:hover{color:var(--brand);background:var(--brand-soft)}
+th.sortable::after{content:" ⇅";color:var(--ink-3);font-size:.7rem}
+
+ul,ol{margin:.5rem 0 .5rem 1.2rem;padding:0}
+li{margin:.26rem 0}
+li::marker{color:var(--brand);font-weight:700}
+
+/* ═══ TOOLTIPS ═══ */
+.t{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;
+  transition:background .2s,color .2s}
+.t:hover{background:var(--brand-soft);color:var(--brand);border-radius:3px}
+#tip{
+  position:fixed;z-index:99;max-width:330px;background:var(--ink);color:var(--bg);
+  padding:.6rem .78rem;border-radius:var(--r-md);font-size:.82rem;line-height:1.5;
+  display:none;box-shadow:0 8px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);
+}
+html[data-theme="dark"] #tip{background:#f0f1f5;color:#15161c}
+
+/* ═══ FLECHAS DE DIAGRAMA ═══
+   Un <path> con stroke pero sin fill toma el valor inicial (negro) y el
+   navegador cierra el trazo implícitamente: aparece un triángulo relleno
+   entre sus extremos. Forzamos fill:none para dejar solo la línea + la
+   punta del <marker>, que sí lleva su color. */
+svg path[stroke]:not([fill]){fill:none}
+svg polyline:not([fill]){fill:none}
+svg line{fill:none}
+
+/* ═══ SVG ═══ */
+svg{max-width:100%;height:auto;display:block;margin:.9rem auto}
+svg text{font-family:var(--f-body)}
+
+/* ═══ BUSCADOR ═══ */
+mark.hit{background:linear-gradient(180deg,transparent 55%,#ffe066 55%);color:inherit;
+  border-radius:2px;padding:0 1px;font-weight:600}
+html[data-theme="dark"] mark.hit{background:linear-gradient(180deg,transparent 55%,#8a6d00 55%);color:#fff}
+
+/* ═══ UTILIDADES ═══ */
+.hide{display:none !important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.small{font-size:var(--t-sm);color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:var(--t-xs);padding:.16rem .55rem;border-radius:var(--r-full);
+  background:var(--brand-soft);color:var(--brand);font-weight:800;letter-spacing:.02em;
+}
+
+/* ═══ HUECOS RELLENABLES ═══ */
+.gap{
+  display:inline-block;min-width:5.5em;border-bottom:2px solid var(--brand);
+  text-align:center;font-weight:700;color:transparent;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.gap.on,.gap:hover{color:var(--brand);background:var(--brand-soft);border-radius:4px 4px 0 0}
+
+/* ═══ REVELAR SOLUCIÓN ═══ */
+.revelar{
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;
+  font-weight:700;
+}
+.revelar:hover{box-shadow:var(--sh-3)}
+.sol{
+  margin-top:.7rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  background:var(--ej-bg);border-left:4px solid var(--ej);
+  animation:slidein .4s var(--e-out);
+}
+
+/* ═══ TEST ═══ */
+.opt{
+  display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;background:var(--surface);font-size:.94rem;
+  transition:border-color .22s,background .22s,transform .22s var(--e-out);
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateX(4px)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:650}
+.opt.ko{border-color:var(--exc);background:var(--exc-bg)}
+.opt input{margin-right:.5rem;accent-color:var(--brand)}
+
+#tscore,#semres{
+  font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLASHCARDS 3D · mazo con giro, vuelo de salida y sheen
+   ═══════════════════════════════════════════════════════════════ */
+#flash{--fc-e:cubic-bezier(.2,.8,.25,1);--fc-h:250px}
+
+/* — Escena — */
+.fc-stage{
+  perspective:1400px;perspective-origin:50% 45%;
+  padding:.4rem 0 .2rem;position:relative;
+}
+.fc-deck{position:relative;height:var(--fc-h);will-change:transform}
+
+/* — Cartas fantasma del mazo — */
+.fc-ghost{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .5s var(--fc-e),opacity .5s var(--fc-e);
+}
+.fc-ghost.g1{transform:translateY(9px) scale(.972);opacity:.75}
+.fc-ghost.g2{transform:translateY(18px) scale(.944);opacity:.45}
+.fc-deck.empty .fc-ghost{opacity:0;transform:translateY(26px) scale(.9)}
+
+/* — Elevación durante el giro — */
+.fc-lift{position:absolute;inset:0;transform-style:preserve-3d}
+.fc-lift.lift{animation:fcLift .78s var(--fc-e)}
+@keyframes fcLift{
+  0%,100%{transform:scale(1) translateY(0)}
+  45%{transform:scale(1.055) translateY(-16px)}
+}
+.fc-lift.out-ok{animation:fcOut .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.out-ko{animation:fcOutKo .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.in{animation:fcIn .48s var(--fc-e)}
+@keyframes fcOut{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(130%) rotate(17deg) scale(.85);opacity:0}
+}
+@keyframes fcOutKo{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(-130%) rotate(-17deg) scale(.85);opacity:0}
+}
+@keyframes fcIn{
+  0%{transform:translateY(26px) scale(.9);opacity:0}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+
+/* — La carta — */
+.fc-card{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transition:transform .78s var(--fc-e);
+  cursor:pointer;border-radius:var(--r-lg);
+}
+.fc-card:focus-visible{outline:none}
+.fc-card:focus-visible .fc-face{box-shadow:var(--sh-glow),var(--sh-2)}
+
+/* — Caras — */
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 2.2rem;text-align:center;overflow:hidden;
+  box-shadow:var(--sh-2);
+  transition:box-shadow .4s var(--fc-e);
+}
+.fc-card:hover .fc-face{box-shadow:var(--sh-3)}
+
+/* Anverso · pregunta */
+.fc-front{
+  background:
+    radial-gradient(120% 90% at 50% -20%, var(--brand-soft) 0%, transparent 60%),
+    var(--surface);
+  border:1.5px solid var(--line);color:var(--ink);
+}
+/* Reverso · respuesta */
+.fc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,var(--brand) 0%,#6d4bf7 45%,var(--c5,#0891b2) 130%);
+  border:1.5px solid transparent;color:#fff;
+}
+html[data-theme="dark"] .fc-back{
+  background:linear-gradient(145deg,#5f45c9 0%,#4b3aa8 45%,#0e6b85 130%);
+}
+.fc-back .fc-txt{color:#fff}
+.fc-back b,.fc-back strong{color:#fff;font-weight:800}
+
+/* — Sheen que barre al girar — */
+.fc-face::after{
+  content:"";position:absolute;top:-60%;left:-70%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);opacity:0;pointer-events:none;
+}
+.fc-lift.lift .fc-face::after{animation:fcSheen .78s var(--fc-e)}
+@keyframes fcSheen{
+  0%{opacity:0;left:-70%}
+  35%{opacity:1}
+  100%{opacity:0;left:150%}
+}
+
+/* — Etiqueta superior — */
+.fc-tag{
+  position:absolute;top:1rem;left:1.15rem;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.fc-front .fc-tag{color:var(--brand)}
+.fc-back .fc-tag{color:rgba(255,255,255,.9)}
+.fc-tag::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+  animation:fcPulse 2.2s ease-in-out infinite;
+}
+@keyframes fcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* — Índice tipo naipe — */
+.fc-pip{
+  position:absolute;font-family:var(--f-display);font-weight:800;
+  font-size:.78rem;letter-spacing:-.02em;opacity:.34;font-variant-numeric:tabular-nums;
+}
+.fc-pip.tr{top:1rem;right:1.15rem}
+.fc-pip.bl{bottom:1rem;left:1.15rem;transform:rotate(180deg)}
+.fc-front .fc-pip{color:var(--ink-2)}
+.fc-back .fc-pip{color:#fff;opacity:.55}
+
+/* — Texto — */
+.fc-txt{
+  font-size:clamp(1rem,.9rem + .55vw,1.28rem);font-weight:650;line-height:1.5;
+  max-width:44ch;letter-spacing:-.012em;
+}
+.fc-front .fc-txt{font-family:var(--f-display);font-weight:700}
+.fc-back .fc-txt{font-weight:600;line-height:1.6}
+.fc-hint{
+  position:absolute;bottom:1rem;left:0;right:0;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.fc-front .fc-hint{color:var(--ink-3)}
+.fc-back .fc-hint{color:rgba(255,255,255,.72)}
+.fc-hint .kbd{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:700;padding:.1rem .32rem;
+  border-radius:5px;border:1px solid currentColor;opacity:.75;
+}
+
+/* — Pantalla final — */
+.fc-done{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--ok-soft),var(--surface) 70%);
+  border:1.5px solid var(--ok);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;gap:.35rem;
+  animation:fcIn .5s var(--fc-e);box-shadow:var(--sh-2);
+}
+.fc-done .seal{
+  font-size:2.6rem;line-height:1;
+  animation:fcSeal .7s cubic-bezier(.2,1.5,.4,1);
+}
+@keyframes fcSeal{0%{transform:scale(0) rotate(-25deg);opacity:0}60%{transform:scale(1.2) rotate(6deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.fc-done h3{font-size:1.3rem;font-weight:800;margin:.2rem 0 0}
+.fc-done p{margin:0;color:var(--ink-2);font-size:var(--t-sm)}
+
+/* — Barra de progreso de la ronda — */
+.fc-bar{
+  height:6px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;margin:.95rem 0 .8rem;position:relative;
+}
+.fc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand),var(--c5,#0891b2));
+  transition:width .55s var(--fc-e);
+}
+
+/* — Controles — */
+.fc-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.fc-ctrls button{font-weight:700}
+#fcok{border-color:var(--ok);color:var(--ok)}
+#fcok:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+#fcko{border-color:var(--warn);color:var(--warn)}
+#fcko:hover{background:var(--warn);color:#fff;border-color:var(--warn)}
+#fcflip{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+#fcflip:hover{box-shadow:var(--sh-3)}
+
+.fc-score{display:inline-flex;gap:.45rem;margin-left:auto;align-items:center}
+.fc-pill{
+  font-size:var(--t-xs);font-weight:800;padding:.24rem .6rem;border-radius:var(--r-full);
+  font-variant-numeric:tabular-nums;border:1px solid;
+}
+.fc-pill.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.fc-pill.ko{color:var(--warn);border-color:var(--warn);background:var(--warn-bg)}
+.fc-pill.left{color:var(--ink-2);border-color:var(--line);background:var(--surface-2)}
+.fc-pill.bump{animation:fcBump .45s var(--e-spring)}
+@keyframes fcBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+@media(max-width:620px){
+  #flash{--fc-h:270px}
+  .fc-face{padding:1.7rem 1.3rem}
+  .fc-score{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-card{transition:none}
+  .fc-lift.lift,.fc-lift.in,.fc-lift.out-ok,.fc-lift.out-ko,.fc-face::after{animation:none !important}
+}
+@media print{.fc-stage,.fc-ctrls,.fc-bar{display:none !important}}
+/* ═══ RESPUESTA ESTRUCTURADA ═══ */
+.fc-face{justify-content:center}
+.fc-face.struct{justify-content:flex-start;text-align:left;padding-top:3.1rem;padding-bottom:3.1rem}
+.fc-body{
+  width:100%;max-width:46ch;margin:0 auto;
+  overflow-y:auto;max-height:100%;
+  scrollbar-width:thin;
+}
+.fc-body::-webkit-scrollbar{width:5px}
+.fc-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:99px;border:0}
+.fc-front .fc-body::-webkit-scrollbar-thumb{background:var(--line-strong)}
+
+/* — Veredicto Sí / No — */
+.fc-verdict{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-display);font-weight:800;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.26rem .72rem;border-radius:var(--r-full);margin-bottom:.85rem;
+  border:1.5px solid;animation:fcPopIn .45s var(--e-spring) backwards;animation-delay:.34s;
+}
+.fc-verdict.si{background:rgba(255,255,255,.16);border-color:rgba(190,255,215,.85);color:#d8ffe9}
+.fc-verdict.no{background:rgba(255,255,255,.16);border-color:rgba(255,205,205,.85);color:#ffdedd}
+@keyframes fcPopIn{0%{opacity:0;transform:scale(.7) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* — Párrafo — */
+.fc-p{margin:0;font-size:clamp(1rem,.92rem + .45vw,1.2rem);font-weight:600;line-height:1.6}
+.fc-face.struct .fc-p{font-size:clamp(.96rem,.9rem + .35vw,1.1rem)}
+
+/* — Lista enumerada — */
+.fc-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;counter-reset:fc}
+.fc-list li{
+  counter-increment:fc;position:relative;margin:0;
+  padding:.42rem .6rem .42rem 2.5rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.11);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.45;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-list li::before{
+  content:counter(fc);position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.9);color:var(--brand);
+  font-family:var(--f-display);font-weight:800;font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.fc-list.alpha li::before{content:counter(fc,lower-alpha)}
+.fc-list li:nth-child(1){animation-delay:.36s}
+.fc-list li:nth-child(2){animation-delay:.42s}
+.fc-list li:nth-child(3){animation-delay:.48s}
+.fc-list li:nth-child(4){animation-delay:.54s}
+.fc-list li:nth-child(5){animation-delay:.60s}
+.fc-list li:nth-child(n+6){animation-delay:.66s}
+@keyframes fcRow{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:none}}
+
+/* — Cláusulas contrapuestas — */
+.fc-clauses{display:grid;gap:.45rem}
+.fc-clauses p{
+  margin:0;padding:.45rem .7rem .45rem .95rem;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:rgba(255,255,255,.11);border-left:3px solid rgba(255,255,255,.55);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.5;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-clauses p:nth-child(1){animation-delay:.36s}
+.fc-clauses p:nth-child(2){animation-delay:.44s}
+.fc-clauses p:nth-child(3){animation-delay:.52s}
+
+/* — Negritas resaltadas en el reverso — */
+.fc-back .fc-body b,.fc-back .fc-body strong{
+  font-weight:800;background:rgba(255,255,255,.2);
+  padding:.03em .3em;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+
+/* — Cita legal al pie — */
+.fc-cite{
+  position:absolute;bottom:.95rem;left:0;right:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;letter-spacing:.02em;
+  color:rgba(255,255,255,.82);
+  animation:fcPopIn .5s var(--e-out) backwards;animation-delay:.5s;
+}
+.fc-cite::before,.fc-cite::after{
+  content:"";height:1px;width:clamp(18px,10%,52px);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45));
+}
+.fc-cite::after{background:linear-gradient(90deg,rgba(255,255,255,.45),transparent)}
+.fc-cite .s{font-size:.9rem;opacity:.75;font-family:var(--f-legal)}
+.fc-front .fc-cite{color:var(--ink-3)}
+.fc-front .fc-cite::before{background:linear-gradient(90deg,transparent,var(--line-strong))}
+.fc-front .fc-cite::after{background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+/* la pista se oculta si hay cita, para no amontonar */
+.fc-back .fc-cite ~ .fc-hint,.fc-back .fc-hint.muted{display:none}
+
+@media(max-width:620px){
+  #flash{--fc-h:320px}
+  .fc-face.struct{padding-top:2.9rem;padding-bottom:2.8rem}
+  .fc-list li{padding-left:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-verdict,.fc-list li,.fc-clauses p,.fc-cite{animation:none !important}
+}
+
+/* ═══ SEMÁFORO ═══ */
+.sembtn{
+  border-radius:var(--r-full);padding:.32rem .7rem;font-weight:700;font-size:var(--t-sm);
+}
+.sembtn[data-v="g"]:hover,.sembtn.on[data-v="g"]{background:var(--ok);color:#fff;border-color:var(--ok)}
+.sembtn[data-v="y"]:hover,.sembtn.on[data-v="y"]{background:var(--mid);color:#3d2f00;border-color:var(--mid)}
+.sembtn[data-v="r"]:hover,.sembtn.on[data-v="r"]{background:var(--exc);color:#fff;border-color:var(--exc)}
+
+/* ═══ CTA DE BLOQUE ═══ */
+a.blk{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  padding:.5rem .95rem;border-radius:var(--r-sm);font-weight:700;font-size:var(--t-sm);
+  text-decoration:none;box-shadow:0 2px 10px var(--brand-ring);
+  transition:transform .22s var(--e-spring),box-shadow .25s,gap .25s var(--e-out);
+}
+a.blk:hover{transform:translateY(-2px);box-shadow:var(--sh-3);gap:.75rem;text-decoration:none}
+a.blk::after{content:"→"}
+a.blk:active{transform:translateY(0) scale(.98)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr;padding-top:.9rem;gap:1rem}
+  nav.side{position:static;max-height:none}
+  nav.side.collapsed .navbody{display:none}
+  .navtoggle{display:block;width:100%;text-align:left;font-weight:700}
+  .grid2{grid-template-columns:1fr}
+  .top h1 .sub{white-space:normal}
+}
+@media(max-width:620px){
+  .top-in{padding:.55rem .8rem}
+  .tools{width:100%;margin-left:0}
+  input[type=search]{flex:1;min-width:0}
+  section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
+  table{font-size:.82rem}
+  th,td{padding:.4rem .5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  header.top,nav.side,.tools,.noprint,.progress{display:none !important}
+  body{background:#fff;background-image:none;font-size:11pt;color:#000}
+  .layout{display:block;max-width:none;padding:0}
+  section.card{border:0;padding:0;margin:0 0 1rem;break-inside:avoid;box-shadow:none}
+  details.panel{border:0;box-shadow:none}
+  details.panel .body{display:block !important}
+  details.panel>summary{padding-left:0}
+  .art{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  a{color:#000;text-decoration:none}
+}
+
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brandwrap">
+    <a class="mark" href="TEMA_8_indice.html" title="Volver al índice">B2</a>
+    <h1>Real Decreto Legislativo 2/2004 · TRLHL
+      <span class="sub">Título VI, Cap. I, Sección 2.ª — De los créditos y sus modificaciones · Arts. 172 a 182 (tema 8, bloque 2)</span>
+    </h1>
+    </div>
+    <div class="tools noprint">
+      <input type="search" id="q" placeholder="Buscar en la página…" aria-label="Buscar">
+      <span class="seg" role="group" aria-label="Modo de vista">
+        <button data-view="legal" aria-pressed="false">Texto legal</button>
+        <button data-view="expl" aria-pressed="false">Explicación</button>
+        <button data-view="both" aria-pressed="true">Ambos</button>
+      </span>
+      <button id="fs-" aria-label="Reducir texto">A−</button>
+      <button id="fs+" aria-label="Aumentar texto">A+</button>
+      <span class="streak" id="streak" title="Días seguidos estudiando" style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);font-weight:800;font-size:.8rem">🔥<span class="num" id="streakN">0</span></span>
+      <button id="theme" aria-label="Cambiar tema">◐</button>
+      <button id="expand">Desplegar todo</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="progress" id="prog"></div>
+</header>
+<div class="layout">
+<nav class="side collapsed" id="side" aria-label="Índice">
+  <button class="navtoggle" id="navtoggle" aria-expanded="false">☰ Índice</button>
+  <div class="navbody" id="navbody"></div>
+</nav>
+<main id="main"></main>
+</div>
+<script>
+const GLOSARIO={
+ "presupuesto":"Documento contable y jurídico, aprobado por el Pleno, que fija el techo de gasto de un ejercicio y estima los ingresos con los que se financia. Ej.: el presupuesto de Utrera para 2026 autoriza gastar como máximo 78 M€.",
+ "credito":"Crédito presupuestario: la cantidad máxima de dinero autorizada para una finalidad concreta. Ej.: 120.000 € en la aplicación de 'mantenimiento de colegios'.",
+ "obligacion":"Obligación reconocida: la deuda que el Ayuntamiento admite formalmente que debe pagar, una vez comprobado que el servicio o suministro se ha prestado. Ej.: aprobada la factura del proveedor, nace la obligación.",
+ "derecho":"Derecho liquidado: el importe concreto que un tercero debe a la entidad local, una vez cuantificado. Ej.: liquidado el IBI de un inmueble en 340 €, ese es el derecho.",
+ "oa":"Organismo autónomo: ente con personalidad jurídica propia creado por la entidad local para gestionar un servicio (patronatos de deportes, de cultura, gerencias de urbanismo). Depende del Ayuntamiento pero tiene su propio presupuesto.",
+ "sociedad":"Sociedad mercantil local: empresa con forma de S.A. o S.L. cuyo capital pertenece a la entidad local (p. ej. la empresa municipal de aguas). No aprueba 'presupuesto', sino estados de previsión de gastos e ingresos.",
+ "bases":"Bases de ejecución: el 'reglamento de uso' del presupuesto. Adaptan las normas presupuestarias generales a la organización concreta de la entidad. Ej.: fijan qué órgano autoriza gastos de hasta 3.000 €.",
+ "estabilidad":"Estabilidad presupuestaria: exigencia de que las cuentas públicas no incurran en déficit estructural. Ej.: un ayuntamiento no puede presupuestar más gasto no financiero que ingresos no financieros.",
+ "afectacion":"No afectación: regla general de que todos los ingresos financian todo el gasto, sin que un ingreso concreto quede reservado a un gasto concreto. Ej.: lo recaudado por el IBI no está reservado a pagar el alumbrado.",
+ "bruto":"Principio de presupuesto bruto (o de integridad): derechos y obligaciones se anotan por su importe total, sin compensar unos con otros. Ej.: no se puede anotar la subvención 'ya descontados' los gastos del programa.",
+ "nivelacion":"Nivelación presupuestaria: que el total de ingresos previstos cubra el total de gastos autorizados; es decir, aprobar sin déficit inicial.",
+ "aplicacion":"Aplicación presupuestaria: la 'casilla' exacta donde vive cada euro de gasto, formada al cruzar la clasificación por programas con la económica. Ej.: 323/22103 (funcionamiento de centros docentes / combustibles).",
+ "vinculacion":"Nivel de vinculación jurídica: el nivel de agregación en el que el crédito es realmente limitativo; por debajo de él se puede mover el gasto sin tramitar una modificación de crédito (art. 172 TRLHL).",
+ "intervencion":"Intervención: el órgano de control interno de la entidad local, con función de fiscalización previa del gasto y de informe preceptivo del presupuesto. Lo desempeña un funcionario de habilitación nacional.",
+ "pleno":"Pleno: órgano colegiado formado por todos los concejales o diputados. Es el único competente para aprobar el presupuesto.",
+ "bop":"Boletín Oficial de la Provincia: diario oficial donde las entidades locales publican sus anuncios y acuerdos con efectos frente a terceros.",
+ "prorroga":"Prórroga presupuestaria: si el 1 de enero no ha entrado en vigor el presupuesto nuevo, sigue rigiendo automáticamente el anterior con sus créditos iniciales.",
+ "interesado":"Interesado: quien está legitimado para intervenir en un procedimiento. En el presupuesto, la ley define expresamente quiénes lo son (art. 170.1).",
+ "liquidacion":"Liquidación del presupuesto: cierre contable del ejercicio, que determina los derechos y obligaciones pendientes, el remanente de tesorería y el resultado presupuestario.",
+ "tcuentas":"Tribunal de Cuentas: órgano fiscalizador externo de las cuentas y la gestión económica del sector público, dependiente de las Cortes Generales.",
+ "conten":"Recurso contencioso-administrativo: impugnación ante los juzgados y tribunales de lo contencioso-administrativo, es decir, ya fuera de la propia Administración.",
+ "limitativo":"Carácter limitativo del crédito: no se puede gastar ni un euro por encima de lo autorizado. Ej.: si la aplicación de asfaltado tiene 200.000 €, no cabe comprometer 210.000 €.","plurianual":"Gasto plurianual: compromiso que se extiende a ejercicios futuros. Ej.: un contrato de limpieza viaria de cuatro años.","remanente":"Remanente líquido de tesorería: el sobrante financiero resultante de la liquidación del ejercicio, calculado como fondos líquidos más derechos pendientes de cobro menos obligaciones pendientes de pago, ajustado por dudoso cobro y desviaciones.","ce":"Crédito extraordinario: modificación que crea un crédito que NO existía en el presupuesto. Ej.: no hay ninguna partida para indemnizar una expropiación y hay que crearla.","sc":"Suplemento de crédito: modificación que aumenta un crédito que SÍ existía pero es insuficiente. Ej.: la partida de energía eléctrica tenía 300.000 € y hacen falta 380.000 €.","transfer":"Transferencia de crédito: traslado de importe de una aplicación a otra, sin alterar la cuantía total del presupuesto. Ej.: pasar 20.000 € de festejos a servicios sociales.","generacion":"Generación de crédito: aumento del crédito por la aparición de un ingreso no tributario nuevo. Ej.: una empresa aporta 50.000 € para cofinanciar un parque.","incorporacion":"Incorporación de remanentes: pasar al ejercicio siguiente créditos que no llegaron a gastarse, en los casos tasados del art. 182.","ampliable":"Crédito ampliable: el que las bases de ejecución declaran expresamente ampliable en función de la efectiva recaudación de un recurso afectado.","quorum":"Quórum del art. 47.3 LBRL: mayoría absoluta del número legal de miembros de la corporación, exigida para los acuerdos más relevantes.","nulidad":"Nulidad de pleno derecho: el grado máximo de invalidez. El acto no produce efecto alguno, no puede convalidarse y el vicio no se sana con el tiempo.","embargo":"Providencia de embargo: acto por el que se traban bienes del deudor para cobrar una deuda. Contra la hacienda local está vedada salvo bienes patrimoniales no afectados."
+};
+const ARTS=[{n:172,t:"Especialidad y limitación de los créditos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Cada crédito sirve solo para lo suyo y no admite un euro de más.",literal:`<p>1. Los créditos para gastos se destinarán exclusivamente a la finalidad específica para la cual hayan sido autorizados en el presupuesto general de la entidad local o por sus modificaciones debidamente aprobadas.</p><p>2. Los créditos autorizados tienen carácter limitativo y vinculante. Los niveles de vinculación serán los que vengan establecidos en cada momento por la legislación presupuestaria del Estado, salvo que reglamentariamente se disponga otra cosa.</p>`,dis:`<ul>
+<li><b>Especialidad cualitativa (172.1):</b> el crédito se destina <b>exclusivamente</b> a la finalidad para la que fue autorizado, en el presupuesto o en sus modificaciones.</li>
+<li><b>Especialidad cuantitativa (172.2):</b> los créditos son <span class="t" data-k="limitativo">limitativos y vinculantes</span>.</li>
+<li><b>Niveles de <span class="t" data-k="vinculacion">vinculación</span>:</b> los que fije en cada momento la legislación presupuestaria del Estado, salvo que reglamentariamente se disponga otra cosa (en la práctica, las bases de ejecución los concretan).</li>
+</ul>
+<div class="box warn"><span class="lbl">La clave que hay que entender</span>La aplicación presupuestaria es la casilla donde vive el crédito; el <b>nivel de vinculación</b> es la bolsa dentro de la cual puedes moverte sin tramitar una modificación. Si la vinculación está a nivel de capítulo, puedes gastar de una aplicación más de lo consignado siempre que el capítulo entero no se supere.</div>`,llano:`<p>Cada bolsa de dinero lleva una etiqueta con su destino y con su tope. Ni se puede usar para otra cosa, ni se puede sacar más de lo que hay. Ahora bien, la ley permite agrupar bolsas pequeñas en una bolsa grande: mientras no te salgas de la bolsa grande, puedes mover dinero entre las pequeñas sin pedir permiso.</p>`,porque:`<p>Sin especialidad, la autorización del Pleno sería papel mojado: se aprobaría gasto social y se gastaría en fiestas. Sin límite cuantitativo, el techo del art. 162 no existiría. Y sin niveles de vinculación, la gestión diaria sería imposible: habría que tramitar una modificación cada vez que faltan 200 € en una casilla.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> los sobres de la economía doméstica. El sobre de "colegio" no se toca para el sobre de "vacaciones", pero si tienes una caja llamada "gastos de los niños" que agrupa varios sobres, dentro de ella sí puedes reajustar.</li>
+<li><b>Real:</b> las bases de ejecución de un ayuntamiento fijan la vinculación en <b>área de gasto + capítulo</b>. La aplicación 342/22100 (energía eléctrica de instalaciones deportivas) tiene 60.000 € y se llevan gastados 64.000 €, pero el capítulo 2 del área 3 tiene margen: no hace falta modificación.</li>
+<li><b>Caso límite:</b> si esa misma vinculación fuera a nivel de aplicación, esos 4.000 € exigirían una transferencia de crédito previa.</li>
+</ul>`,noej:`<ul>
+<li><b>No es especialidad</b> el nivel de vinculación: la primera es la regla, el segundo es la flexibilidad tolerada dentro de ella.</li>
+<li><b>No son limitativas</b> las previsiones de <b>ingresos</b>: recaudar más no infringe el art. 172.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 167.4:</b> el control fiscal se hace precisamente sobre el nivel de vinculación de este artículo.</li>
+<li><b>Art. 173.5:</b> la sanción del incumplimiento: nulidad de pleno derecho.</li>
+<li><b>Art. 178:</b> la excepción expresa al carácter limitativo son los créditos ampliables.</li>
+<li><b>Art. 165.1.a):</b> los créditos figuran "con la debida especificación".</li>
+</ul>`,trampas:`<ul>
+<li>La especialidad tiene dos caras: <b>cualitativa</b> (finalidad) y <b>cuantitativa</b> (importe). Los tests suelen dar solo una.</li>
+<li>"Limitativo <b>y vinculante</b>": son dos adjetivos, no uno.</li>
+<li>La excepción al 172.2 la introduce el art. 178 con la fórmula "no obstante lo dispuesto en el apartado 2 del artículo 172".</li>
+</ul>`,ancla:`<p><b>Dos candados:</b> el del <b>para qué</b> (finalidad) y el del <b>cuánto</b> (importe). Imagina una hucha con dos cerraduras: una dice DESTINO y otra TOPE.</p>`,vis:`<svg viewBox="0 0 640 180" role="img" aria-label="Especialidad cualitativa y cuantitativa">
+<rect x="40" y="30" width="240" height="110" rx="10" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="160" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="var(--acc)">ESPECIALIDAD CUALITATIVA</text>
+<text x="160" y="82" text-anchor="middle" font-size="12" fill="currentColor">solo para la finalidad</text>
+<text x="160" y="100" text-anchor="middle" font-size="12" fill="currentColor">para la que se autorizó</text>
+<text x="160" y="124" text-anchor="middle" font-size="11" fill="var(--ink2)">art. 172.1</text>
+<rect x="360" y="30" width="240" height="110" rx="10" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="480" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="var(--exc)">ESPECIALIDAD CUANTITATIVA</text>
+<text x="480" y="82" text-anchor="middle" font-size="12" fill="currentColor">limitativo y vinculante</text>
+<text x="480" y="100" text-anchor="middle" font-size="12" fill="currentColor">ni un euro de más</text>
+<text x="480" y="124" text-anchor="middle" font-size="11" fill="var(--ink2)">art. 172.2</text>
+<text x="320" y="92" text-anchor="middle" font-size="18" fill="var(--ink2)">+</text>
+<text x="320" y="165" text-anchor="middle" font-size="11" fill="var(--ink2)">La flexibilidad tolerada dentro de estos candados = nivel de vinculación</text>
+</svg>`},
+{n:173,t:"Exigibilidad de las obligaciones, prerrogativas y limitación de los compromisos de gasto",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Solo se paga lo presupuestado o lo que ordene una sentencia; comprometer sin crédito es nulo.",literal:`<p>1. Las obligaciones de pago sólo serán exigibles de la hacienda local cuando resulten de la ejecución de sus respectivos presupuestos, con los límites señalados en el artículo anterior, o de sentencia judicial firme.</p><p>2. Los tribunales, jueces y autoridades administrativas no podrán despachar mandamientos de ejecución ni dictar providencias de embargo contra los derechos, fondos, valores y bienes de la hacienda local ni exigir fianzas, depósitos y cauciones a las entidades locales, excepto cuando se trate de bienes patrimoniales no afectados a un uso o servicio público.</p><p>3. El cumplimiento de las resoluciones judiciales que determinen obligaciones a cargo de las entidades locales o de sus organismos autónomos corresponderá exclusivamente a aquéllas, sin perjuicio de las facultades de suspensión o inejecución de sentencias previstas en las leyes.</p><p>4. La Autoridad administrativa encargada de la ejecución acordará el pago en la forma y con los límites del respectivo presupuesto. Si para el pago fuere necesario un crédito extraordinario o un suplemento de crédito, deberá solicitarse del Pleno uno u otro dentro de los tres meses siguientes al día de notificación de la resolución judicial.</p><p>5. No podrán adquirirse compromisos de gastos por cuantía superior al importe de los créditos autorizados en los estados de gastos, siendo nulos de pleno derecho los acuerdos, resoluciones y actos administrativos que infrinjan la expresada norma, sin perjuicio de las responsabilidades a que haya lugar.</p><p>6. No obstante lo previsto en el apartado anterior, la disponibilidad de los créditos presupuestarios quedará condicionada, en todo caso, a:</p><p>a) La existencia de documentos fehacientes que acrediten compromisos firmes de aportación, en caso de ayudas, subvenciones, donaciones u otras formas de cesión de recursos por terceros tenidos en cuenta en las previsiones iniciales del presupuesto a efecto de su nivelación y hasta el importe previsto en los estados de ingresos en orden a la afectación de dichos recursos en la forma prevista por la ley o, en su caso, a las finalidades específicas de las aportaciones a realizar.</p><p>b) La concesión de las autorizaciones previstas en el artículo 53, de conformidad con las reglas contenidas en el capítulo VII del título I de esta ley, en el caso de que existan previsiones iniciales dentro del capítulo IX del estado de ingresos.</p>`,dis:`<table><thead><tr><th>Apdo.</th><th>Regla</th><th>Detalle que se pregunta</th></tr></thead><tbody>
+<tr><td>173.1</td><td>Exigibilidad</td><td>Solo por ejecución del presupuesto <b>o sentencia judicial firme</b></td></tr>
+<tr><td>173.2</td><td>Inembargabilidad</td><td>Nada de <span class="t" data-k="embargo">embargos</span> ni fianzas, <b>salvo bienes patrimoniales no afectados</b> a uso o servicio público</td></tr>
+<tr><td>173.3</td><td>Ejecución de sentencias</td><td>Corresponde <b>exclusivamente</b> a la propia entidad</td></tr>
+<tr><td>173.4</td><td>Si falta crédito para pagar la sentencia</td><td>Solicitar al Pleno crédito extraordinario o suplemento en <b>3 meses</b> desde la notificación</td></tr>
+<tr><td>173.5</td><td>Compromisos sin crédito</td><td><span class="t" data-k="nulidad">Nulos de pleno derecho</span>, sin perjuicio de responsabilidades</td></tr>
+<tr><td>173.6</td><td>Disponibilidad condicionada</td><td>a) documentos fehacientes de compromisos firmes de aportación · b) autorizaciones del art. 53 si hay previsiones en el capítulo IX de ingresos</td></tr>
+</tbody></table>`,llano:`<p>El Ayuntamiento solo debe pagar lo que está en su presupuesto o lo que le mande un juez. A cambio, sus bienes públicos no se pueden embargar: quien gane un pleito tiene que esperar a que la propia entidad habilite el dinero, y para eso tiene tres meses para llevarlo al Pleno. Y si alguien firma un contrato sin que haya crédito, ese contrato no vale nada: es nulo de raíz.</p>`,porque:`<p>Los bienes municipales sostienen servicios esenciales: si se pudiera embargar el camión de la basura, el perjudicado sería el vecino. Por eso la ley cambia embargo por <b>procedimiento de pago obligatorio</b> y plazo tasado. La nulidad radical del apartado 5, por su parte, es el único modo de que el techo de gasto sea real: si el gasto sin crédito fuera solo anulable, se consolidaría por el paso del tiempo.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> una casa cuyo salario está protegido frente a embargos: el acreedor cobra, pero por el cauce y en el plazo que marca la ley.</li>
+<li><b>Real:</b> sentencia firme de 310.000 € por responsabilidad patrimonial notificada el 4 de marzo de 2026. No hay crédito. El alcalde debe iniciar el expediente y llevar al Pleno el crédito extraordinario <b>antes del 4 de junio de 2026</b> (art. 173.4).</li>
+<li><b>Caso límite:</b> un solar patrimonial sin uso ni servicio público sí puede ser embargado (excepción del art. 173.2); no así el edificio del colegio.</li>
+</ul>`,noej:`<ul>
+<li><b>No es exigible</b> una deuda nacida de un encargo verbal sin crédito: es nula de pleno derecho.</li>
+<li><b>No cabe</b> providencia de embargo sobre la recaudación del IBI ni sobre la cuenta corriente afecta a servicios.</li>
+<li><b>No es anulabilidad</b>: la ley dice <b>nulos de pleno derecho</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 172:</b> los límites a los que remite el apartado 1.</li>
+<li><b>Art. 177:</b> el crédito extraordinario o suplemento que hay que tramitar en tres meses.</li>
+<li><b>Art. 53:</b> autorizaciones para operaciones de crédito, a las que remite el 173.6.b).</li>
+<li><b>Art. 47.1 y 2 LPAC:</b> régimen general de nulidad y anulabilidad.</li>
+</ul>`,trampas:`<ul>
+<li><b>Tres meses</b> desde la <b>notificación</b> de la resolución judicial, no desde su firmeza ni desde su ejecución.</li>
+<li>La excepción a la inembargabilidad son los <b>bienes patrimoniales NO afectados</b> a uso o servicio público: doble negación que se cuela mucho.</li>
+<li>"Nulos de <b>pleno derecho</b>", no anulables.</li>
+<li>El apartado 6 condiciona la <b>disponibilidad</b> del crédito, no su existencia.</li>
+</ul>`,ancla:`<p><b>"Ni embargo ni palabra: presupuesto o sentencia."</b><br>El <b>3</b> manda en este artículo: <b>3</b> meses para pedir el crédito tras la sentencia.</p>`,vis:`<svg viewBox="0 0 640 200" role="img" aria-label="Exigibilidad y nulidad del gasto sin crédito">
+<defs><marker id="m1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="30" y="20" width="250" height="60" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="155" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">SÍ es exigible</text>
+<text x="155" y="66" text-anchor="middle" font-size="11" fill="currentColor">ejecución del presupuesto · sentencia firme</text>
+<rect x="360" y="20" width="250" height="60" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="485" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="var(--exc)">NO es exigible</text>
+<text x="485" y="66" text-anchor="middle" font-size="11" fill="currentColor">compromiso sin crédito: NULO de pleno derecho</text>
+<rect x="150" y="105" width="340" height="42" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Sentencia firme sin crédito disponible</text>
+<text x="320" y="140" text-anchor="middle" font-size="11" fill="currentColor">→ al Pleno crédito extraordinario o suplemento en 3 MESES</text>
+<text x="320" y="175" text-anchor="middle" font-size="11" fill="var(--ink2)">Inembargabilidad, salvo bienes patrimoniales no afectados a uso o servicio público</text>
+</svg>`},
+{n:174,t:"Compromisos de gasto de carácter plurianual",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Se puede comprometer gasto de años futuros, pero con casos, tope de años y porcentajes.",literal:`<p>1. La autorización o realización de los gastos de carácter plurianual se subordinará al crédito que para cada ejercicio autoricen los respectivos presupuestos.</p><p>2. Podrán adquirirse compromisos por gastos que hayan de extenderse a ejercicios posteriores a aquel en que se autoricen, siempre que su ejecución se inicie en el propio ejercicio y que, además, se encuentren en alguno de los casos siguientes:</p><p>a) Inversiones y transferencias de capital.</p><p>b) Los demás contratos y los de suministro, de consultoría, de asistencia técnica y científica, de prestación de servicios, de ejecución de obras de mantenimiento y de arrendamiento de equipos no habituales de las entidades locales, sometidos a las normas del Real Decreto Legislativo 2/2000, de 16 de junio, por el que se aprueba el texto refundido de la Ley de Contratos de las Administraciones Públicas, que no puedan ser estipulados o resulten antieconómicos por un año.</p><p>c) Arrendamientos de bienes inmuebles.</p><p>d) Cargas financieras de las deudas de la entidad local y de sus organismos autónomos.</p><p>e) Transferencias corrientes que se deriven de convenios suscritos por las corporaciones locales con otras entidades públicas o privadas sin ánimo de lucro.</p><p>3. El número de ejercicios a que pueden aplicarse los gastos referidos en los párrafos a), b) y e) del apartado anterior no será superior a cuatro. Asimismo, en los casos incluidos en los párrafos a) y e), el gasto que se impute a cada uno de los ejercicios futuros autorizados no podrá exceder de la cantidad que resulte de aplicar al crédito correspondiente del año en que la operación se comprometió los siguientes porcentajes: en el ejercicio inmediato siguiente, el 70 por ciento; en el segundo ejercicio, el 60 por ciento, y en el tercero y cuarto, el 50 por ciento.</p><p>4. Con independencia de lo establecido en los apartados anteriores, para los programas y proyectos de inversión que taxativamente se especifiquen en las bases de ejecución del</p><p>presupuesto, podrán adquirirse compromisos de gastos que hayan de extenderse a ejercicios futuros hasta el importe que para cada una de las anualidades se determine.</p><p>A estos efectos, cuando en los créditos presupuestarios se encuentren incluidos proyectos de las características señaladas anteriormente, los porcentajes a los que se refiere el apartado 3 de este artículo se aplicarán sobre dichos créditos una vez deducida la anualidad correspondiente a dichos proyectos.</p><p>5. En casos excepcionales el Pleno de la corporación podrá ampliar el número de anualidades así como elevar los porcentajes a que se refiere el apartado 3 de este artículo.</p><p>6. Los compromisos a que se refiere el apartado 2 de este artículo deberán ser objeto de adecuada e independiente contabilización.</p>`,dis:`<ul>
+<li><b>Regla base (174.1):</b> el gasto <span class="t" data-k="plurianual">plurianual</span> queda subordinado al crédito que autorice cada presupuesto futuro.</li>
+<li><b>Requisito común (174.2):</b> que la ejecución <b>se inicie en el propio ejercicio</b>, y que se trate de uno de los cinco casos tasados.</li>
+</ul>
+<table><thead><tr><th>Casos del 174.2</th><th>Máx. ejercicios</th><th>Porcentajes del 174.3</th></tr></thead><tbody>
+<tr><td>a) Inversiones y transferencias de capital</td><td><b>4</b></td><td><b>Sí</b> se aplican</td></tr>
+<tr><td>b) Contratos de suministro, consultoría, asistencia, servicios, obras de mantenimiento y arrendamiento de equipos no habituales que no puedan estipularse o resulten antieconómicos por un año</td><td><b>4</b></td><td>No</td></tr>
+<tr><td>c) Arrendamientos de bienes inmuebles</td><td>—</td><td>No</td></tr>
+<tr><td>d) Cargas financieras de las deudas</td><td>—</td><td>No</td></tr>
+<tr><td>e) Transferencias corrientes derivadas de convenios con entidades públicas o privadas sin ánimo de lucro</td><td><b>4</b></td><td><b>Sí</b> se aplican</td></tr>
+</tbody></table>
+<table><thead><tr><th>Ejercicio futuro</th><th>Porcentaje máximo sobre el crédito del año del compromiso</th></tr></thead><tbody>
+<tr><td>Inmediato siguiente (1.º)</td><td><b>70 %</b></td></tr><tr><td>Segundo</td><td><b>60 %</b></td></tr>
+<tr><td>Tercero</td><td><b>50 %</b></td></tr><tr><td>Cuarto</td><td><b>50 %</b></td></tr>
+</tbody></table>
+<ul>
+<li><b>174.4:</b> para programas y proyectos de inversión <b>taxativamente especificados en las bases de ejecución</b>, cabe comprometer hasta el importe que se fije para cada anualidad; los porcentajes se aplican sobre los créditos una vez deducida esa anualidad.</li>
+<li><b>174.5:</b> en casos excepcionales el <b>Pleno</b> puede ampliar el número de anualidades y elevar los porcentajes.</li>
+<li><b>174.6:</b> contabilización adecuada e <b>independiente</b> de estos compromisos.</li>
+</ul>`,llano:`<p>El presupuesto dura un año, pero muchas decisiones no caben en un año: una obra grande, un alquiler, un contrato de mantenimiento. La ley lo permite con tres condiciones: que empieces la obra este año, que sea uno de los casos de la lista y que no hipoteques demasiado los años que vienen. Para eso pone un tope decreciente: 70, 60, 50 y 50 por ciento. Y si de verdad hace falta más, que lo decida el Pleno.</p>`,porque:`<p>Comprometer el futuro es comprometer la libertad de decisión de las próximas corporaciones y de los próximos vecinos. Si un equipo de gobierno pudiera firmar en su último año contratos que consumen todo el presupuesto de los cuatro siguientes, vaciaría de contenido la elección. Los porcentajes son un <b>límite a la hipoteca del futuro</b>; la exigencia de iniciar la ejecución en el ejercicio evita firmar por firmar.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> firmar una hipoteca. El banco no te deja comprometer el 100 % de tus ingresos futuros: te aplica un porcentaje máximo de esfuerzo.</li>
+<li><b>Real:</b> el crédito de 2026 para inversiones en el pabellón es de 1.000.000 €. Si se compromete una obra plurianual, en 2027 no podrán imputarse más de <b>700.000 €</b>, en 2028 no más de <b>600.000 €</b> y en 2029 y 2030 no más de <b>500.000 €</b> cada año, salvo acuerdo excepcional del Pleno.</li>
+<li><b>Caso límite:</b> un arrendamiento de un edificio para dependencias municipales por diez años. La letra c) no está sujeta al tope de cuatro ejercicios ni a los porcentajes del apartado 3, que solo alcanzan a las letras a), b) y e) —y los porcentajes, solo a la a) y la e)—.</li>
+</ul>`,noej:`<ul>
+<li><b>No cabe</b> comprometer gasto plurianual si la ejecución no se inicia en el propio ejercicio.</li>
+<li><b>No se aplican</b> los porcentajes a los arrendamientos de inmuebles ni a las cargas financieras.</li>
+<li><b>No basta</b> con la voluntad del alcalde para superar los límites: es competencia del <b>Pleno</b> (174.5).</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 165.1:</b> las bases de ejecución, donde se especifican los proyectos del 174.4.</li>
+<li><b>Art. 166.1.a):</b> los planes de inversión a cuatro años: el mismo horizonte temporal.</li>
+<li><b>Art. 182.1.b) y 176.2.b):</b> los compromisos adquiridos se arrastran vía incorporación de créditos.</li>
+</ul>
+<div class="interp"><span class="lbl">Interpretación / contexto — aportación externa</span>La letra b) del 174.2 remite al RDLeg 2/2000 (Ley de Contratos de las Administraciones Públicas), norma <b>derogada</b>: hoy la referencia debe entenderse hecha a la Ley 9/2017, de Contratos del Sector Público, que también está en esta biblioteca. El texto consolidado conserva la cita antigua.</div>`,trampas:`<ul>
+<li><b>70-60-50-50</b>: el tercero y el cuarto comparten porcentaje. Muchos tests ponen 70-60-50-40.</li>
+<li>El tope de <b>cuatro ejercicios</b> alcanza a las letras <b>a), b) y e)</b>; los <b>porcentajes</b>, solo a las letras <b>a) y e)</b>.</li>
+<li>"Siempre que su ejecución <b>se inicie en el propio ejercicio</b>": requisito que se olvida.</li>
+<li>Quien amplía anualidades y porcentajes es el <b>Pleno</b>, y solo en casos excepcionales.</li>
+</ul>`,ancla:`<p><b>La escalera que baja:</b> <b>7-6-5-5</b>. Imagínala como un tobogán que se queda plano al final.<br><b>Cuatro años, cuatro letras con tope</b> — y recuerda: los porcentajes solo muerden a <b>A</b> y <b>E</b> (las vocales).</p>`,vis:`<svg viewBox="0 0 640 190" role="img" aria-label="Porcentajes máximos del gasto plurianual">
+<line x1="60" y1="150" x2="600" y2="150" stroke="var(--line)" stroke-width="2"/>
+<rect x="90" y="40" width="90" height="110" rx="5" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="135" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="var(--acc)">70 %</text>
+<text x="135" y="168" text-anchor="middle" font-size="11" fill="currentColor">ejercicio 1</text>
+<rect x="220" y="62" width="90" height="88" rx="5" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="265" y="57" text-anchor="middle" font-size="13" font-weight="700" fill="var(--acc)">60 %</text>
+<text x="265" y="168" text-anchor="middle" font-size="11" fill="currentColor">ejercicio 2</text>
+<rect x="350" y="84" width="90" height="66" rx="5" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="395" y="79" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ej)">50 %</text>
+<text x="395" y="168" text-anchor="middle" font-size="11" fill="currentColor">ejercicio 3</text>
+<rect x="480" y="84" width="90" height="66" rx="5" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="525" y="79" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ej)">50 %</text>
+<text x="525" y="168" text-anchor="middle" font-size="11" fill="currentColor">ejercicio 4</text>
+<text x="320" y="18" text-anchor="middle" font-size="11" fill="var(--ink2)">sobre el crédito del año en que se comprometió · solo letras a) y e) · máximo 4 ejercicios</text>
+</svg>`},
+{n:175,t:"Bajas por anulación de créditos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Lo que no se ha gastado a 31 de diciembre se anula solo, salvo incorporación.",literal:`<p>Los créditos para gastos que el último día del ejercicio presupuestario no estén afectados al cumplimiento de obligaciones ya reconocidas quedarán anulados de pleno derecho, sin más excepciones que las señaladas en el artículo 182 de esta ley.</p>`,dis:`<ul>
+<li><b>Supuesto:</b> créditos que el <b>último día del ejercicio</b> no estén afectados al cumplimiento de <b>obligaciones ya reconocidas</b>.</li>
+<li><b>Consecuencia:</b> quedan <b>anulados de pleno derecho</b>. No hace falta acuerdo: opera automáticamente.</li>
+<li><b>Única excepción:</b> la del art. 182 (<span class="t" data-k="incorporacion">incorporación de remanentes</span>).</li>
+</ul>`,llano:`<p>El 31 de diciembre a medianoche, el dinero que no se ha llegado a comprometer con una obligación reconocida desaparece. No se guarda, no se acumula, no pasa al año siguiente. Solo se salvan los casos que el art. 182 permite rescatar.</p>`,porque:`<p>Si los créditos sobrantes se arrastraran sin control, el presupuesto anual dejaría de ser un techo: cada año se acumularía sobre el anterior y el Pleno perdería el control sobre cuánto se puede gastar realmente. La anulación automática obliga a que <b>cada ejercicio se decida de nuevo</b>.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> los días de vacaciones que caducan el 31 de diciembre: si no los disfrutas, se pierden.</li>
+<li><b>Real:</b> la aplicación de "reparación de caminos rurales" tenía 90.000 € y a 31 de diciembre solo hay obligaciones reconocidas por 55.000 €. Los 35.000 € restantes quedan anulados, salvo que encajen en alguno de los supuestos del art. 182.</li>
+<li><b>Caso límite:</b> una obra adjudicada en noviembre con contrato firmado pero sin certificaciones a 31 de diciembre. El crédito ampara un <b>compromiso</b> ya adquirido: es incorporable por la vía del art. 182.1.b) en relación con el 176.2.b).</li>
+</ul>`,noej:`<ul>
+<li><b>No se anulan</b> los créditos que amparan obligaciones ya reconocidas: esas obligaciones pasan a la tesorería como pendientes de pago (art. 191.2).</li>
+<li><b>No es una baja por anulación acordada</b> (que sí puede usarse como financiación en el art. 177.4): esta anulación es automática.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 182:</b> la única excepción, con sus cuatro supuestos.</li>
+<li><b>Art. 176:</b> temporalidad de los créditos, su fundamento.</li>
+<li><b>Art. 191:</b> cierre y liquidación a 31 de diciembre.</li>
+</ul>`,trampas:`<ul>
+<li>Lo determinante es que el crédito esté <b>afectado a obligaciones ya reconocidas</b>, no que esté "gastado" o "comprometido" en sentido coloquial.</li>
+<li>"Sin más excepciones que las señaladas en el <b>artículo 182</b>": la remisión es cerrada.</li>
+</ul>`,ancla:`<p><b>"31 de diciembre: Cenicienta."</b> A las doce, el crédito no reconocido se convierte en calabaza. Solo el art. 182 tiene el zapato.</p>`,vis:`<svg viewBox="0 0 640 150" role="img" aria-label="Anulación de créditos a fin de ejercicio">
+<rect x="40" y="35" width="220" height="70" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="150" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">Crédito a 31-DIC</text>
+<text x="150" y="84" text-anchor="middle" font-size="11" fill="var(--ink2)">¿afectado a obligaciones reconocidas?</text>
+<path d="M260 55 L 330 40" stroke="var(--ej)" stroke-width="2"/><text x="300" y="34" font-size="10" fill="var(--ej)">SÍ</text>
+<path d="M260 85 L 330 105" stroke="var(--exc)" stroke-width="2"/><text x="300" y="112" font-size="10" fill="var(--exc)">NO</text>
+<rect x="335" y="18" width="270" height="42" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="470" y="44" text-anchor="middle" font-size="11" fill="var(--ej)">Sobrevive: pasa a pendiente de pago</text>
+<rect x="335" y="88" width="270" height="46" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="470" y="107" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">ANULADO DE PLENO DERECHO</text>
+<text x="470" y="124" text-anchor="middle" font-size="10" fill="currentColor">salvo incorporación del art. 182</text>
+</svg>`},
+{n:176,t:"Temporalidad de los créditos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Cada crédito paga lo hecho en su propio año, con dos excepciones.",literal:`<p>1. Con cargo a los créditos del estado de gastos de cada presupuesto sólo podrán contraerse obligaciones derivadas de adquisiciones, obras, servicios y demás prestaciones o gastos en general que se realicen en el año natural del propio ejercicio presupuestario.</p><p>2. No obstante lo dispuesto en el apartado anterior, se aplicarán a los créditos del presupuesto vigente, en el momento de su reconocimiento, las obligaciones siguientes:</p><p>a) Las que resulten de la liquidación de atrasos a favor del personal que perciba sus retribuciones con cargo a los presupuestos generales de la entidad local.</p><p>b) Las derivadas de compromisos de gastos debidamente adquiridos en ejercicios anteriores, previa incorporación de los créditos en el supuesto establecido en el artículo 182.3.</p>`,dis:`<ul>
+<li><b>Regla (176.1):</b> con cargo a los créditos de un presupuesto solo se contraen obligaciones por prestaciones <b>realizadas en el año natural de ese ejercicio</b>.</li>
+<li><b>Excepciones (176.2), que se aplican al presupuesto vigente en el momento del reconocimiento:</b>
+<ul><li><b>a)</b> atrasos a favor del <b>personal</b> retribuido con cargo al presupuesto de la entidad;</li>
+<li><b>b)</b> obligaciones derivadas de <b>compromisos de gasto debidamente adquiridos</b> en ejercicios anteriores, previa <b>incorporación</b> de los créditos del art. 182.3.</li></ul></li>
+</ul>`,llano:`<p>El presupuesto de 2026 paga lo que se hace en 2026. Dos cosas se salvan: los atrasos del personal y aquello que se comprometió en firme antes y cuyo crédito se ha incorporado. Todo lo demás que venga de años anteriores necesita otra vía.</p>`,porque:`<p>Es el principio de <b>anualidad</b> visto desde el lado del gasto: si cada año pudiera pagar gastos de cualquier año, la información del presupuesto sería inservible y la comparación entre ejercicios, imposible. Las dos excepciones responden a situaciones en las que la deuda ya está jurídicamente consolidada y negarla sería injusto.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> la declaración de la renta de un año que incluye atrasos salariales cobrados después: la ley da una regla específica precisamente porque rompe la anualidad.</li>
+<li><b>Real:</b> en abril de 2026 se reconoce una subida retributiva con efectos de enero de 2025 para el personal municipal: los atrasos se imputan al presupuesto <b>de 2026</b> (176.2.a).</li>
+<li><b>Caso límite:</b> una factura de octubre de 2025 sin compromiso previo ni crédito incorporado. No encaja en el 176.2: la vía habitual es el reconocimiento extrajudicial de créditos, figura ajena a este artículo.</li>
+</ul>`,noej:`<ul>
+<li><b>No es excepción</b> cualquier factura que llegue tarde: solo lo que responde a un compromiso debidamente adquirido con crédito incorporado.</li>
+<li><b>No cubre</b> a personal de sociedades mercantiles: la letra a) habla de quien percibe retribuciones con cargo a los presupuestos generales de la entidad local.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 163:</b> el ejercicio coincide con el año natural.</li>
+<li><b>Art. 175:</b> anulación de los créditos no utilizados.</li>
+<li><b>Art. 182.3:</b> la incorporación obligatoria a la que remite la letra b).</li>
+</ul>`,trampas:`<ul>
+<li>Son <b>dos</b> excepciones, y la segunda exige <b>incorporación previa</b> del crédito.</li>
+<li>Se imputan al presupuesto <b>vigente en el momento del reconocimiento</b>, no al del año en que se generó la prestación.</li>
+</ul>`,ancla:`<p><b>"Cada año paga lo suyo, salvo la nómina atrasada y lo ya comprometido."</b> Dos excepciones: <b>P</b>ersonal y <b>C</b>ompromisos → <i>"PC"</i>.</p>`,vis:`<svg viewBox="0 0 640 150" role="img" aria-label="Temporalidad de los créditos y sus excepciones">
+<rect x="30" y="45" width="230" height="60" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="145" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">REGLA: anualidad</text>
+<text x="145" y="90" text-anchor="middle" font-size="11" fill="currentColor">prestaciones del propio año natural</text>
+<text x="300" y="80" text-anchor="middle" font-size="16" fill="var(--ink2)">→</text>
+<rect x="340" y="20" width="270" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="475" y="41" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Excepción a) Atrasos de personal</text>
+<text x="475" y="59" text-anchor="middle" font-size="10" fill="currentColor">al presupuesto vigente al reconocerlas</text>
+<rect x="340" y="80" width="270" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="475" y="101" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Excepción b) Compromisos anteriores</text>
+<text x="475" y="119" text-anchor="middle" font-size="10" fill="currentColor">previa incorporación (art. 182.3)</text>
+</svg>`},
+{n:177,t:"Créditos extraordinarios y suplementos de crédito",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Si falta crédito o no llega, se crea o se amplía siguiendo el camino del presupuesto.",literal:`<p>1. Cuando haya de realizarse algún gasto que no pueda demorarse hasta el ejercicio siguiente, y no exista en el presupuesto de la corporación crédito o sea insuficiente o no ampliable el consignado, el presidente de la corporación ordenará la incoación del expediente de concesión de crédito extraordinario, en el primer caso, o de suplemento de crédito, en el segundo.</p><p>2. El expediente, que habrá de ser previamente informado por la Intervención, se someterá a la aprobación del Pleno de la corporación, con sujeción a los mismos trámites y requisitos que los presupuestos. Serán asimismo, de aplicación, las normas sobre información, reclamación y publicidad de los presupuestos a que se refiere el artículo 169 de esta ley.</p><p>3. Si la inexistencia o insuficiencia de crédito se produjera en el presupuesto de un organismo autónomo, el expediente de crédito extraordinario o de suplemento de crédito propuesto inicialmente por el órgano competente del organismo autónomo a que aquél corresponda, será remitido a la entidad local para su tramitación conforme a lo dispuesto en el apartado anterior.</p><p>4. El expediente deberá especificar la concreta partida presupuestaria a incrementar y el medio o recurso que ha de financiar el aumento que se propone.</p><p>Dicho aumento se financiará con cargo al remanente líquido de tesorería, con nuevos o mayores ingresos recaudados sobre los totales previstos en el presupuesto corriente, y mediante anulaciones o bajas de créditos de gastos de otras partidas del presupuesto vigente no comprometidos, cuyas dotaciones se estimen reducibles sin perturbación del respectivo servicio. En el expediente se acreditará que los ingresos previstos en el presupuesto vengan efectuándose con normalidad, salvo que aquéllos tengan carácter finalista.</p><p>5. Excepcionalmente, y por acuerdos adoptados con el quórum establecido por el artículo 47.3 de la Ley 7/1985, de 2 de abril, se considerarán recursos efectivamente disponibles para financiar nuevos o mayores gastos, por operaciones corrientes, que</p><p>expresamente sean declarados necesarios y urgentes, los procedentes de operaciones de crédito en que se den conjuntamente las siguientes condiciones:</p><p>Que su importe total anual no supere el cinco por ciento de los recursos por operaciones corrientes del presupuesto de la entidad.</p><p>Que la carga financiera total de la entidad, incluida la derivada de las operaciones proyectadas, no supere el 25 por ciento de los expresados recursos.</p><p>Que las operaciones queden canceladas antes de que se proceda a la renovación de la Corporación que las concierte.</p><p>6. Los acuerdos de las entidades locales que tengan por objeto la habilitación o suplemento de créditos en casos de calamidades públicas o de naturaleza análoga de excepcional interés general, serán inmediatamente ejecutivos, sin perjuicio de las reclamaciones que contra ellos se promovieran, las cuales deberán sustanciarse dentro de los ocho días siguientes a la presentación, entendiéndose desestimadas de no notificarse su resolución al recurrente dentro de dicho plazo.</p>`,dis:`<table><thead><tr><th></th><th><span class="t" data-k="ce">Crédito extraordinario</span></th><th><span class="t" data-k="sc">Suplemento de crédito</span></th></tr></thead><tbody>
+<tr><th>Situación</th><td><b>No existe</b> crédito</td><td>Existe pero es <b>insuficiente y no ampliable</b></td></tr>
+<tr><th>Requisito común</th><td colspan="2">Gasto que <b>no puede demorarse</b> al ejercicio siguiente</td></tr>
+</tbody></table>
+<ul>
+<li><b>Quién incoa:</b> el <b>presidente</b> ordena la incoación del expediente (177.1).</li>
+<li><b>Trámite (177.2):</b> informe previo de la <span class="t" data-k="intervencion">Intervención</span> → aprobación del <b>Pleno</b> → mismos trámites y requisitos que los presupuestos, incluidas las normas de <b>información, reclamación y publicidad</b> del art. 169.</li>
+<li><b>Organismos autónomos (177.3):</b> propuesta inicial del órgano competente del OA y remisión a la entidad local para tramitarlo igual.</li>
+<li><b>Contenido (177.4):</b> debe especificar la <b>partida a incrementar</b> y el <b>recurso que lo financia</b>.</li>
+</ul>
+<table><thead><tr><th>Recursos de financiación (177.4)</th></tr></thead><tbody>
+<tr><td><span class="t" data-k="remanente">Remanente líquido de tesorería</span></td></tr>
+<tr><td>Nuevos o mayores ingresos recaudados sobre los previstos en el presupuesto corriente</td></tr>
+<tr><td>Anulaciones o bajas de créditos de otras partidas <b>no comprometidos</b>, reducibles sin perturbar el servicio</td></tr>
+</tbody></table>
+<div class="box exc"><span class="lbl">Excepción del 177.5 — operaciones de crédito para gasto corriente</span>Con <span class="t" data-k="quorum">quórum del art. 47.3 LBRL</span> y declaración expresa de necesidad y urgencia, cabe financiar con operaciones de crédito nuevos o mayores gastos <b>corrientes</b> si concurren <b>las tres condiciones a la vez</b>:
+<ul><li>importe total anual ≤ <b>5 %</b> de los recursos por operaciones corrientes;</li>
+<li>carga financiera total ≤ <b>25 %</b> de esos recursos;</li>
+<li>operaciones canceladas <b>antes de la renovación de la Corporación</b> que las concierte.</li></ul></div>
+<div class="box warn"><span class="lbl">Calamidades públicas (177.6)</span>Los acuerdos de habilitación o suplemento por calamidades públicas o análogas de excepcional interés general son <b>inmediatamente ejecutivos</b>. Las reclamaciones se sustancian en <b>8 días</b> desde su presentación y se entienden <b>desestimadas</b> si no se notifica resolución en ese plazo.</div>`,llano:`<p>Aparece un gasto urgente que no puede esperar al año que viene. Si no hay ninguna partida, se crea una (crédito extraordinario); si la hay pero se queda corta, se engorda (suplemento). Como esto altera el techo aprobado por el Pleno, el camino es el mismo que el del presupuesto: informe del interventor, aprobación plenaria, exposición pública y publicación. Y hay que decir de dónde sale el dinero.</p>`,porque:`<p>Estas dos figuras <b>aumentan el volumen total</b> del presupuesto: por eso no basta con una firma del alcalde, se exige el mismo procedimiento solemne que para aprobarlo. La exigencia de identificar el recurso financiador impide crear crédito de la nada. Y la excepción del apartado 5 existe porque a veces la única salida es endeudarse para gasto corriente — algo tan peligroso que la ley lo rodea de tres cerrojos numéricos y de mayoría absoluta.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> se rompe la caldera en enero. No tenías esa partida en tu presupuesto familiar: creas la partida y decides de dónde sacas el dinero (ahorros, una paga extra o recortar otro gasto).</li>
+<li><b>Real:</b> derrumbe parcial del muro del cementerio en marzo de 2026. No existe crédito. El alcalde ordena incoar un crédito extraordinario de 145.000 € financiado con remanente líquido de tesorería; la interventora informa, el Pleno lo aprueba el 30 de marzo, se expone 15 días y se publica.</li>
+<li><b>Caso límite:</b> riadas que anegan el casco urbano. El acuerdo de habilitación es <b>inmediatamente ejecutivo</b> (177.6): se puede gastar sin esperar a que terminen los plazos de reclamación.</li>
+</ul>`,noej:`<ul>
+<li><b>No es suplemento</b> aumentar un crédito <b>ampliable</b>: para eso está el art. 178, con requisitos propios.</li>
+<li><b>No sirve como financiación</b> una baja de crédito <b>ya comprometido</b>: el 177.4 exige que no esté comprometido.</li>
+<li><b>No cabe</b> financiar gasto corriente con préstamo fuera de las tres condiciones del 177.5.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 169:</b> información, reclamación y publicidad aplicables por remisión expresa.</li>
+<li><b>Art. 173.4:</b> el crédito extraordinario o suplemento que hay que pedir en tres meses tras una sentencia.</li>
+<li><b>Art. 47.3 LBRL:</b> el quórum de mayoría absoluta del 177.5.</li>
+<li><b>Art. 182.1.a):</b> los concedidos en el último trimestre son incorporables.</li>
+</ul>`,trampas:`<ul>
+<li><b>No existe → extraordinario. Existe pero corto → suplemento.</b> Es la distinción básica y la más preguntada.</li>
+<li>El presidente <b>incoa</b>; el Pleno <b>aprueba</b>. No los aprueba el alcalde.</li>
+<li>Las tres condiciones del 177.5 son <b>cumulativas</b>: 5 %, 25 % y cancelación antes de la renovación.</li>
+<li>En calamidades: <b>8 días</b> y silencio <b>desestimatorio</b>.</li>
+<li>Se les aplican los trámites del presupuesto: por tanto también los <b>15 días</b> de exposición y el <b>mes</b> para resolver reclamaciones del art. 169.</li>
+</ul>`,ancla:`<p><b>"E de Extraordinario, E de que no Existe."</b> Si existe pero falta, <b>S</b>uplemento (<b>S</b>umar).<br><b>Los números del 177.5: 5-25-antes.</b> Cinco por ciento, veinticinco por ciento, y cancelado antes de que cambie la corporación.<br><b>Calamidad = 8 días y silencio negativo.</b></p>`,vis:`<svg viewBox="0 0 640 220" role="img" aria-label="Créditos extraordinarios y suplementos de crédito">
+<rect x="180" y="10" width="280" height="36" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">Gasto que no puede demorarse</text>
+<path d="M320 46 L 320 60" stroke="var(--acc)" stroke-width="2"/>
+<line x1="150" y1="60" x2="490" y2="60" stroke="var(--acc)" stroke-width="2"/>
+<line x1="150" y1="60" x2="150" y2="78" stroke="var(--acc)" stroke-width="2"/>
+<line x1="490" y1="60" x2="490" y2="78" stroke="var(--acc)" stroke-width="2"/>
+<rect x="40" y="78" width="220" height="56" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="150" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="var(--exc)">NO existe crédito</text>
+<text x="150" y="120" text-anchor="middle" font-size="12" fill="currentColor">→ CRÉDITO EXTRAORDINARIO</text>
+<rect x="380" y="78" width="220" height="56" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="490" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)">Existe pero insuficiente</text>
+<text x="490" y="120" text-anchor="middle" font-size="12" fill="currentColor">→ SUPLEMENTO DE CRÉDITO</text>
+<rect x="110" y="152" width="420" height="56" rx="8" fill="var(--panel)" stroke="var(--acc)" stroke-width="2"/>
+<text x="320" y="172" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Mismo camino: Presidente incoa → Intervención informa → PLENO aprueba</text>
+<text x="320" y="192" text-anchor="middle" font-size="11" fill="currentColor">+ trámites del art. 169 · financiación: remanente, mayores ingresos o bajas</text>
+</svg>`},
+{n:178,t:"Créditos ampliables",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Algunos créditos crecen solos si crece el ingreso al que van unidos.",literal:`<p>No obstante lo dispuesto en el apartado 2 del artículo 172 de esta ley tendrán la condición de ampliables aquellos créditos que de modo taxativo y debidamente explicitados se relacionen en las bases de ejecución del presupuesto, y, en su virtud, podrá ser incrementada su cuantía, previo cumplimiento de los requisitos exigidos por vía reglamentaria, en función de la efectividad de los recursos afectados.</p>`,dis:`<ul>
+<li><b>Excepción expresa</b> al carácter limitativo del art. 172.2.</li>
+<li><b>Requisito formal:</b> figurar de modo <b>taxativo y debidamente explicitado</b> en las <span class="t" data-k="bases">bases de ejecución</span>.</li>
+<li><b>Requisito material:</b> el incremento se produce <b>en función de la efectividad de los recursos afectados</b>, previo cumplimiento de los requisitos reglamentarios.</li>
+</ul>`,llano:`<p>Hay gastos que dependen directamente de un ingreso concreto: cuanto más entra, más se puede gastar. Si las bases de ejecución los han señalado uno por uno, ese crédito puede subir automáticamente cuando el ingreso se hace efectivo, sin montar un expediente de suplemento.</p>`,porque:`<p>Obligar a tramitar un suplemento cada vez que entra el ingreso afectado sería absurdo y lento. La ley admite un automatismo, pero lo condiciona a que el Pleno lo haya previsto <b>de antemano y por escrito</b> en las bases: así el automatismo sigue siendo una decisión plenaria, solo que anticipada.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> un sueldo con comisiones: tu presupuesto de ocio sube en la medida en que entren esas comisiones, no antes.</li>
+<li><b>Real:</b> las bases de ejecución declaran ampliable el crédito de "actividades deportivas" en función de la recaudación por inscripciones. Presupuestados 80.000 € de ingresos y recaudados 96.000 €, el crédito puede ampliarse en esos 16.000 €.</li>
+<li><b>Caso límite:</b> ese mismo crédito ampliable <b>no puede ser minorado por transferencia</b> (art. 180.1.a).</li>
+</ul>`,noej:`<ul>
+<li><b>No es ampliable</b> un crédito solo porque exista un ingreso afectado: hace falta la declaración taxativa en las bases.</li>
+<li><b>No se amplía</b> por previsión de mayor recaudación, sino por su <b>efectividad</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 172.2:</b> la regla que este artículo excepciona.</li>
+<li><b>Art. 165.1:</b> las bases de ejecución como contenido obligatorio del presupuesto.</li>
+<li><b>Art. 180.1.a):</b> los ampliables no pueden verse afectados por transferencias.</li>
+</ul>`,trampas:`<ul>
+<li>"De modo <b>taxativo</b> y debidamente <b>explicitados</b>": no vale una cláusula genérica.</li>
+<li>Es una modificación que <b>aumenta el total</b> del presupuesto, como el crédito extraordinario y el suplemento, pero con procedimiento mucho más ágil.</li>
+</ul>`,ancla:`<p><b>"Ampliable = acordeón atado a un ingreso."</b> Se estira solo si entra aire (recaudación), y solo si está escrito en las bases.</p>`,vis:`<svg viewBox="0 0 640 140" role="img" aria-label="Funcionamiento del crédito ampliable">
+<rect x="30" y="45" width="180" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="120" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Ingreso afectado</text>
+<text x="120" y="86" text-anchor="middle" font-size="11" fill="currentColor">efectivamente recaudado</text>
+<text x="245" y="76" text-anchor="middle" font-size="18" fill="var(--acc)">→</text>
+<rect x="280" y="45" width="170" height="52" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="365" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Crédito ampliable</text>
+<text x="365" y="86" text-anchor="middle" font-size="11" fill="currentColor">sube en la misma medida</text>
+<rect x="470" y="38" width="150" height="66" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="545" y="60" text-anchor="middle" font-size="10" font-weight="700" fill="var(--warn)">CONDICIÓN</text>
+<text x="545" y="78" text-anchor="middle" font-size="10" fill="currentColor">estar listado de forma</text>
+<text x="545" y="93" text-anchor="middle" font-size="10" fill="currentColor">taxativa en las bases</text>
+<text x="320" y="125" text-anchor="middle" font-size="11" fill="var(--ink2)">Excepción expresa al carácter limitativo del art. 172.2</text>
+</svg>`},
+{n:179,t:"Transferencias de crédito: límites formales y competencia",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Mover dinero entre partidas: lo regulan las bases, y el Pleno decide lo gordo.",literal:`<p>1. Las entidades locales regularán en las bases de ejecución del presupuesto el régimen de transferencias estableciendo, en cada caso, el órgano competente para autorizarlas.</p><p>2. En todo caso, la aprobación de las transferencias de crédito entre distintos grupos de función corresponderá al Pleno de la corporación salvo cuando las bajas y las altas afecten a créditos de personal.</p><p>3. Los organismos autónomos podrán realizar operaciones de transferencias de crédito con sujeción a lo dispuesto en los apartados anteriores.</p><p>4. Las modificaciones presupuestarias a que se refiere este artículo, en cuanto sean aprobadas por el Pleno, seguirán las normas sobre información, reclamaciones, recursos y publicidad a que se refieren los artículos 169, 170 y 171 de la ley.</p>`,dis:`<ul>
+<li><b>179.1:</b> las <b>bases de ejecución</b> regulan el régimen de <span class="t" data-k="transfer">transferencias</span> y fijan el <b>órgano competente</b> en cada caso.</li>
+<li><b>179.2:</b> en todo caso, corresponde al <b>Pleno</b> la aprobación de las transferencias <b>entre distintos grupos de función</b>, <b>salvo</b> cuando las bajas y las altas afecten a <b>créditos de personal</b>.</li>
+<li><b>179.3:</b> los organismos autónomos también pueden hacer transferencias, con sujeción a lo anterior.</li>
+<li><b>179.4:</b> las aprobadas por el Pleno siguen las normas de <b>información, reclamaciones, recursos y publicidad</b> de los arts. 169, 170 y 171.</li>
+</ul>
+<div class="box ej"><span class="lbl">Idea clave</span>La transferencia <b>no altera la cuantía total</b> del presupuesto: lo que sube en un sitio baja en otro. Por eso su procedimiento es más ligero que el del crédito extraordinario.</div>
+<div class="interp"><span class="lbl">Interpretación / contexto — aportación externa</span>La expresión "grupos de función" procede de la estructura presupuestaria anterior a 2008. Con la clasificación vigente (Orden EHA/3565/2008) la doctrina y la práctica la entienden referida a las <b>áreas de gasto</b>. El texto legal no se ha actualizado; si el examen cita literalmente el precepto, la respuesta esperada suele ser la literal.</div>`,llano:`<p>Transferir es mover dinero de una casilla a otra sin que cambie el total. Cada ayuntamiento decide en sus bases quién puede autorizar cada movimiento. Pero cuando el movimiento cruza grandes bloques de gasto, decide el Pleno, salvo que se trate de dinero de personal.</p>`,porque:`<p>Como el total no cambia, no hace falta el procedimiento solemne del presupuesto. Pero cuando el dinero salta de un gran bloque a otro (de servicios sociales a deuda, por ejemplo), se está alterando la <b>prioridad política</b> que aprobó el Pleno: por eso vuelve al Pleno. La excepción de personal responde a que esos créditos tienen su propia disciplina y sus ajustes son frecuentes y técnicos.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> mover dinero entre sobres de la casa: si es del sobre "cine" al sobre "libros", lo decides tú; si es del sobre "colegio" al sobre "coche", lo habláis los dos.</li>
+<li><b>Real:</b> pasar 18.000 € de la partida de festejos (área 3) a la de ayudas de emergencia social (área 2) exige acuerdo del <b>Pleno</b>, con exposición pública y publicidad.</li>
+<li><b>Caso límite:</b> pasar 18.000 € entre dos partidas de personal de áreas distintas: pese a cruzar áreas, <b>no</b> requiere Pleno por la excepción expresa del 179.2.</li>
+</ul>`,noej:`<ul>
+<li><b>No es transferencia</b> el crédito extraordinario: allí el total sube; aquí se mantiene.</li>
+<li><b>No decide libremente</b> el alcalde: decide lo que las bases le atribuyan, y nunca lo reservado al Pleno.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 180:</b> los límites objetivos de toda transferencia.</li>
+<li><b>Arts. 169, 170 y 171:</b> por remisión del 179.4, cuando aprueba el Pleno.</li>
+<li><b>Art. 167.3:</b> la clasificación por programas, de la que salen los "grupos de función".</li>
+</ul>`,trampas:`<ul>
+<li>La competencia del Pleno se activa por cruzar <b>grupos de función</b>, no por el importe.</li>
+<li>La excepción de <b>personal</b> exige que <b>bajas y altas</b> afecten a créditos de personal.</li>
+<li>Solo las aprobadas por el <b>Pleno</b> arrastran los trámites de los arts. 169 a 171.</li>
+</ul>`,ancla:`<p><b>"Cruza función → Pleno; toca personal → excepción."</b><br>La transferencia es un <b>trasvase</b>: el pantano total no cambia de nivel.</p>`,vis:`<svg viewBox="0 0 640 170" role="img" aria-label="Competencia para aprobar transferencias de crédito">
+<rect x="40" y="30" width="180" height="50" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="130" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Partida A</text>
+<text x="130" y="70" text-anchor="middle" font-size="11" fill="var(--exc)">baja −20.000 €</text>
+<path d="M225 55 L 285 55" stroke="var(--acc)" stroke-width="3"/>
+<text x="255" y="45" text-anchor="middle" font-size="10" fill="var(--acc)">traslado</text>
+<rect x="290" y="30" width="180" height="50" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="380" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">Partida B</text>
+<text x="380" y="70" text-anchor="middle" font-size="11" fill="var(--ej)">alta +20.000 €</text>
+<rect x="490" y="30" width="120" height="50" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="550" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">TOTAL</text>
+<text x="550" y="70" text-anchor="middle" font-size="11" fill="currentColor">no cambia</text>
+<rect x="60" y="100" width="240" height="52" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="180" y="121" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Entre distintos grupos de función</text>
+<text x="180" y="139" text-anchor="middle" font-size="11" fill="currentColor">→ decide el PLENO</text>
+<rect x="330" y="100" width="250" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="455" y="121" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Si bajas y altas son de personal</text>
+<text x="455" y="139" text-anchor="middle" font-size="11" fill="currentColor">→ excepción: no hace falta Pleno</text>
+</svg>`},
+{n:180,t:"Transferencias de crédito: límites objetivos",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Tres cosas no se pueden tocar con transferencias, salvo personal y dos supuestos.",literal:`<p>1. Las transferencias de créditos de cualquier clase estarán sujetas a las siguientes limitaciones:</p><p>a) No afectarán a los créditos ampliables ni a los extraordinarios concedidos durante el ejercicio.</p><p>b) No podrán minorarse los créditos que hayan sido incrementados con suplementos o transferencias, salvo cuando afecten a créditos de personal, ni los créditos incorporados como consecuencia de remanentes no comprometidos procedentes de presupuestos cerrados.</p><p>c) No incrementarán créditos que como consecuencia de otras transferencias hayan sido objeto de minoración, salvo cuando afecten a créditos de personal.</p><p>2. Las anteriores limitaciones no afectarán a las transferencias de crédito que se refieran a los programas de imprevistos y funciones no clasificadas ni serán de aplicación cuando se trate de créditos modificados como consecuencia de reorganizaciones administrativas aprobadas por el Pleno.</p>`,dis:`<table><thead><tr><th>Límite (180.1)</th><th>Contenido</th><th>Salvedad</th></tr></thead><tbody>
+<tr><td>a)</td><td>No afectarán a los créditos <b>ampliables</b> ni a los <b>extraordinarios</b> concedidos durante el ejercicio</td><td>—</td></tr>
+<tr><td>b)</td><td>No podrán <b>minorarse</b> los créditos incrementados con <b>suplementos o transferencias</b>, ni los <b>incorporados</b> por remanentes no comprometidos de presupuestos cerrados</td><td>Créditos de <b>personal</b> (solo para la primera parte)</td></tr>
+<tr><td>c)</td><td>No <b>incrementarán</b> créditos que hayan sido minorados por otras transferencias</td><td>Créditos de <b>personal</b></td></tr>
+</tbody></table>
+<div class="box ej"><span class="lbl">Excepciones generales (180.2)</span>Los límites anteriores <b>no</b> se aplican:
+<ul><li>a las transferencias referidas a los programas de <b>imprevistos y funciones no clasificadas</b>;</li>
+<li>cuando se trate de créditos modificados por <b>reorganizaciones administrativas aprobadas por el Pleno</b>.</li></ul></div>`,llano:`<p>Una vez que un crédito ha sido tocado, la ley evita que se convierta en un carrusel: lo que se ha reforzado no se puede vaciar después, y lo que se ha vaciado no se puede volver a llenar. Así se impide burlar el control haciendo idas y venidas. Personal queda fuera, y también los programas de imprevistos y las reorganizaciones que apruebe el Pleno.</p>`,porque:`<p>Sin estos límites, la transferencia sería la puerta trasera del presupuesto: se podría deshacer por decreto lo que el Pleno acaba de aprobar por expediente solemne. Las prohibiciones protegen la <b>estabilidad de las decisiones ya adoptadas</b> y evitan el "baile de partidas" que hace ilegible la ejecución.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> si has pedido un préstamo para arreglar el tejado, no puedes al mes siguiente usar ese dinero para otra cosa: se pediría con otra finalidad.</li>
+<li><b>Real:</b> en marzo se aprueba un suplemento de 60.000 € para la partida de mantenimiento de colegios. En octubre no se puede minorar esa partida por transferencia para reforzar alumbrado (180.1.b).</li>
+<li><b>Caso límite:</b> si esa minoración afectara a créditos de <b>personal</b>, sí sería posible; y también si deriva de una <b>reorganización administrativa</b> aprobada por el Pleno (180.2).</li>
+</ul>`,noej:`<ul>
+<li><b>No están limitados</b> los programas de imprevistos y funciones no clasificadas: son la válvula de escape del sistema.</li>
+<li><b>No se prohíbe</b> incrementar un crédito ampliable por su propia vía (art. 178); lo prohibido es afectarlo mediante transferencia.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 179:</b> régimen y competencia de las transferencias.</li>
+<li><b>Arts. 177 y 178:</b> los créditos extraordinarios, suplementos y ampliables que quedan protegidos.</li>
+<li><b>Art. 182:</b> los créditos incorporados a los que alude la letra b).</li>
+</ul>`,trampas:`<ul>
+<li>La letra a) protege ampliables y <b>extraordinarios</b>; los <b>suplementos</b> aparecen en la letra b) y con otro matiz (no pueden minorarse).</li>
+<li>La salvedad de <b>personal</b> aparece en las letras b) y c), no en la a).</li>
+<li>El 180.2 contiene <b>dos</b> excepciones generales; suelen preguntar solo una.</li>
+</ul>`,ancla:`<p><b>"Lo que subió no baja, lo que bajó no sube."</b> Y por encima de todo, la coletilla mágica: <b>salvo personal</b>.<br>Válvulas de escape: <b>imprevistos</b> y <b>reorganizaciones del Pleno</b>.</p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Límites objetivos de las transferencias de crédito">
+<rect x="25" y="25" width="185" height="70" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="117" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">a) No tocar</text>
+<text x="117" y="66" text-anchor="middle" font-size="10" fill="currentColor">créditos ampliables ni</text>
+<text x="117" y="82" text-anchor="middle" font-size="10" fill="currentColor">extraordinarios del ejercicio</text>
+<rect x="225" y="25" width="185" height="70" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="317" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">b) No minorar</text>
+<text x="317" y="66" text-anchor="middle" font-size="10" fill="currentColor">lo reforzado con suplemento</text>
+<text x="317" y="82" text-anchor="middle" font-size="10" fill="currentColor">o transferencia, ni lo incorporado</text>
+<rect x="425" y="25" width="190" height="70" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="520" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">c) No incrementar</text>
+<text x="520" y="66" text-anchor="middle" font-size="10" fill="currentColor">lo que ya fue minorado</text>
+<text x="520" y="82" text-anchor="middle" font-size="10" fill="currentColor">por otra transferencia</text>
+<rect x="90" y="108" width="460" height="46" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="320" y="127" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">SALVEDADES: créditos de personal (b y c)</text>
+<text x="320" y="145" text-anchor="middle" font-size="11" fill="currentColor">y, en todo caso: imprevistos · reorganizaciones aprobadas por el Pleno</text>
+</svg>`},
+{n:181,t:"Generaciones de crédito",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Un ingreso nuevo no tributario puede crear crédito de gasto por su importe.",literal:`<p>Podrán generar crédito en los estados de gastos de los presupuestos, en la forma que reglamentariamente se establezca, los ingresos de naturaleza no tributaria derivados de las siguientes operaciones:</p><p>a) Aportaciones o compromisos firmes de aportación de personas físicas o jurídicas para financiar, juntamente con la entidad local o con alguno de sus organismos autónomos, gastos que por su naturaleza están comprendidos en sus fines u objetivos.</p><p>b) Enajenaciones de bienes de la entidad local o de sus organismos autónomos.</p><p>c) Prestación de servicios.</p><p>d) Reembolso de préstamos.</p><p>e) Reintegros de pagos indebidos con cargo al presupuesto corriente, en cuanto a reposición del crédito en la correspondiente cuantía.</p>`,dis:`<ul>
+<li><b>Naturaleza:</b> la <span class="t" data-k="generacion">generación</span> aumenta el crédito porque ha entrado dinero nuevo <b>no tributario</b>.</li>
+<li><b>Cinco operaciones habilitantes:</b>
+<ol><li><b>a)</b> aportaciones o compromisos firmes de aportación de personas físicas o jurídicas para <b>cofinanciar</b> gastos comprendidos en los fines de la entidad o de sus organismos;</li>
+<li><b>b)</b> <b>enajenaciones</b> de bienes de la entidad o de sus organismos autónomos;</li>
+<li><b>c)</b> <b>prestación de servicios</b>;</li>
+<li><b>d)</b> <b>reembolso de préstamos</b>;</li>
+<li><b>e)</b> <b>reintegros de pagos indebidos</b> con cargo al presupuesto corriente, como reposición del crédito.</li></ol></li>
+<li><b>Forma:</b> la que se establezca <b>reglamentariamente</b>.</li>
+</ul>`,llano:`<p>Si aparece un dinero que no estaba previsto y no procede de impuestos —una subvención comprometida, la venta de un solar, el reintegro de un pago mal hecho—, ese dinero puede convertirse en crédito para gastar. No se trata de recortar en otro sitio: el presupuesto crece porque han crecido los ingresos.</p>`,porque:`<p>Sería absurdo rechazar una subvención de 200.000 € porque no estaba en el presupuesto de enero. La generación permite <b>absorber ingresos sobrevenidos</b> sin montar el procedimiento solemne del crédito extraordinario. Se limita a ingresos <b>no tributarios</b> porque los tributarios ya están previstos de forma global y su mayor recaudación se canaliza por otras vías (por ejemplo, financiando un suplemento).</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> vendes la moto vieja por 1.200 € y ese dinero se convierte en presupuesto para reformar el baño: no has recortado nada, has ingresado.</li>
+<li><b>Real:</b> la Diputación concede 75.000 € para un programa de empleo con compromiso firme documentado. El Ayuntamiento genera crédito por esos 75.000 € en la partida correspondiente (181.a).</li>
+<li><b>Caso límite:</b> una empresa devuelve 4.300 € cobrados de más en una certificación del ejercicio corriente. Es reintegro de pago indebido: <b>repone</b> el crédito (181.e).</li>
+</ul>`,noej:`<ul>
+<li><b>No genera crédito</b> una mayor recaudación del IBI: es ingreso <b>tributario</b>. Podrá financiar un suplemento (art. 177.4), pero no una generación.</li>
+<li><b>No basta</b> una promesa verbal de aportación: la letra a) exige aportación o <b>compromiso firme</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 173.6.a):</b> exige documentos fehacientes de compromisos firmes de aportación.</li>
+<li><b>Art. 165.2:</b> los ingresos afectados, que suelen ser el origen de la generación.</li>
+<li><b>Art. 182.1.d):</b> los créditos autorizados en función de la efectiva recaudación de derechos afectados son incorporables.</li>
+</ul>`,trampas:`<ul>
+<li>Solo ingresos de naturaleza <b>NO tributaria</b>. Es la palabra que decide la pregunta.</li>
+<li>Son <b>cinco</b> supuestos tasados; el más olvidado es el <b>reembolso de préstamos</b>.</li>
+<li>Generación ≠ ampliación: la ampliación exige estar listada en las bases; la generación, un ingreso de los cinco tipos.</li>
+</ul>`,ancla:`<p><b>"A-E-P-R-R"</b>: <b>A</b>portaciones · <b>E</b>najenaciones · <b>P</b>restación de servicios · <b>R</b>eembolso de préstamos · <b>R</b>eintegros de pagos indebidos.<br>Regla de oro: <b>si es tributo, no genera</b>.</p>`,vis:`<svg viewBox="0 0 640 175" role="img" aria-label="Supuestos de generación de crédito">
+<rect x="230" y="10" width="180" height="36" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="320" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">Ingreso NO tributario</text>
+<path d="M320 46 L 320 60" stroke="var(--ej)" stroke-width="2"/>
+<line x1="80" y1="60" x2="560" y2="60" stroke="var(--ej)" stroke-width="2"/>
+<g font-size="10" fill="currentColor" text-anchor="middle">
+<line x1="80" y1="60" x2="80" y2="76" stroke="var(--ej)" stroke-width="2"/><rect x="20" y="76" width="120" height="46" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="80" y="95">a) Aportaciones</text><text x="80" y="111">de terceros</text>
+<line x1="200" y1="60" x2="200" y2="76" stroke="var(--ej)" stroke-width="2"/><rect x="150" y="76" width="110" height="46" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="205" y="95">b) Enajenación</text><text x="205" y="111">de bienes</text>
+<line x1="320" y1="60" x2="320" y2="76" stroke="var(--ej)" stroke-width="2"/><rect x="270" y="76" width="110" height="46" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="325" y="95">c) Prestación</text><text x="325" y="111">de servicios</text>
+<line x1="440" y1="60" x2="440" y2="76" stroke="var(--ej)" stroke-width="2"/><rect x="390" y="76" width="110" height="46" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="445" y="95">d) Reembolso</text><text x="445" y="111">de préstamos</text>
+<line x1="560" y1="60" x2="560" y2="76" stroke="var(--ej)" stroke-width="2"/><rect x="510" y="76" width="110" height="46" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="565" y="95">e) Reintegros de</text><text x="565" y="111">pagos indebidos</text>
+</g>
+<text x="320" y="150" text-anchor="middle" font-size="11" fill="var(--exc)">Si el ingreso es TRIBUTARIO, no cabe generación de crédito</text>
+</svg>`},
+{n:182,t:"Incorporaciones de crédito",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo I (De los presupuestos) ▸ Sección 2.ª (De los créditos y sus modificaciones)",idea:"Cuatro tipos de crédito sobrante se salvan y pasan al año siguiente.",literal:`<p>1. No obstante lo dispuesto en el artículo 175 de esta ley, podrán incorporarse a los correspondientes créditos de los presupuestos de gastos del ejercicio inmediato siguiente, siempre que existan para ello los suficientes recursos financieros:</p><p>a) Los créditos extraordinarios y los suplementos de créditos, así como las transferencias de crédito, que hayan sido concedidos o autorizados, respectivamente, en el último trimestre del ejercicio.</p><p>b) Los créditos que amparen los compromisos de gasto a que hace referencia el apartado 2.b) del artículo 176 de esta ley.</p><p>c) Los créditos por operaciones de capital.</p><p>d) Los créditos autorizados en función de la efectiva recaudación de derechos afectados.</p><p>2. Los remanentes incorporados según lo prevenido en el apartado anterior podrán ser aplicados tan sólo dentro del ejercicio presupuestario al que la incorporación se acuerde y, en el supuesto del párrafo a) de dicho apartado, para los mismos gastos que motivaron, en cada caso, su concesión y autorización.</p><p>3. Los créditos que amparen proyectos financiados con ingresos afectados deberán incorporarse obligatoriamente, salvo que se desista total o parcialmente de iniciar o continuar la ejecución del gasto.</p>`,dis:`<ul>
+<li><b>Requisito común (182.1):</b> que existan <b>suficientes recursos financieros</b>.</li>
+<li><b>Supuestos incorporables:</b>
+<ol><li><b>a)</b> créditos extraordinarios, suplementos y transferencias concedidos o autorizados en el <b>último trimestre</b> del ejercicio;</li>
+<li><b>b)</b> créditos que amparen <b>compromisos de gasto</b> del art. 176.2.b);</li>
+<li><b>c)</b> créditos por <b>operaciones de capital</b>;</li>
+<li><b>d)</b> créditos autorizados en función de la <b>efectiva recaudación de derechos afectados</b>.</li></ol></li>
+<li><b>Límite temporal (182.2):</b> los remanentes incorporados solo pueden aplicarse <b>dentro del ejercicio</b> al que se acuerde la incorporación; y en el caso de la letra a), <b>para los mismos gastos</b> que motivaron su concesión.</li>
+<li><b>Incorporación obligatoria (182.3):</b> los créditos que amparen <b>proyectos financiados con ingresos afectados</b> <b>deberán</b> incorporarse, salvo desistimiento total o parcial de iniciar o continuar el gasto.</li>
+</ul>`,llano:`<p>La regla es que el crédito sobrante muere el 31 de diciembre (art. 175). Este artículo abre cuatro rendijas: lo aprobado en el último trimestre, lo que ya estaba comprometido, las inversiones y lo ligado a un ingreso finalista. Todo lo que se rescate hay que gastarlo en ese año nuevo, no más allá. Y lo que va unido a una subvención finalista no es que se pueda incorporar: <b>hay que</b> incorporarlo.</p>`,porque:`<p>Anular sin más los créditos aprobados en noviembre o los de una obra ya adjudicada sería absurdo: no ha habido tiempo material de ejecutarlos. La incorporación evita ese desperdicio, pero se limita para que no se convierta en una bolsa perpetua: por eso solo dura un ejercicio y por eso los de la letra a) conservan su finalidad original. La obligatoriedad del apartado 3 protege al financiador: si alguien te dio dinero para un fin concreto, no puedes dejarlo caducar.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> un vale regalo que caduca en un año: tienes que usarlo dentro del plazo y para lo que dice el vale.</li>
+<li><b>Real:</b> un suplemento de crédito de 90.000 € aprobado el 20 de noviembre de 2026 para la reforma del mercado. A 31 de diciembre solo se han reconocido 12.000 €. Los 78.000 € restantes son incorporables (182.1.a) y solo podrán aplicarse en 2027 <b>a esa misma reforma</b>.</li>
+<li><b>Caso límite:</b> subvención de la Junta para un centro de día, con crédito sin ejecutar. La incorporación es <b>obligatoria</b> (182.3), salvo que se desista formalmente del proyecto.</li>
+</ul>`,noej:`<ul>
+<li><b>No es incorporable</b> un crédito ordinario de gasto corriente no comprometido: muere con el ejercicio (art. 175).</li>
+<li><b>No se pueden arrastrar</b> los remanentes incorporados a un tercer ejercicio: solo valen para el año de la incorporación.</li>
+<li><b>No es potestativa</b> la incorporación de los créditos con financiación afectada.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 175:</b> la regla general de anulación que este artículo excepciona.</li>
+<li><b>Art. 176.2.b):</b> los compromisos de ejercicios anteriores.</li>
+<li><b>Art. 177:</b> los créditos extraordinarios y suplementos de la letra a).</li>
+<li><b>Art. 193:</b> el remanente de tesorería, del que depende la existencia de recursos financieros suficientes.</li>
+</ul>`,trampas:`<ul>
+<li>Letra a): <b>último trimestre</b>, e incluye también las <b>transferencias</b>, no solo extraordinarios y suplementos.</li>
+<li>Los incorporados de la letra a) mantienen la <b>misma finalidad</b>; los demás, no necesariamente.</li>
+<li>Solo <b>un ejercicio</b>: no se encadenan incorporaciones.</li>
+<li>El apartado 3 dice "<b>deberán</b>": obligatoria en financiación afectada.</li>
+</ul>`,ancla:`<p><b>Las cuatro rendijas — "TRI-CO-CA-FI":</b> último <b>TRI</b>mestre · <b>CO</b>mpromisos · <b>CA</b>pital · <b>FI</b>nalistas.<br>Y la regla del tiempo: <b>un año y se acabó</b>.</p>`,vis:`<svg viewBox="0 0 640 195" role="img" aria-label="Supuestos de incorporación de remanentes de crédito">
+<rect x="185" y="8" width="270" height="34" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="320" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">Regla general: anulación a 31-DIC (art. 175)</text>
+<path d="M320 42 L 320 56" stroke="var(--acc)" stroke-width="2"/>
+<line x1="95" y1="56" x2="545" y2="56" stroke="var(--acc)" stroke-width="2"/>
+<g font-size="10" fill="currentColor" text-anchor="middle">
+<line x1="95" y1="56" x2="95" y2="72" stroke="var(--acc)" stroke-width="2"/><rect x="25" y="72" width="140" height="52" rx="6" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="95" y="92" font-weight="700">a) Último trimestre</text><text x="95" y="108">extraord., supl. y transf.</text>
+<line x1="245" y1="56" x2="245" y2="72" stroke="var(--acc)" stroke-width="2"/><rect x="175" y="72" width="140" height="52" rx="6" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="245" y="92" font-weight="700">b) Compromisos</text><text x="245" y="108">de ejercicios anteriores</text>
+<line x1="395" y1="56" x2="395" y2="72" stroke="var(--acc)" stroke-width="2"/><rect x="325" y="72" width="140" height="52" rx="6" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="395" y="92" font-weight="700">c) Operaciones</text><text x="395" y="108">de capital</text>
+<line x1="545" y1="56" x2="545" y2="72" stroke="var(--acc)" stroke-width="2"/><rect x="475" y="72" width="140" height="52" rx="6" fill="var(--warn-bg)" stroke="var(--warn)"/><text x="545" y="92" font-weight="700">d) Derechos afectados</text><text x="545" y="108">incorporación OBLIGATORIA</text>
+</g>
+<rect x="140" y="140" width="360" height="42" rx="8" fill="var(--panel)" stroke="var(--acc)" stroke-width="2"/>
+<text x="320" y="158" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Requisito: suficientes recursos financieros</text>
+<text x="320" y="175" text-anchor="middle" font-size="10" fill="currentColor">Solo aplicables en el ejercicio de la incorporación · la letra a), a los mismos gastos</text>
+</svg>`}];
+</script>
+<script>
+const PLAZOS=[["4 ejercicios", "Máximo de años a los que puede extenderse el gasto plurianual de las letras a), b) y e)", "Entidad", "174.3", "El Pleno puede ampliarlo excepcionalmente"], ["70 % / 60 % / 50 % / 50 %", "Porcentajes máximos imputables a cada ejercicio futuro (letras a y e)", "Entidad", "174.3", "Sobre el crédito del año del compromiso"], ["3 meses", "Plazo para solicitar al Pleno crédito extraordinario o suplemento tras sentencia judicial", "Presidente", "173.4", "Desde la notificación de la resolución"], ["31 de diciembre", "Anulación de pleno derecho de los créditos no afectados a obligaciones reconocidas", "—", "175", "Salvo incorporación del art. 182"], ["5 %", "Límite del importe anual de operaciones de crédito para financiar gasto corriente", "Pleno", "177.5", "Sobre recursos por operaciones corrientes"], ["25 %", "Límite de carga financiera total incluida la operación proyectada", "Pleno", "177.5", "Condición cumulativa"], ["Antes de la renovación", "Las operaciones del 177.5 deben quedar canceladas antes de renovar la Corporación", "Pleno", "177.5", "Tercera condición cumulativa"], ["8 días", "Sustanciación de reclamaciones en acuerdos por calamidades públicas", "Entidad", "177.6", "Silencio desestimatorio"], ["Mayoría absoluta", "Quórum del art. 47.3 LBRL para la excepción del 177.5", "Pleno", "177.5", "Declaración expresa de necesidad y urgencia"], ["Último trimestre", "Créditos extraordinarios, suplementos y transferencias incorporables", "Entidad", "182.1.a)", "Para los mismos gastos que los motivaron"], ["Un ejercicio", "Vigencia de los remanentes incorporados", "Entidad", "182.2", "No se encadenan incorporaciones"]];
+const FLASH=[["¿Qué dos caras tiene la especialidad de los créditos?", "<b>Cualitativa</b> (solo para su finalidad, 172.1) y <b>cuantitativa</b> (limitativos y vinculantes, 172.2)."], ["¿Sobre qué se hace el control fiscal del gasto?", "Sobre el <b>nivel de vinculación</b> (art. 172.2 en relación con el 167.4); el contable, sobre la aplicación presupuestaria."], ["¿Cuándo son exigibles las obligaciones de la hacienda local?", "Cuando resulten de la ejecución de sus presupuestos o de <b>sentencia judicial firme</b> (art. 173.1)."], ["¿Se pueden embargar los bienes de una entidad local?", "No, salvo los <b>bienes patrimoniales no afectados</b> a un uso o servicio público (art. 173.2)."], ["¿Qué plazo hay para pedir crédito tras una sentencia?", "<b>Tres meses</b> desde la notificación de la resolución judicial (art. 173.4)."], ["¿Qué ocurre si se compromete gasto sin crédito?", "Los acuerdos, resoluciones y actos son <b>nulos de pleno derecho</b>, sin perjuicio de responsabilidades (art. 173.5)."], ["Requisito temporal del gasto plurianual", "Que su <b>ejecución se inicie en el propio ejercicio</b> (art. 174.2)."], ["Porcentajes del gasto plurianual", "<b>70 %</b> el ejercicio siguiente, <b>60 %</b> el segundo, <b>50 %</b> el tercero y el cuarto (art. 174.3), solo para las letras a) y e)."], ["¿Quién puede ampliar anualidades y porcentajes?", "El <b>Pleno</b>, en casos excepcionales (art. 174.5)."], ["¿Qué pasa con los créditos no gastados a 31 de diciembre?", "Quedan <b>anulados de pleno derecho</b> si no están afectados a obligaciones reconocidas, salvo el art. 182 (art. 175)."], ["Excepciones a la temporalidad de los créditos", "Atrasos de <b>personal</b> y obligaciones de <b>compromisos</b> de ejercicios anteriores previa incorporación (art. 176.2)."], ["Diferencia entre crédito extraordinario y suplemento", "<b>Extraordinario</b>: no existe crédito. <b>Suplemento</b>: existe pero es insuficiente y no ampliable (art. 177.1)."], ["¿Quién incoa y quién aprueba el crédito extraordinario?", "Lo <b>incoa el presidente</b>, lo informa la Intervención y lo <b>aprueba el Pleno</b> con los trámites del presupuesto (art. 177.1 y 2)."], ["Recursos para financiar un suplemento", "<b>Remanente líquido de tesorería</b>, nuevos o mayores ingresos recaudados, y bajas de créditos no comprometidos (art. 177.4)."], ["Las tres condiciones del art. 177.5", "Importe anual ≤ <b>5 %</b> de los recursos corrientes · carga financiera ≤ <b>25 %</b> · canceladas antes de la renovación de la Corporación. Con quórum del art. 47.3 LBRL."], ["Régimen de las calamidades públicas", "Acuerdos <b>inmediatamente ejecutivos</b>; reclamaciones sustanciadas en <b>8 días</b>, con silencio <b>desestimatorio</b> (art. 177.6)."], ["¿Qué es un crédito ampliable?", "El que las <b>bases de ejecución</b> relacionan de modo taxativo y que se incrementa en función de la efectividad de los recursos afectados (art. 178)."], ["¿Quién aprueba las transferencias entre grupos de función?", "El <b>Pleno</b>, salvo que bajas y altas afecten a créditos de <b>personal</b> (art. 179.2)."], ["¿Altera la transferencia el importe total del presupuesto?", "No: lo que sube en una aplicación baja en otra."], ["Los tres límites objetivos de las transferencias", "No afectar a ampliables ni extraordinarios · no minorar lo suplementado, transferido o incorporado · no incrementar lo ya minorado (art. 180.1)."], ["¿A qué no se aplican los límites del art. 180?", "A los programas de <b>imprevistos y funciones no clasificadas</b> y a las <b>reorganizaciones administrativas</b> aprobadas por el Pleno (art. 180.2)."], ["Los cinco supuestos de generación de crédito", "Aportaciones · enajenaciones · prestación de servicios · reembolso de préstamos · reintegros de pagos indebidos. Siempre ingresos <b>no tributarios</b> (art. 181)."], ["Los cuatro supuestos de incorporación de remanentes", "Extraordinarios, suplementos y transferencias del <b>último trimestre</b> · compromisos de ejercicios anteriores · operaciones de <b>capital</b> · créditos ligados a derechos <b>afectados</b> (art. 182.1)."], ["¿Cuánto duran los remanentes incorporados?", "Solo el <b>ejercicio</b> en que se acuerda la incorporación; los de la letra a), además, para los mismos gastos (art. 182.2)."], ["¿Qué incorporación es obligatoria?", "La de los créditos que amparan <b>proyectos con financiación afectada</b>, salvo desistimiento (art. 182.3)."]];
+const TEST=[{"a": 172, "q": "El carácter de los créditos autorizados en el estado de gastos es:", "o": [["limitativo y vinculante", 1, "Correcto: art. 172.2, literalmente."], ["estimativo y orientativo", 0, "Eso describe los <b>ingresos</b>, no los créditos de gasto."], ["limitativo pero no vinculante", 0, "La ley usa los dos adjetivos unidos."], ["vinculante solo para el capítulo I", 0, "No hay tal restricción: los niveles de vinculación se fijan conforme al propio 172.2."]]}, {"a": 173, "q": "Los bienes de la hacienda local son siempre inembargables.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 173.2 exceptúa los <b>bienes patrimoniales no afectados</b> a un uso o servicio público."}, {"a": 173, "q": "Completa: «Si para el pago de una sentencia fuere necesario un crédito extraordinario o un suplemento, deberá solicitarse del Pleno dentro de los ______ meses siguientes a la notificación».", "gap": "tres", "fb": "<b>Tres meses</b> (art. 173.4), contados desde la <b>notificación</b> de la resolución judicial."}, {"a": 173, "q": "Los acuerdos que comprometen gasto por encima de los créditos autorizados son:", "o": [["nulos de pleno derecho", 1, "Correcto: art. 173.5. Grado máximo de invalidez."], ["anulables a instancia de la Intervención", 0, "No: la ley opta por la nulidad radical, no por la anulabilidad."], ["válidos si se convalidan por el Pleno", 0, "La nulidad de pleno derecho no admite convalidación."], ["válidos si existe consignación en el año siguiente", 0, "No: la nulidad se produce en el momento del compromiso."]]}, {"a": 174, "q": "Los porcentajes máximos aplicables a los gastos plurianuales de las letras a) y e) son:", "o": [["70 %, 60 %, 50 % y 50 %", 1, "Correcto: art. 174.3. Los ejercicios tercero y cuarto comparten el 50 %."], ["70 %, 60 %, 50 % y 40 %", 0, "Error clásico: el cuarto ejercicio mantiene el 50 %, no baja al 40 %."], ["80 %, 70 %, 60 % y 50 %", 0, "No: la escalera empieza en el 70 %."], ["50 % en todos los ejercicios", 0, "No: los dos primeros tienen porcentajes superiores."]]}, {"a": 174, "q": "Para comprometer gasto plurianual basta con que el gasto figure entre los casos del art. 174.2.", "vf": true, "ok": false, "fb": "<b>Falso.</b> Además se exige que su <b>ejecución se inicie en el propio ejercicio</b> (art. 174.2) y queda subordinado al crédito que autoricen los presupuestos futuros (174.1)."}, {"a": 175, "q": "Los créditos no afectados a obligaciones reconocidas el último día del ejercicio:", "o": [["quedan anulados de pleno derecho, salvo los supuestos del art. 182", 1, "Correcto: art. 175, con remisión cerrada al art. 182."], ["se incorporan automáticamente al ejercicio siguiente", 0, "No: la incorporación es la excepción y requiere recursos financieros suficientes."], ["pasan al remanente de tesorería como crédito disponible", 0, "El remanente es otra magnitud; el crédito como tal se anula."], ["se anulan salvo acuerdo del Pleno en contrario", 0, "No existe esa posibilidad genérica: solo el art. 182."]]}, {"a": 176, "q": "¿Cuál de estas obligaciones se aplica al presupuesto vigente en el momento de su reconocimiento?", "o": [["Los atrasos a favor del personal retribuido con cargo al presupuesto de la entidad", 1, "Correcto: excepción del art. 176.2.a)."], ["Cualquier factura de un ejercicio anterior", 0, "No: solo las derivadas de compromisos debidamente adquiridos con crédito incorporado."], ["Las obligaciones de las sociedades mercantiles municipales", 0, "No es el supuesto del artículo."], ["Las obligaciones anuladas en el ejercicio anterior", 0, "No figura como excepción."]]}, {"a": 177, "q": "No existe en el presupuesto crédito alguno para atender un gasto urgente. Procede:", "o": [["un crédito extraordinario", 1, "Correcto: cuando <b>no existe</b> crédito (art. 177.1)."], ["un suplemento de crédito", 0, "El suplemento procede cuando el crédito <b>existe</b> pero es insuficiente y no ampliable."], ["una transferencia de crédito", 0, "La transferencia mueve crédito existente entre aplicaciones; no crea una nueva finalidad no prevista."], ["una generación de crédito", 0, "La generación exige un ingreso no tributario de los cinco tipos del art. 181."]]}, {"a": 177, "q": "Completa: «El expediente de crédito extraordinario habrá de ser previamente informado por la ______».", "gap": "intervención", "fb": "Por la <b>Intervención</b> (art. 177.2), antes de someterse a la aprobación del Pleno."}, {"a": 177, "q": "Los acuerdos de habilitación de créditos por calamidades públicas son inmediatamente ejecutivos y las reclamaciones se sustancian en ocho días.", "vf": true, "ok": true, "fb": "<b>Verdadero</b> (art. 177.6). Además, si no se notifica resolución en ese plazo, las reclamaciones se entienden <b>desestimadas</b>."}, {"a": 177, "q": "¿Cuál NO es un recurso válido para financiar un suplemento de crédito?", "o": [["Bajas de créditos ya comprometidos de otras partidas", 1, "Correcto: el art. 177.4 exige que los créditos dados de baja <b>no estén comprometidos</b>."], ["El remanente líquido de tesorería", 0, "Sí lo es: art. 177.4."], ["Nuevos o mayores ingresos recaudados sobre los previstos", 0, "Sí lo es: art. 177.4."], ["Bajas de créditos no comprometidos reducibles sin perturbar el servicio", 0, "Sí lo es: art. 177.4."]]}, {"a": 178, "q": "Un crédito es ampliable cuando:", "o": [["figura de modo taxativo en las bases de ejecución y se incrementa según la efectividad de los recursos afectados", 1, "Correcto: art. 178, excepción expresa al art. 172.2."], ["lo decide el presidente por razones de urgencia", 0, "No: la condición es formal y previa, en las bases de ejecución."], ["existe cualquier ingreso afectado", 0, "No basta el ingreso afectado: hace falta la declaración taxativa."], ["así lo acuerda el Pleno una vez iniciado el ejercicio", 0, "La declaración es previa, en las bases aprobadas con el presupuesto."]]}, {"a": 179, "q": "La aprobación de transferencias entre distintos grupos de función corresponde al Pleno:", "o": [["salvo cuando las bajas y altas afecten a créditos de personal", 1, "Correcto: excepción literal del art. 179.2."], ["en todo caso, sin excepción", 0, "Falta la salvedad de los créditos de personal."], ["solo si superan el 10 % del crédito", 0, "El criterio no es cuantitativo."], ["nunca: siempre es competencia del presidente", 0, "No: el art. 179.2 reserva expresamente ese supuesto al Pleno."]]}, {"a": 180, "q": "Las limitaciones a las transferencias de crédito NO se aplican:", "o": [["a los programas de imprevistos y funciones no clasificadas ni a las reorganizaciones administrativas aprobadas por el Pleno", 1, "Correcto: las dos excepciones del art. 180.2."], ["a los créditos extraordinarios concedidos durante el ejercicio", 0, "Al contrario: la letra a) del 180.1 los protege expresamente."], ["a los créditos incorporados de presupuestos cerrados", 0, "Están protegidos por la letra b)."], ["a ninguna transferencia: son límites absolutos", 0, "No: el propio 180.2 establece excepciones."]]}, {"a": 181, "q": "Puede generar crédito el ingreso derivado de:", "o": [["la enajenación de bienes de la entidad local", 1, "Correcto: art. 181.b), ingreso no tributario."], ["una mayor recaudación del IBI", 0, "No: es un ingreso <b>tributario</b>. Podría financiar un suplemento, pero no genera crédito."], ["el recargo de apremio de una tasa", 0, "También tributario: excluido del art. 181."], ["una previsión de mayor recaudación futura", 0, "La generación exige el ingreso o el compromiso firme, no una previsión."]]}, {"a": 182, "q": "Completa: «Los créditos que amparen proyectos financiados con ingresos afectados ______ incorporarse obligatoriamente, salvo desistimiento».", "gap": "deberán", "fb": "<b>Deberán</b> (art. 182.3): es la única incorporación obligatoria del artículo."}, {"a": 182, "q": "Los remanentes incorporados pueden aplicarse en el ejercicio de la incorporación y también en el siguiente.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 182.2 los limita a aplicarse <b>tan solo dentro del ejercicio</b> al que la incorporación se acuerde."}, {"a": 182, "q": "¿Cuál de estos créditos NO es incorporable conforme al art. 182.1?", "o": [["Un crédito ordinario de gasto corriente no comprometido", 1, "Correcto: se anula conforme al art. 175, al no encajar en ninguno de los cuatro supuestos."], ["Un suplemento concedido en el último trimestre", 0, "Sí lo es: letra a)."], ["Un crédito por operaciones de capital", 0, "Sí lo es: letra c)."], ["Un crédito autorizado en función de la efectiva recaudación de derechos afectados", 0, "Sí lo es: letra d), y además con incorporación obligatoria por el apartado 3."]]}, {"a": 172, "q": "El nivel de vinculación jurídica y la aplicación presupuestaria son lo mismo.", "vf": true, "ok": false, "fb": "<b>Falso.</b> La aplicación presupuestaria es la casilla concreta del crédito; el nivel de vinculación es la bolsa dentro de la cual puede moverse el gasto sin modificación. Sobre la primera se hace el control contable, sobre el segundo el fiscal (art. 167.4)."}];
+const CASOS=[{"t": "Caso 1 · ¿Qué modificación toca?", "e": "Cuatro situaciones en el mismo ayuntamiento durante 2026: <b>(1)</b> hay que indemnizar una expropiación por 210.000 € y no existe ninguna partida; <b>(2)</b> la partida de energía eléctrica tenía 300.000 € y se agota en octubre, y no está declarada ampliable; <b>(3)</b> la Diputación concede 60.000 € con compromiso firme para un programa de empleo; <b>(4)</b> sobran 25.000 € en festejos y faltan 25.000 € en ayudas sociales, que son áreas de gasto distintas. <b>Identifica la figura y el órgano competente en cada caso.</b>", "s": "<p><b>(1) Crédito extraordinario</b> (art. 177.1): no existe crédito. Lo incoa el presidente, lo informa la Intervención y lo aprueba el <b>Pleno</b>, con los trámites del art. 169. Financiación: remanente líquido, mayores ingresos o bajas no comprometidas.</p><p><b>(2) Suplemento de crédito</b> (art. 177.1): el crédito existe pero es insuficiente y no ampliable. Mismo procedimiento que el anterior.</p><p><b>(3) Generación de crédito</b> (art. 181.a): aportación con compromiso firme de un tercero, ingreso no tributario. Se tramita en la forma reglamentariamente establecida; no exige el procedimiento del presupuesto. Recuerda además el art. 173.6.a): la disponibilidad queda condicionada a documentos fehacientes.</p><p><b>(4) Transferencia de crédito</b> (arts. 179 y 180): el total no varía. Como cruza grupos de función y no son créditos de personal, la aprueba el <b>Pleno</b> (179.2) y sigue los trámites de los arts. 169 a 171 (179.4).</p>"}, {"t": "Caso 2 · El cierre del ejercicio", "e": "A 31 de diciembre de 2026 quedan sin ejecutar: <b>(a)</b> 40.000 € de un suplemento aprobado el 12 de noviembre para reformar la biblioteca; <b>(b)</b> 15.000 € de la partida de material de oficina; <b>(c)</b> 250.000 € de una obra adjudicada y contratada en septiembre, sin certificaciones; <b>(d)</b> 90.000 € de un proyecto financiado con una subvención finalista de la Junta. <b>¿Qué ocurre con cada importe?</b>", "s": "<p><b>(a) Incorporable</b> por el art. 182.1.a): suplemento concedido en el <b>último trimestre</b>. Solo podrá aplicarse en 2027 y <b>a la misma finalidad</b> (reforma de la biblioteca), por exigencia del 182.2.</p><p><b>(b) Se anula</b> de pleno derecho (art. 175): crédito ordinario no afectado a obligaciones reconocidas y ajeno a los cuatro supuestos del art. 182.</p><p><b>(c) Incorporable</b> por el art. 182.1.b) en relación con el 176.2.b): ampara compromisos de gasto debidamente adquiridos. También encajaría en la letra c) si son operaciones de capital.</p><p><b>(d) Incorporación OBLIGATORIA</b> (art. 182.3): proyecto con financiación afectada. Solo cabría no incorporarlo si se desiste total o parcialmente de ejecutar el gasto.</p><p><b>Requisito común:</b> que existan suficientes recursos financieros (art. 182.1).</p>"}, {"t": "Caso 3 · La sentencia y el plurianual", "e": "El 10 de febrero de 2026 se notifica al Ayuntamiento una sentencia firme que le condena a pagar 480.000 €. No hay crédito. Además, el equipo de gobierno quiere adjudicar en diciembre de 2026 una obra plurianual de 2027 a 2030, sin ejecutar nada en 2026. El crédito de inversiones de 2026 asciende a 800.000 €. <b>Analiza ambas operaciones.</b>", "s": "<p><b>1) La sentencia.</b> La obligación es exigible pese a no estar presupuestada, porque procede de sentencia firme (art. 173.1). No cabe embargo sobre bienes afectados a un servicio público (173.2) y la ejecución corresponde exclusivamente a la entidad (173.3). El presidente debe solicitar al Pleno el crédito extraordinario <b>antes del 10 de mayo de 2026</b> (tres meses desde la notificación, art. 173.4).</p><p><b>2) El plurianual.</b> No puede comprometerse: el art. 174.2 exige que la <b>ejecución se inicie en el propio ejercicio</b>. Si se iniciara en 2026, los límites serían: máximo cuatro ejercicios y, sobre los 800.000 € de crédito de 2026, hasta <b>560.000 €</b> en 2027 (70 %), <b>480.000 €</b> en 2028 (60 %) y <b>400.000 €</b> en 2029 y 2030 (50 % cada uno), salvo que el Pleno amplíe anualidades o porcentajes por excepcionalidad (174.5). Todo ello con contabilización independiente (174.6).</p>"}];
+const SEMAFORO=["Especialidad cualitativa y cuantitativa · nivel de vinculación — art. 172", "Exigibilidad, inembargabilidad y nulidad del gasto sin crédito — art. 173", "Gasto plurianual: casos, cuatro ejercicios y porcentajes 70-60-50-50 — art. 174", "Anulación automática de créditos a fin de ejercicio — art. 175", "Temporalidad y sus dos excepciones — art. 176", "Crédito extraordinario frente a suplemento y su financiación — art. 177", "Las tres condiciones del art. 177.5 y el régimen de calamidades", "Créditos ampliables — art. 178", "Transferencias: competencia del Pleno y excepción de personal — art. 179", "Límites objetivos de las transferencias — art. 180", "Generación de crédito: los cinco supuestos no tributarios — art. 181", "Incorporación de remanentes: cuatro supuestos y obligatoriedad — art. 182"];
+const INTRO_HTML="<section class=\"card\" id=\"intro\"><h2>Bloque 2 del tema 8 · De los créditos y sus modificaciones</h2><p class=\"small\">Ya sabes cómo se aprueba el presupuesto. Ahora toca lo que pasa cuando empieza a funcionar: qué disciplina tienen los créditos (arts. 172 a 176) y de qué siete maneras pueden modificarse durante el ejercicio (arts. 177 a 182).</p><div class=\"box ej\"><span class=\"lbl\">La idea que ordena todo el bloque</span>Hay dos familias de modificaciones: las que <b>aumentan el total</b> del presupuesto (crédito extraordinario, suplemento, ampliación, generación e incorporación) y las que <b>no lo alteran</b> (transferencia). De ahí salen todas las diferencias de procedimiento: cuanto más sube el techo, más solemne es el trámite.</div><div class=\"box warn\"><span class=\"lbl\">Advertencia de vigencia</span>Texto consolidado del RDLeg 2/2004 actualizado a <b>28 de enero de 2026</b>. Dos remisiones han quedado desfasadas en el texto: el art. 174.2.b) cita el RDLeg 2/2000 (hoy Ley 9/2017 de Contratos del Sector Público) y el art. 179.2 habla de \"grupos de función\" (terminología anterior a la Orden EHA/3565/2008). Verifica siempre en el BOE consolidado.</div><svg viewBox=\"0 0 660 250\" role=\"img\" aria-label=\"Mapa conceptual de los créditos y sus modificaciones\"><rect x=\"230\" y=\"8\" width=\"200\" height=\"36\" rx=\"9\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/><text x=\"330\" y=\"31\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">LOS CRÉDITOS</text><line x1=\"330\" y1=\"44\" x2=\"330\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"140\" y1=\"60\" x2=\"520\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"140\" y1=\"60\" x2=\"140\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"520\" y1=\"60\" x2=\"520\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><rect x=\"25\" y=\"78\" width=\"230\" height=\"150\" rx=\"9\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/><text x=\"140\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--acc)\">SU DISCIPLINA</text><text x=\"140\" y=\"126\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">172 · especialidad y límite</text><text x=\"140\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">173 · exigibilidad y nulidad</text><text x=\"140\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">174 · plurianuales</text><text x=\"140\" y=\"186\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">175 · anulación</text><text x=\"140\" y=\"206\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">176 · temporalidad</text><rect x=\"405\" y=\"78\" width=\"230\" height=\"150\" rx=\"9\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/><text x=\"520\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--ej)\">SUS MODIFICACIONES</text><text x=\"520\" y=\"126\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">177 · extraordinario y suplemento</text><text x=\"520\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">178 · ampliables</text><text x=\"520\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">179 y 180 · transferencias</text><text x=\"520\" y=\"186\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">181 · generaciones</text><text x=\"520\" y=\"206\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">182 · incorporaciones</text><text x=\"330\" y=\"150\" text-anchor=\"middle\" font-size=\"26\" fill=\"var(--ink2)\">→</text><text x=\"330\" y=\"180\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">la regla</text><text x=\"330\" y=\"196\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">y su válvula</text></svg></section>";
+const RESUMEN_HTML="<section class=\"card\" id=\"resumen\"><h2>Resumen ejecutivo</h2><table><tbody><tr><th style=\"width:70px\">172</th><td>Créditos: especialidad <b>cualitativa</b> (finalidad) y <b>cuantitativa</b> (limitativos y vinculantes). Niveles de vinculación.</td></tr><tr><th>173</th><td>Solo exigible lo presupuestado o lo de <b>sentencia firme</b>. Inembargabilidad salvo bienes patrimoniales no afectados. Sentencia sin crédito: <b>3 meses</b>. Gasto sin crédito: <b>nulo de pleno derecho</b>.</td></tr><tr><th>174</th><td>Plurianuales: ejecución iniciada en el ejercicio, cinco casos, máximo <b>4</b> ejercicios y <b>70-60-50-50 %</b> (letras a y e). El Pleno puede ampliar.</td></tr><tr><th>175</th><td>Lo no afectado a obligaciones reconocidas a 31-DIC se <b>anula de pleno derecho</b>, salvo art. 182.</td></tr><tr><th>176</th><td>Anualidad del gasto, con dos excepciones: <b>atrasos de personal</b> y <b>compromisos anteriores</b> con crédito incorporado.</td></tr><tr><th>177</th><td><b>Extraordinario</b> (no existe) / <b>suplemento</b> (insuficiente). Presidente incoa, Intervención informa, <b>Pleno</b> aprueba con trámites del art. 169. Financiación: remanente, mayores ingresos, bajas no comprometidas. Excepción 177.5: <b>5 % / 25 % / antes de la renovación</b>. Calamidades: ejecutivo, <b>8 días</b>, silencio negativo.</td></tr><tr><th>178</th><td><b>Ampliables</b>: listados taxativamente en las bases, suben con la efectividad del recurso afectado.</td></tr><tr><th>179</th><td><b>Transferencias</b>: las regulan las bases; entre grupos de función decide el <b>Pleno</b>, salvo créditos de <b>personal</b>. Si aprueba el Pleno, trámites de los arts. 169 a 171.</td></tr><tr><th>180</th><td>Límites: no tocar ampliables ni extraordinarios · no minorar lo suplementado/transferido/incorporado · no incrementar lo minorado. Salvedades: personal, imprevistos y reorganizaciones del Pleno.</td></tr><tr><th>181</th><td><b>Generación</b>: cinco ingresos <b>no tributarios</b> — aportaciones, enajenaciones, prestación de servicios, reembolso de préstamos, reintegros de pagos indebidos.</td></tr><tr><th>182</th><td><b>Incorporación</b>: último trimestre · compromisos · capital · derechos afectados. Con recursos suficientes, solo un ejercicio, y <b>obligatoria</b> en financiación afectada.</td></tr></tbody></table><h2 style=\"margin-top:1.2rem\">Calendario de repaso espaciado</h2><table><thead><tr><th>Momento</th><th>Fecha</th><th>Qué hacer</th></tr></thead><tbody id=\"calbody\"></tbody></table></section>";
+</script><script>
+
+const main=document.getElementById('main');
+function panel(id,title,body,cls){return '<details class="panel '+(cls||'v-expl')+'"'+(id?' data-p="'+id+'"':'')+'><summary>'+title+'</summary><div class="body">'+body+'</div></details>';}
+let html='';
+
+html+=INTRO_HTML;
+/* ---------- ARTÍCULOS ---------- */
+ARTS.forEach(function(a){
+ html+='<section class="card art" id="art'+a.n+'">'
+ +'<h2><span class="num">Art. '+a.n+'</span> '+a.t+'</h2>'
+ +'<p class="ubic">'+a.ubic+'</p>'
+ +'<div class="idea v-expl">💡 '+a.idea+'</div>'
+ +'<div class="legal v-legal"><span class="lbl">Texto legal · literal</span>'+a.literal+'</div>'
+ +panel('','🔍 Disección estructural',a.dis)
+ +panel('','🗣️ Traducción a lenguaje llano',a.llano)
+ +panel('','❓ ¿Por qué existe este artículo?',a.porque)
+ +panel('','✅ Ejemplos','<div class="box ej"><span class="lbl">Ejemplos</span>'+a.ej+'</div>')
+ +panel('','🚫 No-ejemplos: dónde está la frontera','<div class="box exc"><span class="lbl">No-ejemplos</span>'+a.noej+'</div>')
+ +panel('','🔗 Conexiones con otros preceptos',a.conex)
+ +panel('','⚠️ Trampas y errores frecuentes','<div class="box warn"><span class="lbl">Cuidado</span>'+a.trampas+'</div>')
+ +panel('','🧠 Anclaje memorístico',a.ancla)
+ +'<div class="v-expl">'+a.vis+'</div>'
+ +'</section>';
+});
+
+/* ---------- PLAZOS ---------- */
+html+='<section class="card" id="plazos"><h2>Tabla de plazos y cifras</h2>'
++'<p class="small">Pulsa en las cabeceras para ordenar. Si solo te llevas una cosa de esta sesión, que sea esta tabla.</p>'
++'<table id="tplazos"><thead><tr><th class="sortable">Plazo / cifra</th><th class="sortable">Trámite</th><th class="sortable">Quién</th><th class="sortable">Art.</th><th>Matiz</th></tr></thead><tbody>';
+PLAZOS.forEach(function(p){html+='<tr><td><b>'+p[0]+'</b></td><td>'+p[1]+'</td><td>'+p[2]+'</td><td>'+p[3]+'</td><td class="small">'+p[4]+'</td></tr>';});
+html+='</tbody></table></section>';
+
+/* ---------- CASOS ---------- */
+html+='<section class="card" id="casos"><h2>Casos prácticos</h2><p class="small">Intenta resolverlos <b>antes</b> de abrir la solución: el esfuerzo de recuperar es lo que fija el aprendizaje.</p>';
+CASOS.forEach(function(c,i){
+ html+='<details class="panel"><summary>'+c.t+'</summary><div class="body"><p>'+c.e+'</p>'
+ +'<button class="revelar" data-i="'+i+'">Ver solución</button><div class="sol hide" id="sol'+i+'">'+c.s+'</div></div></details>';
+});
+html+='</section>';
+
+/* ---------- FLASHCARDS ---------- */
+html+='<section class="card noprint" id="flash"><h2>Flashcards</h2>'
++'<div id="fcbox" style="border:1px solid var(--line);border-radius:12px;padding:1.1rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer" tabindex="0" role="button" aria-label="Tarjeta: pulsa para girar"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.7rem">'
++'<button id="fcflip">Girar</button><button id="fcok">✔ Lo sabía</button><button id="fcko">↻ Repasar</button><button id="fcreset">Reiniciar</button>'
++'<span class="small" id="fccount"></span></div></section>';
+
+/* ---------- TEST ---------- */
+html+='<section class="card noprint" id="test"><h2>Test de autoevaluación</h2>'
++'<p class="small">Preguntas intercaladas de los diez artículos. Corrección inmediata y explicación de por qué falla cada opción incorrecta.</p>'
++'<div id="testbox"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem"><button id="tcorr">Corregir todo</button><button id="tfail">Repetir solo los fallos</button><button id="treset">Reiniciar test</button></div>'
++'<p id="tscore" class="small" style="margin-top:.6rem"></p></section>';
+
+/* ---------- SEMÁFORO ---------- */
+html+='<section class="card" id="semaforo"><h2>Semáforo de autoevaluación</h2>'
++'<p class="small">Marca honestamente cada concepto. Abajo se genera tu lista de repaso.</p><div id="sembox"></div>'
++'<div id="semres" style="margin-top:.8rem"></div></section>';
+
+html+=RESUMEN_HTML;
+/* ---------- GLOSARIO ---------- */
+html+='<section class="card" id="glosario"><h2>Glosario completo</h2><table><tbody id="glosbody"></tbody></table></section>';
+
+main.innerHTML=html;
+
+</script><script>
+
+/* ---------- ÍNDICE LATERAL ---------- */
+(function(){
+ var n='<h2>Artículos</h2>';
+ ARTS.forEach(function(a){n+='<a href="#art'+a.n+'"><b>'+a.n+'</b>'+a.t+'</a>';});
+ n+='<h2>Herramientas</h2>'
+  +'<a href="#plazos">Tabla de plazos</a><a href="#casos">Casos prácticos</a><a href="#flash">Flashcards</a>'
+  +'<a href="#test">Test</a><a href="#semaforo">Semáforo</a><a href="#resumen">Resumen y repaso</a><a href="#glosario">Glosario</a>';
+ document.getElementById('navbody').innerHTML=n;
+})();
+document.getElementById('navtoggle').onclick=function(){
+ var s=document.getElementById('side');s.classList.toggle('collapsed');
+ this.setAttribute('aria-expanded',s.classList.contains('collapsed')?'false':'true');
+};
+
+/* ---------- GLOSARIO Y TOOLTIPS ---------- */
+var LABEL={limitativo:"Carácter limitativo",plurianual:"Gasto plurianual",remanente:"Remanente líquido de tesorería",ce:"Crédito extraordinario",sc:"Suplemento de crédito",transfer:"Transferencia de crédito",generacion:"Generación de crédito",incorporacion:"Incorporación de remanentes",ampliable:"Crédito ampliable",quorum:"Quórum del art. 47.3 LBRL",nulidad:"Nulidad de pleno derecho",embargo:"Providencia de embargo",presupuesto:"Presupuesto",credito:"Crédito presupuestario",obligacion:"Obligación reconocida",derecho:"Derecho liquidado",oa:"Organismo autónomo",sociedad:"Sociedad mercantil local",bases:"Bases de ejecución",estabilidad:"Estabilidad presupuestaria",afectacion:"Principio de no afectación",bruto:"Principio de presupuesto bruto",nivelacion:"Nivelación presupuestaria",aplicacion:"Aplicación presupuestaria",vinculacion:"Nivel de vinculación jurídica",intervencion:"Intervención",pleno:"Pleno",bop:"Boletín Oficial de la Provincia",prorroga:"Prórroga presupuestaria",interesado:"Interesado",liquidacion:"Liquidación del presupuesto",tcuentas:"Tribunal de Cuentas",conten:"Recurso contencioso-administrativo"};
+(function(){var g='';Object.keys(GLOSARIO).forEach(function(k){g+='<tr><th style="width:210px">'+(LABEL[k]||k)+'</th><td>'+GLOSARIO[k]+'</td></tr>';});
+ document.getElementById('glosbody').innerHTML=g;})();
+var tip=document.getElementById('tip');
+function showTip(el){var k=el.getAttribute('data-k');if(!GLOSARIO[k])return;
+ tip.innerHTML='<b>'+(LABEL[k]||k)+'</b><br>'+GLOSARIO[k];tip.style.display='block';
+ var r=el.getBoundingClientRect();var top=r.bottom+8;var left=Math.min(r.left,window.innerWidth-340);
+ if(top+tip.offsetHeight>window.innerHeight)top=Math.max(8,r.top-tip.offsetHeight-8);
+ tip.style.top=top+'px';tip.style.left=Math.max(8,left)+'px';}
+function hideTip(){tip.style.display='none';}
+document.addEventListener('mouseover',function(e){var t=e.target.closest('.t');if(t)showTip(t);});
+document.addEventListener('mouseout',function(e){if(e.target.closest('.t'))hideTip();});
+document.addEventListener('click',function(e){var t=e.target.closest('.t');if(t){e.preventDefault();showTip(t);}else hideTip();});
+
+/* ---------- VISTA LEGAL / EXPLICACIÓN ---------- */
+document.querySelectorAll('[data-view]').forEach(function(b){
+ b.onclick=function(){
+  document.querySelectorAll('[data-view]').forEach(function(x){x.setAttribute('aria-pressed','false');});
+  b.setAttribute('aria-pressed','true');
+  var v=b.getAttribute('data-view');
+  document.querySelectorAll('.v-legal').forEach(function(e){e.classList.toggle('hide',v==='expl');});
+  document.querySelectorAll('.v-expl').forEach(function(e){e.classList.toggle('hide',v==='legal');});
+ };});
+
+/* ---------- DESPLEGAR / TEMA / FUENTE ---------- */
+var openAll=false;
+document.getElementById('expand').onclick=function(){
+ openAll=!openAll;document.querySelectorAll('details.panel').forEach(function(d){d.open=openAll;});
+ this.textContent=openAll?'Plegar todo':'Desplegar todo';};
+document.getElementById('theme').onclick=function(){
+ var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
+var fs=16;
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);document.documentElement.style.setProperty('--fs',fs+'px');};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);document.documentElement.style.setProperty('--fs',fs+'px');};
+
+/* ---------- PROGRESO Y NAV ACTIVA ---------- */
+window.addEventListener('scroll',function(){
+ var h=document.body.scrollHeight-window.innerHeight;
+ document.getElementById('prog').style.width=(h>0?(window.scrollY/h*100):0)+'%';
+ var cur=null;document.querySelectorAll('section.card').forEach(function(s){
+  if(s.getBoundingClientRect().top<120)cur=s.id;});
+ document.querySelectorAll('nav.side a').forEach(function(a){
+  a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ---------- BUSCADOR ---------- */
+var q=document.getElementById('q'),timer=null;
+function clearMarks(){document.querySelectorAll('mark.hit').forEach(function(m){
+ var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});}
+q.addEventListener('input',function(){
+ clearTimeout(timer);timer=setTimeout(function(){
+  clearMarks();
+  var term=q.value.trim();
+  document.querySelectorAll('section.card').forEach(function(s){s.classList.remove('hide');});
+  if(term.length<3)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  document.querySelectorAll('section.card').forEach(function(s){
+   var found=false;
+   var w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT,null);var nodes=[];
+   while(w.nextNode()){var nd=w.currentNode;
+    if(nd.parentNode.closest('script,style,mark'))continue;
+    if(rx.test(nd.nodeValue)){nodes.push(nd);rx.lastIndex=0;}}
+   nodes.forEach(function(nd){
+    found=true;
+    var span=document.createElement('span');
+    span.innerHTML=nd.nodeValue.replace(rx,function(m){return '<mark class="hit">'+m+'</mark>';});
+    nd.parentNode.replaceChild(span,nd);});
+   if(found){s.querySelectorAll('details.panel').forEach(function(d){if(d.querySelector('mark.hit'))d.open=true;});}
+   s.classList.toggle('hide',!found);
+  });
+ },220);});
+
+/* ---------- CASOS ---------- */
+document.querySelectorAll('.revelar').forEach(function(b){
+ b.onclick=function(){var s=document.getElementById('sol'+b.getAttribute('data-i'));
+  s.classList.toggle('hide');b.textContent=s.classList.contains('hide')?'Ver solución':'Ocultar solución';};});
+
+/* ---------- TABLA ORDENABLE ---------- */
+(function(){var t=document.getElementById('tplazos');var dir={};
+ t.querySelectorAll('th.sortable').forEach(function(th,i){
+  th.onclick=function(){
+   var tb=t.tBodies[0];var rows=[].slice.call(tb.rows);
+   dir[i]=!dir[i];
+   rows.sort(function(a,b){var x=a.cells[i].innerText.trim(),y=b.cells[i].innerText.trim();
+    return dir[i]?x.localeCompare(y,'es',{numeric:true}):y.localeCompare(x,'es',{numeric:true});});
+   rows.forEach(function(r){tb.appendChild(r);});};});})();
+
+/* ---------- FLASHCARDS ---------- */
+var order=FLASH.map(function(_,i){return i;}),fi=0,flipped=false,ok=0,ko=0;
+function drawFC(){
+ var box=document.getElementById('fcbox');
+ if(!order.length){box.innerHTML='<b>¡Ronda terminada!</b><br><span class="small">Pulsa Reiniciar para volver a empezar.</span>';
+  document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko;return;}
+ if(fi>=order.length)fi=0;
+ var c=FLASH[order[fi]];
+ box.innerHTML=flipped?'<div class="small" style="color:var(--acc);margin-bottom:.4rem">RESPUESTA</div><div>'+c[1]+'</div>'
+  :'<div class="small" style="color:var(--ink2);margin-bottom:.4rem">PREGUNTA '+(fi+1)+' / '+order.length+'</div><div style="font-weight:600;font-size:1.05rem">'+c[0]+'</div><div class="small" style="margin-top:.6rem;color:var(--ink2)">Piensa la respuesta y pulsa para girar</div>';
+ document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko+' · Quedan: '+order.length;
+}
+function flip(){flipped=!flipped;drawFC();}
+document.getElementById('fcbox').onclick=flip;
+document.getElementById('fcbox').onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
+document.getElementById('fcflip').onclick=flip;
+document.getElementById('fcok').onclick=function(){if(!order.length)return;ok++;order.splice(fi,1);flipped=false;drawFC();};
+document.getElementById('fcko').onclick=function(){if(!order.length)return;ko++;var m=order.splice(fi,1)[0];order.push(m);flipped=false;drawFC();};
+document.getElementById('fcreset').onclick=function(){order=FLASH.map(function(_,i){return i;});fi=0;ok=0;ko=0;flipped=false;drawFC();};
+drawFC();
+
+/* ---------- TEST ---------- */
+var state=TEST.map(function(){return{ans:null,done:false,right:false};});
+var visible=TEST.map(function(_,i){return i;});
+function drawTest(){
+ var h='';
+ visible.forEach(function(qi){
+  var t=TEST[qi],s=state[qi];
+  h+='<div style="border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;margin:.55rem 0" data-q="'+qi+'">';
+  h+='<div style="font-weight:600"><span class="chip">Art. '+t.a+'</span> '+t.q+'</div>';
+  if(t.o){
+   t.o.forEach(function(op,oi){
+    var mark='';
+    if(s.done){if(op[1])mark=' style="background:var(--ej-bg);border-color:var(--ej)"';
+     else if(s.ans===oi)mark=' style="background:var(--exc-bg);border-color:var(--exc)"';}
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'"'+mark+' style="'+(mark?mark.slice(8,-1):'')+';border:1px solid '+(s.ans===oi&&!s.done?'var(--acc)':'var(--line)')+';border-radius:8px;padding:.35rem .6rem;margin:.3rem 0;cursor:pointer">'+String.fromCharCode(97+oi)+') '+op[0]
+     +(s.done?'<div class="small" style="margin-top:.2rem">'+op[2]+'</div>':'')+'</div>';});
+  }else if(t.vf){
+   [['Verdadero',true],['Falso',false]].forEach(function(p,oi){
+    var sel=s.ans===oi;
+    var col=s.done?((p[1]===t.ok)?'var(--ej)':(sel?'var(--exc)':'var(--line)')):(sel?'var(--acc)':'var(--line)');
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'" style="display:inline-block;border:1px solid '+col+';border-radius:8px;padding:.3rem .9rem;margin:.3rem .4rem .3rem 0;cursor:pointer">'+p[0]+'</div>';});
+   if(s.done)h+='<div class="small" style="margin-top:.3rem">'+t.fb+'</div>';
+  }else{
+   h+='<input type="text" class="gap" data-q="'+qi+'" value="'+(s.ans||'')+'" placeholder="escribe tu respuesta" style="margin-top:.4rem;padding:.35rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);width:260px">';
+   if(s.done)h+='<div class="small" style="margin-top:.3rem;color:'+(s.right?'var(--ej)':'var(--exc)')+'">'+(s.right?'Correcto. ':'Respuesta correcta: <b>'+t.gap+'</b>. ')+t.fb+'</div>';
+  }
+  h+='</div>';});
+ document.getElementById('testbox').innerHTML=h;
+ document.querySelectorAll('.opt').forEach(function(o){
+  o.onclick=function(){var qi=+o.getAttribute('data-q');if(state[qi].done)return;
+   state[qi].ans=+o.getAttribute('data-o');drawTest();};});
+ document.querySelectorAll('.gap').forEach(function(g){
+  g.oninput=function(){state[+g.getAttribute('data-q')].ans=g.value;};});
+}
+function norm(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+document.getElementById('tcorr').onclick=function(){
+ var n=0,tot=visible.length;
+ visible.forEach(function(qi){var t=TEST[qi],s=state[qi];s.done=true;
+  if(t.o)s.right=(t.o[s.ans]&&t.o[s.ans][1]===1);
+  else if(t.vf)s.right=((s.ans===0)===t.ok);
+  else s.right=norm(s.ans)===norm(t.gap);
+  if(s.right)n++;});
+ drawTest();
+ var pct=tot?Math.round(n/tot*100):0;
+ document.getElementById('tscore').innerHTML='<b>Resultado: '+n+' / '+tot+' ('+pct+' %).</b> '
+  +(pct>=90?'Dominas el bloque. Pasa a los artículos 172 y siguientes.':pct>=70?'Buen nivel: repasa los fallos y vuelve mañana.':'Aún no está fijado: relee los artículos de los fallos y repite el test.');
+};
+document.getElementById('tfail').onclick=function(){
+ var f=visible.filter(function(qi){return state[qi].done&&!state[qi].right;});
+ if(!f.length){document.getElementById('tscore').innerHTML='<b>No hay fallos que repetir.</b>';return;}
+ visible=f;f.forEach(function(qi){state[qi]={ans:null,done:false,right:false};});
+ drawTest();document.getElementById('tscore').textContent='Repitiendo '+f.length+' preguntas falladas.';
+};
+document.getElementById('treset').onclick=function(){
+ state=TEST.map(function(){return{ans:null,done:false,right:false};});
+ visible=TEST.map(function(_,i){return i;});drawTest();document.getElementById('tscore').textContent='';};
+drawTest();
+
+/* ---------- SEMÁFORO ---------- */
+var sem=SEMAFORO.map(function(){return 0;});
+function drawSem(){
+ var h='<table><tbody>';
+ SEMAFORO.forEach(function(c,i){
+  h+='<tr><td>'+c+'</td><td style="width:150px;white-space:nowrap">'
+   +['🟢','🟡','🔴'].map(function(e,j){
+     var on=sem[i]===j+1;
+     return '<button class="sembtn" data-i="'+i+'" data-v="'+(j+1)+'" style="font-size:1rem;padding:.15rem .35rem;margin-right:.2rem;border-color:'+(on?'var(--acc)':'var(--line)')+';background:'+(on?'var(--acc-soft)':'var(--panel)')+'">'+e+'</button>';}).join('')
+   +'</td></tr>';});
+ h+='</tbody></table>';
+ document.getElementById('sembox').innerHTML=h;
+ document.querySelectorAll('.sembtn').forEach(function(b){
+  b.onclick=function(){sem[+b.getAttribute('data-i')]=+b.getAttribute('data-v');drawSem();};});
+ var rojos=[],ambar=[];
+ sem.forEach(function(v,i){if(v===3)rojos.push(SEMAFORO[i]);if(v===2)ambar.push(SEMAFORO[i]);});
+ var r='';
+ if(rojos.length)r+='<div class="box exc"><span class="lbl">Repasa hoy mismo</span><ul><li>'+rojos.join('</li><li>')+'</li></ul></div>';
+ if(ambar.length)r+='<div class="box warn"><span class="lbl">Refuerza en 24 h</span><ul><li>'+ambar.join('</li><li>')+'</li></ul></div>';
+ if(!rojos.length&&!ambar.length&&sem.some(function(v){return v===1;}))r='<div class="box ej"><span class="lbl">Bien</span>Todo lo marcado está en verde. Consolida con el test y vuelve en 3 días.</div>';
+ document.getElementById('semres').innerHTML=r;
+}
+drawSem();
+
+/* ---------- CALENDARIO DE REPASO ---------- */
+(function(){
+ var hoy=new Date();
+ function f(d){var x=new Date(hoy.getTime());x.setDate(x.getDate()+d);
+  return x.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});}
+ var filas=[['Hoy',f(0),"Lectura activa + test completo + semáforo. Fija sobre todo el cuadro de las siete modificaciones."],['+24 horas',f(1),"Solo flashcards y tabla de plazos: 70-60-50-50, 3 meses, 5 %, 25 %, 8 días."],['+3 días',f(3),"Caso práctico 1 (¿qué modificación toca?) y repetición de los fallos del test."],['+7 días',f(7),"Explicar en voz alta la diferencia entre extraordinario, suplemento, transferencia, generación e incorporación. Casos 2 y 3."],['+21 días',f(21),"Test intercalado con el bloque 1 (arts. 162-171) y con el bloque 3 (ejecución y liquidación)."]];
+ document.getElementById('calbody').innerHTML=filas.map(function(r){
+  return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('');
+})();
+
+</script>
+<script>
+/* ═══ Mejoras de interacción · Bloque II ═══ */
+(function(){
+"use strict";
+var K_THEME="oposi_bII_theme", K_FS="oposi_bII_fs", K_STREAK="oposi_bII_streak";
+function load(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return f;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var root=document.documentElement;
+
+/* Tema persistente (sobrescribe el toggle simple anterior) */
+var saved=load(K_THEME,null);
+if(saved){root.setAttribute("data-theme",saved);}
+else if(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches){root.setAttribute("data-theme","dark");}
+var bt=document.getElementById("theme");
+if(bt)bt.onclick=function(){
+  var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-theme",n);save(K_THEME,n);
+};
+
+/* Tamaño de texto persistente */
+var fs=load(K_FS,16);
+function setFs(v){fs=Math.max(13,Math.min(22,v));root.style.setProperty("--fs",fs+"px");save(K_FS,fs);}
+setFs(fs);
+var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
+if(bp)bp.onclick=function(){setFs(fs+1);};
+if(bm)bm.onclick=function(){setFs(fs-1);};
+
+/* Racha compartida con el índice */
+(function(){
+  var el=document.getElementById("streakN");if(!el)return;
+  var hoy=new Date().toISOString().slice(0,10);
+  var s=load(K_STREAK,{last:null,n:0});
+  if(s.last!==hoy){
+    var ayer=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    s.n=(s.last===ayer)?s.n+1:1;s.last=hoy;save(K_STREAK,s);
+  }
+  el.textContent=s.n;
+})();
+
+/* Reveal on scroll para las tarjetas */
+function reveal(){
+  var els=document.querySelectorAll("section.card:not(.rv)");
+  if(!els.length)return;
+  if(!("IntersectionObserver" in window)){return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:"0px 0px -30px 0px"});
+  Array.prototype.forEach.call(els,function(el){el.classList.add("rv");io.observe(el);});
+}
+
+/* Sección activa en el índice lateral */
+function spy(){
+  var links=document.querySelectorAll("nav.side a[href^='#']");
+  if(!links.length||!("IntersectionObserver" in window))return;
+  var map={};
+  Array.prototype.forEach.call(links,function(a){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(t)map[t.id]=a;
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        Array.prototype.forEach.call(links,function(a){a.classList.remove("on");});
+        if(map[en.target.id])map[en.target.id].classList.add("on");
+      }
+    });
+  },{rootMargin:"-80px 0px -70% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* Ripple en botones */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.classList.contains("navtoggle"))return;
+  var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement("span");
+  s.className="ripple";s.style.width=s.style.height=d+"px";
+  s.style.left=(e.clientX-r.left-d/2)+"px";s.style.top=(e.clientY-r.top-d/2)+"px";
+  b.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},560);
+});
+
+/* Atajos de teclado */
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea"))return;
+  if(e.key==="/"){var q=document.getElementById("q");if(q){e.preventDefault();q.focus();}}
+  if(e.key==="t"&&bt)bt.click();
+});
+
+/* El contenido se inyecta por JS: esperamos a que exista */
+function init(){reveal();spy();}
+if(document.getElementById("main")&&document.getElementById("main").children.length){init();}
+else{setTimeout(init,60);}
+addEventListener("load",function(){setTimeout(init,80);});
+})();
+
+</script>
+<script>
+
+/* ═══ Parser de respuestas: estructura semántica ═══ */
+var FCFMT=(function(){
+  var CITA=/\s*\(((?:arts?\.|DA\b|DT\b|disp\.)[^)]*)\)\s*\.?\s*$/i;
+  var strip=function(h){return h.replace(/<[^>]+>/g,"");};
+
+  function esc(s){return s;}
+
+  function parse(raw){
+    var out={verdict:null,cite:null,kind:"p",items:[],text:""};
+    var body=String(raw).trim();
+
+    /* 1 ── Cita legal al final */
+    var m=body.match(CITA);
+    if(m){out.cite=m[1].replace(/\s+/g," ").trim();body=body.slice(0,m.index).trim();}
+    body=body.replace(/[.;,\s]+$/,"");
+
+    /* 2 ── Veredicto Sí / No inicial */
+    var v=strip(body).match(/^(Sí|Sí,|No|No,)[.:,]?\s/);
+    if(v){
+      out.verdict=/^Sí/.test(v[1])?"si":"no";
+      body=body.replace(/^(<[^>]+>\s*)*(Sí|No)[.,:]?\s*/,"").trim();
+      body=body.replace(/^en\s/,"En ");
+    }
+
+    /* 3 ── Enumeración con · */
+    var parts=body.split(/\s+·\s+/);
+    if(parts.length>=2){
+      out.kind="list";
+      var letras=parts.filter(function(p){return /^\s*<?[a-h]\)/.test(strip(p));}).length;
+      out.marker = letras>=parts.length-1 ? "alpha" : "num";
+      out.items=parts.map(function(p){
+        return p.replace(/^\s*[a-h]\)\s*/,"").replace(/[.\s]+$/,"").trim();
+      }).filter(Boolean);
+      return out;
+    }
+
+    /* 4 ── Cláusulas contrapuestas con ; */
+    var semi=body.split(/;\s+/);
+    if(semi.length>=2&&semi.length<=3&&semi.every(function(s){return strip(s).length>14;})){
+      out.kind="clauses";
+      out.items=semi.map(function(s){return s.replace(/[.\s]+$/,"").trim();});
+      return out;
+    }
+
+    /* 5 ── Párrafo */
+    out.text=body;
+    return out;
+  }
+
+  function render(raw){
+    var d=parse(raw),h="";
+
+    if(d.verdict){
+      h+='<span class="fc-verdict '+d.verdict+'">'+(d.verdict==="si"?"✓ Sí":"✗ No")+'</span>';
+    }
+
+    if(d.kind==="list"){
+      h+='<ol class="fc-list '+d.marker+'">';
+      d.items.forEach(function(it){h+='<li>'+it+'</li>';});
+      h+='</ol>';
+    }else if(d.kind==="clauses"){
+      h+='<div class="fc-clauses">';
+      d.items.forEach(function(it){h+='<p>'+it+'</p>';});
+      h+='</div>';
+    }else if(d.text){
+      h+='<p class="fc-p">'+d.text+'</p>';
+    }
+
+    if(d.cite){
+      h+='<span class="fc-cite"><span class="s">§</span>'+d.cite+'</span>';
+    }
+    return {html:h,struct:(d.kind!=="p"||!!d.verdict||strip(raw).length>150)};
+  }
+  return {parse:parse,render:render};
+})();
+
+/* ═══ FLASHCARDS 3D ═══ */
+(function(){
+"use strict";
+function boot(){
+  var sec=document.getElementById("flash");
+  if(!sec||sec.dataset.fc3d)return false;
+  if(typeof FLASH==="undefined"||!FLASH||!FLASH.length)return false;
+  sec.dataset.fc3d="1";
+
+  var CARDS=FLASH, N=CARDS.length;
+  var order,fi,ok,ko,back,busy;
+
+  /* — Estructura — */
+  var h2=sec.querySelector("h2");
+  sec.innerHTML="";
+  if(h2)sec.appendChild(h2);
+  var intro=document.createElement("p");
+  intro.className="small";
+  intro.innerHTML="Piensa la respuesta <b>antes</b> de girar: el esfuerzo de recuperarla es lo que la fija. "
+    +'<span class="fc-hint" style="position:static;display:inline;color:inherit">'
+    +'<span class="kbd">espacio</span> girar · <span class="kbd">→</span> lo sabía · <span class="kbd">←</span> repasar</span>';
+  sec.appendChild(intro);
+
+  var stage=document.createElement("div");
+  stage.className="fc-stage";
+  stage.innerHTML=
+    '<div class="fc-deck" id="fcdeck">'
+    +'<span class="fc-ghost g2"></span><span class="fc-ghost g1"></span>'
+    +'<div class="fc-lift" id="fclift">'
+      +'<div class="fc-card" id="fcbox" tabindex="0" role="button" aria-label="Tarjeta. Pulsa para girar">'
+        +'<div class="fc-face fc-front">'
+          +'<span class="fc-tag">Pregunta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">Pulsa para girar</span>'
+        +'</div>'
+        +'<div class="fc-face fc-back">'
+          +'<span class="fc-tag">Respuesta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">¿La sabías?</span>'
+        +'</div>'
+      +'</div>'
+    +'</div></div>';
+  sec.appendChild(stage);
+
+  var bar=document.createElement("div");
+  bar.className="fc-bar";bar.innerHTML="<i></i>";
+  sec.appendChild(bar);
+
+  var ctr=document.createElement("div");
+  ctr.className="fc-ctrls noprint";
+  ctr.innerHTML='<button id="fcflip">⟲ Girar</button>'
+    +'<button id="fcok">✔ Lo sabía</button>'
+    +'<button id="fcko">↻ Repasar</button>'
+    +'<button id="fcreset">Reiniciar</button>'
+    +'<span class="fc-score">'
+      +'<span class="fc-pill ok" id="fcpok">0 sabidas</span>'
+      +'<span class="fc-pill ko" id="fcpko">0 repasar</span>'
+      +'<span class="fc-pill left" id="fccount">0</span>'
+    +'</span>';
+  sec.appendChild(ctr);
+
+  var deck=stage.querySelector("#fcdeck"), lift=stage.querySelector("#fclift"),
+      card=stage.querySelector("#fcbox"),
+      front=stage.querySelector(".fc-front"), backf=stage.querySelector(".fc-back"),
+      fill=bar.querySelector("i"),
+      pok=ctr.querySelector("#fcpok"), pko=ctr.querySelector("#fcpko"),
+      pleft=ctr.querySelector("#fccount");
+  var rot=0;
+
+  function reset(){
+    order=CARDS.map(function(_,i){return i;});
+    fi=0;ok=0;ko=0;back=false;busy=false;rot=0;
+    card.style.transition="none";card.style.transform="rotateY(0deg)";
+    void card.offsetWidth;card.style.transition="";
+    deck.classList.remove("empty");
+    var d=stage.querySelector(".fc-done");if(d)d.remove();
+    card.style.display="";
+    draw();
+  }
+
+  function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+
+  function draw(){
+    pok.textContent=ok+(ok===1?" sabida":" sabidas");
+    pko.textContent=ko+" repasar";
+    var done=N-order.length;
+    fill.style.width=(N?done/N*100:0)+"%";
+
+    if(!order.length){
+      pleft.textContent="0 quedan";
+      deck.classList.add("empty");
+      card.style.display="none";
+      if(!stage.querySelector(".fc-done")){
+        var d=document.createElement("div");
+        d.className="fc-done";
+        d.innerHTML='<span class="seal">🏆</span><h3>Ronda completada</h3>'
+          +'<p>'+ok+' de '+N+' a la primera'+(ko?' · '+ko+' necesitaron repaso':'')+'</p>';
+        deck.appendChild(d);
+      }
+      return;
+    }
+    if(fi>=order.length)fi=0;
+    pleft.textContent=order.length+(order.length===1?" queda":" quedan");
+
+    var c=CARDS[order[fi]];
+    front.querySelector(".fc-txt").innerHTML='<p class="fc-p">'+c[0]+'</p>';
+    var r=FCFMT.render(c[1]);
+    backf.querySelector(".fc-txt").innerHTML=r.html;
+    backf.classList.toggle("struct",r.struct);
+    var hint=backf.querySelector(".fc-hint");
+    if(hint)hint.classList.toggle("muted",/fc-cite/.test(r.html));
+    var pip=(done+1)+"/"+N;
+    Array.prototype.forEach.call(stage.querySelectorAll(".fc-pip"),function(p){p.textContent=pip;});
+  }
+
+  function flip(){
+    if(busy||!order.length)return;
+    back=!back;rot+=180;
+    card.style.transform="rotateY("+rot+"deg)";
+    card.setAttribute("aria-label",back?"Respuesta. Pulsa para volver":"Pregunta. Pulsa para girar");
+    lift.classList.remove("lift");void lift.offsetWidth;lift.classList.add("lift");
+  }
+
+  function next(good){
+    if(busy||!order.length)return;
+    busy=true;
+    if(good){ok++;bump(pok);}else{ko++;bump(pko);}
+    lift.classList.remove("lift");
+    lift.classList.add(good?"out-ok":"out-ko");
+    setTimeout(function(){
+      if(good){order.splice(fi,1);}
+      else{var m=order.splice(fi,1)[0];order.push(m);}
+      back=false;rot=0;
+      card.style.transition="none";card.style.transform="rotateY(0deg)";
+      void card.offsetWidth;card.style.transition="";
+      draw();
+      lift.classList.remove("out-ok","out-ko");
+      lift.classList.add("in");
+      setTimeout(function(){lift.classList.remove("in");busy=false;},480);
+    },460);
+  }
+
+  card.onclick=flip;
+  card.onkeydown=function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();flip();}
+    if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  };
+  ctr.querySelector("#fcflip").onclick=flip;
+  ctr.querySelector("#fcok").onclick=function(){next(true);};
+  ctr.querySelector("#fcko").onclick=function(){next(false);};
+  ctr.querySelector("#fcreset").onclick=reset;
+
+  /* Deslizar en táctil */
+  var x0=null,y0=null;
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  card.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){next(dx>0);}
+    x0=y0=null;
+  },{passive:true});
+
+  /* Atajos globales cuando el mazo está a la vista */
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    var r=stage.getBoundingClientRect();
+    if(r.bottom<80||r.top>innerHeight-80)return;
+    if(e.key===" "){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    else if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  });
+
+  reset();
+  return true;
+}
+if(!boot()){
+  var tries=0;
+  var iv=setInterval(function(){if(boot()||++tries>40)clearInterval(iv);},120);
+  addEventListener("load",function(){setTimeout(boot,100);});
+}
+})();
+
+</script>
+</body>
+</html>

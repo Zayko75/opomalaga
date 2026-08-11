@@ -776,6 +776,151 @@ nav.side{
 #navhide[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand);color:var(--brand)}
 #navhide[aria-pressed="true"] .ic{transform:rotate(90deg)}
 @media(max-width:960px){#navhide{display:none}}
+
+/* ═══════════════════════════════════════════════════════════════
+   LECTURA EN VOZ ALTA (TTS) del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+.tts-bar{
+  display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;
+  margin:.15rem 0 .7rem;
+}
+.tts-bar button{
+  font-size:var(--t-xs);font-weight:700;padding:.3rem .62rem;
+  border-radius:var(--r-full);border:1px solid var(--legal);
+  background:transparent;color:var(--legal);
+  display:inline-flex;align-items:center;gap:.35rem;line-height:1.2;
+}
+.tts-bar button:hover{background:var(--legal);color:var(--surface);border-color:var(--legal)}
+.tts-bar button[hidden]{display:none}
+.tts-bar .tts-play.on{background:var(--legal);color:var(--surface)}
+
+/* Ondas de audio mientras lee */
+.tts-wave{display:inline-flex;align-items:flex-end;gap:2px;height:11px}
+.tts-wave i{
+  width:2.5px;background:currentColor;border-radius:2px;height:35%;
+  animation:ttsW .9s ease-in-out infinite;
+}
+.tts-wave i:nth-child(2){animation-delay:.15s}
+.tts-wave i:nth-child(3){animation-delay:.3s}
+.tts-wave i:nth-child(4){animation-delay:.45s}
+@keyframes ttsW{0%,100%{height:32%}50%{height:100%}}
+
+.tts-time{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:700;
+  color:var(--ink-3);font-variant-numeric:tabular-nums;
+}
+
+/* Frase que se está leyendo */
+.tts-s{transition:background .25s,color .25s;border-radius:3px}
+.tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 26%,transparent) 8%);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--legal) 16%,transparent);
+}
+html[data-theme="dark"] .tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 34%,transparent) 8%);
+}
+.legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
+
+/* ═══ Reproductor flotante ═══ */
+.tts-mini{
+  position:fixed;left:50%;bottom:1.1rem;transform:translateX(-50%) translateY(140%);
+  z-index:80;display:flex;align-items:center;gap:.6rem;
+  background:color-mix(in srgb,var(--surface) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  border:1px solid var(--line);border-radius:var(--r-full);
+  padding:.5rem .7rem .5rem .95rem;box-shadow:var(--sh-3);
+  transition:transform .45s var(--e-spring),opacity .3s;opacity:0;pointer-events:none;
+  max-width:min(94vw,540px);
+}
+.tts-mini.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.tts-mini .lbl{
+  font-size:var(--t-xs);font-weight:800;color:var(--legal);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:16ch;
+}
+.tts-mini button{
+  border-radius:50%;width:32px;height:32px;padding:0;display:grid;place-items:center;
+  font-size:.8rem;border:1px solid var(--line);flex:none;
+}
+.tts-mini button.main{
+  width:38px;height:38px;font-size:.95rem;
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-mini .bar{
+  flex:1;min-width:70px;height:5px;border-radius:99px;background:var(--surface-3);overflow:hidden;
+}
+.tts-mini .bar i{display:block;height:100%;width:0;background:var(--legal);
+  border-radius:99px;transition:width .35s var(--e-out)}
+
+/* ═══ Panel de ajustes de voz ═══ */
+.tts-back{
+  position:fixed;inset:0;z-index:90;background:rgba(10,10,18,.45);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  display:grid;place-items:center;padding:1rem;
+  opacity:0;pointer-events:none;transition:opacity .3s var(--e-out);
+}
+.tts-back.show{opacity:1;pointer-events:auto}
+.tts-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--sh-3);width:min(94vw,470px);max-height:88vh;overflow:auto;
+  padding:1.3rem 1.4rem;transform:translateY(16px) scale(.97);
+  transition:transform .38s var(--e-spring);
+}
+.tts-back.show .tts-panel{transform:none}
+.tts-panel h3{
+  font-size:1.12rem;font-weight:800;margin:0 0 .25rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.tts-panel .sub{font-size:var(--t-sm);color:var(--ink-2);margin:0 0 1.1rem}
+.tts-row{margin-bottom:1.05rem}
+.tts-row > label{
+  display:block;font-size:var(--t-xs);font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:.4rem;
+}
+.tts-seg{display:flex;gap:3px;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:3px}
+.tts-seg button{
+  flex:1;border:0;background:transparent;border-radius:calc(var(--r-sm) - 3px);
+  padding:.42rem .3rem;font-size:var(--t-sm);font-weight:700;box-shadow:none;
+}
+.tts-seg button:hover{transform:none;background:var(--surface)}
+.tts-seg button[aria-pressed="true"]{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;
+}
+.tts-panel select{
+  width:100%;padding:.5rem .6rem;border-radius:var(--r-sm);
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  font-size:var(--t-sm);font-weight:600;cursor:pointer;
+}
+.tts-panel select:focus{border-color:var(--brand);outline:none}
+.tts-slider{display:flex;align-items:center;gap:.75rem}
+.tts-slider input[type=range]{flex:1;accent-color:var(--legal);cursor:pointer;height:22px}
+.tts-val{
+  font-family:var(--f-mono);font-weight:800;font-size:var(--t-sm);
+  min-width:3.4em;text-align:right;color:var(--legal);font-variant-numeric:tabular-nums;
+}
+.tts-note{
+  font-size:var(--t-xs);color:var(--ink-2);line-height:1.5;
+  background:var(--surface-2);border-radius:var(--r-sm);padding:.6rem .75rem;margin:0 0 1rem;
+}
+.tts-note b{color:var(--ink)}
+.tts-acts{display:flex;gap:.5rem;justify-content:flex-end;flex-wrap:wrap}
+.tts-acts .prim{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-badge{
+  font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  padding:.1rem .35rem;border-radius:4px;background:var(--ej-bg);color:var(--ej);margin-left:.35rem;
+}
+
+@media(max-width:620px){
+  .tts-mini{left:.6rem;right:.6rem;transform:translateY(140%);max-width:none}
+  .tts-mini.show{transform:translateY(0)}
+  .tts-mini .lbl{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .tts-wave i{animation:none;height:60%}
+}
+@media print{.tts-bar,.tts-mini,.tts-back{display:none !important}}
 </style>
 </head>
 <body>
@@ -2182,6 +2327,392 @@ function go(){sidebar();autofit();}
 if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go);
 addEventListener("load",function(){setTimeout(go,120);});
 var n=0,iv=setInterval(function(){go();if(++n>25)clearInterval(iv);},150);
+})();
+
+</script>
+<script>
+
+/* ═══════════════════════════════════════════════════════════════
+   TTS · Lectura en voz alta del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+if(!("speechSynthesis" in window))return;
+
+var K="oposi_bII_tts";
+function load(){try{return JSON.parse(localStorage.getItem(K))||{};}catch(e){return {};}}
+function save(o){try{localStorage.setItem(K,JSON.stringify(o));}catch(e){}}
+var cfg=load();
+if(cfg.rate==null)cfg.rate=1;
+if(cfg.gen==null)cfg.gen="f";
+
+var synth=window.speechSynthesis, voces=[], actual=null, bloques=[];
+
+/* ─────────── 1 · Selección de voz ─────────── */
+function esEspanol(v){return /^es\b|^es[-_]/i.test(v.lang||"")||/spanish|español/i.test(v.name||"");}
+function calidad(v){
+  var n=(v.name||"")+" "+(v.voiceURI||""), p=0;
+  if(/natural|neural/i.test(n))p+=100;
+  if(/online/i.test(n))p+=40;
+  if(/premium|enhanced|eloquence/i.test(n))p+=35;
+  if(/google/i.test(n))p+=30;
+  if(v.localService===false)p+=15;
+  if(/microsoft/i.test(n))p+=8;
+  if(/^es-ES/i.test(v.lang))p+=12;   /* castellano de España primero */
+  return p;
+}
+var MASC=/(pablo|álvaro|alvaro|jorge|diego|juan|raul|raúl|carlos|miguel|lorenzo|gonzalo|dalton|liam|andr[eé]s|luciano|male|hombre|masculin)/i;
+var FEM =/(helena|elvira|laura|mónica|monica|paulina|sabina|esperanza|marisol|ximena|dalia|salome|camila|catalina|isidora|female|mujer|femenin)/i;
+function genero(v){
+  var n=v.name||"";
+  if(MASC.test(n))return "m";
+  if(FEM.test(n))return "f";
+  return "?";
+}
+function cargarVoces(){
+  var all=synth.getVoices()||[];
+  voces=all.filter(esEspanol).sort(function(a,b){return calidad(b)-calidad(a);});
+  if(!voces.length)voces=all.slice(0,12);
+  pintarSelector();
+}
+function elegir(){
+  if(cfg.voz){
+    for(var i=0;i<voces.length;i++)if(voces[i].voiceURI===cfg.voz)return voces[i];
+  }
+  var g=cfg.gen;
+  for(var j=0;j<voces.length;j++)if(genero(voces[j])===g)return voces[j];
+  return voces[0]||null;
+}
+
+/* ─────────── 2 · Naturalidad: expandir lo que el TTS lee mal ─────────── */
+var ORD={1:"primera",2:"segunda",3:"tercera",4:"cuarta",5:"quinta",
+         6:"sexta",7:"séptima",8:"octava",9:"novena",10:"décima"};
+function paraVoz(t){
+  return t
+    .replace(/\barts?\.\s*/gi,function(m){return /arts/i.test(m)?"artículos ":"artículo ";})
+    .replace(/\bapdos?\.\s*/gi,"apartado ")
+    .replace(/\bnúms?\.\s*/gi,"número ")
+    .replace(/\bpárr\.\s*/gi,"párrafo ")
+    .replace(/\bcap\.\s*/gi,"capítulo ")
+    .replace(/\bpágs?\.\s*/gi,"página ")
+    .replace(/\by\s+ss\./gi,"y siguientes")
+    .replace(/\bss\./gi,"siguientes")
+    .replace(/\bTRLHL\b/g,"Texto Refundido de la Ley de Haciendas Locales")
+    .replace(/\bLCSP\b/g,"Ley de Contratos del Sector Público")
+    .replace(/\bLBRL\b/g,"Ley de Bases del Régimen Local")
+    .replace(/\bLRJSP\b/g,"Ley de Régimen Jurídico del Sector Público")
+    .replace(/\bLPACAP\b/g,"Ley del Procedimiento Administrativo Común")
+    .replace(/\bRDLeg\b/gi,"Real Decreto Legislativo")
+    .replace(/\bRD\b/g,"Real Decreto")
+    .replace(/\bCCAA\b/g,"comunidades autónomas")
+    .replace(/\bCA\b/g,"comunidad autónoma")
+    .replace(/\bEELL\b/g,"entidades locales")
+    .replace(/\bBOE\b/g,"Boletín Oficial del Estado")
+    .replace(/\bIVA\b/g,"I.V.A.")
+    .replace(/\bSARA\b/g,"sara")
+    .replace(/\bDA\s+(\d+)/g,"disposición adicional $1")
+    .replace(/\bDT\s+(\d+)/g,"disposición transitoria $1")
+    .replace(/(\d+)\.ª/g,function(m,n){return ORD[+n]||(n+"ª");})
+    .replace(/(\d+)\.º/g,"$1º")
+    /* 3.005,06 → 3005,06 para que lo lea como cifra y no como frase */
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/€/g," euros")
+    .replace(/%/g," por ciento")
+    .replace(/\bnº\b/gi,"número")
+    .replace(/\s*·\s*/g,". ")
+    .replace(/\(\s*/g,", ").replace(/\s*\)/g,", ")
+    .replace(/\bvid\.\s*/gi,"véase ")
+    .replace(/\bcfr\.\s*/gi,"compárese ")
+    /* limpieza de puntuación tras las sustituciones */
+    .replace(/\s+([,.;:])/g,"$1")
+    .replace(/,\s*([.;:])/g,"$1")
+    .replace(/([,.;:])\s*\1+/g,"$1")
+    .replace(/,\s*,/g,",")
+    .replace(/\s{2,}/g," ")
+    .trim();
+}
+
+/* ─────────── 3 · Segmentar en frases y envolverlas ─────────── */
+var ABBR=/\b(arts?|apdos?|núms?|nums?|págs?|párr|cap|caps|ss|Sr|Sra|Sres|D|Dª|etc|vid|cfr|op|cit|ej|núm|art|fig|tít|secc)\.$/i;
+function limites(t){
+  var out=[],ini=0;
+  for(var i=0;i<t.length;i++){
+    var c=t[i];
+    if(c!=="."&&c!=="!"&&c!=="?")continue;
+    var sig=t[i+1]||" ";
+    if(!/[\s"»)]/.test(sig))continue;             /* 3.005 o art.1 → no cortar */
+    if(ABBR.test(t.slice(Math.max(0,i-9),i+1)))continue;
+    if(/^\s*[0-9º ª]/.test(t.slice(i+1,i+3)))continue;
+    if(i+1-ini<40)continue;                        /* frases demasiado cortas */
+    out.push(i+1);ini=i+1;
+  }
+  if(ini<t.length)out.push(t.length);
+  return out;
+}
+function segmentar(root){
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    if(!n.nodeValue||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+    if(n.parentElement&&n.parentElement.closest(".lbl,.tts-bar"))return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT;
+  }});
+  var nodos=[];while(w.nextNode())nodos.push(w.currentNode);
+  if(!nodos.length)return [];
+
+  var full="";nodos.forEach(function(n){full+=n.nodeValue;});
+  var cortes=limites(full), frases=[],ci=0,pos=0;
+  cortes.forEach(function(){frases.push({text:"",spans:[]});});
+
+  nodos.forEach(function(node){
+    var txt=node.nodeValue, off=0, frag=document.createDocumentFragment();
+    while(off<txt.length){
+      var fin=cortes[ci]!=null?cortes[ci]-pos:txt.length;
+      if(fin>txt.length)fin=txt.length;
+      if(fin<=off)fin=txt.length;
+      var trozo=txt.slice(off,fin);
+      var sp=document.createElement("span");
+      sp.className="tts-s";sp.setAttribute("data-s",ci);sp.textContent=trozo;
+      frag.appendChild(sp);
+      if(frases[ci]){frases[ci].text+=trozo;frases[ci].spans.push(sp);}
+      if(pos+fin>=(cortes[ci]||Infinity))ci++;
+      off=fin;
+    }
+    pos+=txt.length;
+    node.parentNode.replaceChild(frag,node);
+  });
+  return frases.filter(function(f){return f.text.trim().length>1;});
+}
+
+/* ─────────── 4 · Reproductor ─────────── */
+var mini,miniBar,miniLbl,miniPlay;
+function crearMini(){
+  mini=document.createElement("div");
+  mini.className="tts-mini noprint";
+  mini.innerHTML='<span class="lbl"></span>'
+    +'<button class="main" data-a="play" title="Pausar o reanudar">⏸</button>'
+    +'<span class="bar"><i></i></span>'
+    +'<button data-a="prev" title="Frase anterior">↺</button>'
+    +'<button data-a="stop" title="Detener">■</button>'
+    +'<button data-a="cfg" title="Ajustes de voz">⚙</button>';
+  document.body.appendChild(mini);
+  miniBar=mini.querySelector(".bar i");miniLbl=mini.querySelector(".lbl");
+  miniPlay=mini.querySelector('[data-a="play"]');
+  mini.addEventListener("click",function(e){
+    var b=e.target.closest("button");if(!b)return;
+    var a=b.getAttribute("data-a");
+    if(a==="play")pausarReanudar();
+    else if(a==="stop")parar();
+    else if(a==="prev"){if(actual){actual.i=Math.max(0,actual.i-2);siguiente();}}
+    else if(a==="cfg")abrirPanel();
+  });
+}
+
+function limpiarMarcas(){
+  document.querySelectorAll(".tts-s.now").forEach(function(s){s.classList.remove("now");});
+}
+function parar(){
+  synth.cancel();
+  if(actual){
+    actual.bloque.classList.remove("tts-on");
+    var b=actual.bloque.querySelector(".tts-play");
+    if(b){b.classList.remove("on");b.innerHTML=iconoPlay();}
+  }
+  limpiarMarcas();
+  actual=null;
+  if(mini)mini.classList.remove("show");
+}
+function iconoPlay(){return '<span aria-hidden="true">▶</span> Escuchar';}
+function iconoOn(){return '<span class="tts-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Leyendo';}
+
+function pausarReanudar(){
+  if(!actual)return;
+  if(synth.paused){synth.resume();miniPlay.textContent="⏸";}
+  else{synth.pause();miniPlay.textContent="▶";}
+}
+
+function leer(bloque){
+  if(actual&&actual.bloque===bloque){parar();return;}
+  parar();
+  var datos=bloque.__tts;
+  if(!datos||!datos.length)return;
+  var voz=elegir();
+  actual={bloque:bloque,frases:datos,i:0,voz:voz};
+  bloque.classList.add("tts-on");
+  var b=bloque.querySelector(".tts-play");
+  if(b){b.classList.add("on");b.innerHTML=iconoOn();}
+  if(!mini)crearMini();
+  var art=bloque.closest(".art");
+  var t=art?art.querySelector("h2 .num"):null;
+  miniLbl.textContent=t?t.textContent:"Texto legal";
+  miniPlay.textContent="⏸";
+  mini.classList.add("show");
+  siguiente();
+}
+
+function siguiente(){
+  if(!actual)return;
+  limpiarMarcas();
+  if(actual.i>=actual.frases.length){
+    var fin=actual.bloque;
+    parar();
+    fin.dispatchEvent(new CustomEvent("tts:fin",{bubbles:true}));
+    return;
+  }
+  var f=actual.frases[actual.i];
+  var texto=paraVoz(f.text);
+  if(!texto||texto.length<2){actual.i++;siguiente();return;}
+
+  f.spans.forEach(function(s){s.classList.add("now");});
+  if(f.spans[0]&&actual.i>0){
+    var r=f.spans[0].getBoundingClientRect();
+    if(r.top<70||r.bottom>innerHeight-90)
+      f.spans[0].scrollIntoView({block:"center",behavior:"smooth"});
+  }
+  miniBar.style.width=((actual.i+1)/actual.frases.length*100)+"%";
+
+  var u=new SpeechSynthesisUtterance(texto);
+  if(actual.voz){u.voice=actual.voz;u.lang=actual.voz.lang;}else{u.lang="es-ES";}
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;u.volume=1;
+  u.onend=function(){if(actual){actual.i++;setTimeout(siguiente,90);}};
+  u.onerror=function(e){
+    if(e&&e.error==="interrupted")return;
+    if(actual){actual.i++;setTimeout(siguiente,120);}
+  };
+  actual.u=u;
+  synth.speak(u);
+}
+
+/* Chrome detiene la síntesis larga: lo mantenemos vivo */
+setInterval(function(){
+  if(actual&&synth.speaking&&!synth.paused){synth.pause();synth.resume();}
+},9000);
+
+/* ─────────── 5 · Panel de ajustes ─────────── */
+var back,sel;
+function crearPanel(){
+  back=document.createElement("div");
+  back.className="tts-back noprint";
+  back.innerHTML=
+   '<div class="tts-panel" role="dialog" aria-modal="true" aria-label="Ajustes de voz">'
+   +'<h3>🔊 Lectura en voz alta</h3>'
+   +'<p class="sub">Ajusta cómo se lee el texto legal. Se recuerda para todos los bloques.</p>'
+   +'<div class="tts-row"><label>Tipo de voz</label>'
+     +'<div class="tts-seg" id="ttsGen">'
+       +'<button data-g="f">👩 Femenina</button>'
+       +'<button data-g="m">👨 Masculina</button>'
+     +'</div></div>'
+   +'<div class="tts-row"><label>Voz concreta</label><select id="ttsVoz"></select></div>'
+   +'<div class="tts-row"><label>Velocidad</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsRate" min="0.6" max="1.6" step="0.05">'
+     +'<span class="tts-val" id="ttsRateV"></span></div></div>'
+   +'<div class="tts-row"><label>Tono</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsPitch" min="0.7" max="1.3" step="0.05">'
+     +'<span class="tts-val" id="ttsPitchV"></span></div></div>'
+   +'<p class="tts-note" id="ttsNota"></p>'
+   +'<div class="tts-acts">'
+     +'<button id="ttsTest">▶ Probar</button>'
+     +'<button class="prim" id="ttsOk">Hecho</button>'
+   +'</div></div>';
+  document.body.appendChild(back);
+  sel=back.querySelector("#ttsVoz");
+
+  back.addEventListener("click",function(e){if(e.target===back)cerrarPanel();});
+  back.querySelector("#ttsOk").onclick=cerrarPanel;
+  back.querySelector("#ttsGen").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-g]");if(!b)return;
+    cfg.gen=b.getAttribute("data-g");cfg.voz=null;save(cfg);pintarSelector();probar();
+  });
+  sel.onchange=function(){cfg.voz=sel.value;save(cfg);probar();};
+  var r=back.querySelector("#ttsRate"),rv=back.querySelector("#ttsRateV");
+  r.value=cfg.rate;rv.textContent=(+cfg.rate).toFixed(2)+"×";
+  r.oninput=function(){cfg.rate=+r.value;rv.textContent=cfg.rate.toFixed(2)+"×";save(cfg);};
+  r.onchange=probar;
+  var p=back.querySelector("#ttsPitch"),pv=back.querySelector("#ttsPitchV");
+  p.value=cfg.pitch||1;pv.textContent=(+(cfg.pitch||1)).toFixed(2);
+  p.oninput=function(){cfg.pitch=+p.value;pv.textContent=cfg.pitch.toFixed(2);save(cfg);};
+  p.onchange=probar;
+  back.querySelector("#ttsTest").onclick=probar;
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"&&back.classList.contains("show"))cerrarPanel();
+  });
+}
+function probar(){
+  synth.cancel();
+  var v=elegir();
+  var u=new SpeechSynthesisUtterance("El presupuesto general de la entidad local se aprueba antes del 31 de diciembre.");
+  if(v){u.voice=v;u.lang=v.lang;}else u.lang="es-ES";
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;
+  synth.speak(u);
+}
+function pintarSelector(){
+  if(!sel)return;
+  var g=cfg.gen;
+  back.querySelectorAll("#ttsGen button").forEach(function(b){
+    b.setAttribute("aria-pressed",String(b.getAttribute("data-g")===g));
+  });
+  var pref=voces.filter(function(v){return genero(v)===g;});
+  var otras=voces.filter(function(v){return genero(v)!==g;});
+  function opt(v){
+    var nat=/natural|neural|online|premium|enhanced|google/i.test(v.name)?" ★":"";
+    return '<option value="'+v.voiceURI+'">'+v.name+nat+"</option>";
+  }
+  sel.innerHTML=(pref.length?'<optgroup label="'+(g==="f"?"Femeninas":"Masculinas")+'">'+pref.map(opt).join("")+"</optgroup>":"")
+    +(otras.length?'<optgroup label="Otras voces en español">'+otras.map(opt).join("")+"</optgroup>":"");
+  var v=elegir();
+  if(v)sel.value=v.voiceURI;
+
+  var nota=back.querySelector("#ttsNota");
+  var hayNat=voces.some(function(x){return /natural|neural|online/i.test(x.name);});
+  if(!voces.length){
+    nota.innerHTML="⚠️ No se han detectado voces en español en este navegador. Prueba con Microsoft Edge o Chrome.";
+  }else if(hayNat){
+    nota.innerHTML="✅ Tienes voces <b>neuronales</b> disponibles (marcadas con ★): son las que suenan más humanas.";
+  }else{
+    nota.innerHTML="💡 Las voces marcadas con ★ suenan mejor. Para conseguir voces <b>neuronales</b> (mucho más naturales), "
+      +"abre estas páginas en <b>Microsoft Edge</b>, o instálalas en Windows: <b>Configuración → Hora e idioma → Voz → Agregar voces</b>.";
+  }
+}
+function abrirPanel(){if(!back)crearPanel();pintarSelector();back.classList.add("show");}
+function cerrarPanel(){if(back)back.classList.remove("show");synth.cancel();}
+
+/* ─────────── 6 · Inyectar el botón en cada bloque legal ─────────── */
+function montar(){
+  var legales=document.querySelectorAll(".legal:not([data-tts])");
+  if(!legales.length)return false;
+  if(!back)crearPanel();
+  legales.forEach(function(bl){
+    bl.setAttribute("data-tts","1");
+    var frases=segmentar(bl);
+    bl.__tts=frases;
+    if(!frases.length)return;
+
+    var bar=document.createElement("div");
+    bar.className="tts-bar noprint";
+    bar.innerHTML='<button class="tts-play" type="button">'+iconoPlay()+"</button>"
+      +'<button class="tts-cfg" type="button" title="Ajustes de voz">⚙ Voz</button>'
+      +'<span class="tts-time">'+frases.length+" frases</span>";
+    var lbl=bl.querySelector(".lbl");
+    if(lbl&&lbl.nextSibling)bl.insertBefore(bar,lbl.nextSibling);
+    else bl.insertBefore(bar,bl.firstChild);
+
+    bar.querySelector(".tts-play").onclick=function(e){e.stopPropagation();leer(bl);};
+    bar.querySelector(".tts-cfg").onclick=function(e){e.stopPropagation();abrirPanel();};
+  });
+  return true;
+}
+
+/* ─────────── 7 · Arranque ─────────── */
+cargarVoces();
+if(typeof synth.onvoiceschanged!=="undefined")synth.onvoiceschanged=cargarVoces;
+setTimeout(cargarVoces,400);setTimeout(cargarVoces,1400);
+
+var n=0,iv=setInterval(function(){if(montar()||++n>40)clearInterval(iv);},150);
+addEventListener("load",function(){setTimeout(montar,200);});
+addEventListener("beforeunload",function(){synth.cancel();});
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea,select"))return;
+  if(e.key==="Escape"&&actual)parar();
+});
 })();
 
 </script>

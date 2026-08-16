@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>Bloque II · Temas 8, 9 y 10 · Centro de estudio</title>
+<title>Bloque II · Temas 8 a 13 · Centro de estudio</title>
 <style>
 /* ═══════════════════════════════════════════════════════════
    SISTEMA DE DISEÑO · "Académico Gamificado"
@@ -40,6 +40,10 @@
   --c6:#9333ea; --c6-soft:#f6e9ff;   /* LCSP II   */
   --c7:#0d9488; --c7-soft:#dbf5f1;   /* Tesorería */
   --c8:#65a30d; --c8-soft:#eaf5d9;   /* Estructura*/
+  --c9:#ea580c; --c9-soft:#ffece0;   /* LGS I     */
+  --c10:#ca8a04; --c10-soft:#fdf4d7;  /* LGS II    */
+  --c11:#0369a1; --c11-soft:#e0f0fb;  /* LTBG      */
+  --c12:#be185d; --c12-soft:#ffe6f0;  /* Andalucía */
 
   /* — Estados — */
   --ok:#16a34a; --ok-soft:#e7f7ec;
@@ -98,6 +102,10 @@ html[data-theme="dark"]{
   --c6:#c084fc; --c6-soft:#26123a;
   --c7:#2dd4bf; --c7-soft:#0a2a27;
   --c8:#a3e635; --c8-soft:#1c2610;
+  --c9:#fb923c; --c9-soft:#2e1a0c;
+  --c10:#fde047; --c10-soft:#2b2410;
+  --c11:#38bdf8; --c11-soft:#0a2233;
+  --c12:#f472b6; --c12-soft:#2e1020;
 
   --ok:#4ade80; --ok-soft:#0e2a19;
   --mid:#facc15; --mid-soft:#2c2610;
@@ -313,6 +321,21 @@ html[data-theme="dark"] .streak{background:linear-gradient(135deg,#2e2413,#3a2c1
 @keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.35)}100%{transform:scale(1)}}
 .pop{animation:pop .45s var(--e-spring)}
 
+/* ═══ GRUPO DE TEMA EN LA RUTA ═══ */
+.grp{display:flex;align-items:center;gap:.7rem;margin:1.5rem 0 .55rem}
+.grp:first-child{margin-top:0}
+.grp .tag{
+  display:inline-flex;align-items:center;gap:.45rem;flex:none;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--acc);background:var(--acc-soft);
+  padding:.3rem .7rem;border-radius:var(--r-full);
+}
+.grp .nm{font-size:var(--t-sm);font-weight:700;color:var(--ink-2);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+.grp .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--acc),transparent);opacity:.35;min-width:20px}
+.grp .cnt{font-size:var(--t-xs);font-weight:700;color:var(--ink-3);flex:none;font-variant-numeric:tabular-nums}
+@media(max-width:560px){.grp .nm{display:none}}
+
 /* ═══ CHIPS ═══ */
 .chips{display:flex;flex-wrap:wrap;gap:.5rem}
 .chip{
@@ -392,8 +415,8 @@ svg line{fill:none}
     <div class="brand">
       <div class="mark">BII</div>
       <div class="txt">
-        <b>Bloque II · Temas 8 · 9 · 10</b>
-        <span>TRLHL · Ley 9/2017 LCSP · Auxiliar Administrativo</span>
+        <b>Bloque II · Temas 8 a 13</b>
+        <span>TRLHL · LCSP · LGS · Transparencia · Auxiliar Administrativo</span>
       </div>
     </div>
     <div class="tools noprint">
@@ -412,8 +435,8 @@ svg line{fill:none}
   <section class="hero">
     <div>
       <span class="eyebrow"><span class="dot"></span>Centro de estudio</span>
-      <h1>Presupuesto local y <em>contratación pública</em></h1>
-      <p class="lead">Seis bloques interactivos con el texto legal literal, diagramas, tablas de plazos, casos prácticos, flashcards y test corregido. Verificado contra los textos consolidados del BOE.</p>
+      <h1>Presupuesto, contratos, <em>subvenciones y transparencia</em></h1>
+      <p class="lead">Catorce bloques interactivos con el texto legal literal, diagramas, tablas de plazos, casos prácticos, flashcards, test corregido y lectura en voz alta. Verificado contra los textos consolidados del BOE.</p>
       <div class="hero-cta noprint">
         <a class="btn primary" href="#misiones">Ir a la ruta de estudio →</a>
         <button class="btn" id="reset">Reiniciar progreso</button>
@@ -437,8 +460,8 @@ svg line{fill:none}
   <section class="stats reveal">
     <div class="stat" style="--acc:var(--ok)"><span class="v num" id="sDom">0</span><span class="k">Bloques dominados</span></div>
     <div class="stat" style="--acc:var(--mid)"><span class="v num" id="sCur">0</span><span class="k">En curso</span></div>
-    <div class="stat" style="--acc:var(--c5)"><span class="v num">8</span><span class="k">Bloques totales</span></div>
-    <div class="stat" style="--acc:var(--c6)"><span class="v num">99</span><span class="k">Artículos cubiertos</span></div>
+    <div class="stat" style="--acc:var(--c5)"><span class="v num">14</span><span class="k">Bloques totales</span></div>
+    <div class="stat" style="--acc:var(--c6)"><span class="v num">174</span><span class="k">Artículos cubiertos</span></div>
   </section>
 
   <section class="sec reveal">
@@ -451,7 +474,7 @@ svg line{fill:none}
       <article class="tema" data-tema="8" style="--acc:var(--c1);--acc-soft:var(--c1-soft)">
         <span class="badge">Tema 8 · TRLHL</span>
         <h3>El presupuesto de las entidades locales</h3>
-        <p class="desc">Elaboración, aprobación y ejecución presupuestaria, tesorería, contabilidad y control. Seis bloques, del art. 162 al 223 más la estructura presupuestaria.</p>
+        <p class="desc">Elaboración, aprobación y ejecución presupuestaria, tesorería, contabilidad y control. Del art. 162 al 223 más la estructura presupuestaria.</p>
         <div class="meta"><span><b>6</b> bloques</span><span><b>72</b> artículos</span><span>RDLeg 2/2004 · Orden EHA/3565/2008</span></div>
         <div class="bar"><i data-tema-bar="8"></i></div>
         <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="8">0%</span></div>
@@ -462,7 +485,7 @@ svg line{fill:none}
       <article class="tema" data-tema="9" style="--acc:var(--c5);--acc-soft:var(--c5-soft)">
         <span class="badge">Tema 9 · LCSP</span>
         <h3>Objeto y ámbito de aplicación</h3>
-        <p class="desc">Objeto y principios, los tres círculos del art. 3 y los negocios y contratos excluidos.</p>
+        <p class="desc">Principios, los tres círculos del art. 3 y los negocios excluidos.</p>
         <div class="meta"><span><b>1</b> bloque</span><span><b>11</b> artículos</span></div>
         <div class="bar"><i data-tema-bar="9"></i></div>
         <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="9">0%</span></div>
@@ -472,11 +495,41 @@ svg line{fill:none}
       <article class="tema" data-tema="10" style="--acc:var(--c6);--acc-soft:var(--c6-soft)">
         <span class="badge">Tema 10 · LCSP</span>
         <h3>Los contratos del sector público</h3>
-        <p class="desc">Los cinco tipos contractuales, el riesgo operacional, los SARA y sus umbrales.</p>
+        <p class="desc">Cinco tipos, riesgo operacional, SARA y umbrales.</p>
         <div class="meta"><span><b>1</b> bloque</span><span><b>16</b> artículos</span></div>
         <div class="bar"><i data-tema-bar="10"></i></div>
         <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="10">0%</span></div>
         <a class="go" href="LCSP_12-27_contratos.html">Abrir arts. 12 a 27 <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="tema" data-tema="11" style="--acc:var(--c9);--acc-soft:var(--c9-soft)">
+        <span class="badge">Tema 11 · LGS</span>
+        <h3>Subvenciones · ámbito y disposiciones comunes</h3>
+        <p class="desc">Concepto y sus tres requisitos, plan estratégico, beneficiarios, prohibiciones, bases reguladoras y BDNS.</p>
+        <div class="meta"><span><b>1</b> bloque</span><span><b>21</b> artículos</span><span>Ley 38/2003</span></div>
+        <div class="bar"><i data-tema-bar="11"></i></div>
+        <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="11">0%</span></div>
+        <a class="go" href="LGS_01-21_ambito.html">Abrir arts. 1 a 21 <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="tema" data-tema="12" style="--acc:var(--c10);--acc-soft:var(--c10-soft)">
+        <span class="badge">Tema 12 · LGS</span>
+        <h3>Procedimiento de concesión y gestión</h3>
+        <p class="desc">Concurrencia competitiva y concesión directa, resolución y silencio, justificación, gastos subvencionables y pagos.</p>
+        <div class="meta"><span><b>1</b> bloque</span><span><b>14</b> artículos</span><span>Ley 38/2003</span></div>
+        <div class="bar"><i data-tema-bar="12"></i></div>
+        <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="12">0%</span></div>
+        <a class="go" href="LGS_22-35_procedimiento.html">Abrir arts. 22 a 35 <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="tema" data-tema="13" style="--acc:var(--c11);--acc-soft:var(--c11-soft)">
+        <span class="badge">Tema 13 · Transparencia</span>
+        <h3>Acceso a la información y buen gobierno</h3>
+        <p class="desc">Ley 19/2013 estatal en tres bloques y las especialidades de la Ley 1/2014 de Andalucía.</p>
+        <div class="meta"><span><b>4</b> bloques</span><span><b>40</b> artículos</span><span>Ley 19/2013 · Ley 1/2014</span></div>
+        <div class="bar"><i data-tema-bar="13"></i></div>
+        <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="13">0%</span></div>
+        <a class="go" href="LTBG_01-11_publicidad_activa.html">Empezar por la publicidad activa <span aria-hidden="true">→</span></a>
       </article>
     </div>
   </section>
@@ -509,6 +562,22 @@ svg line{fill:none}
         <p class="grp-lbl" style="color:var(--c6)">Tema 10 · Contratos</p>
         <div class="chips" style="--acc:var(--c6)" data-chips="5.404.000 €|140.000 €|216.000 €|750.000 €|1.000.000 €|80.000 € lotes|20 %|50.000 € obra mixtos|más del 50 % subvencionados"></div>
       </div>
+      <div>
+        <p class="grp-lbl" style="color:var(--c9)">Tema 11 · Subvenciones I</p>
+        <div class="chips" style="--acc:var(--c9)" data-chips="12 M€|30.000 €|10 días hábiles|10 años en la BDNS|4 años de convenio|el coste como límite"></div>
+      </div>
+      <div>
+        <p class="grp-lbl" style="color:var(--c10)">Tema 12 · Subvenciones II</p>
+        <div class="chips" style="--acc:var(--c10)" data-chips="10 días subsanación|6 meses para resolver|3 meses para justificar|20 % y 60.000 €|5 y 2 años de destino|120.000 € y 10 %"></div>
+      </div>
+      <div>
+        <p class="grp-lbl" style="color:var(--c11)">Tema 13 · Transparencia</p>
+        <div class="chips" style="--acc:var(--c11)" data-chips="1 mes para resolver|10 días subsanación|10 días audiencia|3 meses acceso material|1 mes para reclamar|3 meses la reclamación|100.000 € y 5.000 €|50.000 € sin ánimo de lucro|5-3-1 años prescripción|5-10 años inhabilitación|5 años de mandato"></div>
+      </div>
+      <div>
+        <p class="grp-lbl" style="color:var(--c12)">Tema 13 · Andalucía</p>
+        <div class="chips" style="--acc:var(--c12)" data-chips="20 días hábiles|trimestral en contratos menores|multas de 200 a 400.000 €"></div>
+      </div>
     </div>
   </section>
 
@@ -534,6 +603,17 @@ svg line{fill:none}
         <h4>140.000 € no es tu umbral</h4>
         <p>Los <b>140.000 €</b> son del Estado; las entidades locales aplican <b>216.000 €</b>. Y el software a medida es <b>servicios</b>, no suministro.</p>
       </div>
+      <div class="trap" style="--acc:var(--c9)">
+        <span class="lbl">Temas 11 y 12</span>
+        <h4>Subvención no es contrato</h4>
+        <p>La clave es la <b>ausencia de contraprestación directa</b>. Y no confundas los supuestos que <b>no son subvención</b> (art. 2.4) con las <b>exclusiones</b> del ámbito de la ley (art. 4).</p>
+      </div>
+      <div class="trap" style="--acc:var(--c11)">
+        <span class="lbl">Tema 13</span>
+        <h4>Dos Consejos distintos</h4>
+        <p>El <b>estatal</b> es de Transparencia y <b>Buen Gobierno</b>; el <b>andaluz</b>, de Transparencia y <b>Protección de Datos</b>. Y se resuelve en <b>un mes</b> frente a <b>20 días hábiles</b> en Andalucía.</p>
+      </div>
+
     </div>
   </section>
 
@@ -552,6 +632,14 @@ svg line{fill:none}
 (function(){
 "use strict";
 
+var TEMAS={
+ 8:{nm:"El presupuesto de las entidades locales",acc:"c1"},
+ 9:{nm:"LCSP · Objeto y ámbito",acc:"c5"},
+ 10:{nm:"LCSP · Los contratos",acc:"c6"},
+ 11:{nm:"Subvenciones · ámbito",acc:"c9"},
+ 12:{nm:"Subvenciones · procedimiento",acc:"c10"},
+ 13:{nm:"Transparencia y buen gobierno",acc:"c11"}
+};
 var BLOQUES=[
  {id:"b1",t:8,n:"1",acc:"c1",h:"TRLHL_162-171_presupuesto.html",tt:"Contenido y aprobación del presupuesto",d:"Qué es, qué integra, anexos, estructura, tramitación y recursos",a:"arts. 162-171"},
  {id:"b2",t:8,n:"2",acc:"c2",h:"TRLHL_172-182_creditos.html",tt:"Los créditos y sus modificaciones",d:"Carácter limitativo, nulidad sin crédito, plurianuales y las siete modificaciones",a:"arts. 172-182"},
@@ -559,8 +647,14 @@ var BLOQUES=[
  {id:"b7",t:8,n:"4",acc:"c7",h:"TRLHL_194-207_tesoreria_contabilidad.html",tt:"Tesorería y contabilidad",d:"Unidad de caja, medios de pago, operaciones de tesorería y contabilidad pública local",a:"arts. 194-207"},
  {id:"b4",t:8,n:"5",acc:"c4",h:"TRLHL_208-223_control.html",tt:"Cuenta general, control y fiscalización",d:"Función interventora, reparos, control financiero y Tribunal de Cuentas",a:"arts. 208-223"},
  {id:"b8",t:8,n:"6",acc:"c8",h:"ORDEN_EHA_3565_2008_estructura.html",tt:"La estructura presupuestaria",d:"Clasificación por programas, económica y orgánica: áreas, políticas y capítulos",a:"Orden EHA/3565/2008"},
- {id:"b5",t:9,n:"9",acc:"c5",h:"LCSP_01-11_ambito.html",tt:"LCSP · Objeto y ámbito de aplicación",d:"Principios, ámbito objetivo y subjetivo, negocios y contratos excluidos",a:"arts. 1-11"},
- {id:"b6",t:10,n:"10",acc:"c6",h:"LCSP_12-27_contratos.html",tt:"LCSP · Los contratos del sector público",d:"Cinco tipos, riesgo operacional, SARA, administrativos frente a privados",a:"arts. 12-27"}
+ {id:"b5",t:9,n:"9",acc:"c5",h:"LCSP_01-11_ambito.html",tt:"Objeto y ámbito de aplicación",d:"Principios, ámbito objetivo y subjetivo, negocios y contratos excluidos",a:"arts. 1-11"},
+ {id:"b6",t:10,n:"10",acc:"c6",h:"LCSP_12-27_contratos.html",tt:"Los contratos del sector público",d:"Cinco tipos, riesgo operacional, SARA, administrativos frente a privados",a:"arts. 12-27"},
+ {id:"b9",t:11,n:"11",acc:"c9",h:"LGS_01-21_ambito.html",tt:"Ámbito de aplicación y disposiciones comunes",d:"Concepto y requisitos, plan estratégico, beneficiarios, prohibiciones, bases reguladoras y BDNS",a:"arts. 1-21"},
+ {id:"b10",t:12,n:"12",acc:"c10",h:"LGS_22-35_procedimiento.html",tt:"Procedimiento de concesión y gestión",d:"Concurrencia y concesión directa, silencio, justificación, gastos subvencionables y pagos",a:"arts. 22-35"},
+ {id:"b11",t:13,n:"1",acc:"c11",h:"LTBG_01-11_publicidad_activa.html",tt:"Objeto, ámbito y publicidad activa",d:"Sujetos obligados y qué información debe publicarse de oficio",a:"arts. 1-11"},
+ {id:"b12",t:13,n:"2",acc:"c11",h:"LTBG_12-24_derecho_acceso.html",tt:"El derecho de acceso a la información pública",d:"Titulares, límites, procedimiento, silencio y reclamación",a:"arts. 12-24"},
+ {id:"b13",t:13,n:"3",acc:"c11",h:"LTBG_25-40_buen_gobierno.html",tt:"Buen gobierno y Consejo de Transparencia",d:"Principios, infracciones, sanciones y el Consejo estatal",a:"arts. 25-40"},
+ {id:"b14",t:13,n:"4",acc:"c12",h:"LTPA_1_2014_andalucia.html",tt:"Especialidades de la Ley 1/2014 de Andalucía",d:"Qué cambia frente a la ley estatal: plazos, órgano y régimen sancionador",a:"Ley 1/2014"}
 ];
 var K_PROG="oposi_bII_prog", K_THEME="oposi_bII_theme", K_STREAK="oposi_bII_streak";
 
@@ -592,7 +686,22 @@ document.getElementById("theme").onclick=function(){
 
 /* Misiones */
 var cont=document.getElementById("missions");
+var temaActual=null;
 BLOQUES.forEach(function(b){
+  if(b.t!==temaActual){
+    temaActual=b.t;
+    var info=TEMAS[b.t]||{nm:"",acc:"brand"};
+    var cuantos=BLOQUES.filter(function(x){return x.t===b.t;}).length;
+    var g=document.createElement("div");
+    g.className="grp";
+    g.style.setProperty("--acc","var(--"+info.acc+")");
+    g.style.setProperty("--acc-soft","var(--"+info.acc+"-soft)");
+    g.innerHTML='<span class="tag">Tema '+b.t+'</span>'
+      +'<span class="nm">'+info.nm+'</span>'
+      +'<span class="rule"></span>'
+      +'<span class="cnt">'+cuantos+(cuantos===1?" bloque":" bloques")+'</span>';
+    cont.appendChild(g);
+  }
   var st=prog[b.id]||0;
   var el=document.createElement("div");
   el.className="mi";el.dataset.st=st;el.dataset.id=b.id;
@@ -626,7 +735,7 @@ cont.addEventListener("click",function(e){
 /* Cálculo */
 function pintar(anim){
   var tot=BLOQUES.length,suma=0,dom=0,cur=0;
-  var porTema={8:{s:0,n:0},9:{s:0,n:0},10:{s:0,n:0}};
+  var porTema={};Object.keys(TEMAS).forEach(function(k){porTema[k]={s:0,n:0};});
   BLOQUES.forEach(function(b){
     var v=prog[b.id]||0;suma+=v;
     if(v===2)dom++;if(v===1)cur++;
@@ -640,7 +749,7 @@ function pintar(anim){
   contar(document.getElementById("sDom"),dom,anim);
   contar(document.getElementById("sCur"),cur,anim);
 
-  [8,9,10].forEach(function(t){
+  Object.keys(TEMAS).forEach(function(t){
     var p=porTema[t].n?Math.round(porTema[t].s/porTema[t].n*100):0;
     var bar=document.querySelector('[data-tema-bar="'+t+'"]');
     var lab=document.querySelector('[data-tema-pct="'+t+'"]');

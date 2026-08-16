@@ -1,0 +1,2485 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Ley 19/2013 · Arts. 1-11 · Ámbito y publicidad activa</title>
+<style>
+
+/* ═══════════════════════════════════════════════════════════════
+   SISTEMA DE DISEÑO · "Académico Gamificado" · Bloque II
+   Temas 8, 9 y 10 · Auxiliar Administrativo
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --fs:16px;
+
+  --bg:#faf9f7;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #dcf5ee 0%, transparent 50%);
+  --surface:#ffffff;
+  --surface-2:#f4f3f0;
+  --surface-3:#eceae5;
+  --line:#e6e3dc;
+  --line-strong:#d4d0c7;
+
+  --ink:#15161c;
+  --ink-2:#5d616e;
+  --ink-3:#8b8f9c;
+
+  --brand:#5b3df5;
+  --brand-2:#7c5cff;
+  --brand-soft:#efeaff;
+  --brand-ring:rgba(91,61,245,.18);
+
+  --legal:#4338ca;  --legal-bg:#eeecff;
+  --ej:#059669;     --ej-bg:#e4f7f0;
+  --warn:#c2690a;   --warn-bg:#fdf1de;
+  --exc:#dc2626;    --exc-bg:#ffeceb;
+
+  --ok:#16a34a; --ok-soft:#e7f7ec;
+  --mid:#eab308; --mid-soft:#fdf6dd;
+  --off:#a1a1aa; --off-soft:#f1f1f3;
+
+  --sh-1:0 1px 2px rgba(20,20,30,.04), 0 2px 8px rgba(20,20,30,.04);
+  --sh-2:0 2px 6px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.07);
+  --sh-3:0 8px 20px rgba(91,61,245,.13), 0 24px 56px rgba(20,20,30,.10);
+  --sh-glow:0 0 0 4px var(--brand-ring);
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-full:999px;
+
+  --f-display:"Segoe UI Variable Display",system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-legal:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+
+  --t-h1:clamp(1.02rem,.95rem + .3vw,1.2rem);
+  --t-h2:clamp(1.2rem,1.05rem + .6vw,1.55rem);
+  --t-h3:clamp(1rem,.95rem + .25vw,1.12rem);
+  --t-sm:.86rem;
+  --t-xs:.75rem;
+
+  --e-out:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+
+  /* ── Compatibilidad con SVG y contenido generado ── */
+  --panel:var(--surface);
+  --ink2:var(--ink-2);
+  --acc:var(--brand);
+  --acc-soft:var(--brand-soft);
+  --g:var(--ok); --y:var(--mid); --r:var(--exc);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0b0f;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #1c1740 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #08302b 0%, transparent 50%);
+  --surface:#13151b;
+  --surface-2:#1a1d25;
+  --surface-3:#232733;
+  --line:#262a34;
+  --line-strong:#343947;
+
+  --ink:#eceef4;
+  --ink-2:#9ba2b3;
+  --ink-3:#6e7585;
+
+  --brand:#8b6dff;
+  --brand-2:#a78bff;
+  --brand-soft:#1e1a3d;
+  --brand-ring:rgba(139,109,255,.22);
+
+  --legal:#a5b4fc; --legal-bg:#191b3a;
+  --ej:#34d399;    --ej-bg:#0c2a24;
+  --warn:#fbbf24;  --warn-bg:#2e2110;
+  --exc:#fb7185;   --exc-bg:#331119;
+
+  --ok:#4ade80; --ok-soft:#0e2a19;
+  --mid:#facc15; --mid-soft:#2c2610;
+  --off:#5b6070; --off-soft:#1c1f27;
+
+  --sh-1:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sh-2:0 2px 6px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.4);
+  --sh-3:0 8px 20px rgba(139,109,255,.2), 0 24px 56px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);background-image:var(--bg-grad);
+  background-attachment:fixed;background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s var(--e-out),color .3s;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.022em;line-height:1.2}
+.num{font-variant-numeric:tabular-nums}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+
+/* ═══ HEADER ═══ */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{max-width:1280px;margin:0 auto;padding:.65rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;flex:1}
+.mark{
+  width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  font-weight:800;font-size:.8rem;letter-spacing:-.02em;text-decoration:none;
+  box-shadow:0 4px 14px var(--brand-ring);
+  transition:transform .3s var(--e-spring),box-shadow .3s;
+}
+.mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0}
+.top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
+  margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+
+button,select,input[type=search]{
+  font:inherit;font-size:var(--t-sm);font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:var(--r-sm);padding:.4rem .72rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .18s var(--e-spring),border-color .2s,background .2s,box-shadow .2s,color .2s;
+}
+button:hover{transform:translateY(-1.5px);border-color:var(--brand);box-shadow:var(--sh-1)}
+button:active{transform:translateY(0) scale(.97)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:none;box-shadow:var(--sh-glow)}
+input[type=search]{min-width:190px;cursor:text;font-weight:500}
+input[type=search]:focus{border-color:var(--brand)}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);padding:2px;gap:2px}
+.seg button{border:0;border-radius:calc(var(--r-sm) - 2px);padding:.32rem .68rem;background:transparent;box-shadow:none}
+.seg button:hover{transform:none;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 2px 8px var(--brand-ring)}
+
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:currentColor;opacity:.25;animation:rip .55s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(3.4);opacity:0}}
+
+.progress{position:absolute;left:0;bottom:-1px;height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--brand),var(--legal),var(--ej));transition:width .1s linear}
+
+/* ═══ LAYOUT ═══ */
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:1.8rem;padding:1.4rem 1.1rem 5rem}
+main{min-width:0}
+
+/* ═══ SIDEBAR ═══ */
+nav.side{
+  position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:.85rem;box-shadow:var(--sh-1);
+}
+nav.side h2{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:.5rem .4rem .5rem;font-weight:800}
+nav.side h2:first-child{margin-top:.1rem}
+nav.side a{
+  display:flex;align-items:baseline;gap:.5rem;padding:.36rem .55rem;border-radius:var(--r-sm);
+  text-decoration:none;color:var(--ink-2);font-size:var(--t-sm);font-weight:500;
+  position:relative;transition:background .22s,color .22s,transform .22s var(--e-out);
+}
+nav.side a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(3px);text-decoration:none}
+nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side a.on::before{content:"";position:absolute;left:-.85rem;top:20%;bottom:20%;width:3px;
+  border-radius:0 3px 3px 0;background:var(--brand)}
+nav.side a b{color:var(--ink-3);font-weight:800;font-size:var(--t-xs);font-variant-numeric:tabular-nums;flex:none;min-width:1.9em}
+nav.side a.on b{color:var(--brand)}
+.navtoggle{display:none}
+
+/* ═══ TARJETAS ═══ */
+section.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.5rem;margin-bottom:1.1rem;box-shadow:var(--sh-1);
+  transition:box-shadow .3s var(--e-out),border-color .3s;
+}
+section.card:hover{box-shadow:var(--sh-2)}
+section.card>h2{
+  margin:0 0 1rem;font-size:var(--t-h2);font-weight:800;
+  display:flex;align-items:center;gap:.6rem;
+}
+section.card>h2::before{
+  content:"";width:4px;height:1.05em;border-radius:99px;flex:none;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+
+/* ═══ ARTÍCULO ═══ */
+.art{scroll-margin-top:86px;padding-top:.4rem}
+.art + .art{margin-top:1.6rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+.art h2{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;font-size:var(--t-h3);
+  margin:0 0 .25rem;font-weight:800;letter-spacing:-.015em}
+.art h2 .num{
+  color:var(--brand);font-weight:800;font-family:var(--f-display);
+  background:var(--brand-soft);padding:.1rem .5rem;border-radius:var(--r-sm);
+  font-size:.92em;letter-spacing:-.02em;
+}
+.ubic{font-size:var(--t-xs);color:var(--ink-3);margin:0 0 .8rem;font-weight:600;
+  letter-spacing:.03em;text-transform:uppercase}
+
+/* ═══ IDEA CLAVE ═══ */
+.idea{
+  background:linear-gradient(100deg,var(--brand-soft),color-mix(in srgb,var(--brand-soft) 40%,transparent));
+  border-left:4px solid var(--brand);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.75rem 1rem;font-weight:650;margin:.7rem 0 1rem;position:relative;
+  font-size:.97rem;line-height:1.55;
+}
+
+/* ═══ ACORDEÓN ═══ */
+details.panel{
+  border:1px solid var(--line);border-radius:var(--r-md);margin:.6rem 0;
+  background:var(--surface);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+details.panel:hover{border-color:var(--line-strong)}
+details.panel[open]{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring)}
+details.panel>summary{
+  cursor:pointer;padding:.62rem .9rem;font-weight:700;font-size:.93rem;
+  list-style:none;display:flex;align-items:center;gap:.55rem;
+  transition:background .2s,color .2s;
+}
+details.panel>summary:hover{background:var(--surface-2)}
+details.panel[open]>summary{background:var(--brand-soft);color:var(--brand)}
+details.panel>summary::-webkit-details-marker{display:none}
+details.panel>summary::before{
+  content:"";width:16px;height:16px;flex:none;border-radius:5px;
+  background:var(--brand-soft);position:relative;transition:transform .3s var(--e-spring),background .25s;
+}
+details.panel>summary::after{
+  content:"";position:absolute;width:0;height:0;margin-left:5px;
+  border:4px solid transparent;border-left-color:var(--brand);
+  transition:transform .3s var(--e-spring);
+}
+details.panel[open]>summary::before{background:var(--surface)}
+details.panel[open]>summary::after{transform:rotate(90deg) translateX(-1px)}
+details.panel .body{padding:.3rem 1rem 1rem;font-size:.95rem;animation:slidein .35s var(--e-out)}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ═══ TEXTO LEGAL ═══ */
+.legal{
+  background:var(--legal-bg);border-left:4px solid var(--legal);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:.85rem 1.05rem;
+  font-family:var(--f-legal);font-size:.95rem;line-height:1.7;
+}
+.legal p{margin:.45rem 0}
+.legal .lbl{
+  font-family:var(--f-body);font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--legal);font-weight:800;display:block;margin-bottom:.4rem;
+}
+
+/* ═══ CAJAS SEMÁNTICAS ═══ */
+.box{
+  border-left:4px solid var(--line);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.72rem .95rem;margin:.65rem 0;font-size:.94rem;
+  transition:transform .25s var(--e-out),box-shadow .25s;
+}
+.box:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
+.box.ej{background:var(--ej-bg);border-color:var(--ej)}
+.box.warn{background:var(--warn-bg);border-color:var(--warn)}
+.box.exc{background:var(--exc-bg);border-color:var(--exc)}
+.box .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+  display:block;margin-bottom:.3rem}
+.box.ej .lbl{color:var(--ej)}
+.box.warn .lbl{color:var(--warn)}
+.box.exc .lbl{color:var(--exc)}
+
+.interp{
+  border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn-bg) 45%,transparent);
+  border-radius:var(--r-md);padding:.65rem .9rem;font-size:.9rem;margin:.6rem 0;
+}
+.interp .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);font-weight:800;display:block}
+
+/* ═══ TABLAS ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;margin:.7rem 0;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+th,td{padding:.5rem .68rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td + td, th + th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-size:var(--t-xs);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+tbody tr{transition:background .18s}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+tbody tr:hover{background:var(--brand-soft)}
+th.sortable{cursor:pointer;user-select:none;transition:color .2s,background .2s}
+th.sortable:hover{color:var(--brand);background:var(--brand-soft)}
+th.sortable::after{content:" ⇅";color:var(--ink-3);font-size:.7rem}
+
+ul,ol{margin:.5rem 0 .5rem 1.2rem;padding:0}
+li{margin:.26rem 0}
+li::marker{color:var(--brand);font-weight:700}
+
+/* ═══ TOOLTIPS ═══ */
+.t{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;
+  transition:background .2s,color .2s}
+.t:hover{background:var(--brand-soft);color:var(--brand);border-radius:3px}
+#tip{
+  position:fixed;z-index:99;max-width:330px;background:var(--ink);color:var(--bg);
+  padding:.6rem .78rem;border-radius:var(--r-md);font-size:.82rem;line-height:1.5;
+  display:none;box-shadow:0 8px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);
+}
+html[data-theme="dark"] #tip{background:#f0f1f5;color:#15161c}
+
+/* ═══ FLECHAS DE DIAGRAMA ═══
+   Un <path> con stroke pero sin fill toma el valor inicial (negro) y el
+   navegador cierra el trazo implícitamente: aparece un triángulo relleno
+   entre sus extremos. Forzamos fill:none para dejar solo la línea + la
+   punta del <marker>, que sí lleva su color. */
+svg path[stroke]:not([fill]){fill:none}
+svg polyline:not([fill]){fill:none}
+svg line{fill:none}
+
+/* ═══ SVG ═══ */
+svg{max-width:100%;height:auto;display:block;margin:.9rem auto}
+svg text{font-family:var(--f-body)}
+
+/* ═══ BUSCADOR ═══ */
+mark.hit{background:linear-gradient(180deg,transparent 55%,#ffe066 55%);color:inherit;
+  border-radius:2px;padding:0 1px;font-weight:600}
+html[data-theme="dark"] mark.hit{background:linear-gradient(180deg,transparent 55%,#8a6d00 55%);color:#fff}
+
+/* ═══ UTILIDADES ═══ */
+.hide{display:none !important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.small{font-size:var(--t-sm);color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:var(--t-xs);padding:.16rem .55rem;border-radius:var(--r-full);
+  background:var(--brand-soft);color:var(--brand);font-weight:800;letter-spacing:.02em;
+}
+
+/* ═══ HUECOS RELLENABLES ═══ */
+.gap{
+  display:inline-block;min-width:5.5em;border-bottom:2px solid var(--brand);
+  text-align:center;font-weight:700;color:transparent;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.gap.on,.gap:hover{color:var(--brand);background:var(--brand-soft);border-radius:4px 4px 0 0}
+
+/* ═══ REVELAR SOLUCIÓN ═══ */
+.revelar{
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;
+  font-weight:700;
+}
+.revelar:hover{box-shadow:var(--sh-3)}
+.sol{
+  margin-top:.7rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  background:var(--ej-bg);border-left:4px solid var(--ej);
+  animation:slidein .4s var(--e-out);
+}
+
+/* ═══ TEST ═══ */
+.opt{
+  display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;background:var(--surface);font-size:.94rem;
+  transition:border-color .22s,background .22s,transform .22s var(--e-out);
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateX(4px)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:650}
+.opt.ko{border-color:var(--exc);background:var(--exc-bg)}
+.opt input{margin-right:.5rem;accent-color:var(--brand)}
+
+#tscore,#semres{
+  font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLASHCARDS 3D · mazo con giro, vuelo de salida y sheen
+   ═══════════════════════════════════════════════════════════════ */
+#flash{--fc-e:cubic-bezier(.2,.8,.25,1);--fc-h:250px}
+
+/* — Escena — */
+.fc-stage{
+  perspective:1400px;perspective-origin:50% 45%;
+  padding:.4rem 0 .2rem;position:relative;
+}
+.fc-deck{position:relative;height:var(--fc-h);will-change:transform}
+
+/* — Cartas fantasma del mazo — */
+.fc-ghost{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .5s var(--fc-e),opacity .5s var(--fc-e);
+}
+.fc-ghost.g1{transform:translateY(9px) scale(.972);opacity:.75}
+.fc-ghost.g2{transform:translateY(18px) scale(.944);opacity:.45}
+.fc-deck.empty .fc-ghost{opacity:0;transform:translateY(26px) scale(.9)}
+
+/* — Elevación durante el giro — */
+.fc-lift{position:absolute;inset:0;transform-style:preserve-3d}
+.fc-lift.lift{animation:fcLift .78s var(--fc-e)}
+@keyframes fcLift{
+  0%,100%{transform:scale(1) translateY(0)}
+  45%{transform:scale(1.055) translateY(-16px)}
+}
+.fc-lift.out-ok{animation:fcOut .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.out-ko{animation:fcOutKo .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.in{animation:fcIn .48s var(--fc-e)}
+@keyframes fcOut{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(130%) rotate(17deg) scale(.85);opacity:0}
+}
+@keyframes fcOutKo{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(-130%) rotate(-17deg) scale(.85);opacity:0}
+}
+@keyframes fcIn{
+  0%{transform:translateY(26px) scale(.9);opacity:0}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+
+/* — La carta — */
+.fc-card{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transition:transform .78s var(--fc-e);
+  cursor:pointer;border-radius:var(--r-lg);
+}
+.fc-card:focus-visible{outline:none}
+.fc-card:focus-visible .fc-face{box-shadow:var(--sh-glow),var(--sh-2)}
+
+/* — Caras — */
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 2.2rem;text-align:center;overflow:hidden;
+  box-shadow:var(--sh-2);
+  transition:box-shadow .4s var(--fc-e);
+}
+.fc-card:hover .fc-face{box-shadow:var(--sh-3)}
+
+/* Anverso · pregunta */
+.fc-front{
+  background:
+    radial-gradient(120% 90% at 50% -20%, var(--brand-soft) 0%, transparent 60%),
+    var(--surface);
+  border:1.5px solid var(--line);color:var(--ink);
+}
+/* Reverso · respuesta */
+.fc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,var(--brand) 0%,#6d4bf7 45%,var(--c5,#0891b2) 130%);
+  border:1.5px solid transparent;color:#fff;
+}
+html[data-theme="dark"] .fc-back{
+  background:linear-gradient(145deg,#5f45c9 0%,#4b3aa8 45%,#0e6b85 130%);
+}
+.fc-back .fc-txt{color:#fff}
+.fc-back b,.fc-back strong{color:#fff;font-weight:800}
+
+/* — Sheen que barre al girar — */
+.fc-face::after{
+  content:"";position:absolute;top:-60%;left:-70%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);opacity:0;pointer-events:none;
+}
+.fc-lift.lift .fc-face::after{animation:fcSheen .78s var(--fc-e)}
+@keyframes fcSheen{
+  0%{opacity:0;left:-70%}
+  35%{opacity:1}
+  100%{opacity:0;left:150%}
+}
+
+/* — Etiqueta superior — */
+.fc-tag{
+  position:absolute;top:1rem;left:1.15rem;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.fc-front .fc-tag{color:var(--brand)}
+.fc-back .fc-tag{color:rgba(255,255,255,.9)}
+.fc-tag::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+  animation:fcPulse 2.2s ease-in-out infinite;
+}
+@keyframes fcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* — Índice tipo naipe — */
+.fc-pip{
+  position:absolute;font-family:var(--f-display);font-weight:800;
+  font-size:.78rem;letter-spacing:-.02em;opacity:.34;font-variant-numeric:tabular-nums;
+}
+.fc-pip.tr{top:1rem;right:1.15rem}
+.fc-pip.bl{bottom:1rem;left:1.15rem;transform:rotate(180deg)}
+.fc-front .fc-pip{color:var(--ink-2)}
+.fc-back .fc-pip{color:#fff;opacity:.55}
+
+/* — Texto — */
+.fc-txt{
+  font-size:clamp(1rem,.9rem + .55vw,1.28rem);font-weight:650;line-height:1.5;
+  max-width:44ch;letter-spacing:-.012em;
+}
+.fc-front .fc-txt{font-family:var(--f-display);font-weight:700}
+.fc-back .fc-txt{font-weight:600;line-height:1.6}
+.fc-hint{
+  position:absolute;bottom:1rem;left:0;right:0;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.fc-front .fc-hint{color:var(--ink-3)}
+.fc-back .fc-hint{color:rgba(255,255,255,.72)}
+.fc-hint .kbd{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:700;padding:.1rem .32rem;
+  border-radius:5px;border:1px solid currentColor;opacity:.75;
+}
+
+/* — Pantalla final — */
+.fc-done{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--ok-soft),var(--surface) 70%);
+  border:1.5px solid var(--ok);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;gap:.35rem;
+  animation:fcIn .5s var(--fc-e);box-shadow:var(--sh-2);
+}
+.fc-done .seal{
+  font-size:2.6rem;line-height:1;
+  animation:fcSeal .7s cubic-bezier(.2,1.5,.4,1);
+}
+@keyframes fcSeal{0%{transform:scale(0) rotate(-25deg);opacity:0}60%{transform:scale(1.2) rotate(6deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.fc-done h3{font-size:1.3rem;font-weight:800;margin:.2rem 0 0}
+.fc-done p{margin:0;color:var(--ink-2);font-size:var(--t-sm)}
+
+/* — Barra de progreso de la ronda — */
+.fc-bar{
+  height:6px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;margin:.95rem 0 .8rem;position:relative;
+}
+.fc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand),var(--c5,#0891b2));
+  transition:width .55s var(--fc-e);
+}
+
+/* — Controles — */
+.fc-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.fc-ctrls button{font-weight:700}
+#fcok{border-color:var(--ok);color:var(--ok)}
+#fcok:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+#fcko{border-color:var(--warn);color:var(--warn)}
+#fcko:hover{background:var(--warn);color:#fff;border-color:var(--warn)}
+#fcflip{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+#fcflip:hover{box-shadow:var(--sh-3)}
+
+.fc-score{display:inline-flex;gap:.45rem;margin-left:auto;align-items:center}
+.fc-pill{
+  font-size:var(--t-xs);font-weight:800;padding:.24rem .6rem;border-radius:var(--r-full);
+  font-variant-numeric:tabular-nums;border:1px solid;
+}
+.fc-pill.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.fc-pill.ko{color:var(--warn);border-color:var(--warn);background:var(--warn-bg)}
+.fc-pill.left{color:var(--ink-2);border-color:var(--line);background:var(--surface-2)}
+.fc-pill.bump{animation:fcBump .45s var(--e-spring)}
+@keyframes fcBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+@media(max-width:620px){
+  #flash{--fc-h:270px}
+  .fc-face{padding:1.7rem 1.3rem}
+  .fc-score{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-card{transition:none}
+  .fc-lift.lift,.fc-lift.in,.fc-lift.out-ok,.fc-lift.out-ko,.fc-face::after{animation:none !important}
+}
+@media print{.fc-stage,.fc-ctrls,.fc-bar{display:none !important}}
+/* ═══ RESPUESTA ESTRUCTURADA ═══ */
+.fc-face{justify-content:center}
+.fc-face.struct{justify-content:flex-start;text-align:left;padding-top:3.1rem;padding-bottom:3.1rem}
+.fc-body{
+  width:100%;max-width:46ch;margin:0 auto;
+  overflow-y:auto;max-height:100%;
+  scrollbar-width:thin;
+}
+.fc-body::-webkit-scrollbar{width:5px}
+.fc-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:99px;border:0}
+.fc-front .fc-body::-webkit-scrollbar-thumb{background:var(--line-strong)}
+
+/* — Veredicto Sí / No — */
+.fc-verdict{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-display);font-weight:800;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.26rem .72rem;border-radius:var(--r-full);margin-bottom:.85rem;
+  border:1.5px solid;animation:fcPopIn .45s var(--e-spring) backwards;animation-delay:.34s;
+}
+.fc-verdict.si{background:rgba(255,255,255,.16);border-color:rgba(190,255,215,.85);color:#d8ffe9}
+.fc-verdict.no{background:rgba(255,255,255,.16);border-color:rgba(255,205,205,.85);color:#ffdedd}
+@keyframes fcPopIn{0%{opacity:0;transform:scale(.7) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* — Párrafo — */
+.fc-p{margin:0;font-size:clamp(1rem,.92rem + .45vw,1.2rem);font-weight:600;line-height:1.6}
+.fc-face.struct .fc-p{font-size:clamp(.96rem,.9rem + .35vw,1.1rem)}
+
+/* — Lista enumerada — */
+.fc-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;counter-reset:fc}
+.fc-list li{
+  counter-increment:fc;position:relative;margin:0;
+  padding:.42rem .6rem .42rem 2.5rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.11);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.45;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-list li::before{
+  content:counter(fc);position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.9);color:var(--brand);
+  font-family:var(--f-display);font-weight:800;font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.fc-list.alpha li::before{content:counter(fc,lower-alpha)}
+.fc-list li:nth-child(1){animation-delay:.36s}
+.fc-list li:nth-child(2){animation-delay:.42s}
+.fc-list li:nth-child(3){animation-delay:.48s}
+.fc-list li:nth-child(4){animation-delay:.54s}
+.fc-list li:nth-child(5){animation-delay:.60s}
+.fc-list li:nth-child(n+6){animation-delay:.66s}
+@keyframes fcRow{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:none}}
+
+/* — Cláusulas contrapuestas — */
+.fc-clauses{display:grid;gap:.45rem}
+.fc-clauses p{
+  margin:0;padding:.45rem .7rem .45rem .95rem;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:rgba(255,255,255,.11);border-left:3px solid rgba(255,255,255,.55);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.5;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-clauses p:nth-child(1){animation-delay:.36s}
+.fc-clauses p:nth-child(2){animation-delay:.44s}
+.fc-clauses p:nth-child(3){animation-delay:.52s}
+
+/* — Negritas resaltadas en el reverso — */
+.fc-back .fc-body b,.fc-back .fc-body strong{
+  font-weight:800;background:rgba(255,255,255,.2);
+  padding:.03em .3em;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+
+/* — Cita legal al pie — */
+.fc-cite{
+  position:absolute;bottom:.95rem;left:0;right:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;letter-spacing:.02em;
+  color:rgba(255,255,255,.82);
+  animation:fcPopIn .5s var(--e-out) backwards;animation-delay:.5s;
+}
+.fc-cite::before,.fc-cite::after{
+  content:"";height:1px;width:clamp(18px,10%,52px);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45));
+}
+.fc-cite::after{background:linear-gradient(90deg,rgba(255,255,255,.45),transparent)}
+.fc-cite .s{font-size:.9rem;opacity:.75;font-family:var(--f-legal)}
+.fc-front .fc-cite{color:var(--ink-3)}
+.fc-front .fc-cite::before{background:linear-gradient(90deg,transparent,var(--line-strong))}
+.fc-front .fc-cite::after{background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+/* la pista se oculta si hay cita, para no amontonar */
+.fc-back .fc-cite ~ .fc-hint,.fc-back .fc-hint.muted{display:none}
+
+@media(max-width:620px){
+  #flash{--fc-h:320px}
+  .fc-face.struct{padding-top:2.9rem;padding-bottom:2.8rem}
+  .fc-list li{padding-left:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-verdict,.fc-list li,.fc-clauses p,.fc-cite{animation:none !important}
+}
+
+/* ═══ SEMÁFORO ═══ */
+.sembtn{
+  border-radius:var(--r-full);padding:.32rem .7rem;font-weight:700;font-size:var(--t-sm);
+}
+.sembtn[data-v="g"]:hover,.sembtn.on[data-v="g"]{background:var(--ok);color:#fff;border-color:var(--ok)}
+.sembtn[data-v="y"]:hover,.sembtn.on[data-v="y"]{background:var(--mid);color:#3d2f00;border-color:var(--mid)}
+.sembtn[data-v="r"]:hover,.sembtn.on[data-v="r"]{background:var(--exc);color:#fff;border-color:var(--exc)}
+
+/* ═══ CTA DE BLOQUE ═══ */
+a.blk{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  padding:.5rem .95rem;border-radius:var(--r-sm);font-weight:700;font-size:var(--t-sm);
+  text-decoration:none;box-shadow:0 2px 10px var(--brand-ring);
+  transition:transform .22s var(--e-spring),box-shadow .25s,gap .25s var(--e-out);
+}
+a.blk:hover{transform:translateY(-2px);box-shadow:var(--sh-3);gap:.75rem;text-decoration:none}
+a.blk::after{content:"→"}
+a.blk:active{transform:translateY(0) scale(.98)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr;padding-top:.9rem;gap:1rem}
+  nav.side{position:static;max-height:none}
+  nav.side.collapsed .navbody{display:none}
+  .navtoggle{display:block;width:100%;text-align:left;font-weight:700}
+  .grid2{grid-template-columns:1fr}
+  .top h1 .sub{white-space:normal}
+}
+@media(max-width:620px){
+  .top-in{padding:.55rem .8rem}
+  .tools{width:100%;margin-left:0}
+  input[type=search]{flex:1;min-width:0}
+  section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
+  table{font-size:.82rem}
+  th,td{padding:.4rem .5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  header.top,nav.side,.tools,.noprint,.progress{display:none !important}
+  body{background:#fff;background-image:none;font-size:11pt;color:#000}
+  .layout{display:block;max-width:none;padding:0}
+  section.card{border:0;padding:0;margin:0 0 1rem;break-inside:avoid;box-shadow:none}
+  details.panel{border:0;box-shadow:none}
+  details.panel .body{display:block !important}
+  details.panel>summary{padding-left:0}
+  .art{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  a{color:#000;text-decoration:none}
+}
+
+
+/* ═══ ALTURA ADAPTATIVA DE LA TARJETA ═══ */
+.fc-deck{transition:height .45s var(--fc-e)}
+.fc-body{max-height:none;overflow:visible}
+.fc-measure{
+  position:absolute;left:0;right:0;top:0;height:auto;
+  visibility:hidden;pointer-events:none;z-index:-1;
+}
+.fc-measure .fc-face{
+  position:relative;inset:auto;height:auto;min-height:0;
+  box-shadow:none;backface-visibility:visible;transform:none;
+}
+.fc-measure .fc-body{max-height:none;overflow:visible}
+.fc-measure .fc-face::after{display:none}
+
+/* ═══ MOSTRAR / OCULTAR ÍNDICE LATERAL ═══ */
+.layout{transition:grid-template-columns .42s var(--e-out)}
+.layout.nonav{grid-template-columns:0 1fr;gap:0}
+.layout.nonav>nav.side{
+  opacity:0;transform:translateX(-14px);pointer-events:none;
+  padding:0;border-width:0;overflow:hidden;width:0;min-width:0;
+}
+nav.side{
+  transition:opacity .3s var(--e-out),transform .38s var(--e-out);
+  overflow-x:hidden;
+}
+#navhide .ic{display:inline-block;transition:transform .35s var(--e-spring);font-size:.95em;line-height:1}
+#navhide[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand);color:var(--brand)}
+#navhide[aria-pressed="true"] .ic{transform:rotate(90deg)}
+@media(max-width:960px){#navhide{display:none}}
+
+/* ═══════════════════════════════════════════════════════════════
+   LECTURA EN VOZ ALTA (TTS) del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+.tts-bar{
+  display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;
+  margin:.15rem 0 .7rem;
+}
+.tts-bar button{
+  font-size:var(--t-xs);font-weight:700;padding:.3rem .62rem;
+  border-radius:var(--r-full);border:1px solid var(--legal);
+  background:transparent;color:var(--legal);
+  display:inline-flex;align-items:center;gap:.35rem;line-height:1.2;
+}
+.tts-bar button:hover{background:var(--legal);color:var(--surface);border-color:var(--legal)}
+.tts-bar button[hidden]{display:none}
+.tts-bar .tts-play.on{background:var(--legal);color:var(--surface)}
+
+/* Ondas de audio mientras lee */
+.tts-wave{display:inline-flex;align-items:flex-end;gap:2px;height:11px}
+.tts-wave i{
+  width:2.5px;background:currentColor;border-radius:2px;height:35%;
+  animation:ttsW .9s ease-in-out infinite;
+}
+.tts-wave i:nth-child(2){animation-delay:.15s}
+.tts-wave i:nth-child(3){animation-delay:.3s}
+.tts-wave i:nth-child(4){animation-delay:.45s}
+@keyframes ttsW{0%,100%{height:32%}50%{height:100%}}
+
+.tts-time{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:700;
+  color:var(--ink-3);font-variant-numeric:tabular-nums;
+}
+
+/* Frase que se está leyendo */
+.tts-s{transition:background .25s,color .25s;border-radius:3px}
+.tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 26%,transparent) 8%);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--legal) 16%,transparent);
+}
+html[data-theme="dark"] .tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 34%,transparent) 8%);
+}
+.legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
+
+/* ═══ Reproductor flotante ═══ */
+.tts-mini{
+  position:fixed;left:50%;bottom:1.1rem;transform:translateX(-50%) translateY(140%);
+  z-index:80;display:flex;align-items:center;gap:.6rem;
+  background:color-mix(in srgb,var(--surface) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  border:1px solid var(--line);border-radius:var(--r-full);
+  padding:.5rem .7rem .5rem .95rem;box-shadow:var(--sh-3);
+  transition:transform .45s var(--e-spring),opacity .3s;opacity:0;pointer-events:none;
+  max-width:min(94vw,540px);
+}
+.tts-mini.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.tts-mini .lbl{
+  font-size:var(--t-xs);font-weight:800;color:var(--legal);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:16ch;
+}
+.tts-mini button{
+  border-radius:50%;width:32px;height:32px;padding:0;display:grid;place-items:center;
+  font-size:.8rem;border:1px solid var(--line);flex:none;
+}
+.tts-mini button.main{
+  width:38px;height:38px;font-size:.95rem;
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-mini .bar{
+  flex:1;min-width:70px;height:5px;border-radius:99px;background:var(--surface-3);overflow:hidden;
+}
+.tts-mini .bar i{display:block;height:100%;width:0;background:var(--legal);
+  border-radius:99px;transition:width .35s var(--e-out)}
+
+/* ═══ Panel de ajustes de voz ═══ */
+.tts-back{
+  position:fixed;inset:0;z-index:90;background:rgba(10,10,18,.45);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  display:grid;place-items:center;padding:1rem;
+  opacity:0;pointer-events:none;transition:opacity .3s var(--e-out);
+}
+.tts-back.show{opacity:1;pointer-events:auto}
+.tts-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--sh-3);width:min(94vw,470px);max-height:88vh;overflow:auto;
+  padding:1.3rem 1.4rem;transform:translateY(16px) scale(.97);
+  transition:transform .38s var(--e-spring);
+}
+.tts-back.show .tts-panel{transform:none}
+.tts-panel h3{
+  font-size:1.12rem;font-weight:800;margin:0 0 .25rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.tts-panel .sub{font-size:var(--t-sm);color:var(--ink-2);margin:0 0 1.1rem}
+.tts-row{margin-bottom:1.05rem}
+.tts-row > label{
+  display:block;font-size:var(--t-xs);font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:.4rem;
+}
+.tts-seg{display:flex;gap:3px;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:3px}
+.tts-seg button{
+  flex:1;border:0;background:transparent;border-radius:calc(var(--r-sm) - 3px);
+  padding:.42rem .3rem;font-size:var(--t-sm);font-weight:700;box-shadow:none;
+}
+.tts-seg button:hover{transform:none;background:var(--surface)}
+.tts-seg button[aria-pressed="true"]{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;
+}
+.tts-panel select{
+  width:100%;padding:.5rem .6rem;border-radius:var(--r-sm);
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  font-size:var(--t-sm);font-weight:600;cursor:pointer;
+}
+.tts-panel select:focus{border-color:var(--brand);outline:none}
+.tts-slider{display:flex;align-items:center;gap:.75rem}
+.tts-slider input[type=range]{flex:1;accent-color:var(--legal);cursor:pointer;height:22px}
+.tts-val{
+  font-family:var(--f-mono);font-weight:800;font-size:var(--t-sm);
+  min-width:3.4em;text-align:right;color:var(--legal);font-variant-numeric:tabular-nums;
+}
+.tts-note{
+  font-size:var(--t-xs);color:var(--ink-2);line-height:1.5;
+  background:var(--surface-2);border-radius:var(--r-sm);padding:.6rem .75rem;margin:0 0 1rem;
+}
+.tts-note b{color:var(--ink)}
+.tts-acts{display:flex;gap:.5rem;justify-content:flex-end;flex-wrap:wrap}
+.tts-acts .prim{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-badge{
+  font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  padding:.1rem .35rem;border-radius:4px;background:var(--ej-bg);color:var(--ej);margin-left:.35rem;
+}
+
+@media(max-width:620px){
+  .tts-mini{left:.6rem;right:.6rem;transform:translateY(140%);max-width:none}
+  .tts-mini.show{transform:translateY(0)}
+  .tts-mini .lbl{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .tts-wave i{animation:none;height:60%}
+}
+@media print{.tts-bar,.tts-mini,.tts-back{display:none !important}}
+
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brandwrap">
+    <a class="mark" href="index.html" title="Volver al índice">B1</a>
+    <h1>Real Decreto Legislativo 2/2004 · TRLHL
+      <span class="sub">Ley 19/2013, de transparencia, acceso a la información pública y buen gobierno · Título Preliminar y Título I, Caps. I y II (tema 13, bloque 1)</span>
+    </h1>
+    </div>
+    <div class="tools noprint">
+      <input type="search" id="q" placeholder="Buscar en la página…" aria-label="Buscar">
+      <span class="seg" role="group" aria-label="Modo de vista">
+        <button data-view="legal" aria-pressed="false">Texto legal</button>
+        <button data-view="expl" aria-pressed="false">Explicación</button>
+        <button data-view="both" aria-pressed="true">Ambos</button>
+      </span>
+      <button id="fs-" aria-label="Reducir texto">A−</button>
+      <button id="fs+" aria-label="Aumentar texto">A+</button>
+      <span class="streak" id="streak" title="Días seguidos estudiando" style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);font-weight:800;font-size:.8rem">🔥<span class="num" id="streakN">0</span></span>
+      <button id="theme" aria-label="Cambiar tema">◐</button>
+      <button id="expand">Desplegar todo</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="progress" id="prog"></div>
+</header>
+<div class="layout">
+<nav class="side collapsed" id="side" aria-label="Índice">
+  <button class="navtoggle" id="navtoggle" aria-expanded="false">☰ Índice</button>
+  <div class="navbody" id="navbody"></div>
+</nav>
+<main id="main"></main>
+</div>
+<script>
+const GLOSARIO={
+ "presupuesto":"Documento contable y jurídico, aprobado por el Pleno, que fija el techo de gasto de un ejercicio y estima los ingresos con los que se financia. Ej.: el presupuesto de Utrera para 2026 autoriza gastar como máximo 78 M€.",
+ "credito":"Crédito presupuestario: la cantidad máxima de dinero autorizada para una finalidad concreta. Ej.: 120.000 € en la aplicación de 'mantenimiento de colegios'.",
+ "obligacion":"Obligación reconocida: la deuda que el Ayuntamiento admite formalmente que debe pagar, una vez comprobado que el servicio o suministro se ha prestado. Ej.: aprobada la factura del proveedor, nace la obligación.",
+ "derecho":"Derecho liquidado: el importe concreto que un tercero debe a la entidad local, una vez cuantificado. Ej.: liquidado el IBI de un inmueble en 340 €, ese es el derecho.",
+ "oa":"Organismo autónomo: ente con personalidad jurídica propia creado por la entidad local para gestionar un servicio (patronatos de deportes, de cultura, gerencias de urbanismo). Depende del Ayuntamiento pero tiene su propio presupuesto.",
+ "sociedad":"Sociedad mercantil local: empresa con forma de S.A. o S.L. cuyo capital pertenece a la entidad local (p. ej. la empresa municipal de aguas). No aprueba 'presupuesto', sino estados de previsión de gastos e ingresos.",
+ "bases":"Bases de ejecución: el 'reglamento de uso' del presupuesto. Adaptan las normas presupuestarias generales a la organización concreta de la entidad. Ej.: fijan qué órgano autoriza gastos de hasta 3.000 €.",
+ "estabilidad":"Estabilidad presupuestaria: exigencia de que las cuentas públicas no incurran en déficit estructural. Ej.: un ayuntamiento no puede presupuestar más gasto no financiero que ingresos no financieros.",
+ "afectacion":"No afectación: regla general de que todos los ingresos financian todo el gasto, sin que un ingreso concreto quede reservado a un gasto concreto. Ej.: lo recaudado por el IBI no está reservado a pagar el alumbrado.",
+ "bruto":"Principio de presupuesto bruto (o de integridad): derechos y obligaciones se anotan por su importe total, sin compensar unos con otros. Ej.: no se puede anotar la subvención 'ya descontados' los gastos del programa.",
+ "nivelacion":"Nivelación presupuestaria: que el total de ingresos previstos cubra el total de gastos autorizados; es decir, aprobar sin déficit inicial.",
+ "aplicacion":"Aplicación presupuestaria: la 'casilla' exacta donde vive cada euro de gasto, formada al cruzar la clasificación por programas con la económica. Ej.: 323/22103 (funcionamiento de centros docentes / combustibles).",
+ "vinculacion":"Nivel de vinculación jurídica: el nivel de agregación en el que el crédito es realmente limitativo; por debajo de él se puede mover el gasto sin tramitar una modificación de crédito (art. 172 TRLHL).",
+ "intervencion":"Intervención: el órgano de control interno de la entidad local, con función de fiscalización previa del gasto y de informe preceptivo del presupuesto. Lo desempeña un funcionario de habilitación nacional.",
+ "pleno":"Pleno: órgano colegiado formado por todos los concejales o diputados. Es el único competente para aprobar el presupuesto.",
+ "bop":"Boletín Oficial de la Provincia: diario oficial donde las entidades locales publican sus anuncios y acuerdos con efectos frente a terceros.",
+ "prorroga":"Prórroga presupuestaria: si el 1 de enero no ha entrado en vigor el presupuesto nuevo, sigue rigiendo automáticamente el anterior con sus créditos iniciales.",
+ "interesado":"Interesado: quien está legitimado para intervenir en un procedimiento. En el presupuesto, la ley define expresamente quiénes lo son (art. 170.1).",
+ "liquidacion":"Liquidación del presupuesto: cierre contable del ejercicio, que determina los derechos y obligaciones pendientes, el remanente de tesorería y el resultado presupuestario.",
+ "tcuentas":"Tribunal de Cuentas: órgano fiscalizador externo de las cuentas y la gestión económica del sector público, dependiente de las Cortes Generales.",
+ "conten":"Recurso contencioso-administrativo: impugnación ante los juzgados y tribunales de lo contencioso-administrativo, es decir, ya fuera de la propia Administración.",
+ "pubactiva":"Publicidad activa: obligación de publicar por iniciativa propia, sin que nadie lo pida, la información relevante sobre el funcionamiento y control de la actuación pública (arts. 5 a 11 de la Ley 19/2013).","accesoinfo":"Derecho de acceso: derecho de cualquier persona a solicitar y obtener información pública ya elaborada o en poder de los sujetos obligados. Funciona a instancia de parte, frente a la publicidad activa.","infopublica":"Información pública: los contenidos o documentos, cualquiera que sea su formato o soporte, que obren en poder de alguno de los sujetos incluidos en el ámbito de la ley y hayan sido elaborados o adquiridos en el ejercicio de sus funciones (art. 13).","disociacion":"Disociación: supresión de los datos que permiten identificar a una persona, de modo que la información pueda publicarse sin revelar datos personales.","portal":"Portal de la Transparencia: sede electrónica de la Administración General del Estado, dependiente del Ministerio de la Presidencia, que centraliza el acceso a la información sujeta a publicidad activa.","interoperabilidad":"Interoperabilidad: capacidad de los sistemas de información para compartir datos y entenderse entre sí. La información publicada debe ajustarse al Esquema Nacional de Interoperabilidad.","reutilizacion":"Reutilización: uso por terceros, incluso con fines comerciales, de la información publicada por el sector público. Se fomenta publicando en formatos abiertos.","altocargo":"Alto cargo: quien ocupa los puestos de mayor responsabilidad política o directiva. La ley obliga a publicar sus retribuciones e indemnizaciones por abandono del cargo.","corporaciondp":"Corporación de Derecho Público: entidad de base asociativa creada por ley para fines de interés general (colegios profesionales, cámaras). Solo queda sujeta en lo relativo a sus actividades sujetas a Derecho Administrativo.","consejotbg":"Consejo de Transparencia y Buen Gobierno: organismo estatal que vela por el cumplimiento de las obligaciones de publicidad activa y resuelve las reclamaciones en materia de acceso (arts. 9, 24 y 33 a 40).","sedeelec":"Sede electrónica: dirección electrónica de titularidad y responsabilidad de una Administración a través de la cual se publica información y se prestan servicios.","esquemanac":"Esquema Nacional de Interoperabilidad: conjunto de criterios y recomendaciones, aprobados por real decreto, que garantizan que los sistemas de las Administraciones puedan intercambiar información."
+};
+const ARTS=[{n:1,t:"Objeto",ubic:"Título Preliminar",idea:"Tres objetivos: ampliar la transparencia, garantizar el acceso y exigir buen gobierno.",literal:`<p>Esta Ley tiene por objeto ampliar y reforzar la transparencia de la actividad pública, regular y garantizar el derecho de acceso a la información relativa a aquella actividad y establecer las obligaciones de buen gobierno que deben cumplir los responsables públicos así como las consecuencias derivadas de su incumplimiento.</p>`,dis:`<ul>
+<li><b>Primer objeto:</b> <b>ampliar y reforzar la transparencia</b> de la actividad pública.</li>
+<li><b>Segundo objeto:</b> <b>regular y garantizar el derecho de acceso</b> a la información relativa a esa actividad.</li>
+<li><b>Tercer objeto:</b> establecer las <b>obligaciones de buen gobierno</b> que deben cumplir los responsables públicos, <b>así como las consecuencias derivadas de su incumplimiento</b>.</li>
+</ul>
+<div class="box ej"><span class="lbl">Norma utilizada</span><b>Ley 19/2013, de 9 de diciembre</b>, de transparencia, acceso a la información pública y buen gobierno (documento añadido a la biblioteca), texto consolidado con <b>última modificación de 9 de julio de 2022</b>.</div>`,llano:`<p>La ley se apoya en tres patas. La primera obliga a publicar información sin que nadie la pida. La segunda reconoce el derecho a pedirla y obliga a contestar. Y la tercera exige a los cargos públicos comportarse conforme a unos principios y prevé sanciones si no lo hacen.</p>`,porque:`<p>Hasta 2013 España era uno de los pocos países europeos sin ley de transparencia: el acceso a la información se regía por un precepto genérico de la ley de procedimiento y estaba condicionado a ser interesado. La ley invierte el planteamiento: la información pública es, por regla general, <b>accesible a cualquiera</b>, y su publicación deja de ser una concesión para convertirse en una obligación cuyo incumplimiento tiene consecuencias.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> un club que cuelga sus cuentas en el tablón (transparencia), permite a cualquier socio pedir un documento (acceso) y expulsa al directivo que se lleva la caja (buen gobierno).</li>
+<li><b>Real:</b> un ayuntamiento publica sus contratos en el portal de transparencia, contesta a un vecino que pide el expediente de una obra y sanciona a un cargo que incumple sus obligaciones de gestión económica.</li>
+<li><b>Caso límite:</b> el buen gobierno del Título II no se aplica a cualquier empleado público: tiene su propio ámbito subjetivo en el art. 25.</li>
+</ul>`,noej:`<ul>
+<li><b>No regula</b> esta ley la protección de datos personales, aunque la tiene muy presente como límite (art. 15).</li>
+<li><b>No sustituye</b> al derecho de acceso al expediente del interesado en un procedimiento, que sigue rigiéndose por la ley de procedimiento administrativo.</li>
+</ul>`,conex:`<ul>
+<li><b>Arts. 2 a 11:</b> transparencia y publicidad activa.</li>
+<li><b>Arts. 12 a 24:</b> derecho de acceso.</li>
+<li><b>Arts. 25 a 32:</b> buen gobierno y régimen sancionador.</li>
+<li><b>Ley 1/2014 de Andalucía</b> (documento 9 de la biblioteca): desarrollo autonómico con obligaciones ampliadas.</li>
+</ul>`,trampas:`<ul>
+<li>Son <b>tres</b> objetos, y el tercero incluye expresamente <b>las consecuencias del incumplimiento</b>.</li>
+<li>La ley <b>amplía y refuerza</b> la transparencia: no la crea de la nada.</li>
+</ul>`,ancla:`<p><b>"T-A-B":</b> <b>T</b>ransparencia · <b>A</b>cceso · <b>B</b>uen gobierno. Tres títulos, tres patas.</p>`,vis:`<svg viewBox="0 0 640 140" role="img" aria-label="Los tres objetos de la Ley 19/2013">
+<rect x="180" y="10" width="280" height="34" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">LEY 19/2013 · OBJETO</text>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="20" y="60" width="190" height="60" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="115" y="83" font-size="11" font-weight="700" fill="var(--acc)">Transparencia</text><text x="115" y="102">publicidad activa · arts. 5-11</text>
+<rect x="225" y="60" width="190" height="60" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="320" y="83" font-size="11" font-weight="700" fill="var(--ej)">Derecho de acceso</text><text x="320" y="102">a instancia de parte · arts. 12-24</text>
+<rect x="430" y="60" width="190" height="60" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/><text x="525" y="83" font-size="11" font-weight="700" fill="var(--warn)">Buen gobierno</text><text x="525" y="102">y sus consecuencias · arts. 25-32</text>
+</g>
+</svg>`},
+{n:2,t:"Ámbito subjetivo de aplicación",ubic:"Título I (Transparencia de la actividad pública) ▸ Capítulo I (Ámbito subjetivo de aplicación)",idea:"Nueve letras de sujetos obligados, desde el Estado hasta las sociedades públicas.",literal:`<p>1. Las disposiciones de este título se aplicarán a:</p><p>a) La Administración General del Estado, las Administraciones de las Comunidades Autónomas y de las Ciudades de Ceuta y Melilla y las entidades que integran la Administración Local.</p><p>b) Las entidades gestoras y los servicios comunes de la Seguridad Social así como las mutuas de accidentes de trabajo y enfermedades profesionales colaboradoras de la Seguridad Social.</p><p>c) Los organismos autónomos, las Agencias Estatales, las entidades públicas empresariales y las entidades de Derecho Público que, con independencia funcional o con una especial autonomía reconocida por la Ley, tengan atribuidas funciones de regulación o supervisión de carácter externo sobre un determinado sector o actividad.</p><p>d) Las entidades de Derecho Público con personalidad jurídica propia, vinculadas a cualquiera de las Administraciones Públicas o dependientes de ellas, incluidas las Universidades públicas.</p><p>e) Las corporaciones de Derecho Público, en lo relativo a sus actividades sujetas a Derecho Administrativo.</p><p>f) La Casa de su Majestad el Rey, el Congreso de los Diputados, el Senado, el Tribunal Constitucional y el Consejo General del Poder Judicial, así como el Banco de España, el Consejo de Estado, el Defensor del Pueblo, el Tribunal de Cuentas, el Consejo Económico y Social y las instituciones autonómicas análogas, en relación con sus actividades sujetas a Derecho Administrativo.</p><p>g) Las sociedades mercantiles en cuyo capital social la participación, directa o indirecta, de las entidades previstas en este artículo sea superior al 50 por 100.</p><p>h) Las fundaciones del sector público previstas en la legislación en materia de fundaciones.</p><p>i) Las asociaciones constituidas por las Administraciones, organismos y entidades previstos en este artículo. Se incluyen los órganos de cooperación previstos en el artículo 5 de la Ley 30/1992, de 26 de noviembre, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común, en la medida en que, por su peculiar naturaleza y por carecer de una estructura administrativa propia, le resulten aplicables las disposiciones de este título. En estos casos, el cumplimiento de las obligaciones derivadas de la presente Ley serán llevadas a cabo por la Administración que ostente la Secretaría del órgano de cooperación.</p><p>2. A los efectos de lo previsto en este título, se entiende por Administraciones Públicas los organismos y entidades incluidos en las letras a) a d) del apartado anterior.</p>`,dis:`<table><thead><tr><th>Letra</th><th>Sujeto obligado (art. 2.1)</th></tr></thead><tbody>
+<tr><td><b>a)</b></td><td>La <b>AGE</b>, las Administraciones de las <b>comunidades autónomas</b> y de Ceuta y Melilla y las <b>entidades que integran la Administración Local</b></td></tr>
+<tr><td><b>b)</b></td><td>Entidades gestoras y servicios comunes de la <b>Seguridad Social</b> y <b>mutuas colaboradoras</b></td></tr>
+<tr><td><b>c)</b></td><td><b>Organismos autónomos</b>, Agencias Estatales, <b>entidades públicas empresariales</b> y entidades de Derecho Público con funciones de <b>regulación o supervisión</b> externa</td></tr>
+<tr><td><b>d)</b></td><td>Entidades de Derecho Público con personalidad propia vinculadas o dependientes, <b>incluidas las Universidades públicas</b></td></tr>
+<tr><td><b>e)</b></td><td><span class="t" data-k="corporaciondp">Corporaciones de Derecho Público</span>, <b>en lo relativo a sus actividades sujetas a Derecho Administrativo</b></td></tr>
+<tr><td><b>f)</b></td><td>La <b>Casa de S. M. el Rey</b>, Congreso, Senado, Tribunal Constitucional, CGPJ, Banco de España, Consejo de Estado, Defensor del Pueblo, Tribunal de Cuentas, Consejo Económico y Social e instituciones autonómicas análogas, <b>en relación con sus actividades sujetas a Derecho Administrativo</b></td></tr>
+<tr><td><b>g)</b></td><td><b>Sociedades mercantiles</b> con participación pública, directa o indirecta, <b>superior al 50 %</b></td></tr>
+<tr><td><b>h)</b></td><td><b>Fundaciones del sector público</b></td></tr>
+<tr><td><b>i)</b></td><td><b>Asociaciones</b> constituidas por las anteriores, incluidos los <b>órganos de cooperación</b></td></tr>
+</tbody></table>
+<p><b>2.2 — concepto restringido:</b> a efectos de este título, se entiende por <b>Administraciones Públicas</b> únicamente los organismos y entidades de las <b>letras a) a d)</b>.</p>`,llano:`<p>La ley alcanza a casi todo lo público: administraciones, organismos, universidades, sociedades con más de la mitad de capital público, fundaciones y hasta la Casa del Rey y las Cortes, aunque a estas últimas y a los colegios profesionales solo en lo que hacen como Administración. Y dentro de esa lista, la ley llama «Administraciones Públicas» solo a las cuatro primeras letras.</p>`,porque:`<p>Una ley de transparencia con un ámbito estrecho sería inútil: bastaría con crear una sociedad o una fundación para escapar del escrutinio. De ahí la lista amplísima. La <b>matización</b> de las letras e) y f) responde a la separación de poderes y a la autonomía de esas instituciones: se les exige transparencia en su actividad administrativa —contratos, personal, gasto—, no en su función constitucional.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> una lista de invitados a la que se añade a los primos, los vecinos y los del club, pero a algunos solo para la parte del banquete.</li>
+<li><b>Real:</b> una empresa municipal de aguas con el 100 % de capital público está sujeta (letra g); un colegio profesional lo está en sus contratos y su gestión de fondos, no en su actividad corporativa privada (letra e).</li>
+<li><b>Caso límite:</b> una sociedad con el 50 % exacto de capital público <b>no</b> encaja en la letra g), que exige participación <b>superior</b> al 50 %.</li>
+</ul>`,noej:`<ul>
+<li><b>No son «Administraciones Públicas»</b> a efectos de este título las sociedades, fundaciones o corporaciones: el art. 2.2 reserva esa condición a las letras a) a d).</li>
+<li><b>No están sujetos</b> el Congreso o el Tribunal Constitucional en su actividad parlamentaria o jurisdiccional.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 3:</b> otros sujetos obligados solo por el capítulo de publicidad activa.</li>
+<li><b>Art. 4:</b> obligación de suministrar información de contratistas y concesionarios.</li>
+<li><b>Art. 3 de la Ley 9/2017</b> (documento 7): ámbito subjetivo de la contratación, con lógica de círculos semejante.</li>
+<li><b>Art. 3 de la Ley 1/2014 de Andalucía</b> (documento 9): ámbito subjetivo autonómico.</li>
+</ul>`,trampas:`<ul>
+<li>Sociedades mercantiles: participación <b>superior al 50 %</b>, directa o indirecta.</li>
+<li>Las letras <b>e)</b> y <b>f)</b> están limitadas a las <b>actividades sujetas a Derecho Administrativo</b>.</li>
+<li>El art. 2.2 restringe el concepto de <b>Administración Pública</b> a las letras <b>a) a d)</b>: es la clave para leer después los arts. 6, 7 y 8.3.</li>
+</ul>`,ancla:`<p><b>"De la a) a la d), Administración; de la e) a la i), también obligados."</b><br>Sociedades: <b>más del 50 %</b>. Corporaciones y órganos constitucionales: <b>solo su parte administrativa</b>.</p>`,vis:`<svg viewBox="0 0 640 170" role="img" aria-label="Ámbito subjetivo de la Ley 19/2013">
+<rect x="30" y="25" width="270" height="118" rx="9" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="165" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">Letras a) a d)</text>
+<text x="165" y="70" text-anchor="middle" font-size="10" fill="currentColor">AGE, CCAA y entidades locales</text>
+<text x="165" y="88" text-anchor="middle" font-size="10" fill="currentColor">Seguridad Social y mutuas</text>
+<text x="165" y="106" text-anchor="middle" font-size="10" fill="currentColor">organismos, agencias, EPE y universidades</text>
+<text x="165" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">= «Administraciones Públicas» (2.2)</text>
+<rect x="340" y="25" width="270" height="118" rx="9" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="475" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ej)">Letras e) a i)</text>
+<text x="475" y="70" text-anchor="middle" font-size="10" fill="currentColor">corporaciones de Derecho Público*</text>
+<text x="475" y="88" text-anchor="middle" font-size="10" fill="currentColor">Casa del Rey, Cortes, TC, CGPJ…*</text>
+<text x="475" y="106" text-anchor="middle" font-size="10" fill="currentColor">sociedades &gt; 50 % · fundaciones · asociaciones</text>
+<text x="475" y="130" text-anchor="middle" font-size="10" fill="var(--exc)">* solo actividades sujetas a Derecho Administrativo</text>
+<text x="320" y="162" text-anchor="middle" font-size="10" fill="var(--ink2)">Todos ellos quedan sujetos al Título I; solo las letras a) a d) son «Administraciones Públicas»</text>
+</svg>`},
+{n:3,t:"Otros sujetos obligados",ubic:"Título I (Transparencia de la actividad pública) ▸ Capítulo I (Ámbito subjetivo de aplicación)",idea:"Partidos, sindicatos, patronales y grandes perceptores de ayudas también publican.",literal:`<p>Las disposiciones del capítulo II de este título serán también aplicables a:</p><p>a) Los partidos políticos, organizaciones sindicales y organizaciones empresariales.</p><p>b) Las entidades privadas que perciban durante el período de un año ayudas o subvenciones públicas en una cuantía superior a 100.000 euros o cuando al menos el 40 % del total de sus ingresos anuales tengan carácter de ayuda o subvención pública, siempre que alcancen como mínimo la cantidad de 5.000 euros.</p>`,dis:`<ul>
+<li><b>Alcance limitado:</b> a estos sujetos se les aplica <b>solo el capítulo II</b> (publicidad activa), no todo el título.</li>
+<li><b>a)</b> Los <b>partidos políticos</b>, <b>organizaciones sindicales</b> y <b>organizaciones empresariales</b>.</li>
+<li><b>b)</b> Las <b>entidades privadas</b> que durante el período de <b>un año</b> perciban ayudas o subvenciones públicas:
+<ul><li>en cuantía <b>superior a 100.000 €</b>; <b>o</b></li>
+<li>cuando al menos el <b>40 % del total de sus ingresos anuales</b> tenga carácter de ayuda o subvención pública, <b>siempre que alcancen como mínimo 5.000 €</b>.</li></ul></li>
+</ul>`,llano:`<p>Quien vive en buena parte del dinero público también tiene que rendir cuentas. La ley pone dos puertas: la de los 100.000 euros y la del 40 % de los ingresos con un mínimo de 5.000 euros. Basta cruzar una de las dos. Y siempre hay que publicar: los partidos, los sindicatos y las patronales.</p>`,porque:`<p>Si la transparencia se detuviera en la frontera de lo público, bastaría con canalizar la actividad a través de entidades privadas subvencionadas para que el dinero desapareciera del escrutinio. El <b>doble umbral</b> es una fórmula de proporcionalidad: se atrapa tanto a quien recibe mucho en términos absolutos como a quien depende estructuralmente del dinero público aunque su cifra sea menor.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> a quien le pagas la mayor parte del sueldo le puedes pedir cuentas, aunque no trabaje para ti en exclusiva.</li>
+<li><b>Real:</b> una asociación con 250.000 € de presupuesto que recibe 120.000 € en subvenciones: supera los 100.000 €, luego queda sujeta a publicidad activa.</li>
+<li><b>Caso límite:</b> una entidad con 12.000 € de ingresos, de los que 6.000 € son subvención: es el 50 % y supera los 5.000 €, luego <b>también</b> queda sujeta, pese a no llegar a los 100.000 €.</li>
+</ul>`,noej:`<ul>
+<li><b>No se les aplica</b> el capítulo del derecho de acceso: solo la publicidad activa.</li>
+<li><b>No queda sujeta</b> una entidad con 4.000 € de subvención que representen el 80 % de sus ingresos: no alcanza el mínimo de 5.000 €.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 8.2:</b> qué información concreta deben publicar estos sujetos.</li>
+<li><b>Art. 4:</b> obligación de suministrar información de contratistas y prestadores de servicios públicos.</li>
+<li><b>Art. 18.3 de la Ley 38/2003</b> (documento 8): remisión a esta ley para la publicidad de los beneficiarios de subvenciones.</li>
+</ul>`,trampas:`<ul>
+<li>Los umbrales son <b>alternativos</b>: basta con uno.</li>
+<li>El del 40 % lleva además un <b>mínimo de 5.000 €</b>.</li>
+<li>A estos sujetos solo se les aplica el <b>capítulo II</b> (publicidad activa).</li>
+</ul>`,ancla:`<p><b>"100.000 o 40 % con 5.000."</b> Dos puertas, basta cruzar una.<br>Y los tres fijos: <b>partidos, sindicatos y patronales</b>.</p>`,vis:`<svg viewBox="0 0 640 150" role="img" aria-label="Otros sujetos obligados a publicidad activa">
+<rect x="30" y="25" width="270" height="60" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="165" y="48" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">a) Siempre obligados</text>
+<text x="165" y="68" text-anchor="middle" font-size="10" fill="currentColor">partidos · sindicatos · organizaciones empresariales</text>
+<rect x="340" y="25" width="270" height="60" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="475" y="48" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">b) Entidades privadas subvencionadas</text>
+<text x="475" y="68" text-anchor="middle" font-size="10" fill="currentColor">si cruzan uno de los dos umbrales</text>
+<rect x="80" y="98" width="220" height="40" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="190" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Más de 100.000 € al año</text>
+<text x="320" y="122" text-anchor="middle" font-size="12" fill="var(--ink2)">o</text>
+<rect x="340" y="98" width="230" height="40" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="455" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">40 % de los ingresos</text>
+<text x="455" y="131" text-anchor="middle" font-size="10" fill="currentColor">con un mínimo de 5.000 €</text>
+</svg>`},
+{n:4,t:"Obligación de suministrar información",ubic:"Título I (Transparencia de la actividad pública) ▸ Capítulo I (Ámbito subjetivo de aplicación)",idea:"Contratistas y concesionarios deben dar a la Administración la información que esta necesite.",literal:`<p>Las personas físicas y jurídicas distintas de las referidas en los artículos anteriores que presten servicios públicos o ejerzan potestades administrativas estarán obligadas a suministrar a la Administración, organismo o entidad de las previstas en el artículo 2.1 a la que se encuentren vinculadas, previo requerimiento, toda la información necesaria para el cumplimiento por aquéllos de las obligaciones previstas en este título. Esta obligación se extenderá a los adjudicatarios de contratos del sector público en los términos previstos en el respectivo contrato.</p>`,dis:`<ul>
+<li><b>Sujetos:</b> personas físicas y jurídicas <b>distintas</b> de las de los arts. 2 y 3 que <b>presten servicios públicos</b> o <b>ejerzan potestades administrativas</b>.</li>
+<li><b>Obligación:</b> suministrar a la Administración o entidad del art. 2.1 <b>a la que estén vinculadas</b>, <b>previo requerimiento</b>, toda la información necesaria para que aquella cumpla sus obligaciones de transparencia.</li>
+<li><b>Extensión:</b> la misma obligación alcanza a los <b>adjudicatarios de contratos</b> del sector público en los términos del pliego o del requerimiento.</li>
+</ul>`,llano:`<p>Si una empresa gestiona un servicio público, la información sobre ese servicio no puede desaparecer por el hecho de estar en manos privadas. La Administración se la pide y la empresa está obligada a dársela para poder publicarla.</p>`,porque:`<p>La externalización de servicios podía convertirse en un <b>agujero negro informativo</b>: lo que antes era información municipal pasaba a ser documentación interna de una empresa. Este artículo restablece la cadena: el obligado a publicar sigue siendo la Administración, y para poder hacerlo se le reconoce el derecho a exigir los datos a quien presta el servicio.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el administrador de fincas que debe entregarte las facturas del proveedor que él contrató.</li>
+<li><b>Real:</b> el ayuntamiento requiere a la concesionaria del transporte urbano los datos de frecuencias, viajeros e ingresos para publicarlos en su portal de transparencia.</li>
+<li><b>Caso límite:</b> el incumplimiento reiterado del requerimiento puede acarrear, según el art. 9.3, consecuencias para el responsable público, y en el ámbito autonómico andaluz constituye infracción propia (art. 53 de la Ley 1/2014).</li>
+</ul>`,noej:`<ul>
+<li><b>No convierte</b> este artículo al contratista en sujeto obligado a publicar: le obliga a <b>suministrar</b>.</li>
+<li><b>No opera</b> de oficio: exige <b>previo requerimiento</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 2.1 LTBG:</b> entidades a las que hay que suministrar la información.</li>
+<li><b>Art. 4 de la Ley 1/2014 de Andalucía</b> (documento 9): obligación equivalente, con plazo propio.</li>
+<li><b>Art. 122 de la Ley 9/2017</b> (documento 7): los pliegos pueden incorporar esta obligación como condición del contrato.</li>
+</ul>`,trampas:`<ul>
+<li>La obligación nace <b>previo requerimiento</b>, no automáticamente.</li>
+<li>Alcanza a quien presta <b>servicios públicos</b> o ejerce <b>potestades administrativas</b>, no a cualquier contratista.</li>
+</ul>`,ancla:`<p><b>"Si gestionas lo público, la información sigue siendo pública."</b> Pero hay que <b>pedírtela</b>.</p>`,vis:`<svg viewBox="0 0 640 125" role="img" aria-label="Obligación de suministrar información">
+<defs><marker id="q1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="30" y="35" width="200" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="130" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Concesionario o contratista</text>
+<text x="130" y="76" text-anchor="middle" font-size="10" fill="currentColor">presta el servicio público</text>
+<path d="M234 61 L 274 61" stroke="var(--acc)" stroke-width="2" marker-end="url(#q1)"/>
+<text x="254" y="51" text-anchor="middle" font-size="9" fill="var(--ink2)">requerimiento</text>
+<rect x="278" y="35" width="180" height="52" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="368" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Administración</text>
+<text x="368" y="76" text-anchor="middle" font-size="10" fill="currentColor">recibe la información</text>
+<path d="M462 61 L 502 61" stroke="var(--acc)" stroke-width="2" marker-end="url(#q1)"/>
+<rect x="506" y="35" width="115" height="52" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="563" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Publica</text>
+<text x="563" y="76" text-anchor="middle" font-size="10" fill="currentColor">y responde</text>
+</svg>`},
+{n:5,t:"Principios generales",ubic:"Título I (Transparencia de la actividad pública) ▸ Capítulo II (Publicidad activa)",idea:"Publicar de forma periódica, clara, accesible, gratuita y reutilizable, con límites.",literal:`<p>1. Los sujetos enumerados en el artículo 2.1 publicarán de forma periódica y actualizada la información cuyo conocimiento sea relevante para garantizar la transparencia de su actividad relacionada con el funcionamiento y control de la actuación pública.</p><p>2. Las obligaciones de transparencia contenidas en este capítulo se entienden sin perjuicio de la aplicación de la normativa autonómica correspondiente o de otras disposiciones específicas que prevean un régimen más amplio en materia de publicidad.</p><p>3. Serán de aplicación, en su caso, los límites al derecho de acceso a la información pública previstos en el artículo 14 y, especialmente, el derivado de la protección de datos de carácter personal, regulado en el artículo 15. A este respecto, cuando la información contuviera datos especialmente protegidos, la publicidad sólo se llevará a cabo previa disociación de los mismos.</p><p>4. La información sujeta a las obligaciones de transparencia será publicada en las correspondientes sedes electrónicas o páginas web y de una manera clara, estructurada y entendible para los interesados y, preferiblemente, en formatos reutilizables. Se establecerán los mecanismos adecuados para facilitar la accesibilidad, la interoperabilidad, la calidad y la reutilización de la información publicada así como su identificación y localización.</p><p>Cuando se trate de entidades sin ánimo de lucro que persigan exclusivamente fines de interés social o cultural y cuyo presupuesto sea inferior a 50.000 euros, el cumplimiento de las obligaciones derivadas de esta Ley podrá realizarse utilizando los medios electrónicos puestos a su disposición por la Administración Pública de la que provenga la mayor parte de las ayudas o subvenciones públicas percibidas.</p><p>5. Toda la información será comprensible, de acceso fácil y gratuito y estará a disposición de las personas con discapacidad en una modalidad suministrada por medios o</p><p>en formatos adecuados de manera que resulten accesibles y comprensibles, conforme al principio de accesibilidad universal y diseño para todos.</p>`,dis:`<ul>
+<li><b>5.1 — deber:</b> los sujetos del art. 2.1 publicarán <b>de forma periódica y actualizada</b> la información cuyo conocimiento sea <b>relevante para garantizar la transparencia</b> de su actividad relacionada con el <b>funcionamiento y control</b> de la actuación pública.</li>
+<li><b>5.2 — suelo, no techo:</b> estas obligaciones se entienden <b>sin perjuicio</b> de la normativa autonómica u otras disposiciones que prevean un <b>régimen más amplio</b> de publicidad.</li>
+<li><b>5.3 — límites:</b> se aplican los <b>límites del art. 14</b> y, especialmente, la <b>protección de datos personales del art. 15</b>. Si la información contuviera <b>datos especialmente protegidos</b>, la publicidad solo se llevará a cabo <b>previa <span class="t" data-k="disociacion">disociación</span></b>.</li>
+<li><b>5.4 — forma:</b> publicación en <span class="t" data-k="sedeelec">sedes electrónicas</span> o páginas web, de manera <b>clara, estructurada y entendible</b> y <b>preferiblemente en formatos reutilizables</b>. Para entidades sin ánimo de lucro con fines de interés social o cultural y presupuesto <b>inferior a 50.000 €</b>, cabe cumplir a través de los medios electrónicos de la Administración de la que provenga la mayor parte de sus ayudas.</li>
+<li><b>5.5 — accesibilidad:</b> información <b>comprensible, de acceso fácil y gratuito</b> y disponible para personas con discapacidad conforme al principio de <b>accesibilidad universal y diseño para todos</b>.</li>
+</ul>`,llano:`<p>Publicar no es colgar un PDF ilegible en una esquina de la web. La ley exige que la información esté actualizada, se entienda, se encuentre, sea gratuita, esté disponible para personas con discapacidad y, a ser posible, en formatos que otros puedan reutilizar. Y si contiene datos personales especialmente protegidos, hay que anonimizarla antes.</p>`,porque:`<p>La experiencia comparada demostró que la transparencia se puede vaciar por la vía de la <b>forma</b>: publicando tarde, en formatos cerrados o en un laberinto de enlaces. Por eso la ley regula no solo <i>qué</i> se publica, sino <i>cómo</i>. Y la regla del apartado 2 es clave en Andalucía: la ley estatal es un <b>mínimo</b> que la ley autonómica amplía.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> un menú de restaurante escrito con letra legible y precios visibles, no en una pizarra borrosa dentro de la cocina.</li>
+<li><b>Real:</b> un ayuntamiento publica sus contratos en formato CSV reutilizable, con buscador y sin necesidad de registrarse ni pagar.</li>
+<li><b>Caso límite:</b> una asociación cultural sin ánimo de lucro con presupuesto de 30.000 € puede cumplir sus obligaciones utilizando los medios electrónicos del ayuntamiento que la subvenciona (art. 5.4).</li>
+</ul>`,noej:`<ul>
+<li><b>No cumple</b> quien publica información desactualizada o en formatos inaccesibles.</li>
+<li><b>No cabe</b> cobrar por el acceso a la información sujeta a publicidad activa: es <b>gratuito</b>.</li>
+<li><b>No puede</b> publicarse información con datos especialmente protegidos sin disociación previa.</li>
+</ul>`,conex:`<ul>
+<li><b>Arts. 14 y 15 LTBG:</b> límites y protección de datos.</li>
+<li><b>Art. 11 LTBG:</b> principios técnicos de la publicación.</li>
+<li><b>Art. 9 de la Ley 1/2014 de Andalucía</b> (documento 9): normas generales de publicidad activa, con exigencias adicionales.</li>
+<li><b>RD 203/2021</b> (documento 4): sedes electrónicas y accesibilidad.</li>
+</ul>`,trampas:`<ul>
+<li>La publicación es <b>periódica y actualizada</b>, y de la información <b>relevante</b>.</li>
+<li>El acceso es <b>fácil y gratuito</b>: no cabe exigir registro previo ni pago.</li>
+<li>El umbral de las entidades sin ánimo de lucro es de <b>50.000 €</b> de presupuesto.</li>
+<li>La ley estatal es un <b>mínimo</b>: la autonómica puede ampliar (art. 5.2).</li>
+</ul>`,ancla:`<p><b>"Periódica, clara, gratis y reutilizable."</b> Y si hay datos sensibles, <b>primero se disocia</b>.</p>`,vis:`<svg viewBox="0 0 640 160" role="img" aria-label="Principios generales de la publicidad activa">
+<rect x="185" y="10" width="270" height="32" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">PUBLICIDAD ACTIVA</text>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="15" y="58" width="145" height="52" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="87" y="80" font-weight="700">Periódica</text><text x="87" y="97">y actualizada</text>
+<rect x="172" y="58" width="145" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="244" y="80" font-weight="700">Clara y estructurada</text><text x="244" y="97">en sede electrónica</text>
+<rect x="329" y="58" width="145" height="52" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/><text x="401" y="80" font-weight="700">Fácil y gratuita</text><text x="401" y="97">y accesible</text>
+<rect x="486" y="58" width="139" height="52" rx="8" fill="var(--panel)" stroke="var(--line)"/><text x="555" y="80" font-weight="700">Reutilizable</text><text x="555" y="97">preferiblemente</text>
+</g>
+<text x="320" y="135" text-anchor="middle" font-size="10" fill="var(--exc)">Límites de los arts. 14 y 15 · datos especialmente protegidos, solo previa disociación</text>
+<text x="320" y="152" text-anchor="middle" font-size="10" fill="var(--ink2)">La ley estatal es un mínimo: la normativa autonómica puede ampliarlo (5.2)</text>
+</svg>`},
+{n:6,t:"Información institucional, organizativa y de planificación",ubic:"Título I (Transparencia de la actividad pública) ▸ Capítulo II (Publicidad activa)",idea:"Publicar funciones, normativa, estructura con organigrama y los planes con su evaluación.",literal:`<p>1. Los sujetos comprendidos en el ámbito de aplicación de este título publicarán información relativa a las funciones que desarrollan, la normativa que les sea de aplicación así como a su estructura organizativa. A estos efectos, incluirán un organigrama actualizado que identifique a los responsables de los diferentes órganos y su perfil y trayectoria profesional.</p><p>2. Las Administraciones Públicas publicarán los planes y programas anuales y plurianuales en los que se fijen objetivos concretos, así como las actividades, medios y tiempo previsto para su consecución. Su grado de cumplimiento y resultados deberán ser objeto de evaluación y publicación periódica junto con los indicadores de medida y valoración, en la forma en que se determine por cada Administración competente.</p><p>En el ámbito de la Administración General del Estado corresponde a las inspecciones generales de servicios la evaluación del cumplimiento de estos planes y programas.</p>`,dis:`<ul>
+<li><b>6.1 — todos los sujetos del título:</b> publicarán información sobre <b>funciones</b> que desarrollan, <b>normativa</b> aplicable y <b>estructura organizativa</b>, incluyendo un <b>organigrama actualizado</b> que identifique a los responsables de los distintos órganos y <b>su perfil y trayectoria profesional</b>.</li>
+<li><b>6.2 — solo las Administraciones Públicas</b> (letras a a d del art. 2.1): publicarán los <b>planes y programas anuales y plurianuales</b> con objetivos concretos, actividades, medios y tiempo previsto. Su <b>grado de cumplimiento y resultados</b> deben ser objeto de <b>evaluación y publicación periódica</b> junto con los indicadores de medida y valoración.</li>
+</ul>`,llano:`<p>Lo primero que hay que poder saber de una Administración es quién es quién y qué hace: funciones, normas que le aplican y organigrama con nombres y trayectorias. Y además, si tiene planes, debe publicarlos y contar después si los ha cumplido.</p>`,porque:`<p>Sin conocer la <b>estructura</b>, el ciudadano no sabe a quién dirigirse ni quién responde de qué: la transparencia empieza por poder identificar al responsable. La obligación de publicar los planes <b>y su evaluación</b> introduce un elemento de rendición de cuentas por resultados, no solo por legalidad.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el directorio de una empresa en su web, con nombres, cargos y responsabilidades.</li>
+<li><b>Real:</b> un ayuntamiento publica su organigrama con las delegaciones, el perfil profesional de cada responsable y el plan estratégico municipal con sus indicadores de cumplimiento.</li>
+<li><b>Caso límite:</b> una sociedad mercantil pública debe publicar funciones, normativa y organigrama (6.1), pero <b>no</b> los planes y programas del 6.2, reservado a las Administraciones Públicas.</li>
+</ul>`,noej:`<ul>
+<li><b>No basta</b> con publicar el organigrama: debe estar <b>actualizado</b> e incluir el <b>perfil y la trayectoria</b> de los responsables.</li>
+<li><b>No alcanza</b> el 6.2 a los sujetos de las letras e) a i) del art. 2.1.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 2.2 LTBG:</b> concepto restringido de Administraciones Públicas, clave para el 6.2.</li>
+<li><b>Arts. 10 y 12 de la Ley 1/2014 de Andalucía</b> (documento 9): información institucional y sobre planificación, con mayor detalle.</li>
+<li><b>Art. 8.1 de la Ley 38/2003</b> (documento 8): plan estratégico de subvenciones, uno de los planes publicables.</li>
+</ul>`,trampas:`<ul>
+<li>El <b>6.1</b> obliga a todos los sujetos del título; el <b>6.2</b>, solo a las <b>Administraciones Públicas</b>.</li>
+<li>El organigrama debe incluir <b>perfil y trayectoria profesional</b> de los responsables.</li>
+<li>Los planes exigen <b>evaluación y publicación periódica</b> de su grado de cumplimiento.</li>
+</ul>`,ancla:`<p><b>"Qué hago, con qué normas, quién soy y qué me propongo."</b> Y del plan, <b>cuánto he cumplido</b>.</p>`,vis:`<svg viewBox="0 0 640 140" role="img" aria-label="Información institucional, organizativa y de planificación">
+<rect x="25" y="30" width="280" height="80" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="165" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">6.1 · Todos los sujetos</text>
+<text x="165" y="72" text-anchor="middle" font-size="10" fill="currentColor">funciones · normativa · estructura</text>
+<text x="165" y="90" text-anchor="middle" font-size="10" fill="currentColor">organigrama con perfil y trayectoria</text>
+<rect x="335" y="30" width="280" height="80" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="475" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">6.2 · Solo Administraciones Públicas</text>
+<text x="475" y="72" text-anchor="middle" font-size="10" fill="currentColor">planes y programas anuales y plurianuales</text>
+<text x="475" y="90" text-anchor="middle" font-size="10" fill="currentColor">con evaluación e indicadores</text>
+</svg>`},
+{n:7,t:"Información de relevancia jurídica",ubic:"Título I (Transparencia de la actividad pública) ▸ Capítulo II (Publicidad activa)",idea:"Las Administraciones publican lo jurídico: instrucciones, anteproyectos, reglamentos y memorias.",literal:`<p>Las Administraciones Públicas, en el ámbito de sus competencias, publicarán:</p><p>a) Las directrices, instrucciones, acuerdos, circulares o respuestas a consultas planteadas por los particulares u otros órganos en la medida en que supongan una interpretación del Derecho o tengan efectos jurídicos.</p><p>b) Los Anteproyectos de Ley y los proyectos de Decretos Legislativos cuya iniciativa les corresponda, cuando se soliciten los dictámenes a los órganos consultivos correspondientes. En el caso en que no sea preceptivo ningún dictamen la publicación se realizará en el momento de su aprobación.</p><p>c) Los proyectos de Reglamentos cuya iniciativa les corresponda. Cuando sea preceptiva la solicitud de dictámenes, la publicación se producirá una vez que estos hayan sido solicitados a los órganos consultivos correspondientes sin que ello suponga, necesariamente, la apertura de un trámite de audiencia pública.</p><p>d) Las memorias e informes que conformen los expedientes de elaboración de los textos normativos, en particular, la memoria del análisis de impacto normativo regulada por el Real Decreto 1083/2009, de 3 de julio.</p><p>e) Los documentos que, conforme a la legislación sectorial vigente, deban ser sometidos a un período de información pública durante su tramitación.</p>`,dis:`<p><b>Sujetos:</b> solo las <b>Administraciones Públicas</b>, en el ámbito de sus competencias.</p>
+<table><thead><tr><th>Letra</th><th>Información de relevancia jurídica</th></tr></thead><tbody>
+<tr><td><b>a)</b></td><td><b>Directrices, instrucciones, acuerdos, circulares o respuestas a consultas</b> en la medida en que supongan una <b>interpretación del Derecho</b> o tengan efectos jurídicos</td></tr>
+<tr><td><b>b)</b></td><td><b>Anteproyectos de Ley</b> y proyectos de <b>Decretos Legislativos</b>, cuando se soliciten los dictámenes a los órganos consultivos; si no es preceptivo ningún dictamen, en el momento de su aprobación</td></tr>
+<tr><td><b>c)</b></td><td><b>Proyectos de Reglamentos</b>; si es preceptivo el dictamen, una vez solicitado, sin que ello suponga necesariamente apertura de audiencia pública</td></tr>
+<tr><td><b>d)</b></td><td><b>Memorias e informes</b> de los expedientes de elaboración normativa, en particular la <b>memoria del análisis de impacto normativo</b></td></tr>
+<tr><td><b>e)</b></td><td>Los documentos que deban someterse a <b>información pública</b> durante su tramitación</td></tr>
+</tbody></table>`,llano:`<p>Las normas no aparecen de la nada: antes hay borradores, informes y criterios internos que condicionan cómo se aplica el Derecho. Este artículo obliga a enseñar esa cocina: las instrucciones que interpretan la norma, los borradores de leyes y reglamentos y las memorias que los justifican.</p>`,porque:`<p>La letra a) es la más relevante en la práctica: una <b>instrucción interna</b> puede determinar cómo se resuelven miles de expedientes y, sin publicidad, el ciudadano se enfrenta a criterios que desconoce. Publicar los proyectos normativos, por su parte, permite la <b>participación</b> antes de que la norma esté cerrada, que es cuando sirve de algo.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> las reglas internas con las que un árbitro interpreta el reglamento: si no se conocen, nadie puede jugar con seguridad.</li>
+<li><b>Real:</b> un ayuntamiento publica la instrucción de la Intervención sobre tramitación de facturas y el proyecto de ordenanza de terrazas con su memoria justificativa.</li>
+<li><b>Caso límite:</b> una nota interna de organización del trabajo, sin interpretación del Derecho ni efectos jurídicos, no entra en la letra a).</li>
+</ul>`,noej:`<ul>
+<li><b>No obliga</b> este artículo a los sujetos de las letras e) a i) del art. 2.1: solo a las Administraciones Públicas.</li>
+<li><b>No implica</b> la publicación del proyecto de reglamento la apertura automática de un trámite de audiencia pública.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 13 de la Ley 1/2014 de Andalucía</b> (documento 9): información de relevancia jurídica, con contenido propio.</li>
+<li><b>Arts. 129 a 133 de la Ley 39/2015</b> (documento 1): principios de buena regulación y participación en la elaboración de normas.</li>
+<li><b>Art. 45 de la Ley 39/2015:</b> publicación de actos y disposiciones.</li>
+</ul>`,trampas:`<ul>
+<li>La letra a) exige que supongan <b>interpretación del Derecho</b> o tengan <b>efectos jurídicos</b>: no toda circular se publica.</li>
+<li>El momento de publicación de anteproyectos y reglamentos se vincula a la <b>solicitud del dictamen</b>.</li>
+<li>Solo obliga a las <b>Administraciones Públicas</b>.</li>
+</ul>`,ancla:`<p><b>"Lo que interpreta y lo que está en el horno."</b> Instrucciones con efectos, borradores normativos y sus memorias.</p>`,vis:`<svg viewBox="0 0 640 145" role="img" aria-label="Información de relevancia jurídica">
+<rect x="150" y="12" width="340" height="32" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Solo las Administraciones Públicas (letras a a d del art. 2.1)</text>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="20" y="58" width="185" height="60" rx="8" fill="var(--panel)" stroke="var(--line)"/><text x="112" y="80" font-weight="700">a) Criterios interpretativos</text><text x="112" y="98">instrucciones, circulares, consultas</text>
+<rect x="227" y="58" width="185" height="60" rx="8" fill="var(--panel)" stroke="var(--line)"/><text x="320" y="80" font-weight="700">b) y c) Proyectos normativos</text><text x="320" y="98">anteproyectos y reglamentos</text>
+<rect x="434" y="58" width="186" height="60" rx="8" fill="var(--panel)" stroke="var(--line)"/><text x="527" y="80" font-weight="700">d) y e) Memorias</text><text x="527" y="98">e informes y documentos a información pública</text>
+</g>
+</svg>`},
+{n:8,t:"Información económica, presupuestaria y estadística",ubic:"Título I (Transparencia de la actividad pública) ▸ Capítulo II (Publicidad activa)",idea:"El bloque económico: contratos, convenios, subvenciones, presupuestos, cuentas y retribuciones.",literal:`<p>1. Teniendo en cuenta las competencias legislativas de las Comunidades Autónomas, los sujetos incluidos en el ámbito de aplicación de este título deberán hacer pública, como mínimo, la información relativa a los actos de gestión administrativa con repercusión económica o presupuestaria que se indican a continuación:</p><p>a) Todos los contratos, con indicación del objeto, duración, el importe de la licitación y de adjudicación, el procedimiento utilizado para su celebración, los instrumentos a través de los que, en su caso, se ha publicitado, el número de licitadores participantes en el procedimiento y la identidad del adjudicatario, así como las modificaciones del contrato. Igualmente serán objeto de publicación las decisiones de desistimiento y renuncia de los contratos. La publicación de la información relativa a los contratos menores podrá realizarse trimestralmente.</p><p>Asimismo, se publicarán datos estadísticos sobre el porcentaje en volumen presupuestario de contratos adjudicados a través de cada uno de los procedimientos previstos en la legislación de contratos del sector público.</p><p>Además, se publicará información estadística sobre el porcentaje de participación en contratos adjudicados, tanto en relación con su número como en relación con su valor, de la categoría de microempresas, pequeñas y medianas empresas (pymes), entendidas como tal según el anexo I del Reglamento (UE) n.º 651/2014 de la Comisión, de 17 de junio de 2014, para cada uno de los procedimientos y tipologías previstas en la legislación de contratos del sector público. La publicación de esta información se realizará semestralmente, a partir de un año de la publicación de la norma.</p><p>b) La relación de los convenios suscritos, con mención de las partes firmantes, su objeto, plazo de duración, modificaciones realizadas, obligados a la realización de las prestaciones y, en su caso, las obligaciones económicas convenidas. Igualmente, se publicarán las encomiendas de gestión que se firmen, con indicación de su objeto, presupuesto, duración, obligaciones económicas y las subcontrataciones que se realicen con mención de los adjudicatarios, procedimiento seguido para la adjudicación e importe de la misma.</p><p>c) Las subvenciones y ayudas públicas concedidas con indicación de su importe, objetivo o finalidad y beneficiarios.</p><p>d) Los presupuestos, con descripción de las principales partidas presupuestarias e información actualizada y comprensible sobre su estado de ejecución y sobre el cumplimiento de los objetivos de estabilidad presupuestaria y sostenibilidad financiera de las Administraciones Públicas.</p><p>e) Las cuentas anuales que deban rendirse y los informes de auditoría de cuentas y de fiscalización por parte de los órganos de control externo que sobre ellos se emitan.</p><p>f) Las retribuciones percibidas anualmente por los altos cargos y máximos responsables de las entidades incluidas en el ámbito de la aplicación de este título. Igualmente, se harán públicas las indemnizaciones percibidas, en su caso, con ocasión del abandono del cargo.</p><p>g) Las resoluciones de autorización o reconocimiento de compatibilidad que afecten a los empleados públicos así como las que autoricen el ejercicio de actividad privada al cese de los altos cargos de la Administración General del Estado o asimilados según la normativa autonómica o local.</p><p>h) Las declaraciones anuales de bienes y actividades de los representantes locales, en los términos previstos en la Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local. Cuando el reglamento no fije los términos en que han de hacerse públicas estas declaraciones se aplicará lo dispuesto en la normativa de conflictos de intereses en el ámbito de la Administración General del Estado. En todo caso, se omitirán los datos relativos a la localización concreta de los bienes inmuebles y se garantizará la privacidad y seguridad de sus titulares.</p><p>i) La información estadística necesaria para valorar el grado de cumplimiento y calidad de los servicios públicos que sean de su competencia, en los términos que defina cada administración competente.</p><p>2. Los sujetos mencionados en el artículo 3 deberán publicar la información a la que se refieren las letras a) y b) del apartado primero de este artículo cuando se trate de contratos o convenios celebrados con una Administración Pública. Asimismo, habrán de publicar la información prevista en la letra c) en relación a las subvenciones que reciban cuando el órgano concedente sea una Administración Pública.</p><p>3. Las Administraciones Públicas publicarán la relación de los bienes inmuebles que sean de su propiedad o sobre los que ostenten algún derecho real.</p>`,dis:`<table><thead><tr><th>Letra</th><th>Qué debe publicarse (art. 8.1)</th></tr></thead><tbody>
+<tr><td><b>a)</b></td><td><b>Todos los contratos</b>: objeto, duración, importe de licitación y de adjudicación, procedimiento, instrumentos de publicidad, número de licitadores e identidad del adjudicatario; modificaciones; datos estadísticos por procedimiento y participación de <b>pymes</b></td></tr>
+<tr><td><b>b)</b></td><td>Relación de <b>convenios</b>, con partes, objeto, plazo, modificaciones y obligaciones económicas; y las <b>encomiendas de gestión</b></td></tr>
+<tr><td><b>c)</b></td><td><b>Subvenciones y ayudas públicas</b> concedidas, con importe, objetivo o finalidad y beneficiarios</td></tr>
+<tr><td><b>d)</b></td><td>Los <b>presupuestos</b>, con las principales partidas e información actualizada sobre su <b>ejecución</b> y sobre el cumplimiento de los objetivos de <b>estabilidad presupuestaria</b></td></tr>
+<tr><td><b>e)</b></td><td>Las <b>cuentas anuales</b> y los informes de <b>auditoría y de fiscalización</b> de los órganos de control externo</td></tr>
+<tr><td><b>f)</b></td><td><b>Retribuciones</b> anuales de <span class="t" data-k="altocargo">altos cargos</span> y máximos responsables, e <b>indemnizaciones</b> por abandono del cargo</td></tr>
+<tr><td><b>g)</b></td><td>Resoluciones de <b>compatibilidad</b> de empleados públicos y las que autoricen actividad privada tras el cese de altos cargos</td></tr>
+<tr><td><b>h)</b></td><td><b>Declaraciones anuales de bienes y actividades</b> de los representantes locales, en los términos de la <b>LBRL</b></td></tr>
+<tr><td><b>i)</b></td><td><b>Información estadística</b> sobre el grado de cumplimiento y calidad de los servicios públicos</td></tr>
+</tbody></table>
+<ul>
+<li><b>8.2:</b> los sujetos del <b>art. 3</b> publican lo relativo a <b>contratos y convenios</b> celebrados con una Administración Pública y las subvenciones que reciban.</li>
+<li><b>8.3:</b> las <b>Administraciones Públicas</b> publicarán la relación de sus <b>bienes inmuebles</b> en propiedad o sobre los que ostenten un derecho real.</li>
+</ul>`,llano:`<p>Es el artículo estrella para una entidad local: todos los contratos con sus datos, los convenios, las subvenciones concedidas, el presupuesto y su ejecución, las cuentas y los informes de fiscalización, lo que cobran los cargos, las compatibilidades, las declaraciones de bienes de los concejales y los inmuebles municipales.</p>`,porque:`<p>El dinero es donde la opacidad más daño hace, y por eso este artículo es el más detallado de la ley. Obliga a publicar no solo la decisión —el contrato adjudicado— sino los <b>datos que permiten evaluarla</b>: cuántos licitadores hubo, por qué procedimiento, con qué modificaciones. Esa granularidad es lo que convierte la publicación en control efectivo.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> las cuentas de una comunidad de vecinos con el detalle de cada contrato y de lo que cobra el administrador.</li>
+<li><b>Real:</b> un ayuntamiento publica la relación de contratos menores del trimestre, los convenios con asociaciones, las subvenciones concedidas con beneficiarios e importes, el estado de ejecución presupuestaria y las retribuciones del alcalde y los concejales con dedicación.</li>
+<li><b>Caso límite:</b> una entidad privada del art. 3 publica solo sus contratos y convenios con la Administración y las subvenciones recibidas, no todo su presupuesto.</li>
+</ul>`,noej:`<ul>
+<li><b>No se limita</b> la letra a) a los contratos mayores: dice <b>todos los contratos</b>.</li>
+<li><b>No corresponde</b> el 8.3 a las sociedades ni fundaciones públicas: es obligación de las <b>Administraciones Públicas</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Arts. 63 y 154 de la Ley 9/2017</b> (documento 7): perfil de contratante y publicidad de la formalización.</li>
+<li><b>Arts. 18 y 20 de la Ley 38/2003</b> (documento 8): publicidad de subvenciones y BDNS.</li>
+<li><b>Arts. 169 y 212 del TRLHL</b> (documento 5): publicación del presupuesto y de la cuenta general.</li>
+<li><b>Arts. 15 y 16 de la Ley 1/2014 de Andalucía</b> (documento 9): equivalentes autonómicos.</li>
+</ul>`,trampas:`<ul>
+<li>La letra a) alcanza a <b>todos</b> los contratos e incluye estadísticas de <b>pymes</b>.</li>
+<li>Las <b>encomiendas de gestión</b> se publican junto con los convenios (letra b).</li>
+<li>Las <b>declaraciones de bienes</b> de los representantes locales se publican en los términos de la <b>LBRL</b>.</li>
+<li>La relación de <b>bienes inmuebles</b> (8.3) solo obliga a las Administraciones Públicas.</li>
+</ul>`,ancla:`<p><b>"Contratos, convenios, subvenciones, presupuesto, cuentas, sueldos, compatibilidades, bienes y estadística."</b> Nueve letras, todas de dinero o de poder.</p>`,vis:`<svg viewBox="0 0 640 170" role="img" aria-label="Información económica, presupuestaria y estadística">
+<rect x="180" y="10" width="280" height="32" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">ART. 8 · EL BLOQUE ECONÓMICO</text>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="15" y="56" width="195" height="52" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="112" y="78" font-weight="700">Gasto contratado</text><text x="112" y="95">a) contratos · b) convenios · c) subvenciones</text>
+<rect x="222" y="56" width="195" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="320" y="78" font-weight="700">Cuentas</text><text x="320" y="95">d) presupuestos · e) cuentas y auditorías</text>
+<rect x="429" y="56" width="196" height="52" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/><text x="527" y="78" font-weight="700">Personas</text><text x="527" y="95">f) retribuciones · g) compatibilidades · h) bienes</text>
+</g>
+<text x="320" y="132" text-anchor="middle" font-size="10" fill="currentColor">i) Información estadística sobre cumplimiento y calidad de los servicios</text>
+<text x="320" y="152" text-anchor="middle" font-size="10" fill="var(--ink2)">8.3 · Las Administraciones Públicas publican además la relación de sus bienes inmuebles</text>
+</svg>`},
+{n:9,t:"Control",ubic:"Título I (Transparencia de la actividad pública) ▸ Capítulo II (Publicidad activa)",idea:"El Consejo controla el cumplimiento y el incumplimiento reiterado es infracción grave.",literal:`<p>1. El cumplimiento por la Administración General del Estado de las obligaciones contenidas en este capítulo será objeto de control por parte del Consejo de Transparencia y Buen Gobierno.</p><p>2. En ejercicio de la competencia prevista en el apartado anterior, el Consejo de Transparencia y Buen Gobierno, de acuerdo con el procedimiento que se prevea reglamentariamente, podrá dictar resoluciones en las que se establezcan las medidas que</p><p>sea necesario adoptar para el cese del incumplimiento y el inicio de las actuaciones disciplinarias que procedan.</p><p>3. El incumplimiento reiterado de las obligaciones de publicidad activa reguladas en este capítulo tendrá la consideración de infracción grave a los efectos de aplicación a sus responsables del régimen disciplinario previsto en la correspondiente normativa reguladora.</p>`,dis:`<ul>
+<li><b>9.1:</b> el cumplimiento por la <b>AGE</b> de las obligaciones de publicidad activa es objeto de control por el <span class="t" data-k="consejotbg">Consejo de Transparencia y Buen Gobierno</span>.</li>
+<li><b>9.2:</b> el Consejo puede dictar <b>resoluciones</b> que establezcan las medidas necesarias para el <b>cese del incumplimiento</b> y el <b>inicio de las actuaciones disciplinarias</b> que procedan.</li>
+<li><b>9.3:</b> el <b>incumplimiento reiterado</b> de las obligaciones de publicidad activa tiene la consideración de <b>infracción grave</b> a efectos disciplinarios.</li>
+</ul>`,llano:`<p>Las obligaciones de publicar no se quedan en una declaración de intenciones: hay un organismo que vigila, puede exigir que se corrija y puede pedir que se abra expediente disciplinario. Y si el incumplimiento se repite, es falta grave.</p>`,porque:`<p>Una obligación sin consecuencia es una recomendación. El art. 9 cierra el sistema: control externo por un organismo independiente y calificación del incumplimiento reiterado como <b>infracción grave</b>. Nótese el alcance del apartado 1: el control del Consejo se refiere a la <b>AGE</b>; en las comunidades autónomas y entidades locales el control corresponde a los órganos autonómicos, salvo convenio de atribución.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el organismo que inspecciona si un comercio tiene la lista de precios a la vista y puede sancionar si reincide.</li>
+<li><b>Real:</b> en Andalucía, el control del cumplimiento de la publicidad activa corresponde al <b>Consejo de Transparencia y Protección de Datos de Andalucía</b> (arts. 23 y 43 de la Ley 1/2014).</li>
+<li><b>Caso límite:</b> un incumplimiento aislado no es infracción grave por este artículo: la ley exige que sea <b>reiterado</b>.</li>
+</ul>`,noej:`<ul>
+<li><b>No sanciona</b> directamente el Consejo por esta vía: insta el inicio de actuaciones disciplinarias.</li>
+<li><b>No alcanza</b> el control del 9.1 a las entidades locales andaluzas: ahí interviene el Consejo autonómico.</li>
+</ul>`,conex:`<ul>
+<li><b>Arts. 33 a 40 LTBG:</b> Consejo de Transparencia y Buen Gobierno.</li>
+<li><b>Arts. 23 y 43 y ss. de la Ley 1/2014</b> (documento 9): control y Consejo andaluz.</li>
+<li><b>Arts. 52 a 56 de la Ley 1/2014:</b> régimen sancionador autonómico, que sí prevé sanciones propias.</li>
+</ul>`,trampas:`<ul>
+<li>El apartado 1 se refiere al cumplimiento por la <b>Administración General del Estado</b>.</li>
+<li>La infracción es grave solo si el incumplimiento es <b>reiterado</b>.</li>
+</ul>`,ancla:`<p><b>"Vigila el Consejo; si reincides, falta grave."</b></p>`,vis:`<svg viewBox="0 0 640 125" role="img" aria-label="Control del cumplimiento de la publicidad activa">
+<defs><marker id="c9" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="30" y="35" width="180" height="52" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="120" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Consejo de Transparencia</text>
+<text x="120" y="76" text-anchor="middle" font-size="10" fill="currentColor">controla el cumplimiento</text>
+<path d="M213 61 L 253 61" stroke="var(--acc)" stroke-width="2" marker-end="url(#c9)"/>
+<rect x="257" y="35" width="180" height="52" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="347" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Resoluciones</text>
+<text x="347" y="76" text-anchor="middle" font-size="10" fill="currentColor">medidas de cese e inicio disciplinario</text>
+<path d="M440 61 L 480 61" stroke="var(--acc)" stroke-width="2" marker-end="url(#c9)"/>
+<rect x="484" y="35" width="140" height="52" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="554" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">Incumplimiento</text>
+<text x="554" y="76" text-anchor="middle" font-size="10" fill="currentColor">reiterado: falta grave</text>
+</svg>`},
+{n:10,t:"Portal de la Transparencia",ubic:"Título I (Transparencia de la actividad pública) ▸ Capítulo II (Publicidad activa)",idea:"El Portal de la Transparencia centraliza la información de la Administración del Estado.",literal:`<p>1. La Administración General del Estado desarrollará un Portal de la Transparencia, dependiente del Ministerio de la Presidencia, que facilitará el acceso de los ciudadanos a toda la información a la que se refieren los artículos anteriores relativa a su ámbito de actuación.</p><p>2. El Portal de la Transparencia incluirá, en los términos que se establezcan reglamentariamente, la información de la Administración General del Estado, cuyo acceso se solicite con mayor frecuencia.</p><p>3. La Administración General del Estado, las Administraciones de las Comunidades Autónomas y de las Ciudades de Ceuta y Melilla y las entidades que integran la Administración Local podrán adoptar otras medidas complementarias y de colaboración para el cumplimiento de las obligaciones de transparencia recogidas en este capítulo.</p>`,dis:`<ul>
+<li><b>10.1:</b> la <b>AGE</b> desarrollará un <span class="t" data-k="portal">Portal de la Transparencia</span>, dependiente del <b>Ministerio de la Presidencia</b>, que facilitará el acceso de los ciudadanos a toda la información de su ámbito de actuación.</li>
+<li><b>10.2:</b> incluirá, en los términos reglamentarios, la información de la AGE <b>cuyo acceso se solicite con mayor frecuencia</b>.</li>
+<li><b>10.3:</b> la AGE, las comunidades autónomas, Ceuta y Melilla y las entidades locales <b>podrán adoptar otras medidas complementarias y de colaboración</b> para el cumplimiento de las obligaciones de transparencia.</li>
+</ul>`,llano:`<p>Toda la información del Estado se concentra en una única ventanilla digital. Además, se publica de oficio lo que más se pide, para no tener que contestar mil veces a la misma pregunta. Y las demás Administraciones pueden colaborar y adherirse a soluciones comunes.</p>`,porque:`<p>La dispersión es enemiga de la transparencia: información publicada en cincuenta webs distintas equivale a información oculta. Y la regla del apartado 2 responde a una lógica de eficiencia administrativa: si una información se pide mucho, sale más barato publicarla que tramitar cada solicitud.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> la sección de preguntas frecuentes de una web, que evita repetir la misma respuesta.</li>
+<li><b>Real:</b> muchos ayuntamientos pequeños cumplen sus obligaciones adhiriéndose al portal de transparencia de su diputación provincial, al amparo del art. 10.3.</li>
+</ul>`,noej:`<ul>
+<li><b>No obliga</b> este artículo a las entidades locales a crear su propio portal: les permite adoptar medidas de colaboración.</li>
+<li><b>No sustituye</b> el Portal a las obligaciones de publicación de cada sujeto.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 11 LTBG:</b> principios técnicos del Portal.</li>
+<li><b>Art. 5.4 LTBG:</b> publicación en sedes electrónicas o páginas web.</li>
+<li><b>Arts. 18 y 20 de la Ley 1/2014 de Andalucía</b> (documento 9): acceso a la publicidad activa y reutilización.</li>
+</ul>`,trampas:`<ul>
+<li>El Portal depende del <b>Ministerio de la Presidencia</b> y se refiere a la <b>AGE</b>.</li>
+<li>La colaboración del 10.3 es <b>potestativa</b> ("podrán").</li>
+</ul>`,ancla:`<p><b>"Una ventanilla, y lo que más se pregunta, publicado de oficio."</b></p>`,vis:`<svg viewBox="0 0 640 120" role="img" aria-label="Portal de la Transparencia">
+<rect x="200" y="25" width="240" height="52" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">PORTAL DE LA TRANSPARENCIA</text>
+<text x="320" y="67" text-anchor="middle" font-size="10" fill="#fff">Ministerio de la Presidencia · ámbito AGE</text>
+<text x="320" y="98" text-anchor="middle" font-size="10" fill="currentColor">Incluye la información cuyo acceso se solicita con mayor frecuencia</text>
+<text x="320" y="114" text-anchor="middle" font-size="10" fill="var(--ink2)">Las demás Administraciones pueden adoptar medidas complementarias y de colaboración</text>
+</svg>`},
+{n:11,t:"Principios técnicos",ubic:"Título I (Transparencia de la actividad pública) ▸ Capítulo II (Publicidad activa)",idea:"Tres principios técnicos: accesibilidad, interoperabilidad y reutilización.",literal:`<p>El Portal de la Transparencia contendrá información publicada de acuerdo con las prescripciones técnicas que se establezcan reglamentariamente que deberán adecuarse a los siguientes principios:</p><p>a) Accesibilidad: se proporcionará información estructurada sobre los documentos y recursos de información con vistas a facilitar la identificación y búsqueda de la información.</p><p>b) Interoperabilidad: la información publicada será conforme al Esquema Nacional de Interoperabilidad, aprobado por el Real Decreto 4/2010, de 8 enero, así como a las normas técnicas de interoperabilidad.</p><p>c) Reutilización: se fomentará que la información sea publicada en formatos que permita su reutilización, de acuerdo con lo previsto en la Ley 37/2007, de 16 de noviembre, sobre reutilización de la información del sector público y en su normativa de desarrollo.</p>`,dis:`<table><thead><tr><th>Principio</th><th>Contenido</th></tr></thead><tbody>
+<tr><td><b>a) Accesibilidad</b></td><td>Información <b>estructurada</b> sobre documentos y recursos, para facilitar su <b>identificación y búsqueda</b></td></tr>
+<tr><td><b>b) <span class="t" data-k="interoperabilidad">Interoperabilidad</span></b></td><td>Conformidad con el <span class="t" data-k="esquemanac">Esquema Nacional de Interoperabilidad</span> y sus normas técnicas</td></tr>
+<tr><td><b>c) <span class="t" data-k="reutilizacion">Reutilización</span></b></td><td>Fomento de formatos que permitan reutilizar la información, conforme a la <b>Ley 37/2007</b> sobre reutilización de la información del sector público</td></tr>
+</tbody></table>`,llano:`<p>Tres exigencias técnicas para que la información publicada sirva de algo: que se pueda encontrar, que los sistemas se entiendan entre sí y que cualquiera pueda descargarla y trabajar con ella.</p>`,porque:`<p>Publicar en formato imagen o en documentos que impiden copiar el texto es una forma sofisticada de opacidad. Estos principios convierten la publicación en <b>datos utilizables</b>: es lo que permite que periodistas, investigadores o empresas puedan analizar la contratación pública o el gasto de una Administración.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> recibir una lista en hoja de cálculo en lugar de en una foto de un papel.</li>
+<li><b>Real:</b> publicar la relación de contratos en CSV o JSON descargable, con campos normalizados, en vez de un PDF escaneado.</li>
+</ul>`,noej:`<ul>
+<li><b>No cumple</b> el principio de reutilización un PDF que no permite extraer los datos.</li>
+<li><b>No basta</b> con publicar: hay que hacerlo de forma <b>estructurada</b> y conforme al Esquema Nacional de Interoperabilidad.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 5.4 LTBG:</b> formatos reutilizables y mecanismos de accesibilidad.</li>
+<li><b>Art. 19 de la Ley 1/2014 de Andalucía</b> (documento 9): reutilización de la información.</li>
+<li><b>RD 203/2021</b> (documento 4): actuación por medios electrónicos e interoperabilidad.</li>
+</ul>`,trampas:`<ul>
+<li>Son <b>tres</b> principios: accesibilidad, interoperabilidad y reutilización.</li>
+<li>La interoperabilidad se remite al <b>Esquema Nacional de Interoperabilidad</b>; la reutilización, a la <b>Ley 37/2007</b>.</li>
+</ul>`,ancla:`<p><b>"A-I-R":</b> <b>A</b>ccesibilidad · <b>I</b>nteroperabilidad · <b>R</b>eutilización. Que se encuentre, que se entienda y que se pueda usar.</p>`,vis:`<svg viewBox="0 0 640 125" role="img" aria-label="Principios técnicos de la publicación">
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="30" y="30" width="170" height="60" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="115" y="53" font-size="11" font-weight="700" fill="var(--acc)">Accesibilidad</text><text x="115" y="72">estructurada y localizable</text>
+<rect x="235" y="30" width="170" height="60" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="320" y="53" font-size="11" font-weight="700" fill="var(--ej)">Interoperabilidad</text><text x="320" y="72">Esquema Nacional</text>
+<rect x="440" y="30" width="170" height="60" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/><text x="525" y="53" font-size="11" font-weight="700" fill="var(--warn)">Reutilización</text><text x="525" y="72">Ley 37/2007</text>
+</g>
+<text x="320" y="112" text-anchor="middle" font-size="10" fill="var(--ink2)">Que se encuentre · que se entienda · que se pueda usar</text>
+</svg>`}];
+</script>
+<script>
+const PLAZOS=[["Más del 50 %", "Participación pública que sujeta a una sociedad mercantil", "Sociedades", "2.1.g) L19/2013", "Directa o indirecta"], ["Más de 100.000 €", "Ayudas o subvenciones anuales que sujetan a una entidad privada a publicidad activa", "Entidades privadas", "3.b) L19/2013", "Umbral alternativo"], ["40 % y 5.000 €", "Porcentaje de ingresos de origen público y mínimo absoluto", "Entidades privadas", "3.b) L19/2013", "Umbral alternativo al anterior"], ["50.000 €", "Presupuesto por debajo del cual las entidades sin ánimo de lucro pueden cumplir con medios ajenos", "Entidades sin ánimo de lucro", "5.4 L19/2013", "Fines de interés social o cultural"], ["Periódica y actualizada", "Frecuencia de la publicidad activa", "Sujetos obligados", "5.1 L19/2013", "Información relevante para el control de la actuación pública"], ["Gratuito", "Coste del acceso a la información publicada", "Ciudadanía", "5.5 L19/2013", "Fácil, comprensible y accesible"], ["Previa disociación", "Condición para publicar información con datos especialmente protegidos", "Sujetos obligados", "5.3 L19/2013", "Límites de los arts. 14 y 15"], ["Infracción grave", "Calificación del incumplimiento reiterado de la publicidad activa", "Responsables", "9.3 L19/2013", "A efectos disciplinarios"], ["Todos los contratos", "Alcance de la publicidad de la contratación", "Sujetos obligados", "8.1.a) L19/2013", "Con datos de licitadores, procedimiento y adjudicatario"], ["Bienes inmuebles", "Relación que publican solo las Administraciones Públicas", "AAPP", "8.3 L19/2013", "En propiedad o con derecho real"]];
+const FLASH=[["¿Cuáles son los tres objetos de la Ley 19/2013?", "Ampliar y reforzar la <b>transparencia</b>, regular y garantizar el <b>derecho de acceso</b> y establecer las obligaciones de <b>buen gobierno</b> y las consecuencias de su incumplimiento (art. 1)."], ["¿Qué entidades son «Administraciones Públicas» a efectos del Título I?", "Las de las letras <b>a) a d)</b> del art. 2.1: AGE, CCAA y entidades locales · Seguridad Social y mutuas · organismos, agencias y EPE · entidades de Derecho Público, incluidas las Universidades (art. 2.2)."], ["¿Cuándo queda sujeta una sociedad mercantil?", "Cuando la participación pública, directa o indirecta, sea <b>superior al 50 %</b> (art. 2.1.g)."], ["¿En qué medida quedan sujetos los colegios profesionales y las Cortes?", "Solo <b>en lo relativo a sus actividades sujetas a Derecho Administrativo</b> (art. 2.1.e y f)."], ["¿Qué sujetos del art. 3 quedan obligados y a qué?", "Partidos, sindicatos y organizaciones empresariales, y entidades privadas con ayudas superiores a <b>100.000 €</b> o con el <b>40 %</b> de sus ingresos de origen público (mínimo <b>5.000 €</b>). Solo al <b>capítulo II</b>, publicidad activa."], ["¿Qué obliga el art. 4?", "A quienes presten servicios públicos o ejerzan potestades administrativas, a <b>suministrar información</b> a la Administración a la que estén vinculados, <b>previo requerimiento</b>."], ["¿Cómo debe publicarse la información?", "De forma <b>periódica y actualizada</b>, en sedes electrónicas o webs, <b>clara, estructurada y entendible</b>, preferiblemente en <b>formatos reutilizables</b>, de acceso <b>fácil y gratuito</b> y accesible para personas con discapacidad (art. 5)."], ["¿Qué ocurre si la información contiene datos especialmente protegidos?", "La publicidad solo se lleva a cabo <b>previa disociación</b> de esos datos (art. 5.3)."], ["¿Es la ley estatal un techo para las comunidades autónomas?", "No: es un <b>mínimo</b>. Las obligaciones se entienden sin perjuicio de normativa que prevea un régimen <b>más amplio</b> (art. 5.2)."], ["¿Qué información institucional debe publicarse?", "Funciones, normativa aplicable y estructura organizativa, con <b>organigrama actualizado</b> que identifique a los responsables y su <b>perfil y trayectoria</b> (art. 6.1)."], ["¿Quién debe publicar los planes y programas y su evaluación?", "Solo las <b>Administraciones Públicas</b>, con objetivos, actividades, medios, tiempo e <b>indicadores</b> (art. 6.2)."], ["Cita tres contenidos de información de relevancia jurídica", "Directrices, instrucciones y circulares con efectos jurídicos · anteproyectos de ley y proyectos de reglamento · memorias e informes del expediente normativo (art. 7)."], ["¿Qué debe publicarse sobre contratos?", "<b>Todos</b> los contratos, con objeto, duración, importes de licitación y adjudicación, procedimiento, publicidad, número de licitadores, adjudicatario y modificaciones; más estadísticas por procedimiento y de pymes (art. 8.1.a)."], ["¿Qué información económica exige el art. 8 además de los contratos?", "Convenios y encomiendas · subvenciones y ayudas · presupuestos y su ejecución · cuentas anuales e informes de fiscalización · retribuciones e indemnizaciones de altos cargos · compatibilidades · declaraciones de bienes de representantes locales · estadística de servicios."], ["¿Quién publica la relación de bienes inmuebles?", "Las <b>Administraciones Públicas</b>, respecto de los que sean de su propiedad o sobre los que ostenten un derecho real (art. 8.3)."], ["¿Quién controla el cumplimiento de la publicidad activa en la AGE?", "El <b>Consejo de Transparencia y Buen Gobierno</b> (art. 9.1)."], ["¿Cómo se califica el incumplimiento reiterado de la publicidad activa?", "Como <b>infracción grave</b> a efectos disciplinarios (art. 9.3)."], ["¿De quién depende el Portal de la Transparencia?", "Del <b>Ministerio de la Presidencia</b>, en el ámbito de la Administración General del Estado (art. 10.1)."], ["¿Qué información incluye el Portal además de la obligatoria?", "La de la AGE <b>cuyo acceso se solicite con mayor frecuencia</b> (art. 10.2)."], ["Los tres principios técnicos del art. 11", "<b>Accesibilidad</b> · <b>interoperabilidad</b> (Esquema Nacional) · <b>reutilización</b> (Ley 37/2007)."]];
+const TEST=[{"a": 1, "q": "El objeto de la Ley 19/2013 comprende:", "o": [["ampliar la transparencia, garantizar el derecho de acceso y establecer obligaciones de buen gobierno y sus consecuencias", 1, "Correcto: art. 1, los tres objetos."], ["únicamente regular el derecho de acceso a la información pública", 0, "Faltarían la publicidad activa y el buen gobierno."], ["regular la protección de datos personales", 0, "No es su objeto, aunque la contempla como límite."], ["establecer el régimen de la administración electrónica", 0, "Esa materia corresponde a la Ley 39/2015 y al RD 203/2021."]]}, {"a": 2, "q": "Una sociedad mercantil queda sujeta al Título I de la Ley 19/2013 cuando la participación pública sea:", "o": [["superior al 50 %, directa o indirecta", 1, "Correcto: art. 2.1.g)."], ["igual o superior al 50 %", 0, "La ley exige participación <b>superior</b> al 50 %."], ["superior al 25 %", 0, "No es el umbral legal."], ["cualquiera, con tal de que exista participación pública", 0, "Se exige superar el 50 %."]]}, {"a": 2, "q": "El Congreso de los Diputados y los colegios profesionales quedan sujetos a la ley en toda su actividad.", "vf": true, "ok": false, "fb": "<b>Falso.</b> Las letras e) y f) del art. 2.1 los sujetan solo <b>en relación con sus actividades sujetas a Derecho Administrativo</b>."}, {"a": 3, "q": "Una entidad privada queda obligada a publicidad activa cuando:", "o": [["percibe más de 100.000 € en ayudas al año o el 40 % de sus ingresos son públicos, con un mínimo de 5.000 €", 1, "Correcto: art. 3.b). Los umbrales son alternativos."], ["percibe más de 100.000 € y además el 40 % de sus ingresos son públicos", 0, "No son acumulativos: basta con uno."], ["recibe cualquier subvención pública", 0, "Se exige superar alguno de los umbrales."], ["así lo acuerda la Administración concedente", 0, "La sujeción es legal, no convencional."]]}, {"a": 4, "q": "Completa: «Las personas que presten servicios públicos o ejerzan potestades administrativas estarán obligadas a suministrar toda la información necesaria, ______ requerimiento».", "gap": "previo", "fb": "<b>Previo</b> requerimiento (art. 4). La obligación no opera de oficio."}, {"a": 5, "q": "La información sujeta a publicidad activa debe publicarse:", "o": [["de forma periódica y actualizada, clara, estructurada, entendible y preferiblemente en formatos reutilizables", 1, "Correcto: art. 5.1 y 5.4."], ["una vez al año, en el boletín oficial", 0, "No es la forma ni el medio previstos."], ["previa solicitud de los interesados", 0, "Eso sería el derecho de acceso, no la publicidad activa."], ["previo pago de la tasa correspondiente", 0, "El acceso es <b>gratuito</b> (art. 5.5)."]]}, {"a": 5, "q": "Las obligaciones de transparencia de la ley estatal impiden que una comunidad autónoma establezca un régimen más amplio.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 5.2 dice que se entienden <b>sin perjuicio</b> de la normativa autonómica o de otras disposiciones que prevean un régimen <b>más amplio</b> de publicidad. La Ley 1/2014 de Andalucía lo amplía."}, {"a": 5, "q": "Cuando la información contenga datos especialmente protegidos:", "o": [["la publicidad solo se llevará a cabo previa disociación de los mismos", 1, "Correcto: art. 5.3."], ["se publicará íntegramente por primar la transparencia", 0, "No: prima la protección de los datos especialmente protegidos."], ["no se publicará en ningún caso, aunque puedan disociarse", 0, "Sí puede publicarse tras la disociación."], ["se publicará previa autorización del afectado en todo caso", 0, "La ley prevé la disociación, no la autorización."]]}, {"a": 6, "q": "La obligación de publicar planes y programas con sus indicadores de cumplimiento corresponde a:", "o": [["las Administraciones Públicas de las letras a) a d) del art. 2.1", 1, "Correcto: art. 6.2 en relación con el art. 2.2."], ["todos los sujetos del art. 2.1", 0, "El art. 6.2 se refiere solo a las Administraciones Públicas."], ["los partidos políticos y sindicatos", 0, "A estos se les aplica el capítulo II, pero no esta obligación específica."], ["únicamente a la Administración General del Estado", 0, "Alcanza a todas las Administraciones Públicas."]]}, {"a": 6, "q": "El organigrama que debe publicarse ha de identificar a los responsables e incluir su perfil y trayectoria profesional.", "vf": true, "ok": true, "fb": "<b>Verdadero</b> (art. 6.1). Debe estar además <b>actualizado</b>."}, {"a": 7, "q": "¿Cuál de estos contenidos es información de relevancia jurídica del art. 7?", "o": [["las instrucciones y circulares que supongan una interpretación del Derecho o tengan efectos jurídicos", 1, "Correcto: art. 7.a)."], ["las retribuciones de los altos cargos", 0, "Es información económica: art. 8.1.f)."], ["la relación de bienes inmuebles", 0, "Es información económica: art. 8.3."], ["el organigrama de la entidad", 0, "Es información institucional: art. 6.1."]]}, {"a": 8, "q": "Respecto de los contratos, la ley obliga a publicar:", "o": [["todos los contratos, con el número de licitadores y la identidad del adjudicatario, entre otros datos", 1, "Correcto: art. 8.1.a), que incluye también estadísticas por procedimiento y de pymes."], ["solo los contratos sujetos a regulación armonizada", 0, "La ley dice «todos los contratos»."], ["únicamente los contratos mayores de 100.000 €", 0, "No hay umbral en este precepto."], ["solo el número total de contratos adjudicados", 0, "Se exige un detalle mucho mayor."]]}, {"a": 8, "q": "Completa: «Las Administraciones Públicas publicarán la relación de los ______ que sean de su propiedad o sobre los que ostenten algún derecho real».", "gap": "bienes inmuebles", "fb": "<b>Bienes inmuebles</b> (art. 8.3). Es obligación exclusiva de las Administraciones Públicas."}, {"a": 8, "q": "¿Qué deben publicar los sujetos del art. 3 conforme al art. 8.2?", "o": [["los contratos y convenios celebrados con una Administración Pública y las subvenciones recibidas", 1, "Correcto: art. 8.2."], ["la totalidad de su presupuesto y sus cuentas anuales", 0, "No se les exige en ese apartado."], ["la relación de sus bienes inmuebles", 0, "Esa obligación es de las Administraciones Públicas (art. 8.3)."], ["nada: solo se les aplica el derecho de acceso", 0, "Al contrario: se les aplica el capítulo de publicidad activa."]]}, {"a": 9, "q": "El incumplimiento reiterado de las obligaciones de publicidad activa se considera:", "o": [["infracción grave a efectos del régimen disciplinario", 1, "Correcto: art. 9.3."], ["infracción muy grave sancionable con multa", 0, "La ley lo califica como infracción <b>grave</b> a efectos disciplinarios."], ["una irregularidad no invalidante sin consecuencias", 0, "Sí tiene consecuencias."], ["causa de nulidad de los actos dictados", 0, "No es el efecto previsto."]]}, {"a": 10, "q": "El Portal de la Transparencia:", "o": [["depende del Ministerio de la Presidencia y se refiere al ámbito de la Administración General del Estado", 1, "Correcto: art. 10.1."], ["es obligatorio para todas las entidades locales", 0, "Las entidades locales pueden adoptar medidas de colaboración (art. 10.3)."], ["depende del Consejo de Transparencia y Buen Gobierno", 0, "El Consejo controla el cumplimiento; el Portal depende del Ministerio de la Presidencia."], ["sustituye a las obligaciones de publicación de cada sujeto", 0, "No las sustituye."]]}, {"a": 11, "q": "Los principios técnicos de la publicación son:", "o": [["accesibilidad, interoperabilidad y reutilización", 1, "Correcto: art. 11."], ["publicidad, transparencia y concurrencia", 0, "Son principios de la contratación y de las subvenciones."], ["eficacia, eficiencia y economía", 0, "Son principios de gestión económica."], ["legalidad, jerarquía y competencia", 0, "No son los del art. 11."]]}, {"a": 5, "q": "El acceso a la información sujeta a publicidad activa puede condicionarse al pago de una tasa.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 5.5 exige que la información sea comprensible, de acceso <b>fácil y gratuito</b> y accesible para personas con discapacidad."}, {"a": 2, "q": "Completa: «A los efectos de lo previsto en este título, se entiende por Administraciones Públicas los organismos y entidades incluidos en las letras ______ del apartado anterior».", "gap": "a) a d)", "fb": "Las letras <b>a) a d)</b> (art. 2.2). De ahí depende quién queda obligado por los arts. 6.2, 7 y 8.3."}, {"a": 3, "q": "A los partidos políticos, sindicatos y organizaciones empresariales se les aplica:", "o": [["el capítulo II del Título I, sobre publicidad activa", 1, "Correcto: art. 3, primer inciso."], ["toda la ley, incluido el buen gobierno", 0, "El Título II tiene su propio ámbito subjetivo (art. 25)."], ["solo el derecho de acceso", 0, "Precisamente el capítulo que se les aplica es el de publicidad activa."], ["ninguna obligación: son entidades privadas", 0, "Están expresamente incluidos."]]}];
+const CASOS=[{"t": "Caso 1 · ¿Quién está obligado y a qué?", "e": "Determina la sujeción a la Ley 19/2013 de: <b>(1)</b> un ayuntamiento de 8.000 habitantes; <b>(2)</b> su empresa municipal de aguas, con capital 100 % público; <b>(3)</b> el colegio de arquitectos de la provincia; <b>(4)</b> una asociación cultural con 90.000 € de ingresos, de los que 45.000 € son subvención municipal; <b>(5)</b> la empresa concesionaria del servicio de limpieza viaria.", "s": "<p><b>(1) Ayuntamiento.</b> Sujeto por el art. 2.1.a) y, además, <b>«Administración Pública»</b> a efectos del art. 2.2: le alcanzan también los arts. 6.2, 7 y 8.3.</p><p><b>(2) Empresa municipal.</b> Sujeta por el art. 2.1.g) —participación superior al 50 %—, pero <b>no</b> es Administración Pública: no le aplican los planes del 6.2, la información jurídica del art. 7 ni la relación de inmuebles del 8.3.</p><p><b>(3) Colegio de arquitectos.</b> Sujeto por el art. 2.1.e), pero <b>solo en lo relativo a sus actividades sujetas a Derecho Administrativo</b>.</p><p><b>(4) Asociación cultural.</b> No llega a los 100.000 €, pero la subvención supone el <b>50 %</b> de sus ingresos y supera los 5.000 €: queda sujeta por el art. 3.b) al <b>capítulo de publicidad activa</b>, y publicará lo previsto en el art. 8.2.</p><p><b>(5) Concesionaria.</b> No es sujeto obligado a publicar, pero sí está obligada a <b>suministrar información</b> al ayuntamiento previo requerimiento (art. 4).</p><p><b>En Andalucía:</b> comprueba además el art. 3 de la <b>Ley 1/2014</b> (documento 9), cuyo ámbito subjetivo es más detallado.</p>"}, {"t": "Caso 2 · Auditar el portal de transparencia municipal", "e": "Revisas el portal de un ayuntamiento y encuentras: contratos publicados en PDF escaneado y sin número de licitadores; el presupuesto de 2023 como último dato; el organigrama con los cargos pero sin trayectoria profesional; las subvenciones publicadas con importes pero sin beneficiarios; y un formulario que exige registrarse para consultar. <b>Enumera los incumplimientos con su artículo.</b>", "s": "<p><b>1) PDF escaneado.</b> Vulnera el art. 5.4 (formatos preferiblemente reutilizables) y el art. 11.c) (principio de reutilización), además del art. 11.a) sobre información estructurada.</p><p><b>2) Falta el número de licitadores.</b> El art. 8.1.a) exige publicar objeto, duración, importes de licitación y adjudicación, procedimiento, instrumentos de publicidad, <b>número de licitadores</b> e identidad del adjudicatario.</p><p><b>3) Presupuesto de 2023.</b> Incumple el art. 5.1: la publicación debe ser <b>periódica y actualizada</b>; y el art. 8.1.d) exige información actualizada sobre el <b>estado de ejecución</b>.</p><p><b>4) Organigrama incompleto.</b> El art. 6.1 exige que identifique a los responsables y <b>su perfil y trayectoria profesional</b>.</p><p><b>5) Subvenciones sin beneficiarios.</b> El art. 8.1.c) exige importe, <b>objetivo o finalidad y beneficiarios</b>. Enlaza con los arts. 18 y 20 de la <b>Ley 38/2003</b> (documento 8) y la BDNS.</p><p><b>6) Registro previo.</b> Contradice el art. 5.5: acceso <b>fácil y gratuito</b>.</p><p><b>Consecuencia:</b> el incumplimiento <b>reiterado</b> tiene la consideración de <b>infracción grave</b> a efectos disciplinarios (art. 9.3), y en Andalucía puede activar el régimen sancionador de la Ley 1/2014.</p>"}, {"t": "Caso 3 · Publicar sin vulnerar la protección de datos", "e": "El ayuntamiento va a publicar: <b>(a)</b> la relación de beneficiarios de ayudas de emergencia social, con nombre, DNI y motivo de la ayuda; <b>(b)</b> las retribuciones del personal directivo; <b>(c)</b> el expediente de un contrato que incluye el informe médico de un trabajador. <b>¿Qué puede publicarse y cómo?</b>", "s": "<p><b>(a) Ayudas de emergencia social.</b> El motivo de la ayuda revela datos sobre la situación social y, en su caso, de salud, que son <b>especialmente protegidos</b>. El art. 5.3 exige <b>previa disociación</b>: puede publicarse la información agregada o disociada, nunca con nombre y DNI unidos al motivo. Conecta con el art. 15 (protección de datos) del bloque de acceso.</p><p><b>(b) Retribuciones del personal directivo.</b> El art. 8.1.f) obliga expresamente a publicar las retribuciones anuales de <b>altos cargos y máximos responsables</b>, así como las indemnizaciones por abandono del cargo. Aquí la ley ya ha hecho la ponderación: prima la transparencia.</p><p><b>(c) Informe médico.</b> Dato especialmente protegido: no puede publicarse. Procede publicar el resto del expediente con <b>acceso parcial</b>, aplicando la lógica del art. 16.</p><p><b>Regla general:</b> la publicidad activa no es un cheque en blanco. Los límites del art. 14 y, muy señaladamente, la protección de datos del art. 15 se aplican también a lo que se publica de oficio (art. 5.3).</p>"}];
+const SEMAFORO=["Los tres objetos de la ley — art. 1", "Ámbito subjetivo: las nueve letras del art. 2.1", "Concepto restringido de Administración Pública — art. 2.2", "Otros sujetos obligados y sus umbrales — art. 3", "Obligación de suministrar información — art. 4", "Principios generales de la publicidad activa — art. 5", "Límites y disociación de datos protegidos — art. 5.3", "Información institucional y organizativa — art. 6", "Información de relevancia jurídica — art. 7", "Información económica: contratos y convenios — art. 8.1.a) y b)", "Información económica: subvenciones, presupuestos y cuentas — art. 8.1.c) a e)", "Retribuciones, compatibilidades y bienes — art. 8.1.f) a h) y 8.3", "Control y consecuencias del incumplimiento — art. 9", "Portal de la Transparencia — art. 10", "Principios técnicos: accesibilidad, interoperabilidad y reutilización — art. 11"];
+const INTRO_HTML="<section class=\"card\" id=\"intro\"><h2>Tema 13 · Bloque 1 · Ámbito y publicidad activa</h2><p class=\"small\">El tema 13 abarca dos leyes completas: la estatal 19/2013 y la andaluza 1/2014. Este primer bloque cubre el Título Preliminar y los capítulos I y II del Título I de la ley estatal: qué persigue la ley, a quién obliga y qué hay que publicar sin que nadie lo pida.</p><div class=\"box ej\"><span class=\"lbl\">La idea que ordena el bloque</span>La transparencia tiene <b>dos motores</b>: la <b>publicidad activa</b> —publico porque la ley me obliga, sin que nadie pregunte— y el <b>derecho de acceso</b> —publico porque alguien lo pide—. Este bloque agota el primero; el segundo se estudia en el bloque 2.</div><div class=\"box warn\"><span class=\"lbl\">Fuentes utilizadas y vigencia</span><ul><li><b>Ley 19/2013, de 9 de diciembre</b>, de transparencia, acceso a la información pública y buen gobierno, texto consolidado con <b>última modificación de 9 de julio de 2022</b> (documento incorporado a la biblioteca).</li><li>Concordancias con la <b>Ley 1/2014 de Andalucía</b> (documento 9), la <b>Ley 9/2017</b> (documento 7), la <b>Ley 38/2003</b> (documento 8), el <b>TRLHL</b> (documento 5), la <b>Ley 39/2015</b> (documento 1) y el <b>RD 203/2021</b> (documento 4).</li><li><b>Aportación externa</b>: la <b>Ley 7/1985 (LBRL)</b>, a la que remite el art. 8.1.h) para las declaraciones de bienes de los representantes locales, y la <b>Ley 37/2007</b> de reutilización, citada por el art. 11.c). No están en la biblioteca: verifícalas en el BOE.</li><li><b>Cita desfasada:</b> el art. 2.1.i) remite al art. 5 de la <b>Ley 30/1992</b>; hoy los órganos de cooperación se regulan en los arts. 145 y siguientes de la <b>Ley 40/2015</b> (documento 2).</li></ul></div><svg viewBox=\"0 0 660 205\" role=\"img\" aria-label=\"Mapa conceptual del bloque 1 del tema 13\"><rect x=\"205\" y=\"8\" width=\"250\" height=\"36\" rx=\"9\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/><text x=\"330\" y=\"31\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">TRANSPARENCIA DE LA ACTIVIDAD PÚBLICA</text><line x1=\"330\" y1=\"44\" x2=\"330\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"130\" y1=\"60\" x2=\"530\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"130\" y1=\"60\" x2=\"130\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"330\" y1=\"60\" x2=\"330\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"530\" y1=\"60\" x2=\"530\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><rect x=\"25\" y=\"78\" width=\"210\" height=\"112\" rx=\"9\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/><text x=\"130\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--acc)\">1 · A QUIÉN OBLIGA</text><text x=\"130\" y=\"124\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 2 · nueve letras</text><text x=\"130\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 3 · partidos y subvencionados</text><text x=\"130\" y=\"168\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 4 · deber de suministrar</text><rect x=\"245\" y=\"78\" width=\"170\" height=\"112\" rx=\"9\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/><text x=\"330\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--ej)\">2 · CÓMO SE PUBLICA</text><text x=\"330\" y=\"126\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 5 · principios</text><text x=\"330\" y=\"150\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 11 · técnica</text><text x=\"330\" y=\"176\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">clara, gratuita, reutilizable</text><rect x=\"425\" y=\"78\" width=\"210\" height=\"112\" rx=\"9\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/><text x=\"530\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--warn)\">3 · QUÉ SE PUBLICA</text><text x=\"530\" y=\"124\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 6 · institucional</text><text x=\"530\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 7 · jurídica</text><text x=\"530\" y=\"168\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">art. 8 · económica</text></svg></section>";
+const RESUMEN_HTML="<section class=\"card\" id=\"resumen\"><h2>Resumen ejecutivo</h2><p class=\"small\"><b>Norma:</b> Ley 19/2013, Título Preliminar y Título I, capítulos I y II (arts. 1 a 11).</p><table><tbody><tr><th style=\"width:60px\">1</th><td>Tres objetos: <b>transparencia</b> · <b>derecho de acceso</b> · <b>buen gobierno</b> y sus consecuencias.</td></tr><tr><th>2</th><td>Nueve letras de sujetos. Sociedades con más del <b>50 %</b>; corporaciones y órganos constitucionales <b>solo en su actividad administrativa</b>. «Administraciones Públicas» = letras <b>a) a d)</b>.</td></tr><tr><th>3</th><td>Partidos, sindicatos y patronales; entidades privadas con más de <b>100.000 €</b> o el <b>40 %</b> de ingresos públicos (mínimo <b>5.000 €</b>). Solo <b>publicidad activa</b>.</td></tr><tr><th>4</th><td>Quien presta servicios públicos o ejerce potestades debe <b>suministrar información</b>, previo requerimiento.</td></tr><tr><th>5</th><td>Publicación <b>periódica y actualizada</b>, clara, estructurada, <b>gratuita</b>, accesible y reutilizable. Datos especialmente protegidos: <b>previa disociación</b>. La ley es un <b>mínimo</b>.</td></tr><tr><th>6-7</th><td>Institucional: funciones, normativa, <b>organigrama con trayectorias</b>; planes y su evaluación (solo AAPP). Jurídica: instrucciones con efectos, anteproyectos, reglamentos y memorias.</td></tr><tr><th>8</th><td>Económica: <b>todos los contratos</b> · convenios y encomiendas · subvenciones · presupuestos y ejecución · cuentas y auditorías · <b>retribuciones</b> · compatibilidades · declaraciones de bienes · estadística. Y los <b>inmuebles</b> (solo AAPP).</td></tr><tr><th>9-11</th><td>Control del <b>Consejo</b>; incumplimiento reiterado = <b>infracción grave</b>. <b>Portal de la Transparencia</b> (Ministerio de la Presidencia). Principios técnicos: <b>accesibilidad, interoperabilidad y reutilización</b>.</td></tr></tbody></table><h2 style=\"margin-top:1.2rem\">Calendario de repaso espaciado</h2><table><thead><tr><th>Momento</th><th>Fecha</th><th>Qué hacer</th></tr></thead><tbody id=\"calbody\"></tbody></table></section>";
+</script><script>
+
+const main=document.getElementById('main');
+function panel(id,title,body,cls){return '<details class="panel '+(cls||'v-expl')+'"'+(id?' data-p="'+id+'"':'')+'><summary>'+title+'</summary><div class="body">'+body+'</div></details>';}
+let html='';
+
+html+=INTRO_HTML;
+/* ---------- ARTÍCULOS ---------- */
+ARTS.forEach(function(a){
+ html+='<section class="card art" id="art'+a.n+'">'
+ +'<h2><span class="num">Art. '+a.n+'</span> '+a.t+'</h2>'
+ +'<p class="ubic">'+a.ubic+'</p>'
+ +'<div class="idea v-expl">💡 '+a.idea+'</div>'
+ +'<div class="legal v-legal"><span class="lbl">Texto legal · literal</span>'+a.literal+'</div>'
+ +panel('','🔍 Disección estructural',a.dis)
+ +panel('','🗣️ Traducción a lenguaje llano',a.llano)
+ +panel('','❓ ¿Por qué existe este artículo?',a.porque)
+ +panel('','✅ Ejemplos','<div class="box ej"><span class="lbl">Ejemplos</span>'+a.ej+'</div>')
+ +panel('','🚫 No-ejemplos: dónde está la frontera','<div class="box exc"><span class="lbl">No-ejemplos</span>'+a.noej+'</div>')
+ +panel('','🔗 Conexiones con otros preceptos',a.conex)
+ +panel('','⚠️ Trampas y errores frecuentes','<div class="box warn"><span class="lbl">Cuidado</span>'+a.trampas+'</div>')
+ +panel('','🧠 Anclaje memorístico',a.ancla)
+ +'<div class="v-expl">'+a.vis+'</div>'
+ +'</section>';
+});
+
+/* ---------- PLAZOS ---------- */
+html+='<section class="card" id="plazos"><h2>Tabla de plazos y cifras</h2>'
++'<p class="small">Pulsa en las cabeceras para ordenar. Si solo te llevas una cosa de esta sesión, que sea esta tabla.</p>'
++'<table id="tplazos"><thead><tr><th class="sortable">Plazo / cifra</th><th class="sortable">Trámite</th><th class="sortable">Quién</th><th class="sortable">Art.</th><th>Matiz</th></tr></thead><tbody>';
+PLAZOS.forEach(function(p){html+='<tr><td><b>'+p[0]+'</b></td><td>'+p[1]+'</td><td>'+p[2]+'</td><td>'+p[3]+'</td><td class="small">'+p[4]+'</td></tr>';});
+html+='</tbody></table></section>';
+
+/* ---------- CASOS ---------- */
+html+='<section class="card" id="casos"><h2>Casos prácticos</h2><p class="small">Intenta resolverlos <b>antes</b> de abrir la solución: el esfuerzo de recuperar es lo que fija el aprendizaje.</p>';
+CASOS.forEach(function(c,i){
+ html+='<details class="panel"><summary>'+c.t+'</summary><div class="body"><p>'+c.e+'</p>'
+ +'<button class="revelar" data-i="'+i+'">Ver solución</button><div class="sol hide" id="sol'+i+'">'+c.s+'</div></div></details>';
+});
+html+='</section>';
+
+/* ---------- FLASHCARDS ---------- */
+html+='<section class="card noprint" id="flash"><h2>Flashcards</h2>'
++'<div id="fcbox" style="border:1px solid var(--line);border-radius:12px;padding:1.1rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer" tabindex="0" role="button" aria-label="Tarjeta: pulsa para girar"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.7rem">'
++'<button id="fcflip">Girar</button><button id="fcok">✔ Lo sabía</button><button id="fcko">↻ Repasar</button><button id="fcreset">Reiniciar</button>'
++'<span class="small" id="fccount"></span></div></section>';
+
+/* ---------- TEST ---------- */
+html+='<section class="card noprint" id="test"><h2>Test de autoevaluación</h2>'
++'<p class="small">Preguntas intercaladas de los diez artículos. Corrección inmediata y explicación de por qué falla cada opción incorrecta.</p>'
++'<div id="testbox"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem"><button id="tcorr">Corregir todo</button><button id="tfail">Repetir solo los fallos</button><button id="treset">Reiniciar test</button></div>'
++'<p id="tscore" class="small" style="margin-top:.6rem"></p></section>';
+
+/* ---------- SEMÁFORO ---------- */
+html+='<section class="card" id="semaforo"><h2>Semáforo de autoevaluación</h2>'
++'<p class="small">Marca honestamente cada concepto. Abajo se genera tu lista de repaso.</p><div id="sembox"></div>'
++'<div id="semres" style="margin-top:.8rem"></div></section>';
+
+html+=RESUMEN_HTML;
+/* ---------- GLOSARIO ---------- */
+html+='<section class="card" id="glosario"><h2>Glosario completo</h2><table><tbody id="glosbody"></tbody></table></section>';
+
+main.innerHTML=html;
+
+</script><script>
+
+/* ---------- ÍNDICE LATERAL ---------- */
+(function(){
+ var n='<h2>Artículos</h2>';
+ ARTS.forEach(function(a){n+='<a href="#art'+a.n+'"><b>'+a.n+'</b>'+a.t+'</a>';});
+ n+='<h2>Herramientas</h2>'
+  +'<a href="#plazos">Tabla de plazos</a><a href="#casos">Casos prácticos</a><a href="#flash">Flashcards</a>'
+  +'<a href="#test">Test</a><a href="#semaforo">Semáforo</a><a href="#resumen">Resumen y repaso</a><a href="#glosario">Glosario</a>';
+ document.getElementById('navbody').innerHTML=n;
+})();
+document.getElementById('navtoggle').onclick=function(){
+ var s=document.getElementById('side');s.classList.toggle('collapsed');
+ this.setAttribute('aria-expanded',s.classList.contains('collapsed')?'false':'true');
+};
+
+/* ---------- GLOSARIO Y TOOLTIPS ---------- */
+var LABEL={pubactiva:"Publicidad activa",accesoinfo:"Derecho de acceso",infopublica:"Información pública",disociacion:"Disociación",portal:"Portal de la Transparencia",interoperabilidad:"Interoperabilidad",reutilizacion:"Reutilización",altocargo:"Alto cargo",corporaciondp:"Corporación de Derecho Público",consejotbg:"Consejo de Transparencia",sedeelec:"Sede electrónica",esquemanac:"Esquema Nacional de Interoperabilidad",presupuesto:"Presupuesto",credito:"Crédito presupuestario",obligacion:"Obligación reconocida",derecho:"Derecho liquidado",oa:"Organismo autónomo",sociedad:"Sociedad mercantil local",bases:"Bases de ejecución",estabilidad:"Estabilidad presupuestaria",afectacion:"Principio de no afectación",bruto:"Principio de presupuesto bruto",nivelacion:"Nivelación presupuestaria",aplicacion:"Aplicación presupuestaria",vinculacion:"Nivel de vinculación jurídica",intervencion:"Intervención",pleno:"Pleno",bop:"Boletín Oficial de la Provincia",prorroga:"Prórroga presupuestaria",interesado:"Interesado",liquidacion:"Liquidación del presupuesto",tcuentas:"Tribunal de Cuentas",conten:"Recurso contencioso-administrativo"};
+(function(){var g='';Object.keys(GLOSARIO).forEach(function(k){g+='<tr><th style="width:210px">'+(LABEL[k]||k)+'</th><td>'+GLOSARIO[k]+'</td></tr>';});
+ document.getElementById('glosbody').innerHTML=g;})();
+var tip=document.getElementById('tip');
+function showTip(el){var k=el.getAttribute('data-k');if(!GLOSARIO[k])return;
+ tip.innerHTML='<b>'+(LABEL[k]||k)+'</b><br>'+GLOSARIO[k];tip.style.display='block';
+ var r=el.getBoundingClientRect();var top=r.bottom+8;var left=Math.min(r.left,window.innerWidth-340);
+ if(top+tip.offsetHeight>window.innerHeight)top=Math.max(8,r.top-tip.offsetHeight-8);
+ tip.style.top=top+'px';tip.style.left=Math.max(8,left)+'px';}
+function hideTip(){tip.style.display='none';}
+document.addEventListener('mouseover',function(e){var t=e.target.closest('.t');if(t)showTip(t);});
+document.addEventListener('mouseout',function(e){if(e.target.closest('.t'))hideTip();});
+document.addEventListener('click',function(e){var t=e.target.closest('.t');if(t){e.preventDefault();showTip(t);}else hideTip();});
+
+/* ---------- VISTA LEGAL / EXPLICACIÓN ---------- */
+document.querySelectorAll('[data-view]').forEach(function(b){
+ b.onclick=function(){
+  document.querySelectorAll('[data-view]').forEach(function(x){x.setAttribute('aria-pressed','false');});
+  b.setAttribute('aria-pressed','true');
+  var v=b.getAttribute('data-view');
+  document.querySelectorAll('.v-legal').forEach(function(e){e.classList.toggle('hide',v==='expl');});
+  document.querySelectorAll('.v-expl').forEach(function(e){e.classList.toggle('hide',v==='legal');});
+ };});
+
+/* ---------- DESPLEGAR / TEMA / FUENTE ---------- */
+var openAll=false;
+document.getElementById('expand').onclick=function(){
+ openAll=!openAll;document.querySelectorAll('details.panel').forEach(function(d){d.open=openAll;});
+ this.textContent=openAll?'Plegar todo':'Desplegar todo';};
+document.getElementById('theme').onclick=function(){
+ var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
+var fs=16;
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);document.documentElement.style.setProperty('--fs',fs+'px');};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);document.documentElement.style.setProperty('--fs',fs+'px');};
+
+/* ---------- PROGRESO Y NAV ACTIVA ---------- */
+window.addEventListener('scroll',function(){
+ var h=document.body.scrollHeight-window.innerHeight;
+ document.getElementById('prog').style.width=(h>0?(window.scrollY/h*100):0)+'%';
+ var cur=null;document.querySelectorAll('section.card').forEach(function(s){
+  if(s.getBoundingClientRect().top<120)cur=s.id;});
+ document.querySelectorAll('nav.side a').forEach(function(a){
+  a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ---------- BUSCADOR ---------- */
+var q=document.getElementById('q'),timer=null;
+function clearMarks(){document.querySelectorAll('mark.hit').forEach(function(m){
+ var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});}
+q.addEventListener('input',function(){
+ clearTimeout(timer);timer=setTimeout(function(){
+  clearMarks();
+  var term=q.value.trim();
+  document.querySelectorAll('section.card').forEach(function(s){s.classList.remove('hide');});
+  if(term.length<3)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  document.querySelectorAll('section.card').forEach(function(s){
+   var found=false;
+   var w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT,null);var nodes=[];
+   while(w.nextNode()){var nd=w.currentNode;
+    if(nd.parentNode.closest('script,style,mark'))continue;
+    if(rx.test(nd.nodeValue)){nodes.push(nd);rx.lastIndex=0;}}
+   nodes.forEach(function(nd){
+    found=true;
+    var span=document.createElement('span');
+    span.innerHTML=nd.nodeValue.replace(rx,function(m){return '<mark class="hit">'+m+'</mark>';});
+    nd.parentNode.replaceChild(span,nd);});
+   if(found){s.querySelectorAll('details.panel').forEach(function(d){if(d.querySelector('mark.hit'))d.open=true;});}
+   s.classList.toggle('hide',!found);
+  });
+ },220);});
+
+/* ---------- CASOS ---------- */
+document.querySelectorAll('.revelar').forEach(function(b){
+ b.onclick=function(){var s=document.getElementById('sol'+b.getAttribute('data-i'));
+  s.classList.toggle('hide');b.textContent=s.classList.contains('hide')?'Ver solución':'Ocultar solución';};});
+
+/* ---------- TABLA ORDENABLE ---------- */
+(function(){var t=document.getElementById('tplazos');var dir={};
+ t.querySelectorAll('th.sortable').forEach(function(th,i){
+  th.onclick=function(){
+   var tb=t.tBodies[0];var rows=[].slice.call(tb.rows);
+   dir[i]=!dir[i];
+   rows.sort(function(a,b){var x=a.cells[i].innerText.trim(),y=b.cells[i].innerText.trim();
+    return dir[i]?x.localeCompare(y,'es',{numeric:true}):y.localeCompare(x,'es',{numeric:true});});
+   rows.forEach(function(r){tb.appendChild(r);});};});})();
+
+/* ---------- FLASHCARDS ---------- */
+var order=FLASH.map(function(_,i){return i;}),fi=0,flipped=false,ok=0,ko=0;
+function drawFC(){
+ var box=document.getElementById('fcbox');
+ if(!order.length){box.innerHTML='<b>¡Ronda terminada!</b><br><span class="small">Pulsa Reiniciar para volver a empezar.</span>';
+  document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko;return;}
+ if(fi>=order.length)fi=0;
+ var c=FLASH[order[fi]];
+ box.innerHTML=flipped?'<div class="small" style="color:var(--acc);margin-bottom:.4rem">RESPUESTA</div><div>'+c[1]+'</div>'
+  :'<div class="small" style="color:var(--ink2);margin-bottom:.4rem">PREGUNTA '+(fi+1)+' / '+order.length+'</div><div style="font-weight:600;font-size:1.05rem">'+c[0]+'</div><div class="small" style="margin-top:.6rem;color:var(--ink2)">Piensa la respuesta y pulsa para girar</div>';
+ document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko+' · Quedan: '+order.length;
+}
+function flip(){flipped=!flipped;drawFC();}
+document.getElementById('fcbox').onclick=flip;
+document.getElementById('fcbox').onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
+document.getElementById('fcflip').onclick=flip;
+document.getElementById('fcok').onclick=function(){if(!order.length)return;ok++;order.splice(fi,1);flipped=false;drawFC();};
+document.getElementById('fcko').onclick=function(){if(!order.length)return;ko++;var m=order.splice(fi,1)[0];order.push(m);flipped=false;drawFC();};
+document.getElementById('fcreset').onclick=function(){order=FLASH.map(function(_,i){return i;});fi=0;ok=0;ko=0;flipped=false;drawFC();};
+drawFC();
+
+/* ---------- TEST ---------- */
+var state=TEST.map(function(){return{ans:null,done:false,right:false};});
+var visible=TEST.map(function(_,i){return i;});
+function drawTest(){
+ var h='';
+ visible.forEach(function(qi){
+  var t=TEST[qi],s=state[qi];
+  h+='<div style="border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;margin:.55rem 0" data-q="'+qi+'">';
+  h+='<div style="font-weight:600"><span class="chip">Art. '+t.a+'</span> '+t.q+'</div>';
+  if(t.o){
+   t.o.forEach(function(op,oi){
+    var mark='';
+    if(s.done){if(op[1])mark=' style="background:var(--ej-bg);border-color:var(--ej)"';
+     else if(s.ans===oi)mark=' style="background:var(--exc-bg);border-color:var(--exc)"';}
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'"'+mark+' style="'+(mark?mark.slice(8,-1):'')+';border:1px solid '+(s.ans===oi&&!s.done?'var(--acc)':'var(--line)')+';border-radius:8px;padding:.35rem .6rem;margin:.3rem 0;cursor:pointer">'+String.fromCharCode(97+oi)+') '+op[0]
+     +(s.done?'<div class="small" style="margin-top:.2rem">'+op[2]+'</div>':'')+'</div>';});
+  }else if(t.vf){
+   [['Verdadero',true],['Falso',false]].forEach(function(p,oi){
+    var sel=s.ans===oi;
+    var col=s.done?((p[1]===t.ok)?'var(--ej)':(sel?'var(--exc)':'var(--line)')):(sel?'var(--acc)':'var(--line)');
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'" style="display:inline-block;border:1px solid '+col+';border-radius:8px;padding:.3rem .9rem;margin:.3rem .4rem .3rem 0;cursor:pointer">'+p[0]+'</div>';});
+   if(s.done)h+='<div class="small" style="margin-top:.3rem">'+t.fb+'</div>';
+  }else{
+   h+='<input type="text" class="gap" data-q="'+qi+'" value="'+(s.ans||'')+'" placeholder="escribe tu respuesta" style="margin-top:.4rem;padding:.35rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);width:260px">';
+   if(s.done)h+='<div class="small" style="margin-top:.3rem;color:'+(s.right?'var(--ej)':'var(--exc)')+'">'+(s.right?'Correcto. ':'Respuesta correcta: <b>'+t.gap+'</b>. ')+t.fb+'</div>';
+  }
+  h+='</div>';});
+ document.getElementById('testbox').innerHTML=h;
+ document.querySelectorAll('.opt').forEach(function(o){
+  o.onclick=function(){var qi=+o.getAttribute('data-q');if(state[qi].done)return;
+   state[qi].ans=+o.getAttribute('data-o');drawTest();};});
+ document.querySelectorAll('.gap').forEach(function(g){
+  g.oninput=function(){state[+g.getAttribute('data-q')].ans=g.value;};});
+}
+function norm(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+document.getElementById('tcorr').onclick=function(){
+ var n=0,tot=visible.length;
+ visible.forEach(function(qi){var t=TEST[qi],s=state[qi];s.done=true;
+  if(t.o)s.right=(t.o[s.ans]&&t.o[s.ans][1]===1);
+  else if(t.vf)s.right=((s.ans===0)===t.ok);
+  else s.right=norm(s.ans)===norm(t.gap);
+  if(s.right)n++;});
+ drawTest();
+ var pct=tot?Math.round(n/tot*100):0;
+ document.getElementById('tscore').innerHTML='<b>Resultado: '+n+' / '+tot+' ('+pct+' %).</b> '
+  +(pct>=90?'Dominas el bloque. Pasa a los artículos 172 y siguientes.':pct>=70?'Buen nivel: repasa los fallos y vuelve mañana.':'Aún no está fijado: relee los artículos de los fallos y repite el test.');
+};
+document.getElementById('tfail').onclick=function(){
+ var f=visible.filter(function(qi){return state[qi].done&&!state[qi].right;});
+ if(!f.length){document.getElementById('tscore').innerHTML='<b>No hay fallos que repetir.</b>';return;}
+ visible=f;f.forEach(function(qi){state[qi]={ans:null,done:false,right:false};});
+ drawTest();document.getElementById('tscore').textContent='Repitiendo '+f.length+' preguntas falladas.';
+};
+document.getElementById('treset').onclick=function(){
+ state=TEST.map(function(){return{ans:null,done:false,right:false};});
+ visible=TEST.map(function(_,i){return i;});drawTest();document.getElementById('tscore').textContent='';};
+drawTest();
+
+/* ---------- SEMÁFORO ---------- */
+var sem=SEMAFORO.map(function(){return 0;});
+function drawSem(){
+ var h='<table><tbody>';
+ SEMAFORO.forEach(function(c,i){
+  h+='<tr><td>'+c+'</td><td style="width:150px;white-space:nowrap">'
+   +['🟢','🟡','🔴'].map(function(e,j){
+     var on=sem[i]===j+1;
+     return '<button class="sembtn" data-i="'+i+'" data-v="'+(j+1)+'" style="font-size:1rem;padding:.15rem .35rem;margin-right:.2rem;border-color:'+(on?'var(--acc)':'var(--line)')+';background:'+(on?'var(--acc-soft)':'var(--panel)')+'">'+e+'</button>';}).join('')
+   +'</td></tr>';});
+ h+='</tbody></table>';
+ document.getElementById('sembox').innerHTML=h;
+ document.querySelectorAll('.sembtn').forEach(function(b){
+  b.onclick=function(){sem[+b.getAttribute('data-i')]=+b.getAttribute('data-v');drawSem();};});
+ var rojos=[],ambar=[];
+ sem.forEach(function(v,i){if(v===3)rojos.push(SEMAFORO[i]);if(v===2)ambar.push(SEMAFORO[i]);});
+ var r='';
+ if(rojos.length)r+='<div class="box exc"><span class="lbl">Repasa hoy mismo</span><ul><li>'+rojos.join('</li><li>')+'</li></ul></div>';
+ if(ambar.length)r+='<div class="box warn"><span class="lbl">Refuerza en 24 h</span><ul><li>'+ambar.join('</li><li>')+'</li></ul></div>';
+ if(!rojos.length&&!ambar.length&&sem.some(function(v){return v===1;}))r='<div class="box ej"><span class="lbl">Bien</span>Todo lo marcado está en verde. Consolida con el test y vuelve en 3 días.</div>';
+ document.getElementById('semres').innerHTML=r;
+}
+drawSem();
+
+/* ---------- CALENDARIO DE REPASO ---------- */
+(function(){
+ var hoy=new Date();
+ function f(d){var x=new Date(hoy.getTime());x.setDate(x.getDate()+d);
+  return x.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});}
+ var filas=[['Hoy',f(0),"Lectura activa + test completo + semáforo. Memoriza las nueve letras del art. 2.1 y los umbrales del art. 3."],['+24 horas',f(1),"Solo flashcards y tabla de cifras: 50 %, 100.000 €, 40 % y 5.000 €, 50.000 €."],['+3 días',f(3),"Caso práctico 2 (auditar el portal) aplicado al portal real de tu ayuntamiento."],['+7 días',f(7),"Explicar en voz alta qué publica cada artículo: 6 institucional, 7 jurídica, 8 económica. Casos 1 y 3."],['+21 días',f(21),"Test intercalado con el bloque 2 (derecho de acceso) y con la Ley 1/2014 de Andalucía."]];
+ document.getElementById('calbody').innerHTML=filas.map(function(r){
+  return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('');
+})();
+
+</script>
+<script>
+
+/* ═══ Mejoras de interacción · Bloque II ═══ */
+(function(){
+"use strict";
+var K_THEME="oposi_bII_theme", K_FS="oposi_bII_fs", K_STREAK="oposi_bII_streak";
+function load(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return f;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var root=document.documentElement;
+
+/* Tema persistente (sobrescribe el toggle simple anterior) */
+var saved=load(K_THEME,null);
+if(saved){root.setAttribute("data-theme",saved);}
+else if(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches){root.setAttribute("data-theme","dark");}
+var bt=document.getElementById("theme");
+if(bt)bt.onclick=function(){
+  var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-theme",n);save(K_THEME,n);
+};
+
+/* Tamaño de texto persistente */
+var fs=load(K_FS,16);
+function setFs(v){fs=Math.max(13,Math.min(22,v));root.style.setProperty("--fs",fs+"px");save(K_FS,fs);}
+setFs(fs);
+var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
+if(bp)bp.onclick=function(){setFs(fs+1);};
+if(bm)bm.onclick=function(){setFs(fs-1);};
+
+/* Racha compartida con el índice */
+(function(){
+  var el=document.getElementById("streakN");if(!el)return;
+  var hoy=new Date().toISOString().slice(0,10);
+  var s=load(K_STREAK,{last:null,n:0});
+  if(s.last!==hoy){
+    var ayer=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    s.n=(s.last===ayer)?s.n+1:1;s.last=hoy;save(K_STREAK,s);
+  }
+  el.textContent=s.n;
+})();
+
+/* Reveal on scroll para las tarjetas */
+function reveal(){
+  var els=document.querySelectorAll("section.card:not(.rv)");
+  if(!els.length)return;
+  if(!("IntersectionObserver" in window)){return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:"0px 0px -30px 0px"});
+  Array.prototype.forEach.call(els,function(el){el.classList.add("rv");io.observe(el);});
+}
+
+/* Sección activa en el índice lateral */
+function spy(){
+  var links=document.querySelectorAll("nav.side a[href^='#']");
+  if(!links.length||!("IntersectionObserver" in window))return;
+  var map={};
+  Array.prototype.forEach.call(links,function(a){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(t)map[t.id]=a;
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        Array.prototype.forEach.call(links,function(a){a.classList.remove("on");});
+        if(map[en.target.id])map[en.target.id].classList.add("on");
+      }
+    });
+  },{rootMargin:"-80px 0px -70% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* Ripple en botones */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.classList.contains("navtoggle"))return;
+  var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement("span");
+  s.className="ripple";s.style.width=s.style.height=d+"px";
+  s.style.left=(e.clientX-r.left-d/2)+"px";s.style.top=(e.clientY-r.top-d/2)+"px";
+  b.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},560);
+});
+
+/* Atajos de teclado */
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea"))return;
+  if(e.key==="/"){var q=document.getElementById("q");if(q){e.preventDefault();q.focus();}}
+  if(e.key==="t"&&bt)bt.click();
+});
+
+/* El contenido se inyecta por JS: esperamos a que exista */
+function init(){reveal();spy();}
+if(document.getElementById("main")&&document.getElementById("main").children.length){init();}
+else{setTimeout(init,60);}
+addEventListener("load",function(){setTimeout(init,80);});
+})();
+
+
+</script>
+<script>
+
+
+/* ═══ Parser de respuestas: estructura semántica ═══ */
+var FCFMT=(function(){
+  var CITA=/\s*\(((?:arts?\.|DA\b|DT\b|disp\.)[^)]*)\)\s*\.?\s*$/i;
+  var strip=function(h){return h.replace(/<[^>]+>/g,"");};
+
+  function esc(s){return s;}
+
+  function parse(raw){
+    var out={verdict:null,cite:null,kind:"p",items:[],text:""};
+    var body=String(raw).trim();
+
+    /* 1 ── Cita legal al final */
+    var m=body.match(CITA);
+    if(m){out.cite=m[1].replace(/\s+/g," ").trim();body=body.slice(0,m.index).trim();}
+    body=body.replace(/[.;,\s]+$/,"");
+
+    /* 2 ── Veredicto Sí / No inicial */
+    var v=strip(body).match(/^(Sí|Sí,|No|No,)[.:,]?\s/);
+    if(v){
+      out.verdict=/^Sí/.test(v[1])?"si":"no";
+      body=body.replace(/^(<[^>]+>\s*)*(Sí|No)[.,:]?\s*/,"").trim();
+      body=body.replace(/^en\s/,"En ");
+    }
+
+    /* 3 ── Enumeración con · */
+    var parts=body.split(/\s+·\s+/);
+    if(parts.length>=2){
+      out.kind="list";
+      var letras=parts.filter(function(p){return /^\s*<?[a-h]\)/.test(strip(p));}).length;
+      out.marker = letras>=parts.length-1 ? "alpha" : "num";
+      out.items=parts.map(function(p){
+        return p.replace(/^\s*[a-h]\)\s*/,"").replace(/[.\s]+$/,"").trim();
+      }).filter(Boolean);
+      return out;
+    }
+
+    /* 4 ── Cláusulas contrapuestas con ; */
+    var semi=body.split(/;\s+/);
+    if(semi.length>=2&&semi.length<=3&&semi.every(function(s){return strip(s).length>14;})){
+      out.kind="clauses";
+      out.items=semi.map(function(s){return s.replace(/[.\s]+$/,"").trim();});
+      return out;
+    }
+
+    /* 5 ── Párrafo */
+    out.text=body;
+    return out;
+  }
+
+  function render(raw){
+    var d=parse(raw),h="";
+
+    if(d.verdict){
+      h+='<span class="fc-verdict '+d.verdict+'">'+(d.verdict==="si"?"✓ Sí":"✗ No")+'</span>';
+    }
+
+    if(d.kind==="list"){
+      h+='<ol class="fc-list '+d.marker+'">';
+      d.items.forEach(function(it){h+='<li>'+it+'</li>';});
+      h+='</ol>';
+    }else if(d.kind==="clauses"){
+      h+='<div class="fc-clauses">';
+      d.items.forEach(function(it){h+='<p>'+it+'</p>';});
+      h+='</div>';
+    }else if(d.text){
+      h+='<p class="fc-p">'+d.text+'</p>';
+    }
+
+    if(d.cite){
+      h+='<span class="fc-cite"><span class="s">§</span>'+d.cite+'</span>';
+    }
+    return {html:h,struct:(d.kind!=="p"||!!d.verdict||strip(raw).length>150)};
+  }
+  return {parse:parse,render:render};
+})();
+
+/* ═══ FLASHCARDS 3D ═══ */
+(function(){
+"use strict";
+function boot(){
+  var sec=document.getElementById("flash");
+  if(!sec||sec.dataset.fc3d)return false;
+  if(typeof FLASH==="undefined"||!FLASH||!FLASH.length)return false;
+  sec.dataset.fc3d="1";
+
+  var CARDS=FLASH, N=CARDS.length;
+  var order,fi,ok,ko,back,busy;
+
+  /* — Estructura — */
+  var h2=sec.querySelector("h2");
+  sec.innerHTML="";
+  if(h2)sec.appendChild(h2);
+  var intro=document.createElement("p");
+  intro.className="small";
+  intro.innerHTML="Piensa la respuesta <b>antes</b> de girar: el esfuerzo de recuperarla es lo que la fija. "
+    +'<span class="fc-hint" style="position:static;display:inline;color:inherit">'
+    +'<span class="kbd">espacio</span> girar · <span class="kbd">→</span> lo sabía · <span class="kbd">←</span> repasar</span>';
+  sec.appendChild(intro);
+
+  var stage=document.createElement("div");
+  stage.className="fc-stage";
+  stage.innerHTML=
+    '<div class="fc-deck" id="fcdeck">'
+    +'<span class="fc-ghost g2"></span><span class="fc-ghost g1"></span>'
+    +'<div class="fc-lift" id="fclift">'
+      +'<div class="fc-card" id="fcbox" tabindex="0" role="button" aria-label="Tarjeta. Pulsa para girar">'
+        +'<div class="fc-face fc-front">'
+          +'<span class="fc-tag">Pregunta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">Pulsa para girar</span>'
+        +'</div>'
+        +'<div class="fc-face fc-back">'
+          +'<span class="fc-tag">Respuesta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">¿La sabías?</span>'
+        +'</div>'
+      +'</div>'
+    +'</div></div>';
+  sec.appendChild(stage);
+
+  var bar=document.createElement("div");
+  bar.className="fc-bar";bar.innerHTML="<i></i>";
+  sec.appendChild(bar);
+
+  var ctr=document.createElement("div");
+  ctr.className="fc-ctrls noprint";
+  ctr.innerHTML='<button id="fcflip">⟲ Girar</button>'
+    +'<button id="fcok">✔ Lo sabía</button>'
+    +'<button id="fcko">↻ Repasar</button>'
+    +'<button id="fcreset">Reiniciar</button>'
+    +'<span class="fc-score">'
+      +'<span class="fc-pill ok" id="fcpok">0 sabidas</span>'
+      +'<span class="fc-pill ko" id="fcpko">0 repasar</span>'
+      +'<span class="fc-pill left" id="fccount">0</span>'
+    +'</span>';
+  sec.appendChild(ctr);
+
+  var deck=stage.querySelector("#fcdeck"), lift=stage.querySelector("#fclift"),
+      card=stage.querySelector("#fcbox"),
+      front=stage.querySelector(".fc-front"), backf=stage.querySelector(".fc-back"),
+      fill=bar.querySelector("i"),
+      pok=ctr.querySelector("#fcpok"), pko=ctr.querySelector("#fcpko"),
+      pleft=ctr.querySelector("#fccount");
+  var rot=0;
+
+  function reset(){
+    order=CARDS.map(function(_,i){return i;});
+    fi=0;ok=0;ko=0;back=false;busy=false;rot=0;
+    card.style.transition="none";card.style.transform="rotateY(0deg)";
+    void card.offsetWidth;card.style.transition="";
+    deck.classList.remove("empty");
+    var d=stage.querySelector(".fc-done");if(d)d.remove();
+    card.style.display="";
+    draw();
+  }
+
+  function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+
+  function draw(){
+    pok.textContent=ok+(ok===1?" sabida":" sabidas");
+    pko.textContent=ko+" repasar";
+    var done=N-order.length;
+    fill.style.width=(N?done/N*100:0)+"%";
+
+    if(!order.length){
+      pleft.textContent="0 quedan";
+      deck.classList.add("empty");
+      card.style.display="none";
+      if(!stage.querySelector(".fc-done")){
+        var d=document.createElement("div");
+        d.className="fc-done";
+        d.innerHTML='<span class="seal">🏆</span><h3>Ronda completada</h3>'
+          +'<p>'+ok+' de '+N+' a la primera'+(ko?' · '+ko+' necesitaron repaso':'')+'</p>';
+        deck.appendChild(d);
+      }
+      return;
+    }
+    if(fi>=order.length)fi=0;
+    pleft.textContent=order.length+(order.length===1?" queda":" quedan");
+
+    var c=CARDS[order[fi]];
+    front.querySelector(".fc-txt").innerHTML='<p class="fc-p">'+c[0]+'</p>';
+    var r=FCFMT.render(c[1]);
+    backf.querySelector(".fc-txt").innerHTML=r.html;
+    backf.classList.toggle("struct",r.struct);
+    var hint=backf.querySelector(".fc-hint");
+    if(hint)hint.classList.toggle("muted",/fc-cite/.test(r.html));
+    var pip=(done+1)+"/"+N;
+    Array.prototype.forEach.call(stage.querySelectorAll(".fc-pip"),function(p){p.textContent=pip;});
+  }
+
+  function flip(){
+    if(busy||!order.length)return;
+    back=!back;rot+=180;
+    card.style.transform="rotateY("+rot+"deg)";
+    card.setAttribute("aria-label",back?"Respuesta. Pulsa para volver":"Pregunta. Pulsa para girar");
+    lift.classList.remove("lift");void lift.offsetWidth;lift.classList.add("lift");
+  }
+
+  function next(good){
+    if(busy||!order.length)return;
+    busy=true;
+    if(good){ok++;bump(pok);}else{ko++;bump(pko);}
+    lift.classList.remove("lift");
+    lift.classList.add(good?"out-ok":"out-ko");
+    setTimeout(function(){
+      if(good){order.splice(fi,1);}
+      else{var m=order.splice(fi,1)[0];order.push(m);}
+      back=false;rot=0;
+      card.style.transition="none";card.style.transform="rotateY(0deg)";
+      void card.offsetWidth;card.style.transition="";
+      draw();
+      lift.classList.remove("out-ok","out-ko");
+      lift.classList.add("in");
+      setTimeout(function(){lift.classList.remove("in");busy=false;},480);
+    },460);
+  }
+
+  card.onclick=flip;
+  card.onkeydown=function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();flip();}
+    if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  };
+  ctr.querySelector("#fcflip").onclick=flip;
+  ctr.querySelector("#fcok").onclick=function(){next(true);};
+  ctr.querySelector("#fcko").onclick=function(){next(false);};
+  ctr.querySelector("#fcreset").onclick=reset;
+
+  /* Deslizar en táctil */
+  var x0=null,y0=null;
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  card.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){next(dx>0);}
+    x0=y0=null;
+  },{passive:true});
+
+  /* Atajos globales cuando el mazo está a la vista */
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    var r=stage.getBoundingClientRect();
+    if(r.bottom<80||r.top>innerHeight-80)return;
+    if(e.key===" "){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    else if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  });
+
+  reset();
+  return true;
+}
+if(!boot()){
+  var tries=0;
+  var iv=setInterval(function(){if(boot()||++tries>40)clearInterval(iv);},120);
+  addEventListener("load",function(){setTimeout(boot,100);});
+}
+})();
+
+
+</script>
+<script>
+
+
+/* ═══ Altura adaptativa + índice plegable ═══ */
+(function(){
+"use strict";
+
+/* ── 1 · Índice lateral plegable ── */
+function sidebar(){
+  var lay=document.querySelector(".layout"),
+      side=document.getElementById("side"),
+      tools=document.querySelector(".tools");
+  if(!lay||!side||!tools||document.getElementById("navhide"))return;
+
+  var K="oposi_bII_nav";
+  function get(){try{return localStorage.getItem(K)==="0";}catch(e){return false;}}
+  function set(v){try{localStorage.setItem(K,v?"0":"1");}catch(e){}}
+
+  var b=document.createElement("button");
+  b.id="navhide";b.type="button";
+  b.innerHTML='<span class="ic">☰</span>';
+  b.setAttribute("aria-controls","side");
+  tools.insertBefore(b,tools.firstChild);
+
+  function apply(hidden,anim){
+    if(!anim)lay.style.transition="none";
+    lay.classList.toggle("nonav",hidden);
+    side.setAttribute("aria-hidden",String(hidden));
+    b.setAttribute("aria-pressed",String(hidden));
+    b.title=hidden?"Mostrar índice (i)":"Ocultar índice (i)";
+    b.setAttribute("aria-label",b.title);
+    if(!anim)requestAnimationFrame(function(){lay.style.transition="";});
+  }
+  apply(get(),false);
+
+  b.onclick=function(){
+    var h=!lay.classList.contains("nonav");
+    apply(h,true);set(h);
+    window.dispatchEvent(new Event("resize"));
+  };
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    if(e.key==="i"||e.key==="I"){e.preventDefault();b.click();}
+  });
+}
+
+/* ── 2 · La tarjeta se adapta a su contenido ── */
+function autofit(){
+  var stage=document.querySelector(".fc-stage");
+  if(!stage||stage.dataset.fit)return;
+  var deck=stage.querySelector(".fc-deck"),
+      front=stage.querySelector(".fc-front"),
+      back=stage.querySelector(".fc-back");
+  if(!deck||!front||!back)return;
+  stage.dataset.fit="1";
+
+  var meas=document.createElement("div");
+  meas.className="fc-measure";meas.setAttribute("aria-hidden","true");
+  meas.innerHTML='<div class="fc-face fc-front"><div class="fc-body"><div class="fc-txt"></div></div></div>';
+  stage.appendChild(meas);
+  var mFace=meas.querySelector(".fc-face"), mTxt=meas.querySelector(".fc-txt");
+
+  function measure(cls,html){
+    mFace.className="fc-face "+cls;
+    mTxt.innerHTML=html;
+    return mFace.offsetHeight;
+  }
+
+  function fit(){
+    if(deck.classList.contains("empty")){deck.style.height="230px";return;}
+    var fT=front.querySelector(".fc-txt"), bT=back.querySelector(".fc-txt");
+    if(!fT||!bT)return;
+    var h=Math.max(
+      measure("fc-front"+(front.classList.contains("struct")?" struct":""),fT.innerHTML),
+      measure("fc-back" +(back .classList.contains("struct")?" struct":""),bT.innerHTML),
+      230
+    );
+    deck.style.height=Math.ceil(h+8)+"px";
+  }
+
+  /* recalcular cuando cambia la tarjeta, el tamaño de letra o la ventana */
+  new MutationObserver(fit).observe(back,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
+  var t;
+  addEventListener("resize",function(){clearTimeout(t);t=setTimeout(fit,120);},{passive:true});
+  ["fs+","fs-"].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener("click",function(){setTimeout(fit,60);});
+  });
+  fit();setTimeout(fit,250);
+}
+
+function go(){sidebar();autofit();}
+if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go);
+addEventListener("load",function(){setTimeout(go,120);});
+var n=0,iv=setInterval(function(){go();if(++n>25)clearInterval(iv);},150);
+})();
+
+
+</script>
+<script>
+
+
+/* ═══════════════════════════════════════════════════════════════
+   TTS · Lectura en voz alta del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+if(!("speechSynthesis" in window))return;
+
+var K="oposi_bII_tts";
+function load(){try{return JSON.parse(localStorage.getItem(K))||{};}catch(e){return {};}}
+function save(o){try{localStorage.setItem(K,JSON.stringify(o));}catch(e){}}
+var cfg=load();
+if(cfg.rate==null)cfg.rate=1;
+if(cfg.gen==null)cfg.gen="f";
+
+var synth=window.speechSynthesis, voces=[], actual=null, bloques=[];
+
+/* ─────────── 1 · Selección de voz ─────────── */
+function esEspanol(v){return /^es\b|^es[-_]/i.test(v.lang||"")||/spanish|español/i.test(v.name||"");}
+function calidad(v){
+  var n=(v.name||"")+" "+(v.voiceURI||""), p=0;
+  if(/natural|neural/i.test(n))p+=100;
+  if(/online/i.test(n))p+=40;
+  if(/premium|enhanced|eloquence/i.test(n))p+=35;
+  if(/google/i.test(n))p+=30;
+  if(v.localService===false)p+=15;
+  if(/microsoft/i.test(n))p+=8;
+  if(/^es-ES/i.test(v.lang))p+=12;   /* castellano de España primero */
+  return p;
+}
+var MASC=/(pablo|álvaro|alvaro|jorge|diego|juan|raul|raúl|carlos|miguel|lorenzo|gonzalo|dalton|liam|andr[eé]s|luciano|male|hombre|masculin)/i;
+var FEM =/(helena|elvira|laura|mónica|monica|paulina|sabina|esperanza|marisol|ximena|dalia|salome|camila|catalina|isidora|female|mujer|femenin)/i;
+function genero(v){
+  var n=v.name||"";
+  if(MASC.test(n))return "m";
+  if(FEM.test(n))return "f";
+  return "?";
+}
+function cargarVoces(){
+  var all=synth.getVoices()||[];
+  voces=all.filter(esEspanol).sort(function(a,b){return calidad(b)-calidad(a);});
+  if(!voces.length)voces=all.slice(0,12);
+  pintarSelector();
+}
+function elegir(){
+  if(cfg.voz){
+    for(var i=0;i<voces.length;i++)if(voces[i].voiceURI===cfg.voz)return voces[i];
+  }
+  var g=cfg.gen;
+  for(var j=0;j<voces.length;j++)if(genero(voces[j])===g)return voces[j];
+  return voces[0]||null;
+}
+
+/* ─────────── 2 · Naturalidad: expandir lo que el TTS lee mal ─────────── */
+var ORD={1:"primera",2:"segunda",3:"tercera",4:"cuarta",5:"quinta",
+         6:"sexta",7:"séptima",8:"octava",9:"novena",10:"décima"};
+function paraVoz(t){
+  return t
+    .replace(/\barts?\.\s*/gi,function(m){return /arts/i.test(m)?"artículos ":"artículo ";})
+    .replace(/\bapdos?\.\s*/gi,"apartado ")
+    .replace(/\bnúms?\.\s*/gi,"número ")
+    .replace(/\bpárr\.\s*/gi,"párrafo ")
+    .replace(/\bcap\.\s*/gi,"capítulo ")
+    .replace(/\bpágs?\.\s*/gi,"página ")
+    .replace(/\by\s+ss\./gi,"y siguientes")
+    .replace(/\bss\./gi,"siguientes")
+    .replace(/\bTRLHL\b/g,"Texto Refundido de la Ley de Haciendas Locales")
+    .replace(/\bLCSP\b/g,"Ley de Contratos del Sector Público")
+    .replace(/\bLBRL\b/g,"Ley de Bases del Régimen Local")
+    .replace(/\bLRJSP\b/g,"Ley de Régimen Jurídico del Sector Público")
+    .replace(/\bLPACAP\b/g,"Ley del Procedimiento Administrativo Común")
+    .replace(/\bRDLeg\b/gi,"Real Decreto Legislativo")
+    .replace(/\bRD\b/g,"Real Decreto")
+    .replace(/\bCCAA\b/g,"comunidades autónomas")
+    .replace(/\bCA\b/g,"comunidad autónoma")
+    .replace(/\bEELL\b/g,"entidades locales")
+    .replace(/\bBOE\b/g,"Boletín Oficial del Estado")
+    .replace(/\bIVA\b/g,"I.V.A.")
+    .replace(/\bSARA\b/g,"sara")
+    .replace(/\bDA\s+(\d+)/g,"disposición adicional $1")
+    .replace(/\bDT\s+(\d+)/g,"disposición transitoria $1")
+    .replace(/(\d+)\.ª/g,function(m,n){return ORD[+n]||(n+"ª");})
+    .replace(/(\d+)\.º/g,"$1º")
+    /* 3.005,06 → 3005,06 para que lo lea como cifra y no como frase */
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/€/g," euros")
+    .replace(/%/g," por ciento")
+    .replace(/\bnº\b/gi,"número")
+    .replace(/\s*·\s*/g,". ")
+    .replace(/\(\s*/g,", ").replace(/\s*\)/g,", ")
+    .replace(/\bvid\.\s*/gi,"véase ")
+    .replace(/\bcfr\.\s*/gi,"compárese ")
+    /* limpieza de puntuación tras las sustituciones */
+    .replace(/\s+([,.;:])/g,"$1")
+    .replace(/,\s*([.;:])/g,"$1")
+    .replace(/([,.;:])\s*\1+/g,"$1")
+    .replace(/,\s*,/g,",")
+    .replace(/\s{2,}/g," ")
+    .trim();
+}
+
+/* ─────────── 3 · Segmentar en frases y envolverlas ─────────── */
+var ABBR=/\b(arts?|apdos?|núms?|nums?|págs?|párr|cap|caps|ss|Sr|Sra|Sres|D|Dª|etc|vid|cfr|op|cit|ej|núm|art|fig|tít|secc)\.$/i;
+function limites(t){
+  var out=[],ini=0;
+  for(var i=0;i<t.length;i++){
+    var c=t[i];
+    if(c!=="."&&c!=="!"&&c!=="?")continue;
+    var sig=t[i+1]||" ";
+    if(!/[\s"»)]/.test(sig))continue;             /* 3.005 o art.1 → no cortar */
+    if(ABBR.test(t.slice(Math.max(0,i-9),i+1)))continue;
+    if(/^\s*[0-9º ª]/.test(t.slice(i+1,i+3)))continue;
+    if(i+1-ini<40)continue;                        /* frases demasiado cortas */
+    out.push(i+1);ini=i+1;
+  }
+  if(ini<t.length)out.push(t.length);
+  return out;
+}
+function segmentar(root){
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    if(!n.nodeValue||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+    if(n.parentElement&&n.parentElement.closest(".lbl,.tts-bar"))return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT;
+  }});
+  var nodos=[];while(w.nextNode())nodos.push(w.currentNode);
+  if(!nodos.length)return [];
+
+  var full="";nodos.forEach(function(n){full+=n.nodeValue;});
+  var cortes=limites(full), frases=[],ci=0,pos=0;
+  cortes.forEach(function(){frases.push({text:"",spans:[]});});
+
+  nodos.forEach(function(node){
+    var txt=node.nodeValue, off=0, frag=document.createDocumentFragment();
+    while(off<txt.length){
+      var fin=cortes[ci]!=null?cortes[ci]-pos:txt.length;
+      if(fin>txt.length)fin=txt.length;
+      if(fin<=off)fin=txt.length;
+      var trozo=txt.slice(off,fin);
+      var sp=document.createElement("span");
+      sp.className="tts-s";sp.setAttribute("data-s",ci);sp.textContent=trozo;
+      frag.appendChild(sp);
+      if(frases[ci]){frases[ci].text+=trozo;frases[ci].spans.push(sp);}
+      if(pos+fin>=(cortes[ci]||Infinity))ci++;
+      off=fin;
+    }
+    pos+=txt.length;
+    node.parentNode.replaceChild(frag,node);
+  });
+  return frases.filter(function(f){return f.text.trim().length>1;});
+}
+
+/* ─────────── 4 · Reproductor ─────────── */
+var mini,miniBar,miniLbl,miniPlay;
+function crearMini(){
+  mini=document.createElement("div");
+  mini.className="tts-mini noprint";
+  mini.innerHTML='<span class="lbl"></span>'
+    +'<button class="main" data-a="play" title="Pausar o reanudar">⏸</button>'
+    +'<span class="bar"><i></i></span>'
+    +'<button data-a="prev" title="Frase anterior">↺</button>'
+    +'<button data-a="stop" title="Detener">■</button>'
+    +'<button data-a="cfg" title="Ajustes de voz">⚙</button>';
+  document.body.appendChild(mini);
+  miniBar=mini.querySelector(".bar i");miniLbl=mini.querySelector(".lbl");
+  miniPlay=mini.querySelector('[data-a="play"]');
+  mini.addEventListener("click",function(e){
+    var b=e.target.closest("button");if(!b)return;
+    var a=b.getAttribute("data-a");
+    if(a==="play")pausarReanudar();
+    else if(a==="stop")parar();
+    else if(a==="prev"){if(actual){actual.i=Math.max(0,actual.i-2);siguiente();}}
+    else if(a==="cfg")abrirPanel();
+  });
+}
+
+function limpiarMarcas(){
+  document.querySelectorAll(".tts-s.now").forEach(function(s){s.classList.remove("now");});
+}
+function parar(){
+  synth.cancel();
+  if(actual){
+    actual.bloque.classList.remove("tts-on");
+    var b=actual.bloque.querySelector(".tts-play");
+    if(b){b.classList.remove("on");b.innerHTML=iconoPlay();}
+  }
+  limpiarMarcas();
+  actual=null;
+  if(mini)mini.classList.remove("show");
+}
+function iconoPlay(){return '<span aria-hidden="true">▶</span> Escuchar';}
+function iconoOn(){return '<span class="tts-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Leyendo';}
+
+function pausarReanudar(){
+  if(!actual)return;
+  if(synth.paused){synth.resume();miniPlay.textContent="⏸";}
+  else{synth.pause();miniPlay.textContent="▶";}
+}
+
+function leer(bloque){
+  if(actual&&actual.bloque===bloque){parar();return;}
+  parar();
+  var datos=bloque.__tts;
+  if(!datos||!datos.length)return;
+  var voz=elegir();
+  actual={bloque:bloque,frases:datos,i:0,voz:voz};
+  bloque.classList.add("tts-on");
+  var b=bloque.querySelector(".tts-play");
+  if(b){b.classList.add("on");b.innerHTML=iconoOn();}
+  if(!mini)crearMini();
+  var art=bloque.closest(".art");
+  var t=art?art.querySelector("h2 .num"):null;
+  miniLbl.textContent=t?t.textContent:"Texto legal";
+  miniPlay.textContent="⏸";
+  mini.classList.add("show");
+  siguiente();
+}
+
+function siguiente(){
+  if(!actual)return;
+  limpiarMarcas();
+  if(actual.i>=actual.frases.length){
+    var fin=actual.bloque;
+    parar();
+    fin.dispatchEvent(new CustomEvent("tts:fin",{bubbles:true}));
+    return;
+  }
+  var f=actual.frases[actual.i];
+  var texto=paraVoz(f.text);
+  if(!texto||texto.length<2){actual.i++;siguiente();return;}
+
+  f.spans.forEach(function(s){s.classList.add("now");});
+  if(f.spans[0]&&actual.i>0){
+    var r=f.spans[0].getBoundingClientRect();
+    if(r.top<70||r.bottom>innerHeight-90)
+      f.spans[0].scrollIntoView({block:"center",behavior:"smooth"});
+  }
+  miniBar.style.width=((actual.i+1)/actual.frases.length*100)+"%";
+
+  var u=new SpeechSynthesisUtterance(texto);
+  if(actual.voz){u.voice=actual.voz;u.lang=actual.voz.lang;}else{u.lang="es-ES";}
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;u.volume=1;
+  u.onend=function(){if(actual){actual.i++;setTimeout(siguiente,90);}};
+  u.onerror=function(e){
+    if(e&&e.error==="interrupted")return;
+    if(actual){actual.i++;setTimeout(siguiente,120);}
+  };
+  actual.u=u;
+  synth.speak(u);
+}
+
+/* Chrome detiene la síntesis larga: lo mantenemos vivo */
+setInterval(function(){
+  if(actual&&synth.speaking&&!synth.paused){synth.pause();synth.resume();}
+},9000);
+
+/* ─────────── 5 · Panel de ajustes ─────────── */
+var back,sel;
+function crearPanel(){
+  back=document.createElement("div");
+  back.className="tts-back noprint";
+  back.innerHTML=
+   '<div class="tts-panel" role="dialog" aria-modal="true" aria-label="Ajustes de voz">'
+   +'<h3>🔊 Lectura en voz alta</h3>'
+   +'<p class="sub">Ajusta cómo se lee el texto legal. Se recuerda para todos los bloques.</p>'
+   +'<div class="tts-row"><label>Tipo de voz</label>'
+     +'<div class="tts-seg" id="ttsGen">'
+       +'<button data-g="f">👩 Femenina</button>'
+       +'<button data-g="m">👨 Masculina</button>'
+     +'</div></div>'
+   +'<div class="tts-row"><label>Voz concreta</label><select id="ttsVoz"></select></div>'
+   +'<div class="tts-row"><label>Velocidad</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsRate" min="0.6" max="1.6" step="0.05">'
+     +'<span class="tts-val" id="ttsRateV"></span></div></div>'
+   +'<div class="tts-row"><label>Tono</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsPitch" min="0.7" max="1.3" step="0.05">'
+     +'<span class="tts-val" id="ttsPitchV"></span></div></div>'
+   +'<p class="tts-note" id="ttsNota"></p>'
+   +'<div class="tts-acts">'
+     +'<button id="ttsTest">▶ Probar</button>'
+     +'<button class="prim" id="ttsOk">Hecho</button>'
+   +'</div></div>';
+  document.body.appendChild(back);
+  sel=back.querySelector("#ttsVoz");
+
+  back.addEventListener("click",function(e){if(e.target===back)cerrarPanel();});
+  back.querySelector("#ttsOk").onclick=cerrarPanel;
+  back.querySelector("#ttsGen").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-g]");if(!b)return;
+    cfg.gen=b.getAttribute("data-g");cfg.voz=null;save(cfg);pintarSelector();probar();
+  });
+  sel.onchange=function(){cfg.voz=sel.value;save(cfg);probar();};
+  var r=back.querySelector("#ttsRate"),rv=back.querySelector("#ttsRateV");
+  r.value=cfg.rate;rv.textContent=(+cfg.rate).toFixed(2)+"×";
+  r.oninput=function(){cfg.rate=+r.value;rv.textContent=cfg.rate.toFixed(2)+"×";save(cfg);};
+  r.onchange=probar;
+  var p=back.querySelector("#ttsPitch"),pv=back.querySelector("#ttsPitchV");
+  p.value=cfg.pitch||1;pv.textContent=(+(cfg.pitch||1)).toFixed(2);
+  p.oninput=function(){cfg.pitch=+p.value;pv.textContent=cfg.pitch.toFixed(2);save(cfg);};
+  p.onchange=probar;
+  back.querySelector("#ttsTest").onclick=probar;
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"&&back.classList.contains("show"))cerrarPanel();
+  });
+}
+function probar(){
+  synth.cancel();
+  var v=elegir();
+  var u=new SpeechSynthesisUtterance("El presupuesto general de la entidad local se aprueba antes del 31 de diciembre.");
+  if(v){u.voice=v;u.lang=v.lang;}else u.lang="es-ES";
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;
+  synth.speak(u);
+}
+function pintarSelector(){
+  if(!sel)return;
+  var g=cfg.gen;
+  back.querySelectorAll("#ttsGen button").forEach(function(b){
+    b.setAttribute("aria-pressed",String(b.getAttribute("data-g")===g));
+  });
+  var pref=voces.filter(function(v){return genero(v)===g;});
+  var otras=voces.filter(function(v){return genero(v)!==g;});
+  function opt(v){
+    var nat=/natural|neural|online|premium|enhanced|google/i.test(v.name)?" ★":"";
+    return '<option value="'+v.voiceURI+'">'+v.name+nat+"</option>";
+  }
+  sel.innerHTML=(pref.length?'<optgroup label="'+(g==="f"?"Femeninas":"Masculinas")+'">'+pref.map(opt).join("")+"</optgroup>":"")
+    +(otras.length?'<optgroup label="Otras voces en español">'+otras.map(opt).join("")+"</optgroup>":"");
+  var v=elegir();
+  if(v)sel.value=v.voiceURI;
+
+  var nota=back.querySelector("#ttsNota");
+  var hayNat=voces.some(function(x){return /natural|neural|online/i.test(x.name);});
+  if(!voces.length){
+    nota.innerHTML="⚠️ No se han detectado voces en español en este navegador. Prueba con Microsoft Edge o Chrome.";
+  }else if(hayNat){
+    nota.innerHTML="✅ Tienes voces <b>neuronales</b> disponibles (marcadas con ★): son las que suenan más humanas.";
+  }else{
+    nota.innerHTML="💡 Las voces marcadas con ★ suenan mejor. Para conseguir voces <b>neuronales</b> (mucho más naturales), "
+      +"abre estas páginas en <b>Microsoft Edge</b>, o instálalas en Windows: <b>Configuración → Hora e idioma → Voz → Agregar voces</b>.";
+  }
+}
+function abrirPanel(){if(!back)crearPanel();pintarSelector();back.classList.add("show");}
+function cerrarPanel(){if(back)back.classList.remove("show");synth.cancel();}
+
+/* ─────────── 6 · Inyectar el botón en cada bloque legal ─────────── */
+function montar(){
+  var legales=document.querySelectorAll(".legal:not([data-tts])");
+  if(!legales.length)return false;
+  if(!back)crearPanel();
+  legales.forEach(function(bl){
+    bl.setAttribute("data-tts","1");
+    var frases=segmentar(bl);
+    bl.__tts=frases;
+    if(!frases.length)return;
+
+    var bar=document.createElement("div");
+    bar.className="tts-bar noprint";
+    bar.innerHTML='<button class="tts-play" type="button">'+iconoPlay()+"</button>"
+      +'<button class="tts-cfg" type="button" title="Ajustes de voz">⚙ Voz</button>'
+      +'<span class="tts-time">'+frases.length+" frases</span>";
+    var lbl=bl.querySelector(".lbl");
+    if(lbl&&lbl.nextSibling)bl.insertBefore(bar,lbl.nextSibling);
+    else bl.insertBefore(bar,bl.firstChild);
+
+    bar.querySelector(".tts-play").onclick=function(e){e.stopPropagation();leer(bl);};
+    bar.querySelector(".tts-cfg").onclick=function(e){e.stopPropagation();abrirPanel();};
+  });
+  return true;
+}
+
+/* ─────────── 7 · Arranque ─────────── */
+cargarVoces();
+if(typeof synth.onvoiceschanged!=="undefined")synth.onvoiceschanged=cargarVoces;
+setTimeout(cargarVoces,400);setTimeout(cargarVoces,1400);
+
+var n=0,iv=setInterval(function(){if(montar()||++n>40)clearInterval(iv);},150);
+addEventListener("load",function(){setTimeout(montar,200);});
+addEventListener("beforeunload",function(){synth.cancel();});
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea,select"))return;
+  if(e.key==="Escape"&&actual)parar();
+});
+})();
+
+
+</script>
+</body>
+</html>

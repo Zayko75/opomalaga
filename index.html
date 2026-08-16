@@ -38,6 +38,8 @@
   --c4:#e11d48; --c4-soft:#ffe9ee;   /* Controlar */
   --c5:#0891b2; --c5-soft:#e0f5fa;   /* LCSP I    */
   --c6:#9333ea; --c6-soft:#f6e9ff;   /* LCSP II   */
+  --c7:#0d9488; --c7-soft:#dbf5f1;   /* Tesorería */
+  --c8:#65a30d; --c8-soft:#eaf5d9;   /* Estructura*/
 
   /* — Estados — */
   --ok:#16a34a; --ok-soft:#e7f7ec;
@@ -94,6 +96,8 @@ html[data-theme="dark"]{
   --c4:#fb7185; --c4-soft:#331119;
   --c5:#22d3ee; --c5-soft:#0a2830;
   --c6:#c084fc; --c6-soft:#26123a;
+  --c7:#2dd4bf; --c7-soft:#0a2a27;
+  --c8:#a3e635; --c8-soft:#1c2610;
 
   --ok:#4ade80; --ok-soft:#0e2a19;
   --mid:#facc15; --mid-soft:#2c2610;
@@ -433,8 +437,8 @@ svg line{fill:none}
   <section class="stats reveal">
     <div class="stat" style="--acc:var(--ok)"><span class="v num" id="sDom">0</span><span class="k">Bloques dominados</span></div>
     <div class="stat" style="--acc:var(--mid)"><span class="v num" id="sCur">0</span><span class="k">En curso</span></div>
-    <div class="stat" style="--acc:var(--c5)"><span class="v num">6</span><span class="k">Bloques totales</span></div>
-    <div class="stat" style="--acc:var(--c6)"><span class="v num">66</span><span class="k">Artículos cubiertos</span></div>
+    <div class="stat" style="--acc:var(--c5)"><span class="v num">8</span><span class="k">Bloques totales</span></div>
+    <div class="stat" style="--acc:var(--c6)"><span class="v num">99</span><span class="k">Artículos cubiertos</span></div>
   </section>
 
   <section class="sec reveal">
@@ -447,11 +451,12 @@ svg line{fill:none}
       <article class="tema" data-tema="8" style="--acc:var(--c1);--acc-soft:var(--c1-soft)">
         <span class="badge">Tema 8 · TRLHL</span>
         <h3>El presupuesto de las entidades locales</h3>
-        <p class="desc">Elaboración, aprobación y ejecución presupuestaria. Su control y fiscalización. Cuatro bloques, del art. 162 al 223.</p>
-        <div class="meta"><span><b>4</b> bloques</span><span><b>39</b> artículos</span><span>RDLeg 2/2004</span></div>
+        <p class="desc">Elaboración, aprobación y ejecución presupuestaria, tesorería, contabilidad y control. Seis bloques, del art. 162 al 223 más la estructura presupuestaria.</p>
+        <div class="meta"><span><b>6</b> bloques</span><span><b>72</b> artículos</span><span>RDLeg 2/2004 · Orden EHA/3565/2008</span></div>
         <div class="bar"><i data-tema-bar="8"></i></div>
         <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="8">0%</span></div>
         <a class="go" href="TEMA_8_indice.html">Abrir índice del tema 8 <span aria-hidden="true">→</span></a>
+        <a class="go" href="TEMA_8_concordancias.html" style="--acc:var(--ink-2);font-size:var(--t-xs);margin-top:.35rem">Concordancias y fuentes <span aria-hidden="true">→</span></a>
       </article>
 
       <article class="tema" data-tema="9" style="--acc:var(--c5);--acc-soft:var(--c5-soft)">
@@ -551,7 +556,9 @@ var BLOQUES=[
  {id:"b1",t:8,n:"1",acc:"c1",h:"TRLHL_162-171_presupuesto.html",tt:"Contenido y aprobación del presupuesto",d:"Qué es, qué integra, anexos, estructura, tramitación y recursos",a:"arts. 162-171"},
  {id:"b2",t:8,n:"2",acc:"c2",h:"TRLHL_172-182_creditos.html",tt:"Los créditos y sus modificaciones",d:"Carácter limitativo, nulidad sin crédito, plurianuales y las siete modificaciones",a:"arts. 172-182"},
  {id:"b3",t:8,n:"3",acc:"c3",h:"TRLHL_183-193_ejecucion.html",tt:"Ejecución y liquidación",d:"Fases A-D-O-P, ordenación de pagos, pagos a justificar y remanente de tesorería",a:"arts. 183-193 bis"},
- {id:"b4",t:8,n:"4",acc:"c4",h:"TRLHL_208-223_control.html",tt:"Cuenta general, control y fiscalización",d:"Función interventora, reparos, control financiero y Tribunal de Cuentas",a:"arts. 208-223"},
+ {id:"b7",t:8,n:"4",acc:"c7",h:"TRLHL_194-207_tesoreria_contabilidad.html",tt:"Tesorería y contabilidad",d:"Unidad de caja, medios de pago, operaciones de tesorería y contabilidad pública local",a:"arts. 194-207"},
+ {id:"b4",t:8,n:"5",acc:"c4",h:"TRLHL_208-223_control.html",tt:"Cuenta general, control y fiscalización",d:"Función interventora, reparos, control financiero y Tribunal de Cuentas",a:"arts. 208-223"},
+ {id:"b8",t:8,n:"6",acc:"c8",h:"ORDEN_EHA_3565_2008_estructura.html",tt:"La estructura presupuestaria",d:"Clasificación por programas, económica y orgánica: áreas, políticas y capítulos",a:"Orden EHA/3565/2008"},
  {id:"b5",t:9,n:"9",acc:"c5",h:"LCSP_01-11_ambito.html",tt:"LCSP · Objeto y ámbito de aplicación",d:"Principios, ámbito objetivo y subjetivo, negocios y contratos excluidos",a:"arts. 1-11"},
  {id:"b6",t:10,n:"10",acc:"c6",h:"LCSP_12-27_contratos.html",tt:"LCSP · Los contratos del sector público",d:"Cinco tipos, riesgo operacional, SARA, administrativos frente a privados",a:"arts. 12-27"}
 ];

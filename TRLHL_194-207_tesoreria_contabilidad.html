@@ -1,0 +1,2535 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>TRLHL · Arts. 194-207 · Tesorería y contabilidad</title>
+<style>
+
+/* ═══════════════════════════════════════════════════════════════
+   SISTEMA DE DISEÑO · "Académico Gamificado" · Bloque II
+   Temas 8, 9 y 10 · Auxiliar Administrativo
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --fs:16px;
+
+  --bg:#faf9f7;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #dcf5ee 0%, transparent 50%);
+  --surface:#ffffff;
+  --surface-2:#f4f3f0;
+  --surface-3:#eceae5;
+  --line:#e6e3dc;
+  --line-strong:#d4d0c7;
+
+  --ink:#15161c;
+  --ink-2:#5d616e;
+  --ink-3:#8b8f9c;
+
+  --brand:#5b3df5;
+  --brand-2:#7c5cff;
+  --brand-soft:#efeaff;
+  --brand-ring:rgba(91,61,245,.18);
+
+  --legal:#4338ca;  --legal-bg:#eeecff;
+  --ej:#059669;     --ej-bg:#e4f7f0;
+  --warn:#c2690a;   --warn-bg:#fdf1de;
+  --exc:#dc2626;    --exc-bg:#ffeceb;
+
+  --ok:#16a34a; --ok-soft:#e7f7ec;
+  --mid:#eab308; --mid-soft:#fdf6dd;
+  --off:#a1a1aa; --off-soft:#f1f1f3;
+
+  --sh-1:0 1px 2px rgba(20,20,30,.04), 0 2px 8px rgba(20,20,30,.04);
+  --sh-2:0 2px 6px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.07);
+  --sh-3:0 8px 20px rgba(91,61,245,.13), 0 24px 56px rgba(20,20,30,.10);
+  --sh-glow:0 0 0 4px var(--brand-ring);
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-full:999px;
+
+  --f-display:"Segoe UI Variable Display",system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-legal:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+
+  --t-h1:clamp(1.02rem,.95rem + .3vw,1.2rem);
+  --t-h2:clamp(1.2rem,1.05rem + .6vw,1.55rem);
+  --t-h3:clamp(1rem,.95rem + .25vw,1.12rem);
+  --t-sm:.86rem;
+  --t-xs:.75rem;
+
+  --e-out:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+
+  /* ── Compatibilidad con SVG y contenido generado ── */
+  --panel:var(--surface);
+  --ink2:var(--ink-2);
+  --acc:var(--brand);
+  --acc-soft:var(--brand-soft);
+  --g:var(--ok); --y:var(--mid); --r:var(--exc);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0b0f;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #1c1740 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #08302b 0%, transparent 50%);
+  --surface:#13151b;
+  --surface-2:#1a1d25;
+  --surface-3:#232733;
+  --line:#262a34;
+  --line-strong:#343947;
+
+  --ink:#eceef4;
+  --ink-2:#9ba2b3;
+  --ink-3:#6e7585;
+
+  --brand:#8b6dff;
+  --brand-2:#a78bff;
+  --brand-soft:#1e1a3d;
+  --brand-ring:rgba(139,109,255,.22);
+
+  --legal:#a5b4fc; --legal-bg:#191b3a;
+  --ej:#34d399;    --ej-bg:#0c2a24;
+  --warn:#fbbf24;  --warn-bg:#2e2110;
+  --exc:#fb7185;   --exc-bg:#331119;
+
+  --ok:#4ade80; --ok-soft:#0e2a19;
+  --mid:#facc15; --mid-soft:#2c2610;
+  --off:#5b6070; --off-soft:#1c1f27;
+
+  --sh-1:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sh-2:0 2px 6px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.4);
+  --sh-3:0 8px 20px rgba(139,109,255,.2), 0 24px 56px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);background-image:var(--bg-grad);
+  background-attachment:fixed;background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s var(--e-out),color .3s;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.022em;line-height:1.2}
+.num{font-variant-numeric:tabular-nums}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+
+/* ═══ HEADER ═══ */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{max-width:1280px;margin:0 auto;padding:.65rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;flex:1}
+.mark{
+  width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  font-weight:800;font-size:.8rem;letter-spacing:-.02em;text-decoration:none;
+  box-shadow:0 4px 14px var(--brand-ring);
+  transition:transform .3s var(--e-spring),box-shadow .3s;
+}
+.mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0}
+.top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
+  margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+
+button,select,input[type=search]{
+  font:inherit;font-size:var(--t-sm);font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:var(--r-sm);padding:.4rem .72rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .18s var(--e-spring),border-color .2s,background .2s,box-shadow .2s,color .2s;
+}
+button:hover{transform:translateY(-1.5px);border-color:var(--brand);box-shadow:var(--sh-1)}
+button:active{transform:translateY(0) scale(.97)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:none;box-shadow:var(--sh-glow)}
+input[type=search]{min-width:190px;cursor:text;font-weight:500}
+input[type=search]:focus{border-color:var(--brand)}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);padding:2px;gap:2px}
+.seg button{border:0;border-radius:calc(var(--r-sm) - 2px);padding:.32rem .68rem;background:transparent;box-shadow:none}
+.seg button:hover{transform:none;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 2px 8px var(--brand-ring)}
+
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:currentColor;opacity:.25;animation:rip .55s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(3.4);opacity:0}}
+
+.progress{position:absolute;left:0;bottom:-1px;height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--brand),var(--legal),var(--ej));transition:width .1s linear}
+
+/* ═══ LAYOUT ═══ */
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:1.8rem;padding:1.4rem 1.1rem 5rem}
+main{min-width:0}
+
+/* ═══ SIDEBAR ═══ */
+nav.side{
+  position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:.85rem;box-shadow:var(--sh-1);
+}
+nav.side h2{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:.5rem .4rem .5rem;font-weight:800}
+nav.side h2:first-child{margin-top:.1rem}
+nav.side a{
+  display:flex;align-items:baseline;gap:.5rem;padding:.36rem .55rem;border-radius:var(--r-sm);
+  text-decoration:none;color:var(--ink-2);font-size:var(--t-sm);font-weight:500;
+  position:relative;transition:background .22s,color .22s,transform .22s var(--e-out);
+}
+nav.side a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(3px);text-decoration:none}
+nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side a.on::before{content:"";position:absolute;left:-.85rem;top:20%;bottom:20%;width:3px;
+  border-radius:0 3px 3px 0;background:var(--brand)}
+nav.side a b{color:var(--ink-3);font-weight:800;font-size:var(--t-xs);font-variant-numeric:tabular-nums;flex:none;min-width:1.9em}
+nav.side a.on b{color:var(--brand)}
+.navtoggle{display:none}
+
+/* ═══ TARJETAS ═══ */
+section.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.5rem;margin-bottom:1.1rem;box-shadow:var(--sh-1);
+  transition:box-shadow .3s var(--e-out),border-color .3s;
+}
+section.card:hover{box-shadow:var(--sh-2)}
+section.card>h2{
+  margin:0 0 1rem;font-size:var(--t-h2);font-weight:800;
+  display:flex;align-items:center;gap:.6rem;
+}
+section.card>h2::before{
+  content:"";width:4px;height:1.05em;border-radius:99px;flex:none;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+
+/* ═══ ARTÍCULO ═══ */
+.art{scroll-margin-top:86px;padding-top:.4rem}
+.art + .art{margin-top:1.6rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+.art h2{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;font-size:var(--t-h3);
+  margin:0 0 .25rem;font-weight:800;letter-spacing:-.015em}
+.art h2 .num{
+  color:var(--brand);font-weight:800;font-family:var(--f-display);
+  background:var(--brand-soft);padding:.1rem .5rem;border-radius:var(--r-sm);
+  font-size:.92em;letter-spacing:-.02em;
+}
+.ubic{font-size:var(--t-xs);color:var(--ink-3);margin:0 0 .8rem;font-weight:600;
+  letter-spacing:.03em;text-transform:uppercase}
+
+/* ═══ IDEA CLAVE ═══ */
+.idea{
+  background:linear-gradient(100deg,var(--brand-soft),color-mix(in srgb,var(--brand-soft) 40%,transparent));
+  border-left:4px solid var(--brand);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.75rem 1rem;font-weight:650;margin:.7rem 0 1rem;position:relative;
+  font-size:.97rem;line-height:1.55;
+}
+
+/* ═══ ACORDEÓN ═══ */
+details.panel{
+  border:1px solid var(--line);border-radius:var(--r-md);margin:.6rem 0;
+  background:var(--surface);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+details.panel:hover{border-color:var(--line-strong)}
+details.panel[open]{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring)}
+details.panel>summary{
+  cursor:pointer;padding:.62rem .9rem;font-weight:700;font-size:.93rem;
+  list-style:none;display:flex;align-items:center;gap:.55rem;
+  transition:background .2s,color .2s;
+}
+details.panel>summary:hover{background:var(--surface-2)}
+details.panel[open]>summary{background:var(--brand-soft);color:var(--brand)}
+details.panel>summary::-webkit-details-marker{display:none}
+details.panel>summary::before{
+  content:"";width:16px;height:16px;flex:none;border-radius:5px;
+  background:var(--brand-soft);position:relative;transition:transform .3s var(--e-spring),background .25s;
+}
+details.panel>summary::after{
+  content:"";position:absolute;width:0;height:0;margin-left:5px;
+  border:4px solid transparent;border-left-color:var(--brand);
+  transition:transform .3s var(--e-spring);
+}
+details.panel[open]>summary::before{background:var(--surface)}
+details.panel[open]>summary::after{transform:rotate(90deg) translateX(-1px)}
+details.panel .body{padding:.3rem 1rem 1rem;font-size:.95rem;animation:slidein .35s var(--e-out)}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ═══ TEXTO LEGAL ═══ */
+.legal{
+  background:var(--legal-bg);border-left:4px solid var(--legal);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:.85rem 1.05rem;
+  font-family:var(--f-legal);font-size:.95rem;line-height:1.7;
+}
+.legal p{margin:.45rem 0}
+.legal .lbl{
+  font-family:var(--f-body);font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--legal);font-weight:800;display:block;margin-bottom:.4rem;
+}
+
+/* ═══ CAJAS SEMÁNTICAS ═══ */
+.box{
+  border-left:4px solid var(--line);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.72rem .95rem;margin:.65rem 0;font-size:.94rem;
+  transition:transform .25s var(--e-out),box-shadow .25s;
+}
+.box:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
+.box.ej{background:var(--ej-bg);border-color:var(--ej)}
+.box.warn{background:var(--warn-bg);border-color:var(--warn)}
+.box.exc{background:var(--exc-bg);border-color:var(--exc)}
+.box .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+  display:block;margin-bottom:.3rem}
+.box.ej .lbl{color:var(--ej)}
+.box.warn .lbl{color:var(--warn)}
+.box.exc .lbl{color:var(--exc)}
+
+.interp{
+  border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn-bg) 45%,transparent);
+  border-radius:var(--r-md);padding:.65rem .9rem;font-size:.9rem;margin:.6rem 0;
+}
+.interp .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);font-weight:800;display:block}
+
+/* ═══ TABLAS ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;margin:.7rem 0;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+th,td{padding:.5rem .68rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td + td, th + th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-size:var(--t-xs);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+tbody tr{transition:background .18s}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+tbody tr:hover{background:var(--brand-soft)}
+th.sortable{cursor:pointer;user-select:none;transition:color .2s,background .2s}
+th.sortable:hover{color:var(--brand);background:var(--brand-soft)}
+th.sortable::after{content:" ⇅";color:var(--ink-3);font-size:.7rem}
+
+ul,ol{margin:.5rem 0 .5rem 1.2rem;padding:0}
+li{margin:.26rem 0}
+li::marker{color:var(--brand);font-weight:700}
+
+/* ═══ TOOLTIPS ═══ */
+.t{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;
+  transition:background .2s,color .2s}
+.t:hover{background:var(--brand-soft);color:var(--brand);border-radius:3px}
+#tip{
+  position:fixed;z-index:99;max-width:330px;background:var(--ink);color:var(--bg);
+  padding:.6rem .78rem;border-radius:var(--r-md);font-size:.82rem;line-height:1.5;
+  display:none;box-shadow:0 8px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);
+}
+html[data-theme="dark"] #tip{background:#f0f1f5;color:#15161c}
+
+/* ═══ FLECHAS DE DIAGRAMA ═══
+   Un <path> con stroke pero sin fill toma el valor inicial (negro) y el
+   navegador cierra el trazo implícitamente: aparece un triángulo relleno
+   entre sus extremos. Forzamos fill:none para dejar solo la línea + la
+   punta del <marker>, que sí lleva su color. */
+svg path[stroke]:not([fill]){fill:none}
+svg polyline:not([fill]){fill:none}
+svg line{fill:none}
+
+/* ═══ SVG ═══ */
+svg{max-width:100%;height:auto;display:block;margin:.9rem auto}
+svg text{font-family:var(--f-body)}
+
+/* ═══ BUSCADOR ═══ */
+mark.hit{background:linear-gradient(180deg,transparent 55%,#ffe066 55%);color:inherit;
+  border-radius:2px;padding:0 1px;font-weight:600}
+html[data-theme="dark"] mark.hit{background:linear-gradient(180deg,transparent 55%,#8a6d00 55%);color:#fff}
+
+/* ═══ UTILIDADES ═══ */
+.hide{display:none !important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.small{font-size:var(--t-sm);color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:var(--t-xs);padding:.16rem .55rem;border-radius:var(--r-full);
+  background:var(--brand-soft);color:var(--brand);font-weight:800;letter-spacing:.02em;
+}
+
+/* ═══ HUECOS RELLENABLES ═══ */
+.gap{
+  display:inline-block;min-width:5.5em;border-bottom:2px solid var(--brand);
+  text-align:center;font-weight:700;color:transparent;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.gap.on,.gap:hover{color:var(--brand);background:var(--brand-soft);border-radius:4px 4px 0 0}
+
+/* ═══ REVELAR SOLUCIÓN ═══ */
+.revelar{
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;
+  font-weight:700;
+}
+.revelar:hover{box-shadow:var(--sh-3)}
+.sol{
+  margin-top:.7rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  background:var(--ej-bg);border-left:4px solid var(--ej);
+  animation:slidein .4s var(--e-out);
+}
+
+/* ═══ TEST ═══ */
+.opt{
+  display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;background:var(--surface);font-size:.94rem;
+  transition:border-color .22s,background .22s,transform .22s var(--e-out);
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateX(4px)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:650}
+.opt.ko{border-color:var(--exc);background:var(--exc-bg)}
+.opt input{margin-right:.5rem;accent-color:var(--brand)}
+
+#tscore,#semres{
+  font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLASHCARDS 3D · mazo con giro, vuelo de salida y sheen
+   ═══════════════════════════════════════════════════════════════ */
+#flash{--fc-e:cubic-bezier(.2,.8,.25,1);--fc-h:250px}
+
+/* — Escena — */
+.fc-stage{
+  perspective:1400px;perspective-origin:50% 45%;
+  padding:.4rem 0 .2rem;position:relative;
+}
+.fc-deck{position:relative;height:var(--fc-h);will-change:transform}
+
+/* — Cartas fantasma del mazo — */
+.fc-ghost{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .5s var(--fc-e),opacity .5s var(--fc-e);
+}
+.fc-ghost.g1{transform:translateY(9px) scale(.972);opacity:.75}
+.fc-ghost.g2{transform:translateY(18px) scale(.944);opacity:.45}
+.fc-deck.empty .fc-ghost{opacity:0;transform:translateY(26px) scale(.9)}
+
+/* — Elevación durante el giro — */
+.fc-lift{position:absolute;inset:0;transform-style:preserve-3d}
+.fc-lift.lift{animation:fcLift .78s var(--fc-e)}
+@keyframes fcLift{
+  0%,100%{transform:scale(1) translateY(0)}
+  45%{transform:scale(1.055) translateY(-16px)}
+}
+.fc-lift.out-ok{animation:fcOut .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.out-ko{animation:fcOutKo .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.in{animation:fcIn .48s var(--fc-e)}
+@keyframes fcOut{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(130%) rotate(17deg) scale(.85);opacity:0}
+}
+@keyframes fcOutKo{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(-130%) rotate(-17deg) scale(.85);opacity:0}
+}
+@keyframes fcIn{
+  0%{transform:translateY(26px) scale(.9);opacity:0}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+
+/* — La carta — */
+.fc-card{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transition:transform .78s var(--fc-e);
+  cursor:pointer;border-radius:var(--r-lg);
+}
+.fc-card:focus-visible{outline:none}
+.fc-card:focus-visible .fc-face{box-shadow:var(--sh-glow),var(--sh-2)}
+
+/* — Caras — */
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 2.2rem;text-align:center;overflow:hidden;
+  box-shadow:var(--sh-2);
+  transition:box-shadow .4s var(--fc-e);
+}
+.fc-card:hover .fc-face{box-shadow:var(--sh-3)}
+
+/* Anverso · pregunta */
+.fc-front{
+  background:
+    radial-gradient(120% 90% at 50% -20%, var(--brand-soft) 0%, transparent 60%),
+    var(--surface);
+  border:1.5px solid var(--line);color:var(--ink);
+}
+/* Reverso · respuesta */
+.fc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,var(--brand) 0%,#6d4bf7 45%,var(--c5,#0891b2) 130%);
+  border:1.5px solid transparent;color:#fff;
+}
+html[data-theme="dark"] .fc-back{
+  background:linear-gradient(145deg,#5f45c9 0%,#4b3aa8 45%,#0e6b85 130%);
+}
+.fc-back .fc-txt{color:#fff}
+.fc-back b,.fc-back strong{color:#fff;font-weight:800}
+
+/* — Sheen que barre al girar — */
+.fc-face::after{
+  content:"";position:absolute;top:-60%;left:-70%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);opacity:0;pointer-events:none;
+}
+.fc-lift.lift .fc-face::after{animation:fcSheen .78s var(--fc-e)}
+@keyframes fcSheen{
+  0%{opacity:0;left:-70%}
+  35%{opacity:1}
+  100%{opacity:0;left:150%}
+}
+
+/* — Etiqueta superior — */
+.fc-tag{
+  position:absolute;top:1rem;left:1.15rem;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.fc-front .fc-tag{color:var(--brand)}
+.fc-back .fc-tag{color:rgba(255,255,255,.9)}
+.fc-tag::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+  animation:fcPulse 2.2s ease-in-out infinite;
+}
+@keyframes fcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* — Índice tipo naipe — */
+.fc-pip{
+  position:absolute;font-family:var(--f-display);font-weight:800;
+  font-size:.78rem;letter-spacing:-.02em;opacity:.34;font-variant-numeric:tabular-nums;
+}
+.fc-pip.tr{top:1rem;right:1.15rem}
+.fc-pip.bl{bottom:1rem;left:1.15rem;transform:rotate(180deg)}
+.fc-front .fc-pip{color:var(--ink-2)}
+.fc-back .fc-pip{color:#fff;opacity:.55}
+
+/* — Texto — */
+.fc-txt{
+  font-size:clamp(1rem,.9rem + .55vw,1.28rem);font-weight:650;line-height:1.5;
+  max-width:44ch;letter-spacing:-.012em;
+}
+.fc-front .fc-txt{font-family:var(--f-display);font-weight:700}
+.fc-back .fc-txt{font-weight:600;line-height:1.6}
+.fc-hint{
+  position:absolute;bottom:1rem;left:0;right:0;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.fc-front .fc-hint{color:var(--ink-3)}
+.fc-back .fc-hint{color:rgba(255,255,255,.72)}
+.fc-hint .kbd{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:700;padding:.1rem .32rem;
+  border-radius:5px;border:1px solid currentColor;opacity:.75;
+}
+
+/* — Pantalla final — */
+.fc-done{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--ok-soft),var(--surface) 70%);
+  border:1.5px solid var(--ok);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;gap:.35rem;
+  animation:fcIn .5s var(--fc-e);box-shadow:var(--sh-2);
+}
+.fc-done .seal{
+  font-size:2.6rem;line-height:1;
+  animation:fcSeal .7s cubic-bezier(.2,1.5,.4,1);
+}
+@keyframes fcSeal{0%{transform:scale(0) rotate(-25deg);opacity:0}60%{transform:scale(1.2) rotate(6deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.fc-done h3{font-size:1.3rem;font-weight:800;margin:.2rem 0 0}
+.fc-done p{margin:0;color:var(--ink-2);font-size:var(--t-sm)}
+
+/* — Barra de progreso de la ronda — */
+.fc-bar{
+  height:6px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;margin:.95rem 0 .8rem;position:relative;
+}
+.fc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand),var(--c5,#0891b2));
+  transition:width .55s var(--fc-e);
+}
+
+/* — Controles — */
+.fc-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.fc-ctrls button{font-weight:700}
+#fcok{border-color:var(--ok);color:var(--ok)}
+#fcok:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+#fcko{border-color:var(--warn);color:var(--warn)}
+#fcko:hover{background:var(--warn);color:#fff;border-color:var(--warn)}
+#fcflip{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+#fcflip:hover{box-shadow:var(--sh-3)}
+
+.fc-score{display:inline-flex;gap:.45rem;margin-left:auto;align-items:center}
+.fc-pill{
+  font-size:var(--t-xs);font-weight:800;padding:.24rem .6rem;border-radius:var(--r-full);
+  font-variant-numeric:tabular-nums;border:1px solid;
+}
+.fc-pill.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.fc-pill.ko{color:var(--warn);border-color:var(--warn);background:var(--warn-bg)}
+.fc-pill.left{color:var(--ink-2);border-color:var(--line);background:var(--surface-2)}
+.fc-pill.bump{animation:fcBump .45s var(--e-spring)}
+@keyframes fcBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+@media(max-width:620px){
+  #flash{--fc-h:270px}
+  .fc-face{padding:1.7rem 1.3rem}
+  .fc-score{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-card{transition:none}
+  .fc-lift.lift,.fc-lift.in,.fc-lift.out-ok,.fc-lift.out-ko,.fc-face::after{animation:none !important}
+}
+@media print{.fc-stage,.fc-ctrls,.fc-bar{display:none !important}}
+/* ═══ RESPUESTA ESTRUCTURADA ═══ */
+.fc-face{justify-content:center}
+.fc-face.struct{justify-content:flex-start;text-align:left;padding-top:3.1rem;padding-bottom:3.1rem}
+.fc-body{
+  width:100%;max-width:46ch;margin:0 auto;
+  overflow-y:auto;max-height:100%;
+  scrollbar-width:thin;
+}
+.fc-body::-webkit-scrollbar{width:5px}
+.fc-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:99px;border:0}
+.fc-front .fc-body::-webkit-scrollbar-thumb{background:var(--line-strong)}
+
+/* — Veredicto Sí / No — */
+.fc-verdict{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-display);font-weight:800;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.26rem .72rem;border-radius:var(--r-full);margin-bottom:.85rem;
+  border:1.5px solid;animation:fcPopIn .45s var(--e-spring) backwards;animation-delay:.34s;
+}
+.fc-verdict.si{background:rgba(255,255,255,.16);border-color:rgba(190,255,215,.85);color:#d8ffe9}
+.fc-verdict.no{background:rgba(255,255,255,.16);border-color:rgba(255,205,205,.85);color:#ffdedd}
+@keyframes fcPopIn{0%{opacity:0;transform:scale(.7) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* — Párrafo — */
+.fc-p{margin:0;font-size:clamp(1rem,.92rem + .45vw,1.2rem);font-weight:600;line-height:1.6}
+.fc-face.struct .fc-p{font-size:clamp(.96rem,.9rem + .35vw,1.1rem)}
+
+/* — Lista enumerada — */
+.fc-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;counter-reset:fc}
+.fc-list li{
+  counter-increment:fc;position:relative;margin:0;
+  padding:.42rem .6rem .42rem 2.5rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.11);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.45;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-list li::before{
+  content:counter(fc);position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.9);color:var(--brand);
+  font-family:var(--f-display);font-weight:800;font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.fc-list.alpha li::before{content:counter(fc,lower-alpha)}
+.fc-list li:nth-child(1){animation-delay:.36s}
+.fc-list li:nth-child(2){animation-delay:.42s}
+.fc-list li:nth-child(3){animation-delay:.48s}
+.fc-list li:nth-child(4){animation-delay:.54s}
+.fc-list li:nth-child(5){animation-delay:.60s}
+.fc-list li:nth-child(n+6){animation-delay:.66s}
+@keyframes fcRow{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:none}}
+
+/* — Cláusulas contrapuestas — */
+.fc-clauses{display:grid;gap:.45rem}
+.fc-clauses p{
+  margin:0;padding:.45rem .7rem .45rem .95rem;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:rgba(255,255,255,.11);border-left:3px solid rgba(255,255,255,.55);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.5;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-clauses p:nth-child(1){animation-delay:.36s}
+.fc-clauses p:nth-child(2){animation-delay:.44s}
+.fc-clauses p:nth-child(3){animation-delay:.52s}
+
+/* — Negritas resaltadas en el reverso — */
+.fc-back .fc-body b,.fc-back .fc-body strong{
+  font-weight:800;background:rgba(255,255,255,.2);
+  padding:.03em .3em;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+
+/* — Cita legal al pie — */
+.fc-cite{
+  position:absolute;bottom:.95rem;left:0;right:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;letter-spacing:.02em;
+  color:rgba(255,255,255,.82);
+  animation:fcPopIn .5s var(--e-out) backwards;animation-delay:.5s;
+}
+.fc-cite::before,.fc-cite::after{
+  content:"";height:1px;width:clamp(18px,10%,52px);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45));
+}
+.fc-cite::after{background:linear-gradient(90deg,rgba(255,255,255,.45),transparent)}
+.fc-cite .s{font-size:.9rem;opacity:.75;font-family:var(--f-legal)}
+.fc-front .fc-cite{color:var(--ink-3)}
+.fc-front .fc-cite::before{background:linear-gradient(90deg,transparent,var(--line-strong))}
+.fc-front .fc-cite::after{background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+/* la pista se oculta si hay cita, para no amontonar */
+.fc-back .fc-cite ~ .fc-hint,.fc-back .fc-hint.muted{display:none}
+
+@media(max-width:620px){
+  #flash{--fc-h:320px}
+  .fc-face.struct{padding-top:2.9rem;padding-bottom:2.8rem}
+  .fc-list li{padding-left:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-verdict,.fc-list li,.fc-clauses p,.fc-cite{animation:none !important}
+}
+
+/* ═══ SEMÁFORO ═══ */
+.sembtn{
+  border-radius:var(--r-full);padding:.32rem .7rem;font-weight:700;font-size:var(--t-sm);
+}
+.sembtn[data-v="g"]:hover,.sembtn.on[data-v="g"]{background:var(--ok);color:#fff;border-color:var(--ok)}
+.sembtn[data-v="y"]:hover,.sembtn.on[data-v="y"]{background:var(--mid);color:#3d2f00;border-color:var(--mid)}
+.sembtn[data-v="r"]:hover,.sembtn.on[data-v="r"]{background:var(--exc);color:#fff;border-color:var(--exc)}
+
+/* ═══ CTA DE BLOQUE ═══ */
+a.blk{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  padding:.5rem .95rem;border-radius:var(--r-sm);font-weight:700;font-size:var(--t-sm);
+  text-decoration:none;box-shadow:0 2px 10px var(--brand-ring);
+  transition:transform .22s var(--e-spring),box-shadow .25s,gap .25s var(--e-out);
+}
+a.blk:hover{transform:translateY(-2px);box-shadow:var(--sh-3);gap:.75rem;text-decoration:none}
+a.blk::after{content:"→"}
+a.blk:active{transform:translateY(0) scale(.98)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr;padding-top:.9rem;gap:1rem}
+  nav.side{position:static;max-height:none}
+  nav.side.collapsed .navbody{display:none}
+  .navtoggle{display:block;width:100%;text-align:left;font-weight:700}
+  .grid2{grid-template-columns:1fr}
+  .top h1 .sub{white-space:normal}
+}
+@media(max-width:620px){
+  .top-in{padding:.55rem .8rem}
+  .tools{width:100%;margin-left:0}
+  input[type=search]{flex:1;min-width:0}
+  section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
+  table{font-size:.82rem}
+  th,td{padding:.4rem .5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  header.top,nav.side,.tools,.noprint,.progress{display:none !important}
+  body{background:#fff;background-image:none;font-size:11pt;color:#000}
+  .layout{display:block;max-width:none;padding:0}
+  section.card{border:0;padding:0;margin:0 0 1rem;break-inside:avoid;box-shadow:none}
+  details.panel{border:0;box-shadow:none}
+  details.panel .body{display:block !important}
+  details.panel>summary{padding-left:0}
+  .art{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  a{color:#000;text-decoration:none}
+}
+
+
+/* ═══ ALTURA ADAPTATIVA DE LA TARJETA ═══ */
+.fc-deck{transition:height .45s var(--fc-e)}
+.fc-body{max-height:none;overflow:visible}
+.fc-measure{
+  position:absolute;left:0;right:0;top:0;height:auto;
+  visibility:hidden;pointer-events:none;z-index:-1;
+}
+.fc-measure .fc-face{
+  position:relative;inset:auto;height:auto;min-height:0;
+  box-shadow:none;backface-visibility:visible;transform:none;
+}
+.fc-measure .fc-body{max-height:none;overflow:visible}
+.fc-measure .fc-face::after{display:none}
+
+/* ═══ MOSTRAR / OCULTAR ÍNDICE LATERAL ═══ */
+.layout{transition:grid-template-columns .42s var(--e-out)}
+.layout.nonav{grid-template-columns:0 1fr;gap:0}
+.layout.nonav>nav.side{
+  opacity:0;transform:translateX(-14px);pointer-events:none;
+  padding:0;border-width:0;overflow:hidden;width:0;min-width:0;
+}
+nav.side{
+  transition:opacity .3s var(--e-out),transform .38s var(--e-out);
+  overflow-x:hidden;
+}
+#navhide .ic{display:inline-block;transition:transform .35s var(--e-spring);font-size:.95em;line-height:1}
+#navhide[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand);color:var(--brand)}
+#navhide[aria-pressed="true"] .ic{transform:rotate(90deg)}
+@media(max-width:960px){#navhide{display:none}}
+
+/* ═══════════════════════════════════════════════════════════════
+   LECTURA EN VOZ ALTA (TTS) del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+.tts-bar{
+  display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;
+  margin:.15rem 0 .7rem;
+}
+.tts-bar button{
+  font-size:var(--t-xs);font-weight:700;padding:.3rem .62rem;
+  border-radius:var(--r-full);border:1px solid var(--legal);
+  background:transparent;color:var(--legal);
+  display:inline-flex;align-items:center;gap:.35rem;line-height:1.2;
+}
+.tts-bar button:hover{background:var(--legal);color:var(--surface);border-color:var(--legal)}
+.tts-bar button[hidden]{display:none}
+.tts-bar .tts-play.on{background:var(--legal);color:var(--surface)}
+
+/* Ondas de audio mientras lee */
+.tts-wave{display:inline-flex;align-items:flex-end;gap:2px;height:11px}
+.tts-wave i{
+  width:2.5px;background:currentColor;border-radius:2px;height:35%;
+  animation:ttsW .9s ease-in-out infinite;
+}
+.tts-wave i:nth-child(2){animation-delay:.15s}
+.tts-wave i:nth-child(3){animation-delay:.3s}
+.tts-wave i:nth-child(4){animation-delay:.45s}
+@keyframes ttsW{0%,100%{height:32%}50%{height:100%}}
+
+.tts-time{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:700;
+  color:var(--ink-3);font-variant-numeric:tabular-nums;
+}
+
+/* Frase que se está leyendo */
+.tts-s{transition:background .25s,color .25s;border-radius:3px}
+.tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 26%,transparent) 8%);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--legal) 16%,transparent);
+}
+html[data-theme="dark"] .tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 34%,transparent) 8%);
+}
+.legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
+
+/* ═══ Reproductor flotante ═══ */
+.tts-mini{
+  position:fixed;left:50%;bottom:1.1rem;transform:translateX(-50%) translateY(140%);
+  z-index:80;display:flex;align-items:center;gap:.6rem;
+  background:color-mix(in srgb,var(--surface) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  border:1px solid var(--line);border-radius:var(--r-full);
+  padding:.5rem .7rem .5rem .95rem;box-shadow:var(--sh-3);
+  transition:transform .45s var(--e-spring),opacity .3s;opacity:0;pointer-events:none;
+  max-width:min(94vw,540px);
+}
+.tts-mini.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.tts-mini .lbl{
+  font-size:var(--t-xs);font-weight:800;color:var(--legal);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:16ch;
+}
+.tts-mini button{
+  border-radius:50%;width:32px;height:32px;padding:0;display:grid;place-items:center;
+  font-size:.8rem;border:1px solid var(--line);flex:none;
+}
+.tts-mini button.main{
+  width:38px;height:38px;font-size:.95rem;
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-mini .bar{
+  flex:1;min-width:70px;height:5px;border-radius:99px;background:var(--surface-3);overflow:hidden;
+}
+.tts-mini .bar i{display:block;height:100%;width:0;background:var(--legal);
+  border-radius:99px;transition:width .35s var(--e-out)}
+
+/* ═══ Panel de ajustes de voz ═══ */
+.tts-back{
+  position:fixed;inset:0;z-index:90;background:rgba(10,10,18,.45);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  display:grid;place-items:center;padding:1rem;
+  opacity:0;pointer-events:none;transition:opacity .3s var(--e-out);
+}
+.tts-back.show{opacity:1;pointer-events:auto}
+.tts-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--sh-3);width:min(94vw,470px);max-height:88vh;overflow:auto;
+  padding:1.3rem 1.4rem;transform:translateY(16px) scale(.97);
+  transition:transform .38s var(--e-spring);
+}
+.tts-back.show .tts-panel{transform:none}
+.tts-panel h3{
+  font-size:1.12rem;font-weight:800;margin:0 0 .25rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.tts-panel .sub{font-size:var(--t-sm);color:var(--ink-2);margin:0 0 1.1rem}
+.tts-row{margin-bottom:1.05rem}
+.tts-row > label{
+  display:block;font-size:var(--t-xs);font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:.4rem;
+}
+.tts-seg{display:flex;gap:3px;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:3px}
+.tts-seg button{
+  flex:1;border:0;background:transparent;border-radius:calc(var(--r-sm) - 3px);
+  padding:.42rem .3rem;font-size:var(--t-sm);font-weight:700;box-shadow:none;
+}
+.tts-seg button:hover{transform:none;background:var(--surface)}
+.tts-seg button[aria-pressed="true"]{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;
+}
+.tts-panel select{
+  width:100%;padding:.5rem .6rem;border-radius:var(--r-sm);
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  font-size:var(--t-sm);font-weight:600;cursor:pointer;
+}
+.tts-panel select:focus{border-color:var(--brand);outline:none}
+.tts-slider{display:flex;align-items:center;gap:.75rem}
+.tts-slider input[type=range]{flex:1;accent-color:var(--legal);cursor:pointer;height:22px}
+.tts-val{
+  font-family:var(--f-mono);font-weight:800;font-size:var(--t-sm);
+  min-width:3.4em;text-align:right;color:var(--legal);font-variant-numeric:tabular-nums;
+}
+.tts-note{
+  font-size:var(--t-xs);color:var(--ink-2);line-height:1.5;
+  background:var(--surface-2);border-radius:var(--r-sm);padding:.6rem .75rem;margin:0 0 1rem;
+}
+.tts-note b{color:var(--ink)}
+.tts-acts{display:flex;gap:.5rem;justify-content:flex-end;flex-wrap:wrap}
+.tts-acts .prim{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-badge{
+  font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  padding:.1rem .35rem;border-radius:4px;background:var(--ej-bg);color:var(--ej);margin-left:.35rem;
+}
+
+@media(max-width:620px){
+  .tts-mini{left:.6rem;right:.6rem;transform:translateY(140%);max-width:none}
+  .tts-mini.show{transform:translateY(0)}
+  .tts-mini .lbl{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .tts-wave i{animation:none;height:60%}
+}
+@media print{.tts-bar,.tts-mini,.tts-back{display:none !important}}
+
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brandwrap">
+    <a class="mark" href="TEMA_8_indice.html" title="Volver al índice">B5</a>
+    <h1>Real Decreto Legislativo 2/2004 · TRLHL
+      <span class="sub">Título VI, Caps. II y III — De la tesorería y De la contabilidad · Arts. 194 a 207 (tema 8, bloque 5)</span>
+    </h1>
+    </div>
+    <div class="tools noprint">
+      <input type="search" id="q" placeholder="Buscar en la página…" aria-label="Buscar">
+      <span class="seg" role="group" aria-label="Modo de vista">
+        <button data-view="legal" aria-pressed="false">Texto legal</button>
+        <button data-view="expl" aria-pressed="false">Explicación</button>
+        <button data-view="both" aria-pressed="true">Ambos</button>
+      </span>
+      <button id="fs-" aria-label="Reducir texto">A−</button>
+      <button id="fs+" aria-label="Aumentar texto">A+</button>
+      <span class="streak" id="streak" title="Días seguidos estudiando" style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);font-weight:800;font-size:.8rem">🔥<span class="num" id="streakN">0</span></span>
+      <button id="theme" aria-label="Cambiar tema">◐</button>
+      <button id="expand">Desplegar todo</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="progress" id="prog"></div>
+</header>
+<div class="layout">
+<nav class="side collapsed" id="side" aria-label="Índice">
+  <button class="navtoggle" id="navtoggle" aria-expanded="false">☰ Índice</button>
+  <div class="navbody" id="navbody"></div>
+</nav>
+<main id="main"></main>
+</div>
+<script>
+const GLOSARIO={
+ "presupuesto":"Documento contable y jurídico, aprobado por el Pleno, que fija el techo de gasto de un ejercicio y estima los ingresos con los que se financia. Ej.: el presupuesto de Utrera para 2026 autoriza gastar como máximo 78 M€.",
+ "credito":"Crédito presupuestario: la cantidad máxima de dinero autorizada para una finalidad concreta. Ej.: 120.000 € en la aplicación de 'mantenimiento de colegios'.",
+ "obligacion":"Obligación reconocida: la deuda que el Ayuntamiento admite formalmente que debe pagar, una vez comprobado que el servicio o suministro se ha prestado. Ej.: aprobada la factura del proveedor, nace la obligación.",
+ "derecho":"Derecho liquidado: el importe concreto que un tercero debe a la entidad local, una vez cuantificado. Ej.: liquidado el IBI de un inmueble en 340 €, ese es el derecho.",
+ "oa":"Organismo autónomo: ente con personalidad jurídica propia creado por la entidad local para gestionar un servicio (patronatos de deportes, de cultura, gerencias de urbanismo). Depende del Ayuntamiento pero tiene su propio presupuesto.",
+ "sociedad":"Sociedad mercantil local: empresa con forma de S.A. o S.L. cuyo capital pertenece a la entidad local (p. ej. la empresa municipal de aguas). No aprueba 'presupuesto', sino estados de previsión de gastos e ingresos.",
+ "bases":"Bases de ejecución: el 'reglamento de uso' del presupuesto. Adaptan las normas presupuestarias generales a la organización concreta de la entidad. Ej.: fijan qué órgano autoriza gastos de hasta 3.000 €.",
+ "estabilidad":"Estabilidad presupuestaria: exigencia de que las cuentas públicas no incurran en déficit estructural. Ej.: un ayuntamiento no puede presupuestar más gasto no financiero que ingresos no financieros.",
+ "afectacion":"No afectación: regla general de que todos los ingresos financian todo el gasto, sin que un ingreso concreto quede reservado a un gasto concreto. Ej.: lo recaudado por el IBI no está reservado a pagar el alumbrado.",
+ "bruto":"Principio de presupuesto bruto (o de integridad): derechos y obligaciones se anotan por su importe total, sin compensar unos con otros. Ej.: no se puede anotar la subvención 'ya descontados' los gastos del programa.",
+ "nivelacion":"Nivelación presupuestaria: que el total de ingresos previstos cubra el total de gastos autorizados; es decir, aprobar sin déficit inicial.",
+ "aplicacion":"Aplicación presupuestaria: la 'casilla' exacta donde vive cada euro de gasto, formada al cruzar la clasificación por programas con la económica. Ej.: 323/22103 (funcionamiento de centros docentes / combustibles).",
+ "vinculacion":"Nivel de vinculación jurídica: el nivel de agregación en el que el crédito es realmente limitativo; por debajo de él se puede mover el gasto sin tramitar una modificación de crédito (art. 172 TRLHL).",
+ "intervencion":"Intervención: el órgano de control interno de la entidad local, con función de fiscalización previa del gasto y de informe preceptivo del presupuesto. Lo desempeña un funcionario de habilitación nacional.",
+ "pleno":"Pleno: órgano colegiado formado por todos los concejales o diputados. Es el único competente para aprobar el presupuesto.",
+ "bop":"Boletín Oficial de la Provincia: diario oficial donde las entidades locales publican sus anuncios y acuerdos con efectos frente a terceros.",
+ "prorroga":"Prórroga presupuestaria: si el 1 de enero no ha entrado en vigor el presupuesto nuevo, sigue rigiendo automáticamente el anterior con sus créditos iniciales.",
+ "interesado":"Interesado: quien está legitimado para intervenir en un procedimiento. En el presupuesto, la ley define expresamente quiénes lo son (art. 170.1).",
+ "liquidacion":"Liquidación del presupuesto: cierre contable del ejercicio, que determina los derechos y obligaciones pendientes, el remanente de tesorería y el resultado presupuestario.",
+ "tcuentas":"Tribunal de Cuentas: órgano fiscalizador externo de las cuentas y la gestión económica del sector público, dependiente de las Cortes Generales.",
+ "conten":"Recurso contencioso-administrativo: impugnación ante los juzgados y tribunales de lo contencioso-administrativo, es decir, ya fuera de la propia Administración.",
+ "tesoreria":"Tesorería: conjunto de todos los recursos financieros de la entidad —dinero, valores y créditos— tanto por operaciones presupuestarias como extrapresupuestarias.","unidadcaja":"Principio de unidad de caja: todos los fondos y valores se centralizan en una sola caja, sin cajas paralelas por servicios. Permite gestionar la liquidez del conjunto.","extrapres":"Operación extrapresupuestaria: movimiento de fondos que no afecta al presupuesto porque la entidad actúa como mero depositario o intermediario. Ej.: las retenciones de IRPF practicadas en nómina hasta su ingreso en Hacienda.","ctarestringida":"Cuenta restringida: cuenta bancaria de uso limitado, o solo para recaudar (los fondos salen únicamente hacia la cuenta operativa) o solo para pagar (se nutre exclusivamente de la operativa).","optesoreria":"Operación de tesorería: préstamo a corto plazo concertado para cubrir déficits temporales de liquidez por desfase entre cobros y pagos. Se regula en el art. 51 TRLHL.","excedente":"Excedente temporal de tesorería: dinero disponible que no se necesita a corto plazo y que puede colocarse en productos que reúnan condiciones de liquidez y seguridad.","contpublica":"Contabilidad pública: régimen contable al que quedan sujetas las entidades locales, que lleva consigo la obligación de rendir cuentas al Tribunal de Cuentas.","pgcpl":"Plan General de Contabilidad Pública adaptado a la Administración local: normativa contable, aprobada por el Ministerio de Hacienda a propuesta de la IGAE, que fija cuentas, criterios de valoración y estados a rendir.","resanalitico":"Resultado analítico: el que pone de manifiesto el coste y el rendimiento de cada servicio, más allá del resultado global de la entidad.","respatrimonial":"Resultado económico-patrimonial: diferencia entre ingresos y gastos económicos del ejercicio, con criterio de devengo, que explica la variación del patrimonio neto.","avales":"Aval: garantía por la que la entidad local responde de una deuda ajena si el deudor principal no paga. La tesorería responde de los avales contraídos.","ltesoreria":"Ley 47/2003, General Presupuestaria: norma estatal que regula, entre otras materias, la tesorería del Estado. Su capítulo III del título IV se aplica supletoriamente a la tesorería local."
+};
+const ARTS=[{n:194,t:"Definición y régimen jurídico",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo II (De la tesorería de las entidades locales)",idea:"La tesorería es todo el dinero, valores y créditos de la entidad, sea o no presupuestario.",literal:`<p>1. Constituyen la tesorería de las entidades locales todos los recursos financieros, sean dinero, valores o créditos, de la entidad local, tanto por operaciones presupuestarias como extrapresupuestarias.</p><p>2. Los preceptos contenidos en el presente capítulo serán de aplicación, asimismo, a los organismos autónomos.</p><p>3. La tesorería de las entidades locales se regirá por lo dispuesto en el presente capítulo y, en cuanto les sean de aplicación, por las normas del capítulo tercero del título cuarto de la Ley 47/2003, de 26 de noviembre, General Presupuestaria.</p>`,dis:`<ul>
+<li><b>194.1 — concepto:</b> constituyen la <span class="t" data-k="tesoreria">tesorería</span> <b>todos</b> los recursos financieros —<b>dinero, valores o créditos</b>— tanto por operaciones <b>presupuestarias</b> como <span class="t" data-k="extrapres">extrapresupuestarias</span>.</li>
+<li><b>194.2 — ámbito:</b> el capítulo se aplica también a los <span class="t" data-k="oa">organismos autónomos</span>.</li>
+<li><b>194.3 — régimen:</b> este capítulo y, en cuanto le sean de aplicación, las normas del <b>capítulo III del título IV de la <span class="t" data-k="ltesoreria">Ley 47/2003, General Presupuestaria</span></b>.</li>
+</ul>`,llano:`<p>La tesorería no es solo la caja: es todo el dinero de la entidad, esté donde esté y venga de donde venga. También lo que la entidad guarda sin ser suyo del todo —una fianza de un contratista, las retenciones de IRPF de las nóminas—, que son operaciones extrapresupuestarias.</p>`,porque:`<p>Definir la tesorería de forma amplísima evita que existan <b>fondos fuera de control</b>. Si solo fuera tesorería lo presupuestario, las fianzas y depósitos quedarían en tierra de nadie. Y la remisión a la Ley General Presupuestaria da cobertura a lo que el TRLHL no regula, sin necesidad de repetir normas.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el dinero de tu casa no es solo el de la cartera: también la cuenta, el depósito y lo que te deben.</li>
+<li><b>Real:</b> forman parte de la tesorería municipal los 1,1 M€ de las cuentas operativas, los 40.000 € de fianzas de contratistas depositadas y los avales recibidos en garantía.</li>
+<li><b>Caso límite:</b> las retenciones de IRPF practicadas en la nómina de diciembre y aún no ingresadas en la AEAT: son tesorería por operación <b>extrapresupuestaria</b>, aunque no aparezcan como gasto del presupuesto.</li>
+</ul>`,noej:`<ul>
+<li><b>No es tesorería</b> el patrimonio inmobiliario: la tesorería es recursos financieros.</li>
+<li><b>No quedan fuera</b> los organismos autónomos: el capítulo también les alcanza.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 191.1:</b> a 31 de diciembre quedan a cargo de la Tesorería los ingresos y pagos pendientes.</li>
+<li><b>Art. 196:</b> funciones de la tesorería.</li>
+<li><b>Art. 51:</b> operaciones de tesorería a corto plazo.</li>
+</ul>`,trampas:`<ul>
+<li>Tres elementos: <b>dinero, valores o créditos</b>. Y dos orígenes: <b>presupuestario y extrapresupuestario</b>.</li>
+<li>La remisión supletoria es a la <b>Ley 47/2003</b>, General Presupuestaria, no a la de Haciendas Locales.</li>
+</ul>`,ancla:`<p><b>"Dinero, valores y créditos; dentro y fuera del presupuesto."</b> Todo cabe en la tesorería.</p>`,vis:`<svg viewBox="0 0 640 150" role="img" aria-label="Composición de la tesorería local">
+<rect x="200" y="12" width="240" height="34" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="34" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">TESORERÍA</text>
+<line x1="320" y1="46" x2="320" y2="60" stroke="var(--acc)" stroke-width="2"/><line x1="120" y1="60" x2="520" y2="60" stroke="var(--acc)" stroke-width="2"/>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<line x1="120" y1="60" x2="120" y2="74" stroke="var(--acc)" stroke-width="2"/><rect x="40" y="74" width="160" height="40" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="120" y="99" font-size="11" font-weight="700">Dinero</text>
+<line x1="320" y1="60" x2="320" y2="74" stroke="var(--acc)" stroke-width="2"/><rect x="240" y="74" width="160" height="40" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="320" y="99" font-size="11" font-weight="700">Valores</text>
+<line x1="520" y1="60" x2="520" y2="74" stroke="var(--acc)" stroke-width="2"/><rect x="440" y="74" width="160" height="40" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="520" y="99" font-size="11" font-weight="700">Créditos</text>
+</g>
+<text x="320" y="136" text-anchor="middle" font-size="11" fill="var(--ej)">por operaciones presupuestarias Y extrapresupuestarias · también en los organismos autónomos</text>
+</svg>`},
+{n:195,t:"Control y régimen contable",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo II (De la tesorería de las entidades locales)",idea:"Todo movimiento de tesorería está intervenido y contabilizado.",literal:`<p>Las disponibilidades de la tesorería y sus variaciones quedan sujetas a intervención y al régimen de la contabilidad pública.</p>`,dis:`<ul>
+<li><b>Objeto:</b> las <b>disponibilidades</b> de la tesorería <b>y sus variaciones</b>.</li>
+<li><b>Doble sujeción:</b> a la <b>intervención</b> (control interno) y al régimen de <b>contabilidad pública</b>.</li>
+</ul>`,llano:`<p>Ni un euro entra o sale de la caja municipal sin que quede fiscalizado y anotado. Es la traducción a la tesorería de los dos controles que ya conoces: el del interventor y el de la contabilidad.</p>`,porque:`<p>La tesorería es el punto donde el dinero se vuelve tangible y, por tanto, donde el riesgo de desviación es mayor. Someter <b>las variaciones</b> —no solo el saldo— a intervención y contabilidad permite reconstruir el rastro completo de cada movimiento.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> una caja de un comercio con arqueo diario y registro de cada entrada y salida.</li>
+<li><b>Real:</b> el arqueo trimestral de la tesorería municipal se somete a la Intervención, que verifica saldos bancarios y de caja (véase también el art. 222).</li>
+</ul>`,noej:`<ul>
+<li><b>No basta</b> con contabilizar: también hay intervención.</li>
+<li><b>No se limita</b> al saldo final: alcanza a <b>las variaciones</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 214.2.c):</b> intervención material del pago.</li>
+<li><b>Art. 222:</b> facultad de verificar arqueos y recuentos.</li>
+<li><b>Art. 205.e):</b> registrar los movimientos y situación de la tesorería es un fin de la contabilidad.</li>
+</ul>`,trampas:`<ul>
+<li>Sujeción <b>doble</b>: intervención <b>y</b> contabilidad pública.</li>
+<li>Alcanza a las <b>disponibilidades y sus variaciones</b>.</li>
+</ul>`,ancla:`<p><b>"Ni un euro sin firma ni sin apunte."</b></p>`,vis:`<svg viewBox="0 0 640 120" role="img" aria-label="Doble control de la tesorería">
+<rect x="220" y="20" width="200" height="34" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="var(--acc)">Disponibilidades y variaciones</text>
+<rect x="90" y="70" width="200" height="36" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="190" y="93" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Intervención</text>
+<rect x="350" y="70" width="200" height="36" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="450" y="93" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Contabilidad pública</text>
+<path d="M290 54 L 220 68" stroke="var(--acc)" stroke-width="2"/><path d="M350 54 L 420 68" stroke="var(--acc)" stroke-width="2"/>
+</svg>`},
+{n:196,t:"Funciones",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo II (De la tesorería de las entidades locales)",idea:"Cinco funciones: cobrar, centralizar, distribuir en el tiempo, avalar y lo conexo.",literal:`<p>1. Son funciones encomendadas a la tesorería de las entidades locales:</p><p>a) Recaudar los derechos y pagar las obligaciones.</p><p>b) Servir al principio de unidad de caja, mediante la centralización de todos los fondos y valores generados por operaciones presupuestarias y extrapresupuestarias.</p><p>c) Distribuir en el tiempo las disponibilidades dinerarias para la puntual satisfacción de las obligaciones.</p><p>d) Responder de los avales contraídos.</p><p>e) Realizar las demás que se deriven o relacionen con las anteriormente numeradas.</p><p>2. Las funciones enumeradas en el apartado anterior se ejercerán, en su caso, por la unidad central de tesorería a que hace referencia el artículo 186 de esta ley.</p>`,dis:`<ol>
+<li><b>a)</b> <b>Recaudar</b> los derechos y <b>pagar</b> las obligaciones.</li>
+<li><b>b)</b> Servir al principio de <span class="t" data-k="unidadcaja">unidad de caja</span>, centralizando todos los fondos y valores de operaciones presupuestarias y extrapresupuestarias.</li>
+<li><b>c)</b> <b>Distribuir en el tiempo</b> las disponibilidades dinerarias para la puntual satisfacción de las obligaciones.</li>
+<li><b>d)</b> Responder de los <span class="t" data-k="avales">avales</span> contraídos.</li>
+<li><b>e)</b> Las demás que se deriven o relacionen con las anteriores.</li>
+</ol>
+<p><b>196.2:</b> estas funciones se ejercerán, en su caso, por la <b>unidad central de tesorería</b> del art. 186 (entidades de más de 500.000 habitantes de derecho).</p>`,llano:`<p>La tesorería cobra, paga, guarda todo el dinero en un solo sitio, decide en qué orden se atiende cada obligación según la liquidez disponible y responde de los avales. En las ciudades muy grandes puede haber una unidad especializada para todo esto.</p>`,porque:`<p>La <b>unidad de caja</b> es la clave del artículo: si cada servicio tuviera su propia caja, la entidad podría tener dinero parado en un sitio y descubiertos en otro. Centralizar permite que la liquidez se gestione como un todo. Y la función de "distribuir en el tiempo" es precisamente lo que después se plasma en el <b>plan de disposición de fondos</b> del art. 187.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> una familia con una sola cuenta común en vez de cinco huchas separadas: se ve mejor cuánto hay y cuándo se puede pagar cada cosa.</li>
+<li><b>Real:</b> la tesorería municipal centraliza los ingresos de las cuentas restringidas de recaudación en la cuenta operativa y programa los pagos de la semana conforme al plan de disposición de fondos.</li>
+<li><b>Caso límite:</b> un patronato que abre una cuenta propia y retiene en ella su recaudación: contraviene el principio de unidad de caja del art. 196.1.b), aplicable también a los organismos autónomos (art. 194.2).</li>
+</ul>`,noej:`<ul>
+<li><b>No es función de la tesorería</b> reconocer obligaciones ni ordenar pagos: eso corresponde al presidente (arts. 185.2 y 186.1). La tesorería <b>materializa</b>.</li>
+<li><b>No es unidad de caja</b> tener varias cuentas bancarias: lo prohibido es la dispersión de la gestión, no la existencia de cuentas con distinta función (art. 197).</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 186:</b> unidad central de tesorería y ordenación de pagos.</li>
+<li><b>Art. 187:</b> plan de disposición de fondos, concreción de la letra c).</li>
+<li><b>Art. 197:</b> tipos de cuentas con las que se ejerce la función.</li>
+</ul>`,trampas:`<ul>
+<li>Son <b>cinco</b> funciones, y la que más se olvida es la <b>d) responder de los avales</b>.</li>
+<li>La unidad de caja abarca fondos y valores <b>presupuestarios y extrapresupuestarios</b>.</li>
+<li>La unidad central de tesorería del 196.2 remite al art. 186: <b>más de 500.000 habitantes de derecho</b>.</li>
+</ul>`,ancla:`<p><b>"RECAUDA, CENTRALIZA, DISTRIBUYE, AVALA."</b> Cuatro verbos y un cajón de sastre.<br>La palabra clave del artículo: <b>unidad de caja</b>.</p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Funciones de la tesorería">
+<rect x="215" y="10" width="210" height="32" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">FUNCIONES (art. 196.1)</text>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="15" y="58" width="145" height="52" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="87" y="80" font-weight="700">a) Recaudar</text><text x="87" y="96">y pagar</text>
+<rect x="172" y="58" width="145" height="52" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="244" y="80" font-weight="700">b) Unidad de caja</text><text x="244" y="96">centralizar todo</text>
+<rect x="329" y="58" width="145" height="52" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/><text x="401" y="80" font-weight="700">c) Distribuir</text><text x="401" y="96">en el tiempo</text>
+<rect x="486" y="58" width="139" height="52" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/><text x="555" y="80" font-weight="700">d) Responder</text><text x="555" y="96">de los avales</text>
+</g>
+<text x="320" y="135" text-anchor="middle" font-size="10" fill="var(--ink2)">e) y las demás que se deriven o relacionen con las anteriores</text>
+<text x="320" y="153" text-anchor="middle" font-size="10" fill="var(--ink2)">Se ejercen, en su caso, por la unidad central de tesorería del art. 186</text>
+</svg>`},
+{n:197,t:"Caja y cuentas bancarias",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo II (De la tesorería de las entidades locales)",idea:"Cuatro tipos de cuenta bancaria y cajas de efectivo para el día a día.",literal:`<p>1. Las entidades locales podrán concertar los servicios financieros de su tesorería con entidades de crédito y ahorro, mediante la apertura de los siguientes tipos de cuentas:</p><p>a) Cuentas operativas de ingresos y pagos.</p><p>b) Cuentas restringidas de recaudación.</p><p>c) Cuentas restringidas de pagos.</p><p>d) Cuentas financieras de colocación de excedentes de tesorería.</p><p>2. Asimismo las entidades locales podrán autorizar la existencia de cajas de efectivo, para los fondos de las operaciones diarias, las cuales estarán sujetas a las limitaciones que reglamentariamente se establezcan.</p>`,dis:`<table><thead><tr><th>Tipo de cuenta (197.1)</th><th>Para qué sirve</th></tr></thead><tbody>
+<tr><td><b>a)</b> Operativas de ingresos y pagos</td><td>La cuenta corriente ordinaria: entra y sale dinero</td></tr>
+<tr><td><b>b)</b> <span class="t" data-k="ctarestringida">Restringidas de recaudación</span></td><td>Solo reciben ingresos; su saldo se traslada a la operativa</td></tr>
+<tr><td><b>c)</b> Restringidas de pagos</td><td>Solo pagan; se nutren desde la operativa</td></tr>
+<tr><td><b>d)</b> Financieras de colocación de excedentes</td><td>Rentabilizan la liquidez sobrante</td></tr>
+</tbody></table>
+<p><b>197.2 — cajas de efectivo:</b> las entidades pueden autorizarlas para los <b>fondos de las operaciones diarias</b>, sujetas a las limitaciones que <b>reglamentariamente</b> se establezcan.</p>`,llano:`<p>El dinero municipal no vive en una sola cuenta. Hay una cuenta principal por la que entra y sale todo, cuentas que solo sirven para recaudar (las de los bancos colaboradores), cuentas que solo sirven para pagar y cuentas donde se coloca el dinero que sobra. Y una caja pequeña para el día a día.</p>`,porque:`<p>Las <b>cuentas restringidas</b> son un mecanismo de control: si una cuenta solo puede recibir, nadie puede sacar dinero de ella; si solo puede pagar, se puede limitar su saldo. Separar funciones bancarias reduce el riesgo de disposición indebida sin renunciar a la comodidad operativa. La caja de efectivo se admite por necesidad práctica, pero limitada por vía reglamentaria.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> tener una cuenta nómina, otra de ahorro y un poco de efectivo en el cajón.</li>
+<li><b>Real:</b> las entidades colaboradoras ingresan la recaudación del IBI en cuentas <b>restringidas de recaudación</b>; el saldo se traspasa periódicamente a la cuenta operativa, desde la que se atienden las órdenes de pago.</li>
+<li><b>Caso límite:</b> una cuenta financiera con un depósito a plazo de excedentes: encaja en la letra d), pero debe respetar el art. 199.2 (liquidez y seguridad).</li>
+</ul>`,noej:`<ul>
+<li><b>No cabe</b> pagar directamente desde una cuenta restringida de recaudación.</li>
+<li><b>No son ilimitadas</b> las cajas de efectivo: están sujetas a limitaciones reglamentarias.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 196.1.b):</b> unidad de caja, que estas cuentas sirven, no contradicen.</li>
+<li><b>Art. 199.2:</b> condiciones de liquidez y seguridad de las inversiones.</li>
+<li><b>Art. 190.3:</b> anticipos de caja fija, distintos de las cajas de efectivo del 197.2.</li>
+</ul>`,trampas:`<ul>
+<li><b>Cuatro</b> tipos de cuenta. Las dos restringidas son <b>de recaudación</b> y <b>de pagos</b>.</li>
+<li>Las cajas de efectivo son para <b>operaciones diarias</b> y su límite es reglamentario.</li>
+<li>No confundir <b>caja de efectivo</b> (art. 197.2) con <b>anticipo de caja fija</b> (art. 190.3).</li>
+</ul>`,ancla:`<p><b>"Una que entra y sale, dos que solo hacen una cosa y una que renta."</b> Operativa · restringida de recaudación · restringida de pagos · financiera.</p>`,vis:`<svg viewBox="0 0 640 160" role="img" aria-label="Tipos de cuentas de la tesorería">
+<defs><marker id="t1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="20" y="55" width="150" height="50" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="95" y="76" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ej)">b) Restringida</text>
+<text x="95" y="92" text-anchor="middle" font-size="10" fill="currentColor">de recaudación</text>
+<path d="M173 80 L 218 80" stroke="var(--acc)" stroke-width="2" marker-end="url(#t1)"/>
+<rect x="222" y="45" width="190" height="70" rx="8" fill="var(--acc-soft)" stroke="var(--acc)" stroke-width="2"/>
+<text x="317" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">a) CUENTA OPERATIVA</text>
+<text x="317" y="92" text-anchor="middle" font-size="10" fill="currentColor">de ingresos y pagos</text>
+<path d="M415 65 L 460 45" stroke="var(--acc)" stroke-width="2" marker-end="url(#t1)"/>
+<path d="M415 95 L 460 115" stroke="var(--acc)" stroke-width="2" marker-end="url(#t1)"/>
+<rect x="464" y="20" width="155" height="46" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="541" y="40" text-anchor="middle" font-size="10" font-weight="700" fill="var(--warn)">c) Restringida</text>
+<text x="541" y="56" text-anchor="middle" font-size="10" fill="currentColor">de pagos</text>
+<rect x="464" y="95" width="155" height="46" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+<text x="541" y="115" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor">d) Financiera</text>
+<text x="541" y="131" text-anchor="middle" font-size="10" fill="var(--ink2)">colocación de excedentes</text>
+<text x="320" y="150" text-anchor="middle" font-size="10" fill="var(--ink2)">+ cajas de efectivo para operaciones diarias, con límites reglamentarios (197.2)</text>
+</svg>`},
+{n:198,t:"Medios de ingreso y de pago",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo II (De la tesorería de las entidades locales)",idea:"Se cobra y se paga por cualquier medio admitido, bancario o no.",literal:`<p>1. Las entidades locales podrán dictar reglas especiales para el ingreso del producto de la recaudación de los recursos que podrán realizarse en las cajas de efectivo o en las entidades de crédito colaboradoras mediante efectivo, transferencias, cheques o cualquier otro medio o documento de pago, sean o no bancarios, que se establezcan.</p><p>2. Las entidades locales podrán asimismo pagar sus obligaciones por cualquiera de los medios a que se refiere el apartado anterior.</p>`,dis:`<ul>
+<li><b>198.1 — ingresos:</b> las entidades pueden dictar <b>reglas especiales</b> para el ingreso del producto de la recaudación, que podrá hacerse en <b>cajas de efectivo</b> o en <b>entidades de crédito colaboradoras</b>, mediante <b>efectivo, transferencias, cheques o cualquier otro medio o documento de pago, sean o no bancarios</b>.</li>
+<li><b>198.2 — pagos:</b> las entidades pueden pagar sus obligaciones por <b>cualquiera de esos medios</b>.</li>
+</ul>`,llano:`<p>La ley no impone una forma concreta de cobrar o pagar: vale el efectivo, la transferencia, el cheque o cualquier otro medio, y puede hacerse en la caja municipal o a través de bancos colaboradores. Cada entidad puede fijar sus propias reglas.</p>`,porque:`<p>La norma es <b>deliberadamente abierta</b> para no quedar obsoleta: escrita antes de la generalización de los medios telemáticos, permite hoy la domiciliación, la pasarela de pago o el cargo en cuenta sin necesidad de reforma. La expresión "sean o no bancarios" es la que da esa flexibilidad.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> pagar una compra en efectivo, con tarjeta o por Bizum: el comercio decide qué admite.</li>
+<li><b>Real:</b> un ayuntamiento permite pagar el IBI por domiciliación bancaria, en las entidades colaboradoras con carta de pago o mediante pasarela telemática en su sede electrónica.</li>
+<li><b>Caso límite:</b> el pago de una obligación mediante compensación con una deuda del acreedor no es un "medio de pago" de este artículo, sino una forma de extinción regulada en la normativa tributaria y presupuestaria.</li>
+</ul>`,noej:`<ul>
+<li><b>No autoriza</b> este artículo a pagar sin orden de pago previa: los requisitos de los arts. 186 a 189 siguen siendo exigibles.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 197:</b> cuentas y cajas donde se materializan estos medios.</li>
+<li><b>Art. 189:</b> requisitos previos a la expedición de órdenes de pago.</li>
+<li><b>RD 203/2021</b> (documento 4 de la biblioteca): actuación por medios electrónicos, marco de los pagos telemáticos.</li>
+</ul>`,trampas:`<ul>
+<li>La enumeración es <b>abierta</b>: "cualquier otro medio o documento de pago, <b>sean o no bancarios</b>".</li>
+<li>El apartado 2 se remite a los mismos medios del apartado 1: no hay lista distinta para pagos.</li>
+</ul>`,ancla:`<p><b>"Como se cobra, se paga."</b> Un artículo simétrico y de lista abierta.</p>`,vis:`<svg viewBox="0 0 640 130" role="img" aria-label="Medios de ingreso y de pago">
+<rect x="40" y="30" width="240" height="66" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="160" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">INGRESOS (198.1)</text>
+<text x="160" y="72" text-anchor="middle" font-size="10" fill="currentColor">cajas de efectivo o entidades</text>
+<text x="160" y="87" text-anchor="middle" font-size="10" fill="currentColor">de crédito colaboradoras</text>
+<text x="320" y="66" text-anchor="middle" font-size="16" fill="var(--ink2)">⇄</text>
+<rect x="360" y="30" width="240" height="66" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="480" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">PAGOS (198.2)</text>
+<text x="480" y="72" text-anchor="middle" font-size="10" fill="currentColor">por cualquiera de los medios</text>
+<text x="480" y="87" text-anchor="middle" font-size="10" fill="currentColor">del apartado anterior</text>
+<text x="320" y="118" text-anchor="middle" font-size="10" fill="var(--ink2)">efectivo · transferencias · cheques · cualquier otro medio, sea o no bancario</text>
+</svg>`},
+{n:199,t:"Gestión de la tesorería",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo II (De la tesorería de las entidades locales)",idea:"Si falta liquidez, operaciones de tesorería; si sobra, inversiones líquidas y seguras.",literal:`<p>1. Las entidades locales, de acuerdo con lo establecido en el artículo 51 de esta ley, podrán concertar, con cualesquiera entidades financieras, operaciones de tesorería para cubrir déficit temporales de liquidez derivados de las diferencias de vencimientos de sus pagos e ingresos.</p><p>2. Igualmente, las entidades locales podrán rentabilizar sus excedentes temporales de tesorería mediante inversiones que reúnan las condiciones de liquidez y seguridad.</p>`,dis:`<ul>
+<li><b>199.1 — falta de liquidez:</b> conforme al <b>art. 51</b>, pueden concertarse con cualesquiera entidades financieras <span class="t" data-k="optesoreria">operaciones de tesorería</span> para cubrir <b>déficits temporales de liquidez</b> derivados de las diferencias de vencimientos de pagos e ingresos.</li>
+<li><b>199.2 — exceso de liquidez:</b> pueden rentabilizarse los <span class="t" data-k="excedente">excedentes temporales</span> mediante inversiones que reúnan las condiciones de <b>liquidez y seguridad</b>.</li>
+</ul>`,llano:`<p>El dinero no entra y sale al mismo ritmo: los impuestos se cobran en unos meses concretos y las nóminas se pagan todos. Cuando falta liquidez puntual, la entidad puede pedir un crédito a corto plazo; cuando sobra, puede colocarla, pero solo en productos seguros y de los que se pueda salir enseguida.</p>`,porque:`<p>La <b>operación de tesorería</b> no financia gasto nuevo: financia un <b>desfase temporal</b>, y por eso se distingue del endeudamiento a largo plazo del art. 49. Y la exigencia de <b>liquidez y seguridad</b> en las inversiones impide que el dinero público se destine a productos rentables pero volátiles: no se especula con fondos que hay que tener disponibles para pagar nóminas.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> una línea de crédito para llegar a fin de mes, no para comprarse un coche.</li>
+<li><b>Real:</b> un ayuntamiento concierta una póliza de tesorería de 800.000 € en enero, que cancela en octubre con la recaudación del IBI.</li>
+<li><b>Caso límite:</b> colocar el excedente en fondos de renta variable: incumple las condiciones de <b>liquidez y seguridad</b> del art. 199.2.</li>
+</ul>`,noej:`<ul>
+<li><b>No son operaciones de tesorería</b> los préstamos a largo plazo para financiar inversiones: esos van por los arts. 49 y ss.</li>
+<li><b>No cabe</b> usar la operación de tesorería para financiar un déficit estructural.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 51:</b> régimen de las operaciones de tesorería (plazo y límite).</li>
+<li><b>Art. 177.5:</b> operaciones de crédito para gasto corriente, con condiciones estrictas.</li>
+<li><b>Art. 193.2:</b> operación de crédito ante remanente de tesorería negativo.</li>
+</ul>`,trampas:`<ul>
+<li>Las operaciones del 199.1 son para <b>déficits temporales de liquidez</b>, no para financiar gasto.</li>
+<li>Las inversiones del 199.2 exigen <b>liquidez y seguridad</b>, dos condiciones, no una.</li>
+</ul>`,ancla:`<p><b>"Si falta, póliza; si sobra, colchón seguro."</b> Nunca al revés, y nunca especulando.</p>`,vis:`<svg viewBox="0 0 640 135" role="img" aria-label="Gestión de la tesorería">
+<rect x="40" y="30" width="250" height="70" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
+<text x="165" y="53" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">Déficit temporal de liquidez</text>
+<text x="165" y="74" text-anchor="middle" font-size="11" fill="currentColor">→ operaciones de tesorería</text>
+<text x="165" y="90" text-anchor="middle" font-size="10" fill="var(--ink2)">art. 51 · corto plazo</text>
+<rect x="350" y="30" width="250" height="70" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="475" y="53" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Excedente temporal</text>
+<text x="475" y="74" text-anchor="middle" font-size="11" fill="currentColor">→ inversiones rentables</text>
+<text x="475" y="90" text-anchor="middle" font-size="10" fill="var(--exc)">con liquidez y seguridad</text>
+<text x="320" y="123" text-anchor="middle" font-size="10" fill="var(--ink2)">La operación de tesorería cubre desfases de vencimientos, no financia gasto nuevo</text>
+</svg>`},
+{n:200,t:"Régimen jurídico",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 1.ª (Disposiciones generales)",idea:"Entidades, organismos y sociedades quedan bajo contabilidad pública.",literal:`<p>1. Las entidades locales y sus organismos autónomos quedan sometidos al régimen de contabilidad pública en los términos establecidos en esta ley.</p><p>2. Las sociedades mercantiles en cuyo capital tengan participación total o mayoritaria las entidades locales estarán igualmente sometidas al régimen de contabilidad pública, sin perjuicio de que se adapten a las disposiciones del Código de Comercio y demás legislación mercantil y al Plan General de Contabilidad vigente para las empresas españolas.</p>`,dis:`<ul>
+<li><b>200.1:</b> las entidades locales y sus <b>organismos autónomos</b> quedan sometidos al régimen de <span class="t" data-k="contpublica">contabilidad pública</span> en los términos de esta ley.</li>
+<li><b>200.2:</b> las <b>sociedades mercantiles</b> con participación <b>total o mayoritaria</b> de las entidades locales están <b>igualmente sometidas</b> al régimen de contabilidad pública, <b>sin perjuicio</b> de adaptarse al <b>Código de Comercio</b>, demás legislación mercantil y <b>Plan General de Contabilidad</b> de las empresas españolas.</li>
+</ul>`,llano:`<p>Todo el grupo local lleva contabilidad pública, incluidas las empresas municipales. Las sociedades, además, siguen llevando su contabilidad mercantil: no eligen entre una y otra, hacen ambas cosas.</p>`,porque:`<p>Las sociedades mercantiles públicas viven en dos mundos: son empresas frente a terceros y dinero público frente al ciudadano. Someterlas a la contabilidad pública <b>sin liberarlas</b> de la mercantil permite que sus cuentas se integren en la cuenta general y en la consolidación (arts. 209.3 y 209.4) sin dejar de ser comparables con el sector privado.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> quien lleva la contabilidad de su negocio y además rinde cuentas a un socio que le exige su propio formato.</li>
+<li><b>Real:</b> la empresa municipal de aguas formula sus cuentas anuales conforme al PGC de empresas y, a la vez, rinde información para la cuenta general del ayuntamiento.</li>
+<li><b>Caso límite:</b> una sociedad con participación municipal del <b>55 %</b>: entra en el art. 200.2 (participación <b>mayoritaria</b>), aunque no se integre en la cuenta general del art. 209.1.c), que exige capital íntegro.</li>
+</ul>`,noej:`<ul>
+<li><b>No quedan exentas</b> las sociedades por llevar contabilidad mercantil.</li>
+<li><b>No alcanza</b> el art. 200.2 a sociedades con participación minoritaria.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 209:</b> contenido de la cuenta general, donde se integran estas cuentas.</li>
+<li><b>Art. 203.1.b):</b> adaptación del Plan General de Contabilidad Pública.</li>
+<li><b>Art. 220:</b> control financiero, que alcanza a las sociedades dependientes.</li>
+</ul>`,trampas:`<ul>
+<li>Participación <b>total o mayoritaria</b> en el art. 200.2, frente al capital <b>íntegro</b> del art. 209.1.c).</li>
+<li>La sujeción es acumulativa: contabilidad pública <b>y</b> mercantil.</li>
+</ul>`,ancla:`<p><b>"Doble contabilidad legal para las empresas municipales."</b> Pública y mercantil, a la vez.</p>`,vis:`<svg viewBox="0 0 640 130" role="img" aria-label="Ámbito de la contabilidad pública local">
+<rect x="30" y="30" width="270" height="66" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="165" y="53" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Entidad local y organismos autónomos</text>
+<text x="165" y="76" text-anchor="middle" font-size="10" fill="currentColor">contabilidad pública</text>
+<rect x="345" y="30" width="270" height="66" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="480" y="50" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Sociedades con participación</text>
+<text x="480" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">total o mayoritaria</text>
+<text x="480" y="86" text-anchor="middle" font-size="10" fill="currentColor">pública + Código de Comercio y PGC</text>
+<text x="320" y="118" text-anchor="middle" font-size="10" fill="var(--ink2)">La contabilidad pública no sustituye a la mercantil: se suma a ella</text>
+</svg>`},
+{n:201,t:"Rendición de cuentas",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 1.ª (Disposiciones generales)",idea:"Estar en contabilidad pública obliga a rendir cuentas al Tribunal de Cuentas.",literal:`<p>La sujeción al régimen de contabilidad pública lleva consigo la obligación de rendir cuentas de las respectivas operaciones, cualquiera que sea su naturaleza, al Tribunal de Cuentas.</p>`,dis:`<ul>
+<li><b>Consecuencia de la sujeción:</b> obligación de <b>rendir cuentas</b> de las respectivas operaciones, <b>cualquiera que sea su naturaleza</b>, al <span class="t" data-k="tcuentas">Tribunal de Cuentas</span>.</li>
+</ul>`,llano:`<p>La contabilidad pública no es un ejercicio interno: quien está sujeto a ella tiene que rendir cuentas fuera, ante el Tribunal de Cuentas. Es la bisagra entre la contabilidad (capítulo III) y el control externo (art. 223).</p>`,porque:`<p>Sin obligación de rendición, la contabilidad sería un instrumento de gestión sin consecuencias. Este artículo convierte el deber contable en <b>responsabilidad frente a un tercero independiente</b>, que es lo que cierra el círculo del control.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> llevar las cuentas de una asociación y tener que presentarlas cada año en asamblea.</li>
+<li><b>Real:</b> el ayuntamiento rinde su cuenta general de 2026 al Tribunal de Cuentas antes del 15 de octubre de 2027 (art. 223.2), como consecuencia del deber del art. 201.</li>
+</ul>`,noej:`<ul>
+<li><b>No se limita</b> a las operaciones presupuestarias: alcanza a las de <b>cualquier naturaleza</b>.</li>
+<li><b>No sustituye</b> la rendición al Tribunal de Cuentas a la fiscalización de los órganos autonómicos (art. 223.4).</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 223:</b> control externo y plazo de rendición.</li>
+<li><b>Art. 212.5:</b> el presidente rinde la cuenta general aunque el Pleno la rechace.</li>
+<li><b>Art. 205.f):</b> proporcionar los datos para las cuentas y documentos que deban remitirse al Tribunal.</li>
+</ul>`,trampas:`<ul>
+<li>"<b>Cualquiera que sea su naturaleza</b>": también las operaciones no presupuestarias.</li>
+<li>El destinatario es el <b>Tribunal de Cuentas</b>, sin perjuicio de los órganos autonómicos.</li>
+</ul>`,ancla:`<p><b>"Contabilidad pública = rendir cuentas fuera."</b></p>`,vis:`<svg viewBox="0 0 640 110" role="img" aria-label="De la contabilidad pública a la rendición de cuentas">
+<defs><marker id="r1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="60" y="30" width="200" height="48" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="160" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Contabilidad pública</text>
+<path d="M264 54 L 330 54" stroke="var(--acc)" stroke-width="2" marker-end="url(#r1)"/>
+<text x="297" y="44" text-anchor="middle" font-size="10" fill="var(--ink2)">obliga a</text>
+<rect x="334" y="30" width="250" height="48" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="459" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Rendir cuentas al Tribunal</text>
+<text x="459" y="70" text-anchor="middle" font-size="10" fill="currentColor">cualquiera que sea su naturaleza</text>
+</svg>`},
+{n:202,t:"Ejercicio contable",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 1.ª (Disposiciones generales)",idea:"El ejercicio contable es el mismo que el presupuestario: el año natural.",literal:`<p>El ejercicio contable coincidirá con el ejercicio presupuestario.</p>`,dis:`<ul>
+<li><b>Regla única:</b> el ejercicio contable <b>coincide</b> con el ejercicio presupuestario, que por el art. 163 es el <b>año natural</b>.</li>
+</ul>`,llano:`<p>Contabilidad y presupuesto van al mismo compás: los dos empiezan el 1 de enero y terminan el 31 de diciembre. No hay dos calendarios.</p>`,porque:`<p>Si el ejercicio contable no coincidiera con el presupuestario, sería imposible comparar lo ejecutado con lo autorizado ni cuadrar la liquidación con el balance. Es una regla de <b>coherencia elemental</b> del sistema de información económica.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> llevar la agenda y las cuentas de casa con el mismo calendario.</li>
+<li><b>Real:</b> la liquidación del presupuesto de 2026 (art. 191) y el balance a 31 de diciembre de 2026 se refieren exactamente al mismo periodo.</li>
+</ul>`,noej:`<ul>
+<li><b>No cabe</b> un ejercicio contable partido ni desplazado, ni siquiera en el año de constitución de la corporación.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 163:</b> el ejercicio presupuestario coincide con el año natural.</li>
+<li><b>Art. 191:</b> cierre y liquidación a 31 de diciembre.</li>
+</ul>`,trampas:`<ul>
+<li>La coincidencia se establece con el <b>ejercicio presupuestario</b>, y es este el que el art. 163 iguala al <b>año natural</b>.</li>
+</ul>`,ancla:`<p><b>"Un solo calendario."</b> 163 + 202 = 1 de enero a 31 de diciembre.</p>`,vis:`<svg viewBox="0 0 640 110" role="img" aria-label="Coincidencia del ejercicio contable y presupuestario">
+<line x1="60" y1="60" x2="580" y2="60" stroke="var(--line)" stroke-width="3"/>
+<circle cx="80" cy="60" r="7" fill="var(--acc)"/><circle cx="560" cy="60" r="7" fill="var(--acc)"/>
+<text x="80" y="88" text-anchor="middle" font-size="11" fill="currentColor">1 enero</text>
+<text x="560" y="88" text-anchor="middle" font-size="11" fill="currentColor">31 diciembre</text>
+<rect x="150" y="42" width="160" height="26" rx="6" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="230" y="60" text-anchor="middle" font-size="10" fill="var(--acc)">ejercicio presupuestario</text>
+<rect x="330" y="42" width="160" height="26" rx="6" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="410" y="60" text-anchor="middle" font-size="10" fill="var(--ej)">ejercicio contable</text>
+<text x="320" y="26" text-anchor="middle" font-size="11" fill="var(--ink2)">arts. 163 y 202: el mismo periodo</text>
+</svg>`},
+{n:203,t:"Competencia",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 1.ª (Disposiciones generales)",idea:"Las normas contables las aprueba Hacienda a propuesta de la IGAE.",literal:`<p>1. Corresponderá al Ministerio de Hacienda a propuesta de la Intervención General de la Administración del Estado:</p><p>a) Aprobar las normas contables de carácter general a las que tendrá que ajustarse la organización de la contabilidad de los entes locales y sus organismos autónomos.</p><p>b) Aprobar la adaptación del Plan General de Contabilidad Pública para las entidades locales, su normativa de desarrollo y los planes especiales o parciales que se elaboren conforme a la misma, así como los de las entidades públicas empresariales y sociedades mercantiles con participación total o mayoritaria de las entidades locales, que se elaboren conforme al Plan General de Contabilidad de la empresa española.</p><p>c) Establecer los libros que, como regla general y con carácter obligatorio, deban llevarse.</p><p>d) Determinar la estructura y justificación de las cuentas, estados y demás documentos relativos a la contabilidad pública.</p><p>2. A los efectos previstos en el apartado anterior, serán objeto de tratamiento contable simplificado aquellas entidades locales cuyas características así lo requieran y que serán fijadas reglamentariamente por el Ministerio de Hacienda.</p>`,dis:`<ul>
+<li><b>Competencia (203.1):</b> corresponde al <b>Ministerio de Hacienda</b>, a propuesta de la <span class="t" data-k="igae">IGAE</span>:
+<ol><li><b>a)</b> aprobar las <b>normas contables generales</b> a las que debe ajustarse la organización de la contabilidad de los entes locales y sus organismos autónomos;</li>
+<li><b>b)</b> aprobar la <b>adaptación del Plan General de Contabilidad Pública</b> a las entidades locales, su normativa de desarrollo y los planes especiales o parciales, así como los de las entidades públicas empresariales y sociedades con participación total o mayoritaria;</li>
+<li><b>c)</b> establecer los <b>libros</b> obligatorios;</li>
+<li><b>d)</b> determinar la <b>estructura y justificación</b> de las cuentas, estados y demás documentos.</li></ol></li>
+<li><b>203.2 — tratamiento contable simplificado:</b> para las entidades cuyas características lo requieran, fijadas <b>reglamentariamente</b> por el Ministerio de Hacienda.</li>
+</ul>`,llano:`<p>Igual que el Ministerio fija la estructura del presupuesto (art. 167), fija también la de la contabilidad: qué plan de cuentas se aplica, qué libros hay que llevar y cómo se presentan las cuentas. Y como no es lo mismo un municipio de 300 habitantes que una capital, existe un modelo simplificado.</p>`,porque:`<p>La normalización es la condición de la <b>comparabilidad y la agregación</b>: sin un plan común, las cuentas de 8.000 entidades serían inservibles para el Tribunal de Cuentas y para las estadísticas nacionales. El tratamiento simplificado responde al principio de <b>proporcionalidad</b>: la carga contable debe ser asumible por la entidad.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el modelo oficial de contabilidad de una pyme frente al de una gran empresa.</li>
+<li><b>Real:</b> las Instrucciones de los modelos normal, simplificado y básico de contabilidad local, aprobadas por Orden del Ministerio de Hacienda, desarrollan estas competencias.</li>
+<li><b>Caso límite:</b> un ayuntamiento pequeño acogido al modelo simplificado presenta cuentas con menor detalle, conforme al art. 209.2, párrafo segundo.</li>
+</ul>`,noej:`<ul>
+<li><b>No corresponde</b> a cada entidad aprobar su plan de cuentas.</li>
+<li><b>No lo decide</b> la IGAE por sí sola: <b>propone</b>, y el Ministerio aprueba.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 210:</b> misma técnica para el contenido y la estructura de las cuentas de la cuenta general.</li>
+<li><b>Art. 167.1:</b> paralelo en la estructura presupuestaria.</li>
+<li><b>Art. 209.2:</b> modelos simplificados de cuentas.</li>
+</ul>`,trampas:`<ul>
+<li>Cuatro competencias (a-d) y una <b>propuesta previa de la IGAE</b>.</li>
+<li>El <b>tratamiento contable simplificado</b> lo fija reglamentariamente el Ministerio de Hacienda, no el Pleno.</li>
+</ul>`,ancla:`<p><b>"Propone la IGAE, aprueba Hacienda"</b> — igual que en el art. 210. Cuatro cosas: <b>normas, plan, libros y estructura</b>.</p>`,vis:`<svg viewBox="0 0 640 140" role="img" aria-label="Competencias en materia contable">
+<rect x="180" y="12" width="280" height="34" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="320" y="34" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">MINISTERIO DE HACIENDA, a propuesta de la IGAE</text>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="15" y="60" width="145" height="48" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="87" y="80" font-weight="700">a) Normas</text><text x="87" y="96">contables generales</text>
+<rect x="172" y="60" width="145" height="48" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="244" y="80" font-weight="700">b) Plan de</text><text x="244" y="96">contabilidad pública</text>
+<rect x="329" y="60" width="145" height="48" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="401" y="80" font-weight="700">c) Libros</text><text x="401" y="96">obligatorios</text>
+<rect x="486" y="60" width="139" height="48" rx="6" fill="var(--panel)" stroke="var(--line)"/><text x="555" y="80" font-weight="700">d) Estructura</text><text x="555" y="96">de las cuentas</text>
+</g>
+<text x="320" y="128" text-anchor="middle" font-size="10" fill="var(--warn)">+ tratamiento contable simplificado para las entidades que lo requieran (203.2)</text>
+</svg>`},
+{n:204,t:"Función contable de la Intervención",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 1.ª (Disposiciones generales)",idea:"La contabilidad la lleva la Intervención, que además inspecciona la de sus entes.",literal:`<p>1. A la Intervención de las entidades locales le corresponde llevar y desarrollar la contabilidad financiera y el seguimiento, en términos financieros, de la ejecución de los presupuestos de acuerdo con las normas generales y las dictadas por el Pleno de la corporación.</p><p>2. Asimismo, competerá a la Intervención la inspección de la contabilidad de los organismos autónomos y de las sociedades mercantiles dependientes de la entidad local, de acuerdo con los procedimientos que establezca el Pleno.</p>`,dis:`<ul>
+<li><b>204.1:</b> a la <span class="t" data-k="intervencion">Intervención</span> le corresponde <b>llevar y desarrollar la contabilidad financiera</b> y el <b>seguimiento, en términos financieros, de la ejecución de los presupuestos</b>, conforme a las normas generales y a las dictadas por el <b>Pleno</b>.</li>
+<li><b>204.2:</b> le compete también la <b>inspección de la contabilidad</b> de los <b>organismos autónomos</b> y de las <b>sociedades mercantiles</b> dependientes, según los procedimientos que establezca el <b>Pleno</b>.</li>
+</ul>`,llano:`<p>Quien lleva las cuentas del ayuntamiento es la Intervención, y además vigila las de los patronatos y empresas municipales. El Pleno puede dictar normas propias sobre cómo se hace y con qué procedimientos se inspecciona.</p>`,porque:`<p>Concentrar la contabilidad en el mismo órgano que fiscaliza asegura que quien controla <b>conoce el dato de primera mano</b>. La inspección de los entes dependientes evita que el grupo local tenga contabilidades opacas fuera del alcance del interventor, que es quien después formará la cuenta general (art. 212.2).</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> el contable de la empresa matriz que además revisa cómo llevan las cuentas las filiales.</li>
+<li><b>Real:</b> la Intervención municipal lleva la contabilidad financiera y presupuestaria del ayuntamiento y realiza inspecciones periódicas de la contabilidad del patronato de deportes.</li>
+</ul>`,noej:`<ul>
+<li><b>No lleva</b> la Intervención la contabilidad mercantil de las sociedades: la <b>inspecciona</b>.</li>
+<li><b>No es libre</b> el procedimiento de inspección: lo establece el <b>Pleno</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 212.2:</b> la cuenta general la <b>forma la Intervención</b>.</li>
+<li><b>Art. 213:</b> control interno, otra de sus funciones.</li>
+<li><b>Art. 207:</b> información periódica al Pleno.</li>
+</ul>`,trampas:`<ul>
+<li>Llevar la contabilidad y ejercer el control interno son funciones <b>distintas</b> del mismo órgano.</li>
+<li>Las normas propias y los procedimientos de inspección los dicta el <b>Pleno</b>.</li>
+</ul>`,ancla:`<p><b>"El interventor anota, vigila e inspecciona."</b> Tres verbos, un solo órgano.</p>`,vis:`<svg viewBox="0 0 640 130" role="img" aria-label="Función contable de la Intervención">
+<rect x="220" y="18" width="200" height="38" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">INTERVENCIÓN</text>
+<rect x="45" y="76" width="240" height="42" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="165" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Lleva la contabilidad financiera</text>
+<text x="165" y="110" text-anchor="middle" font-size="10" fill="currentColor">y sigue la ejecución del presupuesto</text>
+<rect x="355" y="76" width="240" height="42" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="475" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Inspecciona la contabilidad</text>
+<text x="475" y="110" text-anchor="middle" font-size="10" fill="currentColor">de organismos y sociedades</text>
+<path d="M280 56 L 200 74" stroke="var(--acc)" stroke-width="2"/><path d="M360 56 L 440 74" stroke="var(--acc)" stroke-width="2"/>
+</svg>`},
+{n:205,t:"Fines de la contabilidad pública local",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 1.ª (Disposiciones generales)",idea:"Once fines: del balance al control, pasando por costes, tesorería y estadística.",literal:`<p>La contabilidad de los entes locales estará organizada al servicio de los siguientes fines:</p><p>a) Establecer el balance de la entidad local, poniendo de manifiesto la composición y situación de su patrimonio, así como sus variaciones.</p><p>b) Determinar los resultados desde un punto de vista económico-patrimonial.</p><p>c) Determinar los resultados analíticos poniendo de manifiesto el coste y rendimiento de los servicios.</p><p>d) Registrar la ejecución de los presupuestos generales de la entidad, poniendo de manifiesto los resultados presupuestarios.</p><p>e) Registrar los movimientos y situación de la tesorería local.</p><p>f) Proporcionar los datos necesarios para la formación de la cuenta general de la entidad, así como de las cuentas, estados y documentos que deban elaborarse o remitirse al Tribunal de Cuentas.</p><p>g) Facilitar la información necesaria para la confección de estadísticas económico- financieras por parte del Ministerio de Hacienda.</p><p>h) Facilitar los datos y demás antecedentes que sean precisos para la confección de las cuentas económicas del sector público y las nacionales de España.</p><p>i) Rendir la información económica y financiera que sea necesaria para la toma de decisiones, tanto en el orden político como en el de gestión.</p><p>j) Posibilitar el ejercicio de los controles de legalidad, financiero y de eficacia.</p><p>k) Posibilitar el inventario y el control del inmovilizado material, inmaterial y financiero, el control del endeudamiento y el seguimiento individualizado de la situación deudora o acreedora de los interesados que se relacionen con la entidad local.</p>`,dis:`<table><thead><tr><th>Grupo</th><th>Fines (art. 205)</th></tr></thead><tbody>
+<tr><td><b>Patrimonio y resultados</b></td><td><b>a)</b> establecer el <b>balance</b> · <b>b)</b> determinar los <span class="t" data-k="respatrimonial">resultados económico-patrimoniales</span> · <b>c)</b> determinar los <span class="t" data-k="resanalitico">resultados analíticos</span>, con el coste y rendimiento de los servicios</td></tr>
+<tr><td><b>Presupuesto y tesorería</b></td><td><b>d)</b> registrar la <b>ejecución de los presupuestos</b> y sus resultados · <b>e)</b> registrar los movimientos y situación de la <b>tesorería</b></td></tr>
+<tr><td><b>Rendición e información</b></td><td><b>f)</b> datos para la <b>cuenta general</b> y para el Tribunal de Cuentas · <b>g)</b> estadísticas económico-financieras del Ministerio · <b>h)</b> cuentas económicas del sector público y nacionales de España · <b>i)</b> información para la <b>toma de decisiones</b> política y de gestión</td></tr>
+<tr><td><b>Control y patrimonio</b></td><td><b>j)</b> posibilitar los controles de <b>legalidad, financiero y de eficacia</b> · <b>k)</b> inventario y control del <b>inmovilizado</b>, control del <b>endeudamiento</b> y seguimiento individualizado de deudores y acreedores</td></tr>
+</tbody></table>`,llano:`<p>La contabilidad no sirve solo para saber cuánto se ha gastado. Sirve para saber qué tiene la entidad (balance), cuánto cuesta cada servicio, cómo va la caja, qué hay que rendir al Tribunal de Cuentas, qué datos van a las estadísticas nacionales y, sobre todo, para que los tres controles del art. 213 sean posibles.</p>`,porque:`<p>Enumerar los fines no es un adorno: la letra <b>j)</b> convierte la contabilidad en <b>presupuesto lógico del control</b>. Sin datos fiables no hay función interventora, ni control financiero, ni control de eficacia. Y la letra <b>c)</b> —resultados analíticos— es la que permite las memorias de coste y rendimiento del art. 211.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> una hoja de cálculo doméstica que sirve a la vez para saber lo que tienes, lo que debes, cuánto cuesta el coche y qué puedes permitirte el mes que viene.</li>
+<li><b>Real:</b> del sistema contable municipal salen el balance de 2026, el coste por usuario de la escuela infantil, el estado de tesorería, la cuenta general y los datos que se remiten al Ministerio.</li>
+</ul>`,noej:`<ul>
+<li><b>No es un fin</b> de la contabilidad aprobar el presupuesto: eso es competencia del Pleno.</li>
+<li><b>No se agota</b> en lo presupuestario: los fines patrimoniales y analíticos son igual de exigibles.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 208:</b> la cuenta general muestra los aspectos económico, financiero, patrimonial y presupuestario.</li>
+<li><b>Art. 211:</b> memorias de coste y rendimiento, que se nutren de la letra c).</li>
+<li><b>Art. 213:</b> los tres controles que la letra j) hace posibles.</li>
+</ul>`,trampas:`<ul>
+<li>Son <b>once</b> fines (a-k). Los más olvidados: <b>c)</b> resultados analíticos y <b>k)</b> inventario y endeudamiento.</li>
+<li>La letra <b>j)</b> menciona los tres controles: <b>legalidad, financiero y de eficacia</b>.</li>
+</ul>`,ancla:`<p><b>Cuatro bloques:</b> lo que <b>tengo</b> (balance y resultados), lo que <b>ejecuto</b> (presupuesto y tesorería), lo que <b>rindo</b> (cuenta general y estadísticas) y lo que <b>controlo</b> (los tres controles y el inventario).</p>`,vis:`<svg viewBox="0 0 640 165" role="img" aria-label="Fines de la contabilidad pública local">
+<rect x="215" y="10" width="210" height="32" rx="8" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="320" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">FINES (art. 205)</text>
+<g font-size="10" text-anchor="middle" fill="currentColor">
+<rect x="15" y="58" width="145" height="56" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="87" y="80" font-weight="700">Patrimonio</text><text x="87" y="96">balance y resultados</text><text x="87" y="109" fill="var(--ink2)">a, b, c</text>
+<rect x="172" y="58" width="145" height="56" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="244" y="80" font-weight="700">Ejecución</text><text x="244" y="96">presupuesto y tesorería</text><text x="244" y="109" fill="var(--ink2)">d, e</text>
+<rect x="329" y="58" width="145" height="56" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/><text x="401" y="80" font-weight="700">Rendición</text><text x="401" y="96">cuentas y estadísticas</text><text x="401" y="109" fill="var(--ink2)">f, g, h, i</text>
+<rect x="486" y="58" width="139" height="56" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/><text x="555" y="80" font-weight="700">Control</text><text x="555" y="96">legalidad, financiero, eficacia</text><text x="555" y="109" fill="var(--ink2)">j, k</text>
+</g>
+<text x="320" y="145" text-anchor="middle" font-size="10" fill="var(--ink2)">Sin contabilidad fiable no hay control posible: la letra j) es la bisagra con el art. 213</text>
+</svg>`},
+{n:206,t:"Soporte de las anotaciones contables",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 1.ª (Disposiciones generales)",idea:"Libros, registros y cuentas donde se anota absolutamente todo lo que tiene efecto económico.",literal:`<p>1. La contabilidad pública se llevará en libros, registros y cuentas según los procedimientos técnicos que sean más convenientes por la índole de las operaciones y de las situaciones que en ellos deban anotarse y de forma que facilite el cumplimiento de los fines señalados en el artículo anterior.</p><p>2. En los citados libros, registros y cuentas, se contabilizarán la totalidad de los actos u operaciones de carácter administrativo, civil o mercantil, con repercusión financiera, patrimonial o económica en general.</p>`,dis:`<ul>
+<li><b>206.1 — soporte:</b> la contabilidad se lleva en <b>libros, registros y cuentas</b>, según los procedimientos técnicos más convenientes por la índole de las operaciones, de forma que se cumplan los fines del art. 205.</li>
+<li><b>206.2 — universalidad:</b> se contabilizará la <b>totalidad</b> de los actos u operaciones de carácter <b>administrativo, civil o mercantil</b> con repercusión <b>financiera, patrimonial o económica</b> en general.</li>
+</ul>`,llano:`<p>Todo lo que tenga efecto económico se anota, sea un acto administrativo, un contrato civil o una operación mercantil. Y se anota donde mejor convenga técnicamente: la ley no impone un soporte concreto, sino un resultado.</p>`,porque:`<p>La regla de <b>universalidad</b> del apartado 2 impide zonas de sombra: si algo tiene repercusión económica, existe contablemente. Y la flexibilidad del apartado 1 permite que la norma sobreviva a los cambios tecnológicos, del libro de papel al sistema informático.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> apuntar todos los movimientos, también los pequeños y los que no son "compras".</li>
+<li><b>Real:</b> se contabilizan la adjudicación de un contrato (acto administrativo), la compra de un solar (civil) y la participación en una sociedad municipal (mercantil).</li>
+</ul>`,noej:`<ul>
+<li><b>No basta</b> con anotar lo presupuestario: la universalidad alcanza a todo lo que tenga repercusión económica.</li>
+<li><b>No impone</b> la ley un soporte físico concreto.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 203.1.c):</b> el Ministerio establece los libros obligatorios.</li>
+<li><b>Art. 205:</b> los fines que el soporte debe permitir cumplir.</li>
+<li><b>RD 203/2021</b> (documento 4 de la biblioteca): actuación por medios electrónicos, marco actual de los soportes.</li>
+</ul>`,trampas:`<ul>
+<li>Tres soportes: <b>libros, registros y cuentas</b>.</li>
+<li>Tres naturalezas de operación: <b>administrativa, civil o mercantil</b>.</li>
+</ul>`,ancla:`<p><b>"Todo lo que mueve dinero, se anota."</b> Da igual de qué rama del derecho venga.</p>`,vis:`<svg viewBox="0 0 640 120" role="img" aria-label="Universalidad de las anotaciones contables">
+<rect x="30" y="30" width="170" height="56" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="115" y="53" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Actos administrativos</text>
+<rect x="235" y="30" width="170" height="56" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="320" y="53" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Operaciones civiles</text>
+<rect x="440" y="30" width="170" height="56" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="525" y="53" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Operaciones mercantiles</text>
+<text x="320" y="78" text-anchor="middle" font-size="10" fill="currentColor">con repercusión financiera, patrimonial o económica</text>
+<text x="320" y="106" text-anchor="middle" font-size="11" fill="var(--ink2)">→ se contabiliza la TOTALIDAD, en libros, registros y cuentas</text>
+</svg>`},
+{n:207,t:"Información periódica para el Pleno de la corporación",ubic:"Título VI (Presupuesto y gasto público) ▸ Capítulo III (De la contabilidad) ▸ Sección 1.ª (Disposiciones generales)",idea:"La Intervención informa al Pleno de ejecución y tesorería con la periodicidad que este fije.",literal:`<p>La Intervención de la entidad local remitirá al Pleno de la entidad, por conducto de la presidencia, información de la ejecución de los presupuestos y del movimiento de la tesorería por operaciones presupuestarias independientes y auxiliares del presupuesto y de su situación, en los plazos y con la periodicidad que el Pleno establezca.</p>`,dis:`<ul>
+<li><b>Quién:</b> la <b>Intervención</b>, <b>por conducto de la presidencia</b>.</li>
+<li><b>A quién:</b> al <b>Pleno</b> de la entidad.</li>
+<li><b>Qué:</b> información de la <b>ejecución de los presupuestos</b> y del <b>movimiento de la tesorería</b> por operaciones presupuestarias <b>independientes y auxiliares</b> del presupuesto, y de su situación.</li>
+<li><b>Cuándo:</b> en los <b>plazos y con la periodicidad que el Pleno establezca</b>.</li>
+</ul>`,llano:`<p>El Pleno no puede esperar a la liquidación de marzo para saber cómo va el año. Este artículo obliga a la Intervención a informarle periódicamente de cómo va la ejecución y cómo está la caja, con la frecuencia que el propio Pleno decida.</p>`,porque:`<p>Es el <b>control político continuo</b>: sin información periódica, la oposición y el propio gobierno gobernarían a ciegas hasta el cierre. Que sea el Pleno quien fije la periodicidad respeta la autonomía local, pero la obligación de informar no es disponible.</p>`,ej:`<ul>
+<li><b>Cotidiano:</b> revisar el estado de la cuenta cada trimestre en lugar de esperar al resumen anual del banco.</li>
+<li><b>Real:</b> las bases de ejecución fijan que la Intervención remita al Pleno, con periodicidad trimestral, el estado de ejecución del presupuesto y el estado de la tesorería.</li>
+<li><b>Caso límite:</b> unas bases que guarden silencio sobre la periodicidad no eliminan la obligación: el Pleno debe fijarla.</li>
+</ul>`,noej:`<ul>
+<li><b>No sustituye</b> esta información a la liquidación (art. 191) ni a la cuenta general (art. 212).</li>
+<li><b>No la remite</b> la Intervención directamente al Pleno: lo hace <b>por conducto de la presidencia</b>.</li>
+</ul>`,conex:`<ul>
+<li><b>Art. 204:</b> la Intervención lleva la contabilidad de la que sale esta información.</li>
+<li><b>Art. 193.4:</b> dar cuenta al Pleno de la liquidación.</li>
+<li><b>Art. 218.1:</b> otro informe de la Intervención al Pleno, el de reparos.</li>
+</ul>`,trampas:`<ul>
+<li>La remisión es <b>por conducto de la presidencia</b>: detalle literal muy preguntable.</li>
+<li>La periodicidad la fija el <b>Pleno</b>, no la ley.</li>
+<li>Se informa de <b>dos</b> cosas: ejecución del presupuesto y movimiento y situación de la tesorería.</li>
+</ul>`,ancla:`<p><b>"La Intervención informa, el alcalde traslada, el Pleno decide cada cuánto."</b></p>`,vis:`<svg viewBox="0 0 640 120" role="img" aria-label="Información periódica al Pleno">
+<defs><marker id="p2" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
+<rect x="25" y="35" width="165" height="48" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/>
+<text x="107" y="65" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Intervención</text>
+<path d="M193 59 L 228 59" stroke="var(--acc)" stroke-width="2" marker-end="url(#p2)"/>
+<rect x="232" y="35" width="165" height="48" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="314" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Presidencia</text>
+<text x="314" y="75" text-anchor="middle" font-size="10" fill="currentColor">(conducto)</text>
+<path d="M400 59 L 435 59" stroke="var(--acc)" stroke-width="2" marker-end="url(#p2)"/>
+<rect x="439" y="35" width="176" height="48" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
+<text x="527" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">PLENO</text>
+<text x="527" y="75" text-anchor="middle" font-size="10" fill="currentColor">fija plazos y periodicidad</text>
+<text x="320" y="107" text-anchor="middle" font-size="10" fill="var(--ink2)">Contenido: ejecución de los presupuestos + movimiento y situación de la tesorería</text>
+</svg>`}];
+</script>
+<script>
+const PLAZOS=[["Año natural", "Ejercicio contable, coincidente con el presupuestario", "Entidad", "202 TRLHL", "Concordancia: art. 163 TRLHL"], ["Unidad de caja", "Centralización de todos los fondos y valores", "Tesorería", "196.1.b) TRLHL", "Presupuestarios y extrapresupuestarios"], ["500.000 habitantes", "Umbral para que las funciones se ejerzan por la unidad central de tesorería", "Pleno", "196.2 y 186.3 TRLHL", "Habitantes de derecho"], ["Cuatro tipos", "Cuentas: operativas, restringidas de recaudación, restringidas de pagos y financieras", "Entidad", "197.1 TRLHL", "Más cajas de efectivo con límites reglamentarios"], ["Corto plazo", "Operaciones de tesorería para déficits temporales de liquidez", "Entidad", "199.1 y 51 TRLHL", "No financian gasto nuevo"], ["Liquidez y seguridad", "Condiciones de las inversiones de excedentes", "Entidad", "199.2 TRLHL", "Dos condiciones acumulativas"], ["Total o mayoritaria", "Participación que sujeta a las sociedades a contabilidad pública", "Sociedades", "200.2 TRLHL", "Frente al capital íntegro del art. 209.1.c)"], ["Once fines", "Fines de la contabilidad pública local", "Intervención", "205 TRLHL", "De la letra a) a la k)"], ["La que fije el Pleno", "Periodicidad de la información de ejecución y tesorería", "Intervención", "207 TRLHL", "Por conducto de la presidencia"], ["Propuesta de la IGAE", "Normas contables, plan, libros y estructura de cuentas", "Ministerio de Hacienda", "203.1 TRLHL", "Paralelo del art. 210"]];
+const FLASH=[["¿Qué constituye la tesorería de una entidad local?", "Todos los recursos financieros —<b>dinero, valores o créditos</b>— por operaciones <b>presupuestarias y extrapresupuestarias</b> (art. 194.1 TRLHL)."], ["¿Qué norma se aplica supletoriamente a la tesorería local?", "El capítulo III del título IV de la <b>Ley 47/2003, General Presupuestaria</b> (art. 194.3 TRLHL)."], ["¿A qué doble régimen quedan sujetas las disponibilidades de tesorería?", "A <b>intervención</b> y al régimen de <b>contabilidad pública</b> (art. 195 TRLHL)."], ["Enumera las funciones de la tesorería", "Recaudar y pagar · servir al principio de <b>unidad de caja</b> · distribuir en el tiempo las disponibilidades · responder de los <b>avales</b> · las demás conexas (art. 196.1 TRLHL)."], ["¿Qué es el principio de unidad de caja?", "La centralización de todos los fondos y valores generados por operaciones presupuestarias y extrapresupuestarias (art. 196.1.b TRLHL)."], ["¿Qué tipos de cuentas puede abrir la tesorería?", "Operativas de ingresos y pagos · restringidas de recaudación · restringidas de pagos · financieras de colocación de excedentes (art. 197.1 TRLHL)."], ["¿Para qué sirven las cajas de efectivo?", "Para los fondos de las <b>operaciones diarias</b>, con las limitaciones que reglamentariamente se establezcan (art. 197.2 TRLHL). No confundir con los anticipos de caja fija del art. 190.3."], ["¿Con qué medios puede cobrar y pagar una entidad local?", "Efectivo, transferencias, cheques o cualquier otro medio o documento de pago, <b>sean o no bancarios</b> (art. 198 TRLHL)."], ["¿Para qué sirven las operaciones de tesorería?", "Para cubrir <b>déficits temporales de liquidez</b> por diferencias de vencimientos de pagos e ingresos, conforme al art. 51 (art. 199.1 TRLHL)."], ["¿Qué condiciones deben reunir las inversiones de excedentes?", "<b>Liquidez y seguridad</b> (art. 199.2 TRLHL)."], ["¿Qué sociedades quedan sometidas a contabilidad pública?", "Aquellas en cuyo capital las entidades locales tengan participación <b>total o mayoritaria</b>, sin perjuicio del Código de Comercio y del PGC (art. 200.2 TRLHL)."], ["¿Qué obligación lleva consigo la sujeción a contabilidad pública?", "<b>Rendir cuentas</b> de las operaciones, cualquiera que sea su naturaleza, al <b>Tribunal de Cuentas</b> (art. 201 TRLHL)."], ["¿Con qué coincide el ejercicio contable?", "Con el <b>ejercicio presupuestario</b> (art. 202 TRLHL), que es el año natural (art. 163 TRLHL)."], ["¿Quién aprueba las normas contables de las entidades locales?", "El <b>Ministerio de Hacienda</b>, a propuesta de la <b>IGAE</b> (art. 203.1 TRLHL)."], ["¿Qué cuatro competencias tiene el Ministerio en materia contable?", "Normas contables generales · adaptación del Plan General de Contabilidad Pública · libros obligatorios · estructura y justificación de cuentas (art. 203.1 TRLHL)."], ["¿Quién lleva la contabilidad de la entidad local?", "La <b>Intervención</b>, que además <b>inspecciona</b> la de organismos autónomos y sociedades dependientes (art. 204 TRLHL)."], ["Cita cuatro fines de la contabilidad pública local", "Establecer el balance · determinar resultados económico-patrimoniales y <b>analíticos</b> · registrar la ejecución presupuestaria y la tesorería · posibilitar los controles de legalidad, financiero y de eficacia (art. 205 TRLHL)."], ["¿Qué operaciones deben contabilizarse?", "La <b>totalidad</b> de los actos u operaciones de carácter administrativo, civil o mercantil con repercusión financiera, patrimonial o económica (art. 206.2 TRLHL)."], ["¿Cómo llega al Pleno la información periódica de ejecución y tesorería?", "La remite la <b>Intervención por conducto de la presidencia</b>, en los plazos y con la periodicidad que el <b>Pleno</b> establezca (art. 207 TRLHL)."], ["¿Qué normas complementan hoy la contabilidad local fuera de la biblioteca?", "Las Instrucciones de los modelos normal, simplificado y básico de contabilidad local, aprobadas por Orden del Ministerio de Hacienda en desarrollo del art. 203 TRLHL. <i>Aportación externa: verifica su versión vigente en el BOE.</i>"]];
+const TEST=[{"a": 194, "q": "La tesorería de las entidades locales está constituida por:", "o": [["todos los recursos financieros —dinero, valores o créditos— por operaciones presupuestarias y extrapresupuestarias", 1, "Correcto: art. 194.1 TRLHL."], ["únicamente el dinero en efectivo y las cuentas bancarias", 0, "Se quedaría fuera de la definición legal: también valores y créditos."], ["solo los fondos procedentes de operaciones presupuestarias", 0, "La ley incluye expresamente las extrapresupuestarias."], ["el patrimonio mobiliario e inmobiliario de la entidad", 0, "La tesorería es recursos financieros, no patrimonio en general."]]}, {"a": 194, "q": "Completa: «La tesorería se regirá por este capítulo y, en cuanto le sean de aplicación, por las normas del capítulo tercero del título cuarto de la Ley ______, General Presupuestaria».", "gap": "47/2003", "fb": "<b>Ley 47/2003</b>, de 26 de noviembre, General Presupuestaria (art. 194.3 TRLHL)."}, {"a": 196, "q": "¿Cuál NO es una función de la tesorería del art. 196.1?", "o": [["ordenar los pagos", 1, "Correcto: la ordenación de pagos corresponde al presidente (art. 186.1 TRLHL). La tesorería materializa el pago."], ["recaudar los derechos y pagar las obligaciones", 0, "Sí lo es: letra a)."], ["servir al principio de unidad de caja", 0, "Sí lo es: letra b)."], ["responder de los avales contraídos", 0, "Sí lo es: letra d)."]]}, {"a": 197, "q": "Las cuentas restringidas de recaudación:", "o": [["solo reciben ingresos, que después se trasladan a la cuenta operativa", 1, "Correcto: art. 197.1.b) TRLHL. Su carácter restringido es un mecanismo de control."], ["permiten pagar directamente a los acreedores", 0, "Para pagar están las cuentas operativas y las restringidas de pagos."], ["son las cuentas donde se colocan los excedentes", 0, "Esas son las financieras de la letra d)."], ["sustituyen a las cajas de efectivo", 0, "Las cajas de efectivo se regulan aparte, en el art. 197.2."]]}, {"a": 199, "q": "Las operaciones de tesorería del art. 199.1 sirven para financiar nuevos gastos no previstos en el presupuesto.", "vf": true, "ok": false, "fb": "<b>Falso.</b> Sirven para cubrir <b>déficits temporales de liquidez</b> derivados de las diferencias de vencimientos de pagos e ingresos. Para financiar gasto corriente con crédito hay que acudir al art. 177.5 TRLHL, con sus tres condiciones."}, {"a": 199, "q": "Las inversiones de excedentes temporales de tesorería deben reunir las condiciones de:", "o": [["liquidez y seguridad", 1, "Correcto: art. 199.2 TRLHL."], ["rentabilidad y plazo", 0, "No son las condiciones legales."], ["seguridad y rentabilidad máxima", 0, "La ley no persigue la máxima rentabilidad, sino la seguridad y la disponibilidad."], ["autorización previa del Ministerio de Hacienda", 0, "No se exige en este precepto."]]}, {"a": 200, "q": "Quedan sometidas al régimen de contabilidad pública las sociedades mercantiles en cuyo capital las entidades locales tengan participación:", "o": [["total o mayoritaria", 1, "Correcto: art. 200.2 TRLHL, sin perjuicio del Código de Comercio y del PGC."], ["íntegra únicamente", 0, "El capital íntegro es el criterio del art. 209.1.c) para integrar la cuenta general, no el del art. 200.2."], ["superior al 25 %", 0, "No es el criterio legal."], ["cualquiera, aunque sea minoritaria", 0, "Debe ser total o mayoritaria."]]}, {"a": 201, "q": "Completa: «La sujeción al régimen de contabilidad pública lleva consigo la obligación de rendir cuentas de las respectivas operaciones, cualquiera que sea su naturaleza, al ______».", "gap": "Tribunal de Cuentas", "fb": "Al <b>Tribunal de Cuentas</b> (art. 201 TRLHL). Enlaza con el art. 223, control externo."}, {"a": 203, "q": "Las normas contables generales de las entidades locales se aprueban por:", "o": [["el Ministerio de Hacienda, a propuesta de la IGAE", 1, "Correcto: art. 203.1 TRLHL, igual que en el art. 210 para la cuenta general."], ["el Pleno de cada entidad en las bases de ejecución", 0, "El Pleno dicta normas propias sobre la llevanza (art. 204.1), no el plan contable."], ["la Intervención General de la Administración del Estado por sí sola", 0, "La IGAE propone; el Ministerio aprueba."], ["el Tribunal de Cuentas", 0, "El Tribunal fiscaliza, no aprueba normas contables."]]}, {"a": 204, "q": "La inspección de la contabilidad de los organismos autónomos y sociedades dependientes corresponde a:", "o": [["la Intervención de la entidad local, según los procedimientos que establezca el Pleno", 1, "Correcto: art. 204.2 TRLHL."], ["la Tesorería", 0, "La tesorería gestiona fondos, no inspecciona contabilidad."], ["el Tribunal de Cuentas en exclusiva", 0, "El control externo no excluye la inspección interna."], ["el propio órgano de cada organismo", 0, "La ley atribuye la inspección a la Intervención."]]}, {"a": 205, "q": "¿Cuál de estos es un fin de la contabilidad pública local?", "o": [["determinar los resultados analíticos, poniendo de manifiesto el coste y rendimiento de los servicios", 1, "Correcto: art. 205.c) TRLHL, base de las memorias del art. 211."], ["aprobar el presupuesto general", 0, "Es competencia del Pleno, no un fin de la contabilidad."], ["fiscalizar los actos con contenido económico", 0, "Eso es la función interventora (art. 214); la contabilidad la <b>posibilita</b> (letra j)."], ["fijar la estructura presupuestaria", 0, "Corresponde al Ministerio por el art. 167 TRLHL."]]}, {"a": 206, "q": "Se contabilizará la totalidad de los actos u operaciones de carácter administrativo, civil o mercantil con repercusión económica.", "vf": true, "ok": true, "fb": "<b>Verdadero</b> (art. 206.2 TRLHL). Es la regla de universalidad de las anotaciones contables."}, {"a": 207, "q": "La información periódica sobre ejecución del presupuesto y tesorería se remite al Pleno:", "o": [["por la Intervención, por conducto de la presidencia, con la periodicidad que el Pleno establezca", 1, "Correcto: art. 207 TRLHL."], ["por la Tesorería, mensualmente", 0, "Ni el órgano ni la periodicidad son los del precepto."], ["por el presidente, trimestralmente por imperativo legal", 0, "La ley no fija la periodicidad: la fija el Pleno."], ["por la Intervención directamente, sin intervención de la presidencia", 0, "La ley dice expresamente «por conducto de la presidencia»."]]}, {"a": 202, "q": "El ejercicio contable puede no coincidir con el presupuestario si así lo acuerda el Pleno.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 202 TRLHL establece la coincidencia sin excepciones, y el art. 163 TRLHL fija el ejercicio presupuestario en el año natural."}, {"a": 196, "q": "Completa: «Son funciones de la tesorería servir al principio de ______ de caja, mediante la centralización de todos los fondos y valores».", "gap": "unidad", "fb": "Principio de <b>unidad de caja</b> (art. 196.1.b TRLHL)."}, {"a": 197, "q": "¿Qué diferencia hay entre una caja de efectivo (art. 197.2) y un anticipo de caja fija (art. 190.3)?", "o": [["la caja de efectivo atiende operaciones diarias de tesorería; el anticipo de caja fija es una provisión de fondos a un perceptor para gastos periódicos o repetitivos", 1, "Correcto: son figuras distintas, con regímenes distintos."], ["son la misma figura con dos nombres", 0, "No: una está en el capítulo de tesorería y otra en el de ejecución del gasto."], ["la caja de efectivo se justifica en tres meses", 0, "Ese es el plazo de los pagos a justificar del art. 190.2."], ["el anticipo de caja fija lo autoriza el Ministerio", 0, "Lo regulan las bases de ejecución, previo informe de la Intervención."]]}, {"a": 205, "q": "El art. 205.j) señala como fin de la contabilidad posibilitar los controles de:", "o": [["legalidad, financiero y de eficacia", 1, "Correcto, y coincide con las tres modalidades de control interno del art. 213 TRLHL."], ["legalidad y de oportunidad", 0, "El control de oportunidad está excluido de la función fiscalizadora (art. 218.1)."], ["externo e interno", 0, "No es la formulación del precepto."], ["previo y posterior", 0, "Tampoco es la formulación legal."]]}, {"a": 200, "q": "Las sociedades mercantiles locales quedan exentas de la contabilidad mercantil por estar sujetas a contabilidad pública.", "vf": true, "ok": false, "fb": "<b>Falso.</b> El art. 200.2 TRLHL las sujeta a contabilidad pública <b>sin perjuicio</b> de que se adapten al Código de Comercio, la legislación mercantil y el Plan General de Contabilidad."}, {"a": 195, "q": "Quedan sujetas a intervención y contabilidad pública:", "o": [["las disponibilidades de la tesorería y sus variaciones", 1, "Correcto: art. 195 TRLHL. No solo el saldo, también los movimientos."], ["solo los pagos superiores a 3.005,06 euros", 0, "Esa cifra pertenece al art. 219.1 sobre fiscalización previa."], ["únicamente las operaciones presupuestarias", 0, "También las extrapresupuestarias, que forman parte de la tesorería."], ["solo los movimientos de las cuentas operativas", 0, "Alcanza a toda la tesorería."]]}, {"a": 203, "q": "El tratamiento contable simplificado se establece:", "o": [["reglamentariamente por el Ministerio de Hacienda, para las entidades cuyas características lo requieran", 1, "Correcto: art. 203.2 TRLHL. Se refleja en el art. 209.2, párrafo segundo."], ["por acuerdo del Pleno de cada entidad", 0, "No es una decisión local."], ["para todos los municipios de menos de 5.000 habitantes por ley", 0, "El precepto no fija ese umbral: remite a la vía reglamentaria."], ["por el Tribunal de Cuentas", 0, "No es competencia suya."]]}];
+const CASOS=[{"t": "Caso 1 · El circuito del dinero", "e": "Un ayuntamiento recibe el 20 de marzo 340.000 € de recaudación del IBI a través de una entidad colaboradora, tiene pendientes 90.000 € de fianzas de contratistas y necesita pagar el 25 de marzo nóminas por 410.000 €, pero su cuenta operativa solo tiene 180.000 €. <b>Explica dónde entra cada importe, qué principio se aplica y qué puede hacer para pagar.</b>", "s": "<p><b>1) La recaudación</b> entra en una <b>cuenta restringida de recaudación</b> (art. 197.1.b TRLHL) y se traspasa a la cuenta operativa. Es un ingreso presupuestario.</p><p><b>2) Las fianzas</b> son tesorería por operación <b>extrapresupuestaria</b> (art. 194.1 TRLHL): la entidad las custodia, no son ingreso propio. Aun así forman parte de la tesorería y quedan sujetas a intervención y contabilidad (art. 195 TRLHL).</p><p><b>3) El principio aplicable</b> es el de <b>unidad de caja</b> (art. 196.1.b TRLHL): todos los fondos se centralizan, de modo que la liquidez se gestiona en conjunto y la tesorería puede <b>distribuir en el tiempo</b> las disponibilidades (letra c).</p><p><b>4) Para pagar</b>: una vez traspasada la recaudación, hay liquidez suficiente. Si no la hubiera, cabría concertar una <b>operación de tesorería</b> a corto plazo (arts. 199.1 y 51 TRLHL) para cubrir el desfase, nunca para financiar gasto nuevo.</p><p><b>5) Prelación:</b> las nóminas tienen <b>prioridad legal</b> en el plan de disposición de fondos (art. 187 TRLHL), junto con las obligaciones de ejercicios anteriores.</p><p><b>Advertencia:</b> no pueden usarse las fianzas para pagar nóminas; son fondos de terceros, aunque estén en la misma caja.</p>"}, {"t": "Caso 2 · Quién hace qué en la contabilidad", "e": "En la misma entidad conviven: la Intervención, la Tesorería, el Pleno, el Ministerio de Hacienda, la IGAE y el Tribunal de Cuentas. <b>Asigna a cada uno su papel en materia contable y cita el artículo.</b>", "s": "<p><b>Ministerio de Hacienda</b>, a propuesta de la <b>IGAE</b>: aprueba las normas contables generales, la adaptación del Plan General de Contabilidad Pública, los libros obligatorios y la estructura de las cuentas (<b>art. 203.1 TRLHL</b>); y determina el contenido y estructura de las cuentas de la cuenta general (<b>art. 210 TRLHL</b>).</p><p><b>Intervención</b>: lleva y desarrolla la contabilidad financiera y el seguimiento de la ejecución presupuestaria, e inspecciona la de organismos y sociedades (<b>art. 204 TRLHL</b>); forma la cuenta general (<b>art. 212.2 TRLHL</b>); informa periódicamente al Pleno (<b>art. 207 TRLHL</b>).</p><p><b>Tesorería</b>: recauda, paga, centraliza y distribuye en el tiempo (<b>art. 196 TRLHL</b>). Sus disponibilidades y variaciones se contabilizan e intervienen (<b>art. 195 TRLHL</b>).</p><p><b>Pleno</b>: dicta las normas propias sobre llevanza de la contabilidad y los procedimientos de inspección (<b>art. 204 TRLHL</b>), fija la periodicidad de la información (<b>art. 207 TRLHL</b>) y aprueba la cuenta general antes del 1 de octubre (<b>art. 212.4 TRLHL</b>).</p><p><b>Tribunal de Cuentas</b>: destinatario de la rendición de cuentas (<b>art. 201 TRLHL</b>) y órgano de fiscalización externa, con rendición antes del 15 de octubre (<b>art. 223 TRLHL</b>).</p>"}, {"t": "Caso 3 · De la anotación al control", "e": "La interventora quiere justificar ante el equipo de gobierno por qué es imprescindible depurar el inventario y afinar la contabilidad analítica. <b>Construye el argumento a partir de los fines del art. 205 TRLHL y de sus conexiones con el resto del tema 8.</b>", "s": "<p><b>1) Sin inventario no hay balance fiable.</b> El art. 205.a) TRLHL exige establecer el balance con la composición y situación del patrimonio, y la letra k) impone el inventario y control del inmovilizado. El balance forma parte de la cuenta general (art. 209.2 TRLHL).</p><p><b>2) Sin contabilidad analítica no hay memorias.</b> El art. 205.c) TRLHL obliga a determinar los resultados analíticos con el coste y rendimiento de los servicios; en municipios de más de 50.000 habitantes esas magnitudes se plasman en las memorias que acompañan a la cuenta general (art. 211 TRLHL).</p><p><b>3) Sin datos no hay control.</b> El art. 205.j) TRLHL señala como fin posibilitar los controles de <b>legalidad, financiero y de eficacia</b>, que son las tres modalidades del control interno del art. 213 TRLHL. El control de eficacia del art. 221 TRLHL es imposible sin coste y rendimiento.</p><p><b>4) Sin información no hay rendición.</b> Las letras f), g) y h) del art. 205 TRLHL vinculan la contabilidad con la cuenta general, con las estadísticas del Ministerio y con las cuentas nacionales.</p><p><b>Conclusión:</b> depurar inventario y analítica no es una tarea contable menor: condiciona el balance, las memorias, el control de eficacia y la rendición al Tribunal de Cuentas.</p>"}];
+const SEMAFORO=["Concepto y régimen jurídico de la tesorería — art. 194", "Doble sujeción: intervención y contabilidad — art. 195", "Funciones de la tesorería y unidad de caja — art. 196", "Tipos de cuentas y cajas de efectivo — art. 197", "Medios de ingreso y de pago — art. 198", "Operaciones de tesorería y colocación de excedentes — art. 199", "Ámbito de la contabilidad pública, incluidas las sociedades — art. 200", "Rendición de cuentas al Tribunal de Cuentas — art. 201", "Coincidencia del ejercicio contable y presupuestario — art. 202", "Competencias del Ministerio a propuesta de la IGAE — art. 203", "Función contable e inspectora de la Intervención — art. 204", "Los once fines de la contabilidad — art. 205", "Universalidad de las anotaciones contables — art. 206", "Información periódica al Pleno — art. 207"];
+const INTRO_HTML="<section class=\"card\" id=\"intro\"><h2>Bloque 5 del tema 8 · Tesorería y contabilidad</h2><p class=\"small\">Con este bloque queda cubierto el <b>Título VI completo</b> del TRLHL. La tesorería (arts. 194-199) es la caja por la que pasa físicamente el dinero; la contabilidad (arts. 200-207) es el sistema de información del que salen la liquidación, la cuenta general y todo el control.</p><div class=\"box ej\"><span class=\"lbl\">La idea que ordena todo el bloque</span>La ejecución del gasto termina en una <b>orden de pago</b> (art. 186); a partir de ahí entra la <b>tesorería</b>, que materializa cobros y pagos bajo el principio de <b>unidad de caja</b>. Y todo lo que ocurre —presupuestario o no— se anota en la <b>contabilidad</b>, que existe para que sean posibles la rendición de cuentas y los tres controles del art. 213.</div><div class=\"box warn\"><span class=\"lbl\">Fuente y vigencia</span><b>Norma utilizada:</b> Real Decreto Legislativo 2/2004, de 5 de marzo, por el que se aprueba el texto refundido de la Ley Reguladora de las Haciendas Locales (documento 5 de la biblioteca), texto consolidado con última modificación de <b>28 de enero de 2026</b>. Se citan además, como <b>aportación externa</b> no incluida en la biblioteca, la Ley 47/2003, General Presupuestaria (a la que remite el art. 194.3) y las Instrucciones de contabilidad local dictadas en desarrollo del art. 203. Verifica su vigencia en el BOE consolidado.</div><svg viewBox=\"0 0 660 215\" role=\"img\" aria-label=\"Mapa conceptual de tesorería y contabilidad\"><rect x=\"215\" y=\"8\" width=\"230\" height=\"36\" rx=\"9\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/><text x=\"330\" y=\"31\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">DESPUÉS DE LA ORDEN DE PAGO</text><line x1=\"330\" y1=\"44\" x2=\"330\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"170\" y1=\"60\" x2=\"490\" y2=\"60\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"170\" y1=\"60\" x2=\"170\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><line x1=\"490\" y1=\"60\" x2=\"490\" y2=\"78\" stroke=\"var(--acc)\" stroke-width=\"2\"/><rect x=\"35\" y=\"78\" width=\"270\" height=\"122\" rx=\"9\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/><text x=\"170\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--acc)\">TESORERÍA · arts. 194-199</text><text x=\"170\" y=\"124\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">194 concepto · 195 control</text><text x=\"170\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">196 funciones y unidad de caja</text><text x=\"170\" y=\"168\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">197 cuentas · 198 medios</text><text x=\"170\" y=\"190\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">199 liquidez y excedentes</text><rect x=\"355\" y=\"78\" width=\"270\" height=\"122\" rx=\"9\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/><text x=\"490\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"var(--ej)\">CONTABILIDAD · arts. 200-207</text><text x=\"490\" y=\"124\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">200 ámbito · 201 rendición</text><text x=\"490\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">202 ejercicio · 203 competencias</text><text x=\"490\" y=\"168\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">204 Intervención · 205 fines</text><text x=\"490\" y=\"190\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">206 soporte · 207 información</text></svg></section>";
+const RESUMEN_HTML="<section class=\"card\" id=\"resumen\"><h2>Resumen ejecutivo</h2><p class=\"small\"><b>Norma:</b> RDLeg 2/2004, TRLHL, Título VI, capítulos II y III.</p><table><tbody><tr><th style=\"width:60px\">194</th><td>Tesorería: <b>dinero, valores y créditos</b>, presupuestarios y extrapresupuestarios. Supletoria: Ley 47/2003.</td></tr><tr><th>195</th><td>Disponibilidades y variaciones sujetas a <b>intervención</b> y <b>contabilidad pública</b>.</td></tr><tr><th>196</th><td>Funciones: recaudar y pagar · <b>unidad de caja</b> · distribuir en el tiempo · responder de avales · conexas. Unidad central de tesorería del art. 186.</td></tr><tr><th>197</th><td>Cuentas: operativas · restringidas de recaudación · restringidas de pagos · financieras. Más cajas de efectivo con límites reglamentarios.</td></tr><tr><th>198</th><td>Ingresos y pagos por cualquier medio, <b>sea o no bancario</b>.</td></tr><tr><th>199</th><td>Déficit temporal → <b>operación de tesorería</b> (art. 51). Excedente → inversiones con <b>liquidez y seguridad</b>.</td></tr><tr><th>200</th><td>Contabilidad pública para entidad, organismos y sociedades de participación <b>total o mayoritaria</b>, sin perjuicio de la mercantil.</td></tr><tr><th>201</th><td>Obligación de <b>rendir cuentas al Tribunal de Cuentas</b>, cualquiera que sea la naturaleza de las operaciones.</td></tr><tr><th>202</th><td>Ejercicio contable = ejercicio presupuestario = <b>año natural</b> (art. 163).</td></tr><tr><th>203</th><td><b>Ministerio de Hacienda</b>, a propuesta de la <b>IGAE</b>: normas, plan contable, libros y estructura. Tratamiento simplificado por vía reglamentaria.</td></tr><tr><th>204</th><td>La <b>Intervención</b> lleva la contabilidad e <b>inspecciona</b> la de organismos y sociedades, según los procedimientos del Pleno.</td></tr><tr><th>205</th><td><b>Once fines</b>: balance · resultados económico-patrimoniales · <b>analíticos</b> · ejecución presupuestaria · tesorería · cuenta general · estadísticas · cuentas nacionales · decisiones · <b>controles de legalidad, financiero y de eficacia</b> · inventario y endeudamiento.</td></tr><tr><th>206</th><td>Libros, registros y cuentas; se contabiliza la <b>totalidad</b> de operaciones administrativas, civiles o mercantiles con repercusión económica.</td></tr><tr><th>207</th><td>La Intervención informa al <b>Pleno por conducto de la presidencia</b>, con la periodicidad que el Pleno fije.</td></tr></tbody></table><h2 style=\"margin-top:1.2rem\">Calendario de repaso espaciado</h2><table><thead><tr><th>Momento</th><th>Fecha</th><th>Qué hacer</th></tr></thead><tbody id=\"calbody\"></tbody></table></section>";
+</script><script>
+
+const main=document.getElementById('main');
+function panel(id,title,body,cls){return '<details class="panel '+(cls||'v-expl')+'"'+(id?' data-p="'+id+'"':'')+'><summary>'+title+'</summary><div class="body">'+body+'</div></details>';}
+let html='';
+
+html+=INTRO_HTML;
+/* ---------- ARTÍCULOS ---------- */
+ARTS.forEach(function(a){
+ html+='<section class="card art" id="art'+a.n+'">'
+ +'<h2><span class="num">Art. '+a.n+'</span> '+a.t+'</h2>'
+ +'<p class="ubic">'+a.ubic+'</p>'
+ +'<div class="idea v-expl">💡 '+a.idea+'</div>'
+ +'<div class="legal v-legal"><span class="lbl">Texto legal · literal</span>'+a.literal+'</div>'
+ +panel('','🔍 Disección estructural',a.dis)
+ +panel('','🗣️ Traducción a lenguaje llano',a.llano)
+ +panel('','❓ ¿Por qué existe este artículo?',a.porque)
+ +panel('','✅ Ejemplos','<div class="box ej"><span class="lbl">Ejemplos</span>'+a.ej+'</div>')
+ +panel('','🚫 No-ejemplos: dónde está la frontera','<div class="box exc"><span class="lbl">No-ejemplos</span>'+a.noej+'</div>')
+ +panel('','🔗 Conexiones con otros preceptos',a.conex)
+ +panel('','⚠️ Trampas y errores frecuentes','<div class="box warn"><span class="lbl">Cuidado</span>'+a.trampas+'</div>')
+ +panel('','🧠 Anclaje memorístico',a.ancla)
+ +'<div class="v-expl">'+a.vis+'</div>'
+ +'</section>';
+});
+
+/* ---------- PLAZOS ---------- */
+html+='<section class="card" id="plazos"><h2>Tabla de plazos y cifras</h2>'
++'<p class="small">Pulsa en las cabeceras para ordenar. Si solo te llevas una cosa de esta sesión, que sea esta tabla.</p>'
++'<table id="tplazos"><thead><tr><th class="sortable">Plazo / cifra</th><th class="sortable">Trámite</th><th class="sortable">Quién</th><th class="sortable">Art.</th><th>Matiz</th></tr></thead><tbody>';
+PLAZOS.forEach(function(p){html+='<tr><td><b>'+p[0]+'</b></td><td>'+p[1]+'</td><td>'+p[2]+'</td><td>'+p[3]+'</td><td class="small">'+p[4]+'</td></tr>';});
+html+='</tbody></table></section>';
+
+/* ---------- CASOS ---------- */
+html+='<section class="card" id="casos"><h2>Casos prácticos</h2><p class="small">Intenta resolverlos <b>antes</b> de abrir la solución: el esfuerzo de recuperar es lo que fija el aprendizaje.</p>';
+CASOS.forEach(function(c,i){
+ html+='<details class="panel"><summary>'+c.t+'</summary><div class="body"><p>'+c.e+'</p>'
+ +'<button class="revelar" data-i="'+i+'">Ver solución</button><div class="sol hide" id="sol'+i+'">'+c.s+'</div></div></details>';
+});
+html+='</section>';
+
+/* ---------- FLASHCARDS ---------- */
+html+='<section class="card noprint" id="flash"><h2>Flashcards</h2>'
++'<div id="fcbox" style="border:1px solid var(--line);border-radius:12px;padding:1.1rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer" tabindex="0" role="button" aria-label="Tarjeta: pulsa para girar"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.7rem">'
++'<button id="fcflip">Girar</button><button id="fcok">✔ Lo sabía</button><button id="fcko">↻ Repasar</button><button id="fcreset">Reiniciar</button>'
++'<span class="small" id="fccount"></span></div></section>';
+
+/* ---------- TEST ---------- */
+html+='<section class="card noprint" id="test"><h2>Test de autoevaluación</h2>'
++'<p class="small">Preguntas intercaladas de los diez artículos. Corrección inmediata y explicación de por qué falla cada opción incorrecta.</p>'
++'<div id="testbox"></div>'
++'<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem"><button id="tcorr">Corregir todo</button><button id="tfail">Repetir solo los fallos</button><button id="treset">Reiniciar test</button></div>'
++'<p id="tscore" class="small" style="margin-top:.6rem"></p></section>';
+
+/* ---------- SEMÁFORO ---------- */
+html+='<section class="card" id="semaforo"><h2>Semáforo de autoevaluación</h2>'
++'<p class="small">Marca honestamente cada concepto. Abajo se genera tu lista de repaso.</p><div id="sembox"></div>'
++'<div id="semres" style="margin-top:.8rem"></div></section>';
+
+html+=RESUMEN_HTML;
+/* ---------- GLOSARIO ---------- */
+html+='<section class="card" id="glosario"><h2>Glosario completo</h2><table><tbody id="glosbody"></tbody></table></section>';
+
+main.innerHTML=html;
+
+</script><script>
+
+/* ---------- ÍNDICE LATERAL ---------- */
+(function(){
+ var n='<h2>Artículos</h2>';
+ ARTS.forEach(function(a){n+='<a href="#art'+a.n+'"><b>'+a.n+'</b>'+a.t+'</a>';});
+ n+='<h2>Herramientas</h2>'
+  +'<a href="#plazos">Tabla de plazos</a><a href="#casos">Casos prácticos</a><a href="#flash">Flashcards</a>'
+  +'<a href="#test">Test</a><a href="#semaforo">Semáforo</a><a href="#resumen">Resumen y repaso</a><a href="#glosario">Glosario</a>';
+ document.getElementById('navbody').innerHTML=n;
+})();
+document.getElementById('navtoggle').onclick=function(){
+ var s=document.getElementById('side');s.classList.toggle('collapsed');
+ this.setAttribute('aria-expanded',s.classList.contains('collapsed')?'false':'true');
+};
+
+/* ---------- GLOSARIO Y TOOLTIPS ---------- */
+var LABEL={tesoreria:"Tesorería",unidadcaja:"Unidad de caja",extrapres:"Operación extrapresupuestaria",ctarestringida:"Cuenta restringida",optesoreria:"Operación de tesorería",excedente:"Excedente de tesorería",contpublica:"Contabilidad pública",pgcpl:"Plan de contabilidad local",resanalitico:"Resultado analítico",respatrimonial:"Resultado económico-patrimonial",avales:"Aval",ltesoreria:"Ley General Presupuestaria",presupuesto:"Presupuesto",credito:"Crédito presupuestario",obligacion:"Obligación reconocida",derecho:"Derecho liquidado",oa:"Organismo autónomo",sociedad:"Sociedad mercantil local",bases:"Bases de ejecución",estabilidad:"Estabilidad presupuestaria",afectacion:"Principio de no afectación",bruto:"Principio de presupuesto bruto",nivelacion:"Nivelación presupuestaria",aplicacion:"Aplicación presupuestaria",vinculacion:"Nivel de vinculación jurídica",intervencion:"Intervención",pleno:"Pleno",bop:"Boletín Oficial de la Provincia",prorroga:"Prórroga presupuestaria",interesado:"Interesado",liquidacion:"Liquidación del presupuesto",tcuentas:"Tribunal de Cuentas",conten:"Recurso contencioso-administrativo"};
+(function(){var g='';Object.keys(GLOSARIO).forEach(function(k){g+='<tr><th style="width:210px">'+(LABEL[k]||k)+'</th><td>'+GLOSARIO[k]+'</td></tr>';});
+ document.getElementById('glosbody').innerHTML=g;})();
+var tip=document.getElementById('tip');
+function showTip(el){var k=el.getAttribute('data-k');if(!GLOSARIO[k])return;
+ tip.innerHTML='<b>'+(LABEL[k]||k)+'</b><br>'+GLOSARIO[k];tip.style.display='block';
+ var r=el.getBoundingClientRect();var top=r.bottom+8;var left=Math.min(r.left,window.innerWidth-340);
+ if(top+tip.offsetHeight>window.innerHeight)top=Math.max(8,r.top-tip.offsetHeight-8);
+ tip.style.top=top+'px';tip.style.left=Math.max(8,left)+'px';}
+function hideTip(){tip.style.display='none';}
+document.addEventListener('mouseover',function(e){var t=e.target.closest('.t');if(t)showTip(t);});
+document.addEventListener('mouseout',function(e){if(e.target.closest('.t'))hideTip();});
+document.addEventListener('click',function(e){var t=e.target.closest('.t');if(t){e.preventDefault();showTip(t);}else hideTip();});
+
+/* ---------- VISTA LEGAL / EXPLICACIÓN ---------- */
+document.querySelectorAll('[data-view]').forEach(function(b){
+ b.onclick=function(){
+  document.querySelectorAll('[data-view]').forEach(function(x){x.setAttribute('aria-pressed','false');});
+  b.setAttribute('aria-pressed','true');
+  var v=b.getAttribute('data-view');
+  document.querySelectorAll('.v-legal').forEach(function(e){e.classList.toggle('hide',v==='expl');});
+  document.querySelectorAll('.v-expl').forEach(function(e){e.classList.toggle('hide',v==='legal');});
+ };});
+
+/* ---------- DESPLEGAR / TEMA / FUENTE ---------- */
+var openAll=false;
+document.getElementById('expand').onclick=function(){
+ openAll=!openAll;document.querySelectorAll('details.panel').forEach(function(d){d.open=openAll;});
+ this.textContent=openAll?'Plegar todo':'Desplegar todo';};
+document.getElementById('theme').onclick=function(){
+ var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
+var fs=16;
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);document.documentElement.style.setProperty('--fs',fs+'px');};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);document.documentElement.style.setProperty('--fs',fs+'px');};
+
+/* ---------- PROGRESO Y NAV ACTIVA ---------- */
+window.addEventListener('scroll',function(){
+ var h=document.body.scrollHeight-window.innerHeight;
+ document.getElementById('prog').style.width=(h>0?(window.scrollY/h*100):0)+'%';
+ var cur=null;document.querySelectorAll('section.card').forEach(function(s){
+  if(s.getBoundingClientRect().top<120)cur=s.id;});
+ document.querySelectorAll('nav.side a').forEach(function(a){
+  a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ---------- BUSCADOR ---------- */
+var q=document.getElementById('q'),timer=null;
+function clearMarks(){document.querySelectorAll('mark.hit').forEach(function(m){
+ var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});}
+q.addEventListener('input',function(){
+ clearTimeout(timer);timer=setTimeout(function(){
+  clearMarks();
+  var term=q.value.trim();
+  document.querySelectorAll('section.card').forEach(function(s){s.classList.remove('hide');});
+  if(term.length<3)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  document.querySelectorAll('section.card').forEach(function(s){
+   var found=false;
+   var w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT,null);var nodes=[];
+   while(w.nextNode()){var nd=w.currentNode;
+    if(nd.parentNode.closest('script,style,mark'))continue;
+    if(rx.test(nd.nodeValue)){nodes.push(nd);rx.lastIndex=0;}}
+   nodes.forEach(function(nd){
+    found=true;
+    var span=document.createElement('span');
+    span.innerHTML=nd.nodeValue.replace(rx,function(m){return '<mark class="hit">'+m+'</mark>';});
+    nd.parentNode.replaceChild(span,nd);});
+   if(found){s.querySelectorAll('details.panel').forEach(function(d){if(d.querySelector('mark.hit'))d.open=true;});}
+   s.classList.toggle('hide',!found);
+  });
+ },220);});
+
+/* ---------- CASOS ---------- */
+document.querySelectorAll('.revelar').forEach(function(b){
+ b.onclick=function(){var s=document.getElementById('sol'+b.getAttribute('data-i'));
+  s.classList.toggle('hide');b.textContent=s.classList.contains('hide')?'Ver solución':'Ocultar solución';};});
+
+/* ---------- TABLA ORDENABLE ---------- */
+(function(){var t=document.getElementById('tplazos');var dir={};
+ t.querySelectorAll('th.sortable').forEach(function(th,i){
+  th.onclick=function(){
+   var tb=t.tBodies[0];var rows=[].slice.call(tb.rows);
+   dir[i]=!dir[i];
+   rows.sort(function(a,b){var x=a.cells[i].innerText.trim(),y=b.cells[i].innerText.trim();
+    return dir[i]?x.localeCompare(y,'es',{numeric:true}):y.localeCompare(x,'es',{numeric:true});});
+   rows.forEach(function(r){tb.appendChild(r);});};});})();
+
+/* ---------- FLASHCARDS ---------- */
+var order=FLASH.map(function(_,i){return i;}),fi=0,flipped=false,ok=0,ko=0;
+function drawFC(){
+ var box=document.getElementById('fcbox');
+ if(!order.length){box.innerHTML='<b>¡Ronda terminada!</b><br><span class="small">Pulsa Reiniciar para volver a empezar.</span>';
+  document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko;return;}
+ if(fi>=order.length)fi=0;
+ var c=FLASH[order[fi]];
+ box.innerHTML=flipped?'<div class="small" style="color:var(--acc);margin-bottom:.4rem">RESPUESTA</div><div>'+c[1]+'</div>'
+  :'<div class="small" style="color:var(--ink2);margin-bottom:.4rem">PREGUNTA '+(fi+1)+' / '+order.length+'</div><div style="font-weight:600;font-size:1.05rem">'+c[0]+'</div><div class="small" style="margin-top:.6rem;color:var(--ink2)">Piensa la respuesta y pulsa para girar</div>';
+ document.getElementById('fccount').textContent='Sabidas: '+ok+' · Para repasar: '+ko+' · Quedan: '+order.length;
+}
+function flip(){flipped=!flipped;drawFC();}
+document.getElementById('fcbox').onclick=flip;
+document.getElementById('fcbox').onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
+document.getElementById('fcflip').onclick=flip;
+document.getElementById('fcok').onclick=function(){if(!order.length)return;ok++;order.splice(fi,1);flipped=false;drawFC();};
+document.getElementById('fcko').onclick=function(){if(!order.length)return;ko++;var m=order.splice(fi,1)[0];order.push(m);flipped=false;drawFC();};
+document.getElementById('fcreset').onclick=function(){order=FLASH.map(function(_,i){return i;});fi=0;ok=0;ko=0;flipped=false;drawFC();};
+drawFC();
+
+/* ---------- TEST ---------- */
+var state=TEST.map(function(){return{ans:null,done:false,right:false};});
+var visible=TEST.map(function(_,i){return i;});
+function drawTest(){
+ var h='';
+ visible.forEach(function(qi){
+  var t=TEST[qi],s=state[qi];
+  h+='<div style="border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;margin:.55rem 0" data-q="'+qi+'">';
+  h+='<div style="font-weight:600"><span class="chip">Art. '+t.a+'</span> '+t.q+'</div>';
+  if(t.o){
+   t.o.forEach(function(op,oi){
+    var mark='';
+    if(s.done){if(op[1])mark=' style="background:var(--ej-bg);border-color:var(--ej)"';
+     else if(s.ans===oi)mark=' style="background:var(--exc-bg);border-color:var(--exc)"';}
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'"'+mark+' style="'+(mark?mark.slice(8,-1):'')+';border:1px solid '+(s.ans===oi&&!s.done?'var(--acc)':'var(--line)')+';border-radius:8px;padding:.35rem .6rem;margin:.3rem 0;cursor:pointer">'+String.fromCharCode(97+oi)+') '+op[0]
+     +(s.done?'<div class="small" style="margin-top:.2rem">'+op[2]+'</div>':'')+'</div>';});
+  }else if(t.vf){
+   [['Verdadero',true],['Falso',false]].forEach(function(p,oi){
+    var sel=s.ans===oi;
+    var col=s.done?((p[1]===t.ok)?'var(--ej)':(sel?'var(--exc)':'var(--line)')):(sel?'var(--acc)':'var(--line)');
+    h+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'" style="display:inline-block;border:1px solid '+col+';border-radius:8px;padding:.3rem .9rem;margin:.3rem .4rem .3rem 0;cursor:pointer">'+p[0]+'</div>';});
+   if(s.done)h+='<div class="small" style="margin-top:.3rem">'+t.fb+'</div>';
+  }else{
+   h+='<input type="text" class="gap" data-q="'+qi+'" value="'+(s.ans||'')+'" placeholder="escribe tu respuesta" style="margin-top:.4rem;padding:.35rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);width:260px">';
+   if(s.done)h+='<div class="small" style="margin-top:.3rem;color:'+(s.right?'var(--ej)':'var(--exc)')+'">'+(s.right?'Correcto. ':'Respuesta correcta: <b>'+t.gap+'</b>. ')+t.fb+'</div>';
+  }
+  h+='</div>';});
+ document.getElementById('testbox').innerHTML=h;
+ document.querySelectorAll('.opt').forEach(function(o){
+  o.onclick=function(){var qi=+o.getAttribute('data-q');if(state[qi].done)return;
+   state[qi].ans=+o.getAttribute('data-o');drawTest();};});
+ document.querySelectorAll('.gap').forEach(function(g){
+  g.oninput=function(){state[+g.getAttribute('data-q')].ans=g.value;};});
+}
+function norm(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+document.getElementById('tcorr').onclick=function(){
+ var n=0,tot=visible.length;
+ visible.forEach(function(qi){var t=TEST[qi],s=state[qi];s.done=true;
+  if(t.o)s.right=(t.o[s.ans]&&t.o[s.ans][1]===1);
+  else if(t.vf)s.right=((s.ans===0)===t.ok);
+  else s.right=norm(s.ans)===norm(t.gap);
+  if(s.right)n++;});
+ drawTest();
+ var pct=tot?Math.round(n/tot*100):0;
+ document.getElementById('tscore').innerHTML='<b>Resultado: '+n+' / '+tot+' ('+pct+' %).</b> '
+  +(pct>=90?'Dominas el bloque. Pasa a los artículos 172 y siguientes.':pct>=70?'Buen nivel: repasa los fallos y vuelve mañana.':'Aún no está fijado: relee los artículos de los fallos y repite el test.');
+};
+document.getElementById('tfail').onclick=function(){
+ var f=visible.filter(function(qi){return state[qi].done&&!state[qi].right;});
+ if(!f.length){document.getElementById('tscore').innerHTML='<b>No hay fallos que repetir.</b>';return;}
+ visible=f;f.forEach(function(qi){state[qi]={ans:null,done:false,right:false};});
+ drawTest();document.getElementById('tscore').textContent='Repitiendo '+f.length+' preguntas falladas.';
+};
+document.getElementById('treset').onclick=function(){
+ state=TEST.map(function(){return{ans:null,done:false,right:false};});
+ visible=TEST.map(function(_,i){return i;});drawTest();document.getElementById('tscore').textContent='';};
+drawTest();
+
+/* ---------- SEMÁFORO ---------- */
+var sem=SEMAFORO.map(function(){return 0;});
+function drawSem(){
+ var h='<table><tbody>';
+ SEMAFORO.forEach(function(c,i){
+  h+='<tr><td>'+c+'</td><td style="width:150px;white-space:nowrap">'
+   +['🟢','🟡','🔴'].map(function(e,j){
+     var on=sem[i]===j+1;
+     return '<button class="sembtn" data-i="'+i+'" data-v="'+(j+1)+'" style="font-size:1rem;padding:.15rem .35rem;margin-right:.2rem;border-color:'+(on?'var(--acc)':'var(--line)')+';background:'+(on?'var(--acc-soft)':'var(--panel)')+'">'+e+'</button>';}).join('')
+   +'</td></tr>';});
+ h+='</tbody></table>';
+ document.getElementById('sembox').innerHTML=h;
+ document.querySelectorAll('.sembtn').forEach(function(b){
+  b.onclick=function(){sem[+b.getAttribute('data-i')]=+b.getAttribute('data-v');drawSem();};});
+ var rojos=[],ambar=[];
+ sem.forEach(function(v,i){if(v===3)rojos.push(SEMAFORO[i]);if(v===2)ambar.push(SEMAFORO[i]);});
+ var r='';
+ if(rojos.length)r+='<div class="box exc"><span class="lbl">Repasa hoy mismo</span><ul><li>'+rojos.join('</li><li>')+'</li></ul></div>';
+ if(ambar.length)r+='<div class="box warn"><span class="lbl">Refuerza en 24 h</span><ul><li>'+ambar.join('</li><li>')+'</li></ul></div>';
+ if(!rojos.length&&!ambar.length&&sem.some(function(v){return v===1;}))r='<div class="box ej"><span class="lbl">Bien</span>Todo lo marcado está en verde. Consolida con el test y vuelve en 3 días.</div>';
+ document.getElementById('semres').innerHTML=r;
+}
+drawSem();
+
+/* ---------- CALENDARIO DE REPASO ---------- */
+(function(){
+ var hoy=new Date();
+ function f(d){var x=new Date(hoy.getTime());x.setDate(x.getDate()+d);
+  return x.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});}
+ var filas=[['Hoy',f(0),"Lectura activa + test completo + semáforo. Fija las cinco funciones de la tesorería y los cuatro tipos de cuenta."],['+24 horas',f(1),"Solo flashcards: unidad de caja, liquidez y seguridad, participación total o mayoritaria, once fines."],['+3 días',f(3),"Caso práctico 1 (el circuito del dinero) y repetición de los fallos del test."],['+7 días',f(7),"Explicar en voz alta quién hace qué en materia contable (caso 2) y por qué la contabilidad condiciona el control."],['+21 días',f(21),"Test intercalado con los bloques 3 y 4: liquidación, remanente, cuenta general y control."]];
+ document.getElementById('calbody').innerHTML=filas.map(function(r){
+  return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('');
+})();
+
+</script>
+<script>
+
+/* ═══ Mejoras de interacción · Bloque II ═══ */
+(function(){
+"use strict";
+var K_THEME="oposi_bII_theme", K_FS="oposi_bII_fs", K_STREAK="oposi_bII_streak";
+function load(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return f;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var root=document.documentElement;
+
+/* Tema persistente (sobrescribe el toggle simple anterior) */
+var saved=load(K_THEME,null);
+if(saved){root.setAttribute("data-theme",saved);}
+else if(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches){root.setAttribute("data-theme","dark");}
+var bt=document.getElementById("theme");
+if(bt)bt.onclick=function(){
+  var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-theme",n);save(K_THEME,n);
+};
+
+/* Tamaño de texto persistente */
+var fs=load(K_FS,16);
+function setFs(v){fs=Math.max(13,Math.min(22,v));root.style.setProperty("--fs",fs+"px");save(K_FS,fs);}
+setFs(fs);
+var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
+if(bp)bp.onclick=function(){setFs(fs+1);};
+if(bm)bm.onclick=function(){setFs(fs-1);};
+
+/* Racha compartida con el índice */
+(function(){
+  var el=document.getElementById("streakN");if(!el)return;
+  var hoy=new Date().toISOString().slice(0,10);
+  var s=load(K_STREAK,{last:null,n:0});
+  if(s.last!==hoy){
+    var ayer=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    s.n=(s.last===ayer)?s.n+1:1;s.last=hoy;save(K_STREAK,s);
+  }
+  el.textContent=s.n;
+})();
+
+/* Reveal on scroll para las tarjetas */
+function reveal(){
+  var els=document.querySelectorAll("section.card:not(.rv)");
+  if(!els.length)return;
+  if(!("IntersectionObserver" in window)){return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:"0px 0px -30px 0px"});
+  Array.prototype.forEach.call(els,function(el){el.classList.add("rv");io.observe(el);});
+}
+
+/* Sección activa en el índice lateral */
+function spy(){
+  var links=document.querySelectorAll("nav.side a[href^='#']");
+  if(!links.length||!("IntersectionObserver" in window))return;
+  var map={};
+  Array.prototype.forEach.call(links,function(a){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(t)map[t.id]=a;
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        Array.prototype.forEach.call(links,function(a){a.classList.remove("on");});
+        if(map[en.target.id])map[en.target.id].classList.add("on");
+      }
+    });
+  },{rootMargin:"-80px 0px -70% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* Ripple en botones */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.classList.contains("navtoggle"))return;
+  var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement("span");
+  s.className="ripple";s.style.width=s.style.height=d+"px";
+  s.style.left=(e.clientX-r.left-d/2)+"px";s.style.top=(e.clientY-r.top-d/2)+"px";
+  b.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},560);
+});
+
+/* Atajos de teclado */
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea"))return;
+  if(e.key==="/"){var q=document.getElementById("q");if(q){e.preventDefault();q.focus();}}
+  if(e.key==="t"&&bt)bt.click();
+});
+
+/* El contenido se inyecta por JS: esperamos a que exista */
+function init(){reveal();spy();}
+if(document.getElementById("main")&&document.getElementById("main").children.length){init();}
+else{setTimeout(init,60);}
+addEventListener("load",function(){setTimeout(init,80);});
+})();
+
+
+</script>
+<script>
+
+
+/* ═══ Parser de respuestas: estructura semántica ═══ */
+var FCFMT=(function(){
+  var CITA=/\s*\(((?:arts?\.|DA\b|DT\b|disp\.)[^)]*)\)\s*\.?\s*$/i;
+  var strip=function(h){return h.replace(/<[^>]+>/g,"");};
+
+  function esc(s){return s;}
+
+  function parse(raw){
+    var out={verdict:null,cite:null,kind:"p",items:[],text:""};
+    var body=String(raw).trim();
+
+    /* 1 ── Cita legal al final */
+    var m=body.match(CITA);
+    if(m){out.cite=m[1].replace(/\s+/g," ").trim();body=body.slice(0,m.index).trim();}
+    body=body.replace(/[.;,\s]+$/,"");
+
+    /* 2 ── Veredicto Sí / No inicial */
+    var v=strip(body).match(/^(Sí|Sí,|No|No,)[.:,]?\s/);
+    if(v){
+      out.verdict=/^Sí/.test(v[1])?"si":"no";
+      body=body.replace(/^(<[^>]+>\s*)*(Sí|No)[.,:]?\s*/,"").trim();
+      body=body.replace(/^en\s/,"En ");
+    }
+
+    /* 3 ── Enumeración con · */
+    var parts=body.split(/\s+·\s+/);
+    if(parts.length>=2){
+      out.kind="list";
+      var letras=parts.filter(function(p){return /^\s*<?[a-h]\)/.test(strip(p));}).length;
+      out.marker = letras>=parts.length-1 ? "alpha" : "num";
+      out.items=parts.map(function(p){
+        return p.replace(/^\s*[a-h]\)\s*/,"").replace(/[.\s]+$/,"").trim();
+      }).filter(Boolean);
+      return out;
+    }
+
+    /* 4 ── Cláusulas contrapuestas con ; */
+    var semi=body.split(/;\s+/);
+    if(semi.length>=2&&semi.length<=3&&semi.every(function(s){return strip(s).length>14;})){
+      out.kind="clauses";
+      out.items=semi.map(function(s){return s.replace(/[.\s]+$/,"").trim();});
+      return out;
+    }
+
+    /* 5 ── Párrafo */
+    out.text=body;
+    return out;
+  }
+
+  function render(raw){
+    var d=parse(raw),h="";
+
+    if(d.verdict){
+      h+='<span class="fc-verdict '+d.verdict+'">'+(d.verdict==="si"?"✓ Sí":"✗ No")+'</span>';
+    }
+
+    if(d.kind==="list"){
+      h+='<ol class="fc-list '+d.marker+'">';
+      d.items.forEach(function(it){h+='<li>'+it+'</li>';});
+      h+='</ol>';
+    }else if(d.kind==="clauses"){
+      h+='<div class="fc-clauses">';
+      d.items.forEach(function(it){h+='<p>'+it+'</p>';});
+      h+='</div>';
+    }else if(d.text){
+      h+='<p class="fc-p">'+d.text+'</p>';
+    }
+
+    if(d.cite){
+      h+='<span class="fc-cite"><span class="s">§</span>'+d.cite+'</span>';
+    }
+    return {html:h,struct:(d.kind!=="p"||!!d.verdict||strip(raw).length>150)};
+  }
+  return {parse:parse,render:render};
+})();
+
+/* ═══ FLASHCARDS 3D ═══ */
+(function(){
+"use strict";
+function boot(){
+  var sec=document.getElementById("flash");
+  if(!sec||sec.dataset.fc3d)return false;
+  if(typeof FLASH==="undefined"||!FLASH||!FLASH.length)return false;
+  sec.dataset.fc3d="1";
+
+  var CARDS=FLASH, N=CARDS.length;
+  var order,fi,ok,ko,back,busy;
+
+  /* — Estructura — */
+  var h2=sec.querySelector("h2");
+  sec.innerHTML="";
+  if(h2)sec.appendChild(h2);
+  var intro=document.createElement("p");
+  intro.className="small";
+  intro.innerHTML="Piensa la respuesta <b>antes</b> de girar: el esfuerzo de recuperarla es lo que la fija. "
+    +'<span class="fc-hint" style="position:static;display:inline;color:inherit">'
+    +'<span class="kbd">espacio</span> girar · <span class="kbd">→</span> lo sabía · <span class="kbd">←</span> repasar</span>';
+  sec.appendChild(intro);
+
+  var stage=document.createElement("div");
+  stage.className="fc-stage";
+  stage.innerHTML=
+    '<div class="fc-deck" id="fcdeck">'
+    +'<span class="fc-ghost g2"></span><span class="fc-ghost g1"></span>'
+    +'<div class="fc-lift" id="fclift">'
+      +'<div class="fc-card" id="fcbox" tabindex="0" role="button" aria-label="Tarjeta. Pulsa para girar">'
+        +'<div class="fc-face fc-front">'
+          +'<span class="fc-tag">Pregunta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">Pulsa para girar</span>'
+        +'</div>'
+        +'<div class="fc-face fc-back">'
+          +'<span class="fc-tag">Respuesta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">¿La sabías?</span>'
+        +'</div>'
+      +'</div>'
+    +'</div></div>';
+  sec.appendChild(stage);
+
+  var bar=document.createElement("div");
+  bar.className="fc-bar";bar.innerHTML="<i></i>";
+  sec.appendChild(bar);
+
+  var ctr=document.createElement("div");
+  ctr.className="fc-ctrls noprint";
+  ctr.innerHTML='<button id="fcflip">⟲ Girar</button>'
+    +'<button id="fcok">✔ Lo sabía</button>'
+    +'<button id="fcko">↻ Repasar</button>'
+    +'<button id="fcreset">Reiniciar</button>'
+    +'<span class="fc-score">'
+      +'<span class="fc-pill ok" id="fcpok">0 sabidas</span>'
+      +'<span class="fc-pill ko" id="fcpko">0 repasar</span>'
+      +'<span class="fc-pill left" id="fccount">0</span>'
+    +'</span>';
+  sec.appendChild(ctr);
+
+  var deck=stage.querySelector("#fcdeck"), lift=stage.querySelector("#fclift"),
+      card=stage.querySelector("#fcbox"),
+      front=stage.querySelector(".fc-front"), backf=stage.querySelector(".fc-back"),
+      fill=bar.querySelector("i"),
+      pok=ctr.querySelector("#fcpok"), pko=ctr.querySelector("#fcpko"),
+      pleft=ctr.querySelector("#fccount");
+  var rot=0;
+
+  function reset(){
+    order=CARDS.map(function(_,i){return i;});
+    fi=0;ok=0;ko=0;back=false;busy=false;rot=0;
+    card.style.transition="none";card.style.transform="rotateY(0deg)";
+    void card.offsetWidth;card.style.transition="";
+    deck.classList.remove("empty");
+    var d=stage.querySelector(".fc-done");if(d)d.remove();
+    card.style.display="";
+    draw();
+  }
+
+  function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+
+  function draw(){
+    pok.textContent=ok+(ok===1?" sabida":" sabidas");
+    pko.textContent=ko+" repasar";
+    var done=N-order.length;
+    fill.style.width=(N?done/N*100:0)+"%";
+
+    if(!order.length){
+      pleft.textContent="0 quedan";
+      deck.classList.add("empty");
+      card.style.display="none";
+      if(!stage.querySelector(".fc-done")){
+        var d=document.createElement("div");
+        d.className="fc-done";
+        d.innerHTML='<span class="seal">🏆</span><h3>Ronda completada</h3>'
+          +'<p>'+ok+' de '+N+' a la primera'+(ko?' · '+ko+' necesitaron repaso':'')+'</p>';
+        deck.appendChild(d);
+      }
+      return;
+    }
+    if(fi>=order.length)fi=0;
+    pleft.textContent=order.length+(order.length===1?" queda":" quedan");
+
+    var c=CARDS[order[fi]];
+    front.querySelector(".fc-txt").innerHTML='<p class="fc-p">'+c[0]+'</p>';
+    var r=FCFMT.render(c[1]);
+    backf.querySelector(".fc-txt").innerHTML=r.html;
+    backf.classList.toggle("struct",r.struct);
+    var hint=backf.querySelector(".fc-hint");
+    if(hint)hint.classList.toggle("muted",/fc-cite/.test(r.html));
+    var pip=(done+1)+"/"+N;
+    Array.prototype.forEach.call(stage.querySelectorAll(".fc-pip"),function(p){p.textContent=pip;});
+  }
+
+  function flip(){
+    if(busy||!order.length)return;
+    back=!back;rot+=180;
+    card.style.transform="rotateY("+rot+"deg)";
+    card.setAttribute("aria-label",back?"Respuesta. Pulsa para volver":"Pregunta. Pulsa para girar");
+    lift.classList.remove("lift");void lift.offsetWidth;lift.classList.add("lift");
+  }
+
+  function next(good){
+    if(busy||!order.length)return;
+    busy=true;
+    if(good){ok++;bump(pok);}else{ko++;bump(pko);}
+    lift.classList.remove("lift");
+    lift.classList.add(good?"out-ok":"out-ko");
+    setTimeout(function(){
+      if(good){order.splice(fi,1);}
+      else{var m=order.splice(fi,1)[0];order.push(m);}
+      back=false;rot=0;
+      card.style.transition="none";card.style.transform="rotateY(0deg)";
+      void card.offsetWidth;card.style.transition="";
+      draw();
+      lift.classList.remove("out-ok","out-ko");
+      lift.classList.add("in");
+      setTimeout(function(){lift.classList.remove("in");busy=false;},480);
+    },460);
+  }
+
+  card.onclick=flip;
+  card.onkeydown=function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();flip();}
+    if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  };
+  ctr.querySelector("#fcflip").onclick=flip;
+  ctr.querySelector("#fcok").onclick=function(){next(true);};
+  ctr.querySelector("#fcko").onclick=function(){next(false);};
+  ctr.querySelector("#fcreset").onclick=reset;
+
+  /* Deslizar en táctil */
+  var x0=null,y0=null;
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  card.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){next(dx>0);}
+    x0=y0=null;
+  },{passive:true});
+
+  /* Atajos globales cuando el mazo está a la vista */
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    var r=stage.getBoundingClientRect();
+    if(r.bottom<80||r.top>innerHeight-80)return;
+    if(e.key===" "){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    else if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  });
+
+  reset();
+  return true;
+}
+if(!boot()){
+  var tries=0;
+  var iv=setInterval(function(){if(boot()||++tries>40)clearInterval(iv);},120);
+  addEventListener("load",function(){setTimeout(boot,100);});
+}
+})();
+
+
+</script>
+<script>
+
+
+/* ═══ Altura adaptativa + índice plegable ═══ */
+(function(){
+"use strict";
+
+/* ── 1 · Índice lateral plegable ── */
+function sidebar(){
+  var lay=document.querySelector(".layout"),
+      side=document.getElementById("side"),
+      tools=document.querySelector(".tools");
+  if(!lay||!side||!tools||document.getElementById("navhide"))return;
+
+  var K="oposi_bII_nav";
+  function get(){try{return localStorage.getItem(K)==="0";}catch(e){return false;}}
+  function set(v){try{localStorage.setItem(K,v?"0":"1");}catch(e){}}
+
+  var b=document.createElement("button");
+  b.id="navhide";b.type="button";
+  b.innerHTML='<span class="ic">☰</span>';
+  b.setAttribute("aria-controls","side");
+  tools.insertBefore(b,tools.firstChild);
+
+  function apply(hidden,anim){
+    if(!anim)lay.style.transition="none";
+    lay.classList.toggle("nonav",hidden);
+    side.setAttribute("aria-hidden",String(hidden));
+    b.setAttribute("aria-pressed",String(hidden));
+    b.title=hidden?"Mostrar índice (i)":"Ocultar índice (i)";
+    b.setAttribute("aria-label",b.title);
+    if(!anim)requestAnimationFrame(function(){lay.style.transition="";});
+  }
+  apply(get(),false);
+
+  b.onclick=function(){
+    var h=!lay.classList.contains("nonav");
+    apply(h,true);set(h);
+    window.dispatchEvent(new Event("resize"));
+  };
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    if(e.key==="i"||e.key==="I"){e.preventDefault();b.click();}
+  });
+}
+
+/* ── 2 · La tarjeta se adapta a su contenido ── */
+function autofit(){
+  var stage=document.querySelector(".fc-stage");
+  if(!stage||stage.dataset.fit)return;
+  var deck=stage.querySelector(".fc-deck"),
+      front=stage.querySelector(".fc-front"),
+      back=stage.querySelector(".fc-back");
+  if(!deck||!front||!back)return;
+  stage.dataset.fit="1";
+
+  var meas=document.createElement("div");
+  meas.className="fc-measure";meas.setAttribute("aria-hidden","true");
+  meas.innerHTML='<div class="fc-face fc-front"><div class="fc-body"><div class="fc-txt"></div></div></div>';
+  stage.appendChild(meas);
+  var mFace=meas.querySelector(".fc-face"), mTxt=meas.querySelector(".fc-txt");
+
+  function measure(cls,html){
+    mFace.className="fc-face "+cls;
+    mTxt.innerHTML=html;
+    return mFace.offsetHeight;
+  }
+
+  function fit(){
+    if(deck.classList.contains("empty")){deck.style.height="230px";return;}
+    var fT=front.querySelector(".fc-txt"), bT=back.querySelector(".fc-txt");
+    if(!fT||!bT)return;
+    var h=Math.max(
+      measure("fc-front"+(front.classList.contains("struct")?" struct":""),fT.innerHTML),
+      measure("fc-back" +(back .classList.contains("struct")?" struct":""),bT.innerHTML),
+      230
+    );
+    deck.style.height=Math.ceil(h+8)+"px";
+  }
+
+  /* recalcular cuando cambia la tarjeta, el tamaño de letra o la ventana */
+  new MutationObserver(fit).observe(back,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
+  var t;
+  addEventListener("resize",function(){clearTimeout(t);t=setTimeout(fit,120);},{passive:true});
+  ["fs+","fs-"].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener("click",function(){setTimeout(fit,60);});
+  });
+  fit();setTimeout(fit,250);
+}
+
+function go(){sidebar();autofit();}
+if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go);
+addEventListener("load",function(){setTimeout(go,120);});
+var n=0,iv=setInterval(function(){go();if(++n>25)clearInterval(iv);},150);
+})();
+
+
+</script>
+<script>
+
+
+/* ═══════════════════════════════════════════════════════════════
+   TTS · Lectura en voz alta del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+if(!("speechSynthesis" in window))return;
+
+var K="oposi_bII_tts";
+function load(){try{return JSON.parse(localStorage.getItem(K))||{};}catch(e){return {};}}
+function save(o){try{localStorage.setItem(K,JSON.stringify(o));}catch(e){}}
+var cfg=load();
+if(cfg.rate==null)cfg.rate=1;
+if(cfg.gen==null)cfg.gen="f";
+
+var synth=window.speechSynthesis, voces=[], actual=null, bloques=[];
+
+/* ─────────── 1 · Selección de voz ─────────── */
+function esEspanol(v){return /^es\b|^es[-_]/i.test(v.lang||"")||/spanish|español/i.test(v.name||"");}
+function calidad(v){
+  var n=(v.name||"")+" "+(v.voiceURI||""), p=0;
+  if(/natural|neural/i.test(n))p+=100;
+  if(/online/i.test(n))p+=40;
+  if(/premium|enhanced|eloquence/i.test(n))p+=35;
+  if(/google/i.test(n))p+=30;
+  if(v.localService===false)p+=15;
+  if(/microsoft/i.test(n))p+=8;
+  if(/^es-ES/i.test(v.lang))p+=12;   /* castellano de España primero */
+  return p;
+}
+var MASC=/(pablo|álvaro|alvaro|jorge|diego|juan|raul|raúl|carlos|miguel|lorenzo|gonzalo|dalton|liam|andr[eé]s|luciano|male|hombre|masculin)/i;
+var FEM =/(helena|elvira|laura|mónica|monica|paulina|sabina|esperanza|marisol|ximena|dalia|salome|camila|catalina|isidora|female|mujer|femenin)/i;
+function genero(v){
+  var n=v.name||"";
+  if(MASC.test(n))return "m";
+  if(FEM.test(n))return "f";
+  return "?";
+}
+function cargarVoces(){
+  var all=synth.getVoices()||[];
+  voces=all.filter(esEspanol).sort(function(a,b){return calidad(b)-calidad(a);});
+  if(!voces.length)voces=all.slice(0,12);
+  pintarSelector();
+}
+function elegir(){
+  if(cfg.voz){
+    for(var i=0;i<voces.length;i++)if(voces[i].voiceURI===cfg.voz)return voces[i];
+  }
+  var g=cfg.gen;
+  for(var j=0;j<voces.length;j++)if(genero(voces[j])===g)return voces[j];
+  return voces[0]||null;
+}
+
+/* ─────────── 2 · Naturalidad: expandir lo que el TTS lee mal ─────────── */
+var ORD={1:"primera",2:"segunda",3:"tercera",4:"cuarta",5:"quinta",
+         6:"sexta",7:"séptima",8:"octava",9:"novena",10:"décima"};
+function paraVoz(t){
+  return t
+    .replace(/\barts?\.\s*/gi,function(m){return /arts/i.test(m)?"artículos ":"artículo ";})
+    .replace(/\bapdos?\.\s*/gi,"apartado ")
+    .replace(/\bnúms?\.\s*/gi,"número ")
+    .replace(/\bpárr\.\s*/gi,"párrafo ")
+    .replace(/\bcap\.\s*/gi,"capítulo ")
+    .replace(/\bpágs?\.\s*/gi,"página ")
+    .replace(/\by\s+ss\./gi,"y siguientes")
+    .replace(/\bss\./gi,"siguientes")
+    .replace(/\bTRLHL\b/g,"Texto Refundido de la Ley de Haciendas Locales")
+    .replace(/\bLCSP\b/g,"Ley de Contratos del Sector Público")
+    .replace(/\bLBRL\b/g,"Ley de Bases del Régimen Local")
+    .replace(/\bLRJSP\b/g,"Ley de Régimen Jurídico del Sector Público")
+    .replace(/\bLPACAP\b/g,"Ley del Procedimiento Administrativo Común")
+    .replace(/\bRDLeg\b/gi,"Real Decreto Legislativo")
+    .replace(/\bRD\b/g,"Real Decreto")
+    .replace(/\bCCAA\b/g,"comunidades autónomas")
+    .replace(/\bCA\b/g,"comunidad autónoma")
+    .replace(/\bEELL\b/g,"entidades locales")
+    .replace(/\bBOE\b/g,"Boletín Oficial del Estado")
+    .replace(/\bIVA\b/g,"I.V.A.")
+    .replace(/\bSARA\b/g,"sara")
+    .replace(/\bDA\s+(\d+)/g,"disposición adicional $1")
+    .replace(/\bDT\s+(\d+)/g,"disposición transitoria $1")
+    .replace(/(\d+)\.ª/g,function(m,n){return ORD[+n]||(n+"ª");})
+    .replace(/(\d+)\.º/g,"$1º")
+    /* 3.005,06 → 3005,06 para que lo lea como cifra y no como frase */
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/€/g," euros")
+    .replace(/%/g," por ciento")
+    .replace(/\bnº\b/gi,"número")
+    .replace(/\s*·\s*/g,". ")
+    .replace(/\(\s*/g,", ").replace(/\s*\)/g,", ")
+    .replace(/\bvid\.\s*/gi,"véase ")
+    .replace(/\bcfr\.\s*/gi,"compárese ")
+    /* limpieza de puntuación tras las sustituciones */
+    .replace(/\s+([,.;:])/g,"$1")
+    .replace(/,\s*([.;:])/g,"$1")
+    .replace(/([,.;:])\s*\1+/g,"$1")
+    .replace(/,\s*,/g,",")
+    .replace(/\s{2,}/g," ")
+    .trim();
+}
+
+/* ─────────── 3 · Segmentar en frases y envolverlas ─────────── */
+var ABBR=/\b(arts?|apdos?|núms?|nums?|págs?|párr|cap|caps|ss|Sr|Sra|Sres|D|Dª|etc|vid|cfr|op|cit|ej|núm|art|fig|tít|secc)\.$/i;
+function limites(t){
+  var out=[],ini=0;
+  for(var i=0;i<t.length;i++){
+    var c=t[i];
+    if(c!=="."&&c!=="!"&&c!=="?")continue;
+    var sig=t[i+1]||" ";
+    if(!/[\s"»)]/.test(sig))continue;             /* 3.005 o art.1 → no cortar */
+    if(ABBR.test(t.slice(Math.max(0,i-9),i+1)))continue;
+    if(/^\s*[0-9º ª]/.test(t.slice(i+1,i+3)))continue;
+    if(i+1-ini<40)continue;                        /* frases demasiado cortas */
+    out.push(i+1);ini=i+1;
+  }
+  if(ini<t.length)out.push(t.length);
+  return out;
+}
+function segmentar(root){
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    if(!n.nodeValue||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+    if(n.parentElement&&n.parentElement.closest(".lbl,.tts-bar"))return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT;
+  }});
+  var nodos=[];while(w.nextNode())nodos.push(w.currentNode);
+  if(!nodos.length)return [];
+
+  var full="";nodos.forEach(function(n){full+=n.nodeValue;});
+  var cortes=limites(full), frases=[],ci=0,pos=0;
+  cortes.forEach(function(){frases.push({text:"",spans:[]});});
+
+  nodos.forEach(function(node){
+    var txt=node.nodeValue, off=0, frag=document.createDocumentFragment();
+    while(off<txt.length){
+      var fin=cortes[ci]!=null?cortes[ci]-pos:txt.length;
+      if(fin>txt.length)fin=txt.length;
+      if(fin<=off)fin=txt.length;
+      var trozo=txt.slice(off,fin);
+      var sp=document.createElement("span");
+      sp.className="tts-s";sp.setAttribute("data-s",ci);sp.textContent=trozo;
+      frag.appendChild(sp);
+      if(frases[ci]){frases[ci].text+=trozo;frases[ci].spans.push(sp);}
+      if(pos+fin>=(cortes[ci]||Infinity))ci++;
+      off=fin;
+    }
+    pos+=txt.length;
+    node.parentNode.replaceChild(frag,node);
+  });
+  return frases.filter(function(f){return f.text.trim().length>1;});
+}
+
+/* ─────────── 4 · Reproductor ─────────── */
+var mini,miniBar,miniLbl,miniPlay;
+function crearMini(){
+  mini=document.createElement("div");
+  mini.className="tts-mini noprint";
+  mini.innerHTML='<span class="lbl"></span>'
+    +'<button class="main" data-a="play" title="Pausar o reanudar">⏸</button>'
+    +'<span class="bar"><i></i></span>'
+    +'<button data-a="prev" title="Frase anterior">↺</button>'
+    +'<button data-a="stop" title="Detener">■</button>'
+    +'<button data-a="cfg" title="Ajustes de voz">⚙</button>';
+  document.body.appendChild(mini);
+  miniBar=mini.querySelector(".bar i");miniLbl=mini.querySelector(".lbl");
+  miniPlay=mini.querySelector('[data-a="play"]');
+  mini.addEventListener("click",function(e){
+    var b=e.target.closest("button");if(!b)return;
+    var a=b.getAttribute("data-a");
+    if(a==="play")pausarReanudar();
+    else if(a==="stop")parar();
+    else if(a==="prev"){if(actual){actual.i=Math.max(0,actual.i-2);siguiente();}}
+    else if(a==="cfg")abrirPanel();
+  });
+}
+
+function limpiarMarcas(){
+  document.querySelectorAll(".tts-s.now").forEach(function(s){s.classList.remove("now");});
+}
+function parar(){
+  synth.cancel();
+  if(actual){
+    actual.bloque.classList.remove("tts-on");
+    var b=actual.bloque.querySelector(".tts-play");
+    if(b){b.classList.remove("on");b.innerHTML=iconoPlay();}
+  }
+  limpiarMarcas();
+  actual=null;
+  if(mini)mini.classList.remove("show");
+}
+function iconoPlay(){return '<span aria-hidden="true">▶</span> Escuchar';}
+function iconoOn(){return '<span class="tts-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Leyendo';}
+
+function pausarReanudar(){
+  if(!actual)return;
+  if(synth.paused){synth.resume();miniPlay.textContent="⏸";}
+  else{synth.pause();miniPlay.textContent="▶";}
+}
+
+function leer(bloque){
+  if(actual&&actual.bloque===bloque){parar();return;}
+  parar();
+  var datos=bloque.__tts;
+  if(!datos||!datos.length)return;
+  var voz=elegir();
+  actual={bloque:bloque,frases:datos,i:0,voz:voz};
+  bloque.classList.add("tts-on");
+  var b=bloque.querySelector(".tts-play");
+  if(b){b.classList.add("on");b.innerHTML=iconoOn();}
+  if(!mini)crearMini();
+  var art=bloque.closest(".art");
+  var t=art?art.querySelector("h2 .num"):null;
+  miniLbl.textContent=t?t.textContent:"Texto legal";
+  miniPlay.textContent="⏸";
+  mini.classList.add("show");
+  siguiente();
+}
+
+function siguiente(){
+  if(!actual)return;
+  limpiarMarcas();
+  if(actual.i>=actual.frases.length){
+    var fin=actual.bloque;
+    parar();
+    fin.dispatchEvent(new CustomEvent("tts:fin",{bubbles:true}));
+    return;
+  }
+  var f=actual.frases[actual.i];
+  var texto=paraVoz(f.text);
+  if(!texto||texto.length<2){actual.i++;siguiente();return;}
+
+  f.spans.forEach(function(s){s.classList.add("now");});
+  if(f.spans[0]&&actual.i>0){
+    var r=f.spans[0].getBoundingClientRect();
+    if(r.top<70||r.bottom>innerHeight-90)
+      f.spans[0].scrollIntoView({block:"center",behavior:"smooth"});
+  }
+  miniBar.style.width=((actual.i+1)/actual.frases.length*100)+"%";
+
+  var u=new SpeechSynthesisUtterance(texto);
+  if(actual.voz){u.voice=actual.voz;u.lang=actual.voz.lang;}else{u.lang="es-ES";}
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;u.volume=1;
+  u.onend=function(){if(actual){actual.i++;setTimeout(siguiente,90);}};
+  u.onerror=function(e){
+    if(e&&e.error==="interrupted")return;
+    if(actual){actual.i++;setTimeout(siguiente,120);}
+  };
+  actual.u=u;
+  synth.speak(u);
+}
+
+/* Chrome detiene la síntesis larga: lo mantenemos vivo */
+setInterval(function(){
+  if(actual&&synth.speaking&&!synth.paused){synth.pause();synth.resume();}
+},9000);
+
+/* ─────────── 5 · Panel de ajustes ─────────── */
+var back,sel;
+function crearPanel(){
+  back=document.createElement("div");
+  back.className="tts-back noprint";
+  back.innerHTML=
+   '<div class="tts-panel" role="dialog" aria-modal="true" aria-label="Ajustes de voz">'
+   +'<h3>🔊 Lectura en voz alta</h3>'
+   +'<p class="sub">Ajusta cómo se lee el texto legal. Se recuerda para todos los bloques.</p>'
+   +'<div class="tts-row"><label>Tipo de voz</label>'
+     +'<div class="tts-seg" id="ttsGen">'
+       +'<button data-g="f">👩 Femenina</button>'
+       +'<button data-g="m">👨 Masculina</button>'
+     +'</div></div>'
+   +'<div class="tts-row"><label>Voz concreta</label><select id="ttsVoz"></select></div>'
+   +'<div class="tts-row"><label>Velocidad</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsRate" min="0.6" max="1.6" step="0.05">'
+     +'<span class="tts-val" id="ttsRateV"></span></div></div>'
+   +'<div class="tts-row"><label>Tono</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsPitch" min="0.7" max="1.3" step="0.05">'
+     +'<span class="tts-val" id="ttsPitchV"></span></div></div>'
+   +'<p class="tts-note" id="ttsNota"></p>'
+   +'<div class="tts-acts">'
+     +'<button id="ttsTest">▶ Probar</button>'
+     +'<button class="prim" id="ttsOk">Hecho</button>'
+   +'</div></div>';
+  document.body.appendChild(back);
+  sel=back.querySelector("#ttsVoz");
+
+  back.addEventListener("click",function(e){if(e.target===back)cerrarPanel();});
+  back.querySelector("#ttsOk").onclick=cerrarPanel;
+  back.querySelector("#ttsGen").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-g]");if(!b)return;
+    cfg.gen=b.getAttribute("data-g");cfg.voz=null;save(cfg);pintarSelector();probar();
+  });
+  sel.onchange=function(){cfg.voz=sel.value;save(cfg);probar();};
+  var r=back.querySelector("#ttsRate"),rv=back.querySelector("#ttsRateV");
+  r.value=cfg.rate;rv.textContent=(+cfg.rate).toFixed(2)+"×";
+  r.oninput=function(){cfg.rate=+r.value;rv.textContent=cfg.rate.toFixed(2)+"×";save(cfg);};
+  r.onchange=probar;
+  var p=back.querySelector("#ttsPitch"),pv=back.querySelector("#ttsPitchV");
+  p.value=cfg.pitch||1;pv.textContent=(+(cfg.pitch||1)).toFixed(2);
+  p.oninput=function(){cfg.pitch=+p.value;pv.textContent=cfg.pitch.toFixed(2);save(cfg);};
+  p.onchange=probar;
+  back.querySelector("#ttsTest").onclick=probar;
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"&&back.classList.contains("show"))cerrarPanel();
+  });
+}
+function probar(){
+  synth.cancel();
+  var v=elegir();
+  var u=new SpeechSynthesisUtterance("El presupuesto general de la entidad local se aprueba antes del 31 de diciembre.");
+  if(v){u.voice=v;u.lang=v.lang;}else u.lang="es-ES";
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;
+  synth.speak(u);
+}
+function pintarSelector(){
+  if(!sel)return;
+  var g=cfg.gen;
+  back.querySelectorAll("#ttsGen button").forEach(function(b){
+    b.setAttribute("aria-pressed",String(b.getAttribute("data-g")===g));
+  });
+  var pref=voces.filter(function(v){return genero(v)===g;});
+  var otras=voces.filter(function(v){return genero(v)!==g;});
+  function opt(v){
+    var nat=/natural|neural|online|premium|enhanced|google/i.test(v.name)?" ★":"";
+    return '<option value="'+v.voiceURI+'">'+v.name+nat+"</option>";
+  }
+  sel.innerHTML=(pref.length?'<optgroup label="'+(g==="f"?"Femeninas":"Masculinas")+'">'+pref.map(opt).join("")+"</optgroup>":"")
+    +(otras.length?'<optgroup label="Otras voces en español">'+otras.map(opt).join("")+"</optgroup>":"");
+  var v=elegir();
+  if(v)sel.value=v.voiceURI;
+
+  var nota=back.querySelector("#ttsNota");
+  var hayNat=voces.some(function(x){return /natural|neural|online/i.test(x.name);});
+  if(!voces.length){
+    nota.innerHTML="⚠️ No se han detectado voces en español en este navegador. Prueba con Microsoft Edge o Chrome.";
+  }else if(hayNat){
+    nota.innerHTML="✅ Tienes voces <b>neuronales</b> disponibles (marcadas con ★): son las que suenan más humanas.";
+  }else{
+    nota.innerHTML="💡 Las voces marcadas con ★ suenan mejor. Para conseguir voces <b>neuronales</b> (mucho más naturales), "
+      +"abre estas páginas en <b>Microsoft Edge</b>, o instálalas en Windows: <b>Configuración → Hora e idioma → Voz → Agregar voces</b>.";
+  }
+}
+function abrirPanel(){if(!back)crearPanel();pintarSelector();back.classList.add("show");}
+function cerrarPanel(){if(back)back.classList.remove("show");synth.cancel();}
+
+/* ─────────── 6 · Inyectar el botón en cada bloque legal ─────────── */
+function montar(){
+  var legales=document.querySelectorAll(".legal:not([data-tts])");
+  if(!legales.length)return false;
+  if(!back)crearPanel();
+  legales.forEach(function(bl){
+    bl.setAttribute("data-tts","1");
+    var frases=segmentar(bl);
+    bl.__tts=frases;
+    if(!frases.length)return;
+
+    var bar=document.createElement("div");
+    bar.className="tts-bar noprint";
+    bar.innerHTML='<button class="tts-play" type="button">'+iconoPlay()+"</button>"
+      +'<button class="tts-cfg" type="button" title="Ajustes de voz">⚙ Voz</button>'
+      +'<span class="tts-time">'+frases.length+" frases</span>";
+    var lbl=bl.querySelector(".lbl");
+    if(lbl&&lbl.nextSibling)bl.insertBefore(bar,lbl.nextSibling);
+    else bl.insertBefore(bar,bl.firstChild);
+
+    bar.querySelector(".tts-play").onclick=function(e){e.stopPropagation();leer(bl);};
+    bar.querySelector(".tts-cfg").onclick=function(e){e.stopPropagation();abrirPanel();};
+  });
+  return true;
+}
+
+/* ─────────── 7 · Arranque ─────────── */
+cargarVoces();
+if(typeof synth.onvoiceschanged!=="undefined")synth.onvoiceschanged=cargarVoces;
+setTimeout(cargarVoces,400);setTimeout(cargarVoces,1400);
+
+var n=0,iv=setInterval(function(){if(montar()||++n>40)clearInterval(iv);},150);
+addEventListener("load",function(){setTimeout(montar,200);});
+addEventListener("beforeunload",function(){synth.cancel();});
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea,select"))return;
+  if(e.key==="Escape"&&actual)parar();
+});
+})();
+
+
+</script>
+</body>
+</html>

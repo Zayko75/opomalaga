@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>Bloque II · Temas 8 a 13 · Centro de estudio</title>
+<title>Auxiliar Administrativo · Centro de estudio</title>
 <style>
 /* ═══════════════════════════════════════════════════════════
    SISTEMA DE DISEÑO · "Académico Gamificado"
@@ -44,6 +44,8 @@
   --c10:#ca8a04; --c10-soft:#fdf4d7;  /* LGS II    */
   --c11:#0369a1; --c11-soft:#e0f0fb;  /* LTBG      */
   --c12:#be185d; --c12-soft:#ffe6f0;  /* Andalucía */
+  --c13:#b91c1c; --c13-soft:#ffe8e6;  /* LPAC · acto */
+  --c14:#1d4ed8; --c14-soft:#e4ecff;  /* LPAC · fases*/
 
   /* — Estados — */
   --ok:#16a34a; --ok-soft:#e7f7ec;
@@ -106,6 +108,8 @@ html[data-theme="dark"]{
   --c10:#fde047; --c10-soft:#2b2410;
   --c11:#38bdf8; --c11-soft:#0a2233;
   --c12:#f472b6; --c12-soft:#2e1020;
+  --c13:#f87171; --c13-soft:#2e1414;
+  --c14:#60a5fa; --c14-soft:#0e1a33;
 
   --ok:#4ade80; --ok-soft:#0e2a19;
   --mid:#facc15; --mid-soft:#2c2610;
@@ -415,8 +419,8 @@ svg line{fill:none}
     <div class="brand">
       <div class="mark">BII</div>
       <div class="txt">
-        <b>Bloque II · Temas 8 a 13</b>
-        <span>TRLHL · LCSP · LGS · Transparencia · Auxiliar Administrativo</span>
+        <b>Auxiliar Administrativo · Índice general</b>
+        <span>LPAC · TRLHL · LCSP · LGS · Transparencia · Entidades locales</span>
       </div>
     </div>
     <div class="tools noprint">
@@ -435,8 +439,8 @@ svg line{fill:none}
   <section class="hero">
     <div>
       <span class="eyebrow"><span class="dot"></span>Centro de estudio</span>
-      <h1>Presupuesto, contratos, <em>subvenciones y transparencia</em></h1>
-      <p class="lead">Catorce bloques interactivos con el texto legal literal, diagramas, tablas de plazos, casos prácticos, flashcards, test corregido y lectura en voz alta. Verificado contra los textos consolidados del BOE.</p>
+      <h1>Procedimiento, presupuesto <em>y contratación pública</em></h1>
+      <p class="lead">Veintidós bloques interactivos con el texto legal literal, diagramas, tablas de plazos, casos prácticos, flashcards, test corregido y lectura en voz alta. Verificado contra los textos consolidados del BOE.</p>
       <div class="hero-cta noprint">
         <a class="btn primary" href="#misiones">Ir a la ruta de estudio →</a>
         <button class="btn" id="reset">Reiniciar progreso</button>
@@ -460,8 +464,8 @@ svg line{fill:none}
   <section class="stats reveal">
     <div class="stat" style="--acc:var(--ok)"><span class="v num" id="sDom">0</span><span class="k">Bloques dominados</span></div>
     <div class="stat" style="--acc:var(--mid)"><span class="v num" id="sCur">0</span><span class="k">En curso</span></div>
-    <div class="stat" style="--acc:var(--c5)"><span class="v num">14</span><span class="k">Bloques totales</span></div>
-    <div class="stat" style="--acc:var(--c6)"><span class="v num">174</span><span class="k">Artículos cubiertos</span></div>
+    <div class="stat" style="--acc:var(--c5)"><span class="v num">22</span><span class="k">Bloques totales</span></div>
+    <div class="stat" style="--acc:var(--c6)"><span class="v num">266</span><span class="k">Artículos cubiertos</span></div>
   </section>
 
   <section class="sec reveal">
@@ -471,6 +475,26 @@ svg line{fill:none}
       <span class="rule"></span>
     </div>
     <div class="bento">
+      <article class="tema" data-tema="2" style="--acc:var(--c13);--acc-soft:var(--c13-soft)">
+        <span class="badge">Tema 2 · LPAC</span>
+        <h3>El acto administrativo</h3>
+        <p class="desc">Requisitos y eficacia, notificación y publicación, nulidad y anulabilidad, revisión de oficio y los recursos administrativos.</p>
+        <div class="meta"><span><b>3</b> bloques</span><span><b>39</b> artículos</span><span>Ley 39/2015</span></div>
+        <div class="bar"><i data-tema-bar="2"></i></div>
+        <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="2">0%</span></div>
+        <a class="go" href="LPAC_34-46_acto_administrativo.html">Empezar por requisitos y eficacia <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="tema" data-tema="3" style="--acc:var(--c14);--acc-soft:var(--c14-soft)">
+        <span class="badge">Tema 3 · LPAC</span>
+        <h3>Las fases del procedimiento</h3>
+        <p class="desc">Iniciación de oficio y a solicitud, ordenación, instrucción, finalización y ejecución del acto administrativo.</p>
+        <div class="meta"><span><b>5</b> bloques</span><span><b>53</b> artículos</span><span>Ley 39/2015</span></div>
+        <div class="bar"><i data-tema-bar="3"></i></div>
+        <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="3">0%</span></div>
+        <a class="go" href="LPAC_53-65_iniciacion.html">Empezar por la iniciación <span aria-hidden="true">→</span></a>
+      </article>
+
       <article class="tema" data-tema="8" style="--acc:var(--c1);--acc-soft:var(--c1-soft)">
         <span class="badge">Tema 8 · TRLHL</span>
         <h3>El presupuesto de las entidades locales</h3>
@@ -551,6 +575,14 @@ svg line{fill:none}
     </div>
     <div style="display:grid;gap:1.2rem">
       <div>
+        <p class="grp-lbl" style="color:var(--c13)">Tema 2 · Acto administrativo</p>
+        <div class="chips" style="--acc:var(--c13)" data-chips="10 días para notificar|2 intentos|3 días|3 horas|las 15:00|14 años|4 años de lesividad|6 meses de caducidad|1 mes y 3 meses en alzada|1 mes y 1 mes en reposición|4 años y 3 meses en revisión|1 mes de suspensión por silencio"></div>
+      </div>
+      <div>
+        <p class="grp-lbl" style="color:var(--c14)">Tema 3 · Fases del procedimiento</p>
+        <div class="chips" style="--acc:var(--c14)" data-chips="15 días de medidas previas|10 días de subsanación (+5)|10 a 30 días de prueba (+10)|10 días de informes|50.000 € y 2 meses de dictamen|10 a 15 días de audiencia|20 días de información pública|15 y 7 días complementarias|3 meses de caducidad|30 y 5 días simplificada|4 medios de ejecución forzosa"></div>
+      </div>
+      <div>
         <p class="grp-lbl" style="color:var(--c1)">Tema 8 · Presupuesto</p>
         <div class="chips" style="--acc:var(--c1)" data-chips="15-SEP|15-OCT|15 días|1 mes|31-DIC|70-60-50-50 %|3 meses|5 % y 25 %|1 de marzo|fin de marzo|25-50-75-100 %|15-MAY|1-JUN|1-OCT|3.005,06 €"></div>
       </div>
@@ -588,6 +620,16 @@ svg line{fill:none}
       <span class="rule"></span>
     </div>
     <div class="traps">
+      <div class="trap" style="--acc:var(--c13)">
+        <span class="lbl">Tema 2</span>
+        <h4>Nulidad no es anulabilidad</h4>
+        <p><b>Nulidad</b> (art. 47): causas tasadas, no convalidable, sin plazo. <b>Anulabilidad</b> (art. 48): regla general y convalidable. Y el recurso depende de una sola pregunta: ¿el acto pone fin a la vía administrativa?</p>
+      </div>
+      <div class="trap" style="--acc:var(--c14)">
+        <span class="lbl">Tema 3</span>
+        <h4>Audiencia no es información pública</h4>
+        <p><b>Audiencia</b>: 10 a 15 días, solo interesados. <b>Información pública</b>: mínimo 20 días, cualquier persona. Y no confundas la tramitación <b>simplificada</b> (art. 96) con la de <b>urgencia</b> (art. 33).</p>
+      </div>
       <div class="trap" style="--acc:var(--c1)">
         <span class="lbl">Tema 8</span>
         <h4>El 15 de octubre aparece dos veces</h4>
@@ -633,6 +675,8 @@ svg line{fill:none}
 "use strict";
 
 var TEMAS={
+ 2:{nm:"El acto administrativo",acc:"c13"},
+ 3:{nm:"Las fases del procedimiento",acc:"c14"},
  8:{nm:"El presupuesto de las entidades locales",acc:"c1"},
  9:{nm:"LCSP · Objeto y ámbito",acc:"c5"},
  10:{nm:"LCSP · Los contratos",acc:"c6"},
@@ -641,6 +685,14 @@ var TEMAS={
  13:{nm:"Transparencia y buen gobierno",acc:"c11"}
 };
 var BLOQUES=[
+ {id:"b15",t:2,n:"1",acc:"c13",h:"LPAC_34-46_acto_administrativo.html",tt:"Requisitos y eficacia del acto",d:"Producción, motivación, eficacia, notificación y publicación",a:"arts. 34-46"},
+ {id:"b16",t:2,n:"2",acc:"c13",h:"LPAC_47-52_106-110_invalidez.html",tt:"Nulidad, anulabilidad y revisión de oficio",d:"Grados de invalidez, conservación y revisión de actos nulos y anulables",a:"arts. 47-52 y 106-110"},
+ {id:"b17",t:2,n:"3",acc:"c13",h:"LPAC_112-126_recursos.html",tt:"Los recursos administrativos",d:"Alzada, reposición y revisión extraordinaria: plazos y efectos",a:"arts. 112-126"},
+ {id:"b18",t:3,n:"1",acc:"c14",h:"LPAC_53-65_iniciacion.html",tt:"Garantías del interesado e iniciación de oficio",d:"Derechos en el procedimiento, acuerdo de inicio y medidas provisionales",a:"arts. 53-65"},
+ {id:"b19",t:3,n:"2",acc:"c14",h:"LPAC_66-74_solicitud_ordenacion.html",tt:"Iniciación a solicitud y ordenación",d:"Solicitudes, subsanación, mejora y ordenación del expediente",a:"arts. 66-74"},
+ {id:"b20",t:3,n:"3",acc:"c14",h:"LPAC_75-83_instruccion.html",tt:"La instrucción del procedimiento",d:"Alegaciones, prueba, informes y trámite de audiencia",a:"arts. 75-83"},
+ {id:"b21",t:3,n:"4",acc:"c14",h:"LPAC_84-96_finalizacion.html",tt:"Finalización y tramitación simplificada",d:"Resolución, desistimiento, renuncia, caducidad y terminación convencional",a:"arts. 84-96"},
+ {id:"b22",t:3,n:"5",acc:"c14",h:"LPAC_97-105_ejecucion.html",tt:"La ejecución del acto administrativo",d:"Ejecutoriedad, ejecución forzosa y sus medios",a:"arts. 97-105"},
  {id:"b1",t:8,n:"1",acc:"c1",h:"TRLHL_162-171_presupuesto.html",tt:"Contenido y aprobación del presupuesto",d:"Qué es, qué integra, anexos, estructura, tramitación y recursos",a:"arts. 162-171"},
  {id:"b2",t:8,n:"2",acc:"c2",h:"TRLHL_172-182_creditos.html",tt:"Los créditos y sus modificaciones",d:"Carácter limitativo, nulidad sin crédito, plurianuales y las siete modificaciones",a:"arts. 172-182"},
  {id:"b3",t:8,n:"3",acc:"c3",h:"TRLHL_183-193_ejecucion.html",tt:"Ejecución y liquidación",d:"Fases A-D-O-P, ordenación de pagos, pagos a justificar y remanente de tesorería",a:"arts. 183-193 bis"},

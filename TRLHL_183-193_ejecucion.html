@@ -912,6 +912,22 @@ html[data-theme="dark"] .tts-s.now{
   padding:.1rem .35rem;border-radius:4px;background:var(--ej-bg);color:var(--ej);margin-left:.35rem;
 }
 
+
+/* — Variante compacta para los apartados desplegables — */
+.tts-bar.mini{margin:0 0 .6rem}
+.tts-bar.mini button{
+  font-size:.7rem;padding:.24rem .55rem;
+  border-color:var(--brand);color:var(--brand);
+}
+.tts-bar.mini button:hover{background:var(--brand);color:var(--surface)}
+.tts-bar.mini .tts-play.on{background:var(--brand);color:var(--surface)}
+.tts-bar.mini .tts-time{font-size:.66rem}
+.idea .tts-bar.mini{margin:.55rem 0 0}
+.legal.tts-on,.body.tts-on,.idea.tts-on{
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 20%,transparent)
+}
+.legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
+
 @media(max-width:620px){
   .tts-mini{left:.6rem;right:.6rem;transform:translateY(140%);max-width:none}
   .tts-mini.show{transform:translateY(0)}
@@ -2255,6 +2271,7 @@ function paraVoz(t){
     .replace(/\bvid\.\s*/gi,"véase ")
     .replace(/\bcfr\.\s*/gi,"compárese ")
     /* limpieza de puntuación tras las sustituciones */
+    .replace(/([.:;!?])(?=[A-ZÁÉÍÓÚÑ¿¡])/g,"$1 ")
     .replace(/\s+([,.;:])/g,"$1")
     .replace(/,\s*([.;:])/g,"$1")
     .replace(/([,.;:])\s*\1+/g,"$1")
@@ -2373,7 +2390,9 @@ function leer(bloque){
   if(!mini)crearMini();
   var art=bloque.closest(".art");
   var t=art?art.querySelector("h2 .num"):null;
-  miniLbl.textContent=t?t.textContent:"Texto legal";
+  var sufijo=bloque.__label?" · "+bloque.__label:"";
+  miniLbl.textContent=(t?t.textContent:"")+sufijo||"Lectura";
+  miniLbl.title=miniLbl.textContent;
   miniPlay.textContent="⏸";
   mini.classList.add("show");
   siguiente();
@@ -2505,30 +2524,76 @@ function pintarSelector(){
 function abrirPanel(){if(!back)crearPanel();pintarSelector();back.classList.add("show");}
 function cerrarPanel(){if(back)back.classList.remove("show");synth.cancel();}
 
-/* ─────────── 6 · Inyectar el botón en cada bloque legal ─────────── */
-function montar(){
-  var legales=document.querySelectorAll(".legal:not([data-tts])");
-  if(!legales.length)return false;
-  if(!back)crearPanel();
-  legales.forEach(function(bl){
-    bl.setAttribute("data-tts","1");
-    var frases=segmentar(bl);
-    bl.__tts=frases;
-    if(!frases.length)return;
+/* ─────────── 6 · Inyectar los controles en cada apartado ─────────── */
+/* Se excluyen a propósito tres apartados: conexiones con otros preceptos,
+   trampas y errores frecuentes, y anclaje memorístico. */
+var TTS_EXCLUIR=/(conexion|conexiones|trampas|anclaje)/i;
 
-    var bar=document.createElement("div");
-    bar.className="tts-bar noprint";
-    bar.innerHTML='<button class="tts-play" type="button">'+iconoPlay()+"</button>"
-      +'<button class="tts-cfg" type="button" title="Ajustes de voz">⚙ Voz</button>'
-      +'<span class="tts-time">'+frases.length+" frases</span>";
-    var lbl=bl.querySelector(".lbl");
-    if(lbl&&lbl.nextSibling)bl.insertBefore(bar,lbl.nextSibling);
+function ttsBarra(frases,compacta){
+  var bar=document.createElement("div");
+  bar.className="tts-bar noprint"+(compacta?" mini":"");
+  bar.innerHTML='<button class="tts-play" type="button">'+iconoPlay()+"</button>"
+    +(compacta?"":'<button class="tts-cfg" type="button" title="Ajustes de voz">⚙ Voz</button>')
+    +'<span class="tts-time">'+frases.length+(frases.length===1?" frase":" frases")+"</span>";
+  return bar;
+}
+
+function ttsPreparar(bl,opts){
+  if(bl.getAttribute("data-tts"))return false;
+  bl.setAttribute("data-tts","1");
+  var frases=segmentar(bl);
+  bl.__tts=frases;
+  if(!frases.length||bl.textContent.trim().length<40)return false;
+  bl.__label=opts.label||"";
+  var bar=ttsBarra(frases,opts.compacta);
+  if(opts.tras){
+    var ref=bl.querySelector(opts.tras);
+    if(ref&&ref.nextSibling)bl.insertBefore(bar,ref.nextSibling);
     else bl.insertBefore(bar,bl.firstChild);
-
-    bar.querySelector(".tts-play").onclick=function(e){e.stopPropagation();leer(bl);};
-    bar.querySelector(".tts-cfg").onclick=function(e){e.stopPropagation();abrirPanel();};
-  });
+  }else if(opts.alFinal){
+    bl.appendChild(bar);
+  }else{
+    bl.insertBefore(bar,bl.firstChild);
+  }
+  bar.querySelector(".tts-play").onclick=function(e){e.stopPropagation();leer(bl);};
+  var cfg=bar.querySelector(".tts-cfg");
+  if(cfg)cfg.onclick=function(e){e.stopPropagation();abrirPanel();};
   return true;
+}
+
+function montar(){
+  var hay=false;
+  if(!back)crearPanel();
+
+  /* 6a · Texto legal literal */
+  Array.prototype.forEach.call(document.querySelectorAll(".legal:not([data-tts])"),function(bl){
+    hay=ttsPreparar(bl,{tras:".lbl",label:"Texto legal"})||hay;
+  });
+
+  /* 6b · Idea clave */
+  Array.prototype.forEach.call(document.querySelectorAll(".idea:not([data-tts])"),function(bl){
+    hay=ttsPreparar(bl,{compacta:true,alFinal:true,label:"Idea clave"})||hay;
+  });
+
+  /* 6c · Apartados desplegables, salvo los tres excluidos */
+  Array.prototype.forEach.call(document.querySelectorAll("details.panel"),function(p){
+    var sum=p.querySelector("summary");
+    var body=p.querySelector(".body");
+    if(!sum||!body||body.getAttribute("data-tts"))return;
+    var t=sum.textContent||"";
+    if(TTS_EXCLUIR.test(t)){body.setAttribute("data-tts","skip");return;}
+    hay=ttsPreparar(body,{compacta:true,label:t.replace(/[^\wáéíóúüñÁÉÍÓÚÜÑ\s·¿?¡!]/g,"").trim()})||hay;
+  });
+
+  /* 6d · Resumen e introducción del bloque */
+  ["#resumen","#intro"].forEach(function(sel){
+    var sec=document.querySelector(sel);
+    if(!sec||sec.getAttribute("data-tts"))return;
+    var h=sec.querySelector("h2");
+    hay=ttsPreparar(sec,{tras:"h2",label:h?h.textContent:"Resumen"})||hay;
+  });
+
+  return hay;
 }
 
 /* ─────────── 7 · Arranque ─────────── */

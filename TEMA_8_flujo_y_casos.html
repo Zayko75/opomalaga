@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Tema 8 · Visión de conjunto · Diagrama general de flujo y dos casos prácticos integrales</title>
+<style>
+
+/* ═══════════════════════════════════════════════════════════════
+   SISTEMA DE DISEÑO · "Académico Gamificado" · Bloque II
+   Temas 8, 9 y 10 · Auxiliar Administrativo
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --fs:16px;
+
+  --bg:#faf9f7;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #dcf5ee 0%, transparent 50%);
+  --surface:#ffffff;
+  --surface-2:#f4f3f0;
+  --surface-3:#eceae5;
+  --line:#e6e3dc;
+  --line-strong:#d4d0c7;
+
+  --ink:#15161c;
+  --ink-2:#5d616e;
+  --ink-3:#8b8f9c;
+
+  --brand:#5b3df5;
+  --brand-2:#7c5cff;
+  --brand-soft:#efeaff;
+  --brand-ring:rgba(91,61,245,.18);
+
+  --legal:#4338ca;  --legal-bg:#eeecff;
+  --ej:#059669;     --ej-bg:#e4f7f0;
+  --warn:#c2690a;   --warn-bg:#fdf1de;
+  --exc:#dc2626;    --exc-bg:#ffeceb;
+
+  --ok:#16a34a; --ok-soft:#e7f7ec;
+  --mid:#eab308; --mid-soft:#fdf6dd;
+  --off:#a1a1aa; --off-soft:#f1f1f3;
+
+  --sh-1:0 1px 2px rgba(20,20,30,.04), 0 2px 8px rgba(20,20,30,.04);
+  --sh-2:0 2px 6px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.07);
+  --sh-3:0 8px 20px rgba(91,61,245,.13), 0 24px 56px rgba(20,20,30,.10);
+  --sh-glow:0 0 0 4px var(--brand-ring);
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-full:999px;
+
+  --f-display:"Segoe UI Variable Display",system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-legal:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+
+  --t-h1:clamp(1.02rem,.95rem + .3vw,1.2rem);
+  --t-h2:clamp(1.2rem,1.05rem + .6vw,1.55rem);
+  --t-h3:clamp(1rem,.95rem + .25vw,1.12rem);
+  --t-sm:.86rem;
+  --t-xs:.75rem;
+
+  --e-out:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+
+  /* ── Compatibilidad con SVG y contenido generado ── */
+  --panel:var(--surface);
+  --ink2:var(--ink-2);
+  --acc:var(--brand);
+  --acc-soft:var(--brand-soft);
+  --g:var(--ok); --y:var(--mid); --r:var(--exc);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0b0f;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #1c1740 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #08302b 0%, transparent 50%);
+  --surface:#13151b;
+  --surface-2:#1a1d25;
+  --surface-3:#232733;
+  --line:#262a34;
+  --line-strong:#343947;
+
+  --ink:#eceef4;
+  --ink-2:#9ba2b3;
+  --ink-3:#6e7585;
+
+  --brand:#8b6dff;
+  --brand-2:#a78bff;
+  --brand-soft:#1e1a3d;
+  --brand-ring:rgba(139,109,255,.22);
+
+  --legal:#a5b4fc; --legal-bg:#191b3a;
+  --ej:#34d399;    --ej-bg:#0c2a24;
+  --warn:#fbbf24;  --warn-bg:#2e2110;
+  --exc:#fb7185;   --exc-bg:#331119;
+
+  --ok:#4ade80; --ok-soft:#0e2a19;
+  --mid:#facc15; --mid-soft:#2c2610;
+  --off:#5b6070; --off-soft:#1c1f27;
+
+  --sh-1:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sh-2:0 2px 6px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.4);
+  --sh-3:0 8px 20px rgba(139,109,255,.2), 0 24px 56px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);background-image:var(--bg-grad);
+  background-attachment:fixed;background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s var(--e-out),color .3s;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.022em;line-height:1.2}
+.num{font-variant-numeric:tabular-nums}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+
+/* ═══ HEADER ═══ */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{max-width:1280px;margin:0 auto;padding:.65rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;flex:1}
+.mark{
+  width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  font-weight:800;font-size:.8rem;letter-spacing:-.02em;text-decoration:none;
+  box-shadow:0 4px 14px var(--brand-ring);
+  transition:transform .3s var(--e-spring),box-shadow .3s;
+}
+.mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0}
+.top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
+  margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+
+button,select,input[type=search]{
+  font:inherit;font-size:var(--t-sm);font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:var(--r-sm);padding:.4rem .72rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .18s var(--e-spring),border-color .2s,background .2s,box-shadow .2s,color .2s;
+}
+button:hover{transform:translateY(-1.5px);border-color:var(--brand);box-shadow:var(--sh-1)}
+button:active{transform:translateY(0) scale(.97)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:none;box-shadow:var(--sh-glow)}
+input[type=search]{min-width:190px;cursor:text;font-weight:500}
+input[type=search]:focus{border-color:var(--brand)}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);padding:2px;gap:2px}
+.seg button{border:0;border-radius:calc(var(--r-sm) - 2px);padding:.32rem .68rem;background:transparent;box-shadow:none}
+.seg button:hover{transform:none;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 2px 8px var(--brand-ring)}
+
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:currentColor;opacity:.25;animation:rip .55s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(3.4);opacity:0}}
+
+.progress{position:absolute;left:0;bottom:-1px;height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--brand),var(--legal),var(--ej));transition:width .1s linear}
+
+/* ═══ LAYOUT ═══ */
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:1.8rem;padding:1.4rem 1.1rem 5rem}
+main{min-width:0}
+
+/* ═══ SIDEBAR ═══ */
+nav.side{
+  position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:.85rem;box-shadow:var(--sh-1);
+}
+nav.side h2{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:.5rem .4rem .5rem;font-weight:800}
+nav.side h2:first-child{margin-top:.1rem}
+nav.side a{
+  display:flex;align-items:baseline;gap:.5rem;padding:.36rem .55rem;border-radius:var(--r-sm);
+  text-decoration:none;color:var(--ink-2);font-size:var(--t-sm);font-weight:500;
+  position:relative;transition:background .22s,color .22s,transform .22s var(--e-out);
+}
+nav.side a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(3px);text-decoration:none}
+nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side a.on::before{content:"";position:absolute;left:-.85rem;top:20%;bottom:20%;width:3px;
+  border-radius:0 3px 3px 0;background:var(--brand)}
+nav.side a b{color:var(--ink-3);font-weight:800;font-size:var(--t-xs);font-variant-numeric:tabular-nums;flex:none;min-width:1.9em}
+nav.side a.on b{color:var(--brand)}
+.navtoggle{display:none}
+
+/* ═══ TARJETAS ═══ */
+section.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.5rem;margin-bottom:1.1rem;box-shadow:var(--sh-1);
+  transition:box-shadow .3s var(--e-out),border-color .3s;
+}
+section.card:hover{box-shadow:var(--sh-2)}
+section.card>h2{
+  margin:0 0 1rem;font-size:var(--t-h2);font-weight:800;
+  display:flex;align-items:center;gap:.6rem;
+}
+section.card>h2::before{
+  content:"";width:4px;height:1.05em;border-radius:99px;flex:none;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+
+/* ═══ ARTÍCULO ═══ */
+.art{scroll-margin-top:86px;padding-top:.4rem}
+.art + .art{margin-top:1.6rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+.art h2{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;font-size:var(--t-h3);
+  margin:0 0 .25rem;font-weight:800;letter-spacing:-.015em}
+.art h2 .num{
+  color:var(--brand);font-weight:800;font-family:var(--f-display);
+  background:var(--brand-soft);padding:.1rem .5rem;border-radius:var(--r-sm);
+  font-size:.92em;letter-spacing:-.02em;
+}
+.ubic{font-size:var(--t-xs);color:var(--ink-3);margin:0 0 .8rem;font-weight:600;
+  letter-spacing:.03em;text-transform:uppercase}
+
+/* ═══ IDEA CLAVE ═══ */
+.idea{
+  background:linear-gradient(100deg,var(--brand-soft),color-mix(in srgb,var(--brand-soft) 40%,transparent));
+  border-left:4px solid var(--brand);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.75rem 1rem;font-weight:650;margin:.7rem 0 1rem;position:relative;
+  font-size:.97rem;line-height:1.55;
+}
+
+/* ═══ ACORDEÓN ═══ */
+details.panel{
+  border:1px solid var(--line);border-radius:var(--r-md);margin:.6rem 0;
+  background:var(--surface);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+details.panel:hover{border-color:var(--line-strong)}
+details.panel[open]{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring)}
+details.panel>summary{
+  cursor:pointer;padding:.62rem .9rem;font-weight:700;font-size:.93rem;
+  list-style:none;display:flex;align-items:center;gap:.55rem;
+  transition:background .2s,color .2s;
+}
+details.panel>summary:hover{background:var(--surface-2)}
+details.panel[open]>summary{background:var(--brand-soft);color:var(--brand)}
+details.panel>summary::-webkit-details-marker{display:none}
+details.panel>summary::before{
+  content:"";width:16px;height:16px;flex:none;border-radius:5px;
+  background:var(--brand-soft);position:relative;transition:transform .3s var(--e-spring),background .25s;
+}
+details.panel>summary::after{
+  content:"";position:absolute;width:0;height:0;margin-left:5px;
+  border:4px solid transparent;border-left-color:var(--brand);
+  transition:transform .3s var(--e-spring);
+}
+details.panel[open]>summary::before{background:var(--surface)}
+details.panel[open]>summary::after{transform:rotate(90deg) translateX(-1px)}
+details.panel .body{padding:.3rem 1rem 1rem;font-size:.95rem;animation:slidein .35s var(--e-out)}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ═══ TEXTO LEGAL ═══ */
+.legal{
+  background:var(--legal-bg);border-left:4px solid var(--legal);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:.85rem 1.05rem;
+  font-family:var(--f-legal);font-size:.95rem;line-height:1.7;
+}
+.legal p{margin:.45rem 0}
+.legal .lbl{
+  font-family:var(--f-body);font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--legal);font-weight:800;display:block;margin-bottom:.4rem;
+}
+
+/* ═══ CAJAS SEMÁNTICAS ═══ */
+.box{
+  border-left:4px solid var(--line);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.72rem .95rem;margin:.65rem 0;font-size:.94rem;
+  transition:transform .25s var(--e-out),box-shadow .25s;
+}
+.box:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
+.box.ej{background:var(--ej-bg);border-color:var(--ej)}
+.box.warn{background:var(--warn-bg);border-color:var(--warn)}
+.box.exc{background:var(--exc-bg);border-color:var(--exc)}
+.box .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+  display:block;margin-bottom:.3rem}
+.box.ej .lbl{color:var(--ej)}
+.box.warn .lbl{color:var(--warn)}
+.box.exc .lbl{color:var(--exc)}
+
+.interp{
+  border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn-bg) 45%,transparent);
+  border-radius:var(--r-md);padding:.65rem .9rem;font-size:.9rem;margin:.6rem 0;
+}
+.interp .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);font-weight:800;display:block}
+
+/* ═══ TABLAS ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;margin:.7rem 0;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+th,td{padding:.5rem .68rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td + td, th + th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-size:var(--t-xs);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+tbody tr{transition:background .18s}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+tbody tr:hover{background:var(--brand-soft)}
+th.sortable{cursor:pointer;user-select:none;transition:color .2s,background .2s}
+th.sortable:hover{color:var(--brand);background:var(--brand-soft)}
+th.sortable::after{content:" ⇅";color:var(--ink-3);font-size:.7rem}
+
+ul,ol{margin:.5rem 0 .5rem 1.2rem;padding:0}
+li{margin:.26rem 0}
+li::marker{color:var(--brand);font-weight:700}
+
+/* ═══ TOOLTIPS ═══ */
+.t{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;
+  transition:background .2s,color .2s}
+.t:hover{background:var(--brand-soft);color:var(--brand);border-radius:3px}
+#tip{
+  position:fixed;z-index:99;max-width:330px;background:var(--ink);color:var(--bg);
+  padding:.6rem .78rem;border-radius:var(--r-md);font-size:.82rem;line-height:1.5;
+  display:none;box-shadow:0 8px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);
+}
+html[data-theme="dark"] #tip{background:#f0f1f5;color:#15161c}
+
+/* ═══ FLECHAS DE DIAGRAMA ═══
+   Un <path> con stroke pero sin fill toma el valor inicial (negro) y el
+   navegador cierra el trazo implícitamente: aparece un triángulo relleno
+   entre sus extremos. Forzamos fill:none para dejar solo la línea + la
+   punta del <marker>, que sí lleva su color. */
+svg path[stroke]:not([fill]){fill:none}
+svg polyline:not([fill]){fill:none}
+svg line{fill:none}
+
+/* ═══ SVG ═══ */
+svg{max-width:100%;height:auto;display:block;margin:.9rem auto}
+svg text{font-family:var(--f-body)}
+
+/* ═══ BUSCADOR ═══ */
+mark.hit{background:linear-gradient(180deg,transparent 55%,#ffe066 55%);color:inherit;
+  border-radius:2px;padding:0 1px;font-weight:600}
+html[data-theme="dark"] mark.hit{background:linear-gradient(180deg,transparent 55%,#8a6d00 55%);color:#fff}
+
+/* ═══ UTILIDADES ═══ */
+.hide{display:none !important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.small{font-size:var(--t-sm);color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:var(--t-xs);padding:.16rem .55rem;border-radius:var(--r-full);
+  background:var(--brand-soft);color:var(--brand);font-weight:800;letter-spacing:.02em;
+}
+
+/* ═══ HUECOS RELLENABLES ═══ */
+.gap{
+  display:inline-block;min-width:5.5em;border-bottom:2px solid var(--brand);
+  text-align:center;font-weight:700;color:transparent;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.gap.on,.gap:hover{color:var(--brand);background:var(--brand-soft);border-radius:4px 4px 0 0}
+
+/* ═══ REVELAR SOLUCIÓN ═══ */
+.revelar{
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;
+  font-weight:700;
+}
+.revelar:hover{box-shadow:var(--sh-3)}
+.sol{
+  margin-top:.7rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  background:var(--ej-bg);border-left:4px solid var(--ej);
+  animation:slidein .4s var(--e-out);
+}
+
+/* ═══ TEST ═══ */
+.opt{
+  display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;background:var(--surface);font-size:.94rem;
+  transition:border-color .22s,background .22s,transform .22s var(--e-out);
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateX(4px)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:650}
+.opt.ko{border-color:var(--exc);background:var(--exc-bg)}
+.opt input{margin-right:.5rem;accent-color:var(--brand)}
+
+#tscore,#semres{
+  font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLASHCARDS 3D · mazo con giro, vuelo de salida y sheen
+   ═══════════════════════════════════════════════════════════════ */
+#flash{--fc-e:cubic-bezier(.2,.8,.25,1);--fc-h:250px}
+
+/* — Escena — */
+.fc-stage{
+  perspective:1400px;perspective-origin:50% 45%;
+  padding:.4rem 0 .2rem;position:relative;
+}
+.fc-deck{position:relative;height:var(--fc-h);will-change:transform}
+
+/* — Cartas fantasma del mazo — */
+.fc-ghost{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .5s var(--fc-e),opacity .5s var(--fc-e);
+}
+.fc-ghost.g1{transform:translateY(9px) scale(.972);opacity:.75}
+.fc-ghost.g2{transform:translateY(18px) scale(.944);opacity:.45}
+.fc-deck.empty .fc-ghost{opacity:0;transform:translateY(26px) scale(.9)}
+
+/* — Elevación durante el giro — */
+.fc-lift{position:absolute;inset:0;transform-style:preserve-3d}
+.fc-lift.lift{animation:fcLift .78s var(--fc-e)}
+@keyframes fcLift{
+  0%,100%{transform:scale(1) translateY(0)}
+  45%{transform:scale(1.055) translateY(-16px)}
+}
+.fc-lift.out-ok{animation:fcOut .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.out-ko{animation:fcOutKo .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.in{animation:fcIn .48s var(--fc-e)}
+@keyframes fcOut{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(130%) rotate(17deg) scale(.85);opacity:0}
+}
+@keyframes fcOutKo{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(-130%) rotate(-17deg) scale(.85);opacity:0}
+}
+@keyframes fcIn{
+  0%{transform:translateY(26px) scale(.9);opacity:0}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+
+/* — La carta — */
+.fc-card{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transition:transform .78s var(--fc-e);
+  cursor:pointer;border-radius:var(--r-lg);
+}
+.fc-card:focus-visible{outline:none}
+.fc-card:focus-visible .fc-face{box-shadow:var(--sh-glow),var(--sh-2)}
+
+/* — Caras — */
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 2.2rem;text-align:center;overflow:hidden;
+  box-shadow:var(--sh-2);
+  transition:box-shadow .4s var(--fc-e);
+}
+.fc-card:hover .fc-face{box-shadow:var(--sh-3)}
+
+/* Anverso · pregunta */
+.fc-front{
+  background:
+    radial-gradient(120% 90% at 50% -20%, var(--brand-soft) 0%, transparent 60%),
+    var(--surface);
+  border:1.5px solid var(--line);color:var(--ink);
+}
+/* Reverso · respuesta */
+.fc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,var(--brand) 0%,#6d4bf7 45%,var(--c5,#0891b2) 130%);
+  border:1.5px solid transparent;color:#fff;
+}
+html[data-theme="dark"] .fc-back{
+  background:linear-gradient(145deg,#5f45c9 0%,#4b3aa8 45%,#0e6b85 130%);
+}
+.fc-back .fc-txt{color:#fff}
+.fc-back b,.fc-back strong{color:#fff;font-weight:800}
+
+/* — Sheen que barre al girar — */
+.fc-face::after{
+  content:"";position:absolute;top:-60%;left:-70%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);opacity:0;pointer-events:none;
+}
+.fc-lift.lift .fc-face::after{animation:fcSheen .78s var(--fc-e)}
+@keyframes fcSheen{
+  0%{opacity:0;left:-70%}
+  35%{opacity:1}
+  100%{opacity:0;left:150%}
+}
+
+/* — Etiqueta superior — */
+.fc-tag{
+  position:absolute;top:1rem;left:1.15rem;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.fc-front .fc-tag{color:var(--brand)}
+.fc-back .fc-tag{color:rgba(255,255,255,.9)}
+.fc-tag::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+  animation:fcPulse 2.2s ease-in-out infinite;
+}
+@keyframes fcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* — Índice tipo naipe — */
+.fc-pip{
+  position:absolute;font-family:var(--f-display);font-weight:800;
+  font-size:.78rem;letter-spacing:-.02em;opacity:.34;font-variant-numeric:tabular-nums;
+}
+.fc-pip.tr{top:1rem;right:1.15rem}
+.fc-pip.bl{bottom:1rem;left:1.15rem;transform:rotate(180deg)}
+.fc-front .fc-pip{color:var(--ink-2)}
+.fc-back .fc-pip{color:#fff;opacity:.55}
+
+/* — Texto — */
+.fc-txt{
+  font-size:clamp(1rem,.9rem + .55vw,1.28rem);font-weight:650;line-height:1.5;
+  max-width:44ch;letter-spacing:-.012em;
+}
+.fc-front .fc-txt{font-family:var(--f-display);font-weight:700}
+.fc-back .fc-txt{font-weight:600;line-height:1.6}
+.fc-hint{
+  position:absolute;bottom:1rem;left:0;right:0;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.fc-front .fc-hint{color:var(--ink-3)}
+.fc-back .fc-hint{color:rgba(255,255,255,.72)}
+.fc-hint .kbd{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:700;padding:.1rem .32rem;
+  border-radius:5px;border:1px solid currentColor;opacity:.75;
+}
+
+/* — Pantalla final — */
+.fc-done{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--ok-soft),var(--surface) 70%);
+  border:1.5px solid var(--ok);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;gap:.35rem;
+  animation:fcIn .5s var(--fc-e);box-shadow:var(--sh-2);
+}
+.fc-done .seal{
+  font-size:2.6rem;line-height:1;
+  animation:fcSeal .7s cubic-bezier(.2,1.5,.4,1);
+}
+@keyframes fcSeal{0%{transform:scale(0) rotate(-25deg);opacity:0}60%{transform:scale(1.2) rotate(6deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.fc-done h3{font-size:1.3rem;font-weight:800;margin:.2rem 0 0}
+.fc-done p{margin:0;color:var(--ink-2);font-size:var(--t-sm)}
+
+/* — Barra de progreso de la ronda — */
+.fc-bar{
+  height:6px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;margin:.95rem 0 .8rem;position:relative;
+}
+.fc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand),var(--c5,#0891b2));
+  transition:width .55s var(--fc-e);
+}
+
+/* — Controles — */
+.fc-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.fc-ctrls button{font-weight:700}
+#fcok{border-color:var(--ok);color:var(--ok)}
+#fcok:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+#fcko{border-color:var(--warn);color:var(--warn)}
+#fcko:hover{background:var(--warn);color:#fff;border-color:var(--warn)}
+#fcflip{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+#fcflip:hover{box-shadow:var(--sh-3)}
+
+.fc-score{display:inline-flex;gap:.45rem;margin-left:auto;align-items:center}
+.fc-pill{
+  font-size:var(--t-xs);font-weight:800;padding:.24rem .6rem;border-radius:var(--r-full);
+  font-variant-numeric:tabular-nums;border:1px solid;
+}
+.fc-pill.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.fc-pill.ko{color:var(--warn);border-color:var(--warn);background:var(--warn-bg)}
+.fc-pill.left{color:var(--ink-2);border-color:var(--line);background:var(--surface-2)}
+.fc-pill.bump{animation:fcBump .45s var(--e-spring)}
+@keyframes fcBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+@media(max-width:620px){
+  #flash{--fc-h:270px}
+  .fc-face{padding:1.7rem 1.3rem}
+  .fc-score{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-card{transition:none}
+  .fc-lift.lift,.fc-lift.in,.fc-lift.out-ok,.fc-lift.out-ko,.fc-face::after{animation:none !important}
+}
+@media print{.fc-stage,.fc-ctrls,.fc-bar{display:none !important}}
+/* ═══ RESPUESTA ESTRUCTURADA ═══ */
+.fc-face{justify-content:center}
+.fc-face.struct{justify-content:flex-start;text-align:left;padding-top:3.1rem;padding-bottom:3.1rem}
+.fc-body{
+  width:100%;max-width:46ch;margin:0 auto;
+  overflow-y:auto;max-height:100%;
+  scrollbar-width:thin;
+}
+.fc-body::-webkit-scrollbar{width:5px}
+.fc-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:99px;border:0}
+.fc-front .fc-body::-webkit-scrollbar-thumb{background:var(--line-strong)}
+
+/* — Veredicto Sí / No — */
+.fc-verdict{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-display);font-weight:800;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.26rem .72rem;border-radius:var(--r-full);margin-bottom:.85rem;
+  border:1.5px solid;animation:fcPopIn .45s var(--e-spring) backwards;animation-delay:.34s;
+}
+.fc-verdict.si{background:rgba(255,255,255,.16);border-color:rgba(190,255,215,.85);color:#d8ffe9}
+.fc-verdict.no{background:rgba(255,255,255,.16);border-color:rgba(255,205,205,.85);color:#ffdedd}
+@keyframes fcPopIn{0%{opacity:0;transform:scale(.7) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* — Párrafo — */
+.fc-p{margin:0;font-size:clamp(1rem,.92rem + .45vw,1.2rem);font-weight:600;line-height:1.6}
+.fc-face.struct .fc-p{font-size:clamp(.96rem,.9rem + .35vw,1.1rem)}
+
+/* — Lista enumerada — */
+.fc-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;counter-reset:fc}
+.fc-list li{
+  counter-increment:fc;position:relative;margin:0;
+  padding:.42rem .6rem .42rem 2.5rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.11);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.45;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-list li::before{
+  content:counter(fc);position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.9);color:var(--brand);
+  font-family:var(--f-display);font-weight:800;font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.fc-list.alpha li::before{content:counter(fc,lower-alpha)}
+.fc-list li:nth-child(1){animation-delay:.36s}
+.fc-list li:nth-child(2){animation-delay:.42s}
+.fc-list li:nth-child(3){animation-delay:.48s}
+.fc-list li:nth-child(4){animation-delay:.54s}
+.fc-list li:nth-child(5){animation-delay:.60s}
+.fc-list li:nth-child(n+6){animation-delay:.66s}
+@keyframes fcRow{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:none}}
+
+/* — Cláusulas contrapuestas — */
+.fc-clauses{display:grid;gap:.45rem}
+.fc-clauses p{
+  margin:0;padding:.45rem .7rem .45rem .95rem;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:rgba(255,255,255,.11);border-left:3px solid rgba(255,255,255,.55);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.5;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-clauses p:nth-child(1){animation-delay:.36s}
+.fc-clauses p:nth-child(2){animation-delay:.44s}
+.fc-clauses p:nth-child(3){animation-delay:.52s}
+
+/* — Negritas resaltadas en el reverso — */
+.fc-back .fc-body b,.fc-back .fc-body strong{
+  font-weight:800;background:rgba(255,255,255,.2);
+  padding:.03em .3em;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+
+/* — Cita legal al pie — */
+.fc-cite{
+  position:absolute;bottom:.95rem;left:0;right:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;letter-spacing:.02em;
+  color:rgba(255,255,255,.82);
+  animation:fcPopIn .5s var(--e-out) backwards;animation-delay:.5s;
+}
+.fc-cite::before,.fc-cite::after{
+  content:"";height:1px;width:clamp(18px,10%,52px);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45));
+}
+.fc-cite::after{background:linear-gradient(90deg,rgba(255,255,255,.45),transparent)}
+.fc-cite .s{font-size:.9rem;opacity:.75;font-family:var(--f-legal)}
+.fc-front .fc-cite{color:var(--ink-3)}
+.fc-front .fc-cite::before{background:linear-gradient(90deg,transparent,var(--line-strong))}
+.fc-front .fc-cite::after{background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+/* la pista se oculta si hay cita, para no amontonar */
+.fc-back .fc-cite ~ .fc-hint,.fc-back .fc-hint.muted{display:none}
+
+@media(max-width:620px){
+  #flash{--fc-h:320px}
+  .fc-face.struct{padding-top:2.9rem;padding-bottom:2.8rem}
+  .fc-list li{padding-left:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-verdict,.fc-list li,.fc-clauses p,.fc-cite{animation:none !important}
+}
+
+/* ═══ SEMÁFORO ═══ */
+.sembtn{
+  border-radius:var(--r-full);padding:.32rem .7rem;font-weight:700;font-size:var(--t-sm);
+}
+.sembtn[data-v="g"]:hover,.sembtn.on[data-v="g"]{background:var(--ok);color:#fff;border-color:var(--ok)}
+.sembtn[data-v="y"]:hover,.sembtn.on[data-v="y"]{background:var(--mid);color:#3d2f00;border-color:var(--mid)}
+.sembtn[data-v="r"]:hover,.sembtn.on[data-v="r"]{background:var(--exc);color:#fff;border-color:var(--exc)}
+
+/* ═══ CTA DE BLOQUE ═══ */
+a.blk{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  padding:.5rem .95rem;border-radius:var(--r-sm);font-weight:700;font-size:var(--t-sm);
+  text-decoration:none;box-shadow:0 2px 10px var(--brand-ring);
+  transition:transform .22s var(--e-spring),box-shadow .25s,gap .25s var(--e-out);
+}
+a.blk:hover{transform:translateY(-2px);box-shadow:var(--sh-3);gap:.75rem;text-decoration:none}
+a.blk::after{content:"→"}
+a.blk:active{transform:translateY(0) scale(.98)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr;padding-top:.9rem;gap:1rem}
+  nav.side{position:static;max-height:none}
+  nav.side.collapsed .navbody{display:none}
+  .navtoggle{display:block;width:100%;text-align:left;font-weight:700}
+  .grid2{grid-template-columns:1fr}
+  .top h1 .sub{white-space:normal}
+}
+@media(max-width:620px){
+  .top-in{padding:.55rem .8rem}
+  .tools{width:100%;margin-left:0}
+  input[type=search]{flex:1;min-width:0}
+  section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
+  table{font-size:.82rem}
+  th,td{padding:.4rem .5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  header.top,nav.side,.tools,.noprint,.progress{display:none !important}
+  body{background:#fff;background-image:none;font-size:11pt;color:#000}
+  .layout{display:block;max-width:none;padding:0}
+  section.card{border:0;padding:0;margin:0 0 1rem;break-inside:avoid;box-shadow:none}
+  details.panel{border:0;box-shadow:none}
+  details.panel .body{display:block !important}
+  details.panel>summary{padding-left:0}
+  .art{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  a{color:#000;text-decoration:none}
+}
+
+
+/* ═══ ALTURA ADAPTATIVA DE LA TARJETA ═══ */
+.fc-deck{transition:height .45s var(--fc-e)}
+.fc-body{max-height:none;overflow:visible}
+.fc-measure{
+  position:absolute;left:0;right:0;top:0;height:auto;
+  visibility:hidden;pointer-events:none;z-index:-1;
+}
+.fc-measure .fc-face{
+  position:relative;inset:auto;height:auto;min-height:0;
+  box-shadow:none;backface-visibility:visible;transform:none;
+}
+.fc-measure .fc-body{max-height:none;overflow:visible}
+.fc-measure .fc-face::after{display:none}
+
+/* ═══ MOSTRAR / OCULTAR ÍNDICE LATERAL ═══ */
+.layout{transition:grid-template-columns .42s var(--e-out)}
+.layout.nonav{grid-template-columns:0 1fr;gap:0}
+.layout.nonav>nav.side{
+  opacity:0;transform:translateX(-14px);pointer-events:none;
+  padding:0;border-width:0;overflow:hidden;width:0;min-width:0;
+}
+nav.side{
+  transition:opacity .3s var(--e-out),transform .38s var(--e-out);
+  overflow-x:hidden;
+}
+#navhide .ic{display:inline-block;transition:transform .35s var(--e-spring);font-size:.95em;line-height:1}
+#navhide[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand);color:var(--brand)}
+#navhide[aria-pressed="true"] .ic{transform:rotate(90deg)}
+@media(max-width:960px){#navhide{display:none}}
+
+/* ═══════════════════════════════════════════════════════════════
+   LECTURA EN VOZ ALTA (TTS) del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+.tts-bar{
+  display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;
+  margin:.15rem 0 .7rem;
+}
+.tts-bar button{
+  font-size:var(--t-xs);font-weight:700;padding:.3rem .62rem;
+  border-radius:var(--r-full);border:1px solid var(--legal);
+  background:transparent;color:var(--legal);
+  display:inline-flex;align-items:center;gap:.35rem;line-height:1.2;
+}
+.tts-bar button:hover{background:var(--legal);color:var(--surface);border-color:var(--legal)}
+.tts-bar button[hidden]{display:none}
+.tts-bar .tts-play.on{background:var(--legal);color:var(--surface)}
+
+/* Ondas de audio mientras lee */
+.tts-wave{display:inline-flex;align-items:flex-end;gap:2px;height:11px}
+.tts-wave i{
+  width:2.5px;background:currentColor;border-radius:2px;height:35%;
+  animation:ttsW .9s ease-in-out infinite;
+}
+.tts-wave i:nth-child(2){animation-delay:.15s}
+.tts-wave i:nth-child(3){animation-delay:.3s}
+.tts-wave i:nth-child(4){animation-delay:.45s}
+@keyframes ttsW{0%,100%{height:32%}50%{height:100%}}
+
+.tts-time{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:700;
+  color:var(--ink-3);font-variant-numeric:tabular-nums;
+}
+
+/* Frase que se está leyendo */
+.tts-s{transition:background .25s,color .25s;border-radius:3px}
+.tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 26%,transparent) 8%);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--legal) 16%,transparent);
+}
+html[data-theme="dark"] .tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 34%,transparent) 8%);
+}
+.legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
+
+/* ═══ Reproductor flotante ═══ */
+.tts-mini{
+  position:fixed;left:50%;bottom:1.1rem;transform:translateX(-50%) translateY(140%);
+  z-index:80;display:flex;align-items:center;gap:.6rem;
+  background:color-mix(in srgb,var(--surface) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  border:1px solid var(--line);border-radius:var(--r-full);
+  padding:.5rem .7rem .5rem .95rem;box-shadow:var(--sh-3);
+  transition:transform .45s var(--e-spring),opacity .3s;opacity:0;pointer-events:none;
+  max-width:min(94vw,540px);
+}
+.tts-mini.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.tts-mini .lbl{
+  font-size:var(--t-xs);font-weight:800;color:var(--legal);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:16ch;
+}
+.tts-mini button{
+  border-radius:50%;width:32px;height:32px;padding:0;display:grid;place-items:center;
+  font-size:.8rem;border:1px solid var(--line);flex:none;
+}
+.tts-mini button.main{
+  width:38px;height:38px;font-size:.95rem;
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-mini .bar{
+  flex:1;min-width:70px;height:5px;border-radius:99px;background:var(--surface-3);overflow:hidden;
+}
+.tts-mini .bar i{display:block;height:100%;width:0;background:var(--legal);
+  border-radius:99px;transition:width .35s var(--e-out)}
+
+/* ═══ Panel de ajustes de voz ═══ */
+.tts-back{
+  position:fixed;inset:0;z-index:90;background:rgba(10,10,18,.45);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  display:grid;place-items:center;padding:1rem;
+  opacity:0;pointer-events:none;transition:opacity .3s var(--e-out);
+}
+.tts-back.show{opacity:1;pointer-events:auto}
+.tts-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--sh-3);width:min(94vw,470px);max-height:88vh;overflow:auto;
+  padding:1.3rem 1.4rem;transform:translateY(16px) scale(.97);
+  transition:transform .38s var(--e-spring);
+}
+.tts-back.show .tts-panel{transform:none}
+.tts-panel h3{
+  font-size:1.12rem;font-weight:800;margin:0 0 .25rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.tts-panel .sub{font-size:var(--t-sm);color:var(--ink-2);margin:0 0 1.1rem}
+.tts-row{margin-bottom:1.05rem}
+.tts-row > label{
+  display:block;font-size:var(--t-xs);font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:.4rem;
+}
+.tts-seg{display:flex;gap:3px;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:3px}
+.tts-seg button{
+  flex:1;border:0;background:transparent;border-radius:calc(var(--r-sm) - 3px);
+  padding:.42rem .3rem;font-size:var(--t-sm);font-weight:700;box-shadow:none;
+}
+.tts-seg button:hover{transform:none;background:var(--surface)}
+.tts-seg button[aria-pressed="true"]{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;
+}
+.tts-panel select{
+  width:100%;padding:.5rem .6rem;border-radius:var(--r-sm);
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  font-size:var(--t-sm);font-weight:600;cursor:pointer;
+}
+.tts-panel select:focus{border-color:var(--brand);outline:none}
+.tts-slider{display:flex;align-items:center;gap:.75rem}
+.tts-slider input[type=range]{flex:1;accent-color:var(--legal);cursor:pointer;height:22px}
+.tts-val{
+  font-family:var(--f-mono);font-weight:800;font-size:var(--t-sm);
+  min-width:3.4em;text-align:right;color:var(--legal);font-variant-numeric:tabular-nums;
+}
+.tts-note{
+  font-size:var(--t-xs);color:var(--ink-2);line-height:1.5;
+  background:var(--surface-2);border-radius:var(--r-sm);padding:.6rem .75rem;margin:0 0 1rem;
+}
+.tts-note b{color:var(--ink)}
+.tts-acts{display:flex;gap:.5rem;justify-content:flex-end;flex-wrap:wrap}
+.tts-acts .prim{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-badge{
+  font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  padding:.1rem .35rem;border-radius:4px;background:var(--ej-bg);color:var(--ej);margin-left:.35rem;
+}
+
+
+/* — Variante compacta para los apartados desplegables — */
+.tts-bar.mini{margin:0 0 .6rem}
+.tts-bar.mini button{
+  font-size:.7rem;padding:.24rem .55rem;
+  border-color:var(--brand);color:var(--brand);
+}
+.tts-bar.mini button:hover{background:var(--brand);color:var(--surface)}
+.tts-bar.mini .tts-play.on{background:var(--brand);color:var(--surface)}
+.tts-bar.mini .tts-time{font-size:.66rem}
+.idea .tts-bar.mini{margin:.55rem 0 0}
+.legal.tts-on,.body.tts-on,.idea.tts-on{
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 20%,transparent)
+}
+.legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
+
+@media(max-width:620px){
+  .tts-mini{left:.6rem;right:.6rem;transform:translateY(140%);max-width:none}
+  .tts-mini.show{transform:translateY(0)}
+  .tts-mini .lbl{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .tts-wave i{animation:none;height:60%}
+}
+@media print{.tts-bar,.tts-mini,.tts-back{display:none !important}}
+
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brandwrap">
+    <a class="mark" href="TEMA_8_indice.html" title="Volver al índice">T8</a>
+    <h1>Tema 8 · Visión de conjunto
+      <span class="sub">Diagrama general de flujo y dos casos prácticos integrales · TRLHL arts. 162 a 223 y Orden EHA/3565/2008</span>
+    </h1>
+    </div>
+    <div class="tools noprint">
+      <input type="search" id="q" placeholder="Buscar en la página…" aria-label="Buscar">
+      <span class="seg" role="group" aria-label="Modo de vista">
+        <button data-view="legal" aria-pressed="false">Texto legal</button>
+        <button data-view="expl" aria-pressed="false">Explicación</button>
+        <button data-view="both" aria-pressed="true">Ambos</button>
+      </span>
+      <button id="fs-" aria-label="Reducir texto">A−</button>
+      <button id="fs+" aria-label="Aumentar texto">A+</button>
+      <span class="streak" id="streak" title="Días seguidos estudiando" style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);font-weight:800;font-size:.8rem">🔥<span class="num" id="streakN">0</span></span>
+      <button id="theme" aria-label="Cambiar tema">◐</button>
+      <button id="expand">Desplegar todo</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="progress" id="prog"></div>
+</header>
+<div class="layout">
+<nav class="side collapsed" id="side" aria-label="Índice">
+  <button class="navtoggle" id="navtoggle" aria-expanded="false">☰ Índice</button>
+  <div class="navbody" id="navbody"></div>
+</nav>
+<main id="main"></main>
+</div><script>
+const QS=[["¿Por qué el 15 de octubre aparece dos veces en el tema y qué distingue una fecha de la otra?", "En el <b>año N−1</b>, el presupuesto debe estar en el <b>Pleno</b> antes del 15 de octubre (art. <b>168.4</b>). En el <b>año N+1</b>, la <b>cuenta general</b> debe rendirse al <b>Tribunal de Cuentas</b> antes del 15 de octubre (art. <b>223.2</b>). Son dos ejercicios distintos y dos destinatarios distintos: el propio Pleno y el órgano de control externo."], ["Un gasto sin crédito: enlaza el TRLHL con la LPAC y con la Ley 19/2013.", "El art. <b>173.5 del TRLHL</b> declara <b>nulos de pleno derecho</b> esos actos. Esa nulidad encaja en el art. <b>47.1.g) de la Ley 39/2015</b> —cualquier otro supuesto establecido expresamente en norma con rango de ley—. Y la conducta es <b>infracción muy grave</b> del art. <b>28.c) de la Ley 19/2013</b>, con las sanciones del art. 30. Un solo hecho, tres normas."], ["¿Qué relación hay entre el art. 175 y el art. 182?", "Son <b>regla y excepción</b>. El art. 175 anula de pleno derecho, el 31 de diciembre, los créditos no afectados a obligaciones ya reconocidas. El art. 182 permite <b>incorporarlos</b> al ejercicio siguiente en cuatro supuestos y <b>siempre que existan recursos financieros suficientes</b>. La incorporación es <b>obligatoria</b> en proyectos con <b>ingresos afectados</b> (182.3)."], ["¿Por qué el presupuesto lo aprueba el Pleno y la liquidación el Presidente?", "Porque aprobar el presupuesto es una <b>decisión política</b> sobre el destino de los recursos (art. 168.4 y 169.2), mientras que liquidar es <b>constatar</b> lo ejecutado, previo <b>informe de la Intervención</b> (art. 191.3). De la liquidación solo se <b>da cuenta</b> al Pleno, en la primera sesión que celebre (art. 193.4)."], ["Un reparo por insuficiencia de crédito: ¿quién resuelve la discrepancia y por qué no el Presidente?", "La regla general es que resuelve el <b>Presidente</b> y que la facultad es <b>indelegable</b> (art. 217.1). Pero cuando el reparo se basa en <b>insuficiencia o inadecuación de crédito</b>, o afecta a gastos de competencia plenaria, resuelve el <b>Pleno</b> (art. 217.2). Tiene lógica: quien puede crear el crédito es quien debe decidir si se gasta sin él."], ["¿Qué conecta el art. 168.1.b) con toda la fase 5 del diagrama?", "Que la <b>liquidación</b> del ejercicio anterior y el <b>avance</b> de la del corriente son <b>documentos obligatorios</b> del presupuesto que se está formando. Es lo que convierte el ciclo en un <b>bucle</b>: sin cerrar bien el año anterior no se puede abrir con rigor el siguiente."], ["Distingue tres trámites de 15 días del tema y no los confundas.", "<b>1)</b> Exposición del <b>presupuesto</b> tras la aprobación inicial (art. 169.1). <b>2)</b> Exposición de la <b>cuenta general</b> tras el informe de la Comisión Especial (art. 212.3). <b>3)</b> El mismo trámite de exposición aplicado a los <b>créditos extraordinarios y suplementos</b>, por remisión del art. 177.2 al art. 169. Distinto objeto, mismo plazo."], ["¿Por qué una transferencia de crédito entre grupos de función se parece tanto a aprobar un presupuesto?", "Porque el art. <b>179.2</b> reserva su aprobación al <b>Pleno</b> —salvo que altas y bajas afecten a créditos de personal— y el art. <b>179.4</b> le impone las normas de <b>información, reclamaciones, recursos y publicidad</b> de los arts. 169, 170 y 171. Es decir: exposición de 15 días, reclamaciones tasadas y publicación."], ["Un remanente de tesorería negativo: ¿qué tres salidas hay y en qué orden?", "<b>1.º</b> <b>Reducir gastos</b> del nuevo presupuesto por cuantía igual al déficit, en la <b>primera sesión</b> del Pleno (193.1). <b>2.º</b> Si no es posible, <b>operación de crédito</b> con las condiciones del art. 177.5 (193.2). <b>3.º</b> Si tampoco, aprobar el presupuesto siguiente con <b>superávit inicial</b> no inferior al déficit (193.3)."], ["¿Dónde acaba un reparo que el Presidente resolvió en contra de la Intervención?", "En tres sitios: <b>a)</b> en un <b>punto independiente</b> del orden del día del Pleno, mediante informe del órgano interventor (218.1); <b>b)</b> potestativamente, en el <b>órgano de tutela financiera</b> (218.2); y <b>c)</b> en el <b>Tribunal de Cuentas</b>, al que la Intervención remite <b>anualmente</b> todas esas resoluciones y acuerdos (218.3)."]];
+const SEM=["Sé situar cualquier artículo del tema en una de las seis fases", "Distingo las dos fechas del 15 de octubre", "Entiendo que el ciclo ocupa tres años naturales y sé decir qué pasa en cada uno", "Elijo la modificación de crédito correcta preguntándome de dónde sale el dinero", "Sé cuándo un reparo suspende el expediente y quién resuelve la discrepancia", "Conecto el art. 173.5 con el art. 47.1.g) de la LPAC y con el art. 28.c) de la Ley 19/2013", "Distingo qué aprueba el Pleno y qué aprueba el Presidente en todo el ciclo", "Explico la relación entre el art. 175 y el art. 182 sin mirar", "Sé qué ocurre si el 31 de diciembre no hay presupuesto aprobado", "Ordeno los tres remedios del remanente de tesorería negativo", "Recorro la cuenta general desde la rendición hasta el Tribunal de Cuentas con sus cuatro fechas", "Sé explicar por qué la liquidación de un año es documento del presupuesto de otro"];
+</script>
+<script>
+document.getElementById('main').innerHTML="\n<section class=\"card\" id=\"intro\"><h2>Tema 8 · Visión de conjunto</h2>\n<p class=\"small\">Esta página no explica artículos: los <b>conecta</b>. Está pensada para leerla <b>después</b> de haber trabajado los seis bloques del tema y antes de cada repaso, para recuperar de golpe el mapa completo.</p>\n<div class=\"box ej\"><span class=\"lbl\">Qué encontrarás</span>\n<ol><li>Un <b>diagrama general de flujo</b> con las seis fases del ciclo presupuestario y sus tres bifurcaciones.</li>\n<li>Una <b>línea temporal</b> que demuestra que el ciclo de un ejercicio ocupa <b>tres años naturales</b>.</li>\n<li>Los <b>dos árboles de decisión</b> que resuelven la mayoría de los casos: qué modificación procede y qué efectos tiene un reparo.</li>\n<li>Dos <b>casos prácticos integrales</b>: uno recorre un ejercicio completo; el otro sigue un único expediente atravesando todo el tema.</li>\n<li>Diez <b>preguntas de conexión</b> y un semáforo de autoevaluación por relaciones, no por artículos.</li></ol></div>\n<div class=\"box warn\"><span class=\"lbl\">Fuentes utilizadas y vigencia</span>\n<ul><li><b>RDLeg 2/2004, TRLHL</b> (documento 5 de la biblioteca), arts. 162 a 223, texto consolidado.</li>\n<li><b>Orden EHA/3565/2008</b> (documento 6), estructura de los presupuestos de las entidades locales.</li>\n<li>Concordancias con la <b>Ley 39/2015</b> (documento 1), art. 47.1.g), y con la <b>Ley 19/2013</b>, art. 28.c).</li>\n<li><b>Aportación externa</b>: el <b>RD 500/1990</b>, que desarrolla el capítulo I del título VI del TRLHL, y el <b>RD 424/2017</b> de control interno, citados en la página de concordancias del tema. Verifica siempre la vigencia en el BOE consolidado.</li>\n<li>Las entidades, fechas y cifras de los casos prácticos son <b>ficticias</b>; los plazos y trámites, reales.</li></ul></div>\n</section>\n\n<section class=\"card\" id=\"flujo\"><h2>Diagrama general de flujo del tema 8</h2>\n<p class=\"small\">Un solo recorrido, de arriba abajo, con los <b>seis momentos</b> del ciclo presupuestario. Cada caja indica el artículo. Los rombos son <b>decisiones</b> y los recuadros rojos, <b>desvíos</b> que ocurren cuando la respuesta no es la ordinaria.</p>\n<div class=\"tools noprint\" style=\"margin:.2rem 0 .8rem;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center\">\n <span class=\"small\" style=\"margin-right:.3rem\">Resaltar fase:</span>\n <span class=\"seg\" role=\"group\" aria-label=\"Filtro de fases\">\n  <button class=\"fbtn\" data-f=\"0\" aria-pressed=\"true\">Todas</button>\n  <button class=\"fbtn\" data-f=\"1\" aria-pressed=\"false\">1 Qué es</button>\n  <button class=\"fbtn\" data-f=\"2\" aria-pressed=\"false\">2 Elaboración</button>\n  <button class=\"fbtn\" data-f=\"3\" aria-pressed=\"false\">3 Aprobación</button>\n  <button class=\"fbtn\" data-f=\"4\" aria-pressed=\"false\">4 Ejecución</button>\n  <button class=\"fbtn\" data-f=\"5\" aria-pressed=\"false\">5 Liquidación</button>\n  <button class=\"fbtn\" data-f=\"6\" aria-pressed=\"false\">6 Control</button>\n </span>\n</div>\n<svg id=\"mapa8\" viewBox=\"0 0 960 1330\" role=\"img\" aria-label=\"Diagrama general del ciclo presupuestario de las entidades locales, de la elaboración al control externo\" style=\"width:100%;height:auto\">\n<defs>\n <marker id=\"fl\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--acc)\"/></marker>\n <marker id=\"fr\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--exc)\"/></marker>\n</defs>\n\n<!-- ============ FASE 1 ============ -->\n<g data-f=\"1\">\n<rect x=\"8\" y=\"14\" width=\"120\" height=\"120\" rx=\"10\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/>\n<text x=\"68\" y=\"62\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">1</text>\n<text x=\"68\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"#fff\">QUÉ ES</text>\n<text x=\"68\" y=\"102\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">162 a 167</text>\n<rect x=\"146\" y=\"14\" width=\"186\" height=\"52\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"239\" y=\"34\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">162 · Definición</text>\n<text x=\"239\" y=\"52\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">gastos = techo · ingresos = previsión</text>\n<rect x=\"348\" y=\"14\" width=\"186\" height=\"52\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"441\" y=\"34\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">163-164 · Ámbito</text>\n<text x=\"441\" y=\"52\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">año natural · entidad + OOAA + SS. MM.</text>\n<rect x=\"550\" y=\"14\" width=\"186\" height=\"52\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"643\" y=\"34\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">165 · Contenido</text>\n<text x=\"643\" y=\"52\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">gastos · ingresos · bases de ejecución</text>\n<rect x=\"752\" y=\"14\" width=\"200\" height=\"52\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"852\" y=\"34\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">166 · Anexos</text>\n<text x=\"852\" y=\"52\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">inversiones 4 años · deuda · consolidación</text>\n<rect x=\"146\" y=\"76\" width=\"388\" height=\"58\" rx=\"8\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/>\n<text x=\"340\" y=\"96\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">167 · Estructura + Orden EHA/3565/2008</text>\n<text x=\"340\" y=\"114\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">programas (área ▸ política ▸ grupo ▸ programa) × económica (cap. ▸ art. ▸ concepto)</text>\n<text x=\"340\" y=\"128\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ej)\">el cruce de ambas = APLICACIÓN PRESUPUESTARIA</text>\n<rect x=\"550\" y=\"76\" width=\"402\" height=\"58\" rx=\"8\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/>\n<text x=\"751\" y=\"96\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">Tres principios que atraviesan todo (165.2 a 165.4)</text>\n<text x=\"751\" y=\"114\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">no afectación · importe íntegro · sin déficit inicial</text>\n<text x=\"751\" y=\"128\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">y el nivel de vinculación jurídica del art. 172</text>\n</g>\n<path d=\"M480 138 L 480 158\" stroke=\"var(--acc)\" stroke-width=\"2.5\" marker-end=\"url(#fl)\"/>\n\n<!-- ============ FASE 2 ============ -->\n<g data-f=\"2\">\n<rect x=\"8\" y=\"166\" width=\"120\" height=\"132\" rx=\"10\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/>\n<text x=\"68\" y=\"212\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">2</text>\n<text x=\"68\" y=\"234\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"#fff\">ELABORACIÓN</text>\n<text x=\"68\" y=\"252\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">168</text>\n<text x=\"68\" y=\"274\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">año N−1</text>\n<rect x=\"146\" y=\"166\" width=\"240\" height=\"60\" rx=\"8\" fill=\"var(--panel)\" stroke=\"var(--line)\"/>\n<text x=\"266\" y=\"188\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\">OOAA y sociedades mercantiles</text>\n<text x=\"266\" y=\"206\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">remiten sus presupuestos y previsiones</text>\n<text x=\"266\" y=\"220\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">antes del 15 de SEPTIEMBRE · 168.2 y 168.3</text>\n<path d=\"M390 196 L 424 196\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<rect x=\"428\" y=\"166\" width=\"250\" height=\"60\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"553\" y=\"188\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">El PRESIDENTE forma el presupuesto</text>\n<text x=\"553\" y=\"206\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">con los 7 documentos del 168.1</text>\n<text x=\"553\" y=\"220\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">memoria · liquidación y avance · anexos · informe E-F</text>\n<path d=\"M682 196 L 716 196\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<rect x=\"720\" y=\"166\" width=\"232\" height=\"60\" rx=\"8\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/>\n<text x=\"836\" y=\"188\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">INTERVENCIÓN informa</text>\n<text x=\"836\" y=\"206\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">y se remite al PLENO</text>\n<text x=\"836\" y=\"220\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">antes del 15 de OCTUBRE · 168.4</text>\n<rect x=\"146\" y=\"238\" width=\"806\" height=\"60\" rx=\"8\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/>\n<text x=\"549\" y=\"258\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">168.5 · El acuerdo de aprobación es ÚNICO</text>\n<text x=\"549\" y=\"278\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">detalla todos los presupuestos que integran el general y ninguno puede aprobarse por separado</text>\n</g>\n<path d=\"M480 302 L 480 322\" stroke=\"var(--acc)\" stroke-width=\"2.5\" marker-end=\"url(#fl)\"/>\n\n<!-- ============ FASE 3 ============ -->\n<g data-f=\"3\">\n<rect x=\"8\" y=\"330\" width=\"120\" height=\"212\" rx=\"10\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/>\n<text x=\"68\" y=\"410\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">3</text>\n<text x=\"68\" y=\"432\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"#fff\">APROBACIÓN</text>\n<text x=\"68\" y=\"450\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">169 a 171</text>\n<text x=\"68\" y=\"472\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">año N−1</text>\n<rect x=\"146\" y=\"330\" width=\"220\" height=\"56\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"256\" y=\"352\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">Aprobación INICIAL por el Pleno</text>\n<text x=\"256\" y=\"371\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">anuncio en el BOP · 169.1</text>\n<path d=\"M370 358 L 404 358\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<rect x=\"408\" y=\"330\" width=\"200\" height=\"56\" rx=\"8\" fill=\"var(--panel)\" stroke=\"var(--line)\"/>\n<text x=\"508\" y=\"352\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\">Exposición al público</text>\n<text x=\"508\" y=\"371\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">15 DÍAS · 169.1</text>\n<path d=\"M612 358 L 646 358\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<path d=\"M760 330 L 860 358 L 760 386 L 660 358 z\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\" stroke-width=\"2\"/>\n<text x=\"760\" y=\"354\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">¿Reclamaciones?</text>\n<text x=\"760\" y=\"371\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">art. 170</text>\n<text x=\"880\" y=\"352\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--exc)\">SÍ</text>\n<path d=\"M862 358 L 900 358 L 900 400 L 640 400\" stroke=\"var(--exc)\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#fr)\"/>\n<rect x=\"380\" y=\"396\" width=\"256\" height=\"56\" rx=\"8\" fill=\"var(--exc-bg)\" stroke=\"var(--exc)\"/>\n<text x=\"508\" y=\"418\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">El Pleno resuelve en 1 MES</text>\n<text x=\"508\" y=\"437\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">causas tasadas del 170.2 · recurso: 171</text>\n<text x=\"742\" y=\"404\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ej)\">NO → definitivamente aprobado</text>\n<path d=\"M508 456 L 508 476\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<rect x=\"290\" y=\"482\" width=\"300\" height=\"56\" rx=\"8\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/>\n<text x=\"440\" y=\"504\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">Aprobación DEFINITIVA antes del 31-DIC</text>\n<text x=\"440\" y=\"523\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">169.2 · publicación resumida por capítulos · 169.3 · entra en vigor · 169.5</text>\n<rect x=\"608\" y=\"482\" width=\"344\" height=\"56\" rx=\"8\" fill=\"var(--exc-bg)\" stroke=\"var(--exc)\"/>\n<text x=\"780\" y=\"502\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">Si no se aprueba: PRÓRROGA AUTOMÁTICA (169.6)</text>\n<text x=\"780\" y=\"520\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">se prorrogan los créditos INICIALES del anterior</text>\n<text x=\"780\" y=\"533\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">sin los créditos para gastos de servicios ya terminados</text>\n</g>\n<path d=\"M480 546 L 480 566\" stroke=\"var(--acc)\" stroke-width=\"2.5\" marker-end=\"url(#fl)\"/>\n\n<!-- ============ FASE 4 ============ -->\n<g data-f=\"4\">\n<rect x=\"8\" y=\"574\" width=\"120\" height=\"266\" rx=\"10\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/>\n<text x=\"68\" y=\"676\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">4</text>\n<text x=\"68\" y=\"698\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"#fff\">EJECUCIÓN</text>\n<text x=\"68\" y=\"716\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">172 a 190</text>\n<text x=\"68\" y=\"738\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">194 a 207</text>\n<text x=\"68\" y=\"760\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">año N</text>\n<rect x=\"146\" y=\"574\" width=\"290\" height=\"70\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"291\" y=\"594\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">172-176 · Los créditos</text>\n<text x=\"291\" y=\"612\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">limitativos y vinculantes (172.2) · el nivel, por vía reglamentaria</text>\n<text x=\"291\" y=\"626\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">temporalidad (176) · baja por anulación (175)</text>\n<text x=\"291\" y=\"640\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--exc)\">173.5 · nulos los gastos sin crédito</text>\n<path d=\"M296 654 L 296 672\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<path d=\"M296 676 L 400 706 L 296 736 L 192 706 z\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\" stroke-width=\"2\"/>\n<text x=\"296\" y=\"702\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">¿Hay crédito</text>\n<text x=\"296\" y=\"719\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">suficiente?</text>\n<text x=\"296\" y=\"756\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ej)\">SÍ ↓ se ejecuta</text>\n<path d=\"M404 706 L 440 706\" stroke=\"var(--exc)\" stroke-width=\"2\" marker-end=\"url(#fr)\"/>\n<rect x=\"444\" y=\"656\" width=\"240\" height=\"100\" rx=\"8\" fill=\"var(--exc-bg)\" stroke=\"var(--exc)\"/>\n<text x=\"564\" y=\"676\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">NO → MODIFICACIÓN (177-182)</text>\n<text x=\"564\" y=\"694\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">177 crédito extraordinario / suplemento</text>\n<text x=\"564\" y=\"708\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">178 ampliables · 179-180 transferencias</text>\n<text x=\"564\" y=\"722\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">181 generación · 182 incorporación</text>\n<text x=\"564\" y=\"742\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--exc)\">las del Pleno siguen los trámites del 169</text>\n<rect x=\"700\" y=\"574\" width=\"252\" height=\"70\" rx=\"8\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/>\n<text x=\"826\" y=\"594\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">184 · Las cuatro fases del gasto (183-189)</text>\n<text x=\"826\" y=\"614\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">A → D → O → P</text>\n<text x=\"826\" y=\"632\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">autorización · disposición · obligación · pago</text>\n<rect x=\"700\" y=\"656\" width=\"252\" height=\"100\" rx=\"8\" fill=\"var(--panel)\" stroke=\"var(--line)\"/>\n<text x=\"826\" y=\"676\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\">194-207 · Tesorería y contabilidad</text>\n<text x=\"826\" y=\"694\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">caja y cuentas · plan de disposición de fondos</text>\n<text x=\"826\" y=\"708\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">operaciones de tesorería · 199</text>\n<text x=\"826\" y=\"722\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">contabilidad: 200 a 207</text>\n<text x=\"826\" y=\"742\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">es el soporte de todo lo demás</text>\n<rect x=\"146\" y=\"770\" width=\"806\" height=\"70\" rx=\"8\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/>\n<text x=\"549\" y=\"790\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">EN PARALELO, SIEMPRE: la función interventora (214 a 218)</text>\n<text x=\"549\" y=\"808\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">fiscalización previa → ¿reparo? → si es SUSPENSIVO (216.2) se para el expediente</text>\n<text x=\"549\" y=\"826\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">discrepancia: resuelve el PRESIDENTE (217.1, indelegable) · el PLENO si es por crédito o competencia suya (217.2)</text>\n</g>\n<path d=\"M480 844 L 480 864\" stroke=\"var(--acc)\" stroke-width=\"2.5\" marker-end=\"url(#fl)\"/>\n\n<!-- ============ FASE 5 ============ -->\n<g data-f=\"5\">\n<rect x=\"8\" y=\"872\" width=\"120\" height=\"188\" rx=\"10\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/>\n<text x=\"68\" y=\"940\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">5</text>\n<text x=\"68\" y=\"962\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"#fff\">LIQUIDACIÓN</text>\n<text x=\"68\" y=\"980\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">191 a 193 bis</text>\n<text x=\"68\" y=\"1002\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">31-DIC año N</text>\n<text x=\"68\" y=\"1022\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">a 1-MAR año N+1</text>\n<rect x=\"146\" y=\"872\" width=\"230\" height=\"66\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"261\" y=\"892\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">191.1 · Cierre el 31 de diciembre</text>\n<text x=\"261\" y=\"910\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">lo pendiente pasa a la Tesorería</text>\n<text x=\"261\" y=\"926\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">y los créditos no comprometidos se anulan (175)</text>\n<path d=\"M380 905 L 414 905\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<rect x=\"418\" y=\"872\" width=\"230\" height=\"66\" rx=\"8\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/>\n<text x=\"533\" y=\"892\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">191.2 · REMANENTE DE TESORERÍA</text>\n<text x=\"533\" y=\"910\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">obligaciones pendientes + derechos pendientes</text>\n<text x=\"533\" y=\"926\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">+ fondos líquidos − dudoso cobro</text>\n<path d=\"M652 905 L 686 905\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<rect x=\"690\" y=\"872\" width=\"262\" height=\"66\" rx=\"8\" fill=\"var(--panel)\" stroke=\"var(--line)\"/>\n<text x=\"821\" y=\"892\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\">191.3 · Liquidación</text>\n<text x=\"821\" y=\"910\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">antes del 1 de MARZO</text>\n<text x=\"821\" y=\"926\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">la aprueba el PRESIDENTE, previo informe de Intervención</text>\n<path d=\"M533 942 L 533 962\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<path d=\"M533 966 L 660 996 L 533 1026 L 406 996 z\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\" stroke-width=\"2\"/>\n<text x=\"533\" y=\"992\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">¿Remanente de tesorería</text>\n<text x=\"533\" y=\"1009\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">NEGATIVO?</text>\n<path d=\"M664 996 L 698 996\" stroke=\"var(--exc)\" stroke-width=\"2\" marker-end=\"url(#fr)\"/>\n<rect x=\"702\" y=\"962\" width=\"250\" height=\"68\" rx=\"8\" fill=\"var(--exc-bg)\" stroke=\"var(--exc)\"/>\n<text x=\"827\" y=\"982\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">193 · Tres remedios EN ORDEN</text>\n<text x=\"827\" y=\"1000\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">1.º reducir gastos en la primera sesión</text>\n<text x=\"827\" y=\"1014\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">2.º operación de crédito (177.5)</text>\n<text x=\"827\" y=\"1028\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">3.º superávit inicial en el presupuesto siguiente</text>\n<rect x=\"146\" y=\"994\" width=\"250\" height=\"66\" rx=\"8\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/>\n<text x=\"271\" y=\"1014\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">193.4 · Se da cuenta al PLENO</text>\n<text x=\"271\" y=\"1032\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">en la primera sesión que celebre</text>\n<text x=\"271\" y=\"1048\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">193.5 · copia al Estado y a la comunidad autónoma</text>\n</g>\n<path d=\"M480 1064 L 480 1084\" stroke=\"var(--acc)\" stroke-width=\"2.5\" marker-end=\"url(#fl)\"/>\n\n<!-- ============ FASE 6 ============ -->\n<g data-f=\"6\">\n<rect x=\"8\" y=\"1092\" width=\"120\" height=\"222\" rx=\"10\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/>\n<text x=\"68\" y=\"1176\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#fff\">6</text>\n<text x=\"68\" y=\"1198\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"#fff\">CUENTA Y</text>\n<text x=\"68\" y=\"1216\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"#fff\">CONTROL</text>\n<text x=\"68\" y=\"1236\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">208 a 223</text>\n<text x=\"68\" y=\"1258\" text-anchor=\"middle\" font-size=\"10\" fill=\"#fff\">año N+1</text>\n<rect x=\"146\" y=\"1092\" width=\"196\" height=\"62\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"244\" y=\"1112\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">212.1 · Rinde el Presidente</text>\n<text x=\"244\" y=\"1130\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">antes del 15 de MAYO</text>\n<text x=\"244\" y=\"1146\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">la forma la Intervención (208-209)</text>\n<path d=\"M346 1123 L 376 1123\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<rect x=\"380\" y=\"1092\" width=\"196\" height=\"62\" rx=\"8\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/>\n<text x=\"478\" y=\"1112\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">212.2 · Comisión Especial</text>\n<text x=\"478\" y=\"1130\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">antes del 1 de JUNIO</text>\n<text x=\"478\" y=\"1146\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">con miembros de todos los grupos</text>\n<path d=\"M580 1123 L 610 1123\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<rect x=\"614\" y=\"1092\" width=\"164\" height=\"62\" rx=\"8\" fill=\"var(--panel)\" stroke=\"var(--line)\"/>\n<text x=\"696\" y=\"1112\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\">212.3 · Exposición</text>\n<text x=\"696\" y=\"1130\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">15 DÍAS</text>\n<text x=\"696\" y=\"1146\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">reclamaciones y reparos</text>\n<path d=\"M782 1123 L 812 1123\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<rect x=\"816\" y=\"1092\" width=\"136\" height=\"62\" rx=\"8\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/>\n<text x=\"884\" y=\"1112\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">212.4 · PLENO</text>\n<text x=\"884\" y=\"1130\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">antes del 1-OCT</text>\n<text x=\"884\" y=\"1146\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">aprueba o rechaza</text>\n<path d=\"M884 1158 L 884 1178\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#fl)\"/>\n<rect x=\"614\" y=\"1184\" width=\"338\" height=\"60\" rx=\"8\" fill=\"var(--exc-bg)\" stroke=\"var(--exc)\"/>\n<text x=\"783\" y=\"1206\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">223.2 · Rendición al TRIBUNAL DE CUENTAS</text>\n<text x=\"783\" y=\"1226\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"currentColor\">antes del 15 de OCTUBRE</text>\n<text x=\"783\" y=\"1240\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">control externo · sin perjuicio de los OCEX autonómicos (223.4)</text>\n<rect x=\"146\" y=\"1184\" width=\"440\" height=\"60\" rx=\"8\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/>\n<text x=\"366\" y=\"1204\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">213-222 · Control interno, en tres modalidades</text>\n<text x=\"366\" y=\"1222\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">función interventora · control financiero · control de eficacia</text>\n<text x=\"366\" y=\"1238\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">218.3 · las resoluciones contrarias a reparos se remiten anualmente al Tribunal de Cuentas</text>\n<rect x=\"146\" y=\"1256\" width=\"806\" height=\"52\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"549\" y=\"1277\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">Y el ciclo vuelve a empezar: la LIQUIDACIÓN del ejercicio N es documento obligatorio del presupuesto N+1</text>\n<text x=\"549\" y=\"1296\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">art. 168.1.b) · por eso el tema 8 no es una lista de trámites, sino un bucle</text>\n</g>\n</svg>\n<div class=\"box ej\"><span class=\"lbl\">Cómo leer el diagrama</span>De arriba abajo, el <b>camino ordinario</b>. Los <b>rombos ámbar</b> son las tres preguntas que lo bifurcan todo: <b>¿hay reclamaciones?</b> (art. 170), <b>¿hay crédito?</b> (arts. 177 a 182) y <b>¿el remanente es negativo?</b> (art. 193). Los recuadros rojos son las salidas cuando la respuesta no es la ordinaria.</div>\n</section>\n\n<section class=\"card\" id=\"tiempo\"><h2>Línea temporal: el ciclo ocupa tres años naturales</h2>\n<p class=\"small\">Este es el error de perspectiva más frecuente del tema: pensar que el presupuesto «vive» un año. En realidad, el ciclo completo de un ejercicio <b>N</b> se extiende desde septiembre de <b>N−1</b> hasta octubre de <b>N+1</b>: veintiséis meses.</p>\n<svg viewBox=\"0 0 960 320\" role=\"img\" aria-label=\"Línea temporal del ciclo presupuestario a lo largo de tres años naturales\" style=\"width:100%;height:auto\">\n<defs><marker id=\"tl\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--ink2)\"/></marker></defs>\n<rect x=\"20\" y=\"24\" width=\"290\" height=\"26\" rx=\"6\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"165\" y=\"42\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">AÑO N−1 · se prepara</text>\n<rect x=\"318\" y=\"24\" width=\"290\" height=\"26\" rx=\"6\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/>\n<text x=\"463\" y=\"42\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">AÑO N · se ejecuta</text>\n<rect x=\"616\" y=\"24\" width=\"324\" height=\"26\" rx=\"6\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/>\n<text x=\"778\" y=\"42\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">AÑO N+1 · se liquida y se controla</text>\n<line x1=\"20\" y1=\"150\" x2=\"930\" y2=\"150\" stroke=\"var(--line)\" stroke-width=\"4\"/>\n<path d=\"M930 150 L 946 150\" stroke=\"var(--ink2)\" stroke-width=\"2\" marker-end=\"url(#tl)\"/>\n<line x1=\"314\" y1=\"60\" x2=\"314\" y2=\"240\" stroke=\"var(--line)\" stroke-dasharray=\"4 4\"/>\n<line x1=\"612\" y1=\"60\" x2=\"612\" y2=\"240\" stroke=\"var(--line)\" stroke-dasharray=\"4 4\"/>\n<g font-size=\"10\" text-anchor=\"middle\">\n <circle cx=\"70\" cy=\"150\" r=\"7\" fill=\"var(--acc)\"/><line x1=\"70\" y1=\"150\" x2=\"70\" y2=\"110\" stroke=\"var(--acc)\"/>\n <text x=\"70\" y=\"102\" font-weight=\"700\" fill=\"var(--acc)\">15-SEP</text><text x=\"70\" y=\"88\" fill=\"currentColor\">OOAA y sociedades</text><text x=\"70\" y=\"76\" fill=\"var(--ink2)\">168.2 y 168.3</text>\n <circle cx=\"170\" cy=\"150\" r=\"7\" fill=\"var(--acc)\"/><line x1=\"170\" y1=\"150\" x2=\"170\" y2=\"190\" stroke=\"var(--acc)\"/>\n <text x=\"170\" y=\"204\" font-weight=\"700\" fill=\"var(--acc)\">15-OCT</text><text x=\"170\" y=\"218\" fill=\"currentColor\">al Pleno</text><text x=\"170\" y=\"230\" fill=\"var(--ink2)\">168.4</text>\n <circle cx=\"240\" cy=\"150\" r=\"7\" fill=\"var(--acc)\"/><line x1=\"240\" y1=\"150\" x2=\"240\" y2=\"110\" stroke=\"var(--acc)\"/>\n <text x=\"240\" y=\"102\" font-weight=\"700\" fill=\"var(--acc)\">15 días + 1 mes</text><text x=\"240\" y=\"88\" fill=\"currentColor\">exposición y reclamaciones</text><text x=\"240\" y=\"76\" fill=\"var(--ink2)\">169.1</text>\n <circle cx=\"305\" cy=\"150\" r=\"7\" fill=\"var(--exc)\"/><line x1=\"305\" y1=\"150\" x2=\"305\" y2=\"190\" stroke=\"var(--exc)\"/>\n <text x=\"305\" y=\"204\" font-weight=\"700\" fill=\"var(--exc)\">31-DIC</text><text x=\"305\" y=\"218\" fill=\"currentColor\">aprobación definitiva</text><text x=\"305\" y=\"230\" fill=\"var(--ink2)\">169.2 · si no: prórroga</text>\n <circle cx=\"463\" cy=\"150\" r=\"7\" fill=\"var(--ej)\"/><line x1=\"463\" y1=\"150\" x2=\"463\" y2=\"106\" stroke=\"var(--ej)\"/>\n <text x=\"463\" y=\"98\" font-weight=\"700\" fill=\"var(--ej)\">1-ENE a 31-DIC del año N</text><text x=\"463\" y=\"84\" fill=\"currentColor\">ejecución: A · D · O · P (183-189)</text><text x=\"463\" y=\"72\" fill=\"var(--ink2)\">modificaciones 177-182 · fiscalización 214-218</text>\n <circle cx=\"612\" cy=\"150\" r=\"7\" fill=\"var(--exc)\"/><line x1=\"612\" y1=\"150\" x2=\"612\" y2=\"190\" stroke=\"var(--exc)\"/>\n <text x=\"612\" y=\"204\" font-weight=\"700\" fill=\"var(--exc)\">31-DIC</text><text x=\"612\" y=\"218\" fill=\"currentColor\">cierre del ejercicio</text><text x=\"612\" y=\"230\" fill=\"var(--ink2)\">191.1 · anulación 175</text>\n <circle cx=\"690\" cy=\"150\" r=\"7\" fill=\"var(--warn)\"/><line x1=\"690\" y1=\"150\" x2=\"690\" y2=\"110\" stroke=\"var(--warn)\"/>\n <text x=\"690\" y=\"102\" font-weight=\"700\" fill=\"var(--warn)\">1-MAR</text><text x=\"690\" y=\"88\" fill=\"currentColor\">liquidación</text><text x=\"690\" y=\"76\" fill=\"var(--ink2)\">191.3 · Presidente</text>\n <circle cx=\"770\" cy=\"150\" r=\"7\" fill=\"var(--warn)\"/><line x1=\"770\" y1=\"150\" x2=\"770\" y2=\"190\" stroke=\"var(--warn)\"/>\n <text x=\"770\" y=\"204\" font-weight=\"700\" fill=\"var(--warn)\">15-MAY</text><text x=\"770\" y=\"218\" fill=\"currentColor\">rendición de cuentas</text><text x=\"770\" y=\"230\" fill=\"var(--ink2)\">212.1</text>\n <circle cx=\"835\" cy=\"150\" r=\"7\" fill=\"var(--warn)\"/><line x1=\"835\" y1=\"150\" x2=\"835\" y2=\"110\" stroke=\"var(--warn)\"/>\n <text x=\"835\" y=\"102\" font-weight=\"700\" fill=\"var(--warn)\">1-JUN</text><text x=\"835\" y=\"88\" fill=\"currentColor\">Comisión Especial</text><text x=\"835\" y=\"76\" fill=\"var(--ink2)\">212.2 · + 15 días de exposición</text>\n <circle cx=\"890\" cy=\"150\" r=\"7\" fill=\"var(--exc)\"/><line x1=\"890\" y1=\"150\" x2=\"890\" y2=\"190\" stroke=\"var(--exc)\"/>\n <text x=\"890\" y=\"204\" font-weight=\"700\" fill=\"var(--exc)\">1-OCT</text><text x=\"890\" y=\"218\" fill=\"currentColor\">Pleno aprueba</text><text x=\"890\" y=\"230\" fill=\"var(--ink2)\">212.4</text>\n <circle cx=\"928\" cy=\"150\" r=\"7\" fill=\"var(--exc)\"/><line x1=\"928\" y1=\"150\" x2=\"928\" y2=\"118\" stroke=\"var(--exc)\"/>\n <text x=\"920\" y=\"110\" font-weight=\"700\" fill=\"var(--exc)\">15-OCT</text><text x=\"905\" y=\"96\" fill=\"currentColor\">Tribunal de Cuentas</text><text x=\"905\" y=\"84\" fill=\"var(--ink2)\">223.2</text>\n</g>\n<rect x=\"20\" y=\"256\" width=\"910\" height=\"50\" rx=\"8\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/>\n<text x=\"475\" y=\"276\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">El 15 de octubre aparece DOS VECES y no significa lo mismo</text>\n<text x=\"475\" y=\"295\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">en el año N−1, el presupuesto al Pleno (168.4) · en el año N+1, la cuenta general al Tribunal de Cuentas (223.2)</text>\n</svg>\n</section>\n\n<section class=\"card\" id=\"decisiones\"><h2>Los dos árboles de decisión que resuelven el 80 % de los casos</h2>\n<p class=\"small\">En la práctica, casi todo expediente presupuestario se atasca en una de estas dos encrucijadas. Merece la pena tenerlas memorizadas como un algoritmo.</p>\n<h3 style=\"font-size:1rem;margin-top:1rem\">A · Quiero gastar y no tengo crédito: ¿qué modificación uso?</h3>\n<svg viewBox=\"0 0 960 400\" role=\"img\" aria-label=\"Árbol de decisión para elegir la modificación de crédito procedente\" style=\"width:100%;height:auto\">\n<defs><marker id=\"d1\" markerWidth=\"9\" markerHeight=\"9\" refX=\"8\" refY=\"4.5\" orient=\"auto\"><path d=\"M0 0 L9 4.5 L0 9 z\" fill=\"var(--acc)\"/></marker></defs>\n<rect x=\"330\" y=\"10\" width=\"300\" height=\"44\" rx=\"9\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/>\n<text x=\"480\" y=\"38\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"#fff\">Necesito gastar y el crédito no basta</text>\n<path d=\"M480 56 L 480 76\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#d1)\"/>\n<path d=\"M480 80 L 640 112 L 480 144 L 320 112 z\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\" stroke-width=\"2\"/>\n<text x=\"480\" y=\"108\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">¿De dónde sale el dinero?</text>\n<text x=\"480\" y=\"126\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--ink2)\">esta es la pregunta que decide, no el importe</text>\n<path d=\"M320 112 L 150 112 L 150 186\" stroke=\"var(--acc)\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#d1)\"/>\n<path d=\"M640 112 L 810 112 L 810 186\" stroke=\"var(--acc)\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#d1)\"/>\n<path d=\"M480 144 L 480 186\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#d1)\"/>\n<rect x=\"20\" y=\"192\" width=\"260\" height=\"94\" rx=\"8\" fill=\"var(--exc-bg)\" stroke=\"var(--exc)\"/>\n<text x=\"150\" y=\"214\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">Dinero NUEVO</text>\n<text x=\"150\" y=\"234\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">remanente líquido de tesorería,</text>\n<text x=\"150\" y=\"248\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">mayores ingresos, bajas de otras partidas</text>\n<text x=\"150\" y=\"268\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">177 · crédito extraordinario</text>\n<text x=\"150\" y=\"282\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">o suplemento de crédito</text>\n<rect x=\"350\" y=\"192\" width=\"260\" height=\"94\" rx=\"8\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/>\n<text x=\"480\" y=\"214\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">Dinero que YA ESTÁ en otra partida</text>\n<text x=\"480\" y=\"236\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">179-180 · transferencia de crédito</text>\n<text x=\"480\" y=\"256\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">entre distintos grupos de función: PLENO</text>\n<text x=\"480\" y=\"272\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">salvo que altas y bajas afecten a personal</text>\n<rect x=\"680\" y=\"192\" width=\"260\" height=\"94\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"810\" y=\"214\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">Dinero que ENTRA por un ingreso</text>\n<text x=\"810\" y=\"234\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">subvención, enajenación, reintegro…</text>\n<text x=\"810\" y=\"254\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">181 · generación de crédito</text>\n<text x=\"810\" y=\"274\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">178 · ampliación si el crédito es ampliable</text>\n<rect x=\"220\" y=\"306\" width=\"520\" height=\"76\" rx=\"8\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/>\n<text x=\"480\" y=\"326\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">Caso especial: el gasto viene del ejercicio anterior</text>\n<text x=\"480\" y=\"346\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"currentColor\">182 · incorporación de remanentes de crédito</text>\n<text x=\"480\" y=\"364\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">obligatoria en proyectos con ingresos afectados (182.3) · potestativa en los demás</text>\n</svg>\n<h3 style=\"font-size:1rem;margin-top:1.4rem\">B · La Intervención pone un reparo: ¿se para el expediente y quién decide?</h3>\n<svg viewBox=\"0 0 960 350\" role=\"img\" aria-label=\"Árbol de decisión sobre los efectos del reparo y la resolución de discrepancias\" style=\"width:100%;height:auto\">\n<defs><marker id=\"d2\" markerWidth=\"9\" markerHeight=\"9\" refX=\"8\" refY=\"4.5\" orient=\"auto\"><path d=\"M0 0 L9 4.5 L0 9 z\" fill=\"var(--acc)\"/></marker></defs>\n<rect x=\"350\" y=\"10\" width=\"260\" height=\"42\" rx=\"9\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/>\n<text x=\"480\" y=\"37\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"#fff\">Reparo de la Intervención (215)</text>\n<path d=\"M480 54 L 480 72\" stroke=\"var(--acc)\" stroke-width=\"2\" marker-end=\"url(#d2)\"/>\n<path d=\"M480 76 L 660 106 L 480 136 L 300 106 z\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\" stroke-width=\"2\"/>\n<text x=\"480\" y=\"102\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">¿Afecta a gastos y encaja</text>\n<text x=\"480\" y=\"120\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">en alguna letra del 216.2?</text>\n<path d=\"M300 106 L 170 106 L 170 158\" stroke=\"var(--acc)\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#d2)\"/>\n<path d=\"M660 106 L 790 106 L 790 158\" stroke=\"var(--acc)\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#d2)\"/>\n<rect x=\"30\" y=\"164\" width=\"280\" height=\"86\" rx=\"8\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/>\n<text x=\"170\" y=\"186\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">NO · reparo NO suspensivo</text>\n<text x=\"170\" y=\"206\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">p. ej. reparo sobre reconocimiento</text>\n<text x=\"170\" y=\"220\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">o liquidación de DERECHOS (216.1)</text>\n<text x=\"170\" y=\"240\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">el expediente SIGUE</text>\n<rect x=\"650\" y=\"164\" width=\"290\" height=\"86\" rx=\"8\" fill=\"var(--exc-bg)\" stroke=\"var(--exc)\"/>\n<text x=\"795\" y=\"186\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">SÍ · reparo SUSPENSIVO (216.2)</text>\n<text x=\"795\" y=\"204\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">a) insuficiencia o inadecuación de crédito</text>\n<text x=\"795\" y=\"218\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">b) actos no fiscalizados · c) omisión de trámites esenciales</text>\n<text x=\"795\" y=\"232\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">d) comprobación material de obras, suministros y servicios</text>\n<text x=\"795\" y=\"246\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">el expediente SE PARA</text>\n<path d=\"M795 252 L 795 272\" stroke=\"var(--exc)\" stroke-width=\"2\" marker-end=\"url(#d2)\"/>\n<rect x=\"330\" y=\"276\" width=\"300\" height=\"62\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/>\n<text x=\"480\" y=\"296\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">Discrepancia (217): ¿quién resuelve?</text>\n<text x=\"480\" y=\"314\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">regla: el PRESIDENTE, y es INDELEGABLE (217.1)</text>\n<text x=\"480\" y=\"330\" text-anchor=\"middle\" font-size=\"10\" fill=\"var(--exc)\">el PLENO si el reparo es por crédito o por competencia suya (217.2)</text>\n<path d=\"M650 306 L 634 306\" stroke=\"var(--exc)\" stroke-width=\"2\"/>\n<path d=\"M795 276 L 795 306 L 634 306\" stroke=\"var(--exc)\" stroke-width=\"2\" fill=\"none\"/>\n<rect x=\"30\" y=\"276\" width=\"280\" height=\"62\" rx=\"8\" fill=\"var(--panel)\" stroke=\"var(--line)\"/>\n<text x=\"170\" y=\"296\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\">Después, siempre (218)</text>\n<text x=\"170\" y=\"314\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">informe al Pleno como punto independiente</text>\n<text x=\"170\" y=\"330\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">y remisión anual al Tribunal de Cuentas</text>\n</svg>\n</section>\n";
+</script>
+<script>
+document.getElementById('main').innerHTML+="\n<section class=\"card\" id=\"caso1\"><h2>Caso práctico integral 1 · Un ejercicio completo, de principio a fin</h2>\n<div class=\"box warn\"><span class=\"lbl\">Advertencia</span>La entidad es <b>ficticia</b>; las fechas, cifras y trámites son <b>verosímiles</b> y están calculados sobre los plazos reales del TRLHL. No se trata de un caso real ni de asesoramiento sobre uno.</div>\n<p><b>El escenario.</b> <b>Ayuntamiento de Vilaverde del Río</b>, 18.400 habitantes. Presupuesto general del <b>ejercicio 2026</b>, integrado por: el de la propia entidad (24,6 M€), el del <b>Patronato Municipal de Deportes</b> —organismo autónomo administrativo— (1,8 M€) y los estados de previsión de <b>Aguas de Vilaverde, S.A.</b>, sociedad de capital <b>íntegramente municipal</b> (4,2 M€).</p>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.2rem\">Fase 1 · Qué se está aprobando (arts. 162 a 167)</h3>\n<p>Lo primero que hay que tener claro es <b>qué</b> es cada cosa, porque de ahí depende todo lo demás:</p>\n<table><thead><tr><th>Ente</th><th>Qué aporta</th><th>Artículo</th></tr></thead><tbody>\n<tr><td>Ayuntamiento</td><td>Su <b>presupuesto</b>: obligaciones que como máximo puede reconocer y derechos que prevé liquidar</td><td>162 y 164.1.a)</td></tr>\n<tr><td>Patronato de Deportes</td><td>Su <b>presupuesto</b>, propuesto inicialmente por su órgano competente</td><td>164.1.b) y 168.2</td></tr>\n<tr><td>Aguas de Vilaverde, S.A.</td><td><b>Estados de previsión</b> de gastos e ingresos, no «presupuesto»</td><td>164.1.c) y 168.3</td></tr>\n</tbody></table>\n<p class=\"small\">Los tres se integran en un <b>presupuesto general</b> que se aprueba por <b>acuerdo único</b> (art. 168.5): ninguno puede aprobarse por separado. Y al general se le unen los <b>cuatro anexos</b> del art. 166: plan de inversiones a <b>cuatro años</b>, programas de las sociedades, estado de consolidación y estado de la deuda.</p>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.2rem\">Fase 2 · Elaboración, otoño de 2025 (art. 168)</h3>\n<table><thead><tr><th>Fecha</th><th>Actuación</th><th>Artículo</th></tr></thead><tbody>\n<tr><td><b>8-SEP-2025</b></td><td>El Patronato aprueba su propuesta de presupuesto y la remite al Ayuntamiento</td><td>168.2 · <b>antes del 15-SEP</b></td></tr>\n<tr><td><b>11-SEP-2025</b></td><td>Aguas de Vilaverde remite previsiones de gastos e ingresos y su programa anual de actuación, inversiones y financiación</td><td>168.3 · <b>antes del 15-SEP</b></td></tr>\n<tr><td><b>29-SEP-2025</b></td><td>La <b>Alcaldía</b> forma el presupuesto general con los siete documentos del art. 168.1: memoria, <b>liquidación de 2024 y avance de la de 2025 referido al menos a seis meses</b>, anexo de personal, anexo de inversiones, anexo de beneficios fiscales, anexo de convenios de gasto social e <b>informe económico-financiero</b></td><td>168.1</td></tr>\n<tr><td><b>3-OCT-2025</b></td><td>La <b>Intervención</b> emite su informe</td><td>168.4</td></tr>\n<tr><td><b>9-OCT-2025</b></td><td>Se remite al <b>Pleno</b> para su aprobación, enmienda o devolución</td><td>168.4 · <b>antes del 15-OCT</b></td></tr>\n</tbody></table>\n<details class=\"panel\"><summary>¿Por qué el informe económico-financiero es el documento clave del expediente?</summary><div class=\"body\"><p>Porque es donde se acredita la <b>efectiva nivelación</b> del presupuesto (art. 168.1.g): expone las bases de evaluación de los ingresos y de las operaciones de crédito y la suficiencia de los créditos para atender las obligaciones exigibles. Sin él, el <b>principio de que cada presupuesto se aprueba sin déficit inicial</b> (art. 165.4) sería una afirmación sin respaldo. Es, además, el documento que suele sostener o derribar una reclamación fundada en el art. <b>170.2.c)</b> —manifiesta insuficiencia de ingresos respecto de los gastos—.</p></div></details>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.2rem\">Fase 3 · Aprobación (arts. 169 a 171)</h3>\n<p>El Pleno aprueba <b>inicialmente</b> el 30 de octubre. Se publica anuncio en el <b>Boletín Oficial de la Provincia</b> y se expone al público <b>15 días</b> (art. 169.1). Durante ese plazo:</p>\n<div class=\"box ej\"><span class=\"lbl\">La reclamación</span>La <b>Asociación de Vecinos del Barrio Norte</b> —entidad legalmente constituida para velar por intereses vecinales, art. <b>170.1.c)</b>— presenta reclamación alegando que <b>no figura crédito</b> para atender una obligación exigible: una sentencia firme que condena al Ayuntamiento a ejecutar la urbanización de un tramo de acera. Encaja exactamente en el art. <b>170.2.b)</b>.</div>\n<p>Presentada la reclamación, el presupuesto <b>no</b> queda automáticamente aprobado: el Pleno dispone de <b>un mes</b> para resolverla (art. 169.1). Lo hace el <b>15 de diciembre</b>, estimándola parcialmente y consignando 78.000 € en la aplicación <b>1532/61900</b>.</p>\n<details class=\"panel\"><summary>¿De dónde sale ese número, 1532/61900?</summary><div class=\"body\"><p>Es la <b>aplicación presupuestaria</b>: el cruce de la clasificación <b>por programas</b> y de la <b>económica</b> (art. 167 y Orden EHA/3565/2008). <b>153</b> es el grupo de programa de vías públicas y <b>1532</b> el programa de pavimentación; <b>619</b> es el concepto económico de «otras inversiones de reposición en infraestructuras y bienes destinados al uso general». Sin dominar el art. 167 y la Orden, el presupuesto es una lista de números sin sentido; con ellos, cada euro tiene dirección postal.</p></div></details>\n<table><thead><tr><th>Fecha</th><th>Actuación</th><th>Artículo</th></tr></thead><tbody>\n<tr><td><b>22-DIC-2025</b></td><td>Aprobación <b>definitiva</b> por el Pleno</td><td>169.2 · <b>antes del 31-DIC</b></td></tr>\n<tr><td><b>29-DIC-2025</b></td><td>Publicación <b>resumida por capítulos</b> en el BOP; copia al Estado y a la comunidad autónoma, <b>simultáneamente</b> al envío al boletín</td><td>169.3 y 169.4</td></tr>\n<tr><td><b>1-ENE-2026</b></td><td><b>Entrada en vigor</b>: el presupuesto solo entra en vigor una vez publicado</td><td>169.5</td></tr>\n</tbody></table>\n<div class=\"box exc\"><span class=\"lbl\">La bifurcación que no ocurrió</span>Si el 31 de diciembre no hubiera habido aprobación definitiva, se habría <b>prorrogado automáticamente</b> el presupuesto de 2025 con sus <b>créditos iniciales</b> —no con los definitivos—, sin incluir los créditos para servicios o programas que <b>terminaban</b> en 2025 (art. 169.6). Y el Ayuntamiento habría empezado el año ejecutando un presupuesto que <b>ya no responde</b> a sus decisiones políticas de 2026: por eso la prórroga es una red de seguridad, no una alternativa.</div>\n<p class=\"small\">Contra la aprobación definitiva cabe <b>recurso contencioso-administrativo directo</b>, que <b>no suspende por sí solo</b> la aplicación del presupuesto (art. 171). Y si la impugnación <b>afecta o se refiere a la nivelación presupuestaria</b>, el <b>Tribunal de Cuentas deberá informar previamente</b> a la resolución del recurso (art. 171.2).</p>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.2rem\">Fase 4 · Ejecución durante 2026 (arts. 172 a 190 y 214 a 218)</h3>\n<p>El art. <b>172.2</b> declara los créditos <b>limitativos y vinculantes</b> y remite los <b>niveles de vinculación</b> a la legislación presupuestaria del Estado, «salvo que reglamentariamente se disponga otra cosa». En la práctica, ese desarrollo es el <b>RD 500/1990</b> <i>(norma externa a la biblioteca)</i>, que permite a cada entidad concretarlos en sus <b>bases de ejecución</b> (art. 165.1). En Vilaverde están fijados en <b>área de gasto y capítulo</b>, y eso es lo que decide cuándo hace falta tramitar una modificación y cuándo no.</p>\n<table><thead><tr><th>Situación real durante 2026</th><th>Respuesta</th><th>Artículo</th></tr></thead><tbody>\n<tr><td>Se necesitan 4.000 € más en «material de oficina» y sobran en «suministros», <b>dentro del mismo capítulo 2 y área de gasto</b></td><td><b>No hay modificación</b>: se está por debajo del nivel de vinculación</td><td>172.2 y bases de ejecución</td></tr>\n<tr><td>Se necesitan 60.000 € en el capítulo 6 y sobran en el capítulo 2 del mismo grupo</td><td><b>Transferencia de crédito</b>; el órgano competente lo fijan las bases</td><td>179.1</td></tr>\n<tr><td>La transferencia es <b>entre distintos grupos de función</b> y no afecta a personal</td><td>La aprueba el <b>Pleno</b>, con los trámites de los arts. 169 a 171</td><td>179.2 y 179.4</td></tr>\n<tr><td>Llega una subvención de la Diputación de 120.000 € no prevista</td><td><b>Generación de crédito</b> por ingresos</td><td>181</td></tr>\n<tr><td>Un gasto urgente sin crédito de ningún tipo</td><td><b>Crédito extraordinario</b> (véase el caso 2)</td><td>177</td></tr>\n</tbody></table>\n<p>Cada gasto recorre las <b>cuatro fases</b> del art. <b>184.1</b>: <b>A</b>utorización → <b>D</b>isposición o compromiso → reconocimiento o liquidación de la <b>O</b>bligación → ordenación del <b>P</b>ago; su contenido se establece <b>reglamentariamente</b> y las competencias están en el art. <b>185</b>. Y en paralelo, la <b>Intervención</b> fiscaliza (arts. 214 a 218). Mientras tanto, la <b>Tesorería</b> (arts. 194 a 199) maneja los fondos con su <b>plan de disposición</b>, y la <b>contabilidad</b> (arts. 200 a 207) registra todo, porque será la materia prima de la liquidación y de la cuenta general.</p>\n<details class=\"panel\"><summary>¿Por qué se dice que el art. 173.5 es «el artículo que da miedo»?</summary><div class=\"body\"><p>Porque declara <b>nulos de pleno derecho</b> los acuerdos, resoluciones y actos administrativos que adopte la entidad con <b>crédito inexistente o insuficiente</b> para su cuantía. No anulables: <b>nulos</b>. Y esa nulidad enlaza con dos consecuencias personales: la <b>responsabilidad</b> del art. 188 y la <b>infracción muy grave</b> del art. <b>28.c) de la Ley 19/2013</b>. Un mismo hecho —comprometer gasto sin crédito— activa a la vez el TRLHL, la LPAC (art. 47.1.g) y la ley de transparencia.</p></div></details>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.2rem\">Fase 5 · Cierre y liquidación (arts. 191 a 193)</h3>\n<table><thead><tr><th>Fecha</th><th>Actuación</th><th>Artículo</th></tr></thead><tbody>\n<tr><td><b>31-DIC-2026</b></td><td>Cierre. Lo pendiente de cobro y de pago queda a cargo de la <b>Tesorería</b>. Los créditos no afectados a obligaciones ya reconocidas quedan <b>anulados de pleno derecho</b>, salvo las excepciones del art. 182</td><td>191.1 y 175</td></tr>\n<tr><td>—</td><td>Se cuantifica el <b>remanente de tesorería</b>: obligaciones reconocidas no satisfechas + derechos pendientes de cobro + fondos líquidos, <b>minorando</b> los derechos de difícil o imposible recaudación y teniendo en cuenta los <b>ingresos afectados</b></td><td>191.2</td></tr>\n<tr><td><b>26-FEB-2027</b></td><td>La <b>Alcaldía</b> aprueba la liquidación, previo <b>informe de la Intervención</b></td><td>191.3 · <b>antes del 1-MAR</b></td></tr>\n<tr><td><b>5-MAR-2027</b></td><td>Se <b>da cuenta al Pleno</b> en la primera sesión que celebra y se remite copia al Estado y a la comunidad autónoma</td><td>193.4 y 193.5</td></tr>\n</tbody></table>\n<div class=\"box warn\"><span class=\"lbl\">Fíjate en quién hace qué</span>El presupuesto lo aprueba el <b>Pleno</b>; la liquidación, el <b>Presidente</b>. Es una de las confusiones más caras del tema, y la explicación es sencilla: aprobar el presupuesto es una <b>decisión política</b>; liquidarlo es una <b>constatación contable</b>.</div>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.2rem\">Fase 6 · Cuenta general y control (arts. 208 a 223)</h3>\n<table><thead><tr><th>Fecha</th><th>Actuación</th><th>Artículo</th></tr></thead><tbody>\n<tr><td><b>12-MAY-2027</b></td><td>La <b>Alcaldía</b> rinde los estados y cuentas; el Patronato y la sociedad remiten los suyos en el mismo plazo</td><td>212.1 · <b>antes del 15-MAY</b></td></tr>\n<tr><td><b>28-MAY-2027</b></td><td>La cuenta general, <b>formada por la Intervención</b>, se somete a informe de la <b>Comisión Especial de Cuentas</b>, con miembros de todos los grupos</td><td>212.2 · <b>antes del 1-JUN</b></td></tr>\n<tr><td><b>2 a 17-JUN-2027</b></td><td>Exposición al público <b>15 días</b>: reclamaciones, reparos u observaciones; la Comisión emite <b>nuevo informe</b></td><td>212.3</td></tr>\n<tr><td><b>24-SEP-2027</b></td><td>El <b>Pleno</b> aprueba la cuenta general</td><td>212.4 · <b>antes del 1-OCT</b></td></tr>\n<tr><td><b>8-OCT-2027</b></td><td>Rendición al <b>Tribunal de Cuentas</b></td><td>223.2 · <b>antes del 15-OCT</b></td></tr>\n</tbody></table>\n<div class=\"box ej\"><span class=\"lbl\">Y el bucle se cierra</span>La <b>liquidación de 2026</b>, aprobada el 26 de febrero de 2027, es <b>documento obligatorio</b> del presupuesto de <b>2028</b> que se está formando en septiembre de 2027 (art. 168.1.b). En ese mismo mes conviven <b>tres ejercicios</b>: se controla 2026, se ejecuta 2027 y se elabora 2028. Entender esa simultaneidad es entender el tema.</div>\n</section>\n\n<section class=\"card\" id=\"caso2\"><h2>Caso práctico integral 2 · Un solo expediente que atraviesa todo el tema</h2>\n<div class=\"box warn\"><span class=\"lbl\">Advertencia</span>Supuesto <b>ficticio</b> construido sobre los preceptos reales del TRLHL. Sirve para ver el <b>encadenamiento</b>, no para resolver un asunto concreto.</div>\n<p><b>El escenario.</b> Marzo de 2026. Un temporal daña la cubierta del <b>Pabellón Municipal de Vilaverde</b>. El informe técnico cifra la reparación en <b>340.000 €</b> y advierte de riesgo para las personas. En el presupuesto de 2026 <b>no existe</b> crédito para esa obra: la aplicación 342/632 está dotada con 15.000 € para pequeñas reparaciones. Seguiremos el expediente hasta el Tribunal de Cuentas.</p>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.1rem\">Paso 1 · La pregunta previa: ¿qué modificación procede? (arts. 177 a 182)</h3>\n<p>Aplicamos el árbol de decisión: <b>¿de dónde sale el dinero?</b> No hay partida de la que detraerlo sin dejar otro servicio sin cobertura, ni ingreso nuevo que generar. Sale del <b>remanente líquido de tesorería</b> de la liquidación de 2025, que fue positivo. Por tanto:</p>\n<ul>\n<li>Como el crédito existe pero es <b>insuficiente</b>, procede <b>suplemento de crédito</b> por 325.000 €; si la aplicación no existiera, sería <b>crédito extraordinario</b>. La distinción está en el art. <b>177.1</b>.</li>\n<li>El gasto <b>no puede demorarse</b> al ejercicio siguiente: es el presupuesto de hecho del art. 177.1.</li>\n<li>El expediente debe ser <b>previamente informado por la Intervención</b> y aprobarse por el <b>Pleno</b>, con los <b>mismos trámites y requisitos</b> que el presupuesto: exposición <b>15 días</b>, reclamaciones del art. 170 y publicidad del art. 169 (art. <b>177.2</b>).</li>\n<li>Debe <b>especificar</b> la concreta partida a incrementar y el <b>recurso</b> que financia el aumento (art. <b>177.4</b>).</li>\n</ul>\n<details class=\"panel\"><summary>¿Cuánto tarda esto realmente? Haz el cálculo</summary><div class=\"body\"><p>Aprobación inicial en Pleno + <b>15 días</b> de exposición + hasta <b>un mes</b> para resolver reclamaciones + publicación. Entre seis y ocho semanas en el mejor de los casos. Ese es el motivo por el que muchas entidades intentan resolver por <b>transferencia</b> (art. 179) lo que en rigor exige un suplemento: es más rápido. Y es exactamente ahí donde aparecen los reparos de la Intervención.</p></div></details>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.1rem\">Paso 2 · El atajo y el reparo (arts. 214 a 218)</h3>\n<div class=\"box exc\"><span class=\"lbl\">Lo que ocurre en la práctica</span>Ante la urgencia, se propone aprobar el gasto <b>antes</b> de que el suplemento esté vigente, con cargo a los 15.000 € existentes y «regularizando después». La Intervención, en <b>fiscalización previa</b> (art. 214), formula <b>reparo</b>.</div>\n<table><thead><tr><th>Pregunta</th><th>Respuesta</th><th>Artículo</th></tr></thead><tbody>\n<tr><td>¿Es un reparo <b>suspensivo</b>?</td><td><b>Sí</b>: se basa en <b>insuficiencia de crédito</b> y afecta a la disposición de gastos</td><td>216.2.a)</td></tr>\n<tr><td>¿Se paraliza el expediente?</td><td><b>Sí</b>, hasta que el reparo sea solventado</td><td>216.2</td></tr>\n<tr><td>¿Quién resuelve la discrepancia?</td><td>El <b>PLENO</b>, porque el reparo se basa en insuficiencia de crédito</td><td>217.2.a)</td></tr>\n<tr><td>¿Podría resolverla la Alcaldía?</td><td><b>No</b> en este caso. La regla general es el Presidente y la facultad es <b>indelegable</b>, pero aquí opera la excepción del 217.2</td><td>217.1 y 217.2</td></tr>\n<tr><td>¿Y si se aprobara igualmente el gasto?</td><td>Acto <b>nulo de pleno derecho</b>, con responsabilidad personal e infracción muy grave</td><td>173.5 y 188 · art. 28.c) Ley 19/2013</td></tr>\n</tbody></table>\n<p>El Pleno del <b>28 de abril</b> hace dos cosas en la misma sesión: <b>resuelve la discrepancia</b> dando la razón a la Intervención y <b>aprueba inicialmente</b> el suplemento de crédito. El expediente se desbloquea por la vía correcta.</p>\n<details class=\"panel\"><summary>¿Qué pasa después con esa resolución de discrepancia?</summary><div class=\"body\"><p>Aunque aquí el Pleno dio la razón a la Intervención, si el Presidente hubiera resuelto <b>en contra</b> del reparo, el órgano interventor habría tenido que <b>elevar informe al Pleno</b> de todas esas resoluciones, como <b>punto independiente del orden del día</b> (art. <b>218.1</b>), y el Presidente habría podido presentar informe justificativo. Además, la Intervención remite <b>anualmente al Tribunal de Cuentas</b> todas las resoluciones y acuerdos contrarios a reparos (art. <b>218.3</b>). Es decir: el reparo no muere en el expediente, viaja hasta el control externo.</p></div></details>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.1rem\">Paso 3 · Vigencia del crédito y ejecución del gasto (arts. 183 a 189)</h3>\n<p>Publicada la aprobación definitiva del suplemento el <b>19 de junio</b>, el crédito existe. A partir de ahí, las cuatro fases:</p>\n<table><thead><tr><th>Fase</th><th>Qué ocurre en este expediente</th><th>Fecha</th></tr></thead><tbody>\n<tr><td><b>A</b> · Autorización</td><td>Se acuerda realizar el gasto por 325.000 €, reservando crédito</td><td>22-JUN-2026</td></tr>\n<tr><td><b>D</b> · Disposición</td><td>Adjudicación del contrato de obras: el gasto queda comprometido con un tercero determinado</td><td>7-SEP-2026</td></tr>\n<tr><td><b>O</b> · Obligación</td><td>Certificaciones de obra conformadas: nace la deuda exigible</td><td>desde NOV-2026</td></tr>\n<tr><td><b>P</b> · Pago</td><td>Ordenación del pago conforme al <b>plan de disposición de fondos</b> de la Tesorería</td><td>DIC-2026 y 2027</td></tr>\n</tbody></table>\n<p class=\"small\">A 31 de diciembre de 2026 solo se han reconocido obligaciones por <b>190.000 €</b>. Quedan <b>135.000 €</b> de crédito comprometido pero no ejecutado.</p>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.1rem\">Paso 4 · El 31 de diciembre: qué pasa con los 135.000 € (arts. 175 y 182)</h3>\n<div class=\"box ej\"><span class=\"lbl\">La regla y su excepción</span>Regla del art. <b>175</b>: los créditos no afectados al cumplimiento de obligaciones ya reconocidas quedan <b>anulados de pleno derecho</b>. Excepción del art. <b>182</b>: pueden <b>incorporarse</b> al ejercicio siguiente, <b>siempre que existan recursos financieros suficientes</b>.</div>\n<p>Aquí concurren <b>dos</b> de los supuestos del art. 182.1: la letra <b>b)</b> —créditos que amparan <b>compromisos de gasto</b> del art. 176.2.b)— y la letra <b>c)</b> —créditos por <b>operaciones de capital</b>—. Se incorporan los 135.000 € al presupuesto de 2027.</p>\n<details class=\"panel\"><summary>Dos matices del art. 182 que se preguntan mucho</summary><div class=\"body\"><p><b>Primero (182.2):</b> los remanentes incorporados solo pueden aplicarse <b>dentro del ejercicio</b> al que la incorporación se acuerde; y si proceden de créditos extraordinarios, suplementos o transferencias del <b>último trimestre</b> —letra a)—, solo para <b>los mismos gastos</b> que motivaron su concesión.</p><p><b>Segundo (182.3):</b> los créditos que amparen <b>proyectos financiados con ingresos afectados</b> deben incorporarse <b>obligatoriamente</b>, salvo desistimiento total o parcial. Si esta obra se hubiera financiado con una subvención finalista y no con remanente, la incorporación no habría sido una opción, sino un deber.</p></div></details>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.1rem\">Paso 5 · La liquidación de 2026 sale con remanente negativo (art. 193)</h3>\n<p>La liquidación aprobada por la Alcaldía el <b>25 de febrero de 2027</b> arroja un <b>remanente de tesorería para gastos generales de −412.000 €</b>: el suplemento consumió el remanente de 2025 y varios derechos se calificaron de difícil recaudación (art. 191.2). Se activa el art. 193, con <b>tres remedios y en este orden</b>:</p>\n<table><thead><tr><th>Orden</th><th>Remedio</th><th>Quién y cuándo</th><th>Artículo</th></tr></thead><tbody>\n<tr><td><b>1.º</b></td><td><b>Reducir gastos</b> del nuevo presupuesto por cuantía igual al déficit</td><td>El <b>Pleno</b>, en la <b>primera sesión</b> que celebre</td><td>193.1</td></tr>\n<tr><td><b>2.º</b></td><td>Si no es posible, <b>operación de crédito</b> por su importe</td><td>Con las condiciones del art. 177.5</td><td>193.2</td></tr>\n<tr><td><b>3.º</b></td><td>Si tampoco, aprobar el presupuesto siguiente con <b>superávit inicial</b> no inferior al déficit</td><td>Presupuesto de 2028</td><td>193.3</td></tr>\n</tbody></table>\n<p>El Pleno del <b>4 de marzo de 2027</b> aprueba la reducción de gastos por 412.000 €. Esa reducción <b>solo puede revocarse</b> por acuerdo del Pleno, a propuesta del Presidente y previo informe del Interventor, cuando el desarrollo del presupuesto y la tesorería lo consientan (art. 193.1).</p>\n\n<h3 style=\"font-size:1.02rem;margin-top:1.1rem\">Paso 6 · Todo termina en la cuenta general y en el control externo (arts. 208 a 223)</h3>\n<p>El expediente completo —modificación, reparo, discrepancia, ejecución, incorporación y liquidación— acaba reflejado en tres sitios distintos:</p>\n<table><thead><tr><th>Dónde aparece</th><th>Qué se ve</th><th>Artículo</th></tr></thead><tbody>\n<tr><td><b>Cuenta general de 2026</b></td><td>Ejecución del presupuesto, resultado presupuestario y remanente de tesorería; se rinde <b>antes del 15-MAY-2027</b> y la aprueba el Pleno <b>antes del 1-OCT</b></td><td>209 y 212</td></tr>\n<tr><td><b>Informe de la Intervención al Pleno</b></td><td>Resoluciones contrarias a reparos y anomalías en materia de ingresos, como <b>punto independiente</b> del orden del día</td><td>218.1</td></tr>\n<tr><td><b>Tribunal de Cuentas</b></td><td>La cuenta general <b>antes del 15-OCT-2027</b> y, por separado, las resoluciones contrarias a reparos remitidas <b>anualmente</b></td><td>223.2 y 218.3</td></tr>\n</tbody></table>\n<div class=\"box ej\"><span class=\"lbl\">La moraleja del caso</span>Un solo hecho —una cubierta rota— ha activado <b>seis bloques</b> del tema: la estructura del crédito (172-176), las modificaciones (177-182), las fases del gasto (183-189), la función interventora (214-218), la liquidación y el remanente (191-193) y la cuenta general con el control externo (208-223). En un examen, la pregunta rara vez es «¿qué dice el art. 182?»; suele ser «¿qué ocurre con el crédito no ejecutado?». Y para responderla hay que ver el flujo, no el artículo.</div>\n</section>\n\n<section class=\"card\" id=\"conexiones\"><h2>Diez preguntas de conexión</h2>\n<p class=\"small\">No preguntan por un artículo, sino por la <b>relación</b> entre dos. Responde en voz alta y después despliega.</p>\n<div id=\"qbox\"></div>\n</section>\n\n<section class=\"card\" id=\"semaforo8\"><h2>Semáforo de la visión de conjunto</h2>\n<p class=\"small\">Marca cada conexión, no cada artículo. Abajo aparece tu lista de repaso.</p>\n<div id=\"sembox\"></div><div id=\"semres\" style=\"margin-top:.8rem\"></div>\n</section>\n";
+</script>
+<script>
+
+/* ---------- ÍNDICE LATERAL ---------- */
+(function(){
+ var n='<h2>Secciones</h2>'
+  +'<a href="#intro">Cómo usar esta página</a>'
+  +'<a href="#flujo">1 · Diagrama general de flujo</a>'
+  +'<a href="#tiempo">2 · Línea temporal</a>'
+  +'<a href="#decisiones">3 · Árboles de decisión</a>'
+  +'<a href="#caso1">4 · Caso integral 1 · un ejercicio</a>'
+  +'<a href="#caso2">5 · Caso integral 2 · un expediente</a>'
+  +'<a href="#conexiones">6 · Preguntas de conexión</a>'
+  +'<a href="#semaforo8">7 · Semáforo</a>';
+ document.getElementById('navbody').innerHTML=n;
+})();
+document.getElementById('navtoggle').onclick=function(){
+ var s=document.getElementById('side');s.classList.toggle('collapsed');
+ this.setAttribute('aria-expanded',s.classList.contains('collapsed')?'false':'true');};
+
+/* ---------- FILTRO DE FASES ---------- */
+(function(){
+ var svg=document.getElementById('mapa8');
+ document.querySelectorAll('.fbtn').forEach(function(b){
+  b.onclick=function(){
+   document.querySelectorAll('.fbtn').forEach(function(x){x.setAttribute('aria-pressed','false');});
+   b.setAttribute('aria-pressed','true');
+   var f=b.getAttribute('data-f');
+   svg.querySelectorAll('g[data-f]').forEach(function(g){
+    g.style.opacity=(f==='0'||g.getAttribute('data-f')===f)?'1':'0.16';});
+  };});
+})();
+
+/* ---------- PREGUNTAS DE CONEXIÓN ---------- */
+(function(){
+ var h='';
+ QS.forEach(function(q,i){
+  h+='<details class="panel"><summary>'+(i+1)+'. '+q[0]+'</summary><div class="body"><p>'+q[1]+'</p></div></details>';});
+ document.getElementById('qbox').innerHTML=h;
+})();
+
+/* ---------- SEMÁFORO ---------- */
+var sem=SEM.map(function(){return 0;});
+function drawSem(){
+ var h='<table><tbody>';
+ SEM.forEach(function(c,i){
+  h+='<tr><td>'+c+'</td><td style="width:150px;white-space:nowrap">'
+   +['🟢','🟡','🔴'].map(function(e,j){
+     var on=sem[i]===j+1;
+     return '<button class="sembtn" data-i="'+i+'" data-v="'+(j+1)+'" style="font-size:1rem;padding:.15rem .35rem;margin-right:.2rem;border-color:'+(on?'var(--acc)':'var(--line)')+';background:'+(on?'var(--acc-soft)':'var(--panel)')+'">'+e+'</button>';}).join('')
+   +'</td></tr>';});
+ h+='</tbody></table>';
+ document.getElementById('sembox').innerHTML=h;
+ document.querySelectorAll('.sembtn').forEach(function(b){
+  b.onclick=function(){sem[+b.getAttribute('data-i')]=+b.getAttribute('data-v');drawSem();};});
+ var r=[],a=[];
+ sem.forEach(function(v,i){if(v===3)r.push(SEM[i]);if(v===2)a.push(SEM[i]);});
+ var o='';
+ if(r.length)o+='<div class="box exc"><span class="lbl">Vuelve al bloque correspondiente hoy mismo</span><ul><li>'+r.join('</li><li>')+'</li></ul></div>';
+ if(a.length)o+='<div class="box warn"><span class="lbl">Refuerza en 24 h</span><ul><li>'+a.join('</li><li>')+'</li></ul></div>';
+ if(!r.length&&!a.length&&sem.some(function(v){return v===1;}))o='<div class="box ej"><span class="lbl">Bien</span>Tienes el mapa. Ahora explícaselo a alguien sin mirar la página: es la única prueba que vale.</div>';
+ document.getElementById('semres').innerHTML=o;
+}
+drawSem();
+
+/* ---------- HERRAMIENTAS ---------- */
+var openAll=false;
+document.getElementById('expand').onclick=function(){
+ openAll=!openAll;document.querySelectorAll('details.panel').forEach(function(d){d.open=openAll;});
+ this.textContent=openAll?'Plegar todo':'Desplegar todo';};
+document.getElementById('theme').onclick=function(){
+ var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
+var fs=16;
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);document.documentElement.style.setProperty('--fs',fs+'px');};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);document.documentElement.style.setProperty('--fs',fs+'px');};
+window.addEventListener('scroll',function(){
+ var h=document.body.scrollHeight-window.innerHeight;
+ document.getElementById('prog').style.width=(h>0?(window.scrollY/h*100):0)+'%';
+ var cur=null;document.querySelectorAll('section.card').forEach(function(s){
+  if(s.getBoundingClientRect().top<120)cur=s.id;});
+ document.querySelectorAll('nav.side a').forEach(function(a){
+  a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ---------- BUSCADOR ---------- */
+var q=document.getElementById('q'),timer=null;
+function clearMarks(){document.querySelectorAll('mark.hit').forEach(function(m){
+ var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});}
+q.addEventListener('input',function(){
+ clearTimeout(timer);timer=setTimeout(function(){
+  clearMarks();
+  var term=q.value.trim();
+  document.querySelectorAll('section.card').forEach(function(s){s.classList.remove('hide');});
+  if(term.length<3)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  document.querySelectorAll('section.card').forEach(function(s){
+   var found=false;
+   var w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT,null);var nodes=[];
+   while(w.nextNode()){var nd=w.currentNode;
+    if(nd.parentNode.closest('script,style,mark,svg'))continue;
+    if(rx.test(nd.nodeValue)){nodes.push(nd);rx.lastIndex=0;}}
+   nodes.forEach(function(nd){
+    found=true;
+    var span=document.createElement('span');
+    span.innerHTML=nd.nodeValue.replace(rx,function(m){return '<mark class="hit">'+m+'</mark>';});
+    nd.parentNode.replaceChild(span,nd);});
+   if(found){s.querySelectorAll('details.panel').forEach(function(d){if(d.querySelector('mark.hit'))d.open=true;});}
+   s.classList.toggle('hide',!found);
+  });
+ },220);});
+
+</script>
+<script>
+
+/* ═══ Mejoras de interacción · Bloque II ═══ */
+(function(){
+"use strict";
+var K_THEME="oposi_bII_theme", K_FS="oposi_bII_fs", K_STREAK="oposi_bII_streak";
+function load(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return f;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var root=document.documentElement;
+
+/* Tema persistente (sobrescribe el toggle simple anterior) */
+var saved=load(K_THEME,null);
+if(saved){root.setAttribute("data-theme",saved);}
+else if(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches){root.setAttribute("data-theme","dark");}
+var bt=document.getElementById("theme");
+if(bt)bt.onclick=function(){
+  var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-theme",n);save(K_THEME,n);
+};
+
+/* Tamaño de texto persistente */
+var fs=load(K_FS,16);
+function setFs(v){fs=Math.max(13,Math.min(22,v));root.style.setProperty("--fs",fs+"px");save(K_FS,fs);}
+setFs(fs);
+var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
+if(bp)bp.onclick=function(){setFs(fs+1);};
+if(bm)bm.onclick=function(){setFs(fs-1);};
+
+/* Racha compartida con el índice */
+(function(){
+  var el=document.getElementById("streakN");if(!el)return;
+  var hoy=new Date().toISOString().slice(0,10);
+  var s=load(K_STREAK,{last:null,n:0});
+  if(s.last!==hoy){
+    var ayer=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    s.n=(s.last===ayer)?s.n+1:1;s.last=hoy;save(K_STREAK,s);
+  }
+  el.textContent=s.n;
+})();
+
+/* Reveal on scroll para las tarjetas */
+function reveal(){
+  var els=document.querySelectorAll("section.card:not(.rv)");
+  if(!els.length)return;
+  if(!("IntersectionObserver" in window)){return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:"0px 0px -30px 0px"});
+  Array.prototype.forEach.call(els,function(el){el.classList.add("rv");io.observe(el);});
+}
+
+/* Sección activa en el índice lateral */
+function spy(){
+  var links=document.querySelectorAll("nav.side a[href^='#']");
+  if(!links.length||!("IntersectionObserver" in window))return;
+  var map={};
+  Array.prototype.forEach.call(links,function(a){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(t)map[t.id]=a;
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        Array.prototype.forEach.call(links,function(a){a.classList.remove("on");});
+        if(map[en.target.id])map[en.target.id].classList.add("on");
+      }
+    });
+  },{rootMargin:"-80px 0px -70% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* Ripple en botones */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.classList.contains("navtoggle"))return;
+  var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement("span");
+  s.className="ripple";s.style.width=s.style.height=d+"px";
+  s.style.left=(e.clientX-r.left-d/2)+"px";s.style.top=(e.clientY-r.top-d/2)+"px";
+  b.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},560);
+});
+
+/* Atajos de teclado */
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea"))return;
+  if(e.key==="/"){var q=document.getElementById("q");if(q){e.preventDefault();q.focus();}}
+  if(e.key==="t"&&bt)bt.click();
+});
+
+/* El contenido se inyecta por JS: esperamos a que exista */
+function init(){reveal();spy();}
+if(document.getElementById("main")&&document.getElementById("main").children.length){init();}
+else{setTimeout(init,60);}
+addEventListener("load",function(){setTimeout(init,80);});
+})();
+
+
+</script>
+<script>
+
+
+/* ═══ Parser de respuestas: estructura semántica ═══ */
+var FCFMT=(function(){
+  var CITA=/\s*\(((?:arts?\.|DA\b|DT\b|disp\.)[^)]*)\)\s*\.?\s*$/i;
+  var strip=function(h){return h.replace(/<[^>]+>/g,"");};
+
+  function esc(s){return s;}
+
+  function parse(raw){
+    var out={verdict:null,cite:null,kind:"p",items:[],text:""};
+    var body=String(raw).trim();
+
+    /* 1 ── Cita legal al final */
+    var m=body.match(CITA);
+    if(m){out.cite=m[1].replace(/\s+/g," ").trim();body=body.slice(0,m.index).trim();}
+    body=body.replace(/[.;,\s]+$/,"");
+
+    /* 2 ── Veredicto Sí / No inicial */
+    var v=strip(body).match(/^(Sí|Sí,|No|No,)[.:,]?\s/);
+    if(v){
+      out.verdict=/^Sí/.test(v[1])?"si":"no";
+      body=body.replace(/^(<[^>]+>\s*)*(Sí|No)[.,:]?\s*/,"").trim();
+      body=body.replace(/^en\s/,"En ");
+    }
+
+    /* 3 ── Enumeración con · */
+    var parts=body.split(/\s+·\s+/);
+    if(parts.length>=2){
+      out.kind="list";
+      var letras=parts.filter(function(p){return /^\s*<?[a-h]\)/.test(strip(p));}).length;
+      out.marker = letras>=parts.length-1 ? "alpha" : "num";
+      out.items=parts.map(function(p){
+        return p.replace(/^\s*[a-h]\)\s*/,"").replace(/[.\s]+$/,"").trim();
+      }).filter(Boolean);
+      return out;
+    }
+
+    /* 4 ── Cláusulas contrapuestas con ; */
+    var semi=body.split(/;\s+/);
+    if(semi.length>=2&&semi.length<=3&&semi.every(function(s){return strip(s).length>14;})){
+      out.kind="clauses";
+      out.items=semi.map(function(s){return s.replace(/[.\s]+$/,"").trim();});
+      return out;
+    }
+
+    /* 5 ── Párrafo */
+    out.text=body;
+    return out;
+  }
+
+  function render(raw){
+    var d=parse(raw),h="";
+
+    if(d.verdict){
+      h+='<span class="fc-verdict '+d.verdict+'">'+(d.verdict==="si"?"✓ Sí":"✗ No")+'</span>';
+    }
+
+    if(d.kind==="list"){
+      h+='<ol class="fc-list '+d.marker+'">';
+      d.items.forEach(function(it){h+='<li>'+it+'</li>';});
+      h+='</ol>';
+    }else if(d.kind==="clauses"){
+      h+='<div class="fc-clauses">';
+      d.items.forEach(function(it){h+='<p>'+it+'</p>';});
+      h+='</div>';
+    }else if(d.text){
+      h+='<p class="fc-p">'+d.text+'</p>';
+    }
+
+    if(d.cite){
+      h+='<span class="fc-cite"><span class="s">§</span>'+d.cite+'</span>';
+    }
+    return {html:h,struct:(d.kind!=="p"||!!d.verdict||strip(raw).length>150)};
+  }
+  return {parse:parse,render:render};
+})();
+
+/* ═══ FLASHCARDS 3D ═══ */
+(function(){
+"use strict";
+function boot(){
+  var sec=document.getElementById("flash");
+  if(!sec||sec.dataset.fc3d)return false;
+  if(typeof FLASH==="undefined"||!FLASH||!FLASH.length)return false;
+  sec.dataset.fc3d="1";
+
+  var CARDS=FLASH, N=CARDS.length;
+  var order,fi,ok,ko,back,busy;
+
+  /* — Estructura — */
+  var h2=sec.querySelector("h2");
+  sec.innerHTML="";
+  if(h2)sec.appendChild(h2);
+  var intro=document.createElement("p");
+  intro.className="small";
+  intro.innerHTML="Piensa la respuesta <b>antes</b> de girar: el esfuerzo de recuperarla es lo que la fija. "
+    +'<span class="fc-hint" style="position:static;display:inline;color:inherit">'
+    +'<span class="kbd">espacio</span> girar · <span class="kbd">→</span> lo sabía · <span class="kbd">←</span> repasar</span>';
+  sec.appendChild(intro);
+
+  var stage=document.createElement("div");
+  stage.className="fc-stage";
+  stage.innerHTML=
+    '<div class="fc-deck" id="fcdeck">'
+    +'<span class="fc-ghost g2"></span><span class="fc-ghost g1"></span>'
+    +'<div class="fc-lift" id="fclift">'
+      +'<div class="fc-card" id="fcbox" tabindex="0" role="button" aria-label="Tarjeta. Pulsa para girar">'
+        +'<div class="fc-face fc-front">'
+          +'<span class="fc-tag">Pregunta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">Pulsa para girar</span>'
+        +'</div>'
+        +'<div class="fc-face fc-back">'
+          +'<span class="fc-tag">Respuesta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">¿La sabías?</span>'
+        +'</div>'
+      +'</div>'
+    +'</div></div>';
+  sec.appendChild(stage);
+
+  var bar=document.createElement("div");
+  bar.className="fc-bar";bar.innerHTML="<i></i>";
+  sec.appendChild(bar);
+
+  var ctr=document.createElement("div");
+  ctr.className="fc-ctrls noprint";
+  ctr.innerHTML='<button id="fcflip">⟲ Girar</button>'
+    +'<button id="fcok">✔ Lo sabía</button>'
+    +'<button id="fcko">↻ Repasar</button>'
+    +'<button id="fcreset">Reiniciar</button>'
+    +'<span class="fc-score">'
+      +'<span class="fc-pill ok" id="fcpok">0 sabidas</span>'
+      +'<span class="fc-pill ko" id="fcpko">0 repasar</span>'
+      +'<span class="fc-pill left" id="fccount">0</span>'
+    +'</span>';
+  sec.appendChild(ctr);
+
+  var deck=stage.querySelector("#fcdeck"), lift=stage.querySelector("#fclift"),
+      card=stage.querySelector("#fcbox"),
+      front=stage.querySelector(".fc-front"), backf=stage.querySelector(".fc-back"),
+      fill=bar.querySelector("i"),
+      pok=ctr.querySelector("#fcpok"), pko=ctr.querySelector("#fcpko"),
+      pleft=ctr.querySelector("#fccount");
+  var rot=0;
+
+  function reset(){
+    order=CARDS.map(function(_,i){return i;});
+    fi=0;ok=0;ko=0;back=false;busy=false;rot=0;
+    card.style.transition="none";card.style.transform="rotateY(0deg)";
+    void card.offsetWidth;card.style.transition="";
+    deck.classList.remove("empty");
+    var d=stage.querySelector(".fc-done");if(d)d.remove();
+    card.style.display="";
+    draw();
+  }
+
+  function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+
+  function draw(){
+    pok.textContent=ok+(ok===1?" sabida":" sabidas");
+    pko.textContent=ko+" repasar";
+    var done=N-order.length;
+    fill.style.width=(N?done/N*100:0)+"%";
+
+    if(!order.length){
+      pleft.textContent="0 quedan";
+      deck.classList.add("empty");
+      card.style.display="none";
+      if(!stage.querySelector(".fc-done")){
+        var d=document.createElement("div");
+        d.className="fc-done";
+        d.innerHTML='<span class="seal">🏆</span><h3>Ronda completada</h3>'
+          +'<p>'+ok+' de '+N+' a la primera'+(ko?' · '+ko+' necesitaron repaso':'')+'</p>';
+        deck.appendChild(d);
+      }
+      return;
+    }
+    if(fi>=order.length)fi=0;
+    pleft.textContent=order.length+(order.length===1?" queda":" quedan");
+
+    var c=CARDS[order[fi]];
+    front.querySelector(".fc-txt").innerHTML='<p class="fc-p">'+c[0]+'</p>';
+    var r=FCFMT.render(c[1]);
+    backf.querySelector(".fc-txt").innerHTML=r.html;
+    backf.classList.toggle("struct",r.struct);
+    var hint=backf.querySelector(".fc-hint");
+    if(hint)hint.classList.toggle("muted",/fc-cite/.test(r.html));
+    var pip=(done+1)+"/"+N;
+    Array.prototype.forEach.call(stage.querySelectorAll(".fc-pip"),function(p){p.textContent=pip;});
+  }
+
+  function flip(){
+    if(busy||!order.length)return;
+    back=!back;rot+=180;
+    card.style.transform="rotateY("+rot+"deg)";
+    card.setAttribute("aria-label",back?"Respuesta. Pulsa para volver":"Pregunta. Pulsa para girar");
+    lift.classList.remove("lift");void lift.offsetWidth;lift.classList.add("lift");
+  }
+
+  function next(good){
+    if(busy||!order.length)return;
+    busy=true;
+    if(good){ok++;bump(pok);}else{ko++;bump(pko);}
+    lift.classList.remove("lift");
+    lift.classList.add(good?"out-ok":"out-ko");
+    setTimeout(function(){
+      if(good){order.splice(fi,1);}
+      else{var m=order.splice(fi,1)[0];order.push(m);}
+      back=false;rot=0;
+      card.style.transition="none";card.style.transform="rotateY(0deg)";
+      void card.offsetWidth;card.style.transition="";
+      draw();
+      lift.classList.remove("out-ok","out-ko");
+      lift.classList.add("in");
+      setTimeout(function(){lift.classList.remove("in");busy=false;},480);
+    },460);
+  }
+
+  card.onclick=flip;
+  card.onkeydown=function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();flip();}
+    if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  };
+  ctr.querySelector("#fcflip").onclick=flip;
+  ctr.querySelector("#fcok").onclick=function(){next(true);};
+  ctr.querySelector("#fcko").onclick=function(){next(false);};
+  ctr.querySelector("#fcreset").onclick=reset;
+
+  /* Deslizar en táctil */
+  var x0=null,y0=null;
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  card.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){next(dx>0);}
+    x0=y0=null;
+  },{passive:true});
+
+  /* Atajos globales cuando el mazo está a la vista */
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    var r=stage.getBoundingClientRect();
+    if(r.bottom<80||r.top>innerHeight-80)return;
+    if(e.key===" "){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    else if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  });
+
+  reset();
+  return true;
+}
+if(!boot()){
+  var tries=0;
+  var iv=setInterval(function(){if(boot()||++tries>40)clearInterval(iv);},120);
+  addEventListener("load",function(){setTimeout(boot,100);});
+}
+})();
+
+
+</script>
+<script>
+
+
+/* ═══ Altura adaptativa + índice plegable ═══ */
+(function(){
+"use strict";
+
+/* ── 1 · Índice lateral plegable ── */
+function sidebar(){
+  var lay=document.querySelector(".layout"),
+      side=document.getElementById("side"),
+      tools=document.querySelector(".tools");
+  if(!lay||!side||!tools||document.getElementById("navhide"))return;
+
+  var K="oposi_bII_nav";
+  function get(){try{return localStorage.getItem(K)==="0";}catch(e){return false;}}
+  function set(v){try{localStorage.setItem(K,v?"0":"1");}catch(e){}}
+
+  var b=document.createElement("button");
+  b.id="navhide";b.type="button";
+  b.innerHTML='<span class="ic">☰</span>';
+  b.setAttribute("aria-controls","side");
+  tools.insertBefore(b,tools.firstChild);
+
+  function apply(hidden,anim){
+    if(!anim)lay.style.transition="none";
+    lay.classList.toggle("nonav",hidden);
+    side.setAttribute("aria-hidden",String(hidden));
+    b.setAttribute("aria-pressed",String(hidden));
+    b.title=hidden?"Mostrar índice (i)":"Ocultar índice (i)";
+    b.setAttribute("aria-label",b.title);
+    if(!anim)requestAnimationFrame(function(){lay.style.transition="";});
+  }
+  apply(get(),false);
+
+  b.onclick=function(){
+    var h=!lay.classList.contains("nonav");
+    apply(h,true);set(h);
+    window.dispatchEvent(new Event("resize"));
+  };
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    if(e.key==="i"||e.key==="I"){e.preventDefault();b.click();}
+  });
+}
+
+/* ── 2 · La tarjeta se adapta a su contenido ── */
+function autofit(){
+  var stage=document.querySelector(".fc-stage");
+  if(!stage||stage.dataset.fit)return;
+  var deck=stage.querySelector(".fc-deck"),
+      front=stage.querySelector(".fc-front"),
+      back=stage.querySelector(".fc-back");
+  if(!deck||!front||!back)return;
+  stage.dataset.fit="1";
+
+  var meas=document.createElement("div");
+  meas.className="fc-measure";meas.setAttribute("aria-hidden","true");
+  meas.innerHTML='<div class="fc-face fc-front"><div class="fc-body"><div class="fc-txt"></div></div></div>';
+  stage.appendChild(meas);
+  var mFace=meas.querySelector(".fc-face"), mTxt=meas.querySelector(".fc-txt");
+
+  function measure(cls,html){
+    mFace.className="fc-face "+cls;
+    mTxt.innerHTML=html;
+    return mFace.offsetHeight;
+  }
+
+  function fit(){
+    if(deck.classList.contains("empty")){deck.style.height="230px";return;}
+    var fT=front.querySelector(".fc-txt"), bT=back.querySelector(".fc-txt");
+    if(!fT||!bT)return;
+    var h=Math.max(
+      measure("fc-front"+(front.classList.contains("struct")?" struct":""),fT.innerHTML),
+      measure("fc-back" +(back .classList.contains("struct")?" struct":""),bT.innerHTML),
+      230
+    );
+    deck.style.height=Math.ceil(h+8)+"px";
+  }
+
+  /* recalcular cuando cambia la tarjeta, el tamaño de letra o la ventana */
+  new MutationObserver(fit).observe(back,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
+  var t;
+  addEventListener("resize",function(){clearTimeout(t);t=setTimeout(fit,120);},{passive:true});
+  ["fs+","fs-"].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener("click",function(){setTimeout(fit,60);});
+  });
+  fit();setTimeout(fit,250);
+}
+
+function go(){sidebar();autofit();}
+if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go);
+addEventListener("load",function(){setTimeout(go,120);});
+var n=0,iv=setInterval(function(){go();if(++n>25)clearInterval(iv);},150);
+})();
+
+
+</script>
+<script>
+
+
+/* ═══════════════════════════════════════════════════════════════
+   TTS · Lectura en voz alta del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+if(!("speechSynthesis" in window))return;
+
+var K="oposi_bII_tts";
+function load(){try{return JSON.parse(localStorage.getItem(K))||{};}catch(e){return {};}}
+function save(o){try{localStorage.setItem(K,JSON.stringify(o));}catch(e){}}
+var cfg=load();
+if(cfg.rate==null)cfg.rate=1;
+if(cfg.gen==null)cfg.gen="f";
+
+var synth=window.speechSynthesis, voces=[], actual=null, bloques=[];
+
+/* ─────────── 1 · Selección de voz ─────────── */
+function esEspanol(v){return /^es\b|^es[-_]/i.test(v.lang||"")||/spanish|español/i.test(v.name||"");}
+function calidad(v){
+  var n=(v.name||"")+" "+(v.voiceURI||""), p=0;
+  if(/natural|neural/i.test(n))p+=100;
+  if(/online/i.test(n))p+=40;
+  if(/premium|enhanced|eloquence/i.test(n))p+=35;
+  if(/google/i.test(n))p+=30;
+  if(v.localService===false)p+=15;
+  if(/microsoft/i.test(n))p+=8;
+  if(/^es-ES/i.test(v.lang))p+=12;   /* castellano de España primero */
+  return p;
+}
+var MASC=/(pablo|álvaro|alvaro|jorge|diego|juan|raul|raúl|carlos|miguel|lorenzo|gonzalo|dalton|liam|andr[eé]s|luciano|male|hombre|masculin)/i;
+var FEM =/(helena|elvira|laura|mónica|monica|paulina|sabina|esperanza|marisol|ximena|dalia|salome|camila|catalina|isidora|female|mujer|femenin)/i;
+function genero(v){
+  var n=v.name||"";
+  if(MASC.test(n))return "m";
+  if(FEM.test(n))return "f";
+  return "?";
+}
+function cargarVoces(){
+  var all=synth.getVoices()||[];
+  voces=all.filter(esEspanol).sort(function(a,b){return calidad(b)-calidad(a);});
+  if(!voces.length)voces=all.slice(0,12);
+  pintarSelector();
+}
+function elegir(){
+  if(cfg.voz){
+    for(var i=0;i<voces.length;i++)if(voces[i].voiceURI===cfg.voz)return voces[i];
+  }
+  var g=cfg.gen;
+  for(var j=0;j<voces.length;j++)if(genero(voces[j])===g)return voces[j];
+  return voces[0]||null;
+}
+
+/* ─────────── 2 · Naturalidad: expandir lo que el TTS lee mal ─────────── */
+var ORD={1:"primera",2:"segunda",3:"tercera",4:"cuarta",5:"quinta",
+         6:"sexta",7:"séptima",8:"octava",9:"novena",10:"décima"};
+function paraVoz(t){
+  return t
+    .replace(/\barts?\.\s*/gi,function(m){return /arts/i.test(m)?"artículos ":"artículo ";})
+    .replace(/\bapdos?\.\s*/gi,"apartado ")
+    .replace(/\bnúms?\.\s*/gi,"número ")
+    .replace(/\bpárr\.\s*/gi,"párrafo ")
+    .replace(/\bcap\.\s*/gi,"capítulo ")
+    .replace(/\bpágs?\.\s*/gi,"página ")
+    .replace(/\by\s+ss\./gi,"y siguientes")
+    .replace(/\bss\./gi,"siguientes")
+    .replace(/\bTRLHL\b/g,"Texto Refundido de la Ley de Haciendas Locales")
+    .replace(/\bLCSP\b/g,"Ley de Contratos del Sector Público")
+    .replace(/\bLBRL\b/g,"Ley de Bases del Régimen Local")
+    .replace(/\bLRJSP\b/g,"Ley de Régimen Jurídico del Sector Público")
+    .replace(/\bLPACAP\b/g,"Ley del Procedimiento Administrativo Común")
+    .replace(/\bRDLeg\b/gi,"Real Decreto Legislativo")
+    .replace(/\bRD\b/g,"Real Decreto")
+    .replace(/\bCCAA\b/g,"comunidades autónomas")
+    .replace(/\bCA\b/g,"comunidad autónoma")
+    .replace(/\bEELL\b/g,"entidades locales")
+    .replace(/\bBOE\b/g,"Boletín Oficial del Estado")
+    .replace(/\bIVA\b/g,"I.V.A.")
+    .replace(/\bSARA\b/g,"sara")
+    .replace(/\bDA\s+(\d+)/g,"disposición adicional $1")
+    .replace(/\bDT\s+(\d+)/g,"disposición transitoria $1")
+    .replace(/(\d+)\.ª/g,function(m,n){return ORD[+n]||(n+"ª");})
+    .replace(/(\d+)\.º/g,"$1º")
+    /* 3.005,06 → 3005,06 para que lo lea como cifra y no como frase */
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/€/g," euros")
+    .replace(/%/g," por ciento")
+    .replace(/\bnº\b/gi,"número")
+    .replace(/\s*·\s*/g,". ")
+    .replace(/\(\s*/g,", ").replace(/\s*\)/g,", ")
+    .replace(/\bvid\.\s*/gi,"véase ")
+    .replace(/\bcfr\.\s*/gi,"compárese ")
+    /* limpieza de puntuación tras las sustituciones */
+    .replace(/([.:;!?])(?=[A-ZÁÉÍÓÚÑ¿¡])/g,"$1 ")
+    .replace(/\s+([,.;:])/g,"$1")
+    .replace(/,\s*([.;:])/g,"$1")
+    .replace(/([,.;:])\s*\1+/g,"$1")
+    .replace(/,\s*,/g,",")
+    .replace(/\s{2,}/g," ")
+    .trim();
+}
+
+/* ─────────── 3 · Segmentar en frases y envolverlas ─────────── */
+var ABBR=/\b(arts?|apdos?|núms?|nums?|págs?|párr|cap|caps|ss|Sr|Sra|Sres|D|Dª|etc|vid|cfr|op|cit|ej|núm|art|fig|tít|secc)\.$/i;
+function limites(t){
+  var out=[],ini=0;
+  for(var i=0;i<t.length;i++){
+    var c=t[i];
+    if(c!=="."&&c!=="!"&&c!=="?")continue;
+    var sig=t[i+1]||" ";
+    if(!/[\s"»)]/.test(sig))continue;             /* 3.005 o art.1 → no cortar */
+    if(ABBR.test(t.slice(Math.max(0,i-9),i+1)))continue;
+    if(/^\s*[0-9º ª]/.test(t.slice(i+1,i+3)))continue;
+    if(i+1-ini<40)continue;                        /* frases demasiado cortas */
+    out.push(i+1);ini=i+1;
+  }
+  if(ini<t.length)out.push(t.length);
+  return out;
+}
+function segmentar(root){
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    if(!n.nodeValue||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+    if(n.parentElement&&n.parentElement.closest(".lbl,.tts-bar"))return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT;
+  }});
+  var nodos=[];while(w.nextNode())nodos.push(w.currentNode);
+  if(!nodos.length)return [];
+
+  var full="";nodos.forEach(function(n){full+=n.nodeValue;});
+  var cortes=limites(full), frases=[],ci=0,pos=0;
+  cortes.forEach(function(){frases.push({text:"",spans:[]});});
+
+  nodos.forEach(function(node){
+    var txt=node.nodeValue, off=0, frag=document.createDocumentFragment();
+    while(off<txt.length){
+      var fin=cortes[ci]!=null?cortes[ci]-pos:txt.length;
+      if(fin>txt.length)fin=txt.length;
+      if(fin<=off)fin=txt.length;
+      var trozo=txt.slice(off,fin);
+      var sp=document.createElement("span");
+      sp.className="tts-s";sp.setAttribute("data-s",ci);sp.textContent=trozo;
+      frag.appendChild(sp);
+      if(frases[ci]){frases[ci].text+=trozo;frases[ci].spans.push(sp);}
+      if(pos+fin>=(cortes[ci]||Infinity))ci++;
+      off=fin;
+    }
+    pos+=txt.length;
+    node.parentNode.replaceChild(frag,node);
+  });
+  return frases.filter(function(f){return f.text.trim().length>1;});
+}
+
+/* ─────────── 4 · Reproductor ─────────── */
+var mini,miniBar,miniLbl,miniPlay;
+function crearMini(){
+  mini=document.createElement("div");
+  mini.className="tts-mini noprint";
+  mini.innerHTML='<span class="lbl"></span>'
+    +'<button class="main" data-a="play" title="Pausar o reanudar">⏸</button>'
+    +'<span class="bar"><i></i></span>'
+    +'<button data-a="prev" title="Frase anterior">↺</button>'
+    +'<button data-a="stop" title="Detener">■</button>'
+    +'<button data-a="cfg" title="Ajustes de voz">⚙</button>';
+  document.body.appendChild(mini);
+  miniBar=mini.querySelector(".bar i");miniLbl=mini.querySelector(".lbl");
+  miniPlay=mini.querySelector('[data-a="play"]');
+  mini.addEventListener("click",function(e){
+    var b=e.target.closest("button");if(!b)return;
+    var a=b.getAttribute("data-a");
+    if(a==="play")pausarReanudar();
+    else if(a==="stop")parar();
+    else if(a==="prev"){if(actual){actual.i=Math.max(0,actual.i-2);siguiente();}}
+    else if(a==="cfg")abrirPanel();
+  });
+}
+
+function limpiarMarcas(){
+  document.querySelectorAll(".tts-s.now").forEach(function(s){s.classList.remove("now");});
+}
+function parar(){
+  synth.cancel();
+  if(actual){
+    actual.bloque.classList.remove("tts-on");
+    var b=actual.bloque.querySelector(".tts-play");
+    if(b){b.classList.remove("on");b.innerHTML=iconoPlay();}
+  }
+  limpiarMarcas();
+  actual=null;
+  if(mini)mini.classList.remove("show");
+}
+function iconoPlay(){return '<span aria-hidden="true">▶</span> Escuchar';}
+function iconoOn(){return '<span class="tts-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Leyendo';}
+
+function pausarReanudar(){
+  if(!actual)return;
+  if(synth.paused){synth.resume();miniPlay.textContent="⏸";}
+  else{synth.pause();miniPlay.textContent="▶";}
+}
+
+function leer(bloque){
+  if(actual&&actual.bloque===bloque){parar();return;}
+  parar();
+  var datos=bloque.__tts;
+  if(!datos||!datos.length)return;
+  var voz=elegir();
+  actual={bloque:bloque,frases:datos,i:0,voz:voz};
+  bloque.classList.add("tts-on");
+  var b=bloque.querySelector(".tts-play");
+  if(b){b.classList.add("on");b.innerHTML=iconoOn();}
+  if(!mini)crearMini();
+  var art=bloque.closest(".art");
+  var t=art?art.querySelector("h2 .num"):null;
+  var sufijo=bloque.__label?" · "+bloque.__label:"";
+  miniLbl.textContent=(t?t.textContent:"")+sufijo||"Lectura";
+  miniLbl.title=miniLbl.textContent;
+  miniPlay.textContent="⏸";
+  mini.classList.add("show");
+  siguiente();
+}
+
+function siguiente(){
+  if(!actual)return;
+  limpiarMarcas();
+  if(actual.i>=actual.frases.length){
+    var fin=actual.bloque;
+    parar();
+    fin.dispatchEvent(new CustomEvent("tts:fin",{bubbles:true}));
+    return;
+  }
+  var f=actual.frases[actual.i];
+  var texto=paraVoz(f.text);
+  if(!texto||texto.length<2){actual.i++;siguiente();return;}
+
+  f.spans.forEach(function(s){s.classList.add("now");});
+  if(f.spans[0]&&actual.i>0){
+    var r=f.spans[0].getBoundingClientRect();
+    if(r.top<70||r.bottom>innerHeight-90)
+      f.spans[0].scrollIntoView({block:"center",behavior:"smooth"});
+  }
+  miniBar.style.width=((actual.i+1)/actual.frases.length*100)+"%";
+
+  var u=new SpeechSynthesisUtterance(texto);
+  if(actual.voz){u.voice=actual.voz;u.lang=actual.voz.lang;}else{u.lang="es-ES";}
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;u.volume=1;
+  u.onend=function(){if(actual){actual.i++;setTimeout(siguiente,90);}};
+  u.onerror=function(e){
+    if(e&&e.error==="interrupted")return;
+    if(actual){actual.i++;setTimeout(siguiente,120);}
+  };
+  actual.u=u;
+  synth.speak(u);
+}
+
+/* Chrome detiene la síntesis larga: lo mantenemos vivo */
+setInterval(function(){
+  if(actual&&synth.speaking&&!synth.paused){synth.pause();synth.resume();}
+},9000);
+
+/* ─────────── 5 · Panel de ajustes ─────────── */
+var back,sel;
+function crearPanel(){
+  back=document.createElement("div");
+  back.className="tts-back noprint";
+  back.innerHTML=
+   '<div class="tts-panel" role="dialog" aria-modal="true" aria-label="Ajustes de voz">'
+   +'<h3>🔊 Lectura en voz alta</h3>'
+   +'<p class="sub">Ajusta cómo se lee el texto legal. Se recuerda para todos los bloques.</p>'
+   +'<div class="tts-row"><label>Tipo de voz</label>'
+     +'<div class="tts-seg" id="ttsGen">'
+       +'<button data-g="f">👩 Femenina</button>'
+       +'<button data-g="m">👨 Masculina</button>'
+     +'</div></div>'
+   +'<div class="tts-row"><label>Voz concreta</label><select id="ttsVoz"></select></div>'
+   +'<div class="tts-row"><label>Velocidad</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsRate" min="0.6" max="1.6" step="0.05">'
+     +'<span class="tts-val" id="ttsRateV"></span></div></div>'
+   +'<div class="tts-row"><label>Tono</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsPitch" min="0.7" max="1.3" step="0.05">'
+     +'<span class="tts-val" id="ttsPitchV"></span></div></div>'
+   +'<p class="tts-note" id="ttsNota"></p>'
+   +'<div class="tts-acts">'
+     +'<button id="ttsTest">▶ Probar</button>'
+     +'<button class="prim" id="ttsOk">Hecho</button>'
+   +'</div></div>';
+  document.body.appendChild(back);
+  sel=back.querySelector("#ttsVoz");
+
+  back.addEventListener("click",function(e){if(e.target===back)cerrarPanel();});
+  back.querySelector("#ttsOk").onclick=cerrarPanel;
+  back.querySelector("#ttsGen").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-g]");if(!b)return;
+    cfg.gen=b.getAttribute("data-g");cfg.voz=null;save(cfg);pintarSelector();probar();
+  });
+  sel.onchange=function(){cfg.voz=sel.value;save(cfg);probar();};
+  var r=back.querySelector("#ttsRate"),rv=back.querySelector("#ttsRateV");
+  r.value=cfg.rate;rv.textContent=(+cfg.rate).toFixed(2)+"×";
+  r.oninput=function(){cfg.rate=+r.value;rv.textContent=cfg.rate.toFixed(2)+"×";save(cfg);};
+  r.onchange=probar;
+  var p=back.querySelector("#ttsPitch"),pv=back.querySelector("#ttsPitchV");
+  p.value=cfg.pitch||1;pv.textContent=(+(cfg.pitch||1)).toFixed(2);
+  p.oninput=function(){cfg.pitch=+p.value;pv.textContent=cfg.pitch.toFixed(2);save(cfg);};
+  p.onchange=probar;
+  back.querySelector("#ttsTest").onclick=probar;
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"&&back.classList.contains("show"))cerrarPanel();
+  });
+}
+function probar(){
+  synth.cancel();
+  var v=elegir();
+  var u=new SpeechSynthesisUtterance("El presupuesto general de la entidad local se aprueba antes del 31 de diciembre.");
+  if(v){u.voice=v;u.lang=v.lang;}else u.lang="es-ES";
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;
+  synth.speak(u);
+}
+function pintarSelector(){
+  if(!sel)return;
+  var g=cfg.gen;
+  back.querySelectorAll("#ttsGen button").forEach(function(b){
+    b.setAttribute("aria-pressed",String(b.getAttribute("data-g")===g));
+  });
+  var pref=voces.filter(function(v){return genero(v)===g;});
+  var otras=voces.filter(function(v){return genero(v)!==g;});
+  function opt(v){
+    var nat=/natural|neural|online|premium|enhanced|google/i.test(v.name)?" ★":"";
+    return '<option value="'+v.voiceURI+'">'+v.name+nat+"</option>";
+  }
+  sel.innerHTML=(pref.length?'<optgroup label="'+(g==="f"?"Femeninas":"Masculinas")+'">'+pref.map(opt).join("")+"</optgroup>":"")
+    +(otras.length?'<optgroup label="Otras voces en español">'+otras.map(opt).join("")+"</optgroup>":"");
+  var v=elegir();
+  if(v)sel.value=v.voiceURI;
+
+  var nota=back.querySelector("#ttsNota");
+  var hayNat=voces.some(function(x){return /natural|neural|online/i.test(x.name);});
+  if(!voces.length){
+    nota.innerHTML="⚠️ No se han detectado voces en español en este navegador. Prueba con Microsoft Edge o Chrome.";
+  }else if(hayNat){
+    nota.innerHTML="✅ Tienes voces <b>neuronales</b> disponibles (marcadas con ★): son las que suenan más humanas.";
+  }else{
+    nota.innerHTML="💡 Las voces marcadas con ★ suenan mejor. Para conseguir voces <b>neuronales</b> (mucho más naturales), "
+      +"abre estas páginas en <b>Microsoft Edge</b>, o instálalas en Windows: <b>Configuración → Hora e idioma → Voz → Agregar voces</b>.";
+  }
+}
+function abrirPanel(){if(!back)crearPanel();pintarSelector();back.classList.add("show");}
+function cerrarPanel(){if(back)back.classList.remove("show");synth.cancel();}
+
+/* ─────────── 6 · Inyectar los controles en cada apartado ─────────── */
+/* Se excluyen a propósito tres apartados: conexiones con otros preceptos,
+   trampas y errores frecuentes, y anclaje memorístico. */
+var TTS_EXCLUIR=/(conexion|conexiones|trampas|anclaje)/i;
+
+function ttsBarra(frases,compacta){
+  var bar=document.createElement("div");
+  bar.className="tts-bar noprint"+(compacta?" mini":"");
+  bar.innerHTML='<button class="tts-play" type="button">'+iconoPlay()+"</button>"
+    +(compacta?"":'<button class="tts-cfg" type="button" title="Ajustes de voz">⚙ Voz</button>')
+    +'<span class="tts-time">'+frases.length+(frases.length===1?" frase":" frases")+"</span>";
+  return bar;
+}
+
+function ttsPreparar(bl,opts){
+  if(bl.getAttribute("data-tts"))return false;
+  bl.setAttribute("data-tts","1");
+  var frases=segmentar(bl);
+  bl.__tts=frases;
+  if(!frases.length||bl.textContent.trim().length<40)return false;
+  bl.__label=opts.label||"";
+  var bar=ttsBarra(frases,opts.compacta);
+  if(opts.tras){
+    var ref=bl.querySelector(opts.tras);
+    if(ref&&ref.nextSibling)bl.insertBefore(bar,ref.nextSibling);
+    else bl.insertBefore(bar,bl.firstChild);
+  }else if(opts.alFinal){
+    bl.appendChild(bar);
+  }else{
+    bl.insertBefore(bar,bl.firstChild);
+  }
+  bar.querySelector(".tts-play").onclick=function(e){e.stopPropagation();leer(bl);};
+  var cfg=bar.querySelector(".tts-cfg");
+  if(cfg)cfg.onclick=function(e){e.stopPropagation();abrirPanel();};
+  return true;
+}
+
+function montar(){
+  var hay=false;
+  if(!back)crearPanel();
+
+  /* 6a · Texto legal literal */
+  Array.prototype.forEach.call(document.querySelectorAll(".legal:not([data-tts])"),function(bl){
+    hay=ttsPreparar(bl,{tras:".lbl",label:"Texto legal"})||hay;
+  });
+
+  /* 6b · Idea clave */
+  Array.prototype.forEach.call(document.querySelectorAll(".idea:not([data-tts])"),function(bl){
+    hay=ttsPreparar(bl,{compacta:true,alFinal:true,label:"Idea clave"})||hay;
+  });
+
+  /* 6c · Apartados desplegables, salvo los tres excluidos */
+  Array.prototype.forEach.call(document.querySelectorAll("details.panel"),function(p){
+    var sum=p.querySelector("summary");
+    var body=p.querySelector(".body");
+    if(!sum||!body||body.getAttribute("data-tts"))return;
+    var t=sum.textContent||"";
+    if(TTS_EXCLUIR.test(t)){body.setAttribute("data-tts","skip");return;}
+    hay=ttsPreparar(body,{compacta:true,label:t.replace(/[^\wáéíóúüñÁÉÍÓÚÜÑ\s·¿?¡!]/g,"").trim()})||hay;
+  });
+
+  /* 6d · Resumen e introducción del bloque */
+  ["#resumen","#intro"].forEach(function(sel){
+    var sec=document.querySelector(sel);
+    if(!sec||sec.getAttribute("data-tts"))return;
+    var h=sec.querySelector("h2");
+    hay=ttsPreparar(sec,{tras:"h2",label:h?h.textContent:"Resumen"})||hay;
+  });
+
+  return hay;
+}
+
+/* ─────────── 7 · Arranque ─────────── */
+cargarVoces();
+if(typeof synth.onvoiceschanged!=="undefined")synth.onvoiceschanged=cargarVoces;
+setTimeout(cargarVoces,400);setTimeout(cargarVoces,1400);
+
+var n=0,iv=setInterval(function(){if(montar()||++n>40)clearInterval(iv);},150);
+addEventListener("load",function(){setTimeout(montar,200);});
+addEventListener("beforeunload",function(){synth.cancel();});
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea,select"))return;
+  if(e.key==="Escape"&&actual)parar();
+});
+})();
+
+
+</script>
+</body>
+</html>

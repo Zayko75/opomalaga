@@ -2617,17 +2617,18 @@ document.addEventListener("keydown",function(e){
 
 /* ═══════════════════════════════════════════════════════════════
    AUTOAJUSTE DE DIAGRAMAS SVG
-   1. El texto que desborda su rectángulo se reparte en líneas; si aún
-      no cabe, baja la fuente y, en último término, se ajusta al ancho.
-      El rectángulo crece si las líneas nuevas lo requieren y hay hueco.
-   2. Las etiquetas sueltas reciben un halo de fondo y suben al frente,
-      para que ninguna flecha las tape.
-   Todas las medidas se toman del elemento real ya renderizado.
+   · El texto que desborda su rectángulo se reparte en líneas.
+   · Las filas siguientes se empujan hacia abajo y el rectángulo crece,
+     de modo que ninguna línea nueva pise al texto de debajo.
+   · Si no hay espacio libre bajo el rectángulo, en lugar de repartir
+     se reduce la fuente: nunca se invade el elemento contiguo.
+   · Las etiquetas sueltas reciben halo y se pintan sobre las flechas.
+   Todas las medidas se toman del elemento ya renderizado.
    ═══════════════════════════════════════════════════════════════ */
 (function(){
 "use strict";
 var NS="http://www.w3.org/2000/svg";
-var PAD_X=9, PAD_Y=6, FS_MIN=6.5, MAX_LINEAS=4;
+var PAD_X=9, PAD_Y=5, FS_MIN=6.5, MAX_LINEAS=4, INTER=1.16, SEP_MIN=5;
 
 function num(el,a,d){var v=parseFloat(el.getAttribute(a));return isNaN(v)?(d||0):v;}
 function ancho(t){try{if(t.getComputedTextLength)return t.getComputedTextLength();}catch(e){}return 0;}
@@ -2637,22 +2638,21 @@ function fs(t){
   try{v=parseFloat(getComputedStyle(t).fontSize);if(!isNaN(v)&&v>0)return v;}catch(e){}
   return 10;
 }
-/* reparte el texto en <=n líneas de ancho <=maxW, midiendo por carácter */
 function partir(txt,cpp,maxW,n){
   if(txt.length*cpp<=maxW)return [txt];
-  var seps=[" · "," — "," – ",", "," "];
-  for(var s=0;s<seps.length;s++){
+  var seps=[" · "," — "," – ",", "," "],s,i,k;
+  for(s=0;s<seps.length;s++){
     var tr=txt.split(seps[s]);
     if(tr.length<2)continue;
     var lin=[],act="";
-    for(var i=0;i<tr.length;i++){
+    for(i=0;i<tr.length;i++){
       var cand=act?act+seps[s]+tr[i]:tr[i];
       if(act&&cand.length*cpp>maxW){lin.push(act);act=tr[i];}
       else act=cand;
     }
     if(act)lin.push(act);
     var caben=true;
-    for(var k=0;k<lin.length;k++)if(lin[k].length*cpp>maxW)caben=false;
+    for(k=0;k<lin.length;k++)if(lin[k].length*cpp>maxW)caben=false;
     if(caben&&lin.length<=n)return lin;
   }
   return null;
@@ -2663,12 +2663,11 @@ function pintar(t,lin,size){
   for(var i=0;i<lin.length;i++){
     var ts=document.createElementNS(NS,"tspan");
     ts.setAttribute("x",x);
-    if(i)ts.setAttribute("dy",(size*1.18).toFixed(1));
+    if(i)ts.setAttribute("dy",(size*INTER).toFixed(1));
     ts.textContent=lin[i];
     t.appendChild(ts);
   }
 }
-/* garantía: lo que siga sobrando se ajusta al ancho disponible */
 function encajar(t,cpp,maxW){
   var sp=t.getElementsByTagName("tspan"),i;
   if(sp.length){
@@ -2682,6 +2681,14 @@ function encajar(t,cpp,maxW){
     t.setAttribute("lengthAdjust","spacingAndGlyphs");
   }
 }
+/* reduce la fuente hasta que el texto quepa en una sola línea */
+function encoger(t,txt,cpp,size,maxW){
+  var s2=size,c2=cpp;
+  while(s2>FS_MIN&&txt.length*c2>maxW){s2-=.5;c2=cpp*(s2/size);}
+  t.setAttribute("font-size",s2.toFixed(1));
+  encajar(t,c2,maxW);
+  return s2;
+}
 
 function ajustar(svg){
   var rects=[],texts=[],i;
@@ -2689,14 +2696,12 @@ function ajustar(svg){
   for(i=0;i<rl.length;i++)if(!rl[i].hasAttribute("data-halo"))rects.push(rl[i]);
   for(i=0;i<tl.length;i++)texts.push(tl[i]);
   if(!texts.length)return true;
-
-  /* ¿hay layout? si ningún texto mide, el SVG aún no se ha renderizado */
   var medible=false;
   for(i=0;i<texts.length;i++)
     if((texts[i].textContent||"").trim()&&ancho(texts[i])>0){medible=true;break;}
   if(!medible)return false;
 
-  var porRect=[], sueltos=[];
+  var porRect=[],sueltos=[];
   function grupo(r){
     for(var j=0;j<porRect.length;j++)if(porRect[j].r===r)return porRect[j];
     var g={r:r,lista:[]};porRect.push(g);return g;
@@ -2712,54 +2717,81 @@ function ajustar(svg){
     if(host)grupo(host).lista.push(t); else sueltos.push(t);
   });
 
+  /* espacio libre bajo un rectángulo, hasta el siguiente elemento que le estorbe */
+  function hueco(r){
+    var rx=num(r,"x"),ry=num(r,"y"),rw=num(r,"width"),rh=num(r,"height");
+    var abajo=ry+rh, libre=Infinity;
+    rects.forEach(function(o){
+      if(o===r)return;
+      var ox=num(o,"x"),oy=num(o,"y"),ow=num(o,"width");
+      if(oy>=abajo-1&&ox<rx+rw&&ox+ow>rx)libre=Math.min(libre,oy-abajo-SEP_MIN);
+    });
+    texts.forEach(function(t){
+      var tx=num(t,"x"),ty=num(t,"y");
+      if(ty>abajo&&tx>rx-40&&tx<rx+rw+40)
+        libre=Math.min(libre,ty-fs(t)-abajo-SEP_MIN);
+    });
+    var vb=(svg.getAttribute("viewBox")||"").split(/[\s,]+/);
+    if(vb.length===4)libre=Math.min(libre,parseFloat(vb[1])+parseFloat(vb[3])-abajo-2);
+    return Math.max(0,libre);
+  }
+
   /* ─── 1 · Texto dentro de un rectángulo ─── */
   porRect.forEach(function(g){
     var r=g.r, rx=num(r,"x"), ry=num(r,"y"), rw=num(r,"width"), rh=num(r,"height");
-    var maxW=rw-PAD_X*2, extra=0;
+    var maxW=rw-PAD_X*2;
     if(maxW<20)return;
+    g.lista.forEach(function(t){t.setAttribute("data-fit","1");});
     g.lista.sort(function(a,b){return num(a,"y")-num(b,"y");});
-    g.lista.forEach(function(t){
-      t.setAttribute("data-fit","1");
-      var txt=(t.textContent||"").replace(/\s+/g," ").trim();
-      if(!txt)return;
-      var w=ancho(t); if(!w)return;
-      var cpp=w/txt.length;                     /* ancho medio por carácter */
-      if(w<=maxW)return;                        /* ya cabe */
-      var size=fs(t);
 
-      var lin=partir(txt,cpp,maxW,MAX_LINEAS);
-      if(lin&&lin.length>1){
-        pintar(t,lin,size);
-        extra=Math.max(extra,(lin.length-1)*size*1.18);
-        encajar(t,cpp,maxW);
-        return;
-      }
-      /* no se puede repartir: bajamos la fuente */
-      var s2=size,cpp2=cpp;
-      while(s2>FS_MIN&&txt.length*cpp2>maxW){s2-=.5;cpp2=cpp*(s2/size);}
-      t.setAttribute("font-size",s2.toFixed(1));
-      var l2=partir(txt,cpp2,maxW,MAX_LINEAS);
-      if(l2&&l2.length>1){pintar(t,l2,s2);extra=Math.max(extra,(l2.length-1)*s2*1.18);}
-      encajar(t,cpp2,maxW);
+    /* filas: textos a la misma altura */
+    var filas=[],act=null;
+    g.lista.forEach(function(t){
+      var y=num(t,"y");
+      if(!act||Math.abs(y-act.y)>3){act={y:y,ts:[]};filas.push(act);}
+      act.ts.push(t);
     });
 
-    if(extra>0){
-      var ult=g.lista[g.lista.length-1];
-      var fin=num(ult,"y")+extra+PAD_Y;
-      if(fin>ry+rh){
-        var nuevo=fin-ry, tope=Infinity;
-        rects.forEach(function(o){
-          if(o===r)return;
-          var ox=num(o,"x"),oy=num(o,"y"),ow=num(o,"width");
-          if(oy>ry+rh-1&&ox<rx+rw&&ox+ow>rx)tope=Math.min(tope,oy-6-ry);
-        });
-        var h2=Math.min(nuevo,tope);
-        if(h2>rh)r.setAttribute("height",h2.toFixed(1));
-      }
-    }
+    /* — plan: qué haría falta — */
+    var total=0;
+    filas.forEach(function(fl){
+      fl.extra=0;fl.plan=[];
+      fl.ts.forEach(function(t){
+        var txt=(t.textContent||"").replace(/\s+/g," ").trim();
+        var w=ancho(t);
+        if(!txt||!w||w<=maxW){fl.plan.push(null);return;}
+        var size=fs(t), cpp=w/txt.length;
+        var lin=partir(txt,cpp,maxW,MAX_LINEAS);
+        if(lin&&lin.length>1){
+          fl.plan.push({t:t,lin:lin,size:size,cpp:cpp,txt:txt});
+          fl.extra=Math.max(fl.extra,(lin.length-1)*size*INTER);
+        }else fl.plan.push({t:t,lin:null,size:size,cpp:cpp,txt:txt});
+      });
+      total+=fl.extra;
+    });
+
+    /* — ¿cabe ese crecimiento? — */
+    var ultima=filas[filas.length-1];
+    var colchon=Math.max(0,(ry+rh)-ultima.y-PAD_Y);
+    var crecer=Math.max(0,total-colchon);
+    var libre=hueco(r);
+    var reparte=crecer<=libre;
+
+    var desp=0;
+    filas.forEach(function(fl){
+      if(desp>0)fl.ts.forEach(function(t){t.setAttribute("y",(num(t,"y")+desp).toFixed(1));});
+      fl.plan.forEach(function(p){
+        if(!p)return;
+        if(p.lin&&reparte){pintar(p.t,p.lin,p.size);encajar(p.t,p.cpp,maxW);}
+        else encoger(p.t,p.txt,p.cpp,p.size,maxW);
+      });
+      if(reparte)desp+=fl.extra;
+    });
+
+    if(reparte&&crecer>0)r.setAttribute("height",(rh+crecer).toFixed(1));
   });
 
-  /* ─── 2 · Etiquetas sueltas: halo detrás y al frente ─── */
+  /* ─── 2 · Etiquetas sueltas ─── */
   sueltos.forEach(function(t){
     t.setAttribute("data-fit","1");
     var txt=(t.textContent||"").replace(/\s+/g," ").trim();
@@ -2778,22 +2810,14 @@ function ajustar(svg){
     halo.setAttribute("fill","var(--surface)");
     halo.setAttribute("opacity",".93");
     var p=t.parentNode;
-    p.appendChild(halo);
-    p.appendChild(t);
+    p.appendChild(halo);p.appendChild(t);
   });
   return true;
 }
 
 function pasada(){
   var l=document.querySelectorAll("svg:not([data-fit])"),i;
-  for(i=0;i<l.length;i++){
-    try{ if(ajustar(l[i]))l[i].setAttribute("data-fit","1"); }catch(e){}
-  }
-}
-function relanzar(){
-  var l=document.querySelectorAll("svg[data-fit]"),i;
-  for(i=0;i<l.length;i++)l[i].removeAttribute("data-fit");
-  pasada();
+  for(i=0;i<l.length;i++){try{if(ajustar(l[i]))l[i].setAttribute("data-fit","1");}catch(e){}}
 }
 if(document.readyState!=="loading")requestAnimationFrame(pasada);
 else document.addEventListener("DOMContentLoaded",function(){requestAnimationFrame(pasada);});
@@ -2802,11 +2826,6 @@ document.addEventListener("toggle",function(e){
   if(e.target&&e.target.tagName==="DETAILS")setTimeout(pasada,30);
 },true);
 var n=0,iv=setInterval(function(){pasada();if(++n>40)clearInterval(iv);},200);
-var tmr;addEventListener("resize",function(){clearTimeout(tmr);tmr=setTimeout(relanzar,250);},{passive:true});
-["fs+","fs-"].forEach(function(id){
-  var b=document.getElementById(id);
-  if(b)b.addEventListener("click",function(){setTimeout(relanzar,60);});
-});
 })();
 
 </script>

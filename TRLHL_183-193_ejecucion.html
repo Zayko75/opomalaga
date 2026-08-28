@@ -2626,7 +2626,7 @@ document.addEventListener("keydown",function(e){
 (function(){
 "use strict";
 var NS="http://www.w3.org/2000/svg";
-var PAD_X=9, PAD_Y=5, FS_MIN=6.5, MAX_LINEAS=4, INTER=1.16, SEP_MIN=5;
+var PAD_X=9, PAD_Y=7, FS_MIN=6.5, MAX_LINEAS=4, INTER=1.16, SEP_MIN=5;
 
 function num(el,a,d){var v=parseFloat(el.getAttribute(a));return isNaN(v)?(d||0):v;}
 function ancho(t){try{if(t.getComputedTextLength)return t.getComputedTextLength();}catch(e){}return 0;}
@@ -2787,6 +2787,24 @@ function ajustar(svg){
     });
 
     if(reparte&&crecer>0)r.setAttribute("height",(rh+crecer).toFixed(1));
+
+    /* comprobación final: ninguna línea puede sobresalir del rectángulo */
+    var rh2=num(r,"height"), bajo=ry, i2;
+    g.lista.forEach(function(t){
+      var size=fs(t), y=num(t,"y"), sp=t.getElementsByTagName("tspan");
+      if(sp.length){for(i2=0;i2<sp.length;i2++){
+        if(i2)y+=parseFloat(sp[i2].getAttribute("dy"))||0;
+        bajo=Math.max(bajo,y+size*0.3);}}
+      else bajo=Math.max(bajo,y+size*0.3);
+    });
+    if(bajo>ry+rh2-1){
+      var falta=bajo-(ry+rh2)+3;
+      if(falta<=hueco(r))r.setAttribute("height",(rh2+falta).toFixed(1));
+      else g.lista.forEach(function(t){
+        var txt=(t.textContent||"").replace(/\s+/g," ").trim(), w=ancho(t);
+        if(txt&&w)encoger(t,txt,w/txt.length,fs(t),maxW);
+      });
+    }
   });
 
   /* ─── 2 · Etiquetas sueltas ─── */

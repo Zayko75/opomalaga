@@ -1,0 +1,2230 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Supuestos prácticos reales · 60 preguntas resueltas y razonadas · Tres exámenes de Auxiliar Administrativo</title>
+<style>
+
+/* ═══════════════════════════════════════════════════════════════
+   SISTEMA DE DISEÑO · "Académico Gamificado" · Bloque II
+   Temas 8, 9 y 10 · Auxiliar Administrativo
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --fs:16px;
+
+  --bg:#faf9f7;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #dcf5ee 0%, transparent 50%);
+  --surface:#ffffff;
+  --surface-2:#f4f3f0;
+  --surface-3:#eceae5;
+  --line:#e6e3dc;
+  --line-strong:#d4d0c7;
+
+  --ink:#15161c;
+  --ink-2:#5d616e;
+  --ink-3:#8b8f9c;
+
+  --brand:#5b3df5;
+  --brand-2:#7c5cff;
+  --brand-soft:#efeaff;
+  --brand-ring:rgba(91,61,245,.18);
+
+  --legal:#4338ca;  --legal-bg:#eeecff;
+  --ej:#059669;     --ej-bg:#e4f7f0;
+  --warn:#c2690a;   --warn-bg:#fdf1de;
+  --exc:#dc2626;    --exc-bg:#ffeceb;
+
+  --ok:#16a34a; --ok-soft:#e7f7ec;
+  --mid:#eab308; --mid-soft:#fdf6dd;
+  --off:#a1a1aa; --off-soft:#f1f1f3;
+
+  --sh-1:0 1px 2px rgba(20,20,30,.04), 0 2px 8px rgba(20,20,30,.04);
+  --sh-2:0 2px 6px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.07);
+  --sh-3:0 8px 20px rgba(91,61,245,.13), 0 24px 56px rgba(20,20,30,.10);
+  --sh-glow:0 0 0 4px var(--brand-ring);
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-full:999px;
+
+  --f-display:"Segoe UI Variable Display",system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-legal:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+
+  --t-h1:clamp(1.02rem,.95rem + .3vw,1.2rem);
+  --t-h2:clamp(1.2rem,1.05rem + .6vw,1.55rem);
+  --t-h3:clamp(1rem,.95rem + .25vw,1.12rem);
+  --t-sm:.86rem;
+  --t-xs:.75rem;
+
+  --e-out:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+
+  /* ── Compatibilidad con SVG y contenido generado ── */
+  --panel:var(--surface);
+  --ink2:var(--ink-2);
+  --acc:var(--brand);
+  --acc-soft:var(--brand-soft);
+  --g:var(--ok); --y:var(--mid); --r:var(--exc);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0b0f;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #1c1740 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #08302b 0%, transparent 50%);
+  --surface:#13151b;
+  --surface-2:#1a1d25;
+  --surface-3:#232733;
+  --line:#262a34;
+  --line-strong:#343947;
+
+  --ink:#eceef4;
+  --ink-2:#9ba2b3;
+  --ink-3:#6e7585;
+
+  --brand:#8b6dff;
+  --brand-2:#a78bff;
+  --brand-soft:#1e1a3d;
+  --brand-ring:rgba(139,109,255,.22);
+
+  --legal:#a5b4fc; --legal-bg:#191b3a;
+  --ej:#34d399;    --ej-bg:#0c2a24;
+  --warn:#fbbf24;  --warn-bg:#2e2110;
+  --exc:#fb7185;   --exc-bg:#331119;
+
+  --ok:#4ade80; --ok-soft:#0e2a19;
+  --mid:#facc15; --mid-soft:#2c2610;
+  --off:#5b6070; --off-soft:#1c1f27;
+
+  --sh-1:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sh-2:0 2px 6px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.4);
+  --sh-3:0 8px 20px rgba(139,109,255,.2), 0 24px 56px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);background-image:var(--bg-grad);
+  background-attachment:fixed;background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s var(--e-out),color .3s;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.022em;line-height:1.2}
+.num{font-variant-numeric:tabular-nums}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+
+/* ═══ HEADER ═══ */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{max-width:1280px;margin:0 auto;padding:.65rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;flex:1}
+.mark{
+  width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  font-weight:800;font-size:.8rem;letter-spacing:-.02em;text-decoration:none;
+  box-shadow:0 4px 14px var(--brand-ring);
+  transition:transform .3s var(--e-spring),box-shadow .3s;
+}
+.mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0}
+.top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
+  margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+
+button,select,input[type=search]{
+  font:inherit;font-size:var(--t-sm);font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:var(--r-sm);padding:.4rem .72rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .18s var(--e-spring),border-color .2s,background .2s,box-shadow .2s,color .2s;
+}
+button:hover{transform:translateY(-1.5px);border-color:var(--brand);box-shadow:var(--sh-1)}
+button:active{transform:translateY(0) scale(.97)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:none;box-shadow:var(--sh-glow)}
+input[type=search]{min-width:190px;cursor:text;font-weight:500}
+input[type=search]:focus{border-color:var(--brand)}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);padding:2px;gap:2px}
+.seg button{border:0;border-radius:calc(var(--r-sm) - 2px);padding:.32rem .68rem;background:transparent;box-shadow:none}
+.seg button:hover{transform:none;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 2px 8px var(--brand-ring)}
+
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:currentColor;opacity:.25;animation:rip .55s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(3.4);opacity:0}}
+
+.progress{position:absolute;left:0;bottom:-1px;height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--brand),var(--legal),var(--ej));transition:width .1s linear}
+
+/* ═══ LAYOUT ═══ */
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:1.8rem;padding:1.4rem 1.1rem 5rem}
+main{min-width:0}
+
+/* ═══ SIDEBAR ═══ */
+nav.side{
+  position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:.85rem;box-shadow:var(--sh-1);
+}
+nav.side h2{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:.5rem .4rem .5rem;font-weight:800}
+nav.side h2:first-child{margin-top:.1rem}
+nav.side a{
+  display:flex;align-items:baseline;gap:.5rem;padding:.36rem .55rem;border-radius:var(--r-sm);
+  text-decoration:none;color:var(--ink-2);font-size:var(--t-sm);font-weight:500;
+  position:relative;transition:background .22s,color .22s,transform .22s var(--e-out);
+}
+nav.side a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(3px);text-decoration:none}
+nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side a.on::before{content:"";position:absolute;left:-.85rem;top:20%;bottom:20%;width:3px;
+  border-radius:0 3px 3px 0;background:var(--brand)}
+nav.side a b{color:var(--ink-3);font-weight:800;font-size:var(--t-xs);font-variant-numeric:tabular-nums;flex:none;min-width:1.9em}
+nav.side a.on b{color:var(--brand)}
+.navtoggle{display:none}
+
+/* ═══ TARJETAS ═══ */
+section.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.5rem;margin-bottom:1.1rem;box-shadow:var(--sh-1);
+  transition:box-shadow .3s var(--e-out),border-color .3s;
+}
+section.card:hover{box-shadow:var(--sh-2)}
+section.card>h2{
+  margin:0 0 1rem;font-size:var(--t-h2);font-weight:800;
+  display:flex;align-items:center;gap:.6rem;
+}
+section.card>h2::before{
+  content:"";width:4px;height:1.05em;border-radius:99px;flex:none;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+
+/* ═══ ARTÍCULO ═══ */
+.art{scroll-margin-top:86px;padding-top:.4rem}
+.art + .art{margin-top:1.6rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+.art h2{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;font-size:var(--t-h3);
+  margin:0 0 .25rem;font-weight:800;letter-spacing:-.015em}
+.art h2 .num{
+  color:var(--brand);font-weight:800;font-family:var(--f-display);
+  background:var(--brand-soft);padding:.1rem .5rem;border-radius:var(--r-sm);
+  font-size:.92em;letter-spacing:-.02em;
+}
+.ubic{font-size:var(--t-xs);color:var(--ink-3);margin:0 0 .8rem;font-weight:600;
+  letter-spacing:.03em;text-transform:uppercase}
+
+/* ═══ IDEA CLAVE ═══ */
+.idea{
+  background:linear-gradient(100deg,var(--brand-soft),color-mix(in srgb,var(--brand-soft) 40%,transparent));
+  border-left:4px solid var(--brand);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.75rem 1rem;font-weight:650;margin:.7rem 0 1rem;position:relative;
+  font-size:.97rem;line-height:1.55;
+}
+
+/* ═══ ACORDEÓN ═══ */
+details.panel{
+  border:1px solid var(--line);border-radius:var(--r-md);margin:.6rem 0;
+  background:var(--surface);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+details.panel:hover{border-color:var(--line-strong)}
+details.panel[open]{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring)}
+details.panel>summary{
+  cursor:pointer;padding:.62rem .9rem;font-weight:700;font-size:.93rem;
+  list-style:none;display:flex;align-items:center;gap:.55rem;
+  transition:background .2s,color .2s;
+}
+details.panel>summary:hover{background:var(--surface-2)}
+details.panel[open]>summary{background:var(--brand-soft);color:var(--brand)}
+details.panel>summary::-webkit-details-marker{display:none}
+details.panel>summary::before{
+  content:"";width:16px;height:16px;flex:none;border-radius:5px;
+  background:var(--brand-soft);position:relative;transition:transform .3s var(--e-spring),background .25s;
+}
+details.panel>summary::after{
+  content:"";position:absolute;width:0;height:0;margin-left:5px;
+  border:4px solid transparent;border-left-color:var(--brand);
+  transition:transform .3s var(--e-spring);
+}
+details.panel[open]>summary::before{background:var(--surface)}
+details.panel[open]>summary::after{transform:rotate(90deg) translateX(-1px)}
+details.panel .body{padding:.3rem 1rem 1rem;font-size:.95rem;animation:slidein .35s var(--e-out)}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ═══ TEXTO LEGAL ═══ */
+.legal{
+  background:var(--legal-bg);border-left:4px solid var(--legal);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:.85rem 1.05rem;
+  font-family:var(--f-legal);font-size:.95rem;line-height:1.7;
+}
+.legal p{margin:.45rem 0}
+.legal .lbl{
+  font-family:var(--f-body);font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--legal);font-weight:800;display:block;margin-bottom:.4rem;
+}
+
+/* ═══ CAJAS SEMÁNTICAS ═══ */
+.box{
+  border-left:4px solid var(--line);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.72rem .95rem;margin:.65rem 0;font-size:.94rem;
+  transition:transform .25s var(--e-out),box-shadow .25s;
+}
+.box:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
+.box.ej{background:var(--ej-bg);border-color:var(--ej)}
+.box.warn{background:var(--warn-bg);border-color:var(--warn)}
+.box.exc{background:var(--exc-bg);border-color:var(--exc)}
+.box .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+  display:block;margin-bottom:.3rem}
+.box.ej .lbl{color:var(--ej)}
+.box.warn .lbl{color:var(--warn)}
+.box.exc .lbl{color:var(--exc)}
+
+.interp{
+  border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn-bg) 45%,transparent);
+  border-radius:var(--r-md);padding:.65rem .9rem;font-size:.9rem;margin:.6rem 0;
+}
+.interp .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);font-weight:800;display:block}
+
+/* ═══ TABLAS ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;margin:.7rem 0;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+th,td{padding:.5rem .68rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td + td, th + th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-size:var(--t-xs);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+tbody tr{transition:background .18s}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+tbody tr:hover{background:var(--brand-soft)}
+th.sortable{cursor:pointer;user-select:none;transition:color .2s,background .2s}
+th.sortable:hover{color:var(--brand);background:var(--brand-soft)}
+th.sortable::after{content:" ⇅";color:var(--ink-3);font-size:.7rem}
+
+ul,ol{margin:.5rem 0 .5rem 1.2rem;padding:0}
+li{margin:.26rem 0}
+li::marker{color:var(--brand);font-weight:700}
+
+/* ═══ TOOLTIPS ═══ */
+.t{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;
+  transition:background .2s,color .2s}
+.t:hover{background:var(--brand-soft);color:var(--brand);border-radius:3px}
+#tip{
+  position:fixed;z-index:99;max-width:330px;background:var(--ink);color:var(--bg);
+  padding:.6rem .78rem;border-radius:var(--r-md);font-size:.82rem;line-height:1.5;
+  display:none;box-shadow:0 8px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);
+}
+html[data-theme="dark"] #tip{background:#f0f1f5;color:#15161c}
+
+/* ═══ FLECHAS DE DIAGRAMA ═══
+   Un <path> con stroke pero sin fill toma el valor inicial (negro) y el
+   navegador cierra el trazo implícitamente: aparece un triángulo relleno
+   entre sus extremos. Forzamos fill:none para dejar solo la línea + la
+   punta del <marker>, que sí lleva su color. */
+svg path[stroke]:not([fill]){fill:none}
+svg polyline:not([fill]){fill:none}
+svg line{fill:none}
+
+/* ═══ SVG ═══ */
+svg{max-width:100%;height:auto;display:block;margin:.9rem auto}
+svg text{font-family:var(--f-body)}
+
+/* ═══ BUSCADOR ═══ */
+mark.hit{background:linear-gradient(180deg,transparent 55%,#ffe066 55%);color:inherit;
+  border-radius:2px;padding:0 1px;font-weight:600}
+html[data-theme="dark"] mark.hit{background:linear-gradient(180deg,transparent 55%,#8a6d00 55%);color:#fff}
+
+/* ═══ UTILIDADES ═══ */
+.hide{display:none !important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.small{font-size:var(--t-sm);color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:var(--t-xs);padding:.16rem .55rem;border-radius:var(--r-full);
+  background:var(--brand-soft);color:var(--brand);font-weight:800;letter-spacing:.02em;
+}
+
+/* ═══ HUECOS RELLENABLES ═══ */
+.gap{
+  display:inline-block;min-width:5.5em;border-bottom:2px solid var(--brand);
+  text-align:center;font-weight:700;color:transparent;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.gap.on,.gap:hover{color:var(--brand);background:var(--brand-soft);border-radius:4px 4px 0 0}
+
+/* ═══ REVELAR SOLUCIÓN ═══ */
+.revelar{
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;
+  font-weight:700;
+}
+.revelar:hover{box-shadow:var(--sh-3)}
+.sol{
+  margin-top:.7rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  background:var(--ej-bg);border-left:4px solid var(--ej);
+  animation:slidein .4s var(--e-out);
+}
+
+/* ═══ TEST ═══ */
+.opt{
+  display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;background:var(--surface);font-size:.94rem;
+  transition:border-color .22s,background .22s,transform .22s var(--e-out);
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateX(4px)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:650}
+.opt.ko{border-color:var(--exc);background:var(--exc-bg)}
+.opt input{margin-right:.5rem;accent-color:var(--brand)}
+
+#tscore,#semres{
+  font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLASHCARDS 3D · mazo con giro, vuelo de salida y sheen
+   ═══════════════════════════════════════════════════════════════ */
+#flash{--fc-e:cubic-bezier(.2,.8,.25,1);--fc-h:250px}
+
+/* — Escena — */
+.fc-stage{
+  perspective:1400px;perspective-origin:50% 45%;
+  padding:.4rem 0 .2rem;position:relative;
+}
+.fc-deck{position:relative;height:var(--fc-h);will-change:transform}
+
+/* — Cartas fantasma del mazo — */
+.fc-ghost{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .5s var(--fc-e),opacity .5s var(--fc-e);
+}
+.fc-ghost.g1{transform:translateY(9px) scale(.972);opacity:.75}
+.fc-ghost.g2{transform:translateY(18px) scale(.944);opacity:.45}
+.fc-deck.empty .fc-ghost{opacity:0;transform:translateY(26px) scale(.9)}
+
+/* — Elevación durante el giro — */
+.fc-lift{position:absolute;inset:0;transform-style:preserve-3d}
+.fc-lift.lift{animation:fcLift .78s var(--fc-e)}
+@keyframes fcLift{
+  0%,100%{transform:scale(1) translateY(0)}
+  45%{transform:scale(1.055) translateY(-16px)}
+}
+.fc-lift.out-ok{animation:fcOut .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.out-ko{animation:fcOutKo .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.in{animation:fcIn .48s var(--fc-e)}
+@keyframes fcOut{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(130%) rotate(17deg) scale(.85);opacity:0}
+}
+@keyframes fcOutKo{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(-130%) rotate(-17deg) scale(.85);opacity:0}
+}
+@keyframes fcIn{
+  0%{transform:translateY(26px) scale(.9);opacity:0}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+
+/* — La carta — */
+.fc-card{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transition:transform .78s var(--fc-e);
+  cursor:pointer;border-radius:var(--r-lg);
+}
+.fc-card:focus-visible{outline:none}
+.fc-card:focus-visible .fc-face{box-shadow:var(--sh-glow),var(--sh-2)}
+
+/* — Caras — */
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 2.2rem;text-align:center;overflow:hidden;
+  box-shadow:var(--sh-2);
+  transition:box-shadow .4s var(--fc-e);
+}
+.fc-card:hover .fc-face{box-shadow:var(--sh-3)}
+
+/* Anverso · pregunta */
+.fc-front{
+  background:
+    radial-gradient(120% 90% at 50% -20%, var(--brand-soft) 0%, transparent 60%),
+    var(--surface);
+  border:1.5px solid var(--line);color:var(--ink);
+}
+/* Reverso · respuesta */
+.fc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,var(--brand) 0%,#6d4bf7 45%,var(--c5,#0891b2) 130%);
+  border:1.5px solid transparent;color:#fff;
+}
+html[data-theme="dark"] .fc-back{
+  background:linear-gradient(145deg,#5f45c9 0%,#4b3aa8 45%,#0e6b85 130%);
+}
+.fc-back .fc-txt{color:#fff}
+.fc-back b,.fc-back strong{color:#fff;font-weight:800}
+
+/* — Sheen que barre al girar — */
+.fc-face::after{
+  content:"";position:absolute;top:-60%;left:-70%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);opacity:0;pointer-events:none;
+}
+.fc-lift.lift .fc-face::after{animation:fcSheen .78s var(--fc-e)}
+@keyframes fcSheen{
+  0%{opacity:0;left:-70%}
+  35%{opacity:1}
+  100%{opacity:0;left:150%}
+}
+
+/* — Etiqueta superior — */
+.fc-tag{
+  position:absolute;top:1rem;left:1.15rem;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.fc-front .fc-tag{color:var(--brand)}
+.fc-back .fc-tag{color:rgba(255,255,255,.9)}
+.fc-tag::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+  animation:fcPulse 2.2s ease-in-out infinite;
+}
+@keyframes fcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* — Índice tipo naipe — */
+.fc-pip{
+  position:absolute;font-family:var(--f-display);font-weight:800;
+  font-size:.78rem;letter-spacing:-.02em;opacity:.34;font-variant-numeric:tabular-nums;
+}
+.fc-pip.tr{top:1rem;right:1.15rem}
+.fc-pip.bl{bottom:1rem;left:1.15rem;transform:rotate(180deg)}
+.fc-front .fc-pip{color:var(--ink-2)}
+.fc-back .fc-pip{color:#fff;opacity:.55}
+
+/* — Texto — */
+.fc-txt{
+  font-size:clamp(1rem,.9rem + .55vw,1.28rem);font-weight:650;line-height:1.5;
+  max-width:44ch;letter-spacing:-.012em;
+}
+.fc-front .fc-txt{font-family:var(--f-display);font-weight:700}
+.fc-back .fc-txt{font-weight:600;line-height:1.6}
+.fc-hint{
+  position:absolute;bottom:1rem;left:0;right:0;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.fc-front .fc-hint{color:var(--ink-3)}
+.fc-back .fc-hint{color:rgba(255,255,255,.72)}
+.fc-hint .kbd{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:700;padding:.1rem .32rem;
+  border-radius:5px;border:1px solid currentColor;opacity:.75;
+}
+
+/* — Pantalla final — */
+.fc-done{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--ok-soft),var(--surface) 70%);
+  border:1.5px solid var(--ok);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;gap:.35rem;
+  animation:fcIn .5s var(--fc-e);box-shadow:var(--sh-2);
+}
+.fc-done .seal{
+  font-size:2.6rem;line-height:1;
+  animation:fcSeal .7s cubic-bezier(.2,1.5,.4,1);
+}
+@keyframes fcSeal{0%{transform:scale(0) rotate(-25deg);opacity:0}60%{transform:scale(1.2) rotate(6deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.fc-done h3{font-size:1.3rem;font-weight:800;margin:.2rem 0 0}
+.fc-done p{margin:0;color:var(--ink-2);font-size:var(--t-sm)}
+
+/* — Barra de progreso de la ronda — */
+.fc-bar{
+  height:6px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;margin:.95rem 0 .8rem;position:relative;
+}
+.fc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand),var(--c5,#0891b2));
+  transition:width .55s var(--fc-e);
+}
+
+/* — Controles — */
+.fc-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.fc-ctrls button{font-weight:700}
+#fcok{border-color:var(--ok);color:var(--ok)}
+#fcok:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+#fcko{border-color:var(--warn);color:var(--warn)}
+#fcko:hover{background:var(--warn);color:#fff;border-color:var(--warn)}
+#fcflip{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+#fcflip:hover{box-shadow:var(--sh-3)}
+
+.fc-score{display:inline-flex;gap:.45rem;margin-left:auto;align-items:center}
+.fc-pill{
+  font-size:var(--t-xs);font-weight:800;padding:.24rem .6rem;border-radius:var(--r-full);
+  font-variant-numeric:tabular-nums;border:1px solid;
+}
+.fc-pill.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.fc-pill.ko{color:var(--warn);border-color:var(--warn);background:var(--warn-bg)}
+.fc-pill.left{color:var(--ink-2);border-color:var(--line);background:var(--surface-2)}
+.fc-pill.bump{animation:fcBump .45s var(--e-spring)}
+@keyframes fcBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+@media(max-width:620px){
+  #flash{--fc-h:270px}
+  .fc-face{padding:1.7rem 1.3rem}
+  .fc-score{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-card{transition:none}
+  .fc-lift.lift,.fc-lift.in,.fc-lift.out-ok,.fc-lift.out-ko,.fc-face::after{animation:none !important}
+}
+@media print{.fc-stage,.fc-ctrls,.fc-bar{display:none !important}}
+/* ═══ RESPUESTA ESTRUCTURADA ═══ */
+.fc-face{justify-content:center}
+.fc-face.struct{justify-content:flex-start;text-align:left;padding-top:3.1rem;padding-bottom:3.1rem}
+.fc-body{
+  width:100%;max-width:46ch;margin:0 auto;
+  overflow-y:auto;max-height:100%;
+  scrollbar-width:thin;
+}
+.fc-body::-webkit-scrollbar{width:5px}
+.fc-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:99px;border:0}
+.fc-front .fc-body::-webkit-scrollbar-thumb{background:var(--line-strong)}
+
+/* — Veredicto Sí / No — */
+.fc-verdict{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-display);font-weight:800;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.26rem .72rem;border-radius:var(--r-full);margin-bottom:.85rem;
+  border:1.5px solid;animation:fcPopIn .45s var(--e-spring) backwards;animation-delay:.34s;
+}
+.fc-verdict.si{background:rgba(255,255,255,.16);border-color:rgba(190,255,215,.85);color:#d8ffe9}
+.fc-verdict.no{background:rgba(255,255,255,.16);border-color:rgba(255,205,205,.85);color:#ffdedd}
+@keyframes fcPopIn{0%{opacity:0;transform:scale(.7) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* — Párrafo — */
+.fc-p{margin:0;font-size:clamp(1rem,.92rem + .45vw,1.2rem);font-weight:600;line-height:1.6}
+.fc-face.struct .fc-p{font-size:clamp(.96rem,.9rem + .35vw,1.1rem)}
+
+/* — Lista enumerada — */
+.fc-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;counter-reset:fc}
+.fc-list li{
+  counter-increment:fc;position:relative;margin:0;
+  padding:.42rem .6rem .42rem 2.5rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.11);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.45;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-list li::before{
+  content:counter(fc);position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.9);color:var(--brand);
+  font-family:var(--f-display);font-weight:800;font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.fc-list.alpha li::before{content:counter(fc,lower-alpha)}
+.fc-list li:nth-child(1){animation-delay:.36s}
+.fc-list li:nth-child(2){animation-delay:.42s}
+.fc-list li:nth-child(3){animation-delay:.48s}
+.fc-list li:nth-child(4){animation-delay:.54s}
+.fc-list li:nth-child(5){animation-delay:.60s}
+.fc-list li:nth-child(n+6){animation-delay:.66s}
+@keyframes fcRow{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:none}}
+
+/* — Cláusulas contrapuestas — */
+.fc-clauses{display:grid;gap:.45rem}
+.fc-clauses p{
+  margin:0;padding:.45rem .7rem .45rem .95rem;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:rgba(255,255,255,.11);border-left:3px solid rgba(255,255,255,.55);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.5;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-clauses p:nth-child(1){animation-delay:.36s}
+.fc-clauses p:nth-child(2){animation-delay:.44s}
+.fc-clauses p:nth-child(3){animation-delay:.52s}
+
+/* — Negritas resaltadas en el reverso — */
+.fc-back .fc-body b,.fc-back .fc-body strong{
+  font-weight:800;background:rgba(255,255,255,.2);
+  padding:.03em .3em;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+
+/* — Cita legal al pie — */
+.fc-cite{
+  position:absolute;bottom:.95rem;left:0;right:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;letter-spacing:.02em;
+  color:rgba(255,255,255,.82);
+  animation:fcPopIn .5s var(--e-out) backwards;animation-delay:.5s;
+}
+.fc-cite::before,.fc-cite::after{
+  content:"";height:1px;width:clamp(18px,10%,52px);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45));
+}
+.fc-cite::after{background:linear-gradient(90deg,rgba(255,255,255,.45),transparent)}
+.fc-cite .s{font-size:.9rem;opacity:.75;font-family:var(--f-legal)}
+.fc-front .fc-cite{color:var(--ink-3)}
+.fc-front .fc-cite::before{background:linear-gradient(90deg,transparent,var(--line-strong))}
+.fc-front .fc-cite::after{background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+/* la pista se oculta si hay cita, para no amontonar */
+.fc-back .fc-cite ~ .fc-hint,.fc-back .fc-hint.muted{display:none}
+
+@media(max-width:620px){
+  #flash{--fc-h:320px}
+  .fc-face.struct{padding-top:2.9rem;padding-bottom:2.8rem}
+  .fc-list li{padding-left:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-verdict,.fc-list li,.fc-clauses p,.fc-cite{animation:none !important}
+}
+
+/* ═══ SEMÁFORO ═══ */
+.sembtn{
+  border-radius:var(--r-full);padding:.32rem .7rem;font-weight:700;font-size:var(--t-sm);
+}
+.sembtn[data-v="g"]:hover,.sembtn.on[data-v="g"]{background:var(--ok);color:#fff;border-color:var(--ok)}
+.sembtn[data-v="y"]:hover,.sembtn.on[data-v="y"]{background:var(--mid);color:#3d2f00;border-color:var(--mid)}
+.sembtn[data-v="r"]:hover,.sembtn.on[data-v="r"]{background:var(--exc);color:#fff;border-color:var(--exc)}
+
+/* ═══ CTA DE BLOQUE ═══ */
+a.blk{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  padding:.5rem .95rem;border-radius:var(--r-sm);font-weight:700;font-size:var(--t-sm);
+  text-decoration:none;box-shadow:0 2px 10px var(--brand-ring);
+  transition:transform .22s var(--e-spring),box-shadow .25s,gap .25s var(--e-out);
+}
+a.blk:hover{transform:translateY(-2px);box-shadow:var(--sh-3);gap:.75rem;text-decoration:none}
+a.blk::after{content:"→"}
+a.blk:active{transform:translateY(0) scale(.98)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr;padding-top:.9rem;gap:1rem}
+  nav.side{position:static;max-height:none}
+  nav.side.collapsed .navbody{display:none}
+  .navtoggle{display:block;width:100%;text-align:left;font-weight:700}
+  .grid2{grid-template-columns:1fr}
+  .top h1 .sub{white-space:normal}
+}
+@media(max-width:620px){
+  .top-in{padding:.55rem .8rem}
+  .tools{width:100%;margin-left:0}
+  input[type=search]{flex:1;min-width:0}
+  section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
+  table{font-size:.82rem}
+  th,td{padding:.4rem .5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  header.top,nav.side,.tools,.noprint,.progress{display:none !important}
+  body{background:#fff;background-image:none;font-size:11pt;color:#000}
+  .layout{display:block;max-width:none;padding:0}
+  section.card{border:0;padding:0;margin:0 0 1rem;break-inside:avoid;box-shadow:none}
+  details.panel{border:0;box-shadow:none}
+  details.panel .body{display:block !important}
+  details.panel>summary{padding-left:0}
+  .art{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  a{color:#000;text-decoration:none}
+}
+
+
+/* ═══ ALTURA ADAPTATIVA DE LA TARJETA ═══ */
+.fc-deck{transition:height .45s var(--fc-e)}
+.fc-body{max-height:none;overflow:visible}
+.fc-measure{
+  position:absolute;left:0;right:0;top:0;height:auto;
+  visibility:hidden;pointer-events:none;z-index:-1;
+}
+.fc-measure .fc-face{
+  position:relative;inset:auto;height:auto;min-height:0;
+  box-shadow:none;backface-visibility:visible;transform:none;
+}
+.fc-measure .fc-body{max-height:none;overflow:visible}
+.fc-measure .fc-face::after{display:none}
+
+/* ═══ MOSTRAR / OCULTAR ÍNDICE LATERAL ═══ */
+.layout{transition:grid-template-columns .42s var(--e-out)}
+.layout.nonav{grid-template-columns:0 1fr;gap:0}
+.layout.nonav>nav.side{
+  opacity:0;transform:translateX(-14px);pointer-events:none;
+  padding:0;border-width:0;overflow:hidden;width:0;min-width:0;
+}
+nav.side{
+  transition:opacity .3s var(--e-out),transform .38s var(--e-out);
+  overflow-x:hidden;
+}
+#navhide .ic{display:inline-block;transition:transform .35s var(--e-spring);font-size:.95em;line-height:1}
+#navhide[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand);color:var(--brand)}
+#navhide[aria-pressed="true"] .ic{transform:rotate(90deg)}
+@media(max-width:960px){#navhide{display:none}}
+
+/* ═══════════════════════════════════════════════════════════════
+   LECTURA EN VOZ ALTA (TTS) del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+.tts-bar{
+  display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;
+  margin:.15rem 0 .7rem;
+}
+.tts-bar button{
+  font-size:var(--t-xs);font-weight:700;padding:.3rem .62rem;
+  border-radius:var(--r-full);border:1px solid var(--legal);
+  background:transparent;color:var(--legal);
+  display:inline-flex;align-items:center;gap:.35rem;line-height:1.2;
+}
+.tts-bar button:hover{background:var(--legal);color:var(--surface);border-color:var(--legal)}
+.tts-bar button[hidden]{display:none}
+.tts-bar .tts-play.on{background:var(--legal);color:var(--surface)}
+
+/* Ondas de audio mientras lee */
+.tts-wave{display:inline-flex;align-items:flex-end;gap:2px;height:11px}
+.tts-wave i{
+  width:2.5px;background:currentColor;border-radius:2px;height:35%;
+  animation:ttsW .9s ease-in-out infinite;
+}
+.tts-wave i:nth-child(2){animation-delay:.15s}
+.tts-wave i:nth-child(3){animation-delay:.3s}
+.tts-wave i:nth-child(4){animation-delay:.45s}
+@keyframes ttsW{0%,100%{height:32%}50%{height:100%}}
+
+.tts-time{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:700;
+  color:var(--ink-3);font-variant-numeric:tabular-nums;
+}
+
+/* Frase que se está leyendo */
+.tts-s{transition:background .25s,color .25s;border-radius:3px}
+.tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 26%,transparent) 8%);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--legal) 16%,transparent);
+}
+html[data-theme="dark"] .tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 34%,transparent) 8%);
+}
+.legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
+
+/* ═══ Reproductor flotante ═══ */
+.tts-mini{
+  position:fixed;left:50%;bottom:1.1rem;transform:translateX(-50%) translateY(140%);
+  z-index:80;display:flex;align-items:center;gap:.6rem;
+  background:color-mix(in srgb,var(--surface) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  border:1px solid var(--line);border-radius:var(--r-full);
+  padding:.5rem .7rem .5rem .95rem;box-shadow:var(--sh-3);
+  transition:transform .45s var(--e-spring),opacity .3s;opacity:0;pointer-events:none;
+  max-width:min(94vw,540px);
+}
+.tts-mini.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.tts-mini .lbl{
+  font-size:var(--t-xs);font-weight:800;color:var(--legal);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:16ch;
+}
+.tts-mini button{
+  border-radius:50%;width:32px;height:32px;padding:0;display:grid;place-items:center;
+  font-size:.8rem;border:1px solid var(--line);flex:none;
+}
+.tts-mini button.main{
+  width:38px;height:38px;font-size:.95rem;
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-mini .bar{
+  flex:1;min-width:70px;height:5px;border-radius:99px;background:var(--surface-3);overflow:hidden;
+}
+.tts-mini .bar i{display:block;height:100%;width:0;background:var(--legal);
+  border-radius:99px;transition:width .35s var(--e-out)}
+
+/* ═══ Panel de ajustes de voz ═══ */
+.tts-back{
+  position:fixed;inset:0;z-index:90;background:rgba(10,10,18,.45);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  display:grid;place-items:center;padding:1rem;
+  opacity:0;pointer-events:none;transition:opacity .3s var(--e-out);
+}
+.tts-back.show{opacity:1;pointer-events:auto}
+.tts-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--sh-3);width:min(94vw,470px);max-height:88vh;overflow:auto;
+  padding:1.3rem 1.4rem;transform:translateY(16px) scale(.97);
+  transition:transform .38s var(--e-spring);
+}
+.tts-back.show .tts-panel{transform:none}
+.tts-panel h3{
+  font-size:1.12rem;font-weight:800;margin:0 0 .25rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.tts-panel .sub{font-size:var(--t-sm);color:var(--ink-2);margin:0 0 1.1rem}
+.tts-row{margin-bottom:1.05rem}
+.tts-row > label{
+  display:block;font-size:var(--t-xs);font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:.4rem;
+}
+.tts-seg{display:flex;gap:3px;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:3px}
+.tts-seg button{
+  flex:1;border:0;background:transparent;border-radius:calc(var(--r-sm) - 3px);
+  padding:.42rem .3rem;font-size:var(--t-sm);font-weight:700;box-shadow:none;
+}
+.tts-seg button:hover{transform:none;background:var(--surface)}
+.tts-seg button[aria-pressed="true"]{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;
+}
+.tts-panel select{
+  width:100%;padding:.5rem .6rem;border-radius:var(--r-sm);
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  font-size:var(--t-sm);font-weight:600;cursor:pointer;
+}
+.tts-panel select:focus{border-color:var(--brand);outline:none}
+.tts-slider{display:flex;align-items:center;gap:.75rem}
+.tts-slider input[type=range]{flex:1;accent-color:var(--legal);cursor:pointer;height:22px}
+.tts-val{
+  font-family:var(--f-mono);font-weight:800;font-size:var(--t-sm);
+  min-width:3.4em;text-align:right;color:var(--legal);font-variant-numeric:tabular-nums;
+}
+.tts-note{
+  font-size:var(--t-xs);color:var(--ink-2);line-height:1.5;
+  background:var(--surface-2);border-radius:var(--r-sm);padding:.6rem .75rem;margin:0 0 1rem;
+}
+.tts-note b{color:var(--ink)}
+.tts-acts{display:flex;gap:.5rem;justify-content:flex-end;flex-wrap:wrap}
+.tts-acts .prim{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-badge{
+  font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  padding:.1rem .35rem;border-radius:4px;background:var(--ej-bg);color:var(--ej);margin-left:.35rem;
+}
+
+
+/* — Variante compacta para los apartados desplegables — */
+.tts-bar.mini{margin:0 0 .6rem}
+.tts-bar.mini button{
+  font-size:.7rem;padding:.24rem .55rem;
+  border-color:var(--brand);color:var(--brand);
+}
+.tts-bar.mini button:hover{background:var(--brand);color:var(--surface)}
+.tts-bar.mini .tts-play.on{background:var(--brand);color:var(--surface)}
+.tts-bar.mini .tts-time{font-size:.66rem}
+.idea .tts-bar.mini{margin:.55rem 0 0}
+.legal.tts-on,.body.tts-on,.idea.tts-on{
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 20%,transparent)
+}
+.legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
+
+@media(max-width:620px){
+  .tts-mini{left:.6rem;right:.6rem;transform:translateY(140%);max-width:none}
+  .tts-mini.show{transform:translateY(0)}
+  .tts-mini .lbl{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .tts-wave i{animation:none;height:60%}
+}
+@media print{.tts-bar,.tts-mini,.tts-back{display:none !important}}
+
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brandwrap">
+    <a class="mark" href="index.html" title="Volver al índice">★</a>
+    <h1>Supuestos prácticos reales · 60 preguntas resueltas y razonadas
+      <span class="sub">Tres exámenes de Auxiliar Administrativo · turnos de 17, 12 y 9 horas · con el precepto exacto de cada respuesta</span>
+    </h1>
+    </div>
+    <div class="tools noprint">
+      <input type="search" id="q" placeholder="Buscar en la página…" aria-label="Buscar">
+      <span class="seg" role="group" aria-label="Modo de vista">
+        <button data-view="legal" aria-pressed="false">Texto legal</button>
+        <button data-view="expl" aria-pressed="false">Explicación</button>
+        <button data-view="both" aria-pressed="true">Ambos</button>
+      </span>
+      <button id="fs-" aria-label="Reducir texto">A−</button>
+      <button id="fs+" aria-label="Aumentar texto">A+</button>
+      <span class="streak" id="streak" title="Días seguidos estudiando" style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);font-weight:800;font-size:.8rem">🔥<span class="num" id="streakN">0</span></span>
+      <button id="theme" aria-label="Cambiar tema">◐</button>
+      <button id="expand">Desplegar todo</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="progress" id="prog"></div>
+</header>
+<div class="layout">
+<nav class="side collapsed" id="side" aria-label="Índice">
+  <button class="navtoggle" id="navtoggle" aria-expanded="false">☰ Índice</button>
+  <div class="navbody" id="navbody"></div>
+</nav>
+<main id="main"></main>
+</div>
+<script>
+const QS=[["En un contrato de servicios de valor estimado 14.500 € más IVA, ¿es contrato menor?", "<b>Sí.</b> El art. 118.1 LCSP fija el umbral de los menores de servicios en un valor estimado <b>inferior a 15.000 €</b>, y el valor estimado se calcula <b>sin IVA</b> (art. 101.1). 14.500 &lt; 15.000, luego es menor. Si la cifra fuera «14.500 € IVA incluido», habría que dividir entre 1,21 y también saldría menor; pero la trampa habitual es la inversa: darte el importe con IVA para que superes el umbral sin darte cuenta."], ["Un contrato de obras susceptible de recurso especial se adjudica el lunes 3. ¿Cuándo puede formalizarse como pronto?", "Transcurridos <b>quince días hábiles</b> desde que se remite la notificación de la adjudicación (art. 153.3 LCSP). Después, el órgano de contratación requiere al adjudicatario para formalizar en un plazo <b>no superior a cinco días</b> desde el requerimiento. La cifra que casi todo el mundo falla aquí es la de diez días, que corresponde a otra cosa: el art. 150.4, nueva adjudicación tras la estimación de un recurso especial."], ["El presupuesto de 2026 no está aprobado el 31 de diciembre de 2025. ¿Qué ocurre el 1 de enero?", "Se considera <b>automáticamente prorrogado</b> el presupuesto de 2025 con sus <b>créditos iniciales</b> (art. 169.6 TRLHL). La prórroga no afecta a los créditos para servicios o programas que terminaban en 2025, y sobre el presupuesto prorrogado pueden hacerse las modificaciones de los arts. 177 a 182."], ["¿Cuál es la diferencia práctica entre autorización (A) y disposición (D) del gasto?", "La <b>autorización</b> es un acto <b>interno</b>: reserva crédito para un gasto por cuantía cierta o aproximada, pero no vincula a nadie de fuera. La <b>disposición</b> ya <b>concierta con un tercero</b> la realización concreta de la prestación: tiene relevancia jurídica frente a él. Por eso la adjudicación de un contrato es una D, no una A."], ["Una asociación presenta una solicitud incompleta por registro electrónico. ¿Qué hace la Administración?", "Requiere para subsanar en <b>diez días</b>, advirtiendo de que si no lo hace se le tendrá por <b>desistido</b>, previa resolución del art. 21 (art. 68.1 LPAC). Y ojo: la asociación, como entidad sin personalidad jurídica o persona jurídica, está <b>obligada</b> a relacionarse electrónicamente (art. 14.2), de modo que una presentación en papel sería a su vez subsanable con la fecha de la subsanación como fecha de presentación (art. 68.4)."], ["Antes de convocar un premio de 10.000 €, ¿qué instrumento hay que aprobar y qué debe contener?", "El <b>plan estratégico de subvenciones</b> (art. 8.1 LGS), que debe concretar <b>objetivos y efectos</b> pretendidos, <b>plazo</b> para su consecución, <b>costes previsibles</b> y <b>fuentes de financiación</b>. Es previo a las bases reguladoras, y su ausencia es un vicio de procedimiento recurrente en los supuestos prácticos."], ["¿Por qué la preparación del contrato de un concierto se rige por el Derecho administrativo si el contrato es privado?", "Porque el art. 26.2 LCSP <b>parte en dos</b> el régimen de los contratos privados: <b>preparación y adjudicación</b> se rigen por la propia Ley 9/2017 y, en su defecto, por las restantes normas de Derecho administrativo; solo los <b>efectos, modificación y extinción</b> se rigen por el Derecho privado. Es la aplicación del principio de que la Administración forma su voluntad siempre por procedimiento administrativo, contrate lo que contrate."], ["Una notificación electrónica se pone a disposición el 2 de marzo y el interesado no accede. ¿Cuándo se entiende rechazada?", "Transcurridos <b>diez días naturales</b> desde la puesta a disposición sin acceder a su contenido (art. 43.2 LPAC). <b>Naturales</b>, no hábiles: es la diferencia deliberada con los diez días <b>hábiles</b> del art. 40.2 para cursar la notificación y con los diez días <b>hábiles</b> de subsanación del art. 68.1."], ["De 25 diputados, votan 10 a favor, 9 en contra y 6 se abstienen. ¿Se aprueba el presupuesto?", "<b>Sí.</b> El presupuesto se aprueba por <b>mayoría simple</b>: más votos afirmativos que negativos (art. 47.1 LBRL, <i>norma externa a la biblioteca</i>). Las abstenciones no se computan en ninguno de los dos lados. Distinto sería si se exigiera mayoría absoluta: entonces harían falta 13 votos sobre 25."], ["¿Qué diferencia hay entre crédito extraordinario y suplemento de crédito?", "Depende de si el crédito <b>existe o no</b>. Si <b>no hay crédito</b> en el presupuesto para ese gasto específico y determinado, <b>crédito extraordinario</b>. Si <b>lo hay pero es insuficiente y no ampliable</b>, <b>suplemento de crédito</b> (art. 177.1 TRLHL). En ambos casos: gasto específico y determinado, que no pueda demorarse al ejercicio siguiente, y aprobación por el <b>Pleno</b> con el trámite del presupuesto."]];
+const SEM=["Sé calcular un valor estimado sin IVA e incluyendo prórrogas y opciones", "Distingo los umbrales 40.000 / 15.000 del contrato menor y qué documentos exige", "Sé qué se justifica en el expediente por el art. 116.4, letra por letra", "Domino los plazos de la formalización: 15 días hábiles y 5 días", "Sé quién forma, quién informa y quién aprueba el presupuesto, y en qué fechas", "Distingo las cinco fases del gasto y los documentos acumulados AD, ADO y ADOP", "Sé clasificar un gasto en corriente, de capital u operación financiera", "Conozco el contenido mínimo de las bases reguladoras y el plan estratégico", "Distingo días hábiles de días naturales en cada plazo de la LPAC", "Sé qué debe contener toda notificación según el art. 40.2", "Sé aplicar el protocolo de cinco pasos antes de mirar las opciones", "Identifico las preguntas formuladas en negativo antes de responder"];
+const NAV=[["intro", "Para qué sirve"], ["cobertura", "Qué se pregunta"], ["protocolo", "Protocolo de ataque"], ["cifras", "Arsenal de cifras"], ["ex1", "17 h · Supuesto A"], ["ex2", "17 h · Supuesto B"], ["ex3", "12 h · Supuesto A"], ["ex4", "12 h · Supuesto B"], ["ex5", "9 h · Supuesto A"], ["ex6", "9 h · Supuesto B"], ["pendiente", "Lo que falta"], ["mapa", "Mapa de retorno"], ["discrepancias", "Discrepancias"], ["conexiones", "Preguntas de conexión"], ["sem", "Semáforo"]];
+</script>
+<script>
+document.getElementById('main').innerHTML="\n<section class=\"card\" id=\"intro\"><h2>Para qué sirve esta página</h2>\n<p class=\"small\">Aquí no se explica ningún artículo desde cero. Aquí se <b>aplica</b> lo que ya has trabajado en los temas a <b>tres exámenes reales</b>. Cada pregunta lleva la respuesta, el <b>razonamiento</b> y el <b>precepto exacto</b>, para que puedas volver al tema correspondiente cuando falles.</p>\n<div class=\"box ej\"><span class=\"lbl\">La idea que ordena la página</span>Los supuestos prácticos <b>no preguntan definiciones</b>. Preguntan <b>cifras, plazos, órganos y calificaciones</b> aplicados a un caso. Por eso lo que hay que memorizar no es el artículo entero: es <b>la cifra, la unidad y quién decide</b>.</div>\n<div class=\"box warn\"><span class=\"lbl\">Fuentes utilizadas y advertencia de vigencia</span>\n<ul><li><b>Ley 9/2017</b> de Contratos del Sector Público; <b>RDLeg 2/2004</b> (TRLHL); <b>Ley 38/2003</b> General de Subvenciones; <b>Ley 39/2015</b> (LPAC); <b>Orden EHA/3565/2008</b>. Todas ellas, documentos de la biblioteca del proyecto, texto consolidado.</li>\n<li><b>Aportación externa</b>, no incluida en la biblioteca y marcada como tal en cada respuesta: <b>Ley 7/1985</b> reguladora de las Bases del Régimen Local (arts. 47 y 52) y <b>RD 500/1990</b>, para las mayorías del Pleno y para la denominación de las fases del gasto.</li>\n<li><b>Verifica siempre la vigencia en el BOE consolidado.</b> Los <b>umbrales SARA</b> de la LCSP se actualizan cada dos años por reglamento delegado de la Comisión Europea.</li>\n<li>Los enunciados están <b>resumidos</b>; las respuestas se han contrastado una a una con el texto de las normas. Cuando mi lectura de la ley <b>no coincide</b> con la marca del examen, lo digo abiertamente y explico por qué.</li></ul></div>\n<div class=\"box exc\"><span class=\"lbl\">Esto no es asesoramiento jurídico</span>Es material de estudio. Para un expediente real, acude a la norma consolidada y al informe del órgano competente.</div>\n</section>\n\n<section class=\"card\" id=\"cobertura\"><h2>Qué se pregunta realmente</h2>\n<p class=\"small\">Antes de resolver nada, mira el reparto. Dos materias se llevan <b>dos de cada tres preguntas</b>.</p>\n<svg viewBox=\"0 0 960 386\" role=\"img\" aria-label=\"Reparto por materias de las 60 preguntas de los tres exámenes\" style=\"width:100%;height:auto\"><defs><marker id=\"fl\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--acc)\"/></marker><marker id=\"fr\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--exc)\"/></marker><marker id=\"fe\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--ej)\"/></marker><marker id=\"fw\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--warn)\"/></marker></defs><rect x=\"180\" y=\"8\" width=\"600\" height=\"38\" rx=\"8\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/><text x=\"480\" y=\"31\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"#fff\">QUÉ SE PREGUNTA REALMENTE · 60 preguntas de tres exámenes</text><rect x=\"20\" y=\"60\" width=\"602\" height=\"34\" rx=\"8\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/><text x=\"594\" y=\"83\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" fill=\"var(--acc)\">21</text><text x=\"636\" y=\"75\" text-anchor=\"start\" font-size=\"11\" font-weight=\"700\" fill=\"var(--acc)\">Contratación · Ley 9/2017</text><text x=\"636\" y=\"89\" text-anchor=\"start\" font-size=\"9.5\" fill=\"var(--ink2)\">temas 9 y 10 + ampliación</text><rect x=\"20\" y=\"104\" width=\"576\" height=\"34\" rx=\"8\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/><text x=\"568\" y=\"127\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" fill=\"var(--ej)\">20</text><text x=\"610\" y=\"119\" text-anchor=\"start\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ej)\">Presupuesto local · TRLHL y Orden EHA</text><text x=\"610\" y=\"133\" text-anchor=\"start\" font-size=\"9.5\" fill=\"var(--ink2)\">tema 8 + ampliación contable</text><rect x=\"20\" y=\"148\" width=\"316\" height=\"34\" rx=\"8\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/><text x=\"308\" y=\"171\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" fill=\"var(--warn)\">10</text><text x=\"350\" y=\"163\" text-anchor=\"start\" font-size=\"11\" font-weight=\"700\" fill=\"var(--warn)\">Procedimiento y medios electrónicos · Ley 39/2015</text><text x=\"350\" y=\"177\" text-anchor=\"start\" font-size=\"9.5\" fill=\"var(--ink2)\">tema 3 · y temas 4 a 7, pendientes</text><rect x=\"20\" y=\"192\" width=\"212\" height=\"34\" rx=\"8\" fill=\"var(--exc-bg)\" stroke=\"var(--exc)\"/><text x=\"204\" y=\"215\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" fill=\"var(--exc)\">6</text><text x=\"246\" y=\"207\" text-anchor=\"start\" font-size=\"11\" font-weight=\"700\" fill=\"var(--exc)\">Subvenciones · Ley 38/2003</text><text x=\"246\" y=\"221\" text-anchor=\"start\" font-size=\"9.5\" fill=\"var(--ink2)\">temas 11 y 12 + ampliación</text><rect x=\"20\" y=\"236\" width=\"108\" height=\"34\" rx=\"8\" fill=\"var(--panel)\" stroke=\"var(--line)\"/><text x=\"100\" y=\"259\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" fill=\"currentColor\">2</text><text x=\"142\" y=\"251\" text-anchor=\"start\" font-size=\"11\" font-weight=\"700\" fill=\"currentColor\">Acto administrativo y recursos · Ley 39/2015</text><text x=\"142\" y=\"265\" text-anchor=\"start\" font-size=\"9.5\" fill=\"var(--ink2)\">tema 2</text><rect x=\"20\" y=\"280\" width=\"82\" height=\"34\" rx=\"8\" fill=\"var(--panel)\" stroke=\"var(--line)\"/><text x=\"74\" y=\"303\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" fill=\"currentColor\">1</text><text x=\"116\" y=\"295\" text-anchor=\"start\" font-size=\"11\" font-weight=\"700\" fill=\"currentColor\">Órganos colegiados locales · mayorías</text><text x=\"116\" y=\"309\" text-anchor=\"start\" font-size=\"9.5\" fill=\"var(--ink2)\">tema 1, pendiente</text><rect x=\"20\" y=\"328\" width=\"920\" height=\"44\" rx=\"8\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/><text x=\"480\" y=\"346.86\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">Dos de cada tres preguntas son de CONTRATACIÓN o de PRESUPUESTO. Y ninguna se responde con la definición de un artículo:</text><text x=\"480\" y=\"359.86\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">todas piden aplicar una cifra, un plazo o una calificación a un caso concreto.</text></svg>\n<div class=\"box\"><span class=\"lbl\">Cómo leer este gráfico para decidir qué estudias esta semana</span>Si tuvieras que repartir tu tiempo en proporción a lo que cae, dedicarías <b>un tercio a contratación</b>, <b>un tercio a presupuesto</b> y el tercio restante a procedimiento y subvenciones. Los temas 1 y 4 a 7 aportan poco por examen, pero son <b>preguntas regaladas</b> si te las sabes.</div>\n</section>\n\n<section class=\"card\" id=\"protocolo\"><h2>Protocolo para atacar cualquier supuesto</h2>\n<p class=\"small\">Cinco pasos, siempre en el mismo orden. Aplícalos a las 60 preguntas de abajo y comprueba cuántas caen solo con los pasos 2 y 3.</p>\n<svg viewBox=\"0 0 960 413\" role=\"img\" aria-label=\"Protocolo de cinco pasos para resolver un supuesto práctico\" style=\"width:100%;height:auto\"><defs><marker id=\"fl\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--acc)\"/></marker><marker id=\"fr\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--exc)\"/></marker><marker id=\"fe\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--ej)\"/></marker><marker id=\"fw\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--warn)\"/></marker></defs><rect x=\"230\" y=\"8\" width=\"500\" height=\"34\" rx=\"8\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/><text x=\"480\" y=\"29\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"#fff\">PROTOCOLO PARA ATACAR CUALQUIER SUPUESTO PRÁCTICO</text><rect x=\"20\" y=\"54\" width=\"920\" height=\"71\" rx=\"10\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/><circle cx=\"48\" cy=\"89.5\" r=\"16\" fill=\"var(--bg)\" stroke=\"var(--acc)\" stroke-width=\"2\"/><text x=\"48\" y=\"94.5\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--acc)\">1</text><text x=\"78\" y=\"75\" text-anchor=\"start\" font-size=\"12\" font-weight=\"700\" fill=\"var(--acc)\">Identifica la LEY antes que el artículo</text><text x=\"78\" y=\"92\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">¿Dinero público que se gasta? Presupuesto o contrato.</text><text x=\"78\" y=\"107\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">¿Dinero que se entrega sin contraprestación? Subvención.</text><text x=\"78\" y=\"122\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">¿Un papel que entra o sale? Procedimiento.</text><path d=\"M480 126 L 480 136\" stroke=\"var(--acc)\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#fl)\"/><rect x=\"20\" y=\"137\" width=\"920\" height=\"56\" rx=\"10\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/><circle cx=\"48\" cy=\"165\" r=\"16\" fill=\"var(--bg)\" stroke=\"var(--warn)\" stroke-width=\"2\"/><text x=\"48\" y=\"170\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--warn)\">2</text><text x=\"78\" y=\"158\" text-anchor=\"start\" font-size=\"12\" font-weight=\"700\" fill=\"var(--warn)\">Subraya la CIFRA y la UNIDAD</text><text x=\"78\" y=\"175\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">40.000 / 15.000 · 15 días / un mes · días hábiles vs naturales.</text><text x=\"78\" y=\"190\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">El 80 % de los fallos está en confundir la unidad, no la cifra.</text><path d=\"M480 194 L 480 204\" stroke=\"var(--warn)\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#fl)\"/><rect x=\"20\" y=\"205\" width=\"920\" height=\"56\" rx=\"10\" fill=\"var(--exc-bg)\" stroke=\"var(--exc)\"/><circle cx=\"48\" cy=\"233\" r=\"16\" fill=\"var(--bg)\" stroke=\"var(--exc)\" stroke-width=\"2\"/><text x=\"48\" y=\"238\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--exc)\">3</text><text x=\"78\" y=\"226\" text-anchor=\"start\" font-size=\"12\" font-weight=\"700\" fill=\"var(--exc)\">¿La pregunta va en POSITIVO o en NEGATIVO?</text><text x=\"78\" y=\"243\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">«¿Qué NO se une?», «¿Quién NO puede ser beneficiario?».</text><text x=\"78\" y=\"258\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">Marca la palabra NO en el enunciado antes de leer las opciones.</text><path d=\"M480 262 L 480 272\" stroke=\"var(--exc)\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#fl)\"/><rect x=\"20\" y=\"273\" width=\"920\" height=\"56\" rx=\"10\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/><circle cx=\"48\" cy=\"301\" r=\"16\" fill=\"var(--bg)\" stroke=\"var(--ej)\" stroke-width=\"2\"/><text x=\"48\" y=\"306\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ej)\">4</text><text x=\"78\" y=\"294\" text-anchor=\"start\" font-size=\"12\" font-weight=\"700\" fill=\"var(--ej)\">Localiza el ÓRGANO</text><text x=\"78\" y=\"311\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">Presidente forma · Interventor informa · Pleno aprueba.</text><text x=\"78\" y=\"326\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">Órgano de contratación inicia, aprueba y adjudica.</text><path d=\"M480 330 L 480 340\" stroke=\"var(--ej)\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#fl)\"/><rect x=\"20\" y=\"341\" width=\"920\" height=\"56\" rx=\"10\" fill=\"var(--panel)\" stroke=\"var(--line)\"/><circle cx=\"48\" cy=\"369\" r=\"16\" fill=\"var(--bg)\" stroke=\"var(--line)\" stroke-width=\"2\"/><text x=\"48\" y=\"374\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"currentColor\">5</text><text x=\"78\" y=\"362\" text-anchor=\"start\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">Descarta por INCOHERENCIA</text><text x=\"78\" y=\"379\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">Opciones que mezclan materias (mérito y capacidad en subvenciones)</text><text x=\"78\" y=\"394\" text-anchor=\"start\" font-size=\"10\" fill=\"var(--ink2)\">o que repiten en positivo lo que la ley prohíbe: fuera.</text></svg>\n<div class=\"box warn\"><span class=\"lbl\">Trampa recurrente</span>Las tres trampas que más puntos cuestan son, por este orden: <b>días hábiles frente a días naturales</b>, preguntas en <b>negativo</b> («qué NO se une», «quién NO puede») y confundir el <b>órgano que informa</b> con el <b>órgano que aprueba</b>.</div>\n</section>\n\n<section class=\"card\" id=\"cifras\"><h2>El arsenal de cifras</h2>\n<p class=\"small\">Esta tabla es la que hay que llevarse al examen en la cabeza. Casi ninguna pregunta de los tres exámenes se resuelve sin una de estas cifras.</p>\n<svg viewBox=\"0 0 960 263\" role=\"img\" aria-label=\"Tabla de cifras y plazos que se repiten en los exámenes\" style=\"width:100%;height:auto\"><defs><marker id=\"fl\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--acc)\"/></marker><marker id=\"fr\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--exc)\"/></marker><marker id=\"fe\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--ej)\"/></marker><marker id=\"fw\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--warn)\"/></marker></defs><rect x=\"280\" y=\"8\" width=\"400\" height=\"32\" rx=\"8\" fill=\"var(--acc)\" stroke=\"var(--acc)\"/><text x=\"480\" y=\"28\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"#fff\">LAS CIFRAS QUE SIEMPRE CAEN</text><rect x=\"20\" y=\"52\" width=\"300\" height=\"197\" rx=\"10\" fill=\"var(--acc-soft)\" stroke=\"var(--acc)\"/><text x=\"170\" y=\"74\" text-anchor=\"middle\" font-size=\"10.5\" font-weight=\"700\" fill=\"var(--acc)\">CONTRATACIÓN · Ley 9/2017</text><text x=\"34\" y=\"96\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--acc)\">·</text><text x=\"44\" y=\"96\" text-anchor=\"start\" font-size=\"9.3\" fill=\"currentColor\">40.000 € · contrato menor de obras (VE, sin IVA)</text><text x=\"34\" y=\"113\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--acc)\">·</text><text x=\"44\" y=\"113\" text-anchor=\"start\" font-size=\"9.3\" fill=\"currentColor\">15.000 € · contrato menor de suministros y servicios</text><text x=\"34\" y=\"130\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--acc)\">·</text><text x=\"44\" y=\"130\" text-anchor=\"start\" font-size=\"8.3\" fill=\"currentColor\">10 días hábiles · nueva adjudicación tras recurso (150.4)</text><text x=\"34\" y=\"147\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--acc)\">·</text><text x=\"44\" y=\"147\" text-anchor=\"start\" font-size=\"8.3\" fill=\"currentColor\">15 días hábiles · espera antes de formalizar SARA (153.3)</text><text x=\"34\" y=\"164\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--acc)\">·</text><text x=\"44\" y=\"164\" text-anchor=\"start\" font-size=\"9.3\" fill=\"currentColor\">5 días · requerimiento para formalizar (153.3)</text><text x=\"34\" y=\"181\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--acc)\">·</text><text x=\"44\" y=\"181\" text-anchor=\"start\" font-size=\"8.8\" fill=\"currentColor\">15 días · publicar la adjudicación en el perfil (151.1)</text><text x=\"34\" y=\"198\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--acc)\">·</text><text x=\"44\" y=\"198\" text-anchor=\"start\" font-size=\"7.3\" fill=\"currentColor\">15 días naturales · plazo mínimo abierto simplificado, servicios</text><text x=\"34\" y=\"215\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--acc)\">·</text><text x=\"44\" y=\"215\" text-anchor=\"start\" font-size=\"9.3\" fill=\"currentColor\">20 días · plazo mínimo abierto simplificado, obras</text><text x=\"34\" y=\"232\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--acc)\">·</text><text x=\"44\" y=\"232\" text-anchor=\"start\" font-size=\"9.3\" fill=\"currentColor\">Trimestral · publicación de contratos menores (63.4)</text><rect x=\"340\" y=\"52\" width=\"300\" height=\"180\" rx=\"10\" fill=\"var(--ej-bg)\" stroke=\"var(--ej)\"/><text x=\"490\" y=\"74\" text-anchor=\"middle\" font-size=\"10.5\" font-weight=\"700\" fill=\"var(--ej)\">PRESUPUESTO · TRLHL y Orden EHA</text><text x=\"354\" y=\"96\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ej)\">·</text><text x=\"364\" y=\"96\" text-anchor=\"start\" font-size=\"8.8\" fill=\"currentColor\">15 de octubre · remisión del proyecto al Pleno (168.4)</text><text x=\"354\" y=\"113\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ej)\">·</text><text x=\"364\" y=\"113\" text-anchor=\"start\" font-size=\"9.3\" fill=\"currentColor\">15 días · exposición al público (169.1)</text><text x=\"354\" y=\"130\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ej)\">·</text><text x=\"364\" y=\"130\" text-anchor=\"start\" font-size=\"7.8\" fill=\"currentColor\">1 mes · plazo del Pleno para resolver reclamaciones (169.1)</text><text x=\"354\" y=\"147\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ej)\">·</text><text x=\"364\" y=\"147\" text-anchor=\"start\" font-size=\"7.3\" fill=\"currentColor\">31 de diciembre · aprobación definitiva; si no, prórroga (169.6)</text><text x=\"354\" y=\"164\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ej)\">·</text><text x=\"364\" y=\"164\" text-anchor=\"start\" font-size=\"9.3\" fill=\"currentColor\">1 de enero · entrada en vigor (169.5)</text><text x=\"354\" y=\"181\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ej)\">·</text><text x=\"364\" y=\"181\" text-anchor=\"start\" font-size=\"8.3\" fill=\"currentColor\">4 años · planes y programas de inversión, anexo (166.1.a)</text><text x=\"354\" y=\"198\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ej)\">·</text><text x=\"364\" y=\"198\" text-anchor=\"start\" font-size=\"8.3\" fill=\"currentColor\">Capítulos 1-4 corrientes · 6-7 capital · 8-9 financieras</text><text x=\"354\" y=\"215\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ej)\">·</text><text x=\"364\" y=\"215\" text-anchor=\"start\" font-size=\"9.3\" fill=\"currentColor\">R · A · D · O · P · las cinco fases del gasto</text><rect x=\"660\" y=\"52\" width=\"300\" height=\"180\" rx=\"10\" fill=\"var(--warn-bg)\" stroke=\"var(--warn)\"/><text x=\"810\" y=\"74\" text-anchor=\"middle\" font-size=\"10.5\" font-weight=\"700\" fill=\"var(--warn)\">PROCEDIMIENTO Y SUBVENCIONES</text><text x=\"674\" y=\"96\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--warn)\">·</text><text x=\"684\" y=\"96\" text-anchor=\"start\" font-size=\"8.3\" fill=\"currentColor\">10 días hábiles · subsanación de la solicitud (68.1 LPAC)</text><text x=\"674\" y=\"113\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--warn)\">·</text><text x=\"684\" y=\"113\" text-anchor=\"start\" font-size=\"8.3\" fill=\"currentColor\">10 días hábiles · plazo para cursar la notificación (40.2)</text><text x=\"674\" y=\"130\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--warn)\">·</text><text x=\"684\" y=\"130\" text-anchor=\"start\" font-size=\"7.8\" fill=\"currentColor\">10 días NATURALES · rechazo de notificación electrónica (43.2)</text><text x=\"674\" y=\"147\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--warn)\">·</text><text x=\"684\" y=\"147\" text-anchor=\"start\" font-size=\"8.8\" fill=\"currentColor\">3 meses · plazo máximo supletorio para resolver (21.3)</text><text x=\"674\" y=\"164\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--warn)\">·</text><text x=\"684\" y=\"164\" text-anchor=\"start\" font-size=\"8.3\" fill=\"currentColor\">1 mes · recurso de alzada y de reposición (122.1 y 124.1)</text><text x=\"674\" y=\"181\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--warn)\">·</text><text x=\"684\" y=\"181\" text-anchor=\"start\" font-size=\"7.3\" fill=\"currentColor\">3 meses · recurso extraordinario de revisión, causa 1.ª (125.2)</text><text x=\"674\" y=\"198\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--warn)\">·</text><text x=\"684\" y=\"198\" text-anchor=\"start\" font-size=\"7.8\" fill=\"currentColor\">4 años · prescripción del reintegro de subvenciones (39.1 LGS)</text><text x=\"674\" y=\"215\" text-anchor=\"start\" font-size=\"10\" font-weight=\"700\" fill=\"var(--warn)\">·</text><text x=\"684\" y=\"215\" text-anchor=\"start\" font-size=\"7.8\" fill=\"currentColor\">BDNS · sistema nacional de publicidad de subvenciones (18.1)</text></svg>\n</section>\n";
+</script>
+<script>
+document.getElementById('main').innerHTML+="<section class=\"card\" id=\"ex1\"><h2>Turno 17 h · SUPUESTO A · Premio de ensayo con concierto y conferencia</h2><div class=\"box\"><span class=\"lbl\">Enunciado</span>Una delegación de Cultura convoca un premio de ensayo dotado con 10.000 €, con bases reguladoras publicadas en el boletín provincial el 29 de febrero de 2024. Para el acto de entrega se quiere celebrar un concierto y una conferencia, con un presupuesto máximo de 3.000 €.</div><details class=\"panel\"><summary><b>1.</b> ¿Qué plan hay que aprobar con carácter previo, que contemple los objetivos y efectos de la convocatoria?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>El plan estratégico de subvenciones</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 8.1 exige concretar <b>con carácter previo</b>, en un plan estratégico, los <b>objetivos y efectos</b> que se pretenden, el <b>plazo</b> para su consecución, los <b>costes previsibles</b> y sus <b>fuentes de financiación</b>. No existen en la ley el «plan provincial de premios» ni el «plan de ayudas sociales».</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 8.1 LGS</div></details><details class=\"panel\"><summary><b>2.</b> Publicadas las bases el 29 de febrero de 2024 con un plazo de 20 días, ¿cuándo se inicia el plazo?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>El 1 de marzo de 2024</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>Los plazos señalados en días se cuentan <b>a partir del día siguiente</b> a aquel en que tenga lugar la publicación (art. 30.4 LPAC). Ni el mismo 29 de febrero, ni el día en que vence.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 30.4 LPAC</div></details><details class=\"panel\"><summary><b>3.</b> ¿Qué contenido mínimo NO es necesario concretar en las bases reguladoras?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>El número de páginas, formato y tamaño de letra</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 17.3 enumera objeto, requisitos de los beneficiarios, procedimiento de concesión, criterios de otorgamiento, cuantía, órganos competentes, plazos, justificación, garantías, modificación, compatibilidad y graduación de incumplimientos. Las cuestiones de <b>formato del trabajo</b> no forman parte de ese contenido mínimo.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 17.3 LGS</div></details><details class=\"panel\"><summary><b>4.</b> ¿Quién NO podrá obtener la condición de beneficiario?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Quien tenga la residencia fiscal en un paraíso fiscal</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>Es la prohibición de la letra f) del art. 13.2. Las otras tres opciones están redactadas <b>en positivo</b> —no haber sido condenado, estar al corriente con Hacienda, estar al corriente con la Seguridad Social— y describen precisamente lo que <b>sí</b> permite ser beneficiario.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 13.2.f) LGS</div><div class=\"box warn\"><span class=\"lbl\">Atención</span>Lee siempre si la pregunta va en positivo o en negativo: es la trampa más rentable del examen.</div></details><details class=\"panel\"><summary><b>5.</b> ¿Qué régimen jurídico rige la PREPARACIÓN del contrato para la actuación musical?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Administrativo</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El contrato de un espectáculo musical es <b>privado</b> por razón del objeto (art. 25.1.a.1.º), pero el art. 26.2 somete su <b>preparación y adjudicación</b> a la propia Ley 9/2017 y, en su defecto, a las restantes normas de Derecho administrativo. Solo los efectos y la extinción se rigen por el Derecho privado.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>arts. 25.1.a).1.º y 26.2 LCSP</div></details><details class=\"panel\"><summary><b>6.</b> ¿Y en cuanto a la CELEBRACIÓN del contrato?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Administrativo</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>Entendida la celebración como el momento en que el contrato se perfecciona y formaliza, sigue dentro de la fase de <b>adjudicación y formalización</b>, que el art. 26.2 somete al Derecho administrativo. Lo que pasa al Derecho privado son los <b>efectos, modificación y extinción</b>.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 26.2 LCSP</div><div class=\"box warn\"><span class=\"lbl\">Atención</span>La pregunta es ambigua: si por «celebración» se entendiera «ejecución», la respuesta sería civil. Por coherencia con el art. 26.2, «celebración» equivale a perfección del contrato.</div></details><details class=\"panel\"><summary><b>7.</b> ¿Qué debe motivar el órgano de contratación conforme al art. 28?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>La necesidad e idoneidad del contrato</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 28.1 exige determinar con precisión <b>la naturaleza y extensión de las necesidades</b> a cubrir y <b>la idoneidad del objeto y contenido</b> para satisfacerlas, dejando constancia en la documentación preparatoria <b>antes</b> de iniciar el procedimiento.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 28.1 LCSP</div></details><details class=\"panel\"><summary><b>8.</b> ¿Cómo se considera la infracción del deber de secreto sobre los datos de la Base de Datos?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Siempre falta disciplinaria muy grave</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 20.7 es tajante: con independencia de las responsabilidades <b>penales o civiles</b>, la infracción de ese particular deber de secreto se considera <b>siempre</b> falta disciplinaria <b>muy grave</b>. El adverbio «siempre» descarta las opciones que gradúan según la gravedad de los hechos.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 20.7 LGS</div></details><details class=\"panel\"><summary><b>9.</b> ¿Qué principios rigen la gestión de esta subvención?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Publicidad, transparencia, concurrencia, objetividad, igualdad y no discriminación</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>Son los seis principios de la letra a) del art. 8.3. La <b>eficacia</b> y la <b>eficiencia</b> están en las letras b) y c). <b>Necesidad e idoneidad</b> no pertenecen a las subvenciones, sino a la contratación (art. 28 LCSP); y <b>mérito y capacidad</b>, al empleo público.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 8.3.a) LGS</div></details><details class=\"panel\"><summary><b>10.</b> Contra la resolución que otorga el premio, ¿qué recurso cabe?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Recurso de reposición</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>Los actos del Presidente y del Pleno de una entidad local <b>ponen fin a la vía administrativa</b>, de modo que procede la <b>reposición potestativa</b> ante el mismo órgano o el contencioso directo (art. 123 LPAC). No cabe alzada, que presupone un superior jerárquico, ni el extraordinario de revisión fuera de las causas del art. 125.1.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 123 LPAC y art. 52.2 LBRL</div></details></section><section class=\"card\" id=\"ex2\"><h2>Turno 17 h · SUPUESTO B · El presupuesto general de una diputación</h2><div class=\"box\"><span class=\"lbl\">Enunciado</span>Conforme al art. 164 del TRLHL, una diputación provincial debe elaborar y aprobar el Presupuesto General para el ejercicio 2025.</div><details class=\"panel\"><summary><b>1.</b> ¿Quién es el órgano competente para su formación?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>El Presidente</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 168.1 es literal: «El presupuesto de la Entidad Local será formado por su Presidente». El Interventor <b>informa</b> (168.4) y el Pleno <b>aprueba</b> (169.2), pero <b>formar</b> el presupuesto corresponde al Presidente.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 168.1 TRLHL</div></details><details class=\"panel\"><summary><b>2.</b> ¿En qué fecha debe remitirse al Pleno el proyecto para el ejercicio 2025?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Antes del 15 de octubre de 2024</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 168.4 fija la remisión al Pleno, informado por la Intervención, <b>antes del día 15 de octubre</b> del año anterior al del ejercicio. Para 2025, antes del 15 de octubre de 2024.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 168.4 TRLHL</div></details><details class=\"panel\"><summary><b>3.</b> ¿Dónde se expone al público el anuncio de la aprobación inicial?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>En el Boletín Oficial de la Provincia</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 169.1 exige anuncio en el <b>boletín oficial de la provincia</b> o, en su caso, de la comunidad autónoma uniprovincial, y exposición al público por <b>15 días</b>.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 169.1 TRLHL</div></details><details class=\"panel\"><summary><b>4.</b> Presentadas reclamaciones, ¿de qué plazo dispone el Pleno para resolverlas?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Un mes</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 169.1 dispone que, presentadas reclamaciones, «el Pleno dispondrá de <b>un plazo de un mes</b> para resolverlas». No 30 días ni 20 días: <b>un mes</b>.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 169.1 TRLHL</div></details><details class=\"panel\"><summary><b>5.</b> Aprobado definitivamente el presupuesto, ¿qué recurso cabe?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Recurso contencioso-administrativo</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 171.1 permite interponer <b>directamente</b> recurso contencioso-administrativo contra la aprobación definitiva. Su interposición <b>no suspende por sí sola</b> la aplicación del presupuesto (171.3), y si la impugnación afecta a la nivelación, el Tribunal de Cuentas debe informar previamente (171.2).</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 171 TRLHL</div></details><details class=\"panel\"><summary><b>6.</b> ¿Qué norma regula la estructura presupuestaria de las entidades locales?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>La Orden de 3 de diciembre de 2008</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>Es la <b>Orden EHA/3565/2008, de 3 de diciembre</b>, que desarrolla el art. 167 del TRLHL. El RD 500/1990 es de 20 de abril y desarrolla el capítulo I del título VI en materia presupuestaria, no la estructura.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>Orden EHA/3565/2008</div></details><details class=\"panel\"><summary><b>7.</b> ¿Qué NO se une como anexo al presupuesto general?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>La liquidación del presupuesto del ejercicio anterior</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>Los <b>anexos</b> del art. 166.1 son cuatro: planes y programas de inversión y financiación a <b>cuatro años</b>, programas anuales de las sociedades, estado de <b>consolidación</b> y estado de la <b>deuda</b>. La <b>liquidación del ejercicio anterior</b> no es anexo del art. 166: es <b>documentación</b> que se une al presupuesto por el art. 168.1.b).</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>arts. 166.1 y 168.1.b) TRLHL</div><div class=\"box warn\"><span class=\"lbl\">Atención</span><b>Discrepancia.</b> La marca del examen señala los planes de inversión, que sí son anexo (166.1.a). Atendiendo a la letra de la ley, la respuesta correcta es la liquidación. Contrasta esta pregunta con la plantilla oficial si la tienes.</div></details><details class=\"panel\"><summary><b>8.</b> Los créditos para gastos corrientes deben incluir:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Gastos de funcionamiento de los servicios, intereses de deudas y transferencias corrientes</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>La Orden EHA/3565/2008 agrupa como <b>operaciones corrientes</b> los capítulos <b>1 a 4</b>: personal y bienes corrientes y servicios —el funcionamiento de los servicios—, los <b>intereses</b> y las <b>transferencias corrientes</b>. Las <b>inversiones reales</b> son capítulo 6 y por definición son gasto <b>de capital</b>.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>Orden EHA/3565/2008 · clasificación económica</div><div class=\"box warn\"><span class=\"lbl\">Atención</span><b>Discrepancia.</b> La marca del examen apunta a «inversiones reales», que contradice la Orden. La pregunta pudo ser anulada.</div></details><details class=\"panel\"><summary><b>9.</b> Los créditos para gastos de capital deben incluir:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Transferencias de capital, inversiones, activos y pasivos financieros</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>En sentido estricto las <b>operaciones de capital</b> son los capítulos <b>6</b> (inversiones reales) y <b>7</b> (transferencias de capital), y los capítulos <b>8 y 9</b> son <b>operaciones financieras</b>. De las cuatro opciones, la única que no mezcla gasto corriente es esta.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>Orden EHA/3565/2008</div><div class=\"box warn\"><span class=\"lbl\">Atención</span><b>Discrepancia.</b> La marca apunta a «gastos de personal», que es capítulo 1 y por tanto corriente. Trátala como pregunta defectuosa y quédate con el criterio de la Orden.</div></details><details class=\"panel\"><summary><b>10.</b> De 31 diputados, ¿qué votación reúne los requisitos para aprobar el presupuesto?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>12 votos a favor, 11 en contra y 8 abstenciones</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El presupuesto se aprueba por <b>mayoría simple</b>: más votos a favor que en contra. Las abstenciones no cuentan. Solo la primera opción cumple esa condición (12 > 11).</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 47.1 LBRL <i>(norma externa a la biblioteca)</i></div><div class=\"box warn\"><span class=\"lbl\">Atención</span>Esta pregunta pertenece al <b>tema 1</b>, que aún no está en tus materiales.</div></details></section><section class=\"card\" id=\"ex3\"><h2>Turno 12 h · SUPUESTO A · Expediente de contratación de un servicio</h2><div class=\"box\"><span class=\"lbl\">Enunciado</span>Una entidad local tramita un expediente de contratación de servicios por procedimiento abierto, sujeto a regulación armonizada, con varios criterios de adjudicación.</div><details class=\"panel\"><summary><b>1.</b> ¿Qué debe justificarse en el expediente conforme al art. 116.4?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>La elección del procedimiento de licitación</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>La letra a) del art. 116.4 exige justificar en el expediente <b>la elección del procedimiento</b> de licitación. Junto a ella, la clasificación exigida, los criterios de solvencia y de adjudicación, el valor estimado, la necesidad y —en servicios— el informe de insuficiencia de medios.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 116.4.a) LCSP</div></details><details class=\"panel\"><summary><b>2.</b> ¿Qué documento inicia el expediente de contratación?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>La resolución motivada del órgano de contratación</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 116.1 ordena que el órgano de contratación <b>inicie</b> el expediente <b>motivando la necesidad</b> del contrato en los términos del art. 28 y que esa resolución se <b>publique en el perfil de contratante</b>.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 116.1 LCSP</div></details><details class=\"panel\"><summary><b>3.</b> ¿Qué se une al expediente conforme al art. 116.3?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>El pliego de cláusulas administrativas particulares y el de prescripciones técnicas</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 116.3 exige incorporar los <b>pliegos</b>, el <b>certificado de existencia de crédito</b> —o documento equivalente— y la <b>fiscalización previa</b> de la Intervención.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 116.3 LCSP</div></details><details class=\"panel\"><summary><b>4.</b> En el cálculo del valor estimado, ¿qué se incluye?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Cualquier forma de opción eventual y las prórrogas</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 101.1 manda tomar el <b>importe total sin IVA</b>, incluyendo <b>cualquier forma de opción eventual</b> y las <b>eventuales prórrogas</b>, así como primas o pagos a los candidatos.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 101.1 LCSP</div><div class=\"box warn\"><span class=\"lbl\">Atención</span>El IVA nunca entra en el valor estimado. Es el error más repetido.</div></details><details class=\"panel\"><summary><b>5.</b> ¿Qué debe justificarse cuando NO se divide el contrato en lotes?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>La no división en lotes</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>La letra g) del art. 116.4 exige justificar en el expediente <b>la no división en lotes del objeto del contrato</b>. La regla general del art. 99.3 es dividir; no dividir es la excepción y por eso hay que motivarla.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>arts. 116.4.g) y 99.3 LCSP</div><div class=\"box warn\"><span class=\"lbl\">Atención</span><b>Discrepancia.</b> La marca del examen apunta a otra letra. La no división en lotes está expresamente en la letra g) del 116.4.</div></details><details class=\"panel\"><summary><b>6.</b> Completado el expediente, ¿qué se dicta?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>La resolución de aprobación del expediente y la apertura del procedimiento de adjudicación</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 117.1 dispone que, completado el expediente, se dicte resolución motivada <b>aprobando el expediente</b> y <b>disponiendo la apertura</b> del procedimiento de adjudicación, con la <b>aprobación del gasto</b>.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 117.1 LCSP</div></details><details class=\"panel\"><summary><b>7.</b> La aprobación del expediente, ¿qué otra aprobación implica?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>La aprobación del gasto</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 117.1 in fine: dicha resolución <b>implicará también la aprobación del gasto</b>, salvo el supuesto excepcional previsto en la letra a) del apartado 3 del art. 117 o los contratos de tramitación anticipada.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 117.1 LCSP</div></details><details class=\"panel\"><summary><b>8.</b> Si por resolución de un recurso especial hay que adjudicar a otro licitador, ¿de qué plazo dispone?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Diez días hábiles</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 150.4 es literal: se concederá a ese licitador «un plazo de <b>diez días hábiles</b> para que cumplimente los trámites que resulten oportunos».</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 150.4 LCSP</div></details><details class=\"panel\"><summary><b>9.</b> ¿En qué plazo debe formalizarse el contrato susceptible de recurso especial?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>No antes de que transcurran quince días hábiles desde la remisión de la notificación</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 153.3: en los contratos susceptibles de recurso especial, la formalización <b>no podrá efectuarse antes de que transcurran quince días hábiles</b> desde que se remita la notificación de la adjudicación. Transcurrido ese plazo, el órgano requiere al adjudicatario para formalizar en <b>plazo no superior a cinco días</b>.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 153.3 LCSP</div><div class=\"box warn\"><span class=\"lbl\">Atención</span><b>Discrepancia.</b> La marca del examen dice diez días. La ley dice quince días hábiles.</div></details><details class=\"panel\"><summary><b>10.</b> ¿Qué recurso cabe contra los pliegos de un contrato de servicios SARA?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>El recurso especial en materia de contratación</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 44.1.b) incluye los contratos de <b>servicios sujetos a regulación armonizada</b>, y el 44.2.a) señala como acto recurrible los <b>pliegos</b> y demás documentos contractuales que establezcan las condiciones de la contratación. Es <b>potestativo</b> y <b>gratuito</b> (art. 44.6 y 44.7).</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 44 LCSP</div></details></section><section class=\"card\" id=\"ex4\"><h2>Turno 12 h · SUPUESTO B · Modificación de créditos y ejecución del presupuesto</h2><div class=\"box\"><span class=\"lbl\">Enunciado</span>En el transcurso del ejercicio, una entidad local necesita atender un gasto no previsto y tramitar diversas operaciones de ejecución del presupuesto de gastos.</div><details class=\"panel\"><summary><b>1.</b> ¿Qué modificación presupuestaria procede cuando hay que atender un gasto específico y determinado que no puede demorarse y no existe crédito?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Crédito extraordinario</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 177.1 distingue: si <b>no existe crédito</b>, crédito <b>extraordinario</b>; si el crédito existe pero es <b>insuficiente y no ampliable</b>, <b>suplemento de crédito</b>. En ambos casos el gasto debe ser <b>específico y determinado</b> y no poder demorarse al ejercicio siguiente.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 177.1 TRLHL</div></details><details class=\"panel\"><summary><b>2.</b> ¿Quién aprueba los créditos extraordinarios y suplementos de crédito?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>El Pleno de la corporación</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 177.2 remite al mismo trámite del presupuesto: expediente del Presidente, informe de la Intervención y <b>aprobación por el Pleno</b>, con las mismas normas de publicidad, reclamaciones y recursos de los arts. 169 a 171.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 177.2 TRLHL</div></details><details class=\"panel\"><summary><b>3.</b> El acto por el que se reserva crédito para un gasto determinado se denomina:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Autorización del gasto (A)</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>La <b>autorización</b> (A) es el acto por el que se acuerda la realización de un gasto por cuantía cierta o aproximada, <b>reservando</b> a tal fin la totalidad o parte de un crédito. La <b>retención</b> (RC) es previa y solo certifica la existencia del crédito; el <b>compromiso</b> (D) ya vincula frente a un tercero.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 184 TRLHL y RD 500/1990</div></details><details class=\"panel\"><summary><b>4.</b> El acuerdo con un tercero por el que se vincula el gasto a la realización de una prestación concreta se denomina:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Disposición o compromiso del gasto (D)</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>La <b>disposición</b> (D) es el acto por el que se acuerda o concierta con un tercero la realización de obras, prestaciones o suministros. Es un acto <b>con relevancia jurídica frente a terceros</b>, a diferencia de la autorización, que es interna.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 184 TRLHL y RD 500/1990</div></details><details class=\"panel\"><summary><b>5.</b> La declaración de existencia de un crédito exigible contra la entidad se denomina:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Reconocimiento de la obligación (O)</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El <b>reconocimiento y liquidación de la obligación</b> (O) es el acto por el que se declara la existencia de un <b>crédito exigible</b> contra la entidad, derivado de un gasto autorizado y comprometido, previa acreditación documental de la prestación.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 185 TRLHL</div></details><details class=\"panel\"><summary><b>6.</b> ¿Qué documento contable refleja de una sola vez las fases A, D y O?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>ADO</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El documento <b>ADO</b> acumula autorización, disposición y reconocimiento de la obligación. <b>AD</b> acumula solo autorización y disposición; <b>ADOP</b> añade la <b>propuesta de pago</b> (P).</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>RD 500/1990 · instrucción de contabilidad</div><div class=\"box warn\"><span class=\"lbl\">Atención</span>Regla mnemotécnica: R-A-D-O-P. Cada letra que añades es un paso más hacia el pago.</div></details><details class=\"panel\"><summary><b>7.</b> ¿Qué gastos NO pueden acordarse sin crédito?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Los que excedan del importe de los créditos autorizados</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 173.5 declara <b>nulos de pleno derecho</b> los acuerdos, resoluciones y actos administrativos que <b>infrinjan</b> la norma de que no pueden adquirirse compromisos de gasto por cuantía superior al importe de los créditos autorizados.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 173.5 TRLHL</div></details><details class=\"panel\"><summary><b>8.</b> Los créditos para gastos que el último día del ejercicio no estén afectados al cumplimiento de obligaciones reconocidas:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Quedarán anulados de pleno derecho</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 175 es el principio de <b>anualidad presupuestaria</b>: los créditos no afectados al cumplimiento de obligaciones reconocidas quedan <b>anulados de pleno derecho</b>, sin perjuicio de la <b>incorporación de remanentes</b> del art. 182.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 175 TRLHL</div></details><details class=\"panel\"><summary><b>9.</b> En un contrato menor de servicios, ¿cuál es el límite de valor estimado?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Inferior a 15.000 euros</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 118.1: contratos menores son los de <b>obras</b> de valor estimado inferior a <b>40.000 €</b> y los de <b>suministros o servicios</b> inferior a <b>15.000 €</b>. Recuerda: es valor estimado, es decir, <b>sin IVA</b>.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 118.1 LCSP</div></details><details class=\"panel\"><summary><b>10.</b> La resolución que aprueba la modificación de créditos, ¿cuándo entra en vigor?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Una vez publicada definitivamente y transcurrido el plazo de exposición</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 177.2 remite a los arts. 169 a 171: aprobación inicial, exposición al público <b>15 días</b>, resolución de reclamaciones en <b>un mes</b> y publicación resumida por capítulos; entra en vigor <b>una vez publicada</b> la aprobación definitiva.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>arts. 169 y 177.2 TRLHL</div></details></section><section class=\"card\" id=\"ex5\"><h2>Turno 9 h · SUPUESTO A · Del presupuesto al contrato</h2><div class=\"box\"><span class=\"lbl\">Enunciado</span>Una entidad local aprueba su presupuesto, ejecuta el gasto y contrata un suministro. El supuesto recorre el ciclo completo: aprobación, ejecución y contratación.</div><details class=\"panel\"><summary><b>1.</b> El presupuesto general contiene el de la propia entidad, el de sus organismos autónomos y:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Los estados de previsión de gastos e ingresos de las sociedades mercantiles de capital íntegramente local</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 164.1 es literal: presupuesto de la propia entidad, presupuestos de los <b>organismos autónomos</b> dependientes y <b>estados de previsión</b> de gastos e ingresos de las <b>sociedades mercantiles</b> cuyo capital social pertenezca íntegramente a la entidad local.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 164.1 TRLHL</div></details><details class=\"panel\"><summary><b>2.</b> ¿Cuál es el principio que impide destinar recursos concretos a gastos concretos?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>El principio de no afectación o desafectación de ingresos</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 165.2: los recursos de la entidad local y de sus organismos autónomos se destinan a <b>satisfacer el conjunto</b> de sus obligaciones, <b>salvo</b> que un ingreso se recaude con <b>fines determinados</b>. Es la regla general de caja única con excepción de la afectación expresa.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 165.2 TRLHL</div></details><details class=\"panel\"><summary><b>3.</b> El presupuesto de cada uno de los organismos que integran el general debe:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Aprobarse sin déficit inicial</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 165.4 exige que cada uno de los presupuestos que integran el general se apruebe <b>sin déficit inicial</b>. Es un requisito de equilibrio formal en el momento de la aprobación.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 165.4 TRLHL</div></details><details class=\"panel\"><summary><b>4.</b> Si al 31 de diciembre no se ha aprobado el presupuesto:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Se considera automáticamente prorrogado el del ejercicio anterior</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 169.6: se considerará <b>automáticamente prorrogados</b> los presupuestos del ejercicio anterior, con sus <b>créditos iniciales</b>, sin perjuicio de las modificaciones que se realicen conforme a los arts. 177 a 182 y hasta la entrada en vigor del nuevo. La prórroga <b>no afecta</b> a los créditos para servicios o programas que terminen en el ejercicio anterior.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 169.6 TRLHL</div></details><details class=\"panel\"><summary><b>5.</b> ¿Cuál es el importe a partir del cual un contrato de suministro está sujeto a regulación armonizada en entidades locales?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>El fijado en el art. 22 de la Ley 9/2017</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 22 fija los umbrales SARA para suministros y servicios y remite a la actualización periódica por las directivas comunitarias. Conviene comprobar siempre la <b>última orden de actualización</b> de umbrales antes del examen.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 22 LCSP</div><div class=\"box warn\"><span class=\"lbl\">Atención</span><b>Verifica la vigencia.</b> Los umbrales SARA se actualizan cada dos años por reglamento delegado de la Comisión.</div></details><details class=\"panel\"><summary><b>6.</b> En el procedimiento abierto simplificado, ¿cuál es el plazo de presentación de proposiciones en contratos de suministros y servicios?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Quince días naturales desde la publicación del anuncio en el perfil de contratante</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 159.3.b): el plazo de presentación será, como <b>mínimo</b>, de <b>quince días</b> contados desde el siguiente a la publicación del anuncio de licitación en el perfil de contratante. En <b>obras</b> el mínimo es de <b>veinte días</b>.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 159.3.b) LCSP</div></details><details class=\"panel\"><summary><b>7.</b> ¿Qué es el remanente de tesorería?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Un recurso para la financiación de modificaciones de crédito</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El remanente de tesorería integra los derechos pendientes de cobro, las obligaciones pendientes de pago y los fondos líquidos, y se configura como <b>recurso para financiar modificaciones de crédito</b> (arts. 177.4 y 193). No es un ingreso ordinario del ejercicio.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>arts. 177.4 y 193 TRLHL</div></details><details class=\"panel\"><summary><b>8.</b> ¿Qué órgano ejerce la función de fiscalización interna en las entidades locales?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>La Intervención</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 214.1: la función interventora fiscaliza <b>todos</b> los actos de la entidad local y de sus organismos autónomos que den lugar al <b>reconocimiento y liquidación de derechos y obligaciones</b>, a los <b>ingresos y pagos</b> y al movimiento de fondos y valores.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 214.1 TRLHL</div></details><details class=\"panel\"><summary><b>9.</b> La adjudicación de un contrato menor requiere:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Informe del órgano de contratación motivando la necesidad y la aprobación del gasto y la factura</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 118.1 y 118.2: se exige <b>informe del órgano de contratación</b> motivando la necesidad del contrato, la <b>aprobación del gasto</b> y la <b>incorporación de la factura</b>. En obras, además, presupuesto de las obras y, en su caso, proyecto y supervisión.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 118 LCSP</div></details><details class=\"panel\"><summary><b>10.</b> ¿Dónde deben publicarse trimestralmente los contratos menores?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>En el perfil de contratante</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 63.4 obliga a publicar en el <b>perfil de contratante</b>, al menos <b>trimestralmente</b>, la información relativa a los contratos menores celebrados, con objeto, duración, importe de adjudicación —IVA incluido— e identidad del adjudicatario.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 63.4 LCSP</div></details></section><section class=\"card\" id=\"ex6\"><h2>Turno 9 h · SUPUESTO B · Registro, notificaciones y relación electrónica</h2><div class=\"box\"><span class=\"lbl\">Enunciado</span>Un ciudadano y una sociedad mercantil presentan escritos ante una entidad local. Se plantean cuestiones de registro, cómputo de plazos, notificación y obligación de relacionarse electrónicamente.</div><details class=\"panel\"><summary><b>1.</b> ¿Qué debe contener toda notificación?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>El texto íntegro de la resolución, si pone fin o no a la vía administrativa, los recursos procedentes, el órgano ante el que presentarlos y el plazo</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 40.2 exige que toda notificación contenga el <b>texto íntegro</b> de la resolución, con indicación de <b>si pone fin o no a la vía administrativa</b>, la <b>expresión de los recursos</b> que procedan —en su caso, en vía administrativa y judicial—, el <b>órgano</b> ante el que hubieran de presentarse y el <b>plazo</b> para interponerlos.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 40.2 LPAC</div><div class=\"box warn\"><span class=\"lbl\">Atención</span><b>Discrepancia.</b> La marca del examen apunta a una opción incompleta. El art. 40.2 exige los cinco elementos.</div></details><details class=\"panel\"><summary><b>2.</b> ¿En qué plazo debe practicarse la notificación?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Dentro del plazo de diez días a partir de la fecha en que el acto haya sido dictado</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 40.2: toda notificación deberá ser cursada dentro del plazo de <b>diez días</b> a partir de la fecha en que el acto haya sido dictado. Es un plazo <b>impropio</b>: su incumplimiento no invalida la notificación, pero sí puede generar responsabilidad.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 40.2 LPAC</div></details><details class=\"panel\"><summary><b>3.</b> ¿Quiénes están obligados a relacionarse electrónicamente con las Administraciones?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Las personas jurídicas y las entidades sin personalidad jurídica, entre otros</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 14.2 enumera: <b>personas jurídicas</b>, <b>entidades sin personalidad jurídica</b>, quienes ejerzan una <b>actividad profesional con colegiación obligatoria</b> para los trámites propios de esa actividad, quienes <b>representen</b> a un obligado y los <b>empleados públicos</b> en los trámites que se determinen.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 14.2 LPAC</div></details><details class=\"panel\"><summary><b>4.</b> El registro electrónico de apoderamientos:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Debe existir en todas las Administraciones, incluidas las entidades locales</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 6.1: la Administración General del Estado, las Comunidades Autónomas y las <b>Entidades Locales</b> dispondrán de un <b>registro electrónico general de apoderamientos</b> en el que deberán inscribirse, al menos, los de carácter general otorgados apud acta.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 6.1 LPAC</div></details><details class=\"panel\"><summary><b>5.</b> En el registro electrónico, ¿qué fecha y hora rigen?</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>La fecha y hora oficial de la sede electrónica de acceso</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 31.2: cada Administración determinará los <b>días considerados inhábiles</b>, y el registro electrónico se regirá <b>a efectos de cómputo</b> por la <b>fecha y hora oficial de la sede electrónica de acceso</b>, que deberá contar con las medidas de seguridad necesarias.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 31.2 LPAC</div></details><details class=\"panel\"><summary><b>6.</b> Un plazo señalado en meses que vence en un día inexistente en el mes de vencimiento:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Se entiende que el plazo expira el último día del mes</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 30.5: si en el mes de vencimiento no hubiera día equivalente a aquel en que comienza el cómputo, se entenderá que el plazo <b>expira el último día del mes</b>. Ejemplo: un plazo de un mes iniciado el 31 de enero vence el 28 —o 29— de febrero.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 30.5 LPAC</div></details><details class=\"panel\"><summary><b>7.</b> Si el último día del plazo es inhábil:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Se entiende prorrogado al primer día hábil siguiente</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 30.5 in fine: cuando el último día del plazo sea inhábil, se entenderá <b>prorrogado al primer día hábil siguiente</b>. Y recuerda el art. 30.2: en los plazos por días se excluyen del cómputo los <b>sábados, domingos y festivos</b> salvo que se declaren días naturales.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 30.2 y 30.5 LPAC</div></details><details class=\"panel\"><summary><b>8.</b> La notificación practicada por medios electrónicos se entenderá rechazada cuando:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Hayan transcurrido diez días naturales desde la puesta a disposición sin acceder a su contenido</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 43.2: se entenderá <b>rechazada</b> cuando hayan transcurrido <b>diez días naturales</b> desde la puesta a disposición de la notificación <b>sin que se acceda</b> a su contenido. Y se entiende <b>practicada</b> en el momento en que se produce el acceso (art. 43.2 primer inciso).</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 43.2 LPAC</div><div class=\"box warn\"><span class=\"lbl\">Atención</span>Diez días <b>naturales</b>, no hábiles. Contrasta con los diez días del art. 40.2, que son hábiles.</div></details><details class=\"panel\"><summary><b>9.</b> Si la solicitud no reúne los requisitos exigidos:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Se requerirá al interesado para que en un plazo de diez días subsane, con indicación de que si no lo hace se le tendrá por desistido</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 68.1: se requerirá al interesado para que, en un plazo de <b>diez días</b>, subsane la falta o acompañe los documentos preceptivos, con indicación de que, si así no lo hiciera, se le tendrá por <b>desistido</b> de su petición, previa resolución del art. 21.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 68.1 LPAC</div></details><details class=\"panel\"><summary><b>10.</b> En procedimientos iniciados a solicitud del interesado, el vencimiento del plazo máximo sin notificar resolución:</summary><div class=\"box ej\"><span class=\"lbl\">Respuesta</span><b>Legitima al interesado para entenderla estimada por silencio administrativo, salvo excepciones</b></div><div class=\"box interp\"><span class=\"lbl\">Por qué</span>El art. 24.1: el vencimiento del plazo máximo sin haberse notificado resolución expresa legitima al interesado para entenderla <b>estimada</b> por silencio. Las <b>excepciones</b>: norma con rango de ley o de Derecho de la Unión que establezca lo contrario, procedimientos de <b>derecho de petición</b>, los que impliquen <b>facultades sobre el dominio o servicio público</b>, los de <b>impugnación de actos</b> y los de <b>responsabilidad patrimonial</b>.</div><div class=\"box legal\"><span class=\"lbl\">Precepto</span>art. 24.1 LPAC</div></details></section>\n<section class=\"card\" id=\"pendiente\"><h2>Lo que estos exámenes exigen y todavía no tienes</h2>\n<p class=\"small\">Honestidad primero: de las 60 preguntas, <b>11</b> caen fuera de los temas construidos hasta ahora. Estas son, con lo que hay que estudiar para cerrarlas.</p>\n<table class=\"t\"><thead><tr><th>Materia</th><th>Preguntas afectadas</th><th>Qué falta</th></tr></thead><tbody>\n<tr><td><b>Tema 1</b> · Órganos de gobierno locales</td><td>Turno 17 h · B10</td><td>Mayorías del Pleno: simple, absoluta y de dos tercios. Quórum de constitución. Arts. 46 y 47 LBRL.</td></tr>\n<tr><td><b>Temas 4 a 7</b> · Funcionamiento electrónico</td><td>Turno 9 h · B1 a B10</td><td>LPAC arts. 5, 6, 9, 10, 13, 14, 16, 26, 27, 31, 40 a 44 y 68. Registro, apoderamientos, identificación, firma, copias auténticas y notificaciones electrónicas.</td></tr>\n<tr><td><b>Umbrales SARA</b></td><td>Turno 9 h · A5</td><td>Cifras vigentes de los arts. 20, 21 y 22 LCSP, actualizadas por el último reglamento delegado.</td></tr>\n</tbody></table>\n<div class=\"box ej\"><span class=\"lbl\">Orden recomendado</span>Primero los <b>temas 4 a 7</b>: son diez preguntas de un solo examen y se responden con media docena de artículos muy memorizables. Después el <b>tema 1</b>, que es una pregunta pero de las que no se fallan nunca. Los umbrales SARA, el día antes.</div>\n</section>\n\n<section class=\"card\" id=\"mapa\"><h2>Mapa de retorno: si fallas esta pregunta, vuelve a esta página</h2>\n<table class=\"t\"><thead><tr><th>Materia de la pregunta</th><th>Página del proyecto a la que volver</th></tr></thead><tbody>\n<tr><td>Expediente de contratación, valor estimado, contrato menor, formalización</td><td><a href=\"LCSP_ampliacion_expediente.html\">LCSP · Ampliación: del expediente a la formalización</a></td></tr>\n<tr><td>Ámbito de la LCSP, entidades del sector público, contratos excluidos</td><td><a href=\"LCSP_01-11_ambito.html\">LCSP · Arts. 1 a 11</a> · <a href=\"TEMA_9_flujo_y_casos.html\">Tema 9 · Visión de conjunto</a></td></tr>\n<tr><td>Tipos de contrato, régimen jurídico, jurisdicción competente</td><td><a href=\"LCSP_12-27_contratos.html\">LCSP · Arts. 12 a 27</a> · <a href=\"TEMA_10_flujo_y_casos.html\">Tema 10 · Visión de conjunto</a></td></tr>\n<tr><td>Fases del gasto, documentos contables, clasificación económica</td><td><a href=\"TRLHL_ampliacion_contable.html\">TRLHL · Ampliación contable</a></td></tr>\n<tr><td>Presupuesto general: formación, aprobación, prórroga, modificaciones</td><td><a href=\"TEMA_8_flujo_y_casos.html\">Tema 8 · Visión de conjunto</a></td></tr>\n<tr><td>Subvenciones: plan estratégico, bases, beneficiarios, BDNS</td><td><a href=\"LGS_ampliacion.html\">LGS · Ampliación</a> · <a href=\"LGS_01-21_ambito.html\">LGS · Arts. 1 a 21</a> · <a href=\"LGS_22-35_procedimiento.html\">LGS · Arts. 22 a 35</a></td></tr>\n<tr><td>Acto administrativo, invalidez y recursos</td><td><a href=\"LPAC_34-46_acto_administrativo.html\">LPAC · Arts. 34 a 46</a> · <a href=\"LPAC_112-126_recursos.html\">LPAC · Recursos</a></td></tr>\n<tr><td>Plazos, solicitud, subsanación, silencio</td><td><a href=\"LPAC_66-74_solicitud_ordenacion.html\">LPAC · Arts. 66 a 74</a> · <a href=\"LPAC_84-96_finalizacion.html\">LPAC · Arts. 84 a 96</a></td></tr>\n</tbody></table>\n</section>\n\n<section class=\"card\" id=\"discrepancias\"><h2>Las cinco preguntas en que discrepo de la marca del examen</h2>\n<p class=\"small\">No las escondo. En estas cinco, la letra de la norma de la biblioteca dice una cosa y la marca de la hoja dice otra. Contrástalas con la plantilla oficial si la tienes; si no, quédate con el criterio de la ley y sabe que la pregunta era discutible.</p>\n<table class=\"t\"><thead><tr><th>Examen</th><th>Pregunta</th><th>Lo que dice la norma</th></tr></thead><tbody>\n<tr><td>17 h · B7</td><td>Qué NO es anexo del presupuesto</td><td>La <b>liquidación del ejercicio anterior</b> no está en el art. 166.1: es documentación del art. 168.1.b).</td></tr>\n<tr><td>17 h · B8</td><td>Créditos para gastos corrientes</td><td>Las <b>inversiones reales</b> son capítulo 6, gasto de capital. No pueden ser gasto corriente.</td></tr>\n<tr><td>17 h · B9</td><td>Créditos para gastos de capital</td><td>Los <b>gastos de personal</b> son capítulo 1, corriente. No pueden ser gasto de capital.</td></tr>\n<tr><td>12 h · A5</td><td>Justificación de la no división en lotes</td><td>Está expresamente en la <b>letra g) del art. 116.4</b> LCSP.</td></tr>\n<tr><td>12 h · A9</td><td>Plazo de espera antes de formalizar</td><td><b>Quince días hábiles</b>, art. 153.3 LCSP. No diez.</td></tr>\n</tbody></table>\n<div class=\"box exc\"><span class=\"lbl\">Qué hacer con esto en el examen</span>Si te encuentras una de estas, marca <b>la que dice la ley</b> y, si el examen admite alegaciones, alégala con el artículo en la mano. Es exactamente así como se recuperan puntos.</div>\n</section>\n\n<section class=\"card\" id=\"conexiones\"><h2>Diez preguntas de conexión</h2>\n<p class=\"small\">Responde en voz alta <b>antes</b> de desplegar. No preguntan por un artículo suelto: preguntan por la cifra, la unidad y el órgano aplicados a un caso, que es exactamente lo que hace el examen.</p>\n<div id=\"qbox\"></div></section>\n\n<section class=\"card\" id=\"sem\"><h2>Semáforo: qué dominas y qué no</h2>\n<p class=\"small\">Marca cada destreza. Lo que quede en rojo es tu plan de estudio de esta semana.</p>\n<div id=\"sembox\"></div><div id=\"semres\" style=\"margin-top:.8rem\"></div></section>\n";
+</script>
+<script>
+
+
+
+/* ---------- ÍNDICE LATERAL ---------- */
+(function(){
+ var n='<h2>Secciones</h2>';
+ NAV.forEach(function(a){n+='<a href="#'+a[0]+'">'+a[1]+'</a>';});
+ document.getElementById('navbody').innerHTML=n;
+})();
+document.getElementById('navtoggle').onclick=function(){
+ var s=document.getElementById('side');s.classList.toggle('collapsed');
+ this.setAttribute('aria-expanded',s.classList.contains('collapsed')?'false':'true');};
+
+/* ---------- FILTRO DE FASES ---------- */
+(function(){
+ var svg=document.getElementById('mapa8');
+ document.querySelectorAll('.fbtn').forEach(function(b){
+  b.onclick=function(){
+   document.querySelectorAll('.fbtn').forEach(function(x){x.setAttribute('aria-pressed','false');});
+   b.setAttribute('aria-pressed','true');
+   var f=b.getAttribute('data-f');
+   svg.querySelectorAll('g[data-f]').forEach(function(g){
+    g.style.opacity=(f==='0'||g.getAttribute('data-f')===f)?'1':'0.16';});
+  };});
+})();
+
+/* ---------- PREGUNTAS DE CONEXIÓN ---------- */
+(function(){
+ var h='';
+ QS.forEach(function(q,i){
+  h+='<details class="panel"><summary>'+(i+1)+'. '+q[0]+'</summary><div class="body"><p>'+q[1]+'</p></div></details>';});
+ document.getElementById('qbox').innerHTML=h;
+})();
+
+/* ---------- SEMÁFORO ---------- */
+var sem=SEM.map(function(){return 0;});
+function drawSem(){
+ var h='<table><tbody>';
+ SEM.forEach(function(c,i){
+  h+='<tr><td>'+c+'</td><td style="width:150px;white-space:nowrap">'
+   +['🟢','🟡','🔴'].map(function(e,j){
+     var on=sem[i]===j+1;
+     return '<button class="sembtn" data-i="'+i+'" data-v="'+(j+1)+'" style="font-size:1rem;padding:.15rem .35rem;margin-right:.2rem;border-color:'+(on?'var(--acc)':'var(--line)')+';background:'+(on?'var(--acc-soft)':'var(--panel)')+'">'+e+'</button>';}).join('')
+   +'</td></tr>';});
+ h+='</tbody></table>';
+ document.getElementById('sembox').innerHTML=h;
+ document.querySelectorAll('.sembtn').forEach(function(b){
+  b.onclick=function(){sem[+b.getAttribute('data-i')]=+b.getAttribute('data-v');drawSem();};});
+ var r=[],a=[];
+ sem.forEach(function(v,i){if(v===3)r.push(SEM[i]);if(v===2)a.push(SEM[i]);});
+ var o='';
+ if(r.length)o+='<div class="box exc"><span class="lbl">Vuelve al bloque correspondiente hoy mismo</span><ul><li>'+r.join('</li><li>')+'</li></ul></div>';
+ if(a.length)o+='<div class="box warn"><span class="lbl">Refuerza en 24 h</span><ul><li>'+a.join('</li><li>')+'</li></ul></div>';
+ if(!r.length&&!a.length&&sem.some(function(v){return v===1;}))o='<div class="box ej"><span class="lbl">Bien</span>Tienes el mapa. Ahora explícaselo a alguien sin mirar la página: es la única prueba que vale.</div>';
+ document.getElementById('semres').innerHTML=o;
+}
+drawSem();
+
+/* ---------- HERRAMIENTAS ---------- */
+var openAll=false;
+document.getElementById('expand').onclick=function(){
+ openAll=!openAll;document.querySelectorAll('details.panel').forEach(function(d){d.open=openAll;});
+ this.textContent=openAll?'Plegar todo':'Desplegar todo';};
+document.getElementById('theme').onclick=function(){
+ var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
+var fs=16;
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);document.documentElement.style.setProperty('--fs',fs+'px');};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);document.documentElement.style.setProperty('--fs',fs+'px');};
+window.addEventListener('scroll',function(){
+ var h=document.body.scrollHeight-window.innerHeight;
+ document.getElementById('prog').style.width=(h>0?(window.scrollY/h*100):0)+'%';
+ var cur=null;document.querySelectorAll('section.card').forEach(function(s){
+  if(s.getBoundingClientRect().top<120)cur=s.id;});
+ document.querySelectorAll('nav.side a').forEach(function(a){
+  a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ---------- BUSCADOR ---------- */
+var q=document.getElementById('q'),timer=null;
+function clearMarks(){document.querySelectorAll('mark.hit').forEach(function(m){
+ var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});}
+q.addEventListener('input',function(){
+ clearTimeout(timer);timer=setTimeout(function(){
+  clearMarks();
+  var term=q.value.trim();
+  document.querySelectorAll('section.card').forEach(function(s){s.classList.remove('hide');});
+  if(term.length<3)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  document.querySelectorAll('section.card').forEach(function(s){
+   var found=false;
+   var w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT,null);var nodes=[];
+   while(w.nextNode()){var nd=w.currentNode;
+    if(nd.parentNode.closest('script,style,mark,svg'))continue;
+    if(rx.test(nd.nodeValue)){nodes.push(nd);rx.lastIndex=0;}}
+   nodes.forEach(function(nd){
+    found=true;
+    var span=document.createElement('span');
+    span.innerHTML=nd.nodeValue.replace(rx,function(m){return '<mark class="hit">'+m+'</mark>';});
+    nd.parentNode.replaceChild(span,nd);});
+   if(found){s.querySelectorAll('details.panel').forEach(function(d){if(d.querySelector('mark.hit'))d.open=true;});}
+   s.classList.toggle('hide',!found);
+  });
+ },220);});
+
+
+
+</script>
+<script>
+
+/* ═══ Mejoras de interacción · Bloque II ═══ */
+(function(){
+"use strict";
+var K_THEME="oposi_bII_theme", K_FS="oposi_bII_fs", K_STREAK="oposi_bII_streak";
+function load(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return f;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var root=document.documentElement;
+
+/* Tema persistente (sobrescribe el toggle simple anterior) */
+var saved=load(K_THEME,null);
+if(saved){root.setAttribute("data-theme",saved);}
+else if(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches){root.setAttribute("data-theme","dark");}
+var bt=document.getElementById("theme");
+if(bt)bt.onclick=function(){
+  var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-theme",n);save(K_THEME,n);
+};
+
+/* Tamaño de texto persistente */
+var fs=load(K_FS,16);
+function setFs(v){fs=Math.max(13,Math.min(22,v));root.style.setProperty("--fs",fs+"px");save(K_FS,fs);}
+setFs(fs);
+var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
+if(bp)bp.onclick=function(){setFs(fs+1);};
+if(bm)bm.onclick=function(){setFs(fs-1);};
+
+/* Racha compartida con el índice */
+(function(){
+  var el=document.getElementById("streakN");if(!el)return;
+  var hoy=new Date().toISOString().slice(0,10);
+  var s=load(K_STREAK,{last:null,n:0});
+  if(s.last!==hoy){
+    var ayer=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    s.n=(s.last===ayer)?s.n+1:1;s.last=hoy;save(K_STREAK,s);
+  }
+  el.textContent=s.n;
+})();
+
+/* Reveal on scroll para las tarjetas */
+function reveal(){
+  var els=document.querySelectorAll("section.card:not(.rv)");
+  if(!els.length)return;
+  if(!("IntersectionObserver" in window)){return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:"0px 0px -30px 0px"});
+  Array.prototype.forEach.call(els,function(el){el.classList.add("rv");io.observe(el);});
+}
+
+/* Sección activa en el índice lateral */
+function spy(){
+  var links=document.querySelectorAll("nav.side a[href^='#']");
+  if(!links.length||!("IntersectionObserver" in window))return;
+  var map={};
+  Array.prototype.forEach.call(links,function(a){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(t)map[t.id]=a;
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        Array.prototype.forEach.call(links,function(a){a.classList.remove("on");});
+        if(map[en.target.id])map[en.target.id].classList.add("on");
+      }
+    });
+  },{rootMargin:"-80px 0px -70% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* Ripple en botones */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.classList.contains("navtoggle"))return;
+  var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement("span");
+  s.className="ripple";s.style.width=s.style.height=d+"px";
+  s.style.left=(e.clientX-r.left-d/2)+"px";s.style.top=(e.clientY-r.top-d/2)+"px";
+  b.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},560);
+});
+
+/* Atajos de teclado */
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea"))return;
+  if(e.key==="/"){var q=document.getElementById("q");if(q){e.preventDefault();q.focus();}}
+  if(e.key==="t"&&bt)bt.click();
+});
+
+/* El contenido se inyecta por JS: esperamos a que exista */
+function init(){reveal();spy();}
+if(document.getElementById("main")&&document.getElementById("main").children.length){init();}
+else{setTimeout(init,60);}
+addEventListener("load",function(){setTimeout(init,80);});
+})();
+
+
+</script>
+<script>
+
+
+/* ═══ Parser de respuestas: estructura semántica ═══ */
+var FCFMT=(function(){
+  var CITA=/\s*\(((?:arts?\.|DA\b|DT\b|disp\.)[^)]*)\)\s*\.?\s*$/i;
+  var strip=function(h){return h.replace(/<[^>]+>/g,"");};
+
+  function esc(s){return s;}
+
+  function parse(raw){
+    var out={verdict:null,cite:null,kind:"p",items:[],text:""};
+    var body=String(raw).trim();
+
+    /* 1 ── Cita legal al final */
+    var m=body.match(CITA);
+    if(m){out.cite=m[1].replace(/\s+/g," ").trim();body=body.slice(0,m.index).trim();}
+    body=body.replace(/[.;,\s]+$/,"");
+
+    /* 2 ── Veredicto Sí / No inicial */
+    var v=strip(body).match(/^(Sí|Sí,|No|No,)[.:,]?\s/);
+    if(v){
+      out.verdict=/^Sí/.test(v[1])?"si":"no";
+      body=body.replace(/^(<[^>]+>\s*)*(Sí|No)[.,:]?\s*/,"").trim();
+      body=body.replace(/^en\s/,"En ");
+    }
+
+    /* 3 ── Enumeración con · */
+    var parts=body.split(/\s+·\s+/);
+    if(parts.length>=2){
+      out.kind="list";
+      var letras=parts.filter(function(p){return /^\s*<?[a-h]\)/.test(strip(p));}).length;
+      out.marker = letras>=parts.length-1 ? "alpha" : "num";
+      out.items=parts.map(function(p){
+        return p.replace(/^\s*[a-h]\)\s*/,"").replace(/[.\s]+$/,"").trim();
+      }).filter(Boolean);
+      return out;
+    }
+
+    /* 4 ── Cláusulas contrapuestas con ; */
+    var semi=body.split(/;\s+/);
+    if(semi.length>=2&&semi.length<=3&&semi.every(function(s){return strip(s).length>14;})){
+      out.kind="clauses";
+      out.items=semi.map(function(s){return s.replace(/[.\s]+$/,"").trim();});
+      return out;
+    }
+
+    /* 5 ── Párrafo */
+    out.text=body;
+    return out;
+  }
+
+  function render(raw){
+    var d=parse(raw),h="";
+
+    if(d.verdict){
+      h+='<span class="fc-verdict '+d.verdict+'">'+(d.verdict==="si"?"✓ Sí":"✗ No")+'</span>';
+    }
+
+    if(d.kind==="list"){
+      h+='<ol class="fc-list '+d.marker+'">';
+      d.items.forEach(function(it){h+='<li>'+it+'</li>';});
+      h+='</ol>';
+    }else if(d.kind==="clauses"){
+      h+='<div class="fc-clauses">';
+      d.items.forEach(function(it){h+='<p>'+it+'</p>';});
+      h+='</div>';
+    }else if(d.text){
+      h+='<p class="fc-p">'+d.text+'</p>';
+    }
+
+    if(d.cite){
+      h+='<span class="fc-cite"><span class="s">§</span>'+d.cite+'</span>';
+    }
+    return {html:h,struct:(d.kind!=="p"||!!d.verdict||strip(raw).length>150)};
+  }
+  return {parse:parse,render:render};
+})();
+
+/* ═══ FLASHCARDS 3D ═══ */
+(function(){
+"use strict";
+function boot(){
+  var sec=document.getElementById("flash");
+  if(!sec||sec.dataset.fc3d)return false;
+  if(typeof FLASH==="undefined"||!FLASH||!FLASH.length)return false;
+  sec.dataset.fc3d="1";
+
+  var CARDS=FLASH, N=CARDS.length;
+  var order,fi,ok,ko,back,busy;
+
+  /* — Estructura — */
+  var h2=sec.querySelector("h2");
+  sec.innerHTML="";
+  if(h2)sec.appendChild(h2);
+  var intro=document.createElement("p");
+  intro.className="small";
+  intro.innerHTML="Piensa la respuesta <b>antes</b> de girar: el esfuerzo de recuperarla es lo que la fija. "
+    +'<span class="fc-hint" style="position:static;display:inline;color:inherit">'
+    +'<span class="kbd">espacio</span> girar · <span class="kbd">→</span> lo sabía · <span class="kbd">←</span> repasar</span>';
+  sec.appendChild(intro);
+
+  var stage=document.createElement("div");
+  stage.className="fc-stage";
+  stage.innerHTML=
+    '<div class="fc-deck" id="fcdeck">'
+    +'<span class="fc-ghost g2"></span><span class="fc-ghost g1"></span>'
+    +'<div class="fc-lift" id="fclift">'
+      +'<div class="fc-card" id="fcbox" tabindex="0" role="button" aria-label="Tarjeta. Pulsa para girar">'
+        +'<div class="fc-face fc-front">'
+          +'<span class="fc-tag">Pregunta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">Pulsa para girar</span>'
+        +'</div>'
+        +'<div class="fc-face fc-back">'
+          +'<span class="fc-tag">Respuesta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">¿La sabías?</span>'
+        +'</div>'
+      +'</div>'
+    +'</div></div>';
+  sec.appendChild(stage);
+
+  var bar=document.createElement("div");
+  bar.className="fc-bar";bar.innerHTML="<i></i>";
+  sec.appendChild(bar);
+
+  var ctr=document.createElement("div");
+  ctr.className="fc-ctrls noprint";
+  ctr.innerHTML='<button id="fcflip">⟲ Girar</button>'
+    +'<button id="fcok">✔ Lo sabía</button>'
+    +'<button id="fcko">↻ Repasar</button>'
+    +'<button id="fcreset">Reiniciar</button>'
+    +'<span class="fc-score">'
+      +'<span class="fc-pill ok" id="fcpok">0 sabidas</span>'
+      +'<span class="fc-pill ko" id="fcpko">0 repasar</span>'
+      +'<span class="fc-pill left" id="fccount">0</span>'
+    +'</span>';
+  sec.appendChild(ctr);
+
+  var deck=stage.querySelector("#fcdeck"), lift=stage.querySelector("#fclift"),
+      card=stage.querySelector("#fcbox"),
+      front=stage.querySelector(".fc-front"), backf=stage.querySelector(".fc-back"),
+      fill=bar.querySelector("i"),
+      pok=ctr.querySelector("#fcpok"), pko=ctr.querySelector("#fcpko"),
+      pleft=ctr.querySelector("#fccount");
+  var rot=0;
+
+  function reset(){
+    order=CARDS.map(function(_,i){return i;});
+    fi=0;ok=0;ko=0;back=false;busy=false;rot=0;
+    card.style.transition="none";card.style.transform="rotateY(0deg)";
+    void card.offsetWidth;card.style.transition="";
+    deck.classList.remove("empty");
+    var d=stage.querySelector(".fc-done");if(d)d.remove();
+    card.style.display="";
+    draw();
+  }
+
+  function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+
+  function draw(){
+    pok.textContent=ok+(ok===1?" sabida":" sabidas");
+    pko.textContent=ko+" repasar";
+    var done=N-order.length;
+    fill.style.width=(N?done/N*100:0)+"%";
+
+    if(!order.length){
+      pleft.textContent="0 quedan";
+      deck.classList.add("empty");
+      card.style.display="none";
+      if(!stage.querySelector(".fc-done")){
+        var d=document.createElement("div");
+        d.className="fc-done";
+        d.innerHTML='<span class="seal">🏆</span><h3>Ronda completada</h3>'
+          +'<p>'+ok+' de '+N+' a la primera'+(ko?' · '+ko+' necesitaron repaso':'')+'</p>';
+        deck.appendChild(d);
+      }
+      return;
+    }
+    if(fi>=order.length)fi=0;
+    pleft.textContent=order.length+(order.length===1?" queda":" quedan");
+
+    var c=CARDS[order[fi]];
+    front.querySelector(".fc-txt").innerHTML='<p class="fc-p">'+c[0]+'</p>';
+    var r=FCFMT.render(c[1]);
+    backf.querySelector(".fc-txt").innerHTML=r.html;
+    backf.classList.toggle("struct",r.struct);
+    var hint=backf.querySelector(".fc-hint");
+    if(hint)hint.classList.toggle("muted",/fc-cite/.test(r.html));
+    var pip=(done+1)+"/"+N;
+    Array.prototype.forEach.call(stage.querySelectorAll(".fc-pip"),function(p){p.textContent=pip;});
+  }
+
+  function flip(){
+    if(busy||!order.length)return;
+    back=!back;rot+=180;
+    card.style.transform="rotateY("+rot+"deg)";
+    card.setAttribute("aria-label",back?"Respuesta. Pulsa para volver":"Pregunta. Pulsa para girar");
+    lift.classList.remove("lift");void lift.offsetWidth;lift.classList.add("lift");
+  }
+
+  function next(good){
+    if(busy||!order.length)return;
+    busy=true;
+    if(good){ok++;bump(pok);}else{ko++;bump(pko);}
+    lift.classList.remove("lift");
+    lift.classList.add(good?"out-ok":"out-ko");
+    setTimeout(function(){
+      if(good){order.splice(fi,1);}
+      else{var m=order.splice(fi,1)[0];order.push(m);}
+      back=false;rot=0;
+      card.style.transition="none";card.style.transform="rotateY(0deg)";
+      void card.offsetWidth;card.style.transition="";
+      draw();
+      lift.classList.remove("out-ok","out-ko");
+      lift.classList.add("in");
+      setTimeout(function(){lift.classList.remove("in");busy=false;},480);
+    },460);
+  }
+
+  card.onclick=flip;
+  card.onkeydown=function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();flip();}
+    if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  };
+  ctr.querySelector("#fcflip").onclick=flip;
+  ctr.querySelector("#fcok").onclick=function(){next(true);};
+  ctr.querySelector("#fcko").onclick=function(){next(false);};
+  ctr.querySelector("#fcreset").onclick=reset;
+
+  /* Deslizar en táctil */
+  var x0=null,y0=null;
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  card.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){next(dx>0);}
+    x0=y0=null;
+  },{passive:true});
+
+  /* Atajos globales cuando el mazo está a la vista */
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    var r=stage.getBoundingClientRect();
+    if(r.bottom<80||r.top>innerHeight-80)return;
+    if(e.key===" "){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    else if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  });
+
+  reset();
+  return true;
+}
+if(!boot()){
+  var tries=0;
+  var iv=setInterval(function(){if(boot()||++tries>40)clearInterval(iv);},120);
+  addEventListener("load",function(){setTimeout(boot,100);});
+}
+})();
+
+
+</script>
+<script>
+
+
+/* ═══ Altura adaptativa + índice plegable ═══ */
+(function(){
+"use strict";
+
+/* ── 1 · Índice lateral plegable ── */
+function sidebar(){
+  var lay=document.querySelector(".layout"),
+      side=document.getElementById("side"),
+      tools=document.querySelector(".tools");
+  if(!lay||!side||!tools||document.getElementById("navhide"))return;
+
+  var K="oposi_bII_nav";
+  function get(){try{return localStorage.getItem(K)==="0";}catch(e){return false;}}
+  function set(v){try{localStorage.setItem(K,v?"0":"1");}catch(e){}}
+
+  var b=document.createElement("button");
+  b.id="navhide";b.type="button";
+  b.innerHTML='<span class="ic">☰</span>';
+  b.setAttribute("aria-controls","side");
+  tools.insertBefore(b,tools.firstChild);
+
+  function apply(hidden,anim){
+    if(!anim)lay.style.transition="none";
+    lay.classList.toggle("nonav",hidden);
+    side.setAttribute("aria-hidden",String(hidden));
+    b.setAttribute("aria-pressed",String(hidden));
+    b.title=hidden?"Mostrar índice (i)":"Ocultar índice (i)";
+    b.setAttribute("aria-label",b.title);
+    if(!anim)requestAnimationFrame(function(){lay.style.transition="";});
+  }
+  apply(get(),false);
+
+  b.onclick=function(){
+    var h=!lay.classList.contains("nonav");
+    apply(h,true);set(h);
+    window.dispatchEvent(new Event("resize"));
+  };
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    if(e.key==="i"||e.key==="I"){e.preventDefault();b.click();}
+  });
+}
+
+/* ── 2 · La tarjeta se adapta a su contenido ── */
+function autofit(){
+  var stage=document.querySelector(".fc-stage");
+  if(!stage||stage.dataset.fit)return;
+  var deck=stage.querySelector(".fc-deck"),
+      front=stage.querySelector(".fc-front"),
+      back=stage.querySelector(".fc-back");
+  if(!deck||!front||!back)return;
+  stage.dataset.fit="1";
+
+  var meas=document.createElement("div");
+  meas.className="fc-measure";meas.setAttribute("aria-hidden","true");
+  meas.innerHTML='<div class="fc-face fc-front"><div class="fc-body"><div class="fc-txt"></div></div></div>';
+  stage.appendChild(meas);
+  var mFace=meas.querySelector(".fc-face"), mTxt=meas.querySelector(".fc-txt");
+
+  function measure(cls,html){
+    mFace.className="fc-face "+cls;
+    mTxt.innerHTML=html;
+    return mFace.offsetHeight;
+  }
+
+  function fit(){
+    if(deck.classList.contains("empty")){deck.style.height="230px";return;}
+    var fT=front.querySelector(".fc-txt"), bT=back.querySelector(".fc-txt");
+    if(!fT||!bT)return;
+    var h=Math.max(
+      measure("fc-front"+(front.classList.contains("struct")?" struct":""),fT.innerHTML),
+      measure("fc-back" +(back .classList.contains("struct")?" struct":""),bT.innerHTML),
+      230
+    );
+    deck.style.height=Math.ceil(h+8)+"px";
+  }
+
+  /* recalcular cuando cambia la tarjeta, el tamaño de letra o la ventana */
+  new MutationObserver(fit).observe(back,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
+  var t;
+  addEventListener("resize",function(){clearTimeout(t);t=setTimeout(fit,120);},{passive:true});
+  ["fs+","fs-"].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener("click",function(){setTimeout(fit,60);});
+  });
+  fit();setTimeout(fit,250);
+}
+
+function go(){sidebar();autofit();}
+if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go);
+addEventListener("load",function(){setTimeout(go,120);});
+var n=0,iv=setInterval(function(){go();if(++n>25)clearInterval(iv);},150);
+})();
+
+
+</script>
+<script>
+
+
+/* ═══════════════════════════════════════════════════════════════
+   TTS · Lectura en voz alta del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+if(!("speechSynthesis" in window))return;
+
+var K="oposi_bII_tts";
+function load(){try{return JSON.parse(localStorage.getItem(K))||{};}catch(e){return {};}}
+function save(o){try{localStorage.setItem(K,JSON.stringify(o));}catch(e){}}
+var cfg=load();
+if(cfg.rate==null)cfg.rate=1;
+if(cfg.gen==null)cfg.gen="f";
+
+var synth=window.speechSynthesis, voces=[], actual=null, bloques=[];
+
+/* ─────────── 1 · Selección de voz ─────────── */
+function esEspanol(v){return /^es\b|^es[-_]/i.test(v.lang||"")||/spanish|español/i.test(v.name||"");}
+function calidad(v){
+  var n=(v.name||"")+" "+(v.voiceURI||""), p=0;
+  if(/natural|neural/i.test(n))p+=100;
+  if(/online/i.test(n))p+=40;
+  if(/premium|enhanced|eloquence/i.test(n))p+=35;
+  if(/google/i.test(n))p+=30;
+  if(v.localService===false)p+=15;
+  if(/microsoft/i.test(n))p+=8;
+  if(/^es-ES/i.test(v.lang))p+=12;   /* castellano de España primero */
+  return p;
+}
+var MASC=/(pablo|álvaro|alvaro|jorge|diego|juan|raul|raúl|carlos|miguel|lorenzo|gonzalo|dalton|liam|andr[eé]s|luciano|male|hombre|masculin)/i;
+var FEM =/(helena|elvira|laura|mónica|monica|paulina|sabina|esperanza|marisol|ximena|dalia|salome|camila|catalina|isidora|female|mujer|femenin)/i;
+function genero(v){
+  var n=v.name||"";
+  if(MASC.test(n))return "m";
+  if(FEM.test(n))return "f";
+  return "?";
+}
+function cargarVoces(){
+  var all=synth.getVoices()||[];
+  voces=all.filter(esEspanol).sort(function(a,b){return calidad(b)-calidad(a);});
+  if(!voces.length)voces=all.slice(0,12);
+  pintarSelector();
+}
+function elegir(){
+  if(cfg.voz){
+    for(var i=0;i<voces.length;i++)if(voces[i].voiceURI===cfg.voz)return voces[i];
+  }
+  var g=cfg.gen;
+  for(var j=0;j<voces.length;j++)if(genero(voces[j])===g)return voces[j];
+  return voces[0]||null;
+}
+
+/* ─────────── 2 · Naturalidad: expandir lo que el TTS lee mal ─────────── */
+var ORD={1:"primera",2:"segunda",3:"tercera",4:"cuarta",5:"quinta",
+         6:"sexta",7:"séptima",8:"octava",9:"novena",10:"décima"};
+function paraVoz(t){
+  return t
+    .replace(/\barts?\.\s*/gi,function(m){return /arts/i.test(m)?"artículos ":"artículo ";})
+    .replace(/\bapdos?\.\s*/gi,"apartado ")
+    .replace(/\bnúms?\.\s*/gi,"número ")
+    .replace(/\bpárr\.\s*/gi,"párrafo ")
+    .replace(/\bcap\.\s*/gi,"capítulo ")
+    .replace(/\bpágs?\.\s*/gi,"página ")
+    .replace(/\by\s+ss\./gi,"y siguientes")
+    .replace(/\bss\./gi,"siguientes")
+    .replace(/\bTRLHL\b/g,"Texto Refundido de la Ley de Haciendas Locales")
+    .replace(/\bLCSP\b/g,"Ley de Contratos del Sector Público")
+    .replace(/\bLBRL\b/g,"Ley de Bases del Régimen Local")
+    .replace(/\bLRJSP\b/g,"Ley de Régimen Jurídico del Sector Público")
+    .replace(/\bLPACAP\b/g,"Ley del Procedimiento Administrativo Común")
+    .replace(/\bRDLeg\b/gi,"Real Decreto Legislativo")
+    .replace(/\bRD\b/g,"Real Decreto")
+    .replace(/\bCCAA\b/g,"comunidades autónomas")
+    .replace(/\bCA\b/g,"comunidad autónoma")
+    .replace(/\bEELL\b/g,"entidades locales")
+    .replace(/\bBOE\b/g,"Boletín Oficial del Estado")
+    .replace(/\bIVA\b/g,"I.V.A.")
+    .replace(/\bSARA\b/g,"sara")
+    .replace(/\bDA\s+(\d+)/g,"disposición adicional $1")
+    .replace(/\bDT\s+(\d+)/g,"disposición transitoria $1")
+    .replace(/(\d+)\.ª/g,function(m,n){return ORD[+n]||(n+"ª");})
+    .replace(/(\d+)\.º/g,"$1º")
+    /* 3.005,06 → 3005,06 para que lo lea como cifra y no como frase */
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/€/g," euros")
+    .replace(/%/g," por ciento")
+    .replace(/\bnº\b/gi,"número")
+    .replace(/\s*·\s*/g,". ")
+    .replace(/\(\s*/g,", ").replace(/\s*\)/g,", ")
+    .replace(/\bvid\.\s*/gi,"véase ")
+    .replace(/\bcfr\.\s*/gi,"compárese ")
+    /* limpieza de puntuación tras las sustituciones */
+    .replace(/([.:;!?])(?=[A-ZÁÉÍÓÚÑ¿¡])/g,"$1 ")
+    .replace(/\s+([,.;:])/g,"$1")
+    .replace(/,\s*([.;:])/g,"$1")
+    .replace(/([,.;:])\s*\1+/g,"$1")
+    .replace(/,\s*,/g,",")
+    .replace(/\s{2,}/g," ")
+    .trim();
+}
+
+/* ─────────── 3 · Segmentar en frases y envolverlas ─────────── */
+var ABBR=/\b(arts?|apdos?|núms?|nums?|págs?|párr|cap|caps|ss|Sr|Sra|Sres|D|Dª|etc|vid|cfr|op|cit|ej|núm|art|fig|tít|secc)\.$/i;
+function limites(t){
+  var out=[],ini=0;
+  for(var i=0;i<t.length;i++){
+    var c=t[i];
+    if(c!=="."&&c!=="!"&&c!=="?")continue;
+    var sig=t[i+1]||" ";
+    if(!/[\s"»)]/.test(sig))continue;             /* 3.005 o art.1 → no cortar */
+    if(ABBR.test(t.slice(Math.max(0,i-9),i+1)))continue;
+    if(/^\s*[0-9º ª]/.test(t.slice(i+1,i+3)))continue;
+    if(i+1-ini<40)continue;                        /* frases demasiado cortas */
+    out.push(i+1);ini=i+1;
+  }
+  if(ini<t.length)out.push(t.length);
+  return out;
+}
+function segmentar(root){
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    if(!n.nodeValue||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+    if(n.parentElement&&n.parentElement.closest(".lbl,.tts-bar"))return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT;
+  }});
+  var nodos=[];while(w.nextNode())nodos.push(w.currentNode);
+  if(!nodos.length)return [];
+
+  var full="";nodos.forEach(function(n){full+=n.nodeValue;});
+  var cortes=limites(full), frases=[],ci=0,pos=0;
+  cortes.forEach(function(){frases.push({text:"",spans:[]});});
+
+  nodos.forEach(function(node){
+    var txt=node.nodeValue, off=0, frag=document.createDocumentFragment();
+    while(off<txt.length){
+      var fin=cortes[ci]!=null?cortes[ci]-pos:txt.length;
+      if(fin>txt.length)fin=txt.length;
+      if(fin<=off)fin=txt.length;
+      var trozo=txt.slice(off,fin);
+      var sp=document.createElement("span");
+      sp.className="tts-s";sp.setAttribute("data-s",ci);sp.textContent=trozo;
+      frag.appendChild(sp);
+      if(frases[ci]){frases[ci].text+=trozo;frases[ci].spans.push(sp);}
+      if(pos+fin>=(cortes[ci]||Infinity))ci++;
+      off=fin;
+    }
+    pos+=txt.length;
+    node.parentNode.replaceChild(frag,node);
+  });
+  return frases.filter(function(f){return f.text.trim().length>1;});
+}
+
+/* ─────────── 4 · Reproductor ─────────── */
+var mini,miniBar,miniLbl,miniPlay;
+function crearMini(){
+  mini=document.createElement("div");
+  mini.className="tts-mini noprint";
+  mini.innerHTML='<span class="lbl"></span>'
+    +'<button class="main" data-a="play" title="Pausar o reanudar">⏸</button>'
+    +'<span class="bar"><i></i></span>'
+    +'<button data-a="prev" title="Frase anterior">↺</button>'
+    +'<button data-a="stop" title="Detener">■</button>'
+    +'<button data-a="cfg" title="Ajustes de voz">⚙</button>';
+  document.body.appendChild(mini);
+  miniBar=mini.querySelector(".bar i");miniLbl=mini.querySelector(".lbl");
+  miniPlay=mini.querySelector('[data-a="play"]');
+  mini.addEventListener("click",function(e){
+    var b=e.target.closest("button");if(!b)return;
+    var a=b.getAttribute("data-a");
+    if(a==="play")pausarReanudar();
+    else if(a==="stop")parar();
+    else if(a==="prev"){if(actual){actual.i=Math.max(0,actual.i-2);siguiente();}}
+    else if(a==="cfg")abrirPanel();
+  });
+}
+
+function limpiarMarcas(){
+  document.querySelectorAll(".tts-s.now").forEach(function(s){s.classList.remove("now");});
+}
+function parar(){
+  synth.cancel();
+  if(actual){
+    actual.bloque.classList.remove("tts-on");
+    var b=actual.bloque.querySelector(".tts-play");
+    if(b){b.classList.remove("on");b.innerHTML=iconoPlay();}
+  }
+  limpiarMarcas();
+  actual=null;
+  if(mini)mini.classList.remove("show");
+}
+function iconoPlay(){return '<span aria-hidden="true">▶</span> Escuchar';}
+function iconoOn(){return '<span class="tts-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Leyendo';}
+
+function pausarReanudar(){
+  if(!actual)return;
+  if(synth.paused){synth.resume();miniPlay.textContent="⏸";}
+  else{synth.pause();miniPlay.textContent="▶";}
+}
+
+function leer(bloque){
+  if(actual&&actual.bloque===bloque){parar();return;}
+  parar();
+  var datos=bloque.__tts;
+  if(!datos||!datos.length)return;
+  var voz=elegir();
+  actual={bloque:bloque,frases:datos,i:0,voz:voz};
+  bloque.classList.add("tts-on");
+  var b=bloque.querySelector(".tts-play");
+  if(b){b.classList.add("on");b.innerHTML=iconoOn();}
+  if(!mini)crearMini();
+  var art=bloque.closest(".art");
+  var t=art?art.querySelector("h2 .num"):null;
+  var sufijo=bloque.__label?" · "+bloque.__label:"";
+  miniLbl.textContent=(t?t.textContent:"")+sufijo||"Lectura";
+  miniLbl.title=miniLbl.textContent;
+  miniPlay.textContent="⏸";
+  mini.classList.add("show");
+  siguiente();
+}
+
+function siguiente(){
+  if(!actual)return;
+  limpiarMarcas();
+  if(actual.i>=actual.frases.length){
+    var fin=actual.bloque;
+    parar();
+    fin.dispatchEvent(new CustomEvent("tts:fin",{bubbles:true}));
+    return;
+  }
+  var f=actual.frases[actual.i];
+  var texto=paraVoz(f.text);
+  if(!texto||texto.length<2){actual.i++;siguiente();return;}
+
+  f.spans.forEach(function(s){s.classList.add("now");});
+  if(f.spans[0]&&actual.i>0){
+    var r=f.spans[0].getBoundingClientRect();
+    if(r.top<70||r.bottom>innerHeight-90)
+      f.spans[0].scrollIntoView({block:"center",behavior:"smooth"});
+  }
+  miniBar.style.width=((actual.i+1)/actual.frases.length*100)+"%";
+
+  var u=new SpeechSynthesisUtterance(texto);
+  if(actual.voz){u.voice=actual.voz;u.lang=actual.voz.lang;}else{u.lang="es-ES";}
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;u.volume=1;
+  u.onend=function(){if(actual){actual.i++;setTimeout(siguiente,90);}};
+  u.onerror=function(e){
+    if(e&&e.error==="interrupted")return;
+    if(actual){actual.i++;setTimeout(siguiente,120);}
+  };
+  actual.u=u;
+  synth.speak(u);
+}
+
+/* Chrome detiene la síntesis larga: lo mantenemos vivo */
+setInterval(function(){
+  if(actual&&synth.speaking&&!synth.paused){synth.pause();synth.resume();}
+},9000);
+
+/* ─────────── 5 · Panel de ajustes ─────────── */
+var back,sel;
+function crearPanel(){
+  back=document.createElement("div");
+  back.className="tts-back noprint";
+  back.innerHTML=
+   '<div class="tts-panel" role="dialog" aria-modal="true" aria-label="Ajustes de voz">'
+   +'<h3>🔊 Lectura en voz alta</h3>'
+   +'<p class="sub">Ajusta cómo se lee el texto legal. Se recuerda para todos los bloques.</p>'
+   +'<div class="tts-row"><label>Tipo de voz</label>'
+     +'<div class="tts-seg" id="ttsGen">'
+       +'<button data-g="f">👩 Femenina</button>'
+       +'<button data-g="m">👨 Masculina</button>'
+     +'</div></div>'
+   +'<div class="tts-row"><label>Voz concreta</label><select id="ttsVoz"></select></div>'
+   +'<div class="tts-row"><label>Velocidad</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsRate" min="0.6" max="1.6" step="0.05">'
+     +'<span class="tts-val" id="ttsRateV"></span></div></div>'
+   +'<div class="tts-row"><label>Tono</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsPitch" min="0.7" max="1.3" step="0.05">'
+     +'<span class="tts-val" id="ttsPitchV"></span></div></div>'
+   +'<p class="tts-note" id="ttsNota"></p>'
+   +'<div class="tts-acts">'
+     +'<button id="ttsTest">▶ Probar</button>'
+     +'<button class="prim" id="ttsOk">Hecho</button>'
+   +'</div></div>';
+  document.body.appendChild(back);
+  sel=back.querySelector("#ttsVoz");
+
+  back.addEventListener("click",function(e){if(e.target===back)cerrarPanel();});
+  back.querySelector("#ttsOk").onclick=cerrarPanel;
+  back.querySelector("#ttsGen").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-g]");if(!b)return;
+    cfg.gen=b.getAttribute("data-g");cfg.voz=null;save(cfg);pintarSelector();probar();
+  });
+  sel.onchange=function(){cfg.voz=sel.value;save(cfg);probar();};
+  var r=back.querySelector("#ttsRate"),rv=back.querySelector("#ttsRateV");
+  r.value=cfg.rate;rv.textContent=(+cfg.rate).toFixed(2)+"×";
+  r.oninput=function(){cfg.rate=+r.value;rv.textContent=cfg.rate.toFixed(2)+"×";save(cfg);};
+  r.onchange=probar;
+  var p=back.querySelector("#ttsPitch"),pv=back.querySelector("#ttsPitchV");
+  p.value=cfg.pitch||1;pv.textContent=(+(cfg.pitch||1)).toFixed(2);
+  p.oninput=function(){cfg.pitch=+p.value;pv.textContent=cfg.pitch.toFixed(2);save(cfg);};
+  p.onchange=probar;
+  back.querySelector("#ttsTest").onclick=probar;
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"&&back.classList.contains("show"))cerrarPanel();
+  });
+}
+function probar(){
+  synth.cancel();
+  var v=elegir();
+  var u=new SpeechSynthesisUtterance("El presupuesto general de la entidad local se aprueba antes del 31 de diciembre.");
+  if(v){u.voice=v;u.lang=v.lang;}else u.lang="es-ES";
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;
+  synth.speak(u);
+}
+function pintarSelector(){
+  if(!sel)return;
+  var g=cfg.gen;
+  back.querySelectorAll("#ttsGen button").forEach(function(b){
+    b.setAttribute("aria-pressed",String(b.getAttribute("data-g")===g));
+  });
+  var pref=voces.filter(function(v){return genero(v)===g;});
+  var otras=voces.filter(function(v){return genero(v)!==g;});
+  function opt(v){
+    var nat=/natural|neural|online|premium|enhanced|google/i.test(v.name)?" ★":"";
+    return '<option value="'+v.voiceURI+'">'+v.name+nat+"</option>";
+  }
+  sel.innerHTML=(pref.length?'<optgroup label="'+(g==="f"?"Femeninas":"Masculinas")+'">'+pref.map(opt).join("")+"</optgroup>":"")
+    +(otras.length?'<optgroup label="Otras voces en español">'+otras.map(opt).join("")+"</optgroup>":"");
+  var v=elegir();
+  if(v)sel.value=v.voiceURI;
+
+  var nota=back.querySelector("#ttsNota");
+  var hayNat=voces.some(function(x){return /natural|neural|online/i.test(x.name);});
+  if(!voces.length){
+    nota.innerHTML="⚠️ No se han detectado voces en español en este navegador. Prueba con Microsoft Edge o Chrome.";
+  }else if(hayNat){
+    nota.innerHTML="✅ Tienes voces <b>neuronales</b> disponibles (marcadas con ★): son las que suenan más humanas.";
+  }else{
+    nota.innerHTML="💡 Las voces marcadas con ★ suenan mejor. Para conseguir voces <b>neuronales</b> (mucho más naturales), "
+      +"abre estas páginas en <b>Microsoft Edge</b>, o instálalas en Windows: <b>Configuración → Hora e idioma → Voz → Agregar voces</b>.";
+  }
+}
+function abrirPanel(){if(!back)crearPanel();pintarSelector();back.classList.add("show");}
+function cerrarPanel(){if(back)back.classList.remove("show");synth.cancel();}
+
+/* ─────────── 6 · Inyectar los controles en cada apartado ─────────── */
+/* Se excluyen a propósito tres apartados: conexiones con otros preceptos,
+   trampas y errores frecuentes, y anclaje memorístico. */
+var TTS_EXCLUIR=/(conexion|conexiones|trampas|anclaje)/i;
+
+function ttsBarra(frases,compacta){
+  var bar=document.createElement("div");
+  bar.className="tts-bar noprint"+(compacta?" mini":"");
+  bar.innerHTML='<button class="tts-play" type="button">'+iconoPlay()+"</button>"
+    +(compacta?"":'<button class="tts-cfg" type="button" title="Ajustes de voz">⚙ Voz</button>')
+    +'<span class="tts-time">'+frases.length+(frases.length===1?" frase":" frases")+"</span>";
+  return bar;
+}
+
+function ttsPreparar(bl,opts){
+  if(bl.getAttribute("data-tts"))return false;
+  bl.setAttribute("data-tts","1");
+  var frases=segmentar(bl);
+  bl.__tts=frases;
+  if(!frases.length||bl.textContent.trim().length<40)return false;
+  bl.__label=opts.label||"";
+  var bar=ttsBarra(frases,opts.compacta);
+  if(opts.tras){
+    var ref=bl.querySelector(opts.tras);
+    if(ref&&ref.nextSibling)bl.insertBefore(bar,ref.nextSibling);
+    else bl.insertBefore(bar,bl.firstChild);
+  }else if(opts.alFinal){
+    bl.appendChild(bar);
+  }else{
+    bl.insertBefore(bar,bl.firstChild);
+  }
+  bar.querySelector(".tts-play").onclick=function(e){e.stopPropagation();leer(bl);};
+  var cfg=bar.querySelector(".tts-cfg");
+  if(cfg)cfg.onclick=function(e){e.stopPropagation();abrirPanel();};
+  return true;
+}
+
+function montar(){
+  var hay=false;
+  if(!back)crearPanel();
+
+  /* 6a · Texto legal literal */
+  Array.prototype.forEach.call(document.querySelectorAll(".legal:not([data-tts])"),function(bl){
+    hay=ttsPreparar(bl,{tras:".lbl",label:"Texto legal"})||hay;
+  });
+
+  /* 6b · Idea clave */
+  Array.prototype.forEach.call(document.querySelectorAll(".idea:not([data-tts])"),function(bl){
+    hay=ttsPreparar(bl,{compacta:true,alFinal:true,label:"Idea clave"})||hay;
+  });
+
+  /* 6c · Apartados desplegables, salvo los tres excluidos */
+  Array.prototype.forEach.call(document.querySelectorAll("details.panel"),function(p){
+    var sum=p.querySelector("summary");
+    var body=p.querySelector(".body");
+    if(!sum||!body||body.getAttribute("data-tts"))return;
+    var t=sum.textContent||"";
+    if(TTS_EXCLUIR.test(t)){body.setAttribute("data-tts","skip");return;}
+    hay=ttsPreparar(body,{compacta:true,label:t.replace(/[^\wáéíóúüñÁÉÍÓÚÜÑ\s·¿?¡!]/g,"").trim()})||hay;
+  });
+
+  /* 6d · Resumen e introducción del bloque */
+  ["#resumen","#intro"].forEach(function(sel){
+    var sec=document.querySelector(sel);
+    if(!sec||sec.getAttribute("data-tts"))return;
+    var h=sec.querySelector("h2");
+    hay=ttsPreparar(sec,{tras:"h2",label:h?h.textContent:"Resumen"})||hay;
+  });
+
+  return hay;
+}
+
+/* ─────────── 7 · Arranque ─────────── */
+cargarVoces();
+if(typeof synth.onvoiceschanged!=="undefined")synth.onvoiceschanged=cargarVoces;
+setTimeout(cargarVoces,400);setTimeout(cargarVoces,1400);
+
+var n=0,iv=setInterval(function(){if(montar()||++n>40)clearInterval(iv);},150);
+addEventListener("load",function(){setTimeout(montar,200);});
+addEventListener("beforeunload",function(){synth.cancel();});
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea,select"))return;
+  if(e.key==="Escape"&&actual)parar();
+});
+})();
+
+
+</script>
+<script>
+
+
+/* ═══════════════════════════════════════════════════════════════
+   AUTOAJUSTE DE DIAGRAMAS SVG
+   · El texto que desborda su rectángulo se reparte en líneas.
+   · Las filas siguientes se empujan hacia abajo y el rectángulo crece,
+     de modo que ninguna línea nueva pise al texto de debajo.
+   · Si no hay espacio libre bajo el rectángulo, en lugar de repartir
+     se reduce la fuente: nunca se invade el elemento contiguo.
+   · Las etiquetas sueltas reciben halo y se pintan sobre las flechas.
+   Todas las medidas se toman del elemento ya renderizado.
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+var NS="http://www.w3.org/2000/svg";
+var PAD_X=9, PAD_Y=7, FS_MIN=6.5, MAX_LINEAS=4, INTER=1.16, SEP_MIN=5;
+
+function num(el,a,d){var v=parseFloat(el.getAttribute(a));return isNaN(v)?(d||0):v;}
+function ancho(t){try{if(t.getComputedTextLength)return t.getComputedTextLength();}catch(e){}return 0;}
+function fs(t){
+  var v=parseFloat(t.getAttribute("font-size"));
+  if(!isNaN(v))return v;
+  try{v=parseFloat(getComputedStyle(t).fontSize);if(!isNaN(v)&&v>0)return v;}catch(e){}
+  return 10;
+}
+function partir(txt,cpp,maxW,n){
+  if(txt.length*cpp<=maxW)return [txt];
+  var seps=[" · "," — "," – ",", "," "],s,i,k;
+  for(s=0;s<seps.length;s++){
+    var tr=txt.split(seps[s]);
+    if(tr.length<2)continue;
+    var lin=[],act="";
+    for(i=0;i<tr.length;i++){
+      var cand=act?act+seps[s]+tr[i]:tr[i];
+      if(act&&cand.length*cpp>maxW){lin.push(act);act=tr[i];}
+      else act=cand;
+    }
+    if(act)lin.push(act);
+    var caben=true;
+    for(k=0;k<lin.length;k++)if(lin[k].length*cpp>maxW)caben=false;
+    if(caben&&lin.length<=n)return lin;
+  }
+  return null;
+}
+function pintar(t,lin,size){
+  while(t.firstChild)t.removeChild(t.firstChild);
+  var x=t.getAttribute("x");
+  for(var i=0;i<lin.length;i++){
+    var ts=document.createElementNS(NS,"tspan");
+    ts.setAttribute("x",x);
+    if(i)ts.setAttribute("dy",(size*INTER).toFixed(1));
+    ts.textContent=lin[i];
+    t.appendChild(ts);
+  }
+}
+function encajar(t,cpp,maxW){
+  var sp=t.getElementsByTagName("tspan"),i;
+  if(sp.length){
+    for(i=0;i<sp.length;i++)
+      if(sp[i].textContent.length*cpp>maxW+.5){
+        sp[i].setAttribute("textLength",maxW.toFixed(1));
+        sp[i].setAttribute("lengthAdjust","spacingAndGlyphs");
+      }
+  }else if((t.textContent||"").length*cpp>maxW+.5){
+    t.setAttribute("textLength",maxW.toFixed(1));
+    t.setAttribute("lengthAdjust","spacingAndGlyphs");
+  }
+}
+/* reduce la fuente hasta que el texto quepa en una sola línea */
+function encoger(t,txt,cpp,size,maxW){
+  var s2=size,c2=cpp;
+  while(s2>FS_MIN&&txt.length*c2>maxW){s2-=.5;c2=cpp*(s2/size);}
+  t.setAttribute("font-size",s2.toFixed(1));
+  encajar(t,c2,maxW);
+  return s2;
+}
+
+function ajustar(svg){
+  var rects=[],texts=[],i;
+  var rl=svg.querySelectorAll("rect"),tl=svg.querySelectorAll("text");
+  for(i=0;i<rl.length;i++)if(!rl[i].hasAttribute("data-halo"))rects.push(rl[i]);
+  for(i=0;i<tl.length;i++)texts.push(tl[i]);
+  if(!texts.length)return true;
+  var medible=false;
+  for(i=0;i<texts.length;i++)
+    if((texts[i].textContent||"").trim()&&ancho(texts[i])>0){medible=true;break;}
+  if(!medible)return false;
+
+  var porRect=[],sueltos=[];
+  function grupo(r){
+    for(var j=0;j<porRect.length;j++)if(porRect[j].r===r)return porRect[j];
+    var g={r:r,lista:[]};porRect.push(g);return g;
+  }
+  texts.forEach(function(t){
+    if(t.getAttribute("data-fit"))return;
+    var x=num(t,"x"),y=num(t,"y"),host=null,area=Infinity;
+    rects.forEach(function(r){
+      var rx=num(r,"x"),ry=num(r,"y"),rw=num(r,"width"),rh=num(r,"height");
+      if(!rw||!rh)return;
+      if(x>=rx-1&&x<=rx+rw+1&&y>=ry-1&&y<=ry+rh+1&&rw*rh<area){host=r;area=rw*rh;}
+    });
+    if(host)grupo(host).lista.push(t); else sueltos.push(t);
+  });
+
+  /* espacio libre bajo un rectángulo, hasta el siguiente elemento que le estorbe */
+  function hueco(r){
+    var rx=num(r,"x"),ry=num(r,"y"),rw=num(r,"width"),rh=num(r,"height");
+    var abajo=ry+rh, libre=Infinity;
+    rects.forEach(function(o){
+      if(o===r)return;
+      var ox=num(o,"x"),oy=num(o,"y"),ow=num(o,"width");
+      if(oy>=abajo-1&&ox<rx+rw&&ox+ow>rx)libre=Math.min(libre,oy-abajo-SEP_MIN);
+    });
+    texts.forEach(function(t){
+      var tx=num(t,"x"),ty=num(t,"y");
+      if(ty>abajo&&tx>rx-40&&tx<rx+rw+40)
+        libre=Math.min(libre,ty-fs(t)-abajo-SEP_MIN);
+    });
+    var vb=(svg.getAttribute("viewBox")||"").split(/[\s,]+/);
+    if(vb.length===4)libre=Math.min(libre,parseFloat(vb[1])+parseFloat(vb[3])-abajo-2);
+    return Math.max(0,libre);
+  }
+
+  /* ─── 1 · Texto dentro de un rectángulo ─── */
+  porRect.forEach(function(g){
+    var r=g.r, rx=num(r,"x"), ry=num(r,"y"), rw=num(r,"width"), rh=num(r,"height");
+    var maxW=rw-PAD_X*2;
+    if(maxW<20)return;
+    g.lista.forEach(function(t){t.setAttribute("data-fit","1");});
+    g.lista.sort(function(a,b){return num(a,"y")-num(b,"y");});
+
+    /* filas: textos a la misma altura */
+    var filas=[],act=null;
+    g.lista.forEach(function(t){
+      var y=num(t,"y");
+      if(!act||Math.abs(y-act.y)>3){act={y:y,ts:[]};filas.push(act);}
+      act.ts.push(t);
+    });
+
+    /* — plan: qué haría falta — */
+    var total=0;
+    filas.forEach(function(fl){
+      fl.extra=0;fl.plan=[];
+      fl.ts.forEach(function(t){
+        var txt=(t.textContent||"").replace(/\s+/g," ").trim();
+        var w=ancho(t);
+        if(!txt||!w||w<=maxW){fl.plan.push(null);return;}
+        var size=fs(t), cpp=w/txt.length;
+        var lin=partir(txt,cpp,maxW,MAX_LINEAS);
+        if(lin&&lin.length>1){
+          fl.plan.push({t:t,lin:lin,size:size,cpp:cpp,txt:txt});
+          fl.extra=Math.max(fl.extra,(lin.length-1)*size*INTER);
+        }else fl.plan.push({t:t,lin:null,size:size,cpp:cpp,txt:txt});
+      });
+      total+=fl.extra;
+    });
+
+    /* — ¿cabe ese crecimiento? — */
+    var ultima=filas[filas.length-1];
+    var colchon=Math.max(0,(ry+rh)-ultima.y-PAD_Y);
+    var crecer=Math.max(0,total-colchon);
+    var libre=hueco(r);
+    var reparte=crecer<=libre;
+
+    var desp=0;
+    filas.forEach(function(fl){
+      if(desp>0)fl.ts.forEach(function(t){t.setAttribute("y",(num(t,"y")+desp).toFixed(1));});
+      fl.plan.forEach(function(p){
+        if(!p)return;
+        if(p.lin&&reparte){pintar(p.t,p.lin,p.size);encajar(p.t,p.cpp,maxW);}
+        else encoger(p.t,p.txt,p.cpp,p.size,maxW);
+      });
+      if(reparte)desp+=fl.extra;
+    });
+
+    if(reparte&&crecer>0)r.setAttribute("height",(rh+crecer).toFixed(1));
+
+    /* comprobación final: ninguna línea puede sobresalir del rectángulo */
+    var rh2=num(r,"height"), bajo=ry, i2;
+    g.lista.forEach(function(t){
+      var size=fs(t), y=num(t,"y"), sp=t.getElementsByTagName("tspan");
+      if(sp.length){for(i2=0;i2<sp.length;i2++){
+        if(i2)y+=parseFloat(sp[i2].getAttribute("dy"))||0;
+        bajo=Math.max(bajo,y+size*0.3);}}
+      else bajo=Math.max(bajo,y+size*0.3);
+    });
+    if(bajo>ry+rh2-1){
+      var falta=bajo-(ry+rh2)+3;
+      if(falta<=hueco(r))r.setAttribute("height",(rh2+falta).toFixed(1));
+      else g.lista.forEach(function(t){
+        var txt=(t.textContent||"").replace(/\s+/g," ").trim(), w=ancho(t);
+        if(txt&&w)encoger(t,txt,w/txt.length,fs(t),maxW);
+      });
+    }
+  });
+
+  /* ─── 2 · Etiquetas sueltas ─── */
+  sueltos.forEach(function(t){
+    t.setAttribute("data-fit","1");
+    var txt=(t.textContent||"").replace(/\s+/g," ").trim();
+    if(!txt)return;
+    var w=ancho(t); if(!w)return;
+    var size=fs(t), x=num(t,"x"), y=num(t,"y");
+    var an=t.getAttribute("text-anchor")||"start";
+    var x0=an==="middle"?x-w/2:an==="end"?x-w:x;
+    var halo=document.createElementNS(NS,"rect");
+    halo.setAttribute("data-halo","1");
+    halo.setAttribute("x",(x0-5).toFixed(1));
+    halo.setAttribute("y",(y-size*0.92).toFixed(1));
+    halo.setAttribute("width",(w+10).toFixed(1));
+    halo.setAttribute("height",(size*1.28).toFixed(1));
+    halo.setAttribute("rx","4");
+    halo.setAttribute("fill","var(--surface)");
+    halo.setAttribute("opacity",".93");
+    var p=t.parentNode;
+    p.appendChild(halo);p.appendChild(t);
+  });
+  return true;
+}
+
+function pasada(){
+  var l=document.querySelectorAll("svg:not([data-fit])"),i;
+  for(i=0;i<l.length;i++){try{if(ajustar(l[i]))l[i].setAttribute("data-fit","1");}catch(e){}}
+}
+if(document.readyState!=="loading")requestAnimationFrame(pasada);
+else document.addEventListener("DOMContentLoaded",function(){requestAnimationFrame(pasada);});
+addEventListener("load",function(){setTimeout(pasada,120);setTimeout(pasada,600);});
+document.addEventListener("toggle",function(e){
+  if(e.target&&e.target.tagName==="DETAILS")setTimeout(pasada,30);
+},true);
+var n=0,iv=setInterval(function(){pasada();if(++n>40)clearInterval(iv);},200);
+})();
+
+
+</script>
+</body>
+</html>

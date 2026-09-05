@@ -2424,53 +2424,82 @@ function paraVoz(t){
 
 /* ─────────── 3 · Segmentar en frases y envolverlas ─────────── */
 var ABBR=/\b(arts?|apdos?|núms?|nums?|págs?|párr|cap|caps|ss|Sr|Sra|Sres|D|Dª|etc|vid|cfr|op|cit|ej|núm|art|fig|tít|secc)\.$/i;
-/* Se lee de punto a punto. Solo se parte una frase si es tan larga que el
-   motor de voz podría enmudecer, y entonces se busca un punto y coma antes
-   que una coma, para que el corte no suene a media idea. */
-var MAX_FRASE=500;
+/* Tres formas de agrupar, de mayor a menor:
+   1 · el punto completo del artículo (el «1.» con sus letras a), b), c))
+   2 · la frase entera, de punto a punto
+   3 · troceo de urgencia, si ni la frase cabe
+   Se usa siempre la 1 y solo se baja de nivel si el motor de voz trunca. */
+var MAX_APARTADO=1400, MAX_FRASE=500, MAX_TROZO=220;
 
+function finDeFrase(t,i){
+  var c=t[i];
+  if(c!=="."&&c!=="!"&&c!=="?")return false;
+  var sig=t[i+1]||" ";
+  if(!/[\s"»)]/.test(sig)){
+    var pegado=/^\d{1,2}\.\s+[A-ZÁÉÍÓÚÑ¿«]/.test(t.slice(i+1,i+9))&&!/\d$/.test(t.slice(0,i));
+    if(!pegado)return false;
+  }
+  if(ABBR.test(t.slice(Math.max(0,i-9),i+1)))return false;
+  return true;
+}
+/* inicio de un punto del artículo: «1.», «2.»… pero no 3.005 ni art. 168.4 */
+function inicioApartado(t,i){
+  if(i===0)return false;
+  var m=/^(\d{1,2})\.\s+[A-ZÁÉÍÓÚÑ«¿]/.exec(t.slice(i,i+10));
+  if(!m)return false;
+  var antes=t.slice(0,i).replace(/\s+$/,"");
+  if(/\d$/.test(antes))return false;            /* 168.4 */
+  return /[.!?»"]$/.test(antes);                /* solo tras final de frase */
+}
 function corteBlando(t,desde,tope){
   var i,c;
-  for(i=tope-1;i>desde+80;i--){            /* 1º punto y coma o dos puntos */
-    c=t[i];
-    if((c===";"||c===":")&&/\s/.test(t[i+1]||" "))return i+1;
-  }
-  for(i=tope-1;i>desde+80;i--){            /* 2º coma */
-    if(t[i]===","&&/\s/.test(t[i+1]||" "))return i+1;
-  }
+  for(i=tope-1;i>desde+80;i--){c=t[i];if((c===";"||c===":")&&/\s/.test(t[i+1]||" "))return i+1;}
+  for(i=tope-1;i>desde+80;i--){if(t[i]===","&&/\s/.test(t[i+1]||" "))return i+1;}
   for(i=tope-1;i>desde+80;i--) if(/\s/.test(t[i]))return i+1;
   return tope;
 }
-function limites(t){
-  /* 1ª pasada · solo finales de frase de verdad: punto, admiración, interrogación */
-  var brutos=[],ini=0,i;
+/* cortes por frase (nivel 2) */
+function cortesFrase(t){
+  var out=[],ini=0,i;
   for(i=0;i<t.length;i++){
-    var c=t[i];
-    if(c!=="."&&c!=="!"&&c!=="?")continue;
-    var sig=t[i+1]||" ";
-    if(!/[\s"»)]/.test(sig)){
-      /* los párrafos llegan pegados: «…actuaciones.2. En los pliegos…».
-         Ahí sí hay final de frase, aunque falte el espacio. */
-      var apartado=/^\d{1,2}\.\s+[A-ZÁÉÍÓÚÑ¿«]/.test(t.slice(i+1,i+9))&&!/\d$/.test(t.slice(0,i));
-      if(!apartado)continue;                   /* 3.005 y 168.4 quedan intactos */
-    }
-    if(ABBR.test(t.slice(Math.max(0,i-9),i+1)))continue;
+    if(!finDeFrase(t,i))continue;
     if(i+1-ini<40)continue;
-    brutos.push(i+1);ini=i+1;
+    out.push(i+1);ini=i+1;
   }
-  if(ini<t.length)brutos.push(t.length);
-  /* 2ª pasada · solo lo excesivamente largo se reparte */
+  if(ini<t.length)out.push(t.length);
+  return out;
+}
+/* cortes por punto del artículo (nivel 1) */
+function cortesApartado(t){
+  var ini=[],i;
+  for(i=0;i<t.length;i++) if(inicioApartado(t,i))ini.push(i);
+  var out=[];
+  for(i=0;i<ini.length;i++)out.push(ini[i]);
+  out.push(t.length);
+  return out;
+}
+/* aplica un tope máximo a una lista de cortes, subdividiendo por el nivel inferior */
+function acotar(t,cortes,tope,sub){
   var out=[],desde=0;
-  for(i=0;i<brutos.length;i++){
-    var fin=brutos[i];
-    while(fin-desde>MAX_FRASE){
-      var c2=corteBlando(t,desde,Math.min(desde+MAX_FRASE,fin));
-      if(c2<=desde)break;
-      out.push(c2);desde=c2;
+  for(var i=0;i<cortes.length;i++){
+    var fin=cortes[i];
+    if(fin-desde>tope&&sub){
+      var s=sub(t).filter(function(x){return x>desde&&x<fin;});
+      for(var j=0;j<s.length;j++){ if(s[j]-desde>0){out.push(s[j]);desde=s[j];} }
     }
-    out.push(fin);desde=fin;
+    while(fin-desde>tope){
+      var c=corteBlando(t,desde,Math.min(desde+tope,fin));
+      if(c<=desde)break;
+      out.push(c);desde=c;
+    }
+    if(fin>desde){out.push(fin);desde=fin;}
   }
   return out;
+}
+function limitesNivel(t,n){
+  if(n===1)return acotar(t,cortesApartado(t),MAX_APARTADO,cortesFrase);
+  if(n===2)return acotar(t,cortesFrase(t),MAX_FRASE,null);
+  return acotar(t,cortesFrase(t),MAX_TROZO,null);
 }
 function segmentar(root){
   var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
@@ -2479,30 +2508,58 @@ function segmentar(root){
     return NodeFilter.FILTER_ACCEPT;
   }});
   var nodos=[];while(w.nextNode())nodos.push(w.currentNode);
-  if(!nodos.length)return [];
+  if(!nodos.length)return null;
 
   var full="";nodos.forEach(function(n){full+=n.nodeValue;});
-  var cortes=limites(full), frases=[],ci=0,pos=0;
-  cortes.forEach(function(){frases.push({text:"",spans:[]});});
+
+  /* partimos el DOM por la granularidad más fina; los niveles superiores
+     se forman agrupando estos mismos trozos, sin volver a tocar el texto */
+  var finos=limitesNivel(full,3);
+  var piezas=[],ci=0,pos=0;
+  finos.forEach(function(){piezas.push({ini:0,fin:0,text:"",spans:[]});});
+  piezas.forEach(function(p,k){p.fin=finos[k];p.ini=k?finos[k-1]:0;});
 
   nodos.forEach(function(node){
-    var txt=node.nodeValue, off=0, frag=document.createDocumentFragment();
+    var txt=node.nodeValue,off=0,frag=document.createDocumentFragment();
     while(off<txt.length){
-      var fin=cortes[ci]!=null?cortes[ci]-pos:txt.length;
+      var fin=finos[ci]!=null?finos[ci]-pos:txt.length;
       if(fin>txt.length)fin=txt.length;
       if(fin<=off)fin=txt.length;
       var trozo=txt.slice(off,fin);
       var sp=document.createElement("span");
       sp.className="tts-s";sp.setAttribute("data-s",ci);sp.textContent=trozo;
       frag.appendChild(sp);
-      if(frases[ci]){frases[ci].text+=trozo;frases[ci].spans.push(sp);}
-      if(pos+fin>=(cortes[ci]||Infinity))ci++;
+      if(piezas[ci]){piezas[ci].text+=trozo;piezas[ci].spans.push(sp);}
+      if(pos+fin>=(finos[ci]||Infinity))ci++;
       off=fin;
     }
     pos+=txt.length;
     node.parentNode.replaceChild(frag,node);
   });
-  return frases.filter(function(f){return f.text.trim().length>1;});
+  piezas=piezas.filter(function(p){return p.text.trim().length>1;});
+
+  /* agrupamos las piezas según cada nivel */
+  function agrupar(cortes){
+    var g=[],k=0;
+    for(var i=0;i<cortes.length;i++){
+      var hasta=cortes[i],u={text:"",spans:[]};
+      while(k<piezas.length&&piezas[k].fin<=hasta){
+        u.text+=piezas[k].text;
+        u.spans=u.spans.concat(piezas[k].spans);
+        k++;
+      }
+      if(u.text.trim().length>1)g.push(u);
+    }
+    while(k<piezas.length){                       /* lo que sobre, al final */
+      if(g.length){g[g.length-1].text+=piezas[k].text;
+        g[g.length-1].spans=g[g.length-1].spans.concat(piezas[k].spans);}
+      k++;
+    }
+    return g;
+  }
+  return {1:agrupar(limitesNivel(full,1)),
+          2:agrupar(limitesNivel(full,2)),
+          3:piezas.map(function(p){return {text:p.text,spans:p.spans};})};
 }
 
 /* ─────────── 4 · Reproductor ─────────── */
@@ -2556,10 +2613,10 @@ function pausarReanudar(){
 function leer(bloque){
   if(actual&&actual.bloque===bloque){parar();return;}
   parar();
-  var datos=bloque.__tts;
+  var datos=bloque.__tts&&bloque.__tts[nivel];
   if(!datos||!datos.length)return;
   var voz=elegir();
-  actual={bloque:bloque,frases:datos,i:0,voz:voz};
+  actual={bloque:bloque,frases:datos,i:0,voz:voz,leido:0};
   bloque.classList.add("tts-on");
   var b=bloque.querySelector(".tts-play");
   if(b){b.classList.add("on");b.innerHTML=iconoOn();}
@@ -2574,6 +2631,16 @@ function leer(bloque){
   siguiente();
 }
 
+/* nivel de agrupación en uso: 1 punto completo · 2 frase · 3 troceado.
+   Si el motor de voz trunca una locución, bajamos de nivel y la repetimos. */
+var K_NIVEL="oposi_bII_ttsnivel";
+var nivel=(function(){try{return parseInt(localStorage.getItem(K_NIVEL))||1;}catch(e){return 1;}})();
+function bajarNivel(){
+  if(nivel>=3)return false;
+  nivel++;
+  try{localStorage.setItem(K_NIVEL,String(nivel));}catch(e){}
+  return true;
+}
 function limpiaWD(){
   if(actual){
     if(actual.wdIni)clearTimeout(actual.wdIni);
@@ -2585,6 +2652,12 @@ function siguiente(){
   if(!actual)return;
   limpiaWD();
   limpiarMarcas();
+  var lista=actual.bloque.__tts?actual.bloque.__tts[nivel]:null;
+  if(lista&&lista!==actual.frases){          /* hemos bajado de nivel: reubicamos */
+    var leido=actual.leido||0,k=0,acum=0;
+    for(k=0;k<lista.length;k++){ if(acum>=leido)break; acum+=lista[k].text.length; }
+    actual.frases=lista; actual.i=Math.max(0,k);
+  }
   if(actual.i>=actual.frases.length){
     var fin=actual.bloque;
     parar();
@@ -2609,16 +2682,27 @@ function siguiente(){
   if(actual.voz){u.voice=actual.voz;u.lang=actual.voz.lang;}else{u.lang="es-ES";}
   u.rate=cfg.rate;u.pitch=cfg.pitch||1;u.volume=1;
 
-  var avanzado=false;
+  var avanzado=false,t0=0;
+  var esperado=texto.length/(13*(cfg.rate||1))*1000;   /* duración razonable */
   function avanzar(){
     if(avanzado)return;avanzado=true;
     limpiaWD();
-    if(actual){actual.i++;setTimeout(siguiente,80);}
+    if(actual){actual.leido=(actual.leido||0)+f.text.length;actual.i++;setTimeout(siguiente,80);}
   }
   u.onstart=function(){
+    t0=Date.now();
     if(actual&&actual.wdIni){clearTimeout(actual.wdIni);actual.wdIni=null;}
   };
-  u.onend=avanzar;
+  u.onend=function(){
+    /* si ha durado mucho menos de lo previsto, el motor ha cortado la voz:
+       bajamos de nivel y repetimos este tramo en trozos más pequeños */
+    if(t0&&texto.length>260&&(Date.now()-t0)<esperado*0.5&&bajarNivel()){
+      limpiaWD();avanzado=true;
+      if(actual){actual.frases=null;setTimeout(siguiente,60);}
+      return;
+    }
+    avanzar();
+  };
   u.onerror=function(e){
     if(e&&(e.error==="interrupted"||e.error==="canceled"))return;
     avanzar();
@@ -2778,9 +2862,10 @@ function ttsBarra(frases,compacta){
 function ttsPreparar(bl,opts){
   if(bl.getAttribute("data-tts"))return false;
   bl.setAttribute("data-tts","1");
-  var frases=segmentar(bl);
-  bl.__tts=frases;
-  if(!frases.length||bl.textContent.trim().length<40)return false;
+  var niveles=segmentar(bl);
+  bl.__tts=niveles;
+  var frases=niveles&&niveles[nivel];
+  if(!frases||!frases.length||bl.textContent.trim().length<40)return false;
   bl.__label=opts.label||"";
   var bar=ttsBarra(frases,opts.compacta);
   if(opts.tras){

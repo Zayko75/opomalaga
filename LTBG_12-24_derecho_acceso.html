@@ -929,6 +929,18 @@ html[data-theme="dark"] .tts-s.now{
 }
 .legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
 
+
+/* aviso de cambio de voz */
+.tts-aviso{
+  position:fixed;left:50%;bottom:5.2rem;transform:translateX(-50%) translateY(20px);
+  z-index:95;max-width:min(92vw,460px);
+  background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);
+  border-radius:var(--r-md);padding:.6rem .9rem;font-size:var(--t-sm);font-weight:700;
+  box-shadow:var(--sh-2);opacity:0;pointer-events:none;
+  transition:opacity .3s var(--e-out),transform .35s var(--e-spring);
+}
+.tts-aviso.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
 @media(max-width:620px){
   .tts-mini{left:.6rem;right:.6rem;transform:translateY(140%);max-width:none}
   .tts-mini.show{transform:translateY(0)}
@@ -2197,16 +2209,34 @@ if(cfg.gen==null)cfg.gen="f";
 var synth=window.speechSynthesis, voces=[], actual=null, bloques=[];
 
 /* ─────────── 1 · Selección de voz ─────────── */
+/* iOS y iPadOS enumeran voces de red (Google, «Online») que en realidad no
+   sintetizan: se seleccionan pero no suena nada. Ahí solo valen las locales. */
+var IOS=(function(){
+  var ua=navigator.userAgent||"";
+  if(/iPad|iPhone|iPod/i.test(ua))return true;
+  return navigator.platform==="MacIntel"&&(navigator.maxTouchPoints||0)>1;
+})();
+var descartadas=0;
+
 function esEspanol(v){return /^es\b|^es[-_]/i.test(v.lang||"")||/spanish|español/i.test(v.name||"");}
+function esRemota(v){return v.localService===false||/google|online/i.test(v.name||"");}
+function reproducible(v){return !IOS||!esRemota(v);}
+
 function calidad(v){
   var n=(v.name||"")+" "+(v.voiceURI||""), p=0;
   if(/natural|neural/i.test(n))p+=100;
-  if(/online/i.test(n))p+=40;
   if(/premium|enhanced|eloquence/i.test(n))p+=35;
-  if(/google/i.test(n))p+=30;
-  if(v.localService===false)p+=15;
+  if(/^es-ES/i.test(v.lang))p+=12;              /* castellano de España primero */
   if(/microsoft/i.test(n))p+=8;
-  if(/^es-ES/i.test(v.lang))p+=12;   /* castellano de España primero */
+  if(IOS){
+    /* en el iPad y el móvil de Apple mandan las locales */
+    if(esRemota(v))p-=500;
+    if(v.localService!==false)p+=40;
+  }else{
+    if(/online/i.test(n))p+=40;
+    if(/google/i.test(n))p+=30;
+    if(v.localService===false)p+=15;
+  }
   return p;
 }
 var MASC=/(pablo|álvaro|alvaro|jorge|diego|juan|raul|raúl|carlos|miguel|lorenzo|gonzalo|dalton|liam|andr[eé]s|luciano|male|hombre|masculin)/i;
@@ -2219,17 +2249,54 @@ function genero(v){
 }
 function cargarVoces(){
   var all=synth.getVoices()||[];
-  voces=all.filter(esEspanol).sort(function(a,b){return calidad(b)-calidad(a);});
-  if(!voces.length)voces=all.slice(0,12);
+  var es=all.filter(esEspanol);
+  descartadas=0;
+  var utiles=[];
+  es.forEach(function(v){ if(reproducible(v))utiles.push(v); else descartadas++; });
+  voces=utiles.sort(function(a,b){return calidad(b)-calidad(a);});
+  if(!voces.length)voces=all.filter(reproducible).slice(0,12);
+  /* si la voz guardada ya no sirve en este aparato, la olvidamos */
+  if(cfg.voz){
+    var sigue=false;
+    for(var i=0;i<voces.length;i++)if(voces[i].voiceURI===cfg.voz)sigue=true;
+    if(!sigue&&voces.length){cfg.voz=null;save(cfg);}
+  }
   pintarSelector();
 }
 function elegir(){
   if(cfg.voz){
-    for(var i=0;i<voces.length;i++)if(voces[i].voiceURI===cfg.voz)return voces[i];
+    for(var i=0;i<voces.length;i++)
+      if(voces[i].voiceURI===cfg.voz&&reproducible(voces[i]))return voces[i];
   }
   var g=cfg.gen;
-  for(var j=0;j<voces.length;j++)if(genero(voces[j])===g)return voces[j];
-  return voces[0]||null;
+  for(var j=0;j<voces.length;j++)if(genero(voces[j])===g&&reproducible(voces[j]))return voces[j];
+  for(var k=0;k<voces.length;k++)if(reproducible(voces[k]))return voces[k];
+  return null;
+}
+/* Safari exige que la primera locución nazca de un gesto: la preparamos */
+var motorListo=false;
+function despertarMotor(){
+  if(motorListo)return;
+  motorListo=true;
+  try{var u=new SpeechSynthesisUtterance(" ");u.volume=0;u.rate=1;synth.speak(u);}catch(e){}
+}
+document.addEventListener("touchend",despertarMotor,{passive:true});
+document.addEventListener("pointerdown",despertarMotor);
+
+/* aviso discreto cuando cambiamos de voz por no ser reproducible */
+function avisarVoz(v){
+  try{
+    var a=document.getElementById("ttsAviso");
+    if(!a){
+      a=document.createElement("div");
+      a.id="ttsAviso";a.className="tts-aviso noprint";
+      document.body.appendChild(a);
+    }
+    a.textContent="La voz anterior no suena en este dispositivo. Cambiada a "+(v.name||"voz local")+".";
+    a.classList.add("show");
+    clearTimeout(a.__t);
+    a.__t=setTimeout(function(){a.classList.remove("show");},6000);
+  }catch(e){}
 }
 
 /* ─────────── 2 · Naturalidad: expandir lo que el TTS lee mal ─────────── */
@@ -2284,37 +2351,47 @@ function paraVoz(t){
 
 /* ─────────── 3 · Segmentar en frases y envolverlas ─────────── */
 var ABBR=/\b(arts?|apdos?|núms?|nums?|págs?|párr|cap|caps|ss|Sr|Sra|Sres|D|Dª|etc|vid|cfr|op|cit|ej|núm|art|fig|tít|secc)\.$/i;
-var MAX_TROZO=200;   /* ninguna locución debe superarlo: por encima, los motores enmudecen */
+/* Se lee de punto a punto. Solo se parte una frase si es tan larga que el
+   motor de voz podría enmudecer, y entonces se busca un punto y coma antes
+   que una coma, para que el corte no suene a media idea. */
+var MAX_FRASE=500;
 
-/* punto de corte cómodo dentro de un tramo demasiado largo */
 function corteBlando(t,desde,tope){
-  var i;
-  for(i=tope-1;i>desde+60;i--){
-    var c=t[i];
-    if((c===","||c===";"||c===":")&&/\s/.test(t[i+1]||" "))return i+1;
+  var i,c;
+  for(i=tope-1;i>desde+80;i--){            /* 1º punto y coma o dos puntos */
+    c=t[i];
+    if((c===";"||c===":")&&/\s/.test(t[i+1]||" "))return i+1;
   }
-  for(i=tope-1;i>desde+60;i--) if(/\s/.test(t[i]))return i+1;
+  for(i=tope-1;i>desde+80;i--){            /* 2º coma */
+    if(t[i]===","&&/\s/.test(t[i+1]||" "))return i+1;
+  }
+  for(i=tope-1;i>desde+80;i--) if(/\s/.test(t[i]))return i+1;
   return tope;
 }
 function limites(t){
-  /* 1ª pasada · finales de frase reales */
+  /* 1ª pasada · solo finales de frase de verdad: punto, admiración, interrogación */
   var brutos=[],ini=0,i;
   for(i=0;i<t.length;i++){
     var c=t[i];
-    if(c!=="."&&c!=="!"&&c!=="?"&&c!==";")continue;
+    if(c!=="."&&c!=="!"&&c!=="?")continue;
     var sig=t[i+1]||" ";
-    if(!/[\s"»)]/.test(sig))continue;          /* 3.005 o 168.4 no se cortan */
+    if(!/[\s"»)]/.test(sig)){
+      /* los párrafos llegan pegados: «…actuaciones.2. En los pliegos…».
+         Ahí sí hay final de frase, aunque falte el espacio. */
+      var apartado=/^\d{1,2}\.\s+[A-ZÁÉÍÓÚÑ¿«]/.test(t.slice(i+1,i+9))&&!/\d$/.test(t.slice(0,i));
+      if(!apartado)continue;                   /* 3.005 y 168.4 quedan intactos */
+    }
     if(ABBR.test(t.slice(Math.max(0,i-9),i+1)))continue;
     if(i+1-ini<40)continue;
     brutos.push(i+1);ini=i+1;
   }
   if(ini<t.length)brutos.push(t.length);
-  /* 2ª pasada · troceamos lo que siga siendo largo */
+  /* 2ª pasada · solo lo excesivamente largo se reparte */
   var out=[],desde=0;
   for(i=0;i<brutos.length;i++){
     var fin=brutos[i];
-    while(fin-desde>MAX_TROZO){
-      var c2=corteBlando(t,desde,Math.min(desde+MAX_TROZO,fin));
+    while(fin-desde>MAX_FRASE){
+      var c2=corteBlando(t,desde,Math.min(desde+MAX_FRASE,fin));
       if(c2<=desde)break;
       out.push(c2);desde=c2;
     }
@@ -2475,13 +2552,32 @@ function siguiente(){
   };
   actual.u=u;
 
-  /* si el motor no arranca en 3 s, lo reintentamos una vez y seguimos */
+  /* si el motor no arranca en 3 s: probamos con una voz local y seguimos */
   actual.wdIni=setTimeout(function(){
     if(!actual||actual.u!==u||avanzado)return;
     if(!actual.reintento){
       actual.reintento=true;
+      /* la voz elegida puede no sonar en este aparato: buscamos una local */
+      var local=null,i;
+      for(i=0;i<voces.length;i++)
+        if(voces[i]!==actual.voz&&voces[i].localService!==false&&!esRemota(voces[i])){local=voces[i];break;}
+      if(local){
+        actual.voz=local;
+        cfg.voz=local.voiceURI;save(cfg);
+        if(sel)try{sel.value=local.voiceURI;}catch(e){}
+        avisarVoz(local);
+      }
       try{synth.cancel();}catch(e){}
-      setTimeout(function(){ if(actual&&actual.u===u&&!avanzado){try{synth.speak(u);}catch(e){avanzar();}} },120);
+      setTimeout(function(){
+        if(actual&&actual.u===u&&!avanzado){
+          var u2=new SpeechSynthesisUtterance(texto);
+          if(actual.voz){u2.voice=actual.voz;u2.lang=actual.voz.lang;}else u2.lang="es-ES";
+          u2.rate=cfg.rate;u2.pitch=cfg.pitch||1;u2.volume=1;
+          u2.onstart=u.onstart;u2.onend=u.onend;u2.onerror=u.onerror;
+          actual.u=u2;
+          try{synth.speak(u2);}catch(e){avanzar();}
+        }
+      },140);
     }else{ actual.reintento=false; avanzar(); }
   },3000);
 

@@ -820,6 +820,14 @@ nav.side{
 html[data-theme="dark"] .tts-s.now{
   background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 34%,transparent) 8%);
 }
+/* dentro del punto que se lee, la frase que suena ahora mismo */
+.tts-s.leyendo{
+  background:color-mix(in srgb,var(--legal) 30%,transparent);
+  box-shadow:0 2px 0 0 var(--legal);
+}
+html[data-theme="dark"] .tts-s.leyendo{
+  background:color-mix(in srgb,var(--legal) 42%,transparent);
+}
 .legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
 
 /* ═══ Reproductor flotante ═══ */

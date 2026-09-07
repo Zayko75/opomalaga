@@ -12,7 +12,7 @@
    Temas 8, 9 y 10 · Auxiliar Administrativo
    ═══════════════════════════════════════════════════════════════ */
 :root{
-  --fs:16px;
+  --z:1;              /* A+ / A− · solo agranda el cuerpo de la página */
 
   --bg:#faf9f7;
   --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
@@ -104,7 +104,12 @@ html[data-theme="dark"]{
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{font-size:var(--fs);scroll-behavior:smooth}
+html{font-size:16px;scroll-behavior:smooth}
+/* A+ y A− agrandan o reducen únicamente el cuerpo: el texto de los
+   artículos, las tablas y los diagramas. La cabecera, el índice lateral
+   y los botones conservan su tamaño para no descolocar la pantalla. */
+main{zoom:var(--z)}
+@media print{main{zoom:1}}
 body{
   margin:0;background:var(--bg);background-image:var(--bg-grad);
   background-attachment:fixed;background-repeat:no-repeat;
@@ -129,8 +134,11 @@ header.top{
   backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
   border-bottom:1px solid var(--line);
 }
-.top-in{max-width:1280px;margin:0 auto;padding:.65rem 1.1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
-.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;flex:1}
+/* El título ocupa su propia línea, encima de los botones. Antes competía
+   por el ancho con la barra de herramientas y acababa desmigado en una
+   columna de una palabra por línea. */
+.top-in{max-width:1280px;margin:0 auto;padding:.6rem 1.1rem .55rem;display:flex;flex-direction:column;gap:.5rem;align-items:stretch}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;width:100%}
 .mark{
   width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
   background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
@@ -139,10 +147,15 @@ header.top{
   transition:transform .3s var(--e-spring),box-shadow .3s;
 }
 .mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
-.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0;flex:1 1 auto}
+/* como mucho dos líneas: si no cabe, se recorta con puntos suspensivos */
+.top h1 .tit{
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;text-wrap:balance;
+}
 .top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
   margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.tools{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+.tools{margin-left:0;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;width:100%}
 
 button,select,input[type=search]{
   font:inherit;font-size:var(--t-sm);font-weight:600;
@@ -725,6 +738,10 @@ a.blk:active{transform:translateY(0) scale(.98)}
 @media(max-width:620px){
   .top-in{padding:.55rem .8rem}
   .tools{width:100%;margin-left:0}
+  /* en pantallas estrechas el título se achica un poco y puede llegar a
+     tres líneas: preferimos eso a recortarlo y esconder texto */
+  .top h1{font-size:.95rem}
+  .top h1 .tit{-webkit-line-clamp:3}
   input[type=search]{flex:1;min-width:0}
   section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
   table{font-size:.82rem}
@@ -959,7 +976,7 @@ html[data-theme="dark"] .tts-s.now{
   <div class="top-in">
     <div class="brandwrap">
     <a class="mark" href="index.html" title="Volver al índice">AND</a>
-    <h1>Real Decreto Legislativo 2/2004 · TRLHL
+    <h1><span class="tit">Real Decreto Legislativo 2/2004 · TRLHL</span>
       <span class="sub">Ley 1/2014, de Transparencia Pública de Andalucía · Arts. clave y comparación con la Ley 19/2013 (tema 13, bloque 4)</span>
     </h1>
     </div>
@@ -1557,8 +1574,9 @@ document.getElementById('expand').onclick=function(){
 document.getElementById('theme').onclick=function(){
  var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
 var fs=16;
-document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);document.documentElement.style.setProperty('--fs',fs+'px');};
-document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);document.documentElement.style.setProperty('--fs',fs+'px');};
+function zoomCuerpo(v){document.documentElement.style.setProperty('--z',(v/16).toFixed(4));}
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);zoomCuerpo(fs);};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);zoomCuerpo(fs);};
 
 /* ---------- PROGRESO Y NAV ACTIVA ---------- */
 window.addEventListener('scroll',function(){
@@ -1746,9 +1764,13 @@ if(bt)bt.onclick=function(){
   root.setAttribute("data-theme",n);save(K_THEME,n);
 };
 
-/* Tamaño de texto persistente */
+/* Tamaño de texto persistente · solo afecta al cuerpo de la página */
 var fs=load(K_FS,16);
-function setFs(v){fs=Math.max(13,Math.min(22,v));root.style.setProperty("--fs",fs+"px");save(K_FS,fs);}
+function setFs(v){
+  fs=Math.max(13,Math.min(22,v));
+  root.style.setProperty("--z",(fs/16).toFixed(4));
+  save(K_FS,fs);
+}
 setFs(fs);
 var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
 if(bp)bp.onclick=function(){setFs(fs+1);};

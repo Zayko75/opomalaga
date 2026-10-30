@@ -1,0 +1,2667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulacro · Dos supuestos prácticos tipo test con calculadora</title>
+<style>
+
+/* ═══════════════════════════════════════════════════════════════
+   SISTEMA DE DISEÑO · "Académico Gamificado" · Bloque II
+   Temas 8, 9 y 10 · Auxiliar Administrativo
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --z:1;              /* A+ / A− · solo agranda el cuerpo de la página */
+
+  --bg:#faf9f7;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #ede9ff 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #dcf5ee 0%, transparent 50%);
+  --surface:#ffffff;
+  --surface-2:#f4f3f0;
+  --surface-3:#eceae5;
+  --line:#e6e3dc;
+  --line-strong:#d4d0c7;
+
+  --ink:#15161c;
+  --ink-2:#5d616e;
+  --ink-3:#8b8f9c;
+
+  --brand:#5b3df5;
+  --brand-2:#7c5cff;
+  --brand-soft:#efeaff;
+  --brand-ring:rgba(91,61,245,.18);
+
+  --legal:#4338ca;  --legal-bg:#eeecff;
+  --ej:#059669;     --ej-bg:#e4f7f0;
+  --warn:#c2690a;   --warn-bg:#fdf1de;
+  --exc:#dc2626;    --exc-bg:#ffeceb;
+
+  --ok:#16a34a; --ok-soft:#e7f7ec;
+  --mid:#eab308; --mid-soft:#fdf6dd;
+  --off:#a1a1aa; --off-soft:#f1f1f3;
+
+  --sh-1:0 1px 2px rgba(20,20,30,.04), 0 2px 8px rgba(20,20,30,.04);
+  --sh-2:0 2px 6px rgba(20,20,30,.05), 0 12px 28px rgba(20,20,30,.07);
+  --sh-3:0 8px 20px rgba(91,61,245,.13), 0 24px 56px rgba(20,20,30,.10);
+  --sh-glow:0 0 0 4px var(--brand-ring);
+
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-full:999px;
+
+  --f-display:"Segoe UI Variable Display",system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-legal:ui-serif,Georgia,Cambria,"Times New Roman",serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+
+  --t-h1:clamp(1.02rem,.95rem + .3vw,1.2rem);
+  --t-h2:clamp(1.2rem,1.05rem + .6vw,1.55rem);
+  --t-h3:clamp(1rem,.95rem + .25vw,1.12rem);
+  --t-sm:.86rem;
+  --t-xs:.75rem;
+
+  --e-out:cubic-bezier(.22,1,.36,1);
+  --e-spring:cubic-bezier(.34,1.56,.64,1);
+
+  /* ── Compatibilidad con SVG y contenido generado ── */
+  --panel:var(--surface);
+  --ink2:var(--ink-2);
+  --acc:var(--brand);
+  --acc-soft:var(--brand-soft);
+  --g:var(--ok); --y:var(--mid); --r:var(--exc);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0b0f;
+  --bg-grad:radial-gradient(1100px 560px at 12% -8%, #1c1740 0%, transparent 55%),
+            radial-gradient(850px 460px at 96% 0%, #08302b 0%, transparent 50%);
+  --surface:#13151b;
+  --surface-2:#1a1d25;
+  --surface-3:#232733;
+  --line:#262a34;
+  --line-strong:#343947;
+
+  --ink:#eceef4;
+  --ink-2:#9ba2b3;
+  --ink-3:#6e7585;
+
+  --brand:#8b6dff;
+  --brand-2:#a78bff;
+  --brand-soft:#1e1a3d;
+  --brand-ring:rgba(139,109,255,.22);
+
+  --legal:#a5b4fc; --legal-bg:#191b3a;
+  --ej:#34d399;    --ej-bg:#0c2a24;
+  --warn:#fbbf24;  --warn-bg:#2e2110;
+  --exc:#fb7185;   --exc-bg:#331119;
+
+  --ok:#4ade80; --ok-soft:#0e2a19;
+  --mid:#facc15; --mid-soft:#2c2610;
+  --off:#5b6070; --off-soft:#1c1f27;
+
+  --sh-1:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+  --sh-2:0 2px 6px rgba(0,0,0,.35), 0 12px 28px rgba(0,0,0,.4);
+  --sh-3:0 8px 20px rgba(139,109,255,.2), 0 24px 56px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+/* A+ y A− agrandan o reducen únicamente el cuerpo: el texto de los
+   artículos, las tablas y los diagramas. La cabecera, el índice lateral
+   y los botones conservan su tamaño para no descolocar la pantalla. */
+main{zoom:var(--z)}
+@media print{main{zoom:1}}
+body{
+  margin:0;background:var(--bg);background-image:var(--bg-grad);
+  background-attachment:fixed;background-repeat:no-repeat;
+  color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s var(--e-out),color .3s;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--f-display);letter-spacing:-.022em;line-height:1.2}
+.num{font-variant-numeric:tabular-nums}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+
+/* ═══ HEADER ═══ */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+}
+/* El título ocupa su propia línea, encima de los botones. Antes competía
+   por el ancho con la barra de herramientas y acababa desmigado en una
+   columna de una palabra por línea. */
+.top-in{max-width:1280px;margin:0 auto;padding:.6rem 1.1rem .55rem;display:flex;flex-direction:column;gap:.5rem;align-items:stretch}
+.brandwrap{display:flex;align-items:center;gap:.65rem;min-width:0;width:100%}
+.mark{
+  width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  font-weight:800;font-size:.8rem;letter-spacing:-.02em;text-decoration:none;
+  box-shadow:0 4px 14px var(--brand-ring);
+  transition:transform .3s var(--e-spring),box-shadow .3s;
+}
+.mark:hover{transform:rotate(-8deg) scale(1.08);box-shadow:var(--sh-3);text-decoration:none}
+.top h1{font-size:var(--t-h1);margin:0;font-weight:800;line-height:1.25;min-width:0;flex:1 1 auto}
+/* como mucho dos líneas: si no cabe, se recorta con puntos suspensivos */
+.top h1 .tit{
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;text-wrap:balance;
+}
+.top h1 .sub{display:block;font-size:var(--t-xs);color:var(--ink-2);font-weight:500;letter-spacing:0;
+  margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{margin-left:0;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;width:100%}
+
+button,select,input[type=search]{
+  font:inherit;font-size:var(--t-sm);font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:var(--r-sm);padding:.4rem .72rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .18s var(--e-spring),border-color .2s,background .2s,box-shadow .2s,color .2s;
+}
+button:hover{transform:translateY(-1.5px);border-color:var(--brand);box-shadow:var(--sh-1)}
+button:active{transform:translateY(0) scale(.97)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:none;box-shadow:var(--sh-glow)}
+input[type=search]{min-width:190px;cursor:text;font-weight:500}
+input[type=search]:focus{border-color:var(--brand)}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);padding:2px;gap:2px}
+.seg button{border:0;border-radius:calc(var(--r-sm) - 2px);padding:.32rem .68rem;background:transparent;box-shadow:none}
+.seg button:hover{transform:none;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 2px 8px var(--brand-ring)}
+
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:currentColor;opacity:.25;animation:rip .55s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(3.4);opacity:0}}
+
+.progress{position:absolute;left:0;bottom:-1px;height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--brand),var(--legal),var(--ej));transition:width .1s linear}
+
+/* ═══ LAYOUT ═══ */
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:1.8rem;padding:1.4rem 1.1rem 5rem}
+main{min-width:0}
+
+/* ═══ SIDEBAR ═══ */
+nav.side{
+  position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:.85rem;box-shadow:var(--sh-1);
+}
+nav.side h2{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:.5rem .4rem .5rem;font-weight:800}
+nav.side h2:first-child{margin-top:.1rem}
+nav.side a{
+  display:flex;align-items:baseline;gap:.5rem;padding:.36rem .55rem;border-radius:var(--r-sm);
+  text-decoration:none;color:var(--ink-2);font-size:var(--t-sm);font-weight:500;
+  position:relative;transition:background .22s,color .22s,transform .22s var(--e-out);
+}
+nav.side a:hover{background:var(--surface-2);color:var(--ink);transform:translateX(3px);text-decoration:none}
+nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side a.on::before{content:"";position:absolute;left:-.85rem;top:20%;bottom:20%;width:3px;
+  border-radius:0 3px 3px 0;background:var(--brand)}
+nav.side a b{color:var(--ink-3);font-weight:800;font-size:var(--t-xs);font-variant-numeric:tabular-nums;flex:none;min-width:1.9em}
+nav.side a.on b{color:var(--brand)}
+.navtoggle{display:none}
+
+/* ═══ TARJETAS ═══ */
+section.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.35rem 1.5rem;margin-bottom:1.1rem;box-shadow:var(--sh-1);
+  transition:box-shadow .3s var(--e-out),border-color .3s;
+}
+section.card:hover{box-shadow:var(--sh-2)}
+section.card>h2{
+  margin:0 0 1rem;font-size:var(--t-h2);font-weight:800;
+  display:flex;align-items:center;gap:.6rem;
+}
+section.card>h2::before{
+  content:"";width:4px;height:1.05em;border-radius:99px;flex:none;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+
+/* ═══ ARTÍCULO ═══ */
+.art{scroll-margin-top:86px;padding-top:.4rem}
+.art + .art{margin-top:1.6rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+.art h2{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;font-size:var(--t-h3);
+  margin:0 0 .25rem;font-weight:800;letter-spacing:-.015em}
+.art h2 .num{
+  color:var(--brand);font-weight:800;font-family:var(--f-display);
+  background:var(--brand-soft);padding:.1rem .5rem;border-radius:var(--r-sm);
+  font-size:.92em;letter-spacing:-.02em;
+}
+.ubic{font-size:var(--t-xs);color:var(--ink-3);margin:0 0 .8rem;font-weight:600;
+  letter-spacing:.03em;text-transform:uppercase}
+
+/* ═══ IDEA CLAVE ═══ */
+.idea{
+  background:linear-gradient(100deg,var(--brand-soft),color-mix(in srgb,var(--brand-soft) 40%,transparent));
+  border-left:4px solid var(--brand);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.75rem 1rem;font-weight:650;margin:.7rem 0 1rem;position:relative;
+  font-size:.97rem;line-height:1.55;
+}
+
+/* ═══ ACORDEÓN ═══ */
+details.panel{
+  border:1px solid var(--line);border-radius:var(--r-md);margin:.6rem 0;
+  background:var(--surface);overflow:hidden;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+details.panel:hover{border-color:var(--line-strong)}
+details.panel[open]{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-ring)}
+details.panel>summary{
+  cursor:pointer;padding:.62rem .9rem;font-weight:700;font-size:.93rem;
+  list-style:none;display:flex;align-items:center;gap:.55rem;
+  transition:background .2s,color .2s;
+}
+details.panel>summary:hover{background:var(--surface-2)}
+details.panel[open]>summary{background:var(--brand-soft);color:var(--brand)}
+details.panel>summary::-webkit-details-marker{display:none}
+details.panel>summary::before{
+  content:"";width:16px;height:16px;flex:none;border-radius:5px;
+  background:var(--brand-soft);position:relative;transition:transform .3s var(--e-spring),background .25s;
+}
+details.panel>summary::after{
+  content:"";position:absolute;width:0;height:0;margin-left:5px;
+  border:4px solid transparent;border-left-color:var(--brand);
+  transition:transform .3s var(--e-spring);
+}
+details.panel[open]>summary::before{background:var(--surface)}
+details.panel[open]>summary::after{transform:rotate(90deg) translateX(-1px)}
+details.panel .body{padding:.3rem 1rem 1rem;font-size:.95rem;animation:slidein .35s var(--e-out)}
+@keyframes slidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ═══ TEXTO LEGAL ═══ */
+.legal{
+  background:var(--legal-bg);border-left:4px solid var(--legal);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:.85rem 1.05rem;
+  font-family:var(--f-legal);font-size:.95rem;line-height:1.7;
+}
+.legal p{margin:.45rem 0}
+.legal .lbl{
+  font-family:var(--f-body);font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--legal);font-weight:800;display:block;margin-bottom:.4rem;
+}
+
+/* ═══ CAJAS SEMÁNTICAS ═══ */
+.box{
+  border-left:4px solid var(--line);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:.72rem .95rem;margin:.65rem 0;font-size:.94rem;
+  transition:transform .25s var(--e-out),box-shadow .25s;
+}
+.box:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
+.box.ej{background:var(--ej-bg);border-color:var(--ej)}
+.box.warn{background:var(--warn-bg);border-color:var(--warn)}
+.box.exc{background:var(--exc-bg);border-color:var(--exc)}
+.box .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;font-weight:800;
+  display:block;margin-bottom:.3rem}
+.box.ej .lbl{color:var(--ej)}
+.box.warn .lbl{color:var(--warn)}
+.box.exc .lbl{color:var(--exc)}
+
+.interp{
+  border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn-bg) 45%,transparent);
+  border-radius:var(--r-md);padding:.65rem .9rem;font-size:.9rem;margin:.6rem 0;
+}
+.interp .lbl{font-size:var(--t-xs);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);font-weight:800;display:block}
+
+/* ═══ TABLAS ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem;margin:.7rem 0;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+th,td{padding:.5rem .68rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td + td, th + th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-size:var(--t-xs);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+tbody tr{transition:background .18s}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+tbody tr:hover{background:var(--brand-soft)}
+th.sortable{cursor:pointer;user-select:none;transition:color .2s,background .2s}
+th.sortable:hover{color:var(--brand);background:var(--brand-soft)}
+th.sortable::after{content:" ⇅";color:var(--ink-3);font-size:.7rem}
+
+ul,ol{margin:.5rem 0 .5rem 1.2rem;padding:0}
+li{margin:.26rem 0}
+li::marker{color:var(--brand);font-weight:700}
+
+/* ═══ TOOLTIPS ═══ */
+.t{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;
+  transition:background .2s,color .2s}
+.t:hover{background:var(--brand-soft);color:var(--brand);border-radius:3px}
+#tip{
+  position:fixed;z-index:99;max-width:330px;background:var(--ink);color:var(--bg);
+  padding:.6rem .78rem;border-radius:var(--r-md);font-size:.82rem;line-height:1.5;
+  display:none;box-shadow:0 8px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);
+}
+html[data-theme="dark"] #tip{background:#f0f1f5;color:#15161c}
+
+/* ═══ FLECHAS DE DIAGRAMA ═══
+   Un <path> con stroke pero sin fill toma el valor inicial (negro) y el
+   navegador cierra el trazo implícitamente: aparece un triángulo relleno
+   entre sus extremos. Forzamos fill:none para dejar solo la línea + la
+   punta del <marker>, que sí lleva su color. */
+svg path[stroke]:not([fill]){fill:none}
+svg polyline:not([fill]){fill:none}
+svg line{fill:none}
+
+/* ═══ SVG ═══ */
+svg{max-width:100%;height:auto;display:block;margin:.9rem auto}
+svg text{font-family:var(--f-body)}
+
+/* ═══ BUSCADOR ═══ */
+mark.hit{background:linear-gradient(180deg,transparent 55%,#ffe066 55%);color:inherit;
+  border-radius:2px;padding:0 1px;font-weight:600}
+html[data-theme="dark"] mark.hit{background:linear-gradient(180deg,transparent 55%,#8a6d00 55%);color:#fff}
+
+/* ═══ UTILIDADES ═══ */
+.hide{display:none !important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.small{font-size:var(--t-sm);color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:var(--t-xs);padding:.16rem .55rem;border-radius:var(--r-full);
+  background:var(--brand-soft);color:var(--brand);font-weight:800;letter-spacing:.02em;
+}
+
+/* ═══ HUECOS RELLENABLES ═══ */
+.gap{
+  display:inline-block;min-width:5.5em;border-bottom:2px solid var(--brand);
+  text-align:center;font-weight:700;color:transparent;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.gap.on,.gap:hover{color:var(--brand);background:var(--brand-soft);border-radius:4px 4px 0 0}
+
+/* ═══ REVELAR SOLUCIÓN ═══ */
+.revelar{
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;
+  font-weight:700;
+}
+.revelar:hover{box-shadow:var(--sh-3)}
+.sol{
+  margin-top:.7rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  background:var(--ej-bg);border-left:4px solid var(--ej);
+  animation:slidein .4s var(--e-out);
+}
+
+/* ═══ TEST ═══ */
+.opt{
+  display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;background:var(--surface);font-size:.94rem;
+  transition:border-color .22s,background .22s,transform .22s var(--e-out);
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateX(4px)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);font-weight:650}
+.opt.ko{border-color:var(--exc);background:var(--exc-bg)}
+.opt input{margin-right:.5rem;accent-color:var(--brand)}
+
+#tscore,#semres{
+  font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLASHCARDS 3D · mazo con giro, vuelo de salida y sheen
+   ═══════════════════════════════════════════════════════════════ */
+#flash{--fc-e:cubic-bezier(.2,.8,.25,1);--fc-h:250px}
+
+/* — Escena — */
+.fc-stage{
+  perspective:1400px;perspective-origin:50% 45%;
+  padding:.4rem 0 .2rem;position:relative;
+}
+.fc-deck{position:relative;height:var(--fc-h);will-change:transform}
+
+/* — Cartas fantasma del mazo — */
+.fc-ghost{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  transition:transform .5s var(--fc-e),opacity .5s var(--fc-e);
+}
+.fc-ghost.g1{transform:translateY(9px) scale(.972);opacity:.75}
+.fc-ghost.g2{transform:translateY(18px) scale(.944);opacity:.45}
+.fc-deck.empty .fc-ghost{opacity:0;transform:translateY(26px) scale(.9)}
+
+/* — Elevación durante el giro — */
+.fc-lift{position:absolute;inset:0;transform-style:preserve-3d}
+.fc-lift.lift{animation:fcLift .78s var(--fc-e)}
+@keyframes fcLift{
+  0%,100%{transform:scale(1) translateY(0)}
+  45%{transform:scale(1.055) translateY(-16px)}
+}
+.fc-lift.out-ok{animation:fcOut .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.out-ko{animation:fcOutKo .5s cubic-bezier(.5,0,.75,0) forwards}
+.fc-lift.in{animation:fcIn .48s var(--fc-e)}
+@keyframes fcOut{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(130%) rotate(17deg) scale(.85);opacity:0}
+}
+@keyframes fcOutKo{
+  0%{transform:translateX(0) rotate(0) scale(1);opacity:1}
+  100%{transform:translateX(-130%) rotate(-17deg) scale(.85);opacity:0}
+}
+@keyframes fcIn{
+  0%{transform:translateY(26px) scale(.9);opacity:0}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+
+/* — La carta — */
+.fc-card{
+  position:absolute;inset:0;transform-style:preserve-3d;
+  transition:transform .78s var(--fc-e);
+  cursor:pointer;border-radius:var(--r-lg);
+}
+.fc-card:focus-visible{outline:none}
+.fc-card:focus-visible .fc-face{box-shadow:var(--sh-glow),var(--sh-2)}
+
+/* — Caras — */
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 2.2rem;text-align:center;overflow:hidden;
+  box-shadow:var(--sh-2);
+  transition:box-shadow .4s var(--fc-e);
+}
+.fc-card:hover .fc-face{box-shadow:var(--sh-3)}
+
+/* Anverso · pregunta */
+.fc-front{
+  background:
+    radial-gradient(120% 90% at 50% -20%, var(--brand-soft) 0%, transparent 60%),
+    var(--surface);
+  border:1.5px solid var(--line);color:var(--ink);
+}
+/* Reverso · respuesta */
+.fc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,var(--brand) 0%,#6d4bf7 45%,var(--c5,#0891b2) 130%);
+  border:1.5px solid transparent;color:#fff;
+}
+html[data-theme="dark"] .fc-back{
+  background:linear-gradient(145deg,#5f45c9 0%,#4b3aa8 45%,#0e6b85 130%);
+}
+.fc-back .fc-txt{color:#fff}
+.fc-back b,.fc-back strong{color:#fff;font-weight:800}
+
+/* — Sheen que barre al girar — */
+.fc-face::after{
+  content:"";position:absolute;top:-60%;left:-70%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);opacity:0;pointer-events:none;
+}
+.fc-lift.lift .fc-face::after{animation:fcSheen .78s var(--fc-e)}
+@keyframes fcSheen{
+  0%{opacity:0;left:-70%}
+  35%{opacity:1}
+  100%{opacity:0;left:150%}
+}
+
+/* — Etiqueta superior — */
+.fc-tag{
+  position:absolute;top:1rem;left:1.15rem;
+  font-size:var(--t-xs);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.fc-front .fc-tag{color:var(--brand)}
+.fc-back .fc-tag{color:rgba(255,255,255,.9)}
+.fc-tag::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;
+  animation:fcPulse 2.2s ease-in-out infinite;
+}
+@keyframes fcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+/* — Índice tipo naipe — */
+.fc-pip{
+  position:absolute;font-family:var(--f-display);font-weight:800;
+  font-size:.78rem;letter-spacing:-.02em;opacity:.34;font-variant-numeric:tabular-nums;
+}
+.fc-pip.tr{top:1rem;right:1.15rem}
+.fc-pip.bl{bottom:1rem;left:1.15rem;transform:rotate(180deg)}
+.fc-front .fc-pip{color:var(--ink-2)}
+.fc-back .fc-pip{color:#fff;opacity:.55}
+
+/* — Texto — */
+.fc-txt{
+  font-size:clamp(1rem,.9rem + .55vw,1.28rem);font-weight:650;line-height:1.5;
+  max-width:44ch;letter-spacing:-.012em;
+}
+.fc-front .fc-txt{font-family:var(--f-display);font-weight:700}
+.fc-back .fc-txt{font-weight:600;line-height:1.6}
+.fc-hint{
+  position:absolute;bottom:1rem;left:0;right:0;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.fc-front .fc-hint{color:var(--ink-3)}
+.fc-back .fc-hint{color:rgba(255,255,255,.72)}
+.fc-hint .kbd{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:700;padding:.1rem .32rem;
+  border-radius:5px;border:1px solid currentColor;opacity:.75;
+}
+
+/* — Pantalla final — */
+.fc-done{
+  position:absolute;inset:0;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--ok-soft),var(--surface) 70%);
+  border:1.5px solid var(--ok);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;gap:.35rem;
+  animation:fcIn .5s var(--fc-e);box-shadow:var(--sh-2);
+}
+.fc-done .seal{
+  font-size:2.6rem;line-height:1;
+  animation:fcSeal .7s cubic-bezier(.2,1.5,.4,1);
+}
+@keyframes fcSeal{0%{transform:scale(0) rotate(-25deg);opacity:0}60%{transform:scale(1.2) rotate(6deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.fc-done h3{font-size:1.3rem;font-weight:800;margin:.2rem 0 0}
+.fc-done p{margin:0;color:var(--ink-2);font-size:var(--t-sm)}
+
+/* — Barra de progreso de la ronda — */
+.fc-bar{
+  height:6px;border-radius:99px;background:var(--surface-3);
+  overflow:hidden;margin:.95rem 0 .8rem;position:relative;
+}
+.fc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand),var(--c5,#0891b2));
+  transition:width .55s var(--fc-e);
+}
+
+/* — Controles — */
+.fc-ctrls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.fc-ctrls button{font-weight:700}
+#fcok{border-color:var(--ok);color:var(--ok)}
+#fcok:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+#fcko{border-color:var(--warn);color:var(--warn)}
+#fcko:hover{background:var(--warn);color:#fff;border-color:var(--warn)}
+#fcflip{background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+#fcflip:hover{box-shadow:var(--sh-3)}
+
+.fc-score{display:inline-flex;gap:.45rem;margin-left:auto;align-items:center}
+.fc-pill{
+  font-size:var(--t-xs);font-weight:800;padding:.24rem .6rem;border-radius:var(--r-full);
+  font-variant-numeric:tabular-nums;border:1px solid;
+}
+.fc-pill.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.fc-pill.ko{color:var(--warn);border-color:var(--warn);background:var(--warn-bg)}
+.fc-pill.left{color:var(--ink-2);border-color:var(--line);background:var(--surface-2)}
+.fc-pill.bump{animation:fcBump .45s var(--e-spring)}
+@keyframes fcBump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+@media(max-width:620px){
+  #flash{--fc-h:270px}
+  .fc-face{padding:1.7rem 1.3rem}
+  .fc-score{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-card{transition:none}
+  .fc-lift.lift,.fc-lift.in,.fc-lift.out-ok,.fc-lift.out-ko,.fc-face::after{animation:none !important}
+}
+@media print{.fc-stage,.fc-ctrls,.fc-bar{display:none !important}}
+/* ═══ RESPUESTA ESTRUCTURADA ═══ */
+.fc-face{justify-content:center}
+.fc-face.struct{justify-content:flex-start;text-align:left;padding-top:3.1rem;padding-bottom:3.1rem}
+.fc-body{
+  width:100%;max-width:46ch;margin:0 auto;
+  overflow-y:auto;max-height:100%;
+  scrollbar-width:thin;
+}
+.fc-body::-webkit-scrollbar{width:5px}
+.fc-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:99px;border:0}
+.fc-front .fc-body::-webkit-scrollbar-thumb{background:var(--line-strong)}
+
+/* — Veredicto Sí / No — */
+.fc-verdict{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-display);font-weight:800;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.26rem .72rem;border-radius:var(--r-full);margin-bottom:.85rem;
+  border:1.5px solid;animation:fcPopIn .45s var(--e-spring) backwards;animation-delay:.34s;
+}
+.fc-verdict.si{background:rgba(255,255,255,.16);border-color:rgba(190,255,215,.85);color:#d8ffe9}
+.fc-verdict.no{background:rgba(255,255,255,.16);border-color:rgba(255,205,205,.85);color:#ffdedd}
+@keyframes fcPopIn{0%{opacity:0;transform:scale(.7) translateY(6px)}100%{opacity:1;transform:none}}
+
+/* — Párrafo — */
+.fc-p{margin:0;font-size:clamp(1rem,.92rem + .45vw,1.2rem);font-weight:600;line-height:1.6}
+.fc-face.struct .fc-p{font-size:clamp(.96rem,.9rem + .35vw,1.1rem)}
+
+/* — Lista enumerada — */
+.fc-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;counter-reset:fc}
+.fc-list li{
+  counter-increment:fc;position:relative;margin:0;
+  padding:.42rem .6rem .42rem 2.5rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.11);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.45;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-list li::before{
+  content:counter(fc);position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:1.6rem;height:1.6rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.9);color:var(--brand);
+  font-family:var(--f-display);font-weight:800;font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.fc-list.alpha li::before{content:counter(fc,lower-alpha)}
+.fc-list li:nth-child(1){animation-delay:.36s}
+.fc-list li:nth-child(2){animation-delay:.42s}
+.fc-list li:nth-child(3){animation-delay:.48s}
+.fc-list li:nth-child(4){animation-delay:.54s}
+.fc-list li:nth-child(5){animation-delay:.60s}
+.fc-list li:nth-child(n+6){animation-delay:.66s}
+@keyframes fcRow{0%{opacity:0;transform:translateX(-12px)}100%{opacity:1;transform:none}}
+
+/* — Cláusulas contrapuestas — */
+.fc-clauses{display:grid;gap:.45rem}
+.fc-clauses p{
+  margin:0;padding:.45rem .7rem .45rem .95rem;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  background:rgba(255,255,255,.11);border-left:3px solid rgba(255,255,255,.55);
+  font-size:clamp(.92rem,.88rem + .3vw,1.04rem);font-weight:600;line-height:1.5;
+  animation:fcRow .42s var(--e-out) backwards;
+}
+.fc-clauses p:nth-child(1){animation-delay:.36s}
+.fc-clauses p:nth-child(2){animation-delay:.44s}
+.fc-clauses p:nth-child(3){animation-delay:.52s}
+
+/* — Negritas resaltadas en el reverso — */
+.fc-back .fc-body b,.fc-back .fc-body strong{
+  font-weight:800;background:rgba(255,255,255,.2);
+  padding:.03em .3em;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+
+/* — Cita legal al pie — */
+.fc-cite{
+  position:absolute;bottom:.95rem;left:0;right:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;letter-spacing:.02em;
+  color:rgba(255,255,255,.82);
+  animation:fcPopIn .5s var(--e-out) backwards;animation-delay:.5s;
+}
+.fc-cite::before,.fc-cite::after{
+  content:"";height:1px;width:clamp(18px,10%,52px);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45));
+}
+.fc-cite::after{background:linear-gradient(90deg,rgba(255,255,255,.45),transparent)}
+.fc-cite .s{font-size:.9rem;opacity:.75;font-family:var(--f-legal)}
+.fc-front .fc-cite{color:var(--ink-3)}
+.fc-front .fc-cite::before{background:linear-gradient(90deg,transparent,var(--line-strong))}
+.fc-front .fc-cite::after{background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+/* la pista se oculta si hay cita, para no amontonar */
+.fc-back .fc-cite ~ .fc-hint,.fc-back .fc-hint.muted{display:none}
+
+@media(max-width:620px){
+  #flash{--fc-h:320px}
+  .fc-face.struct{padding-top:2.9rem;padding-bottom:2.8rem}
+  .fc-list li{padding-left:2.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-verdict,.fc-list li,.fc-clauses p,.fc-cite{animation:none !important}
+}
+
+/* ═══ SEMÁFORO ═══ */
+.sembtn{
+  border-radius:var(--r-full);padding:.32rem .7rem;font-weight:700;font-size:var(--t-sm);
+}
+.sembtn[data-v="g"]:hover,.sembtn.on[data-v="g"]{background:var(--ok);color:#fff;border-color:var(--ok)}
+.sembtn[data-v="y"]:hover,.sembtn.on[data-v="y"]{background:var(--mid);color:#3d2f00;border-color:var(--mid)}
+.sembtn[data-v="r"]:hover,.sembtn.on[data-v="r"]{background:var(--exc);color:#fff;border-color:var(--exc)}
+
+/* ═══ CTA DE BLOQUE ═══ */
+a.blk{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(140deg,var(--brand),var(--brand-2));color:#fff;
+  padding:.5rem .95rem;border-radius:var(--r-sm);font-weight:700;font-size:var(--t-sm);
+  text-decoration:none;box-shadow:0 2px 10px var(--brand-ring);
+  transition:transform .22s var(--e-spring),box-shadow .25s,gap .25s var(--e-out);
+}
+a.blk:hover{transform:translateY(-2px);box-shadow:var(--sh-3);gap:.75rem;text-decoration:none}
+a.blk::after{content:"→"}
+a.blk:active{transform:translateY(0) scale(.98)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:960px){
+  .layout{grid-template-columns:1fr;padding-top:.9rem;gap:1rem}
+  nav.side{position:static;max-height:none}
+  nav.side.collapsed .navbody{display:none}
+  .navtoggle{display:block;width:100%;text-align:left;font-weight:700}
+  .grid2{grid-template-columns:1fr}
+  .top h1 .sub{white-space:normal}
+}
+@media(max-width:620px){
+  .top-in{padding:.55rem .8rem}
+  .tools{width:100%;margin-left:0}
+  /* en pantallas estrechas el título se achica un poco y puede llegar a
+     tres líneas: preferimos eso a recortarlo y esconder texto */
+  .top h1{font-size:.95rem}
+  .top h1 .tit{-webkit-line-clamp:3}
+  input[type=search]{flex:1;min-width:0}
+  section.card{padding:1.05rem 1rem;border-radius:var(--r-md)}
+  table{font-size:.82rem}
+  th,td{padding:.4rem .5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  header.top,nav.side,.tools,.noprint,.progress{display:none !important}
+  body{background:#fff;background-image:none;font-size:11pt;color:#000}
+  .layout{display:block;max-width:none;padding:0}
+  section.card{border:0;padding:0;margin:0 0 1rem;break-inside:avoid;box-shadow:none}
+  details.panel{border:0;box-shadow:none}
+  details.panel .body{display:block !important}
+  details.panel>summary{padding-left:0}
+  .art{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  a{color:#000;text-decoration:none}
+}
+
+
+/* ═══ ALTURA ADAPTATIVA DE LA TARJETA ═══ */
+.fc-deck{transition:height .45s var(--fc-e)}
+.fc-body{max-height:none;overflow:visible}
+.fc-measure{
+  position:absolute;left:0;right:0;top:0;height:auto;
+  visibility:hidden;pointer-events:none;z-index:-1;
+}
+.fc-measure .fc-face{
+  position:relative;inset:auto;height:auto;min-height:0;
+  box-shadow:none;backface-visibility:visible;transform:none;
+}
+.fc-measure .fc-body{max-height:none;overflow:visible}
+.fc-measure .fc-face::after{display:none}
+
+/* ═══ MOSTRAR / OCULTAR ÍNDICE LATERAL ═══ */
+.layout{transition:grid-template-columns .42s var(--e-out)}
+.layout.nonav{grid-template-columns:0 1fr;gap:0}
+.layout.nonav>nav.side{
+  opacity:0;transform:translateX(-14px);pointer-events:none;
+  padding:0;border-width:0;overflow:hidden;width:0;min-width:0;
+}
+nav.side{
+  transition:opacity .3s var(--e-out),transform .38s var(--e-out);
+  overflow-x:hidden;
+}
+#navhide .ic{display:inline-block;transition:transform .35s var(--e-spring);font-size:.95em;line-height:1}
+#navhide[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand);color:var(--brand)}
+#navhide[aria-pressed="true"] .ic{transform:rotate(90deg)}
+@media(max-width:960px){#navhide{display:none}}
+
+/* ═══════════════════════════════════════════════════════════════
+   LECTURA EN VOZ ALTA (TTS) del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+.tts-bar{
+  display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;
+  margin:.15rem 0 .7rem;
+}
+.tts-bar button{
+  font-size:var(--t-xs);font-weight:700;padding:.3rem .62rem;
+  border-radius:var(--r-full);border:1px solid var(--legal);
+  background:transparent;color:var(--legal);
+  display:inline-flex;align-items:center;gap:.35rem;line-height:1.2;
+}
+.tts-bar button:hover{background:var(--legal);color:var(--surface);border-color:var(--legal)}
+.tts-bar button[hidden]{display:none}
+.tts-bar .tts-play.on{background:var(--legal);color:var(--surface)}
+
+/* Ondas de audio mientras lee */
+.tts-wave{display:inline-flex;align-items:flex-end;gap:2px;height:11px}
+.tts-wave i{
+  width:2.5px;background:currentColor;border-radius:2px;height:35%;
+  animation:ttsW .9s ease-in-out infinite;
+}
+.tts-wave i:nth-child(2){animation-delay:.15s}
+.tts-wave i:nth-child(3){animation-delay:.3s}
+.tts-wave i:nth-child(4){animation-delay:.45s}
+@keyframes ttsW{0%,100%{height:32%}50%{height:100%}}
+
+.tts-time{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:700;
+  color:var(--ink-3);font-variant-numeric:tabular-nums;
+}
+
+/* Frase que se está leyendo */
+.tts-s{transition:background .25s,color .25s;border-radius:3px}
+.tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 26%,transparent) 8%);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--legal) 16%,transparent);
+}
+html[data-theme="dark"] .tts-s.now{
+  background:linear-gradient(180deg,transparent 8%,color-mix(in srgb,var(--legal) 34%,transparent) 8%);
+}
+.legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
+
+/* ═══ Reproductor flotante ═══ */
+.tts-mini{
+  position:fixed;left:50%;bottom:1.1rem;transform:translateX(-50%) translateY(140%);
+  z-index:80;display:flex;align-items:center;gap:.6rem;
+  background:color-mix(in srgb,var(--surface) 92%,transparent);
+  backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  border:1px solid var(--line);border-radius:var(--r-full);
+  padding:.5rem .7rem .5rem .95rem;box-shadow:var(--sh-3);
+  transition:transform .45s var(--e-spring),opacity .3s;opacity:0;pointer-events:none;
+  max-width:min(94vw,540px);
+}
+.tts-mini.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.tts-mini .lbl{
+  font-size:var(--t-xs);font-weight:800;color:var(--legal);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:16ch;
+}
+.tts-mini button{
+  border-radius:50%;width:32px;height:32px;padding:0;display:grid;place-items:center;
+  font-size:.8rem;border:1px solid var(--line);flex:none;
+}
+.tts-mini button.main{
+  width:38px;height:38px;font-size:.95rem;
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-mini .bar{
+  flex:1;min-width:70px;height:5px;border-radius:99px;background:var(--surface-3);overflow:hidden;
+}
+.tts-mini .bar i{display:block;height:100%;width:0;background:var(--legal);
+  border-radius:99px;transition:width .35s var(--e-out)}
+
+/* ═══ Panel de ajustes de voz ═══ */
+.tts-back{
+  position:fixed;inset:0;z-index:90;background:rgba(10,10,18,.45);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  display:grid;place-items:center;padding:1rem;
+  opacity:0;pointer-events:none;transition:opacity .3s var(--e-out);
+}
+.tts-back.show{opacity:1;pointer-events:auto}
+.tts-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--sh-3);width:min(94vw,470px);max-height:88vh;overflow:auto;
+  padding:1.3rem 1.4rem;transform:translateY(16px) scale(.97);
+  transition:transform .38s var(--e-spring);
+}
+.tts-back.show .tts-panel{transform:none}
+.tts-panel h3{
+  font-size:1.12rem;font-weight:800;margin:0 0 .25rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.tts-panel .sub{font-size:var(--t-sm);color:var(--ink-2);margin:0 0 1.1rem}
+.tts-row{margin-bottom:1.05rem}
+.tts-row > label{
+  display:block;font-size:var(--t-xs);font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:.4rem;
+}
+.tts-seg{display:flex;gap:3px;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:3px}
+.tts-seg button{
+  flex:1;border:0;background:transparent;border-radius:calc(var(--r-sm) - 3px);
+  padding:.42rem .3rem;font-size:var(--t-sm);font-weight:700;box-shadow:none;
+}
+.tts-seg button:hover{transform:none;background:var(--surface)}
+.tts-seg button[aria-pressed="true"]{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;
+}
+.tts-panel select{
+  width:100%;padding:.5rem .6rem;border-radius:var(--r-sm);
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  font-size:var(--t-sm);font-weight:600;cursor:pointer;
+}
+.tts-panel select:focus{border-color:var(--brand);outline:none}
+.tts-slider{display:flex;align-items:center;gap:.75rem}
+.tts-slider input[type=range]{flex:1;accent-color:var(--legal);cursor:pointer;height:22px}
+.tts-val{
+  font-family:var(--f-mono);font-weight:800;font-size:var(--t-sm);
+  min-width:3.4em;text-align:right;color:var(--legal);font-variant-numeric:tabular-nums;
+}
+.tts-note{
+  font-size:var(--t-xs);color:var(--ink-2);line-height:1.5;
+  background:var(--surface-2);border-radius:var(--r-sm);padding:.6rem .75rem;margin:0 0 1rem;
+}
+.tts-note b{color:var(--ink)}
+.tts-acts{display:flex;gap:.5rem;justify-content:flex-end;flex-wrap:wrap}
+.tts-acts .prim{
+  background:linear-gradient(140deg,var(--legal),var(--brand));color:#fff;border-color:transparent;
+}
+.tts-badge{
+  font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  padding:.1rem .35rem;border-radius:4px;background:var(--ej-bg);color:var(--ej);margin-left:.35rem;
+}
+
+
+/* — Variante compacta para los apartados desplegables — */
+.tts-bar.mini{margin:0 0 .6rem}
+.tts-bar.mini button{
+  font-size:.7rem;padding:.24rem .55rem;
+  border-color:var(--brand);color:var(--brand);
+}
+.tts-bar.mini button:hover{background:var(--brand);color:var(--surface)}
+.tts-bar.mini .tts-play.on{background:var(--brand);color:var(--surface)}
+.tts-bar.mini .tts-time{font-size:.66rem}
+.idea .tts-bar.mini{margin:.55rem 0 0}
+.legal.tts-on,.body.tts-on,.idea.tts-on{
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 20%,transparent)
+}
+.legal.tts-on{box-shadow:0 0 0 3px color-mix(in srgb,var(--legal) 20%,transparent)}
+
+
+/* aviso de cambio de voz */
+.tts-aviso{
+  position:fixed;left:50%;bottom:5.2rem;transform:translateX(-50%) translateY(20px);
+  z-index:95;max-width:min(92vw,460px);
+  background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);
+  border-radius:var(--r-md);padding:.6rem .9rem;font-size:var(--t-sm);font-weight:700;
+  box-shadow:var(--sh-2);opacity:0;pointer-events:none;
+  transition:opacity .3s var(--e-out),transform .35s var(--e-spring);
+}
+.tts-aviso.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:620px){
+  .tts-mini{left:.6rem;right:.6rem;transform:translateY(140%);max-width:none}
+  .tts-mini.show{transform:translateY(0)}
+  .tts-mini .lbl{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .tts-wave i{animation:none;height:60%}
+}
+@media print{.tts-bar,.tts-mini,.tts-back{display:none !important}}
+
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brandwrap">
+    <a class="mark" href="indice.html" title="Volver al índice">⏱</a>
+    <h1><span class="tit">Simulacro del tercer ejercicio · 5 de diciembre de 2026</span>
+      <span class="sub">Procedimiento administrativo · Contratos · Presupuestos · Subvenciones — formato del tercer ejercicio de 5 de diciembre de 2026 · 35 preguntas con corrección razonada</span></h1>
+    </div>
+    <div class="tools noprint">
+      <input type="search" id="q" placeholder="Buscar en la página…" aria-label="Buscar">
+      <span class="seg" role="group" aria-label="Modo de vista">
+        <button data-view="legal" aria-pressed="false">Texto legal</button>
+        <button data-view="expl" aria-pressed="false">Explicación</button>
+        <button data-view="both" aria-pressed="true">Ambos</button>
+      </span>
+      <button id="fs-" aria-label="Reducir texto">A−</button>
+      <button id="fs+" aria-label="Aumentar texto">A+</button>
+      <span class="streak" id="streak" title="Días seguidos estudiando" style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);font-weight:800;font-size:.8rem">🔥<span class="num" id="streakN">0</span></span>
+      <button id="theme" aria-label="Cambiar tema">◐</button>
+      <button id="expand">Desplegar todo</button>
+      <button onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="progress" id="prog"></div>
+</header>
+<div class="layout">
+<nav class="side collapsed" id="side" aria-label="Índice">
+  <button class="navtoggle" id="navtoggle" aria-expanded="false">☰ Índice</button>
+  <div class="navbody" id="navbody"></div>
+</nav>
+<main id="main"></main>
+</div>
+<script>
+const NAV=[["intro", "Cómo funciona el simulacro"], ["s1", "Supuesto 1 · Contratos y crédito"], ["s2", "Supuesto 2 · Subvenciones"], ["cal", "Calendario de febrero de 2027"], ["cifras", "Tabla de cifras y umbrales"], ["test", "Test · 35 preguntas"], ["legal", "Los preceptos, literales"], ["sem", "Semáforo de autoevaluación"], ["cierre", "Cierre y repaso espaciado"]];
+const GLOS={"valorestimado": ["Valor estimado", "El importe total del contrato sin IVA, incluidas las eventuales prórrogas y las modificaciones previstas en el pliego (art. 101 LCSP). Es la cifra con la que se mide todo: umbrales, procedimiento y competencia."], "pbl": ["Presupuesto base de licitación", "El límite máximo de gasto que el órgano de contratación puede comprometer, con el IVA desglosado (art. 100 LCSP). No se confunde con el valor estimado: aquel lleva IVA, este no."], "menor": ["Contrato menor", "El de valor estimado inferior a 40.000 € en obras o a 15.000 € en suministros y servicios. Se adjudica directamente, con informe de necesidad, aprobación del gasto y factura (art. 118 LCSP)."], "credef": ["Crédito definitivo", "El crédito inicial de una aplicación presupuestaria más o menos las modificaciones aprobadas. De él se descuentan retenciones y gastos autorizados para obtener el disponible."], "suplemento": ["Suplemento de crédito", "Modificación que aumenta un crédito que ya existe pero resulta insuficiente y no es ampliable. Si el crédito no existiera en absoluto, la figura sería el crédito extraordinario (art. 177 TRLHL y art. 35 RD 500/1990)."], "concurrencia": ["Concurrencia competitiva", "Régimen ordinario de concesión: se comparan las solicitudes, se ordenan según los criterios de las bases y se conceden las mejor valoradas dentro del crédito disponible (art. 22.1 LGS)."], "prorrateo": ["Prorrateo", "Reparto proporcional del crédito entre todos los beneficiarios en lugar de aplicar la prelación. Es excepcional y solo cabe si las bases reguladoras lo prevén (art. 22.1 LGS)."], "reintegro": ["Reintegro", "Devolución de la subvención percibida, con el interés de demora, cuando concurre alguna de las causas del art. 37 LGS. Puede ser total o parcial."], "bdns": ["BDNS", "Base de Datos Nacional de Subvenciones. Opera como Sistema Nacional de Publicidad de Subvenciones: a ella se comunica el texto de la convocatoria, y de ahí sale el extracto que se publica en el diario oficial (art. 20.8 LGS)."], "desistido": ["Tener por desistido", "Efecto de no atender el requerimiento de subsanación. No es un archivo automático: exige resolución expresa (arts. 68.1 y 21 LPAC)."], "habiles": ["Días hábiles", "Todos los días salvo sábados, domingos y declarados festivos (art. 30.2 LPAC). Cuando una ley quiere días naturales, lo dice y debe hacerse constar en la notificación."], "garantiadef": ["Garantía definitiva", "El 5 % del precio final ofertado, IVA excluido, que constituye quien va a ser adjudicatario (art. 107.1 LCSP). No se exige en la tramitación abreviada del art. 159.6."]};
+const TEST=[["S1", "El contrato 1 (obra de acerado) tiene un importe de 38.000 € sin IVA. ¿Cuál es el importe total con el IVA del 21 %?", ["45.980 €", "38.000 €", "7.980 €", "45.600 €"], 0, ["Correcta. 38.000 × 1,21 = 45.980 €. Esta es la cifra que consume crédito, porque el IVA se paga.", "Es la base imponible, la cifra sin IVA. Sirve para comparar umbrales, no para reservar crédito.", "Es solo la cuota de IVA: 38.000 × 0,21 = 7.980 €. Falta sumarle la base.", "Sale de aplicar un 20 % en lugar del 21 %."]], ["S1", "¿Cuál es el valor estimado del contrato 2 (mantenimiento de parques, 14.500 € al año, un año prorrogable por otro, con intención de prorrogar)?", ["14.500 €", "29.000 €", "17.545 €", "35.090 €"], 1, ["Olvida la prórroga. El art. 101.2.a) obliga a computar «cualquier forma de opción eventual y las eventuales prórrogas del contrato».", "Correcta. 14.500 × 2 años = 29.000 €. La prórroga entra en el valor estimado aunque todavía no se haya acordado.", "Añade el IVA, que el art. 101.1.a) excluye expresamente del valor estimado, y además olvida la prórroga.", "Suma las dos cosas mal: incluye prórroga y además IVA."]], ["S1", "¿Cuáles de los cinco contratos pueden adjudicarse como contrato menor?", ["El 1 y el 3", "El 1, el 3 y el 4", "Solo el 3", "El 1, el 2 y el 3"], 0, ["Correcta. Art. 118.1: obras por debajo de 40.000 € y suministros o servicios por debajo de 15.000 €, sobre el valor estimado. El 1 es obra de 38.000 € y el 3 suministro de 12.000 €.", "El contrato 4 es un servicio de 16.000 €, que ya alcanza el umbral de 15.000 €. Queda fuera.", "Deja fuera el contrato 1, que es obra de 38.000 € y está por debajo de los 40.000 € de su umbral.", "El contrato 2 tiene un valor estimado de 29.000 € con la prórroga, muy por encima de los 15.000 €."]], ["S1", "La cifra que se compara con los umbrales del art. 118.1 es…", ["el presupuesto base de licitación, IVA incluido", "el precio de adjudicación", "el valor estimado, IVA excluido", "el importe de la primera anualidad"], 2, ["El presupuesto base de licitación incluye el IVA (art. 100) y no es la referencia del art. 118.1.", "El precio de adjudicación no se conoce todavía cuando hay que decidir si el contrato es menor.", "Correcta. El art. 118.1 habla de «valor estimado», y el art. 101.1.a) lo define sin IVA e incluyendo prórrogas y modificaciones previstas.", "Tomar solo la primera anualidad es justamente el fraccionamiento que el art. 118.2 obliga a justificar que no se produce."]], ["S1", "Los recursos ordinarios del presupuesto son 3.000.000 €. ¿Quién es el órgano de contratación del contrato 5 (120.000 €, dos años)?", ["El Alcalde", "El Pleno", "La Junta de Gobierno Local", "La Junta de Contratación, obligatoriamente"], 0, ["Correcta. D. A. 2.ª.1: el Alcalde hasta el 10 % de los recursos ordinarios, aquí 300.000 €, y hasta seis millones; los plurianuales de duración no superior a cuatro años entran igual.", "El Pleno solo asume la competencia cuando por valor o duración excede del límite del Alcalde (D. A. 2.ª.2). Aquí no excede.", "La Junta de Gobierno Local es órgano de contratación en los municipios de gran población (D. A. 2.ª.4). Las Flores tiene 4.800 habitantes.", "La constitución de Juntas de Contratación en las entidades locales es potestativa (D. A. 2.ª.5)."]], ["S1", "La aplicación que soporta la obra tiene un crédito definitivo de 60.000 € y gastos autorizados por 18.000 €. ¿Cuál es el crédito disponible?", ["60.000 €", "18.000 €", "42.000 €", "14.020 €"], 2, ["Es el crédito definitivo, antes de descontar lo ya comprometido.", "Es lo ya autorizado, no lo que queda.", "Correcta. 60.000 − 18.000 = 42.000 €.", "Mezcla el crédito con el importe del contrato; no responde a ninguna operación del supuesto."]], ["S1", "¿Puede aprobarse el gasto del contrato 1 con ese crédito?", ["Sí, porque 38.000 € son menos de 42.000 €", "No: faltan 3.980 €", "Sí, porque el IVA no consume crédito", "No: faltan 18.000 €"], 1, ["Compara con la base imponible. El crédito se compromete por el importe total que el Ayuntamiento va a pagar, IVA incluido.", "Correcta. 45.980 − 42.000 = 3.980 €. Y el art. 173.5 TRLHL declara nulos de pleno derecho los acuerdos que superen el crédito autorizado.", "El IVA soportado es un mayor coste para la entidad local y se imputa al crédito como el resto del precio.", "18.000 € es lo autorizado previamente, no la diferencia que falta."]], ["S1", "¿Qué modificación de crédito procede para cubrir esos 3.980 €?", ["Un crédito extraordinario", "Una transferencia de crédito, en todo caso", "Un suplemento de crédito", "Una ampliación de crédito"], 2, ["El crédito extraordinario es para cuando NO existe crédito para esa finalidad (art. 35 RD 500/1990). Aquí existe, pero no llega.", "La transferencia es posible como técnica, pero la pregunta es por la figura que corresponde a una insuficiencia de crédito no ampliable, y esa es el suplemento.", "Correcta. Art. 177.1 TRLHL y art. 35 RD 500/1990: el crédito existe pero «resulta insuficiente y no puede ser objeto de ampliación».", "La ampliación de crédito solo cabe en las aplicaciones declaradas ampliables en las bases de ejecución y financiadas con ingresos afectados."]], ["S1", "¿Quién aprueba ese expediente y con qué trámites?", ["El Alcalde, por decreto, por razones de urgencia", "El Pleno, previo informe de Intervención y con los mismos trámites que el presupuesto", "El Pleno, pero sin exposición pública", "La Junta de Gobierno Local"], 1, ["El Alcalde ordena incoar el expediente (art. 177.1), pero no lo aprueba.", "Correcta. Art. 177.2 TRLHL: informe previo de la Intervención, aprobación por el Pleno y las mismas normas de información, reclamación y publicidad que el presupuesto (art. 169).", "Sí hay exposición pública: el art. 177.2 remite expresamente al art. 169.", "La Junta de Gobierno Local no tiene competencia sobre las modificaciones presupuestarias de esta clase."]], ["S1", "¿Puede el contrato 1 seguir la tramitación abreviada del procedimiento abierto simplificado?", ["Sí: 38.000 € es inferior a 80.000 €", "No: la tramitación abreviada es solo para suministros y servicios", "No: en obras el límite del abreviado es 40.000 €", "No: el abreviado exige valor estimado inferior a 60.000 € en todo caso"], 0, ["Correcta. El art. 159.6 fija 80.000 € para obras y 60.000 € para suministros y servicios.", "El art. 159.6 menciona expresamente los contratos de obras.", "40.000 € es el umbral del contrato menor de obras (art. 118.1), no el del abreviado.", "Los 60.000 € son el umbral de suministros y servicios; el de obras es más alto."]], ["S1", "Si el contrato 1 se licita por esa tramitación abreviada, ¿cuál es el plazo mínimo de presentación de proposiciones?", ["Quince días naturales", "Diez días hábiles desde el siguiente a la publicación en el perfil de contratante", "Veinte días", "Veintiséis días"], 1, ["Quince días es el plazo del simplificado ordinario (art. 159.3), y además allí no se dicen hábiles.", "Correcta. Art. 159.6.a). Si se tratara de compras corrientes de bienes disponibles en el mercado, serían cinco días hábiles.", "Veinte días es el mínimo del simplificado ordinario cuando el contrato es de obras (art. 159.3).", "Veintiséis días no es ningún plazo del procedimiento simplificado."]], ["S1", "El contrato 4 se tramita por la vía abreviada y se adjudica en 14.400 € sin IVA. ¿Qué garantía definitiva debe constituir la adjudicataria?", ["720 €", "871,20 €", "Ninguna", "432 €"], 2, ["Sería el 5 % del art. 107.1, que aquí no se aplica. Es el error más fácil de cometer con la calculadora en la mano.", "Sería el 5 % calculado sobre el precio con IVA, doblemente incorrecto: ni procede la garantía, ni se calcularía sobre el importe con IVA.", "Correcta. Art. 159.6.f): en la tramitación abreviada «no se requerirá la constitución de garantía definitiva».", "Es el 3 %, que además es el tope de la garantía provisional del art. 106.2, no de la definitiva."]], ["S1", "El contrato 5 se licita por el simplificado ordinario y se adjudica en 115.000 € sin IVA. ¿Cuál es la garantía definitiva?", ["6.957,50 €", "3.450 €", "11.500 €", "5.750 €"], 3, ["Aplica el 5 % sobre el precio con IVA. El art. 107.1 dice «excluido el Impuesto sobre el Valor Añadido».", "Es el 3 %, el tope de la garantía provisional del art. 106.2.", "Es el 10 %, que solo se alcanza si el pliego exige además la garantía complementaria del art. 107.2.", "Correcta. 115.000 × 5 % = 5.750 €."]], ["S1", "¿Dónde se publican los contratos menores adjudicados?", ["En el perfil de contratante", "En el Boletín Oficial del Estado", "En el Diario Oficial de la Unión Europea", "No se publican, por su escasa cuantía"], 0, ["Correcta. El art. 118.6 remite al art. 63.4, que es la publicidad en el perfil de contratante.", "El BOE no es el medio de publicidad de los contratos menores de una entidad local.", "El DOUE es para los contratos sujetos a regulación armonizada.", "Sí se publican: es precisamente el control de transparencia que el legislador quiso reforzar sobre el contrato menor."]], ["S1", "La resolución del órgano de contratación que aprueba el expediente…", ["no implica aprobación del gasto, que es acto separado", "implica también la aprobación del gasto y se publica en el perfil de contratante", "la dicta siempre el Pleno", "no necesita ser motivada"], 1, ["El art. 117.1 dice lo contrario de forma expresa.", "Correcta. Art. 117.1: «Dicha resolución implicará también la aprobación del gasto» y «deberá ser objeto de publicación en el perfil de contratante».", "La dicta el órgano de contratación, que aquí es el Alcalde.", "El art. 117.1 exige resolución motivada."]], ["S2", "Las bases dan el 50 % del presupuesto de la actividad con un máximo de 6.000 €. La asociación A presenta un presupuesto de 14.000 €. ¿Qué importe le corresponde?", ["7.000 €", "6.000 €", "14.000 €", "4.500 €"], 1, ["Es el 50 % puro, pero supera el tope de la convocatoria.", "Correcta. El 50 % de 14.000 serían 7.000 €, pero opera el límite de 6.000 € fijado en la convocatoria.", "Es el presupuesto íntegro de la actividad, no la subvención.", "No responde a ninguna de las dos reglas; además el art. 19.3 LGS solo impide superar el coste de la actividad."]], ["S2", "La asociación D presenta un presupuesto de 5.000 € y su solicitud llega sin firmar. ¿Qué importe le corresponde en principio?", ["5.000 €", "6.000 €", "0 €, porque la solicitud no está firmada", "2.500 €"], 3, ["Es el presupuesto de la actividad, no la subvención.", "Es el tope máximo, que aquí no llega a operar porque el 50 % queda muy por debajo.", "La falta de firma no excluye: es un defecto subsanable del art. 66.1.e) LPAC y abre el requerimiento del art. 68.1.", "Correcta. El 50 % de 5.000 son 2.500 €, por debajo del tope."]], ["S2", "El crédito de la convocatoria es de 30.000 €. ¿Cuánto se concede en total y cuánto sobra?", ["18.500 € concedidos y 11.500 € sobrantes", "23.500 € y 6.500 €", "30.000 € y 0 €", "24.000 € y 6.000 €"], 0, ["Correcta. 6.000 + 4.000 + 6.000 + 2.500 = 18.500 €; 30.000 − 18.500 = 11.500 €.", "Resulta de no aplicar el tope a una de las entidades.", "El crédito es un máximo, no un importe que haya que agotar.", "Resulta de aplicar el tope de 6.000 € a cuatro entidades por igual, sin calcular el 50 % de cada presupuesto."]], ["S2", "¿Procede prorratear el crédito entre las beneficiarias?", ["Sí, siempre que haya concurrencia competitiva", "Sí, porque lo impone el art. 22.1 LGS", "No: el prorrateo es excepcional, exige previsión en las bases y además aquí sobra crédito", "Solo si lo acuerda la Intervención"], 2, ["La concurrencia competitiva es el régimen ordinario; el prorrateo es una excepción dentro de él.", "El art. 22.1 lo configura justo al revés: «Excepcionalmente, siempre que así se prevea en las bases reguladoras».", "Correcta. Y hay una segunda razón, más sencilla: con 30.000 € de crédito y 18.500 € solicitados no hay nada que prorratear.", "La Intervención fiscaliza; no decide el sistema de reparto, que lo fijan las bases."]], ["S2", "¿En qué instrumento se aprueban las bases reguladoras de una corporación local?", ["En una orden del concejal delegado", "En las bases de ejecución del presupuesto, una ordenanza general o una ordenanza específica", "En la propia convocatoria, siempre", "En un convenio con cada beneficiaria"], 1, ["La orden ministerial es el instrumento de la Administración General del Estado (art. 17.1).", "Correcta. Art. 17.2 LGS, que enumera exactamente esas tres vías.", "La convocatoria puede incluirlas por su especificidad, pero no es la regla general del art. 17.2 para las entidades locales.", "El convenio es el instrumento de la concesión directa nominativa (art. 22.2.a), no de las bases."]], ["S2", "¿Cómo se inicia el procedimiento de concesión en concurrencia competitiva?", ["Siempre de oficio, mediante convocatoria", "A solicitud de los interesados", "De oficio o a instancia de parte, indistintamente", "Por acuerdo del órgano colegiado de valoración"], 0, ["Correcta. Art. 23.1 y 23.2 LGS. La solicitud de la asociación no inicia nada: se presenta dentro de un procedimiento ya abierto.", "Es el error clásico. La solicitud es un acto de la interesada dentro del procedimiento, no su inicio.", "El art. 23.1 no deja alternativa: «se inicia siempre de oficio».", "El órgano colegiado formula la propuesta de concesión, no inicia el procedimiento."]], ["S2", "El requerimiento para que D subsane la falta de firma, ¿con qué plazo se concede?", ["Quince días", "Diez días", "Cinco días", "Un mes"], 1, ["Quince días es el plazo de audiencia del art. 82, no el de subsanación.", "Correcta. Art. 68.1 LPAC: diez días, con la advertencia de tenerle por desistido.", "Cinco días es la ampliación del art. 68.2, no el plazo inicial.", "El mes es el plazo del recurso de reposición, no el de subsanación."]], ["S2", "¿Puede ampliarse ese plazo cinco días más a petición de la asociación?", ["Sí, a petición de la interesada", "Sí, de oficio, si el órgano lo estima oportuno", "No: el art. 68.2 excluye los procedimientos de concurrencia competitiva", "Sí, y hasta diez días más"], 2, ["La ampliación existe, pero el propio precepto la condiciona a que no estemos en concurrencia competitiva.", "Lo mismo: ni de oficio ni a instancia, porque la exclusión es objetiva, por el tipo de procedimiento.", "Correcta. Art. 68.2: «Siempre que no se trate de procedimientos selectivos o de concurrencia competitiva». Aquí lo es, así que no cabe.", "El tope de la ampliación, cuando procede, son cinco días, no diez."]], ["S2", "El requerimiento se notifica el lunes 1 de febrero de 2027. Con el calendario adjunto, ¿cuál es el último día del plazo?", ["Jueves 11 de febrero de 2027", "Viernes 12 de febrero de 2027", "Lunes 15 de febrero de 2027", "Domingo 14 de febrero de 2027"], 2, ["Cuenta diez días naturales desde el día 1, sin excluir fines de semana y sin empezar el día siguiente.", "Cuenta bien los hábiles pero empieza el mismo día 1, cuando el art. 30.3 manda contar desde el día siguiente.", "Correcta. Se empieza el martes 2 (art. 30.3) y se excluyen sábados y domingos (art. 30.2): el décimo día hábil es el lunes 15.", "Cuenta catorce días naturales y además cae en domingo, que es inhábil."]], ["S2", "Si D no subsana en plazo, ¿qué ocurre?", ["Se archiva el expediente sin más trámite", "Se le tiene por desistida de su petición, previa resolución expresa", "Se le inadmite la solicitud", "Se le concede de oficio un nuevo plazo"], 1, ["No basta el archivo: el art. 68.1 exige una resolución, dictada en los términos del art. 21.", "Correcta. Art. 68.1 LPAC en relación con el art. 21: hay que dictar y notificar resolución declarando el desistimiento.", "La inadmisión es otra figura, reservada a los recursos y a supuestos tasados.", "El plazo de subsanación no se reabre de oficio."]], ["S2", "La convocatoria se publica el lunes 11 de enero de 2027. ¿Cuál es el plazo máximo para resolver y notificar?", ["Tres meses desde cada solicitud", "Seis meses desde cada solicitud", "Seis meses desde la publicación de la convocatoria", "Doce meses"], 2, ["Los tres meses del art. 21.3 LPAC son supletorios, para cuando la norma reguladora no fija plazo. Aquí sí lo fija.", "El plazo es de seis meses, pero no se cuenta desde la solicitud.", "Correcta. Art. 25.4 LGS: seis meses, computados «a partir de la publicación de la correspondiente convocatoria».", "Doce meses es el plazo del procedimiento de reintegro (art. 42.4), no el de concesión."]], ["S2", "Aplicando ese plazo, ¿cuál es el último día para notificar la resolución?", ["Domingo 11 de julio de 2027", "Lunes 12 de julio de 2027", "Sábado 10 de julio de 2027", "Viernes 11 de junio de 2027"], 1, ["El cómputo lleva al 11 de julio, pero ese día es domingo e inhábil.", "Correcta. El art. 30.4 lleva el vencimiento al 11 de julio; como es domingo, el art. 30.5 lo prorroga al primer día hábil siguiente.", "Adelantar al día hábil anterior es justo lo contrario de lo que dice el art. 30.5.", "Cuenta cinco meses en lugar de seis."]], ["S2", "Si transcurre ese plazo sin resolución expresa, ¿cuál es el sentido del silencio?", ["Estimatorio, por la regla general del art. 24.1 LPAC", "Desestimatorio", "No hay silencio: la Administración está obligada a resolver", "Estimatorio si sobra crédito"], 1, ["El art. 24.1 admite excepciones establecidas por norma con rango de ley, y la Ley 38/2003 es una de ellas.", "Correcta. Art. 25.5 LGS: el interesado queda legitimado para entender desestimada su solicitud.", "La obligación de resolver del art. 21.1 LPAC subsiste, pero no impide que el silencio produzca efectos mientras tanto.", "La existencia de crédito sobrante no altera el sentido del silencio."]], ["S2", "La asociación C, que percibió 6.000 € sobre un presupuesto de 20.000 €, justifica gasto por 16.000 €. ¿Qué reintegro procede?", ["No procede reintegro", "1.200 €", "2.000 €", "6.000 €"], 0, ["Correcta. El 50 % de lo efectivamente justificado son 8.000 €, por encima de los 6.000 € percibidos: el gasto acreditado cubre de sobra la subvención.", "Aplica el 20 % de desviación sobre los 6.000 €, pero la regla no es esa: hay que ver si lo justificado soporta lo percibido.", "Es la diferencia entre presupuesto y justificación multiplicada por el 50 %, operación que aquí no procede.", "El reintegro total exigiría falta absoluta de justificación, no una justificación del 80 % del presupuesto."]], ["S2", "La asociación A, que percibió 6.000 € sobre un presupuesto de 14.000 €, justifica gasto por 9.000 €. ¿Qué reintegro procede?", ["2.500 €", "1.500 €", "4.500 €", "6.000 €"], 1, ["No corresponde a ninguna de las operaciones del supuesto.", "Correcta. El 50 % de 9.000 € son 4.500 € de subvención procedente; 6.000 − 4.500 = 1.500 € a reintegrar.", "4.500 € es la cantidad que A conserva, no la que devuelve.", "El reintegro total solo procedería si no hubiera justificado nada."]], ["S2", "Los intereses de demora del reintegro se exigen…", ["desde la notificación del acuerdo de reintegro", "desde que venció el plazo de justificación", "desde el pago de la subvención hasta que se acuerde la procedencia del reintegro", "no se devengan en los incumplimientos parciales"], 2, ["Esa fecha es posterior y dejaría sin interés todo el periodo en que la entidad dispuso de un dinero que no le correspondía.", "Es la fecha desde la que se cuenta la prescripción del art. 39.2.a), no los intereses.", "Correcta. Art. 37.1 LGS, que lo dice con esas palabras, o hasta la fecha del ingreso si es anterior.", "El art. 37.1 no distingue: también el reintegro parcial devenga interés de demora."]], ["S2", "¿Cuál es el plazo máximo del procedimiento de reintegro y qué ocurre si se agota?", ["Seis meses, con silencio desestimatorio", "Doce meses desde el acuerdo de iniciación; se produce la caducidad", "Cuatro años", "Tres meses, con archivo de las actuaciones"], 1, ["Los seis meses son el plazo de la concesión, no el del reintegro.", "Correcta. Art. 42.4 LGS: doce meses desde el acuerdo de iniciación, y su transcurso produce la caducidad del procedimiento.", "Cuatro años es el plazo de prescripción del art. 39.1, cosa distinta de la duración del procedimiento.", "No es el plazo, y la consecuencia es la caducidad, no un simple archivo."]], ["S2", "¿En qué plazo prescribe el derecho de la Administración a reconocer o liquidar el reintegro?", ["Cuatro años", "Cinco años", "Doce meses", "Quince años"], 0, ["Correcta. Art. 39.1 LGS, contado desde que venció el plazo de justificación (art. 39.2.a).", "Cinco años no es el plazo de la Ley 38/2003.", "Doce meses es la duración máxima del procedimiento de reintegro (art. 42.4).", "Quince años es el plazo civil de las acciones personales, ajeno a esta materia."]], ["S2", "¿Puede el Ayuntamiento pagar la subvención antes de que se justifique la actividad?", ["Nunca: el art. 34.3 exige justificación previa", "Sí, siempre, hasta el 50 % del importe", "Sí, si lo prevé expresamente la normativa reguladora, que fijará el régimen de garantías", "Solo con aval bancario por el 100 % del importe"], 2, ["La regla general es la del art. 34.3, pero el 34.4 admite expresamente pagos a cuenta y anticipados.", "No hay un porcentaje automático: depende de lo que fije la normativa reguladora.", "Correcta. Art. 34.4 LGS: la posibilidad y el régimen de garantías «deberán preverse expresamente en la normativa reguladora de la subvención».", "El régimen de garantías lo fija la normativa reguladora; no hay una exigencia legal de aval por el total."]], ["S2", "¿Qué debe comunicarse a la Base de Datos Nacional de Subvenciones?", ["Solo el importe finalmente concedido", "El texto de la convocatoria y la información que la Base requiera, publicándose un extracto en el diario oficial", "Nada: basta la publicación en el tablón de anuncios", "Solo las subvenciones que superen un determinado importe"], 1, ["El importe concedido es parte de la información, pero la comunicación arranca antes, con el texto mismo de la convocatoria.", "Correcta. Arts. 20.8.a) y 23.2 LGS: la convocatoria se publica en la BDNS y un extracto en el diario oficial correspondiente.", "El tablón no sustituye a la BDNS, que opera como Sistema Nacional de Publicidad de Subvenciones.", "La Ley no fija un umbral de importe para esta comunicación."]]];
+const SEM=["Distingo valor estimado de presupuesto base de licitación y sé cuál lleva IVA", "Sé que las prórrogas entran en el valor estimado aunque no se hayan acordado", "Me sé de memoria 40.000 y 15.000 del contrato menor, y 80.000 y 60.000 del abreviado", "Calculo el crédito disponible y sé que el gasto se compromete con IVA", "Distingo crédito extraordinario de suplemento de crédito y sé quién los aprueba", "Sé cuándo el órgano de contratación es el Alcalde y cuándo el Pleno", "Sé que en la tramitación abreviada no hay garantía definitiva", "Calculo la garantía definitiva al 5 % sobre el precio sin IVA", "Aplico el tope de la convocatoria sobre el porcentaje de subvención", "Sé que el prorrateo es excepcional y exige previsión en las bases", "Cuento un plazo en días hábiles sobre un calendario sin equivocarme", "Cuento un plazo en meses y aplico la prórroga del último día inhábil", "Sé que en subvenciones el silencio es desestimatorio y por qué", "Recalculo la subvención procedente sobre el gasto justificado y obtengo el reintegro", "Sé desde cuándo corren los intereses de demora del reintegro", "Distingo los 12 meses del procedimiento de reintegro de los 4 años de prescripción"];
+</script>
+<script>
+document.getElementById("main").innerHTML="<section class=\"card\" id=\"intro\"><h2>Simulacro · dos supuestos prácticos con calculadora</h2>\n<div class=\"idea\">Dos supuestos independientes, 35 preguntas de cuatro opciones. La calculadora hace falta para el IVA, los umbrales, los porcentajes y los saldos de crédito; para las fechas no, porque tienes el calendario.</div>\n<p class=\"small\">Calibrado sobre el nivel de los supuestos oficiales de auxiliar administrativo: nada de fórmulas de puntuación de ofertas ni de cálculo de intereses. Lo que se pide es <b>calificar</b> —qué contrato es, qué procedimiento cabe, qué órgano decide, qué plazo corre— y hacer <b>una o dos operaciones sencillas</b> con cifras redondas.</p>\n<div class=\"box warn\"><span class=\"lbl\">Antes de empezar</span>Verifica la vigencia en el BOE consolidado. Los umbrales de los contratos sujetos a regulación armonizada se revisan cada dos años por reglamento de la Comisión Europea; los documentos de la biblioteca recogen los que estaban en vigor en la fecha de su consolidación. Los umbrales del contrato menor (40.000 y 15.000 €) y los del procedimiento abreviado (80.000 y 60.000 €) están en la propia Ley 9/2017 y no se actualizan por esa vía.</div>\n<div class=\"box ej\"><span class=\"lbl\">Cómo sacarle partido</span><ol><li>Lee el enunciado y haz los cálculos <b>en papel</b>, sin mirar las opciones.</li><li>Contesta las 35 preguntas de una tirada, cronometradas: 60 minutos.</li><li>Corrige y lee la explicación de <b>las cuatro</b> opciones, no solo de la que fallaste. Las incorrectas son errores reales de examen.</li><li>Usa «Repetir solo los fallos» al día siguiente.</li></ol></div>\n<p class=\"small\"><b>Ámbito formativo.</b> Los supuestos son ficticios y están construidos para estudiar. No son asesoramiento jurídico para ningún expediente real.</p>\n</section><section class=\"card\" id=\"s1\"><h2>Supuesto 1 · Contratación y crédito</h2>\n<div class=\"legal\"><span class=\"lbl\">Enunciado</span>\n<p>El <b>Ayuntamiento de Las Flores</b>, municipio de régimen común de la provincia de Málaga con <b>4.800 habitantes</b>, tiene aprobado su presupuesto para 2027. Los <b>recursos ordinarios</b> del presupuesto ascienden a <b>3.000.000 €</b>.</p>\n<p>El negociado de contratación prepara cinco expedientes. Todos los importes se expresan <b>sin IVA</b>, siendo aplicable el tipo general del <b>21 %</b>:</p>\n<table><thead><tr><th>N.º</th><th>Objeto</th><th>Importe</th><th>Duración</th></tr></thead><tbody>\n<tr><td>1</td><td>Obra de reparación del acerado de la calle Mayor</td><td>38.000 €</td><td>4 meses</td></tr>\n<tr><td>2</td><td>Servicio de mantenimiento de parques y jardines</td><td>14.500 € al año</td><td>1 año, prorrogable por otro; <b>se tiene intención de prorrogar</b></td></tr>\n<tr><td>3</td><td>Suministro de equipos informáticos</td><td>12.000 €</td><td>Entrega única</td></tr>\n<tr><td>4</td><td>Servicio de organización de un curso de formación</td><td>16.000 €</td><td>1 año</td></tr>\n<tr><td>5</td><td>Servicio de limpieza de edificios municipales</td><td>60.000 € al año</td><td>2 años, sin prórroga</td></tr>\n</tbody></table>\n<p>La aplicación presupuestaria que soporta la <b>obra</b> tiene un <b>crédito definitivo de 60.000 €</b>, con <b>gastos autorizados por 18.000 €</b> y ninguna retención pendiente. Ninguno de los contratos tiene por objeto prestaciones de carácter intelectual.</p>\n<p>Finalmente, el contrato 4 se tramita por la vía abreviada del procedimiento abierto simplificado y se adjudica en <b>14.400 €</b>; el contrato 5 se tramita por el procedimiento abierto simplificado ordinario y se adjudica en <b>115.000 €</b>. Ambos importes, sin IVA.</p>\n</div>\n<svg viewBox=\"0 0 980 352\" width=\"100%\" role=\"img\" aria-label=\"Cuadro de los cinco contratos con su valor estimado, si caben como contrato menor y el procedimiento aplicable\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"v1fr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#4b5563\"/></marker><marker id=\"v1fe\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#15803d\"/></marker><marker id=\"v1fw\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#b45309\"/></marker></defs><text x=\"490\" y=\"24\" font-size=\"13\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"bold\">Los cinco contratos: qué cifra se compara y con qué umbral</text><rect x=\"20\" y=\"38\" width=\"250\" height=\"30\" rx=\"8\" fill=\"#e8efff\" stroke=\"#1d4ed8\" stroke-width=\"1.4\"/><text x=\"145\" y=\"57\" font-size=\"11.5\" text-anchor=\"middle\" fill=\"#1d4ed8\" font-weight=\"bold\">Contrato</text><rect x=\"280\" y=\"38\" width=\"150\" height=\"30\" rx=\"8\" fill=\"#e8efff\" stroke=\"#1d4ed8\" stroke-width=\"1.4\"/><text x=\"355\" y=\"57\" font-size=\"11.5\" text-anchor=\"middle\" fill=\"#1d4ed8\" font-weight=\"bold\">Valor estimado</text><rect x=\"440\" y=\"38\" width=\"190\" height=\"30\" rx=\"8\" fill=\"#e8efff\" stroke=\"#1d4ed8\" stroke-width=\"1.4\"/><text x=\"535\" y=\"57\" font-size=\"11.5\" text-anchor=\"middle\" fill=\"#1d4ed8\" font-weight=\"bold\">¿Contrato menor?</text><rect x=\"640\" y=\"38\" width=\"320\" height=\"30\" rx=\"8\" fill=\"#e8efff\" stroke=\"#1d4ed8\" stroke-width=\"1.4\"/><text x=\"800\" y=\"57\" font-size=\"11.5\" text-anchor=\"middle\" fill=\"#1d4ed8\" font-weight=\"bold\">Procedimiento que encaja</text><rect x=\"20\" y=\"74\" width=\"250\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"145\" y=\"94.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">1 · Obra de acerado</text><text x=\"145\" y=\"107.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">38.000 € (4 meses)</text><rect x=\"280\" y=\"74\" width=\"150\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"355\" y=\"100.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">38.000 €</text><rect x=\"440\" y=\"74\" width=\"190\" height=\"46\" rx=\"8\" fill=\"#eaf6ee\" stroke=\"#15803d\" stroke-width=\"1.4\"/><text x=\"535\" y=\"94.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">SÍ</text><text x=\"535\" y=\"107.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">obras &lt; 40.000</text><rect x=\"640\" y=\"74\" width=\"320\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"800\" y=\"94.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">Contrato menor: informe, aprobación</text><text x=\"800\" y=\"107.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">del gasto y factura (art. 118)</text><rect x=\"20\" y=\"124\" width=\"250\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"145\" y=\"144.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">2 · Servicio de parques</text><text x=\"145\" y=\"157.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">14.500 €/año + 1 prórroga</text><rect x=\"280\" y=\"124\" width=\"150\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"355\" y=\"150.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">29.000 €</text><rect x=\"440\" y=\"124\" width=\"190\" height=\"46\" rx=\"8\" fill=\"#fdeceb\" stroke=\"#b91c1c\" stroke-width=\"1.4\"/><text x=\"535\" y=\"144.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">NO</text><text x=\"535\" y=\"157.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">servicios ≥ 15.000</text><rect x=\"640\" y=\"124\" width=\"320\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"800\" y=\"144.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">Abierto simplificado abreviado</text><text x=\"800\" y=\"157.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">art. 159.6</text><rect x=\"20\" y=\"174\" width=\"250\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"145\" y=\"194.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">3 · Suministro informático</text><text x=\"145\" y=\"207.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">12.000 €</text><rect x=\"280\" y=\"174\" width=\"150\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"355\" y=\"200.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">12.000 €</text><rect x=\"440\" y=\"174\" width=\"190\" height=\"46\" rx=\"8\" fill=\"#eaf6ee\" stroke=\"#15803d\" stroke-width=\"1.4\"/><text x=\"535\" y=\"194.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">SÍ</text><text x=\"535\" y=\"207.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">suministros &lt; 15.000</text><rect x=\"640\" y=\"174\" width=\"320\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"800\" y=\"194.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">Contrato menor: informe, aprobación</text><text x=\"800\" y=\"207.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">del gasto y factura (art. 118)</text><rect x=\"20\" y=\"224\" width=\"250\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"145\" y=\"244.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">4 · Servicio de un curso</text><text x=\"145\" y=\"257.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">16.000 € (1 año)</text><rect x=\"280\" y=\"224\" width=\"150\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"355\" y=\"250.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">16.000 €</text><rect x=\"440\" y=\"224\" width=\"190\" height=\"46\" rx=\"8\" fill=\"#fdeceb\" stroke=\"#b91c1c\" stroke-width=\"1.4\"/><text x=\"535\" y=\"244.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">NO</text><text x=\"535\" y=\"257.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">servicios ≥ 15.000</text><rect x=\"640\" y=\"224\" width=\"320\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"800\" y=\"244.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">Abierto simplificado abreviado</text><text x=\"800\" y=\"257.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">art. 159.6</text><rect x=\"20\" y=\"274\" width=\"250\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"145\" y=\"294.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">5 · Servicio de limpieza</text><text x=\"145\" y=\"307.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">60.000 €/año × 2 años</text><rect x=\"280\" y=\"274\" width=\"150\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"355\" y=\"300.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">120.000 €</text><rect x=\"440\" y=\"274\" width=\"190\" height=\"46\" rx=\"8\" fill=\"#fdeceb\" stroke=\"#b91c1c\" stroke-width=\"1.4\"/><text x=\"535\" y=\"300.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">NO</text><rect x=\"640\" y=\"274\" width=\"320\" height=\"46\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"800\" y=\"294.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">Abierto simplificado ordinario</text><text x=\"800\" y=\"307.175\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">art. 159.1 y 159.3</text><text x=\"490\" y=\"340\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#b45309\" font-weight=\"bold\">El umbral del art. 118.1 se compara siempre con el VALOR ESTIMADO, IVA excluido y prórrogas incluidas (art. 101).</text></svg>\n<p class=\"small\">Las tres operaciones del supuesto: pasar de base a total sumando el 21 %; construir el <span class=\"t\" data-g=\"valorestimado\">valor estimado</span> incluyendo la prórroga; y restar del <span class=\"t\" data-g=\"credef\">crédito definitivo</span> lo ya autorizado.</p>\n<svg viewBox=\"0 0 940 268\" width=\"100%\" role=\"img\" aria-label=\"Cálculo del crédito disponible y modificación presupuestaria procedente\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"v2fr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#4b5563\"/></marker><marker id=\"v2fe\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#15803d\"/></marker><marker id=\"v2fw\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#b45309\"/></marker></defs><text x=\"470\" y=\"22\" font-size=\"13\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"bold\">Del crédito de la aplicación al suplemento de crédito</text><rect x=\"20\" y=\"40\" width=\"195\" height=\"56\" rx=\"8\" fill=\"#e8efff\" stroke=\"#1d4ed8\" stroke-width=\"1.4\"/><text x=\"117.5\" y=\"64.2\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1d4ed8\" font-weight=\"bold\">Crédito definitivo</text><text x=\"117.5\" y=\"80.2\" font-size=\"12\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">60.000 €</text><rect x=\"255\" y=\"40\" width=\"195\" height=\"56\" rx=\"8\" fill=\"#f1f3f7\" stroke=\"#4b5563\" stroke-width=\"1.4\"/><text x=\"352.5\" y=\"64.2\" font-size=\"12\" text-anchor=\"middle\" fill=\"#4b5563\" font-weight=\"bold\">− Gastos autorizados</text><text x=\"352.5\" y=\"80.2\" font-size=\"12\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">18.000 €</text><rect x=\"490\" y=\"40\" width=\"195\" height=\"56\" rx=\"8\" fill=\"#eaf6ee\" stroke=\"#15803d\" stroke-width=\"1.4\"/><text x=\"587.5\" y=\"64.2\" font-size=\"12\" text-anchor=\"middle\" fill=\"#15803d\" font-weight=\"bold\">= Crédito disponible</text><text x=\"587.5\" y=\"80.2\" font-size=\"12\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">42.000 €</text><rect x=\"725\" y=\"40\" width=\"195\" height=\"56\" rx=\"8\" fill=\"#fdf3e3\" stroke=\"#b45309\" stroke-width=\"1.4\"/><text x=\"822.5\" y=\"64.2\" font-size=\"12\" text-anchor=\"middle\" fill=\"#b45309\" font-weight=\"bold\">Gasto con IVA</text><text x=\"822.5\" y=\"80.2\" font-size=\"12\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">45.980 €</text><line x1=\"219\" y1=\"68\" x2=\"249\" y2=\"68\" stroke=\"#4b5563\" stroke-width=\"1.6\" marker-end=\"url(#v2fr)\"/><line x1=\"454\" y1=\"68\" x2=\"484\" y2=\"68\" stroke=\"#4b5563\" stroke-width=\"1.6\" marker-end=\"url(#v2fr)\"/><line x1=\"689\" y1=\"68\" x2=\"719\" y2=\"68\" stroke=\"#4b5563\" stroke-width=\"1.6\" marker-end=\"url(#v2fr)\"/><rect x=\"260\" y=\"124\" width=\"420\" height=\"48\" rx=\"8\" fill=\"#fdeceb\" stroke=\"#b91c1c\" stroke-width=\"1.4\"/><text x=\"470\" y=\"152.55\" font-size=\"13\" text-anchor=\"middle\" fill=\"#b91c1c\" font-weight=\"bold\">Insuficiencia: 3.980 €</text><line x1=\"822\" y1=\"100\" x2=\"690\" y2=\"124\" stroke=\"#b45309\" stroke-width=\"1.6\" marker-end=\"url(#v2fw)\"/><rect x=\"170\" y=\"192\" width=\"600\" height=\"56\" rx=\"8\" fill=\"#e8efff\" stroke=\"#1d4ed8\" stroke-width=\"1.4\"/><text x=\"470\" y=\"216.025\" font-size=\"11.5\" text-anchor=\"middle\" fill=\"#1d4ed8\" font-weight=\"bold\">Suplemento de crédito — art. 177.1 TRLHL y art. 35 RD 500/1990</text><text x=\"470\" y=\"232.025\" font-size=\"11.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">Lo aprueba el Pleno, con informe previo de Intervención</text><line x1=\"470\" y1=\"176\" x2=\"470\" y2=\"190\" stroke=\"#4b5563\" stroke-width=\"1.6\" marker-end=\"url(#v2fr)\"/></svg>\n<p class=\"small\">Cuando el crédito no llega, la figura es el <span class=\"t\" data-g=\"suplemento\">suplemento de crédito</span>, no el crédito extraordinario: el crédito existe, solo que se queda corto.</p>\n<div class=\"box warn\"><span class=\"lbl\">La trampa del bloque</span>El umbral del <span class=\"t\" data-g=\"menor\">contrato menor</span> se compara con el valor estimado <b>sin IVA</b>, que no es el <span class=\"t\" data-g=\"pbl\">presupuesto base de licitación</span>; el crédito, en cambio, se compromete por el importe <b>con IVA</b>, porque es lo que el Ayuntamiento va a pagar. Quien usa la misma cifra para las dos cosas falla una de las dos.</div>\n</section><section class=\"card\" id=\"s2\"><h2>Supuesto 2 · Subvenciones, crédito y justificación</h2>\n<div class=\"legal\"><span class=\"lbl\">Enunciado</span>\n<p>El mismo Ayuntamiento de Las Flores convoca subvenciones en régimen de <b><span class=\"t\" data-g=\"concurrencia\">concurrencia competitiva</span></b> para asociaciones culturales del municipio, con un <b>crédito de 30.000 €</b>. Las bases disponen que cada entidad podrá recibir el <b>50 % del presupuesto de su actividad</b>, con un <b>máximo de 6.000 €</b> por beneficiaria, y <b>no contienen previsión alguna sobre prorrateo</b>.</p>\n<p>La convocatoria se publica el <b>lunes 11 de enero de 2027</b>. Se presentan cuatro solicitudes, todas en plazo y todas con derecho a ser beneficiarias:</p>\n<table><thead><tr><th>Asociación</th><th>Presupuesto de la actividad</th><th>Incidencia</th></tr></thead><tbody>\n<tr><td>A</td><td>14.000 €</td><td>—</td></tr>\n<tr><td>B</td><td>8.000 €</td><td>—</td></tr>\n<tr><td>C</td><td>20.000 €</td><td>—</td></tr>\n<tr><td>D</td><td>5.000 €</td><td>La solicitud se presenta <b>sin firmar</b></td></tr>\n</tbody></table>\n<p>El requerimiento de subsanación a la asociación D se notifica el <b>lunes 1 de febrero de 2027</b>. En ese periodo no hay festivos nacionales, autonómicos ni locales.</p>\n<p>Concluidas las actividades, <b>C justifica gasto por 16.000 €</b> y <b>A justifica gasto por 9.000 €</b>. Ambas habían percibido el importe que les correspondía según las bases.</p>\n</div>\n<svg viewBox=\"0 0 1000 300\" width=\"100%\" role=\"img\" aria-label=\"Importe que corresponde a cada asociación con el tope de seis mil euros y crédito sobrante\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"v3fr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#4b5563\"/></marker><marker id=\"v3fe\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#15803d\"/></marker><marker id=\"v3fw\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#b45309\"/></marker></defs><text x=\"500\" y=\"22\" font-size=\"13\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"bold\">Reparto del crédito: 50 % del presupuesto, con el tope de 6.000 €</text><text x=\"238\" y=\"68\" font-size=\"11\" text-anchor=\"end\" fill=\"#15181d\" font-weight=\"normal\">A · presupuesto 14.000 €</text><rect x=\"250\" y=\"52\" width=\"252\" height=\"26\" rx=\"5\" fill=\"#fdf3e3\" stroke=\"#b45309\" stroke-width=\"1.4\"/><text x=\"512\" y=\"70\" font-size=\"10\" text-anchor=\"start\" fill=\"#4b5563\" font-weight=\"normal\">6.000 €  ·  tope: el 50 % serían 7.000 €</text><text x=\"238\" y=\"112\" font-size=\"11\" text-anchor=\"end\" fill=\"#15181d\" font-weight=\"normal\">B · presupuesto 8.000 €</text><rect x=\"250\" y=\"96\" width=\"168\" height=\"26\" rx=\"5\" fill=\"#eaf6ee\" stroke=\"#15803d\" stroke-width=\"1.4\"/><text x=\"428\" y=\"114\" font-size=\"10\" text-anchor=\"start\" fill=\"#4b5563\" font-weight=\"normal\">4.000 €  ·  50 % exacto</text><text x=\"238\" y=\"156\" font-size=\"11\" text-anchor=\"end\" fill=\"#15181d\" font-weight=\"normal\">C · presupuesto 20.000 €</text><rect x=\"250\" y=\"140\" width=\"252\" height=\"26\" rx=\"5\" fill=\"#fdf3e3\" stroke=\"#b45309\" stroke-width=\"1.4\"/><text x=\"512\" y=\"158\" font-size=\"10\" text-anchor=\"start\" fill=\"#4b5563\" font-weight=\"normal\">6.000 €  ·  tope: el 50 % serían 10.000 €</text><text x=\"238\" y=\"200\" font-size=\"11\" text-anchor=\"end\" fill=\"#15181d\" font-weight=\"normal\">D · presupuesto 5.000 €</text><rect x=\"250\" y=\"184\" width=\"105\" height=\"26\" rx=\"5\" fill=\"#eaf6ee\" stroke=\"#15803d\" stroke-width=\"1.4\"/><text x=\"365\" y=\"202\" font-size=\"10\" text-anchor=\"start\" fill=\"#4b5563\" font-weight=\"normal\">2.500 €  ·  50 % exacto</text><text x=\"238\" y=\"244\" font-size=\"11\" text-anchor=\"end\" fill=\"#15181d\" font-weight=\"normal\">Crédito que sobra</text><rect x=\"250\" y=\"228\" width=\"483\" height=\"26\" rx=\"5\" fill=\"#e8efff\" stroke=\"#1d4ed8\" stroke-width=\"1.4\"/><text x=\"743\" y=\"246\" font-size=\"10\" text-anchor=\"start\" fill=\"#4b5563\" font-weight=\"normal\">11.500 €  ·  30.000 − 18.500</text><text x=\"500\" y=\"284\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#b45309\" font-weight=\"bold\">Suma concedida 18.500 € · El prorrateo del art. 22.1 es excepcional y exige previsión en las bases: aquí no procede.</text></svg>\n<p class=\"small\">Dos reglas y una sola operación por entidad: calcula el 50 % y, si pasa de 6.000 €, aplica el tope. Después comprueba si el <span class=\"t\" data-g=\"prorrateo\">prorrateo</span> procede, que es una pregunta de derecho, no de calculadora.</p>\n<svg viewBox=\"0 0 960 210\" width=\"100%\" role=\"img\" aria-label=\"Línea de tiempo de la convocatoria de subvenciones con los plazos de subsanación, resolución, justificación y reintegro\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"v4fr\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#4b5563\"/></marker><marker id=\"v4fe\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#15803d\"/></marker><marker id=\"v4fw\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#b45309\"/></marker></defs><text x=\"480\" y=\"22\" font-size=\"13\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"bold\">La línea de tiempo de la convocatoria</text><rect x=\"19\" y=\"48\" width=\"170\" height=\"70\" rx=\"8\" fill=\"#e8efff\" stroke=\"#1d4ed8\" stroke-width=\"1.4\"/><text x=\"104\" y=\"70.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#1d4ed8\" font-weight=\"bold\">Convocatoria</text><text x=\"104\" y=\"86.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">lunes 11-I-2027</text><text x=\"104\" y=\"102.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">art. 23.2 LGS</text><line x1=\"191\" y1=\"83\" x2=\"205\" y2=\"83\" stroke=\"#4b5563\" stroke-width=\"1.6\" marker-end=\"url(#v4fr)\"/><rect x=\"207\" y=\"48\" width=\"170\" height=\"70\" rx=\"8\" fill=\"#fdf3e3\" stroke=\"#b45309\" stroke-width=\"1.4\"/><text x=\"292\" y=\"70.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#b45309\" font-weight=\"bold\">Requerimiento 1-II</text><text x=\"292\" y=\"86.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">10 días hábiles</text><text x=\"292\" y=\"102.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">vence el 15-II</text><line x1=\"379\" y1=\"83\" x2=\"393\" y2=\"83\" stroke=\"#4b5563\" stroke-width=\"1.6\" marker-end=\"url(#v4fr)\"/><rect x=\"395\" y=\"48\" width=\"170\" height=\"70\" rx=\"8\" fill=\"#fdf3e3\" stroke=\"#b45309\" stroke-width=\"1.4\"/><text x=\"480\" y=\"70.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#b45309\" font-weight=\"bold\">Resolver y notificar</text><text x=\"480\" y=\"86.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">6 meses: 11-VII</text><text x=\"480\" y=\"102.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">domingo → 12-VII</text><line x1=\"567\" y1=\"83\" x2=\"581\" y2=\"83\" stroke=\"#4b5563\" stroke-width=\"1.6\" marker-end=\"url(#v4fr)\"/><rect x=\"583\" y=\"48\" width=\"170\" height=\"70\" rx=\"8\" fill=\"#eaf6ee\" stroke=\"#15803d\" stroke-width=\"1.4\"/><text x=\"668\" y=\"70.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15803d\" font-weight=\"bold\">Pago y justificación</text><text x=\"668\" y=\"86.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">arts. 30 y 34 LGS</text><text x=\"668\" y=\"102.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">pago anticipado: 34.4</text><line x1=\"755\" y1=\"83\" x2=\"769\" y2=\"83\" stroke=\"#4b5563\" stroke-width=\"1.6\" marker-end=\"url(#v4fr)\"/><rect x=\"771\" y=\"48\" width=\"170\" height=\"70\" rx=\"8\" fill=\"#fdeceb\" stroke=\"#b91c1c\" stroke-width=\"1.4\"/><text x=\"856\" y=\"70.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#b91c1c\" font-weight=\"bold\">Reintegro</text><text x=\"856\" y=\"86.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">12 meses: caducidad</text><text x=\"856\" y=\"102.675\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#15181d\" font-weight=\"normal\">art. 42.4 LGS</text><text x=\"480\" y=\"152\" font-size=\"11\" text-anchor=\"middle\" fill=\"#b91c1c\" font-weight=\"bold\">Silencio: desestimatorio (art. 25.5 LGS) — no el estimatorio general del art. 24.1 LPAC.</text><text x=\"480\" y=\"176\" font-size=\"11\" text-anchor=\"middle\" fill=\"#4b5563\" font-weight=\"normal\">Prescripción del derecho a reconocer o liquidar el reintegro: 4 años (art. 39.1 LGS).</text></svg>\n<div class=\"box warn\"><span class=\"lbl\">La trampa del bloque</span>En la justificación parcial no se reintegra «el porcentaje que falta». Se calcula <b>qué subvención habría correspondido al gasto realmente justificado</b> y se compara con lo percibido. Si lo justificado sigue soportando lo cobrado, no hay nada que devolver: eso le pasa a C.</div>\n</section><section class=\"card\" id=\"cal\"><h2>Calendario de febrero de 2027</h2>\n<p class=\"small\">Como en los exámenes oficiales, el calendario se adjunta: los plazos se <b>cuentan</b>, no se calculan.</p>\n<table><thead><tr><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th><th>Domingo</th></tr></thead><tbody>\n<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td style=\"color:var(--exc)\">6</td><td style=\"color:var(--exc)\">7</td></tr>\n<tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td style=\"color:var(--exc)\">13</td><td style=\"color:var(--exc)\">14</td></tr>\n<tr><td><b>15</b></td><td>16</td><td>17</td><td>18</td><td>19</td><td style=\"color:var(--exc)\">20</td><td style=\"color:var(--exc)\">21</td></tr>\n<tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td style=\"color:var(--exc)\">27</td><td style=\"color:var(--exc)\">28</td></tr>\n</tbody></table>\n<p class=\"small\">Julio de 2027 arranca en jueves: el <b>11 de julio de 2027 es domingo</b> y el <b>12, lunes</b>.</p>\n<div class=\"box ej\"><span class=\"lbl\">Las reglas del cómputo</span><ul>\n<li><b>Desde el día siguiente</b> a la notificación o publicación (art. 30.3 LPAC).</li>\n<li>Los plazos por días son <b><span class=\"t\" data-g=\"habiles\">hábiles</span></b> salvo que una ley diga lo contrario (art. 30.2 LPAC).</li>\n<li>Si el requerimiento no se atiende, se tiene por <span class=\"t\" data-g=\"desistido\">desistido</span> al interesado, pero siempre con resolución expresa.</li>\n<li>Los plazos por meses vencen <b>el mismo día</b> del mes correspondiente (art. 30.4), y si ese día es inhábil se <b>prorrogan</b> al siguiente hábil (art. 30.5).</li></ul></div>\n</section><section class=\"card\" id=\"cifras\"><h2>Tabla de cifras y umbrales</h2>\n<p class=\"small\">Pulsa en una columna para ordenar. Son las cifras que hay que llevar de memoria, porque en el examen no habrá textos legales.</p>\n<table id=\"tcif\"><thead><tr><th class=\"sortable\">Cifra</th><th class=\"sortable\">Qué mide</th><th class=\"sortable\">Precepto</th></tr></thead><tbody>\n<tr><td>40.000 €</td><td>Contrato menor de obras (valor estimado, sin IVA)</td><td>Art. 118.1 LCSP</td></tr>\n<tr><td>15.000 €</td><td>Contrato menor de suministros y servicios</td><td>Art. 118.1 LCSP</td></tr>\n<tr><td>5.000 €</td><td>Contrato menor pagado por anticipos de caja fija: sin informe del 118.2</td><td>Art. 118.5 LCSP</td></tr>\n<tr><td>80.000 €</td><td>Obras: tramitación abreviada del abierto simplificado</td><td>Art. 159.6 LCSP</td></tr>\n<tr><td>60.000 €</td><td>Suministros y servicios: tramitación abreviada</td><td>Art. 159.6 LCSP</td></tr>\n<tr><td>2.000.000 €</td><td>Obras: abierto simplificado ordinario</td><td>Art. 159.1.a) LCSP</td></tr>\n<tr><td>10 días hábiles</td><td>Proposiciones en la tramitación abreviada (5 en compras corrientes)</td><td>Art. 159.6.a) LCSP</td></tr>\n<tr><td>15 días</td><td>Proposiciones en el simplificado ordinario (20 en obras)</td><td>Art. 159.3 LCSP</td></tr>\n<tr><td>5 %</td><td>Garantía definitiva, sobre el precio final ofertado sin IVA</td><td>Art. 107.1 LCSP</td></tr>\n<tr><td>3 %</td><td>Tope de la garantía provisional, sobre el presupuesto base sin IVA</td><td>Art. 106.2 LCSP</td></tr>\n<tr><td>10 % de los recursos ordinarios</td><td>Límite de la competencia del Alcalde como órgano de contratación</td><td>D. A. 2.ª.1 LCSP</td></tr>\n<tr><td>6.000.000 €</td><td>Límite absoluto de esa misma competencia</td><td>D. A. 2.ª.1 LCSP</td></tr>\n<tr><td>4 años</td><td>Duración máxima del contrato plurianual que sigue siendo del Alcalde</td><td>D. A. 2.ª.1 LCSP</td></tr>\n<tr><td>10 días</td><td>Subsanación de la solicitud</td><td>Art. 68.1 LPAC</td></tr>\n<tr><td>5 días</td><td>Ampliación de ese plazo, salvo concurrencia competitiva y selectivos</td><td>Art. 68.2 LPAC</td></tr>\n<tr><td>6 meses</td><td>Resolver y notificar la concesión, desde la publicación de la convocatoria</td><td>Art. 25.4 LGS</td></tr>\n<tr><td>3 meses</td><td>Rendir la cuenta justificativa, a falta de previsión en las bases</td><td>Art. 30.2 LGS</td></tr>\n<tr><td>Comunicación a la <span class=\"t\" data-g=\"bdns\">BDNS</span></td><td>Texto de la convocatoria; el extracto va al diario oficial</td><td>Arts. 20.8 y 23.2 LGS</td></tr>\n<tr><td>12 meses</td><td>Procedimiento de reintegro; su transcurso produce caducidad</td><td>Art. 42.4 LGS</td></tr>\n<tr><td>4 años</td><td>Prescripción del derecho a reconocer o liquidar el reintegro</td><td>Art. 39.1 LGS</td></tr>\n</tbody></table>\n</section><section class=\"card\" id=\"test\"><h2>Test · 35 preguntas con corrección razonada</h2>\n<div class=\"tools noprint\" style=\"margin-bottom:.8rem\">\n <button id=\"corr\">Corregir todo</button>\n <button id=\"fallos\">Repetir solo los fallos</button>\n <button id=\"reset\">Reiniciar</button>\n <span id=\"score\" class=\"chip\" style=\"margin-left:.4rem\">0 de 35</span>\n</div>\n<div id=\"testbox\"></div>\n</section><section class=\"card\" id=\"legal\"><h2>Los preceptos, literales</h2>\n<p class=\"small\">Los 35 fragmentos que sostienen las respuestas, transcritos del texto consolidado de la biblioteca del proyecto. Aquí no hay interpretación: solo la letra de la ley.</p>\n<details class=\"panel\"><summary>Art. 118.1 LCSP · umbrales del contrato menor</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«Se consideran contratos menores los contratos de valor estimado inferior a 40.000 euros, cuando se trate de contratos de obras, o a 15.000 euros, cuando se trate de contratos de suministro o de servicios»</p></div></div></details><details class=\"panel\"><summary>Art. 101.1.a) LCSP · con qué cifra se mide</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«el órgano de contratación tomará el importe total, sin incluir el Impuesto sobre el Valor Añadido, pagadero según sus estimaciones»</p></div></div></details><details class=\"panel\"><summary>Art. 101.2.a) LCSP · las prórrogas cuentan</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«Cualquier forma de opción eventual y las eventuales prórrogas del contrato.»</p></div></div></details><details class=\"panel\"><summary>Art. 107.1 LCSP · garantía definitiva</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«deberán constituir a disposición del órgano de contratación una garantía de un 5 por 100 del precio final ofertado por aquellos, excluido el Impuesto sobre el Valor Añadido»</p></div></div></details><details class=\"panel\"><summary>Art. 106.2 LCSP · tope de la garantía provisional</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«no podrá ser superior a un 3 por 100 del presupuesto base de licitación del contrato, excluido el Impuesto sobre el Valor Añadido»</p></div></div></details><details class=\"panel\"><summary>Art. 159.3 LCSP · plazo en el simplificado ordinario</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«El plazo para la presentación de proposiciones no podrá ser inferior a quince días a contar desde el siguiente a la publicación en el perfil de contratante del anuncio de licitación. En los contratos de obras el plazo será como mínimo de veinte días.»</p></div></div></details><details class=\"panel\"><summary>Art. 159.6 LCSP · umbrales del simplificado abreviado</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«En contratos de obras de valor estimado inferior a 80.000 euros, y en contratos de suministros y de servicios de valor estimado inferior a 60.000 euros, excepto los que tengan por objeto prestaciones de carácter intelectual»</p></div></div></details><details class=\"panel\"><summary>Art. 159.6.a) LCSP · plazo en el abreviado</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«El plazo para la presentación de proposiciones no podrá ser inferior a diez días hábiles, a contar desde el siguiente a la publicación del anuncio de licitación en el perfil de contratante.»</p></div></div></details><details class=\"panel\"><summary>Art. 159.6.f) LCSP · sin garantía definitiva</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«No se requerirá la constitución de garantía definitiva.»</p></div></div></details><details class=\"panel\"><summary>D. A. 2.ª.1 LCSP · competencia del Alcalde</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«cuando su valor estimado no supere el 10 por ciento de los recursos ordinarios del presupuesto ni, en cualquier caso, la cuantía de seis millones de euros»</p></div></div></details><details class=\"panel\"><summary>Art. 117.1 LCSP · aprobar el expediente es aprobar el gasto</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«Dicha resolución implicará también la aprobación del gasto»</p></div></div></details><details class=\"panel\"><summary>Art. 118.6 LCSP · publicidad del contrato menor</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LCSP</span><p>«Los contratos menores se publicarán en la forma prevista en el artículo 63.4.»</p></div></div></details><details class=\"panel\"><summary>Art. 173.5 TRLHL · gastar sin crédito</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · TRLHL</span><p>«No podrán adquirirse compromisos de gastos por cuantía superior al importe de los créditos autorizados en los estados de gastos, siendo nulos de pleno derecho los acuerdos, resoluciones y actos administrativos que infrinjan la expresada norma»</p></div></div></details><details class=\"panel\"><summary>Art. 177.1 TRLHL · extraordinario o suplemento</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · TRLHL</span><p>«el presidente de la corporación ordenará la incoación del expediente de concesión de crédito extraordinario, en el primer caso, o de suplemento de crédito, en el segundo»</p></div></div></details><details class=\"panel\"><summary>Art. 177.2 TRLHL · quién lo aprueba</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · TRLHL</span><p>«El expediente, que habrá de ser previamente informado por la Intervención, se someterá a la aprobación del Pleno de la corporación, con sujeción a los mismos trámites y requisitos que los presupuestos.»</p></div></div></details><details class=\"panel\"><summary>Art. 35 RD 500/1990 · la diferencia entre los dos</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · RD500</span><p>«Los suplementos de créditos son aquellas modificaciones del Presupuesto de gastos en los que concurriendo las mismas circunstancias anteriores en relación con el gasto a realizar, el crédito previsto resulta insuficiente y no puede ser objeto de ampliación.»</p></div></div></details><details class=\"panel\"><summary>Art. 22.1 LGS · el prorrateo es excepcional</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«Excepcionalmente, siempre que así se prevea en las bases reguladoras, el órgano competente procederá al prorrateo, entre los beneficiarios de la subvención, del importe global máximo destinado a las subvenciones.»</p></div></div></details><details class=\"panel\"><summary>Art. 17.2 LGS · bases reguladoras en las corporaciones locales</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«Las bases reguladoras de las subvenciones de las corporaciones locales se deberán aprobar en el marco de las bases de ejecución del presupuesto, a través de una ordenanza general de subvenciones o mediante una ordenanza específica para las distintas modalidades de subvenciones.»</p></div></div></details><details class=\"panel\"><summary>Art. 23.1 LGS · iniciación</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«El procedimiento para la concesión de subvenciones se inicia siempre de oficio.»</p></div></div></details><details class=\"panel\"><summary>Art. 25.4 LGS · plazo para resolver</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«El plazo máximo para resolver y notificar la resolución del procedimiento no podrá exceder de seis meses»</p></div></div></details><details class=\"panel\"><summary>Art. 25.4 LGS · desde cuándo se cuenta</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«El plazo se computará a partir de la publicación de la correspondiente convocatoria, salvo que la misma posponga sus efectos a una fecha posterior.»</p></div></div></details><details class=\"panel\"><summary>Art. 25.5 LGS · sentido del silencio</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«El vencimiento del plazo máximo sin haberse notificado la resolución legitima a los interesados para entender desestimada por silencio administrativo la solicitud de concesión de la subvención.»</p></div></div></details><details class=\"panel\"><summary>Art. 19.3 LGS · tope absoluto del importe</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«El importe de las subvenciones en ningún caso podrá ser de tal cuantía que, aisladamente o en concurrencia con otras subvenciones, ayudas, ingresos o recursos, supere el coste de la actividad subvencionada.»</p></div></div></details><details class=\"panel\"><summary>Art. 34.4 LGS · pagos anticipados</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«También se podrán realizar pagos anticipados que supondrán entregas de fondos con carácter previo a la justificación, como financiación necesaria para poder llevar a cabo las actuaciones inherentes a la subvención. Dicha posibilidad y el régimen de garantías deberán preverse expresamente en la normativa reguladora de la subvención.»</p></div></div></details><details class=\"panel\"><summary>Art. 37.1 LGS · desde cuándo corren los intereses</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«procederá el reintegro de las cantidades percibidas y la exigencia del interés de demora correspondiente desde el momento del pago de la subvención hasta la fecha en que se acuerde la procedencia del reintegro»</p></div></div></details><details class=\"panel\"><summary>Art. 37.1.c) LGS · justificación insuficiente</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«Incumplimiento de la obligación de justificación o la justificación insuficiente, en los términos establecidos en el artículo 30 de esta ley»</p></div></div></details><details class=\"panel\"><summary>Art. 42.4 LGS · plazo del procedimiento de reintegro</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«El plazo máximo para resolver y notificar la resolución del procedimiento de reintegro será de 12 meses desde la fecha del acuerdo de iniciación.»</p></div></div></details><details class=\"panel\"><summary>Art. 39.1 LGS · prescripción</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LGS</span><p>«Prescribirá a los cuatro años el derecho de la Administración a reconocer o liquidar el reintegro.»</p></div></div></details><details class=\"panel\"><summary>Art. 66.1.e) LPAC · la firma</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LPAC</span><p>«Firma del solicitante o acreditación de la autenticidad de su voluntad expresada por cualquier medio.»</p></div></div></details><details class=\"panel\"><summary>Art. 68.1 LPAC · subsanación</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LPAC</span><p>«se requerirá al interesado para que, en un plazo de diez días, subsane la falta o acompañe los documentos preceptivos, con indicación de que, si así no lo hiciera, se le tendrá por desistido de su petición, previa resolución que deberá ser dictada en los términos previstos en el artículo 21.»</p></div></div></details><details class=\"panel\"><summary>Art. 68.2 LPAC · la ampliación que aquí no cabe</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LPAC</span><p>«Siempre que no se trate de procedimientos selectivos o de concurrencia competitiva, este plazo podrá ser ampliado prudencialmente, hasta cinco días»</p></div></div></details><details class=\"panel\"><summary>Art. 30.2 LPAC · días hábiles</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LPAC</span><p>«cuando los plazos se señalen por días, se entiende que éstos son hábiles, excluyéndose del cómputo los sábados, los domingos y los declarados festivos»</p></div></div></details><details class=\"panel\"><summary>Art. 30.3 LPAC · desde el día siguiente</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LPAC</span><p>«Los plazos expresados en días se contarán a partir del día siguiente a aquel en que tenga lugar la notificación o publicación del acto de que se trate»</p></div></div></details><details class=\"panel\"><summary>Art. 30.4 LPAC · plazos por meses</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LPAC</span><p>«El plazo concluirá el mismo día en que se produjo la notificación, publicación o silencio administrativo en el mes o el año de vencimiento.»</p></div></div></details><details class=\"panel\"><summary>Art. 30.5 LPAC · último día inhábil</summary><div class=\"body\"><div class=\"legal\"><span class=\"lbl\">Texto legal · LPAC</span><p>«Cuando el último día del plazo sea inhábil, se entenderá prorrogado al primer día hábil siguiente.»</p></div></div></details>\n<div class=\"interp\"><span class=\"lbl\">Aportación externa</span>El criterio de que, en la justificación parcial, la subvención procedente se recalcula sobre el gasto efectivamente acreditado y se reintegra la diferencia no está en un solo precepto: resulta de combinar el art. 37.1.c) con los criterios de graduación que el art. 17.3.n) obliga a fijar en las bases reguladoras. En un examen conviene razonarlo así y citar ambos.</div>\n</section><section class=\"card\" id=\"sem\"><h2>Semáforo de autoevaluación</h2>\n<p class=\"small\">Marca cada destreza. Lo que quede en rojo o ámbar es tu plan de estudio de esta semana.</p>\n<div id=\"sembox\"></div><div id=\"semres\"></div>\n</section><section class=\"card\" id=\"cierre\"><h2>Cierre y repaso espaciado</h2>\n<div class=\"idea\">Lo que de verdad mide este ejercicio: si sabes <b>qué cifra</b> hay que meter en la calculadora. La operación es trivial; elegir el dato correcto es el examen entero.</div>\n<table><thead><tr><th>Si te preguntan…</th><th>La cifra es…</th></tr></thead><tbody>\n<tr><td>Si cabe <span class=\"t\" data-g=\"menor\">contrato menor</span> o qué procedimiento procede</td><td>El valor estimado, sin IVA, con prórrogas</td></tr>\n<tr><td>Si hay crédito suficiente</td><td>El importe total, con IVA</td></tr>\n<tr><td>Qué <span class=\"t\" data-g=\"garantiadef\">garantía definitiva</span> se constituye</td><td>El precio final ofertado, sin IVA — salvo que sea tramitación abreviada, donde no hay</td></tr>\n<tr><td>Quién es el órgano de contratación</td><td>El valor estimado frente al 10 % de los recursos ordinarios</td></tr>\n<tr><td>Qué subvención corresponde</td><td>El porcentaje sobre el presupuesto, y después el tope</td></tr>\n<tr><td>Qué <span class=\"t\" data-g=\"reintegro\">reintegro</span> procede</td><td>El porcentaje sobre el gasto justificado, comparado con lo percibido</td></tr>\n</tbody></table>\n<div class=\"box ej\"><span class=\"lbl\">Calendario de repaso espaciado</span><ul>\n<li><b>31 de octubre de 2026</b> — rehaz solo los fallos.</li>\n<li><b>2 de noviembre de 2026</b> — las dos tablas de cifras, de memoria y en papel.</li>\n<li><b>6 de noviembre de 2026</b> — el simulacro completo, cronometrado a 60 minutos.</li>\n<li><b>20 de noviembre de 2026</b> — último pase antes del examen del 5 de diciembre.</li></ul></div>\n</section>";
+</script>
+<script>
+/* ---------- ÍNDICE ---------- */
+(function(){var n='<h2>Secciones</h2>';
+ NAV.forEach(function(a){n+='<a href="#'+a[0]+'">'+a[1]+'</a>';});
+ document.getElementById('navbody').innerHTML=n;})();
+document.getElementById('navtoggle').onclick=function(){
+ var s=document.getElementById('side');s.classList.toggle('collapsed');
+ this.setAttribute('aria-expanded',s.classList.contains('collapsed')?'false':'true');};
+
+/* ---------- TEST ---------- */
+var estado=TEST.map(function(){return -1;}), soloFallos=false, revelar=false;
+function letra(i){return 'abcd'[i];}
+function pintaTest(){
+ var h='',n=0;
+ TEST.forEach(function(q,i){
+  if(soloFallos && estado[i]===q[3]) return;
+  n++;
+  h+='<div class="box" data-qi="'+i+'" style="border-color:var(--acc)"><span class="lbl" style="color:var(--acc)">'
+    +(q[0]==='S1'?'Supuesto 1':'Supuesto 2')+' · pregunta '+(i+1)+'</span><p style="margin:.1rem 0 .5rem">'+q[1]+'</p>';
+  q[2].forEach(function(op,j){
+   var sel=estado[i]===j, ok=j===q[3], show=(estado[i]>=0)||revelar;
+   var bg='transparent',bd='var(--line)',ic='';
+   if(show){ if(ok){bg='var(--ej-bg)';bd='var(--ej)';ic='✓ ';}
+             else if(sel){bg='var(--exc-bg)';bd='var(--exc)';ic='✗ ';} }
+   h+='<button class="opt" data-i="'+i+'" data-j="'+j+'" style="display:block;width:100%;text-align:left;margin:.22rem 0;'
+     +'background:'+bg+';border-color:'+bd+';white-space:normal;line-height:1.45'+(sel?';font-weight:600':'')+'">'
+     +ic+letra(j)+') '+op+'</button>';
+  });
+  if(estado[i]>=0||revelar){
+   h+='<div style="margin-top:.5rem;font-size:.9rem">';
+   q[4].forEach(function(f,j){
+    var ok=j===q[3];
+    h+='<p style="margin:.3rem 0;padding-left:.7rem;border-left:3px solid '+(ok?'var(--ej)':'var(--exc)')+'"><b>'
+      +letra(j)+')</b> '+f+'</p>';});
+   h+='</div>';
+  }
+  h+='</div>';
+ });
+ if(!n)h='<div class="box ej"><span class="lbl">Nada que repetir</span>No tienes fallos pendientes.</div>';
+ document.getElementById('testbox').innerHTML=h;
+ document.querySelectorAll('.opt').forEach(function(b){
+  b.onclick=function(){estado[+b.getAttribute('data-i')]=+b.getAttribute('data-j');pintaTest();marca();};});
+ marca();
+}
+function marca(){
+ var ok=0,hechas=0;
+ TEST.forEach(function(q,i){if(estado[i]>=0){hechas++;if(estado[i]===q[3])ok++;}});
+ document.getElementById('score').textContent=ok+' de '+TEST.length+' · contestadas '+hechas;
+}
+document.getElementById('corr').onclick=function(){
+ revelar=!revelar;this.textContent=revelar?'Ocultar soluciones':'Corregir todo';pintaTest();};
+document.getElementById('fallos').onclick=function(){
+ soloFallos=!soloFallos;this.textContent=soloFallos?'Ver todas':'Repetir solo los fallos';pintaTest();};
+document.getElementById('reset').onclick=function(){
+ estado=TEST.map(function(){return -1;});soloFallos=false;revelar=false;
+ document.getElementById('fallos').textContent='Repetir solo los fallos';
+ document.getElementById('corr').textContent='Corregir todo';pintaTest();};
+pintaTest();
+
+/* ---------- SEMÁFORO ---------- */
+var sem=SEM.map(function(){return 0;});
+function drawSem(){
+ var h='<table><tbody>';
+ SEM.forEach(function(c,i){
+  h+='<tr><td>'+c+'</td><td style="width:150px;white-space:nowrap">'
+   +['🟢','🟡','🔴'].map(function(e,j){
+     var on=sem[i]===j+1;
+     return '<button class="sembtn" data-i="'+i+'" data-v="'+(j+1)+'" aria-label="nivel '+(j+1)+'" style="font-size:1rem;padding:.15rem .35rem;margin-right:.2rem;border-color:'+(on?'var(--acc)':'var(--line)')+';background:'+(on?'var(--acc-soft)':'transparent')+'">'+e+'</button>';}).join('')
+   +'</td></tr>';});
+ h+='</tbody></table>';
+ document.getElementById('sembox').innerHTML=h;
+ document.querySelectorAll('.sembtn').forEach(function(b){
+  b.onclick=function(){sem[+b.getAttribute('data-i')]=+b.getAttribute('data-v');drawSem();};});
+ var r=[],a=[];
+ sem.forEach(function(v,i){if(v===3)r.push(SEM[i]);if(v===2)a.push(SEM[i]);});
+ var o='';
+ if(r.length)o+='<div class="box exc"><span class="lbl">Vuelve a ello hoy mismo</span><ul><li>'+r.join('</li><li>')+'</li></ul></div>';
+ if(a.length)o+='<div class="box warn"><span class="lbl">Refuerza en 24 h</span><ul><li>'+a.join('</li><li>')+'</li></ul></div>';
+ if(!r.length&&!a.length&&sem.some(function(v){return v===1;}))o='<div class="box ej"><span class="lbl">Bien</span>Ahora explícaselo a alguien sin mirar la página.</div>';
+ document.getElementById('semres').innerHTML=o;
+}
+drawSem();
+
+/* ---------- GLOSARIO ---------- */
+(function(){
+ var tip=document.getElementById('tip');
+ function show(el,ev){var k=el.getAttribute('data-g'),d=GLOS[k];if(!d)return;
+  tip.innerHTML='<b>'+d[0]+'</b><br>'+d[1];tip.style.display='block';
+  var x=Math.min(ev.clientX+12,window.innerWidth-340),y=Math.min(ev.clientY+16,window.innerHeight-150);
+  tip.style.left=x+'px';tip.style.top=y+'px';}
+ document.addEventListener('mouseover',function(e){var t=e.target.closest('.t');if(t)show(t,e);});
+ document.addEventListener('mouseout',function(e){if(e.target.closest('.t'))tip.style.display='none';});
+ document.addEventListener('click',function(e){var t=e.target.closest('.t');if(t)show(t,e);else tip.style.display='none';});
+})();
+
+/* ---------- TABLA ORDENABLE ---------- */
+(function(){
+ var t=document.getElementById('tcif');if(!t)return;
+ t.querySelectorAll('th.sortable').forEach(function(th,ci){
+  var asc=true;
+  th.onclick=function(){
+   var tb=t.tBodies[0],rows=[].slice.call(tb.rows);
+   rows.sort(function(a,b){
+    var x=a.cells[ci].textContent.trim(),y=b.cells[ci].textContent.trim();
+    var nx=parseFloat(x.replace(/\./g,'').replace(',','.')),ny=parseFloat(y.replace(/\./g,'').replace(',','.'));
+    if(!isNaN(nx)&&!isNaN(ny))return asc?nx-ny:ny-nx;
+    return asc?x.localeCompare(y,'es'):y.localeCompare(x,'es');});
+   rows.forEach(function(r){tb.appendChild(r);});asc=!asc;};});
+})();
+
+/* ---------- VISTA ---------- */
+document.querySelectorAll('[data-view]').forEach(function(b){
+ b.onclick=function(){
+  document.querySelectorAll('[data-view]').forEach(function(x){x.setAttribute('aria-pressed','false');});
+  b.setAttribute('aria-pressed','true');
+  var v=b.getAttribute('data-view');
+  document.querySelectorAll('.legal').forEach(function(e){e.classList.toggle('hide',v==='expl');});
+  document.querySelectorAll('section.card .box, section.card .interp, section.card svg').forEach(function(e){
+   e.classList.toggle('hide',v==='legal');});
+ };});
+
+/* ---------- HERRAMIENTAS ---------- */
+var openAll=false;
+document.getElementById('expand').onclick=function(){
+ openAll=!openAll;document.querySelectorAll('details.panel').forEach(function(d){d.open=openAll;});
+ this.textContent=openAll?'Plegar todo':'Desplegar todo';};
+document.getElementById('theme').onclick=function(){
+ var h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');};
+var fs=16;
+function zoomCuerpo(v){document.documentElement.style.setProperty('--z',(v/16).toFixed(4));}
+document.getElementById('fs+').onclick=function(){fs=Math.min(22,fs+1);zoomCuerpo(fs);};
+document.getElementById('fs-').onclick=function(){fs=Math.max(13,fs-1);zoomCuerpo(fs);};
+
+/* ---------- PROGRESO ---------- */
+window.addEventListener('scroll',function(){
+ var h=document.body.scrollHeight-window.innerHeight;
+ document.getElementById('prog').style.width=(h>0?(window.scrollY/h*100):0)+'%';
+ var cur=null;document.querySelectorAll('section.card').forEach(function(s){
+  if(s.getBoundingClientRect().top<120)cur=s.id;});
+ document.querySelectorAll('nav.side a').forEach(function(a){
+  a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ---------- BUSCADOR ---------- */
+var q=document.getElementById('q'),timer=null;
+function clearMarks(){document.querySelectorAll('mark.hit').forEach(function(m){
+ var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});}
+q.addEventListener('input',function(){
+ clearTimeout(timer);timer=setTimeout(function(){
+  clearMarks();
+  var term=q.value.trim();
+  document.querySelectorAll('section.card').forEach(function(s){s.classList.remove('hide');});
+  if(term.length<3)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  document.querySelectorAll('section.card').forEach(function(s){
+   var found=false;
+   var w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT,null);var nodes=[];
+   while(w.nextNode()){var nd=w.currentNode;
+    if(nd.parentNode.closest('script,style,mark,svg'))continue;
+    if(rx.test(nd.nodeValue)){nodes.push(nd);rx.lastIndex=0;}}
+   nodes.forEach(function(nd){
+    found=true;
+    var span=document.createElement('span');
+    span.innerHTML=nd.nodeValue.replace(rx,function(m){return '<mark class="hit">'+m+'</mark>';});
+    nd.parentNode.replaceChild(span,nd);});
+   if(found){s.querySelectorAll('details.panel').forEach(function(d){if(d.querySelector('mark.hit'))d.open=true;});}
+   s.classList.toggle('hide',!found);
+  });
+ },220);});
+</script>
+<script>
+
+/* ═══ Mejoras de interacción · Bloque II ═══ */
+(function(){
+"use strict";
+var K_THEME="oposi_bII_theme", K_FS="oposi_bII_fs", K_STREAK="oposi_bII_streak";
+function load(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f;}catch(e){return f;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var root=document.documentElement;
+
+/* Tema persistente (sobrescribe el toggle simple anterior) */
+var saved=load(K_THEME,null);
+if(saved){root.setAttribute("data-theme",saved);}
+else if(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches){root.setAttribute("data-theme","dark");}
+var bt=document.getElementById("theme");
+if(bt)bt.onclick=function(){
+  var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-theme",n);save(K_THEME,n);
+};
+
+/* Tamaño de texto persistente · solo afecta al cuerpo de la página */
+var fs=load(K_FS,16);
+function setFs(v){
+  fs=Math.max(13,Math.min(22,v));
+  root.style.setProperty("--z",(fs/16).toFixed(4));
+  save(K_FS,fs);
+}
+setFs(fs);
+var bp=document.getElementById("fs+"),bm=document.getElementById("fs-");
+if(bp)bp.onclick=function(){setFs(fs+1);};
+if(bm)bm.onclick=function(){setFs(fs-1);};
+
+/* Racha compartida con el índice */
+(function(){
+  var el=document.getElementById("streakN");if(!el)return;
+  var hoy=new Date().toISOString().slice(0,10);
+  var s=load(K_STREAK,{last:null,n:0});
+  if(s.last!==hoy){
+    var ayer=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    s.n=(s.last===ayer)?s.n+1:1;s.last=hoy;save(K_STREAK,s);
+  }
+  el.textContent=s.n;
+})();
+
+/* Reveal on scroll para las tarjetas */
+function reveal(){
+  var els=document.querySelectorAll("section.card:not(.rv)");
+  if(!els.length)return;
+  if(!("IntersectionObserver" in window)){return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+  },{threshold:.06,rootMargin:"0px 0px -30px 0px"});
+  Array.prototype.forEach.call(els,function(el){el.classList.add("rv");io.observe(el);});
+}
+
+/* Sección activa en el índice lateral */
+function spy(){
+  var links=document.querySelectorAll("nav.side a[href^='#']");
+  if(!links.length||!("IntersectionObserver" in window))return;
+  var map={};
+  Array.prototype.forEach.call(links,function(a){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(t)map[t.id]=a;
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        Array.prototype.forEach.call(links,function(a){a.classList.remove("on");});
+        if(map[en.target.id])map[en.target.id].classList.add("on");
+      }
+    });
+  },{rootMargin:"-80px 0px -70% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* Ripple en botones */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.classList.contains("navtoggle"))return;
+  var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement("span");
+  s.className="ripple";s.style.width=s.style.height=d+"px";
+  s.style.left=(e.clientX-r.left-d/2)+"px";s.style.top=(e.clientY-r.top-d/2)+"px";
+  b.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},560);
+});
+
+/* Atajos de teclado */
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea"))return;
+  if(e.key==="/"){var q=document.getElementById("q");if(q){e.preventDefault();q.focus();}}
+  if(e.key==="t"&&bt)bt.click();
+});
+
+/* El contenido se inyecta por JS: esperamos a que exista */
+function init(){reveal();spy();}
+if(document.getElementById("main")&&document.getElementById("main").children.length){init();}
+else{setTimeout(init,60);}
+addEventListener("load",function(){setTimeout(init,80);});
+})();
+
+
+</script>
+<script>
+
+
+/* ═══ Parser de respuestas: estructura semántica ═══ */
+var FCFMT=(function(){
+  var CITA=/\s*\(((?:arts?\.|DA\b|DT\b|disp\.)[^)]*)\)\s*\.?\s*$/i;
+  var strip=function(h){return h.replace(/<[^>]+>/g,"");};
+
+  function esc(s){return s;}
+
+  function parse(raw){
+    var out={verdict:null,cite:null,kind:"p",items:[],text:""};
+    var body=String(raw).trim();
+
+    /* 1 ── Cita legal al final */
+    var m=body.match(CITA);
+    if(m){out.cite=m[1].replace(/\s+/g," ").trim();body=body.slice(0,m.index).trim();}
+    body=body.replace(/[.;,\s]+$/,"");
+
+    /* 2 ── Veredicto Sí / No inicial */
+    var v=strip(body).match(/^(Sí|Sí,|No|No,)[.:,]?\s/);
+    if(v){
+      out.verdict=/^Sí/.test(v[1])?"si":"no";
+      body=body.replace(/^(<[^>]+>\s*)*(Sí|No)[.,:]?\s*/,"").trim();
+      body=body.replace(/^en\s/,"En ");
+    }
+
+    /* 3 ── Enumeración con · */
+    var parts=body.split(/\s+·\s+/);
+    if(parts.length>=2){
+      out.kind="list";
+      var letras=parts.filter(function(p){return /^\s*<?[a-h]\)/.test(strip(p));}).length;
+      out.marker = letras>=parts.length-1 ? "alpha" : "num";
+      out.items=parts.map(function(p){
+        return p.replace(/^\s*[a-h]\)\s*/,"").replace(/[.\s]+$/,"").trim();
+      }).filter(Boolean);
+      return out;
+    }
+
+    /* 4 ── Cláusulas contrapuestas con ; */
+    var semi=body.split(/;\s+/);
+    if(semi.length>=2&&semi.length<=3&&semi.every(function(s){return strip(s).length>14;})){
+      out.kind="clauses";
+      out.items=semi.map(function(s){return s.replace(/[.\s]+$/,"").trim();});
+      return out;
+    }
+
+    /* 5 ── Párrafo */
+    out.text=body;
+    return out;
+  }
+
+  function render(raw){
+    var d=parse(raw),h="";
+
+    if(d.verdict){
+      h+='<span class="fc-verdict '+d.verdict+'">'+(d.verdict==="si"?"✓ Sí":"✗ No")+'</span>';
+    }
+
+    if(d.kind==="list"){
+      h+='<ol class="fc-list '+d.marker+'">';
+      d.items.forEach(function(it){h+='<li>'+it+'</li>';});
+      h+='</ol>';
+    }else if(d.kind==="clauses"){
+      h+='<div class="fc-clauses">';
+      d.items.forEach(function(it){h+='<p>'+it+'</p>';});
+      h+='</div>';
+    }else if(d.text){
+      h+='<p class="fc-p">'+d.text+'</p>';
+    }
+
+    if(d.cite){
+      h+='<span class="fc-cite"><span class="s">§</span>'+d.cite+'</span>';
+    }
+    return {html:h,struct:(d.kind!=="p"||!!d.verdict||strip(raw).length>150)};
+  }
+  return {parse:parse,render:render};
+})();
+
+/* ═══ FLASHCARDS 3D ═══ */
+(function(){
+"use strict";
+function boot(){
+  var sec=document.getElementById("flash");
+  if(!sec||sec.dataset.fc3d)return false;
+  if(typeof FLASH==="undefined"||!FLASH||!FLASH.length)return false;
+  sec.dataset.fc3d="1";
+
+  var CARDS=FLASH, N=CARDS.length;
+  var order,fi,ok,ko,back,busy;
+
+  /* — Estructura — */
+  var h2=sec.querySelector("h2");
+  sec.innerHTML="";
+  if(h2)sec.appendChild(h2);
+  var intro=document.createElement("p");
+  intro.className="small";
+  intro.innerHTML="Piensa la respuesta <b>antes</b> de girar: el esfuerzo de recuperarla es lo que la fija. "
+    +'<span class="fc-hint" style="position:static;display:inline;color:inherit">'
+    +'<span class="kbd">espacio</span> girar · <span class="kbd">→</span> lo sabía · <span class="kbd">←</span> repasar</span>';
+  sec.appendChild(intro);
+
+  var stage=document.createElement("div");
+  stage.className="fc-stage";
+  stage.innerHTML=
+    '<div class="fc-deck" id="fcdeck">'
+    +'<span class="fc-ghost g2"></span><span class="fc-ghost g1"></span>'
+    +'<div class="fc-lift" id="fclift">'
+      +'<div class="fc-card" id="fcbox" tabindex="0" role="button" aria-label="Tarjeta. Pulsa para girar">'
+        +'<div class="fc-face fc-front">'
+          +'<span class="fc-tag">Pregunta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">Pulsa para girar</span>'
+        +'</div>'
+        +'<div class="fc-face fc-back">'
+          +'<span class="fc-tag">Respuesta</span><span class="fc-pip tr"></span><span class="fc-pip bl"></span>'
+          +'<div class="fc-txt"></div>'
+          +'<span class="fc-hint">¿La sabías?</span>'
+        +'</div>'
+      +'</div>'
+    +'</div></div>';
+  sec.appendChild(stage);
+
+  var bar=document.createElement("div");
+  bar.className="fc-bar";bar.innerHTML="<i></i>";
+  sec.appendChild(bar);
+
+  var ctr=document.createElement("div");
+  ctr.className="fc-ctrls noprint";
+  ctr.innerHTML='<button id="fcflip">⟲ Girar</button>'
+    +'<button id="fcok">✔ Lo sabía</button>'
+    +'<button id="fcko">↻ Repasar</button>'
+    +'<button id="fcreset">Reiniciar</button>'
+    +'<span class="fc-score">'
+      +'<span class="fc-pill ok" id="fcpok">0 sabidas</span>'
+      +'<span class="fc-pill ko" id="fcpko">0 repasar</span>'
+      +'<span class="fc-pill left" id="fccount">0</span>'
+    +'</span>';
+  sec.appendChild(ctr);
+
+  var deck=stage.querySelector("#fcdeck"), lift=stage.querySelector("#fclift"),
+      card=stage.querySelector("#fcbox"),
+      front=stage.querySelector(".fc-front"), backf=stage.querySelector(".fc-back"),
+      fill=bar.querySelector("i"),
+      pok=ctr.querySelector("#fcpok"), pko=ctr.querySelector("#fcpko"),
+      pleft=ctr.querySelector("#fccount");
+  var rot=0;
+
+  function reset(){
+    order=CARDS.map(function(_,i){return i;});
+    fi=0;ok=0;ko=0;back=false;busy=false;rot=0;
+    card.style.transition="none";card.style.transform="rotateY(0deg)";
+    void card.offsetWidth;card.style.transition="";
+    deck.classList.remove("empty");
+    var d=stage.querySelector(".fc-done");if(d)d.remove();
+    card.style.display="";
+    draw();
+  }
+
+  function bump(el){el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");}
+
+  function draw(){
+    pok.textContent=ok+(ok===1?" sabida":" sabidas");
+    pko.textContent=ko+" repasar";
+    var done=N-order.length;
+    fill.style.width=(N?done/N*100:0)+"%";
+
+    if(!order.length){
+      pleft.textContent="0 quedan";
+      deck.classList.add("empty");
+      card.style.display="none";
+      if(!stage.querySelector(".fc-done")){
+        var d=document.createElement("div");
+        d.className="fc-done";
+        d.innerHTML='<span class="seal">🏆</span><h3>Ronda completada</h3>'
+          +'<p>'+ok+' de '+N+' a la primera'+(ko?' · '+ko+' necesitaron repaso':'')+'</p>';
+        deck.appendChild(d);
+      }
+      return;
+    }
+    if(fi>=order.length)fi=0;
+    pleft.textContent=order.length+(order.length===1?" queda":" quedan");
+
+    var c=CARDS[order[fi]];
+    front.querySelector(".fc-txt").innerHTML='<p class="fc-p">'+c[0]+'</p>';
+    var r=FCFMT.render(c[1]);
+    backf.querySelector(".fc-txt").innerHTML=r.html;
+    backf.classList.toggle("struct",r.struct);
+    var hint=backf.querySelector(".fc-hint");
+    if(hint)hint.classList.toggle("muted",/fc-cite/.test(r.html));
+    var pip=(done+1)+"/"+N;
+    Array.prototype.forEach.call(stage.querySelectorAll(".fc-pip"),function(p){p.textContent=pip;});
+  }
+
+  function flip(){
+    if(busy||!order.length)return;
+    back=!back;rot+=180;
+    card.style.transform="rotateY("+rot+"deg)";
+    card.setAttribute("aria-label",back?"Respuesta. Pulsa para volver":"Pregunta. Pulsa para girar");
+    lift.classList.remove("lift");void lift.offsetWidth;lift.classList.add("lift");
+  }
+
+  function next(good){
+    if(busy||!order.length)return;
+    busy=true;
+    if(good){ok++;bump(pok);}else{ko++;bump(pko);}
+    lift.classList.remove("lift");
+    lift.classList.add(good?"out-ok":"out-ko");
+    setTimeout(function(){
+      if(good){order.splice(fi,1);}
+      else{var m=order.splice(fi,1)[0];order.push(m);}
+      back=false;rot=0;
+      card.style.transition="none";card.style.transform="rotateY(0deg)";
+      void card.offsetWidth;card.style.transition="";
+      draw();
+      lift.classList.remove("out-ok","out-ko");
+      lift.classList.add("in");
+      setTimeout(function(){lift.classList.remove("in");busy=false;},480);
+    },460);
+  }
+
+  card.onclick=flip;
+  card.onkeydown=function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();flip();}
+    if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  };
+  ctr.querySelector("#fcflip").onclick=flip;
+  ctr.querySelector("#fcok").onclick=function(){next(true);};
+  ctr.querySelector("#fcko").onclick=function(){next(false);};
+  ctr.querySelector("#fcreset").onclick=reset;
+
+  /* Deslizar en táctil */
+  var x0=null,y0=null;
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  card.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){next(dx>0);}
+    x0=y0=null;
+  },{passive:true});
+
+  /* Atajos globales cuando el mazo está a la vista */
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    var r=stage.getBoundingClientRect();
+    if(r.bottom<80||r.top>innerHeight-80)return;
+    if(e.key===" "){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight"){e.preventDefault();next(true);}
+    else if(e.key==="ArrowLeft"){e.preventDefault();next(false);}
+  });
+
+  reset();
+  return true;
+}
+if(!boot()){
+  var tries=0;
+  var iv=setInterval(function(){if(boot()||++tries>40)clearInterval(iv);},120);
+  addEventListener("load",function(){setTimeout(boot,100);});
+}
+})();
+
+
+</script>
+<script>
+
+
+/* ═══ Altura adaptativa + índice plegable ═══ */
+(function(){
+"use strict";
+
+/* ── 1 · Índice lateral plegable ── */
+function sidebar(){
+  var lay=document.querySelector(".layout"),
+      side=document.getElementById("side"),
+      tools=document.querySelector(".tools");
+  if(!lay||!side||!tools||document.getElementById("navhide"))return;
+
+  var K="oposi_bII_nav";
+  function get(){try{return localStorage.getItem(K)==="0";}catch(e){return false;}}
+  function set(v){try{localStorage.setItem(K,v?"0":"1");}catch(e){}}
+
+  var b=document.createElement("button");
+  b.id="navhide";b.type="button";
+  b.innerHTML='<span class="ic">☰</span>';
+  b.setAttribute("aria-controls","side");
+  tools.insertBefore(b,tools.firstChild);
+
+  function apply(hidden,anim){
+    if(!anim)lay.style.transition="none";
+    lay.classList.toggle("nonav",hidden);
+    side.setAttribute("aria-hidden",String(hidden));
+    b.setAttribute("aria-pressed",String(hidden));
+    b.title=hidden?"Mostrar índice (i)":"Ocultar índice (i)";
+    b.setAttribute("aria-label",b.title);
+    if(!anim)requestAnimationFrame(function(){lay.style.transition="";});
+  }
+  apply(get(),false);
+
+  b.onclick=function(){
+    var h=!lay.classList.contains("nonav");
+    apply(h,true);set(h);
+    window.dispatchEvent(new Event("resize"));
+  };
+  document.addEventListener("keydown",function(e){
+    if(e.target.matches("input,textarea,select"))return;
+    if(e.key==="i"||e.key==="I"){e.preventDefault();b.click();}
+  });
+}
+
+/* ── 2 · La tarjeta se adapta a su contenido ── */
+function autofit(){
+  var stage=document.querySelector(".fc-stage");
+  if(!stage||stage.dataset.fit)return;
+  var deck=stage.querySelector(".fc-deck"),
+      front=stage.querySelector(".fc-front"),
+      back=stage.querySelector(".fc-back");
+  if(!deck||!front||!back)return;
+  stage.dataset.fit="1";
+
+  var meas=document.createElement("div");
+  meas.className="fc-measure";meas.setAttribute("aria-hidden","true");
+  meas.innerHTML='<div class="fc-face fc-front"><div class="fc-body"><div class="fc-txt"></div></div></div>';
+  stage.appendChild(meas);
+  var mFace=meas.querySelector(".fc-face"), mTxt=meas.querySelector(".fc-txt");
+
+  function measure(cls,html){
+    mFace.className="fc-face "+cls;
+    mTxt.innerHTML=html;
+    return mFace.offsetHeight;
+  }
+
+  function fit(){
+    if(deck.classList.contains("empty")){deck.style.height="230px";return;}
+    var fT=front.querySelector(".fc-txt"), bT=back.querySelector(".fc-txt");
+    if(!fT||!bT)return;
+    var h=Math.max(
+      measure("fc-front"+(front.classList.contains("struct")?" struct":""),fT.innerHTML),
+      measure("fc-back" +(back .classList.contains("struct")?" struct":""),bT.innerHTML),
+      230
+    );
+    deck.style.height=Math.ceil(h+8)+"px";
+  }
+
+  /* recalcular cuando cambia la tarjeta, el tamaño de letra o la ventana */
+  new MutationObserver(fit).observe(back,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
+  var t;
+  addEventListener("resize",function(){clearTimeout(t);t=setTimeout(fit,120);},{passive:true});
+  ["fs+","fs-"].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener("click",function(){setTimeout(fit,60);});
+  });
+  fit();setTimeout(fit,250);
+}
+
+function go(){sidebar();autofit();}
+if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go);
+addEventListener("load",function(){setTimeout(go,120);});
+var n=0,iv=setInterval(function(){go();if(++n>25)clearInterval(iv);},150);
+})();
+
+
+</script>
+<script>
+
+
+/* ═══════════════════════════════════════════════════════════════
+   TTS · Lectura en voz alta del texto legal
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+if(!("speechSynthesis" in window))return;
+
+var K="oposi_bII_tts";
+function load(){try{return JSON.parse(localStorage.getItem(K))||{};}catch(e){return {};}}
+function save(o){try{localStorage.setItem(K,JSON.stringify(o));}catch(e){}}
+var cfg=load();
+if(cfg.rate==null)cfg.rate=1;
+if(cfg.gen==null)cfg.gen="f";
+
+var synth=window.speechSynthesis, voces=[], actual=null, bloques=[];
+
+/* ─────────── 1 · Selección de voz ─────────── */
+/* iOS y iPadOS enumeran voces de red (Google, «Online») que en realidad no
+   sintetizan: se seleccionan pero no suena nada. Ahí solo valen las locales. */
+var IOS=(function(){
+  var ua=navigator.userAgent||"";
+  if(/iPad|iPhone|iPod/i.test(ua))return true;
+  return navigator.platform==="MacIntel"&&(navigator.maxTouchPoints||0)>1;
+})();
+var descartadas=0;
+
+function esEspanol(v){return /^es\b|^es[-_]/i.test(v.lang||"")||/spanish|español/i.test(v.name||"");}
+function esRemota(v){return v.localService===false||/google|online/i.test(v.name||"");}
+function reproducible(v){return !IOS||!esRemota(v);}
+
+function calidad(v){
+  var n=(v.name||"")+" "+(v.voiceURI||""), p=0;
+  if(/natural|neural/i.test(n))p+=100;
+  if(/premium|enhanced|eloquence/i.test(n))p+=35;
+  if(/^es-ES/i.test(v.lang))p+=12;              /* castellano de España primero */
+  if(/microsoft/i.test(n))p+=8;
+  if(IOS){
+    /* en el iPad y el móvil de Apple mandan las locales */
+    if(esRemota(v))p-=500;
+    if(v.localService!==false)p+=40;
+  }else{
+    if(/online/i.test(n))p+=40;
+    if(/google/i.test(n))p+=30;
+    if(v.localService===false)p+=15;
+  }
+  return p;
+}
+var MASC=/(pablo|álvaro|alvaro|jorge|diego|juan|raul|raúl|carlos|miguel|lorenzo|gonzalo|dalton|liam|andr[eé]s|luciano|male|hombre|masculin)/i;
+var FEM =/(helena|elvira|laura|mónica|monica|paulina|sabina|esperanza|marisol|ximena|dalia|salome|camila|catalina|isidora|female|mujer|femenin)/i;
+function genero(v){
+  var n=v.name||"";
+  if(MASC.test(n))return "m";
+  if(FEM.test(n))return "f";
+  return "?";
+}
+function cargarVoces(){
+  var all=synth.getVoices()||[];
+  var es=all.filter(esEspanol);
+  descartadas=0;
+  var utiles=[];
+  es.forEach(function(v){ if(reproducible(v))utiles.push(v); else descartadas++; });
+  voces=utiles.sort(function(a,b){return calidad(b)-calidad(a);});
+  if(!voces.length)voces=all.filter(reproducible).slice(0,12);
+  /* si la voz guardada ya no sirve en este aparato, la olvidamos */
+  if(cfg.voz){
+    var sigue=false;
+    for(var i=0;i<voces.length;i++)if(voces[i].voiceURI===cfg.voz)sigue=true;
+    if(!sigue&&voces.length){cfg.voz=null;save(cfg);}
+  }
+  pintarSelector();
+}
+function elegir(){
+  if(cfg.voz){
+    for(var i=0;i<voces.length;i++)
+      if(voces[i].voiceURI===cfg.voz&&reproducible(voces[i]))return voces[i];
+  }
+  var g=cfg.gen;
+  for(var j=0;j<voces.length;j++)if(genero(voces[j])===g&&reproducible(voces[j]))return voces[j];
+  for(var k=0;k<voces.length;k++)if(reproducible(voces[k]))return voces[k];
+  return null;
+}
+/* Safari exige que la primera locución nazca de un gesto: la preparamos */
+var motorListo=false;
+function despertarMotor(){
+  if(motorListo)return;
+  motorListo=true;
+  try{var u=new SpeechSynthesisUtterance(" ");u.volume=0;u.rate=1;synth.speak(u);}catch(e){}
+}
+document.addEventListener("touchend",despertarMotor,{passive:true});
+document.addEventListener("pointerdown",despertarMotor);
+
+/* aviso discreto cuando cambiamos de voz por no ser reproducible */
+function avisarVoz(v){
+  try{
+    var a=document.getElementById("ttsAviso");
+    if(!a){
+      a=document.createElement("div");
+      a.id="ttsAviso";a.className="tts-aviso noprint";
+      document.body.appendChild(a);
+    }
+    a.textContent="La voz anterior no suena en este dispositivo. Cambiada a "+(v.name||"voz local")+".";
+    a.classList.add("show");
+    clearTimeout(a.__t);
+    a.__t=setTimeout(function(){a.classList.remove("show");},6000);
+  }catch(e){}
+}
+
+/* ─────────── 2 · Naturalidad: expandir lo que el TTS lee mal ─────────── */
+var ORD={1:"primera",2:"segunda",3:"tercera",4:"cuarta",5:"quinta",
+         6:"sexta",7:"séptima",8:"octava",9:"novena",10:"décima"};
+function paraVoz(t){
+  return t
+    .replace(/\barts?\.\s*/gi,function(m){return /arts/i.test(m)?"artículos ":"artículo ";})
+    .replace(/\bapdos?\.\s*/gi,"apartado ")
+    .replace(/\bnúms?\.\s*/gi,"número ")
+    .replace(/\bpárr\.\s*/gi,"párrafo ")
+    .replace(/\bcap\.\s*/gi,"capítulo ")
+    .replace(/\bpágs?\.\s*/gi,"página ")
+    .replace(/\by\s+ss\./gi,"y siguientes")
+    .replace(/\bss\./gi,"siguientes")
+    .replace(/\bTRLHL\b/g,"Texto Refundido de la Ley de Haciendas Locales")
+    .replace(/\bLCSP\b/g,"Ley de Contratos del Sector Público")
+    .replace(/\bLBRL\b/g,"Ley de Bases del Régimen Local")
+    .replace(/\bLRJSP\b/g,"Ley de Régimen Jurídico del Sector Público")
+    .replace(/\bLPACAP\b/g,"Ley del Procedimiento Administrativo Común")
+    .replace(/\bRDLeg\b/gi,"Real Decreto Legislativo")
+    .replace(/\bRD\b/g,"Real Decreto")
+    .replace(/\bCCAA\b/g,"comunidades autónomas")
+    .replace(/\bCA\b/g,"comunidad autónoma")
+    .replace(/\bEELL\b/g,"entidades locales")
+    .replace(/\bBOE\b/g,"Boletín Oficial del Estado")
+    .replace(/\bIVA\b/g,"I.V.A.")
+    .replace(/\bSARA\b/g,"sara")
+    .replace(/\bDA\s+(\d+)/g,"disposición adicional $1")
+    .replace(/\bDT\s+(\d+)/g,"disposición transitoria $1")
+    .replace(/(\d+)\.ª/g,function(m,n){return ORD[+n]||(n+"ª");})
+    .replace(/(\d+)\.º/g,"$1º")
+    /* 3.005,06 → 3005,06 para que lo lea como cifra y no como frase */
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/(\d)\.(?=\d{3}\b)/g,"$1")
+    .replace(/€/g," euros")
+    .replace(/%/g," por ciento")
+    .replace(/\bnº\b/gi,"número")
+    .replace(/\s*·\s*/g,". ")
+    .replace(/\(\s*/g,", ").replace(/\s*\)/g,", ")
+    .replace(/\bvid\.\s*/gi,"véase ")
+    .replace(/\bcfr\.\s*/gi,"compárese ")
+    /* limpieza de puntuación tras las sustituciones */
+    .replace(/([.:;!?])(?=[A-ZÁÉÍÓÚÑ¿¡])/g,"$1 ")
+    .replace(/\s+([,.;:])/g,"$1")
+    .replace(/,\s*([.;:])/g,"$1")
+    .replace(/([,.;:])\s*\1+/g,"$1")
+    .replace(/,\s*,/g,",")
+    .replace(/\s{2,}/g," ")
+    .trim();
+}
+
+/* ─────────── 3 · Segmentar en frases y envolverlas ─────────── */
+var ABBR=/\b(arts?|apdos?|núms?|nums?|págs?|párr|cap|caps|ss|Sr|Sra|Sres|D|Dª|etc|vid|cfr|op|cit|ej|núm|art|fig|tít|secc)\.$/i;
+/* Tres formas de agrupar, de mayor a menor:
+   1 · el punto completo del artículo (el «1.» con sus letras a), b), c))
+   2 · la frase entera, de punto a punto
+   3 · troceo de urgencia, si ni la frase cabe
+   Se usa siempre la 1 y solo se baja de nivel si el motor de voz trunca. */
+/* CÓMO SE TROCEA EL TEXTO PARA LA VOZ
+   Un corte solo puede caer en un punto y seguido. Nunca en una coma: el
+   motor de voz cierra cada locución con entonación de final, así que una
+   coma sonaría como un punto. Las frases completas se agrupan en
+   locuciones de hasta MAX_LOC caracteres, de modo que un punto del
+   artículo se oiga de corrido y las pocas juntas que haya caigan donde
+   uno pararía al leer en voz alta. Solo una frase descomunal se parte, y
+   entonces por punto y coma o por el comienzo de una letra a), b), c). */
+var MAX_APARTADO=12000;   /* el punto del artículo se lee entero */
+var MAX_LOC=900;          /* frases completas agrupadas hasta aquí */
+var DURO=800;             /* una frase más larga que esto sí se parte */
+
+/* posiciones donde acaba un elemento del documento: al juntar el texto
+   de la página, «…responsables.» y «b) Los hechos…» quedan pegados, así
+   que sin esta pista no se vería que ahí termina una frase */
+var BORDES={};
+
+function finDeFrase(t,i){
+  var c=t[i];
+  if(c!=="."&&c!=="!"&&c!=="?")return false;
+  var sig=t[i+1]||" ";
+  if(!/[\s"»)]/.test(sig)){
+    var pegado=/^\d{1,2}\.\s+[A-ZÁÉÍÓÚÑ¿«]/.test(t.slice(i+1,i+9))&&!/\d$/.test(t.slice(0,i));
+    var letra=/^[a-z]\)\s?/.test(t.slice(i+1,i+4));
+    if(!pegado&&!letra&&!BORDES[i+1])return false;
+  }
+  if(ABBR.test(t.slice(Math.max(0,i-9),i+1)))return false;
+  return true;
+}
+/* inicio de un punto del artículo: «1.», «2.»… pero no 3.005 ni art. 168.4 */
+function inicioApartado(t,i){
+  if(i===0)return false;
+  var m=/^(\d{1,2})\.\s+[A-ZÁÉÍÓÚÑ«¿]/.exec(t.slice(i,i+10));
+  if(!m)return false;
+  var antes=t.slice(0,i).replace(/\s+$/,"");
+  if(/\d$/.test(antes))return false;            /* 168.4 */
+  return /[.!?»"]$/.test(antes);                /* solo tras final de frase */
+}
+/* cortes en punto y seguido */
+function cortesFrase(t){
+  var out=[],ini=0,i,corta;
+  for(i=0;i<t.length;i++){
+    corta=finDeFrase(t,i);
+    /* fin de un elemento del documento tras un signo de cierre */
+    if(!corta&&BORDES[i+1]&&/[.!?:;»"]/.test(t[i]))corta=true;
+    if(!corta)continue;
+    if(i+1-ini<40)continue;
+    out.push(i+1);ini=i+1;
+  }
+  if(ini<t.length)out.push(t.length);
+  return out;
+}
+/* cortes por punto del artículo */
+function cortesApartado(t){
+  var out=[],i;
+  for(i=0;i<t.length;i++) if(inicioApartado(t,i))out.push(i);
+  out.push(t.length);
+  return out;
+}
+/* pausa fuerte dentro de una frase larguísima: punto y coma, o el
+   comienzo de una letra enumerada a) b) c) */
+/* «a)» que abre un apartado de verdad, no la cita «la letra a) del art.» */
+function inicioLetra(t,i){
+  if(!/^[a-z]\)/.test(t.slice(i,i+2)))return false;
+  if(BORDES[i])return true;                 /* arranca un elemento: es un ítem */
+  var antes=t.slice(Math.max(0,i-40),i).replace(/\s+$/,"");
+  if(!antes)return true;
+  return /[:;.]$/.test(antes);
+}
+function pausaFuerte(t,i){
+  if(t[i]===";"&&/[\s]/.test(t[i+1]||" "))return true;
+  if(BORDES[i+1]&&/[.!?:;»"]/.test(t[i]))return true;
+  if(/[\s:;]/.test(t[i]||"")&&inicioLetra(t,i+1))return true;
+  return false;
+}
+/* unidades de locución: una o varias frases completas, hasta MAX_LOC.
+   El comienzo de cada punto del artículo es un corte obligatorio, para
+   que una locución nunca se lleve por delante el salto del 1 al 2. */
+function cortesLocucion(t){
+  var ap=cortesApartado(t),duros={},i,j;
+  for(i=0;i<ap.length;i++)duros[ap[i]]=1;
+
+  var base=cortesFrase(t).concat(ap).filter(function(x){return x>0&&x<=t.length;});
+  base.sort(function(a,b){return a-b;});
+  var lim=[],ant=-1;
+  for(i=0;i<base.length;i++) if(base[i]!==ant){lim.push(base[i]);ant=base[i];}
+
+  var uds=[],desde=0;
+  for(i=0;i<lim.length;i++){
+    var fin=lim[i];
+    if(fin<=desde)continue;
+    if(fin-desde<=DURO){uds.push(fin);desde=fin;continue;}
+    var a=desde;
+    for(j=desde;j<fin;j++){
+      if(j-a<150)continue;
+      if(pausaFuerte(t,j)){uds.push(j+1);a=j+1;}
+    }
+    if(fin-a>DURO*2){        /* sin pausas fuertes: última salida, la coma */
+      var b=a;
+      for(j=a;j<fin;j++){
+        if(j-b<500)continue;
+        if(t[j]===","&&/\s/.test(t[j+1]||" ")){uds.push(j+1);b=j+1;}
+      }
+      if(fin>b)uds.push(fin);
+    }else if(fin>a)uds.push(fin);
+    desde=fin;
+  }
+  if(!uds.length)uds.push(t.length);
+
+  /* agrupamos unidades enteras: ni se parte una frase ni se cruza de un
+     punto del artículo al siguiente */
+  var out=[],ini=0;
+  for(i=0;i<uds.length;i++){
+    var sig=(i+1<uds.length)?uds[i+1]:null;
+    if(sig===null||sig-ini>MAX_LOC||duros[uds[i]]){out.push(uds[i]);ini=uds[i];}
+  }
+  if(out[out.length-1]!==t.length)out.push(t.length);
+  return out;
+}
+/* reparte un tramo demasiado largo usando los cortes del nivel inferior */
+function acotar(t,cortes,tope,sub){
+  var out=[],desde=0;
+  for(var i=0;i<cortes.length;i++){
+    var fin=cortes[i];
+    if(fin-desde>tope&&sub){
+      var s=sub(t).filter(function(x){return x>desde&&x<fin;});
+      for(var j=0;j<s.length;j++){out.push(s[j]);desde=s[j];}
+    }
+    if(fin>desde){out.push(fin);desde=fin;}
+  }
+  return out;
+}
+function limitesNivel(t,n){
+  if(n===1)return acotar(t,cortesApartado(t),MAX_APARTADO,cortesLocucion);
+  return cortesLocucion(t);
+}
+
+function segmentar(root){
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    if(!n.nodeValue||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+    if(n.parentElement&&n.parentElement.closest(".lbl,.tts-bar"))return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT;
+  }});
+  var nodos=[];while(w.nextNode())nodos.push(w.currentNode);
+  if(!nodos.length)return null;
+
+  var full="";BORDES={};
+  nodos.forEach(function(n){
+    full+=n.nodeValue;
+    /* el hueco entre este nodo y el siguiente es un borde de elemento */
+    BORDES[full.length]=1;
+  });
+
+  /* partimos el DOM por la granularidad más fina; los niveles superiores
+     se forman agrupando estos mismos trozos, sin volver a tocar el texto */
+  var finos=limitesNivel(full,3);
+  var piezas=[],ci=0,pos=0;
+  finos.forEach(function(){piezas.push({ini:0,fin:0,text:"",spans:[]});});
+  piezas.forEach(function(p,k){p.fin=finos[k];p.ini=k?finos[k-1]:0;});
+
+  nodos.forEach(function(node){
+    var txt=node.nodeValue,off=0,frag=document.createDocumentFragment();
+    while(off<txt.length){
+      var fin=finos[ci]!=null?finos[ci]-pos:txt.length;
+      if(fin>txt.length)fin=txt.length;
+      if(fin<=off)fin=txt.length;
+      var trozo=txt.slice(off,fin);
+      var sp=document.createElement("span");
+      sp.className="tts-s";sp.setAttribute("data-s",ci);sp.textContent=trozo;
+      frag.appendChild(sp);
+      if(piezas[ci]){piezas[ci].text+=trozo;piezas[ci].spans.push(sp);}
+      if(pos+fin>=(finos[ci]||Infinity))ci++;
+      off=fin;
+    }
+    pos+=txt.length;
+    node.parentNode.replaceChild(frag,node);
+  });
+  piezas=piezas.filter(function(p){return p.text.trim().length>1;});
+
+  /* agrupamos las piezas según cada nivel */
+  function agrupar(cortes){
+    var g=[],k=0;
+    for(var i=0;i<cortes.length;i++){
+      var hasta=cortes[i],u={text:"",spans:[],sub:[]};
+      while(k<piezas.length&&piezas[k].fin<=hasta){
+        u.text+=piezas[k].text;
+        u.spans=u.spans.concat(piezas[k].spans);
+        u.sub.push({text:piezas[k].text,spans:piezas[k].spans});
+        k++;
+      }
+      if(u.text.trim().length>1)g.push(u);
+    }
+    while(k<piezas.length){                       /* lo que sobre, al final */
+      if(g.length){var l=g[g.length-1];
+        l.text+=piezas[k].text;
+        l.spans=l.spans.concat(piezas[k].spans);
+        l.sub.push({text:piezas[k].text,spans:piezas[k].spans});}
+      k++;
+    }
+    return g;
+  }
+  return {1:agrupar(limitesNivel(full,1)),
+          2:agrupar(limitesNivel(full,2)),
+          3:piezas.map(function(p){return {text:p.text,spans:p.spans,
+                                          sub:[{text:p.text,spans:p.spans}]};})};
+}
+
+/* ─────────── 4 · Reproductor ─────────── */
+var mini,miniBar,miniLbl,miniPlay;
+function crearMini(){
+  mini=document.createElement("div");
+  mini.className="tts-mini noprint";
+  mini.innerHTML='<span class="lbl"></span>'
+    +'<button class="main" data-a="play" title="Pausar o reanudar">⏸</button>'
+    +'<span class="bar"><i></i></span>'
+    +'<button data-a="prev" title="Frase anterior">↺</button>'
+    +'<button data-a="stop" title="Detener">■</button>'
+    +'<button data-a="cfg" title="Ajustes de voz">⚙</button>';
+  document.body.appendChild(mini);
+  miniBar=mini.querySelector(".bar i");miniLbl=mini.querySelector(".lbl");
+  miniPlay=mini.querySelector('[data-a="play"]');
+  mini.addEventListener("click",function(e){
+    var b=e.target.closest("button");if(!b)return;
+    var a=b.getAttribute("data-a");
+    if(a==="play")pausarReanudar();
+    else if(a==="stop")parar();
+    else if(a==="prev"){if(actual){actual.i=Math.max(0,actual.i-2);siguiente();}}
+    else if(a==="cfg")abrirPanel();
+  });
+}
+
+function limpiarMarcas(){
+  document.querySelectorAll(".tts-s.now").forEach(function(s){s.classList.remove("now");});
+}
+function parar(){
+  if(actual){if(actual.wdIni)clearTimeout(actual.wdIni);if(actual.wdFin)clearTimeout(actual.wdFin);}
+  synth.cancel();
+  if(actual){
+    actual.bloque.classList.remove("tts-on");
+    var b=actual.bloque.querySelector(".tts-play");
+    if(b){b.classList.remove("on");b.innerHTML=iconoPlay();}
+  }
+  limpiarMarcas();
+  actual=null;
+  if(mini)mini.classList.remove("show");
+}
+function iconoPlay(){return '<span aria-hidden="true">▶</span> Escuchar';}
+function iconoOn(){return '<span class="tts-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Leyendo';}
+
+function pausarReanudar(){
+  if(!actual)return;
+  if(synth.paused){actual.enPausa=false;synth.resume();miniPlay.textContent="⏸";}
+  else{actual.enPausa=true;synth.pause();miniPlay.textContent="▶";}
+}
+
+function leer(bloque){
+  if(actual&&actual.bloque===bloque){parar();return;}
+  parar();
+  var datos=bloque.__tts&&bloque.__tts[nivel];
+  if(!datos||!datos.length)return;
+  var voz=elegir();
+  actual={bloque:bloque,frases:datos,i:0,voz:voz,leido:0};
+  bloque.classList.add("tts-on");
+  var b=bloque.querySelector(".tts-play");
+  if(b){b.classList.add("on");b.innerHTML=iconoOn();}
+  if(!mini)crearMini();
+  var art=bloque.closest(".art");
+  var t=art?art.querySelector("h2 .num"):null;
+  var sufijo=bloque.__label?" · "+bloque.__label:"";
+  miniLbl.textContent=(t?t.textContent:"")+sufijo||"Lectura";
+  miniLbl.title=miniLbl.textContent;
+  miniPlay.textContent="⏸";
+  mini.classList.add("show");
+  siguiente();
+}
+
+/* La unidad de lectura es el punto completo del artículo —el 1 con sus
+   letras a), b), c), luego el 2, y así— y suena entero antes de empezar
+   el siguiente. Para que el motor no lo trunque, el punto se le entrega
+   en frases encoladas que se reproducen seguidas. Si aun así un punto no
+   llegara a sonar, se pasa a frases sueltas de punto a punto. */
+var K_NIVEL="oposi_bII_ttsnivel";
+var nivel=1;
+try{localStorage.removeItem(K_NIVEL);}catch(e){}
+function bajarNivel(){
+  if(nivel>=2)return false;
+  nivel=2;
+  return true;
+}
+function limpiaWD(){
+  if(actual){
+    if(actual.wdIni)clearTimeout(actual.wdIni);
+    if(actual.wdFin)clearTimeout(actual.wdFin);
+    actual.wdIni=actual.wdFin=null;
+  }
+}
+function siguiente(){
+  if(!actual)return;
+  limpiaWD();
+  limpiarMarcas();
+  var lista=actual.bloque.__tts?actual.bloque.__tts[nivel]:null;
+  if(lista&&lista!==actual.frases){          /* hemos bajado de nivel: reubicamos */
+    var leido=actual.leido||0,k=0,acum=0;
+    for(k=0;k<lista.length;k++){ if(acum>=leido)break; acum+=lista[k].text.length; }
+    actual.frases=lista; actual.i=Math.max(0,k);
+  }
+  if(actual.i>=actual.frases.length){
+    var fin=actual.bloque;
+    parar();
+    fin.dispatchEvent(new CustomEvent("tts:fin",{bubbles:true}));
+    return;
+  }
+  var f=actual.frases[actual.i];
+
+  /* el punto se entrega al motor en frases encoladas: las reproduce una
+     tras otra sin silencio apreciable, y ninguna es lo bastante larga
+     como para que la corte a medias */
+  var trozos=(f.sub&&f.sub.length)?f.sub:[f];
+  var utts=[],total=0,j;
+  for(j=0;j<trozos.length;j++){
+    var txt=paraVoz(trozos[j].text);
+    if(!txt||txt.length<2)continue;
+    total+=txt.length;
+    var uu=new SpeechSynthesisUtterance(txt);
+    if(actual.voz){uu.voice=actual.voz;uu.lang=actual.voz.lang;}else{uu.lang="es-ES";}
+    uu.rate=cfg.rate;uu.pitch=cfg.pitch||1;uu.volume=1;
+    uu.__sub=trozos[j];
+    utts.push(uu);
+  }
+  if(!utts.length){actual.i++;setTimeout(siguiente,20);return;}
+
+  /* el punto entero queda resaltado mientras dura */
+  f.spans.forEach(function(s){s.classList.add("now");});
+  if(f.spans[0]&&actual.i>0){
+    try{
+      var r=f.spans[0].getBoundingClientRect();
+      if((r.top<70||r.bottom>innerHeight-90)&&f.spans[0].scrollIntoView)
+        f.spans[0].scrollIntoView({block:"center",behavior:"smooth"});
+    }catch(e){}
+  }
+  miniBar.style.width=((actual.i+1)/actual.frases.length*100)+"%";
+
+  var avanzado=false,arrancado=false,pendientes=utts.length;
+  var ultima=utts[utts.length-1];
+  function avanzar(){
+    if(avanzado)return;avanzado=true;
+    limpiaWD();subrayar(null);
+    if(actual){actual.avanzarPunto=null;
+      actual.leido=(actual.leido||0)+f.text.length;
+      actual.i++;setTimeout(siguiente,60);}
+  }
+  function acabaUno(){ if(--pendientes<=0)avanzar(); }
+  utts.forEach(function(u){
+    u.onstart=function(){
+      arrancado=true;
+      if(actual&&actual.wdIni){clearTimeout(actual.wdIni);actual.wdIni=null;}
+      subrayar(u.__sub);
+    };
+    u.onend=acabaUno;             /* el punto acaba con su última frase */
+    u.onerror=function(e){
+      if(e&&(e.error==="interrupted"||e.error==="canceled"))return;
+      acabaUno();
+    };
+  });
+  actual.u=ultima;
+  actual.avanzarPunto=avanzar;
+  actual.largo=utts.some(function(x){return x.text.length>380;});
+  for(j=0;j<utts.length;j++){
+    try{ synth.speak(utts[j]); }catch(e){ pendientes--; }
+  }
+  if(pendientes<=0){avanzar();return;}
+
+  /* si el motor ni siquiera arranca, probamos con una voz local */
+  actual.wdIni=setTimeout(function(){
+    if(!actual||actual.u!==ultima||avanzado||arrancado)return;
+    if(!actual.reintento){
+      actual.reintento=true;
+      var local=null,i;
+      for(i=0;i<voces.length;i++)
+        if(voces[i]!==actual.voz&&voces[i].localService!==false&&!esRemota(voces[i])){local=voces[i];break;}
+      if(local){
+        actual.voz=local;
+        cfg.voz=local.voiceURI;save(cfg);
+        if(sel)try{sel.value=local.voiceURI;}catch(e){}
+        avisarVoz(local);
+      }
+      avanzado=true;limpiaWD();
+      try{synth.cancel();}catch(e){}
+      setTimeout(function(){ if(actual)siguiente(); },160);
+    }else{
+      actual.reintento=false;
+      if(bajarNivel()){        /* este aparato no traga puntos completos */
+        avanzado=true;limpiaWD();
+        actual.frases=[];actual.i=0;
+        try{synth.cancel();}catch(e){}
+        setTimeout(siguiente,60);
+        return;
+      }
+      avanzar();
+    }
+  },3500);
+
+  /* red de seguridad proporcional a lo que dura todo el punto */
+  var estimado=total/(11*(cfg.rate||1))*1000;
+  actual.wdFin=setTimeout(function(){
+    if(actual&&actual.u===ultima&&!avanzado){try{synth.cancel();}catch(e){}avanzar();}
+  },Math.max(15000,estimado*2.4+8000));
+}
+
+/* dentro del punto, resalta la frase que suena en este momento */
+function subrayar(sb){
+  var v=document.querySelectorAll(".tts-s.leyendo"),i;
+  for(i=0;i<v.length;i++)v[i].classList.remove("leyendo");
+  if(sb&&sb.spans)sb.spans.forEach(function(s){s.classList.add("leyendo");});
+}
+
+/* Con locuciones cortas ya no hace falta el pause/resume periódico, que en
+   Chrome llegaba a dejar la voz colgada. Solo vigilamos que no se detenga sola. */
+/* Chrome deja de hablar pasados unos segundos en una locución larga.
+   Este pulso invisible la mantiene viva. En iOS no se toca: allí
+   pause/resume deja la voz colgada. */
+setInterval(function(){
+  if(IOS||!actual||!actual.largo||actual.enPausa)return;
+  if(!synth.speaking||synth.paused)return;
+  try{synth.pause();synth.resume();}catch(e){}
+  setTimeout(function(){          /* por si el motor se queda en pausa */
+    if(synth.paused&&actual&&!actual.enPausa){try{synth.resume();}catch(e){}}
+  },120);
+},8000);
+
+setInterval(function(){
+  if(actual&&!synth.speaking&&!synth.paused&&actual.u){
+    if(!actual.mudo)actual.mudo=1;else if(++actual.mudo>3){actual.mudo=0;
+      try{synth.cancel();}catch(e){}
+      if(actual&&actual.avanzarPunto)actual.avanzarPunto();
+      else if(actual){actual.i++;setTimeout(siguiente,60);}}
+  }else if(actual)actual.mudo=0;
+},1500);
+
+/* ─────────── 5 · Panel de ajustes ─────────── */
+var back,sel;
+function crearPanel(){
+  back=document.createElement("div");
+  back.className="tts-back noprint";
+  back.innerHTML=
+   '<div class="tts-panel" role="dialog" aria-modal="true" aria-label="Ajustes de voz">'
+   +'<h3>🔊 Lectura en voz alta</h3>'
+   +'<p class="sub">Ajusta cómo se lee el texto legal. Se recuerda para todos los bloques.</p>'
+   +'<div class="tts-row"><label>Tipo de voz</label>'
+     +'<div class="tts-seg" id="ttsGen">'
+       +'<button data-g="f">👩 Femenina</button>'
+       +'<button data-g="m">👨 Masculina</button>'
+     +'</div></div>'
+   +'<div class="tts-row"><label>Voz concreta</label><select id="ttsVoz"></select></div>'
+   +'<div class="tts-row"><label>Velocidad</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsRate" min="0.6" max="1.6" step="0.05">'
+     +'<span class="tts-val" id="ttsRateV"></span></div></div>'
+   +'<div class="tts-row"><label>Tono</label>'
+     +'<div class="tts-slider"><input type="range" id="ttsPitch" min="0.7" max="1.3" step="0.05">'
+     +'<span class="tts-val" id="ttsPitchV"></span></div></div>'
+   +'<p class="tts-note" id="ttsNota"></p>'
+   +'<div class="tts-acts">'
+     +'<button id="ttsTest">▶ Probar</button>'
+     +'<button class="prim" id="ttsOk">Hecho</button>'
+   +'</div></div>';
+  document.body.appendChild(back);
+  sel=back.querySelector("#ttsVoz");
+
+  back.addEventListener("click",function(e){if(e.target===back)cerrarPanel();});
+  back.querySelector("#ttsOk").onclick=cerrarPanel;
+  back.querySelector("#ttsGen").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-g]");if(!b)return;
+    cfg.gen=b.getAttribute("data-g");cfg.voz=null;save(cfg);pintarSelector();probar();
+  });
+  sel.onchange=function(){cfg.voz=sel.value;save(cfg);probar();};
+  var r=back.querySelector("#ttsRate"),rv=back.querySelector("#ttsRateV");
+  r.value=cfg.rate;rv.textContent=(+cfg.rate).toFixed(2)+"×";
+  r.oninput=function(){cfg.rate=+r.value;rv.textContent=cfg.rate.toFixed(2)+"×";save(cfg);};
+  r.onchange=probar;
+  var p=back.querySelector("#ttsPitch"),pv=back.querySelector("#ttsPitchV");
+  p.value=cfg.pitch||1;pv.textContent=(+(cfg.pitch||1)).toFixed(2);
+  p.oninput=function(){cfg.pitch=+p.value;pv.textContent=cfg.pitch.toFixed(2);save(cfg);};
+  p.onchange=probar;
+  back.querySelector("#ttsTest").onclick=probar;
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"&&back.classList.contains("show"))cerrarPanel();
+  });
+}
+function probar(){
+  synth.cancel();
+  var v=elegir();
+  var u=new SpeechSynthesisUtterance("El presupuesto general de la entidad local se aprueba antes del 31 de diciembre.");
+  if(v){u.voice=v;u.lang=v.lang;}else u.lang="es-ES";
+  u.rate=cfg.rate;u.pitch=cfg.pitch||1;
+  synth.speak(u);
+}
+function pintarSelector(){
+  if(!sel)return;
+  var g=cfg.gen;
+  back.querySelectorAll("#ttsGen button").forEach(function(b){
+    b.setAttribute("aria-pressed",String(b.getAttribute("data-g")===g));
+  });
+  var pref=voces.filter(function(v){return genero(v)===g;});
+  var otras=voces.filter(function(v){return genero(v)!==g;});
+  function opt(v){
+    var nat=/natural|neural|online|premium|enhanced|google/i.test(v.name)?" ★":"";
+    return '<option value="'+v.voiceURI+'">'+v.name+nat+"</option>";
+  }
+  sel.innerHTML=(pref.length?'<optgroup label="'+(g==="f"?"Femeninas":"Masculinas")+'">'+pref.map(opt).join("")+"</optgroup>":"")
+    +(otras.length?'<optgroup label="Otras voces en español">'+otras.map(opt).join("")+"</optgroup>":"");
+  var v=elegir();
+  if(v)sel.value=v.voiceURI;
+
+  var nota=back.querySelector("#ttsNota");
+  var hayNat=voces.some(function(x){return /natural|neural|online/i.test(x.name);});
+  if(!voces.length){
+    nota.innerHTML="⚠️ No se han detectado voces en español en este navegador. Prueba con Microsoft Edge o Chrome.";
+  }else if(hayNat){
+    nota.innerHTML="✅ Tienes voces <b>neuronales</b> disponibles (marcadas con ★): son las que suenan más humanas.";
+  }else{
+    nota.innerHTML="💡 Las voces marcadas con ★ suenan mejor. Para conseguir voces <b>neuronales</b> (mucho más naturales), "
+      +"abre estas páginas en <b>Microsoft Edge</b>, o instálalas en Windows: <b>Configuración → Hora e idioma → Voz → Agregar voces</b>.";
+  }
+}
+function abrirPanel(){if(!back)crearPanel();pintarSelector();back.classList.add("show");}
+function cerrarPanel(){if(back)back.classList.remove("show");synth.cancel();}
+
+/* ─────────── 6 · Inyectar los controles en cada apartado ─────────── */
+/* Se excluyen a propósito tres apartados: conexiones con otros preceptos,
+   trampas y errores frecuentes, y anclaje memorístico. */
+var TTS_EXCLUIR=/(conexion|conexiones|trampas|anclaje)/i;
+
+function ttsBarra(frases,compacta){
+  var bar=document.createElement("div");
+  bar.className="tts-bar noprint"+(compacta?" mini":"");
+  bar.innerHTML='<button class="tts-play" type="button">'+iconoPlay()+"</button>"
+    +(compacta?"":'<button class="tts-cfg" type="button" title="Ajustes de voz">⚙ Voz</button>')
+    +'<span class="tts-time">'+frases.length+(frases.length===1?" frase":" frases")+"</span>";
+  return bar;
+}
+
+function ttsPreparar(bl,opts){
+  if(bl.getAttribute("data-tts"))return false;
+  bl.setAttribute("data-tts","1");
+  var niveles=segmentar(bl);
+  bl.__tts=niveles;
+  var frases=niveles&&niveles[nivel];
+  if(!frases||!frases.length||bl.textContent.trim().length<40)return false;
+  bl.__label=opts.label||"";
+  var bar=ttsBarra(frases,opts.compacta);
+  if(opts.tras){
+    var ref=bl.querySelector(opts.tras);
+    if(ref&&ref.nextSibling)bl.insertBefore(bar,ref.nextSibling);
+    else bl.insertBefore(bar,bl.firstChild);
+  }else if(opts.alFinal){
+    bl.appendChild(bar);
+  }else{
+    bl.insertBefore(bar,bl.firstChild);
+  }
+  bar.querySelector(".tts-play").onclick=function(e){e.stopPropagation();leer(bl);};
+  var cfg=bar.querySelector(".tts-cfg");
+  if(cfg)cfg.onclick=function(e){e.stopPropagation();abrirPanel();};
+  return true;
+}
+
+function montar(){
+  var hay=false;
+  if(!back)crearPanel();
+
+  /* 6a · Texto legal literal */
+  Array.prototype.forEach.call(document.querySelectorAll(".legal:not([data-tts])"),function(bl){
+    hay=ttsPreparar(bl,{tras:".lbl",label:"Texto legal"})||hay;
+  });
+
+  /* 6b · Idea clave */
+  Array.prototype.forEach.call(document.querySelectorAll(".idea:not([data-tts])"),function(bl){
+    hay=ttsPreparar(bl,{compacta:true,alFinal:true,label:"Idea clave"})||hay;
+  });
+
+  /* 6c · Apartados desplegables, salvo los tres excluidos */
+  Array.prototype.forEach.call(document.querySelectorAll("details.panel"),function(p){
+    var sum=p.querySelector("summary");
+    var body=p.querySelector(".body");
+    if(!sum||!body||body.getAttribute("data-tts"))return;
+    var t=sum.textContent||"";
+    if(TTS_EXCLUIR.test(t)){body.setAttribute("data-tts","skip");return;}
+    hay=ttsPreparar(body,{compacta:true,label:t.replace(/[^\wáéíóúüñÁÉÍÓÚÜÑ\s·¿?¡!]/g,"").trim()})||hay;
+  });
+
+  /* 6d · Resumen e introducción del bloque */
+  ["#resumen","#intro"].forEach(function(sel){
+    var sec=document.querySelector(sel);
+    if(!sec||sec.getAttribute("data-tts"))return;
+    var h=sec.querySelector("h2");
+    hay=ttsPreparar(sec,{tras:"h2",label:h?h.textContent:"Resumen"})||hay;
+  });
+
+  return hay;
+}
+
+/* ─────────── 7 · Arranque ─────────── */
+cargarVoces();
+if(typeof synth.onvoiceschanged!=="undefined")synth.onvoiceschanged=cargarVoces;
+setTimeout(cargarVoces,400);setTimeout(cargarVoces,1400);
+
+var n=0,iv=setInterval(function(){if(montar()||++n>40)clearInterval(iv);},150);
+addEventListener("load",function(){setTimeout(montar,200);});
+addEventListener("beforeunload",function(){synth.cancel();});
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("input,textarea,select"))return;
+  if(e.key==="Escape"&&actual)parar();
+});
+})();
+
+
+</script>
+<script>
+
+
+/* ═══════════════════════════════════════════════════════════════
+   AUTOAJUSTE DE DIAGRAMAS SVG
+   · El texto que desborda su rectángulo se reparte en líneas.
+   · Las filas siguientes se empujan hacia abajo y el rectángulo crece,
+     de modo que ninguna línea nueva pise al texto de debajo.
+   · Si no hay espacio libre bajo el rectángulo, en lugar de repartir
+     se reduce la fuente: nunca se invade el elemento contiguo.
+   · Las etiquetas sueltas reciben halo y se pintan sobre las flechas.
+   Todas las medidas se toman del elemento ya renderizado.
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+var NS="http://www.w3.org/2000/svg";
+var PAD_X=9, PAD_Y=7, FS_MIN=6.5, MAX_LINEAS=4, INTER=1.16, SEP_MIN=5;
+
+function num(el,a,d){var v=parseFloat(el.getAttribute(a));return isNaN(v)?(d||0):v;}
+function ancho(t){try{if(t.getComputedTextLength)return t.getComputedTextLength();}catch(e){}return 0;}
+function fs(t){
+  var v=parseFloat(t.getAttribute("font-size"));
+  if(!isNaN(v))return v;
+  try{v=parseFloat(getComputedStyle(t).fontSize);if(!isNaN(v)&&v>0)return v;}catch(e){}
+  return 10;
+}
+function partir(txt,cpp,maxW,n){
+  if(txt.length*cpp<=maxW)return [txt];
+  var seps=[" · "," — "," – ",", "," "],s,i,k;
+  for(s=0;s<seps.length;s++){
+    var tr=txt.split(seps[s]);
+    if(tr.length<2)continue;
+    var lin=[],act="";
+    for(i=0;i<tr.length;i++){
+      var cand=act?act+seps[s]+tr[i]:tr[i];
+      if(act&&cand.length*cpp>maxW){lin.push(act);act=tr[i];}
+      else act=cand;
+    }
+    if(act)lin.push(act);
+    var caben=true;
+    for(k=0;k<lin.length;k++)if(lin[k].length*cpp>maxW)caben=false;
+    if(caben&&lin.length<=n)return lin;
+  }
+  return null;
+}
+function pintar(t,lin,size){
+  while(t.firstChild)t.removeChild(t.firstChild);
+  var x=t.getAttribute("x");
+  for(var i=0;i<lin.length;i++){
+    var ts=document.createElementNS(NS,"tspan");
+    ts.setAttribute("x",x);
+    if(i)ts.setAttribute("dy",(size*INTER).toFixed(1));
+    ts.textContent=lin[i];
+    t.appendChild(ts);
+  }
+}
+function encajar(t,cpp,maxW){
+  var sp=t.getElementsByTagName("tspan"),i;
+  if(sp.length){
+    for(i=0;i<sp.length;i++)
+      if(sp[i].textContent.length*cpp>maxW+.5){
+        sp[i].setAttribute("textLength",maxW.toFixed(1));
+        sp[i].setAttribute("lengthAdjust","spacingAndGlyphs");
+      }
+  }else if((t.textContent||"").length*cpp>maxW+.5){
+    t.setAttribute("textLength",maxW.toFixed(1));
+    t.setAttribute("lengthAdjust","spacingAndGlyphs");
+  }
+}
+/* reduce la fuente hasta que el texto quepa en una sola línea */
+function encoger(t,txt,cpp,size,maxW){
+  var s2=size,c2=cpp;
+  while(s2>FS_MIN&&txt.length*c2>maxW){s2-=.5;c2=cpp*(s2/size);}
+  t.setAttribute("font-size",s2.toFixed(1));
+  encajar(t,c2,maxW);
+  return s2;
+}
+
+function ajustar(svg){
+  var rects=[],texts=[],i;
+  var rl=svg.querySelectorAll("rect"),tl=svg.querySelectorAll("text");
+  for(i=0;i<rl.length;i++)if(!rl[i].hasAttribute("data-halo"))rects.push(rl[i]);
+  for(i=0;i<tl.length;i++)texts.push(tl[i]);
+  if(!texts.length)return true;
+  var medible=false;
+  for(i=0;i<texts.length;i++)
+    if((texts[i].textContent||"").trim()&&ancho(texts[i])>0){medible=true;break;}
+  if(!medible)return false;
+
+  var porRect=[],sueltos=[];
+  function grupo(r){
+    for(var j=0;j<porRect.length;j++)if(porRect[j].r===r)return porRect[j];
+    var g={r:r,lista:[]};porRect.push(g);return g;
+  }
+  texts.forEach(function(t){
+    if(t.getAttribute("data-fit"))return;
+    var x=num(t,"x"),y=num(t,"y"),host=null,area=Infinity;
+    rects.forEach(function(r){
+      var rx=num(r,"x"),ry=num(r,"y"),rw=num(r,"width"),rh=num(r,"height");
+      if(!rw||!rh)return;
+      if(x>=rx-1&&x<=rx+rw+1&&y>=ry-1&&y<=ry+rh+1&&rw*rh<area){host=r;area=rw*rh;}
+    });
+    if(host)grupo(host).lista.push(t); else sueltos.push(t);
+  });
+
+  /* espacio libre bajo un rectángulo, hasta el siguiente elemento que le estorbe */
+  function hueco(r){
+    var rx=num(r,"x"),ry=num(r,"y"),rw=num(r,"width"),rh=num(r,"height");
+    var abajo=ry+rh, libre=Infinity;
+    rects.forEach(function(o){
+      if(o===r)return;
+      var ox=num(o,"x"),oy=num(o,"y"),ow=num(o,"width");
+      if(oy>=abajo-1&&ox<rx+rw&&ox+ow>rx)libre=Math.min(libre,oy-abajo-SEP_MIN);
+    });
+    texts.forEach(function(t){
+      var tx=num(t,"x"),ty=num(t,"y");
+      if(ty>abajo&&tx>rx-40&&tx<rx+rw+40)
+        libre=Math.min(libre,ty-fs(t)-abajo-SEP_MIN);
+    });
+    var vb=(svg.getAttribute("viewBox")||"").split(/[\s,]+/);
+    if(vb.length===4)libre=Math.min(libre,parseFloat(vb[1])+parseFloat(vb[3])-abajo-2);
+    return Math.max(0,libre);
+  }
+
+  /* ─── 1 · Texto dentro de un rectángulo ─── */
+  porRect.forEach(function(g){
+    var r=g.r, rx=num(r,"x"), ry=num(r,"y"), rw=num(r,"width"), rh=num(r,"height");
+    var maxW=rw-PAD_X*2;
+    if(maxW<20)return;
+    g.lista.forEach(function(t){t.setAttribute("data-fit","1");});
+    g.lista.sort(function(a,b){return num(a,"y")-num(b,"y");});
+
+    /* filas: textos a la misma altura */
+    var filas=[],act=null;
+    g.lista.forEach(function(t){
+      var y=num(t,"y");
+      if(!act||Math.abs(y-act.y)>3){act={y:y,ts:[]};filas.push(act);}
+      act.ts.push(t);
+    });
+
+    /* — plan: qué haría falta — */
+    var total=0;
+    filas.forEach(function(fl){
+      fl.extra=0;fl.plan=[];
+      fl.ts.forEach(function(t){
+        var txt=(t.textContent||"").replace(/\s+/g," ").trim();
+        var w=ancho(t);
+        if(!txt||!w||w<=maxW){fl.plan.push(null);return;}
+        var size=fs(t), cpp=w/txt.length;
+        var lin=partir(txt,cpp,maxW,MAX_LINEAS);
+        if(lin&&lin.length>1){
+          fl.plan.push({t:t,lin:lin,size:size,cpp:cpp,txt:txt});
+          fl.extra=Math.max(fl.extra,(lin.length-1)*size*INTER);
+        }else fl.plan.push({t:t,lin:null,size:size,cpp:cpp,txt:txt});
+      });
+      total+=fl.extra;
+    });
+
+    /* — ¿cabe ese crecimiento? — */
+    var ultima=filas[filas.length-1];
+    var colchon=Math.max(0,(ry+rh)-ultima.y-PAD_Y);
+    var crecer=Math.max(0,total-colchon);
+    var libre=hueco(r);
+    var reparte=crecer<=libre;
+
+    var desp=0;
+    filas.forEach(function(fl){
+      if(desp>0)fl.ts.forEach(function(t){t.setAttribute("y",(num(t,"y")+desp).toFixed(1));});
+      fl.plan.forEach(function(p){
+        if(!p)return;
+        if(p.lin&&reparte){pintar(p.t,p.lin,p.size);encajar(p.t,p.cpp,maxW);}
+        else encoger(p.t,p.txt,p.cpp,p.size,maxW);
+      });
+      if(reparte)desp+=fl.extra;
+    });
+
+    if(reparte&&crecer>0)r.setAttribute("height",(rh+crecer).toFixed(1));
+
+    /* comprobación final: ninguna línea puede sobresalir del rectángulo */
+    var rh2=num(r,"height"), bajo=ry, i2;
+    g.lista.forEach(function(t){
+      var size=fs(t), y=num(t,"y"), sp=t.getElementsByTagName("tspan");
+      if(sp.length){for(i2=0;i2<sp.length;i2++){
+        if(i2)y+=parseFloat(sp[i2].getAttribute("dy"))||0;
+        bajo=Math.max(bajo,y+size*0.3);}}
+      else bajo=Math.max(bajo,y+size*0.3);
+    });
+    if(bajo>ry+rh2-1){
+      var falta=bajo-(ry+rh2)+3;
+      if(falta<=hueco(r))r.setAttribute("height",(rh2+falta).toFixed(1));
+      else g.lista.forEach(function(t){
+        var txt=(t.textContent||"").replace(/\s+/g," ").trim(), w=ancho(t);
+        if(txt&&w)encoger(t,txt,w/txt.length,fs(t),maxW);
+      });
+    }
+  });
+
+  /* ─── 2 · Etiquetas sueltas ─── */
+  sueltos.forEach(function(t){
+    t.setAttribute("data-fit","1");
+    var txt=(t.textContent||"").replace(/\s+/g," ").trim();
+    if(!txt)return;
+    var w=ancho(t); if(!w)return;
+    var size=fs(t), x=num(t,"x"), y=num(t,"y");
+    var an=t.getAttribute("text-anchor")||"start";
+    var x0=an==="middle"?x-w/2:an==="end"?x-w:x;
+    var halo=document.createElementNS(NS,"rect");
+    halo.setAttribute("data-halo","1");
+    halo.setAttribute("x",(x0-5).toFixed(1));
+    halo.setAttribute("y",(y-size*0.92).toFixed(1));
+    halo.setAttribute("width",(w+10).toFixed(1));
+    halo.setAttribute("height",(size*1.28).toFixed(1));
+    halo.setAttribute("rx","4");
+    halo.setAttribute("fill","var(--surface)");
+    halo.setAttribute("opacity",".93");
+    var p=t.parentNode;
+    p.appendChild(halo);p.appendChild(t);
+  });
+  return true;
+}
+
+function pasada(){
+  var l=document.querySelectorAll("svg:not([data-fit])"),i;
+  for(i=0;i<l.length;i++){try{if(ajustar(l[i]))l[i].setAttribute("data-fit","1");}catch(e){}}
+}
+if(document.readyState!=="loading")requestAnimationFrame(pasada);
+else document.addEventListener("DOMContentLoaded",function(){requestAnimationFrame(pasada);});
+addEventListener("load",function(){setTimeout(pasada,120);setTimeout(pasada,600);});
+document.addEventListener("toggle",function(e){
+  if(e.target&&e.target.tagName==="DETAILS")setTimeout(pasada,30);
+},true);
+var n=0,iv=setInterval(function(){pasada();if(++n>40)clearInterval(iv);},200);
+})();
+
+
+</script>
+</body>
+</html>

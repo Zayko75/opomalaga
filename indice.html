@@ -337,6 +337,12 @@ html[data-theme="dark"] .streak{background:linear-gradient(135deg,#2e2413,#3a2c1
   transition:transform .3s var(--e-out),box-shadow .3s;
 }
 .destacado:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
+/* el simulacro usa el azul de procedimiento, para no confundirse con los supuestos */
+.destacado.sim{
+  background:linear-gradient(135deg,var(--c14-soft),color-mix(in srgb,var(--c5-soft) 60%,transparent));
+  border-color:var(--c14);margin-bottom:1rem;
+}
+.destacado.sim .cta{background:linear-gradient(140deg,var(--c14),var(--c5))}
 .destacado .ico{font-size:2.1rem;line-height:1;flex:none}
 .destacado .tx{flex:1;min-width:220px}
 .destacado h3{font-size:var(--t-h3);font-weight:800;margin:0 0 .25rem}
@@ -589,6 +595,14 @@ svg line{fill:none}
   </section>
 
   <section class="sec reveal" style="margin-bottom:0">
+    <a class="destacado sim" href="SIMULACRO_practico_calculadora.html" style="text-decoration:none;color:inherit">
+      <span class="ico" aria-hidden="true">⏱</span>
+      <span class="tx">
+        <h3>Simulacro del tercer ejercicio</h3>
+        <p>Dos supuestos y 35 preguntas en el formato del examen del 5 de diciembre, con calculadora, semáforo de confianza y corrección razonada.</p>
+      </span>
+      <span class="btn cta">Hacer el simulacro →</span>
+    </a>
     <a class="destacado" href="SUPUESTOS_practicos_resueltos.html" style="text-decoration:none;color:inherit">
       <span class="ico" aria-hidden="true">★</span>
       <span class="tx">

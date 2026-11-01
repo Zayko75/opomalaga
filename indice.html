@@ -46,6 +46,11 @@
   --c12:#be185d; --c12-soft:#ffe6f0;  /* Andalucía */
   --c13:#b91c1c; --c13-soft:#ffe8e6;  /* LPAC · acto */
   --c14:#1d4ed8; --c14-soft:#e4ecff;  /* LPAC · fases*/
+  --c15:#7c3aed; --c15-soft:#f1e9ff;  /* Órganos colegiados */
+  --c16:#0284c7; --c16-soft:#e0f2fe;  /* Electrónico I   */
+  --c17:#c026d3; --c17-soft:#fbe8fe;  /* Electrónico II  */
+  --c18:#15803d; --c18-soft:#e3f6e8;  /* Electrónico III */
+  --c19:#92400e; --c19-soft:#f7ecdf;  /* Electrónico IV  */
 
   /* — Estados — */
   --ok:#16a34a; --ok-soft:#e7f7ec;
@@ -110,6 +115,11 @@ html[data-theme="dark"]{
   --c12:#f472b6; --c12-soft:#2e1020;
   --c13:#f87171; --c13-soft:#2e1414;
   --c14:#60a5fa; --c14-soft:#0e1a33;
+  --c15:#a78bfa; --c15-soft:#251b47;
+  --c16:#7dd3fc; --c16-soft:#0a2436;
+  --c17:#e879f9; --c17-soft:#2d0f33;
+  --c18:#86efac; --c18-soft:#0d2a17;
+  --c19:#d6a06a; --c19-soft:#2a1a0c;
 
   --ok:#4ade80; --ok-soft:#0e2a19;
   --mid:#facc15; --mid-soft:#2c2610;
@@ -467,8 +477,8 @@ svg line{fill:none}
   <section class="hero">
     <div>
       <span class="eyebrow"><span class="dot"></span>Centro de estudio</span>
-      <h1>Procedimiento, presupuesto <em>y contratación pública</em></h1>
-      <p class="lead">Veintiocho bloques interactivos con el texto legal literal, diagramas, tablas de plazos, casos prácticos, flashcards, test corregido y lectura en voz alta. Verificado contra los textos consolidados del BOE.</p>
+      <h1>Administración electrónica, procedimiento <em>y gasto público</em></h1>
+      <p class="lead">Treinta y tres bloques interactivos con el texto legal literal, diagramas, tablas de plazos, casos prácticos, flashcards, test corregido y lectura en voz alta. Verificado contra los textos consolidados del BOE.</p>
       <div class="hero-cta noprint">
         <a class="btn primary" href="#misiones">Ir a la ruta de estudio →</a>
         <button class="btn" id="reset">Reiniciar progreso</button>
@@ -492,13 +502,13 @@ svg line{fill:none}
   <section class="stats reveal">
     <div class="stat" style="--acc:var(--ok)"><span class="v num" id="sDom">0</span><span class="k">Bloques dominados</span></div>
     <div class="stat" style="--acc:var(--mid)"><span class="v num" id="sCur">0</span><span class="k">En curso</span></div>
-    <div class="stat" style="--acc:var(--c5)"><span class="v num">28</span><span class="k">Bloques totales</span></div>
-    <div class="stat" style="--acc:var(--c6)"><span class="v num">405</span><span class="k">Artículos cubiertos</span></div>
+    <div class="stat" style="--acc:var(--c5)"><span class="v num">33</span><span class="k">Bloques totales</span></div>
+    <div class="stat" style="--acc:var(--c6)"><span class="v num">433</span><span class="k">Artículos cubiertos</span></div>
   </section>
 
   <section class="sec reveal">
     <div class="sec-head">
-      <h2>Los ocho temas</h2>
+      <h2>Los trece temas</h2>
       <span class="hint">Tu avance se guarda en este navegador</span>
       <span class="rule"></span>
     </div>
@@ -521,6 +531,51 @@ svg line{fill:none}
         <div class="bar"><i data-tema-bar="3"></i></div>
         <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="3">0%</span></div>
         <a class="go" href="LPAC_53-65_iniciacion.html">Empezar por la iniciación <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="tema" data-tema="1" style="--acc:var(--c15);--acc-soft:var(--c15-soft)">
+        <span class="badge">Tema 1 · LBRL y ROF</span>
+        <h3>Los órganos colegiados locales</h3>
+        <p class="desc">Convocatoria y orden del día, requisitos de constitución, desarrollo de la sesión, actas y certificados.</p>
+        <div class="meta"><span><b>1</b> bloque</span><span><b>14</b> artículos</span><span>Ley 7/1985 · ROF</span></div>
+        <div class="bar"><i data-tema-bar="1"></i></div>
+        <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="1">0%</span></div>
+        <a class="go" href="TEMA_1_organos_colegiados.html">Empezar por la convocatoria <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="tema" data-tema="4" style="--acc:var(--c16);--acc-soft:var(--c16-soft)">
+        <span class="badge">Tema 4 · Administración electrónica</span>
+        <h3>Sede, identificación y firma</h3>
+        <p class="desc">Sede electrónica y puntos de acceso, identificación y autenticación de la ciudadanía y firma electrónica.</p>
+        <div class="meta"><span><b>1</b> bloque</span><span><b>19</b> artículos</span><span>Ley 40/2015 · RD 203/2021</span></div>
+        <div class="bar"><i data-tema-bar="4"></i></div>
+        <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="4">0%</span></div>
+        <a class="go" href="TEMA_4_funcionamiento_electronico_I.html">Empezar por la sede electrónica <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="tema" data-tema="5" style="--acc:var(--c17);--acc-soft:var(--c17-soft)">
+        <span class="badge">Tema 5 · Administración electrónica</span>
+        <h3>Acceso electrónico de la ciudadanía</h3>
+        <p class="desc">Quién puede y quién debe relacionarse por medios electrónicos, y los servicios públicos electrónicos.</p>
+        <div class="meta"><span><b>1</b> bloque</span><span><b>12</b> artículos</span><span>Ley 39/2015 · RD 203/2021</span></div>
+        <div class="bar"><i data-tema-bar="5"></i></div>
+        <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="5">0%</span></div>
+        <a class="go" href="TEMA_5_funcionamiento_electronico_II.html">Empezar por el derecho de acceso <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="tema" data-tema="6" style="--acc:var(--c18);--acc-soft:var(--c18-soft)">
+        <span class="badge">Tema 6 · Administración electrónica</span>
+        <h3>Registro, archivo y notificaciones</h3>
+        <p class="desc">Registro y archivo electrónico único, comunicaciones y práctica de las notificaciones electrónicas.</p>
+        <div class="meta"><span><b>1</b> bloque</span><span><b>16</b> artículos</span><span>Ley 39/2015 · RD 203/2021</span></div>
+        <div class="bar"><i data-tema-bar="6"></i></div>
+        <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="6">0%</span></div>
+        <a class="go" href="TEMA_6_registro_y_notificaciones.html">Empezar por el registro <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="tema" data-tema="7" style="--acc:var(--c19);--acc-soft:var(--c19-soft)">
+        <span class="badge">Tema 7 · Administración electrónica</span>
+        <h3>Expediente electrónico y simplificación</h3>
+        <p class="desc">Gestión electrónica del procedimiento, expediente y documento electrónico, y reducción de cargas.</p>
+        <div class="meta"><span><b>1</b> bloque</span><span><b>15</b> artículos</span><span>Ley 39/2015 · RD 203/2021</span></div>
+        <div class="bar"><i data-tema-bar="7"></i></div>
+        <div class="bar-row"><span>Progreso</span><span class="num" data-tema-pct="7">0%</span></div>
+        <a class="go" href="TEMA_7_expediente_y_simplificacion.html">Empezar por el expediente <span aria-hidden="true">→</span></a>
       </article>
 
       <article class="tema" data-tema="8" style="--acc:var(--c1);--acc-soft:var(--c1-soft)">
@@ -730,8 +785,13 @@ svg line{fill:none}
 "use strict";
 
 var TEMAS={
+ 1:{nm:"Los órganos colegiados locales",acc:"c15"},
  2:{nm:"El acto administrativo",acc:"c13"},
  3:{nm:"Las fases del procedimiento",acc:"c14"},
+ 4:{nm:"Funcionamiento electrónico (I)",acc:"c16"},
+ 5:{nm:"Funcionamiento electrónico (II)",acc:"c17"},
+ 6:{nm:"Funcionamiento electrónico (III)",acc:"c18"},
+ 7:{nm:"Funcionamiento electrónico (IV)",acc:"c19"},
  8:{nm:"El presupuesto de las entidades locales",acc:"c1"},
  9:{nm:"LCSP · Objeto y ámbito",acc:"c5"},
  10:{nm:"LCSP · Los contratos",acc:"c6"},
@@ -748,14 +808,17 @@ var BLOQUES=[
  {id:"b20",t:3,n:"3",acc:"c14",h:"LPAC_75-83_instruccion.html",tt:"La instrucción del procedimiento",d:"Alegaciones, prueba, informes y trámite de audiencia",a:"arts. 75-83"},
  {id:"b21",t:3,n:"4",acc:"c14",h:"LPAC_84-96_finalizacion.html",tt:"Finalización y tramitación simplificada",d:"Resolución, desistimiento, renuncia, caducidad y terminación convencional",a:"arts. 84-96"},
  {id:"b22",t:3,n:"5",acc:"c14",h:"LPAC_97-105_ejecucion.html",tt:"La ejecución del acto administrativo",d:"Ejecutoriedad, ejecución forzosa y sus medios",a:"arts. 97-105"},
+ {id:"b29",t:1,n:"1",acc:"c15",h:"TEMA_1_organos_colegiados.html",tt:"Los órganos colegiados locales",d:"Convocatoria, orden del día, constitución, actas y certificados: quién aprueba y con qué mayoría",a:"Ley 7/1985 y ROF"},
+ {id:"b30",t:4,n:"4",acc:"c16",h:"TEMA_4_funcionamiento_electronico_I.html",tt:"Sede, identificación y firma electrónica",d:"Sede electrónica, canales y puntos de acceso, identificación y firma",a:"LRJSP 38-43 · LPAC 9-12 · RD 203/2021"},
+ {id:"b31",t:5,n:"5",acc:"c17",h:"TEMA_5_funcionamiento_electronico_II.html",tt:"Acceso electrónico de la ciudadanía",d:"Servicios electrónicos y derecho y obligación de relacionarse electrónicamente",a:"LPAC 5, 6, 13, 14 y 53 · RD 203/2021"},
+ {id:"b32",t:6,n:"6",acc:"c18",h:"TEMA_6_registro_y_notificaciones.html",tt:"Registro, archivo y notificaciones",d:"Registro y archivo electrónico, comunicaciones y notificaciones electrónicas",a:"LPAC 16, 17 y 40-46 · RD 203/2021"},
+ {id:"b33",t:7,n:"7",acc:"c19",h:"TEMA_7_expediente_y_simplificacion.html",tt:"Expediente electrónico y simplificación",d:"Gestión electrónica, expediente y documento electrónico y simplificación",a:"LPAC 26-28, 31, 70 y 96 · RD 203/2021"},
  {id:"b1",t:8,n:"1",acc:"c1",h:"TRLHL_162-171_presupuesto.html",tt:"Contenido y aprobación del presupuesto",d:"Qué es, qué integra, anexos, estructura, tramitación y recursos",a:"arts. 162-171"},
  {id:"b2",t:8,n:"2",acc:"c2",h:"TRLHL_172-182_creditos.html",tt:"Los créditos y sus modificaciones",d:"Carácter limitativo, nulidad sin crédito, plurianuales y las siete modificaciones",a:"arts. 172-182"},
  {id:"b3",t:8,n:"3",acc:"c3",h:"TRLHL_183-193_ejecucion.html",tt:"Ejecución y liquidación",d:"Fases A-D-O-P, ordenación de pagos, pagos a justificar y remanente de tesorería",a:"arts. 183-193 bis"},
  {id:"b7",t:8,n:"4",acc:"c7",h:"TRLHL_194-207_tesoreria_contabilidad.html",tt:"Tesorería y contabilidad",d:"Unidad de caja, medios de pago, operaciones de tesorería y contabilidad pública local",a:"arts. 194-207"},
  {id:"b4",t:8,n:"5",acc:"c4",h:"TRLHL_208-223_control.html",tt:"Cuenta general, control y fiscalización",d:"Función interventora, reparos, control financiero y Tribunal de Cuentas",a:"arts. 208-223"},
  {id:"b8",t:8,n:"6",acc:"c8",h:"ORDEN_EHA_3565_2008_estructura.html",tt:"La estructura presupuestaria",d:"Clasificación por programas, económica y orgánica: áreas, políticas y capítulos",a:"Orden EHA/3565/2008"},
-
-
  {id:"b5",t:9,n:"9",acc:"c5",h:"LCSP_01-11_ambito.html",tt:"Objeto y ámbito de aplicación",d:"Principios, ámbito objetivo y subjetivo, negocios y contratos excluidos",a:"arts. 1-11"},
  {id:"b6",t:10,n:"10",acc:"c6",h:"LCSP_12-27_contratos.html",tt:"Los contratos del sector público",d:"Cinco tipos, riesgo operacional, SARA, administrativos frente a privados",a:"arts. 12-27"},
  {id:"b23",t:10,n:"1",acc:"c6",h:"LCSP_28-102_organo_y_objeto.html",tt:"El órgano de contratación, las partes y el objeto",d:"Competencia, capacidad y solvencia, objeto del contrato y valor estimado",a:"arts. 28-102"},

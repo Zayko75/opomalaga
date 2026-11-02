@@ -12,7 +12,7 @@
    "n": 1,
    "t": "Tema 9 completo · tipos de contrato, umbrales y contratos SARA",
    "m": "contratacion",
-   "ok": false
+   "ok": true
   },
   {
    "id": "R:a1:3",
@@ -39,5 +39,5 @@
    "ok": false
   }
  ],
- "ts": 1793625591755
+ "ts": 1793625674831
 }

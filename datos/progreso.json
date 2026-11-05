@@ -3,7 +3,8 @@
   "a1": true,
   "a3": true,
   "a4": true,
-  "a5": true
+  "a5": true,
+  "a6": true
  },
  "sims": {},
  "errs": [],
@@ -33,10 +34,26 @@
    "ok": false
   },
   {
+   "id": "R:a6:1",
+   "f": "2026-11-04",
+   "n": 1,
+   "t": "Tema 10 · bloque 2 · garantías, expediente y pliegos",
+   "m": "contratacion",
+   "ok": false
+  },
+  {
    "id": "R:a4:3",
    "f": "2026-11-05",
    "n": 3,
    "t": "Tema 10 · bloque 1 · repaso y disección",
+   "m": "contratacion",
+   "ok": false
+  },
+  {
+   "id": "R:a6:3",
+   "f": "2026-11-06",
+   "n": 3,
+   "t": "Tema 10 · bloque 2 · garantías, expediente y pliegos",
    "m": "contratacion",
    "ok": false
   },
@@ -57,6 +74,14 @@
    "ok": false
   },
   {
+   "id": "R:a6:7",
+   "f": "2026-11-10",
+   "n": 7,
+   "t": "Tema 10 · bloque 2 · garantías, expediente y pliegos",
+   "m": "contratacion",
+   "ok": false
+  },
+  {
    "id": "R:a1:21",
    "f": "2026-11-22",
    "n": 21,
@@ -71,7 +96,15 @@
    "t": "Tema 10 · bloque 1 · repaso y disección",
    "m": "contratacion",
    "ok": false
+  },
+  {
+   "id": "R:a6:21",
+   "f": "2026-11-24",
+   "n": 21,
+   "t": "Tema 10 · bloque 2 · garantías, expediente y pliegos",
+   "m": "contratacion",
+   "ok": false
   }
  ],
- "ts": 1793817961794
+ "ts": 1793885221671
 }

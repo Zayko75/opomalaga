@@ -2949,7 +2949,7 @@ function limitesNivel(t,n){
 function segmentar(root){
   var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
     if(!n.nodeValue||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
-    if(n.parentElement&&n.parentElement.closest(".lbl,.tts-bar"))return NodeFilter.FILTER_REJECT;
+    if(n.parentElement&&n.parentElement.closest(".lbl,.tts-bar,svg"))return NodeFilter.FILTER_REJECT;
     return NodeFilter.FILTER_ACCEPT;
   }});
   var nodos=[];while(w.nextNode())nodos.push(w.currentNode);

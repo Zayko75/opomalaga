@@ -699,7 +699,7 @@ var revs=document.querySelectorAll(".rv");
 if("IntersectionObserver" in window){
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
-  },{threshold:.08,rootMargin:"0px 0px -40px 0px"});
+  },{threshold:0,rootMargin:"0px 0px -40px 0px"});
   Array.prototype.forEach.call(revs,function(e,i){e.style.transitionDelay=(i%4)*70+"ms";io.observe(e);});
   var p=document.getElementById("panel");
   var io2=new IntersectionObserver(function(es){

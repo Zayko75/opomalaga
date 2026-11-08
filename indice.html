@@ -991,7 +991,7 @@ Array.prototype.forEach.call(document.querySelectorAll("[data-chips]"),function(
 if("IntersectionObserver" in window){
   var io=new IntersectionObserver(function(es){
     es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
-  },{threshold:.1,rootMargin:"0px 0px -40px 0px"});
+  },{threshold:0,rootMargin:"0px 0px -40px 0px"});
   Array.prototype.forEach.call(document.querySelectorAll(".reveal"),function(el){io.observe(el);});
 }else{
   Array.prototype.forEach.call(document.querySelectorAll(".reveal"),function(el){el.classList.add("in");});

@@ -1015,6 +1015,25 @@ header.top.toc-open .hdr-tocpanel{display:block;position:absolute;top:calc(100% 
 .hdr-tocpanel a[aria-current="true"]{background:var(--acc-soft);font-weight:700}
 @media print{.hdr-acc,.hdr-tocpanel{display:none !important}}
 </style>
+<style id="vista-diag">
+/* Vista «Diagramas»: oculta el texto y deja solo los diagramas, uno tras otro, con el título de su artículo */
+#vd-view{display:none}
+body.vd-on > *:not(header.top):not(#vd-view):not(script):not(style){display:none !important}
+body.vd-on #vd-view{display:block;max-width:1280px;margin:0 auto;padding:1.4rem 1.1rem 5rem;box-sizing:border-box}  /* mismo ancho y márgenes que la columna de la página y la cabecera */
+#vd-view .vd-resumen{margin:0 0 1.6rem;color:var(--ink2);font-size:.9rem;text-align:center}
+#vd-view .vd-grupo{margin:0 0 3.2rem}
+#vd-view .vd-grupo h2{margin:0 0 .9rem;padding:.55rem .9rem;border-left:4px solid var(--acc);background:var(--acc-soft);
+  border-radius:0 10px 10px 0;font-size:1.05rem;line-height:1.35;scroll-margin-top:90px}
+#vd-view .vd-grupo h2 .num{color:var(--acc);margin-right:.35rem}
+#vd-view figure{margin:0 0 2rem;padding:1rem 1.2rem;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+#vd-view figure:last-child{margin-bottom:0}
+#vd-view figcaption{margin:0 0 .2rem;font-size:.8rem;color:var(--ink2)}
+#vd-view svg{width:100%;max-width:100%;height:auto;margin:.3rem auto}
+.hdr-acc .hdr-diag[aria-pressed="true"]{background:var(--acc-soft);border-color:var(--acc);color:var(--acc)}
+@media (max-width:600px){.hdr-acc .hdr-diag{width:36px;padding:0}.hdr-acc .hdr-diag .lbl{display:none}
+  body.vd-on #vd-view{padding:1rem 1.1rem 4rem}#vd-view figure{padding:.6rem .5rem}}
+@media print{body.vd-on #vd-view figure{break-inside:avoid}}
+</style>
 </head>
 <body>
 <div id="tip" role="tooltip"></div>
@@ -3334,6 +3353,49 @@ var n=0,iv=setInterval(function(){pasada();if(++n>40)clearInterval(iv);},200);
     y-=h.offsetHeight+12;
     window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
     if(history.replaceState) history.replaceState(null,'','#'+id); });
+})();
+</script>
+<script id="vista-diag-js">
+(function(){
+  var h=document.querySelector('header.top'), main=document.getElementById('main');
+  var acc=h&&h.querySelector('.hdr-acc'); if(!acc||!main||main.querySelectorAll('svg').length<2) return;
+  var btn=document.createElement('button'); btn.type='button'; btn.className='hdr-diag';
+  btn.innerHTML='<span aria-hidden="true">▦</span><span class="lbl">Diagramas</span>';
+  btn.setAttribute('aria-label','Ver solo los diagramas de la página'); btn.setAttribute('aria-pressed','false');
+  acc.insertBefore(btn,acc.querySelector('.hdr-more'));
+  var view=document.createElement('div'); view.id='vd-view'; view.setAttribute('role','region'); view.setAttribute('aria-label','Todos los diagramas de la página');
+  document.body.appendChild(view);
+  var lbl=btn.querySelector('.lbl'), yPrev=0, k=0;
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function re(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+  /* copia del SVG con identificadores propios: los marcadores (flechas) siguen funcionando al ocultar el original */
+  function clonar(svg){ var n=++k, t=svg.outerHTML, ids=[];
+    t.replace(/([\s<])id="([^"]+)"/g,function(m,p,a){ ids.push(a); return m; });
+    ids.forEach(function(a){ var q=re(a), nu='vd'+n+'-'+a;
+      t=t.replace(new RegExp('([\\s<])id="'+q+'"','g'),'$1id="'+nu+'"').replace(new RegExp('url\\(#'+q+'\\)','g'),'url(#'+nu+')').replace(new RegExp('href="#'+q+'"','g'),'href="#'+nu+'"'); });
+    return t; }
+  function titulo(svg){ var sec=svg.closest('section'), t=sec&&sec.querySelector('h2');
+    if(t) return {key:sec, html:t.innerHTML};
+    var hs=[].slice.call(main.querySelectorAll('h2,h3')), p=null;
+    hs.forEach(function(x){ if(x.compareDocumentPosition(svg)&4) p=x; });
+    return p ? {key:p, html:p.innerHTML} : {key:main, html:'Diagramas'}; }
+  function construir(){ var svgs=[].slice.call(main.querySelectorAll('svg')).filter(function(s){ return s.getAttribute('viewBox'); });
+    var grupos=[], ult=null;
+    svgs.forEach(function(s){ var t=titulo(s); if(!ult||ult.key!==t.key){ ult={key:t.key,html:t.html,items:[]}; grupos.push(ult); } ult.items.push(s); });
+    var o='<p class="vd-resumen">'+svgs.length+' diagramas en '+grupos.length+' apartados · pulsa «Volver al texto» para regresar</p>';
+    grupos.forEach(function(g){ o+='<section class="vd-grupo"><h2>'+g.html+'</h2>';
+      g.items.forEach(function(s){ var c=s.getAttribute('aria-label');
+        o+='<figure>'+(c&&g.items.length>1?'<figcaption>'+esc(c)+'</figcaption>':'')+clonar(s)+'</figure>'; });
+      o+='</section>'; });
+    view.innerHTML=o; }
+  function abrir(){ yPrev=window.pageYOffset; construir(); document.body.classList.add('vd-on');
+    btn.setAttribute('aria-pressed','true'); lbl.textContent='Volver al texto'; btn.setAttribute('aria-label','Volver al texto de la página');
+    window.scrollTo({top:0,behavior:'instant'}); }
+  function cerrar(){ document.body.classList.remove('vd-on'); view.innerHTML='';
+    btn.setAttribute('aria-pressed','false'); lbl.textContent='Diagramas'; btn.setAttribute('aria-label','Ver solo los diagramas de la página');
+    window.scrollTo({top:yPrev,behavior:'instant'}); }
+  btn.addEventListener('click',function(e){ e.stopPropagation(); if(document.body.classList.contains('vd-on')) cerrar(); else abrir(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && document.body.classList.contains('vd-on')) cerrar(); });
 })();
 </script>
 </body>

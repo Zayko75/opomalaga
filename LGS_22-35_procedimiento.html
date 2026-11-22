@@ -969,6 +969,15 @@ html[data-theme="dark"] .tts-s.now{
 @media print{.tts-bar,.tts-mini,.tts-back{display:none !important}}
 
 </style>
+<style id="fix-movil">
+/* En el móvil la página solo se desplaza en vertical: las tablas anchas se desplazan dentro de su recuadro */
+html,body{overflow-x:clip}
+@supports not (overflow-x:clip){body{overflow-x:hidden}}
+@media (max-width:760px){
+  main table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  main pre{max-width:100%;overflow-x:auto}
+}
+</style>
 </head>
 <body>
 <div id="tip" role="tooltip"></div>
@@ -1517,11 +1526,11 @@ const ARTS=[{n:22,t:"Procedimientos de concesión",ubic:"Título I (Procedimient
 <li>El límite cuantitativo: <b>el importe objeto de reintegro más intereses y recargos</b>.</li>
 <li>Puede acordarse a iniciativa propia, por decisión de la <b>Comisión Europea</b> o a propuesta de la <b>IGAE</b> o de la autoridad pagadora.</li>
 </ul>`,ancla:`<p><b>"Si te voy a reclamar, no te sigo pagando."</b> Medida cautelar, motivada y con límite.</p>`,vis:`<svg viewBox="0 0 640 140" role="img" aria-label="Retención de pagos como medida cautelar">
-<defs><marker id="s1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--exc)"/></marker></defs>
+<defs><marker id="s1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="var(--acc)"/></marker></defs>
 <rect x="30" y="35" width="230" height="56" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
 <text x="145" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Inicio del procedimiento</text>
 <text x="145" y="77" text-anchor="middle" font-size="10" fill="currentColor">de reintegro acordado</text>
-<path d="M264 63 L 304 63" stroke="var(--exc)" stroke-width="2" marker-end="url(#s1)"/>
+<path d="M264 63 L 304 63" stroke="var(--acc)" stroke-width="2" marker-end="url(#s1)"/>
 <rect x="308" y="35" width="300" height="56" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
 <text x="458" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">Suspensión de libramientos pendientes</text>
 <text x="458" y="77" text-anchor="middle" font-size="10" fill="currentColor">hasta el importe a reintegrar más intereses y recargos</text>

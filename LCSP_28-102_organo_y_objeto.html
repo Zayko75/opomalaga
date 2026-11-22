@@ -969,6 +969,15 @@ html[data-theme="dark"] .tts-s.now{
 @media print{.tts-bar,.tts-mini,.tts-back{display:none !important}}
 
 </style>
+<style id="fix-movil">
+/* En el móvil la página solo se desplaza en vertical: las tablas anchas se desplazan dentro de su recuadro */
+html,body{overflow-x:clip}
+@supports not (overflow-x:clip){body{overflow-x:hidden}}
+@media (max-width:760px){
+  main table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  main pre{max-width:100%;overflow-x:auto}
+}
+</style>
 </head>
 <body>
 <div id="tip" role="tooltip"></div>

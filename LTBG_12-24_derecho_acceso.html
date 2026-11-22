@@ -969,6 +969,15 @@ html[data-theme="dark"] .tts-s.now{
 @media print{.tts-bar,.tts-mini,.tts-back{display:none !important}}
 
 </style>
+<style id="fix-movil">
+/* En el móvil la página solo se desplaza en vertical: las tablas anchas se desplazan dentro de su recuadro */
+html,body{overflow-x:clip}
+@supports not (overflow-x:clip){body{overflow-x:hidden}}
+@media (max-width:760px){
+  main table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  main pre{max-width:100%;overflow-x:auto}
+}
+</style>
 </head>
 <body>
 <div id="tip" role="tooltip"></div>
@@ -1117,7 +1126,7 @@ const ARTS=[{n:12,t:"Derecho de acceso a la información pública",ubic:"Título
 <rect x="329" y="25" width="145" height="60" rx="8" fill="var(--acc-soft)" stroke="var(--acc)"/><text x="401" y="47" font-size="11" font-weight="700" fill="var(--acc)">Economía y secretos</text><text x="401" y="65">h) intereses · i) política económica</text><text x="401" y="79">j) secreto · k) decisión</text>
 <rect x="486" y="25" width="139" height="60" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/><text x="555" y="47" font-size="11" font-weight="700" fill="var(--ej)">Entorno</text><text x="555" y="65">l) protección del</text><text x="555" y="79">medio ambiente</text>
 </g>
-<rect x="90" y="102" width="460" height="52" rx="8" fill="var(--panel)" stroke="var(--acc)" stroke-width="2"/>
+<rect x="90" y="102" width="460" height="52" rx="8" fill="var(--panel)" stroke="var(--acc)"/>
 <text x="320" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="var(--acc)">Regla del art. 14.2</text>
 <text x="320" y="141" text-anchor="middle" font-size="10" fill="currentColor">justificada y proporcionada · caso concreto · posible interés superior que justifique el acceso</text>
 </svg>`},
@@ -1187,7 +1196,7 @@ const ARTS=[{n:12,t:"Derecho de acceso a la información pública",ubic:"Título
 <rect x="267" y="35" width="180" height="56" rx="8" fill="var(--ej-bg)" stroke="var(--ej)"/>
 <text x="357" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ej)">Acceso parcial</text>
 <text x="357" y="77" text-anchor="middle" font-size="10" fill="currentColor">previa omisión, indicándola</text>
-<path d="M450 63 L 490 63" stroke="var(--exc)" stroke-width="2" marker-end="url(#p1)"/>
+<path d="M450 63 L 490 63" stroke="var(--acc)" stroke-width="2" marker-end="url(#p1)"/>
 <rect x="494" y="35" width="130" height="56" rx="8" fill="var(--exc-bg)" stroke="var(--exc)"/>
 <text x="559" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="var(--exc)">Salvo que</text>
 <text x="559" y="77" text-anchor="middle" font-size="10" fill="currentColor">quede sin sentido</text>

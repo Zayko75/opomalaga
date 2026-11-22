@@ -977,6 +977,26 @@ html,body{overflow-x:clip}
   main pre{max-width:100%;overflow-x:auto}
 }
 </style>
+<style id="hdr-compacta">
+/* Cabecera compacta: al bajar se queda en una línea; «⋯» despliega las herramientas */
+html{overflow-anchor:none}
+header.top .hdr-more{display:none}
+header.top,header.top .top-in,header.top .mark,header.top h1{transition:none}
+header.top.is-compact .top-in{padding-top:.35rem;padding-bottom:.35rem}
+header.top.is-compact h1{font-size:.95rem}
+header.top.is-compact h1 .sub,header.top.is-compact .brand .txt span{display:none}
+header.top.is-compact h1 .tit{display:block;-webkit-line-clamp:unset;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+header.top.is-compact .mark{width:28px;height:28px;font-size:.66rem;border-radius:8px}
+header.top.is-compact .brandwrap ~ .tools{display:none}
+header.top.is-compact .hdr-more{display:grid;place-items:center;flex:none;width:36px;height:36px;margin-left:auto;padding:0;
+  border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.25rem;line-height:1;cursor:pointer}
+header.top.is-compact .hdr-more:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+header.top.is-compact.tools-open .hdr-more{background:var(--acc-soft);border-color:var(--acc);color:var(--acc)}
+header.top.is-compact.tools-open .brandwrap ~ .tools{display:flex;position:absolute;left:0;right:0;top:100%;
+  padding:.6rem .8rem .7rem;background:var(--surface);border-bottom:1px solid var(--line);
+  box-shadow:0 10px 24px -12px rgba(0,0,0,.35)}
+@media print{.hdr-more{display:none !important}}
+</style>
 </head>
 <body>
 <div id="tip" role="tooltip"></div>
@@ -2632,6 +2652,34 @@ var n=0,iv=setInterval(function(){pasada();if(++n>40)clearInterval(iv);},200);
 })();
 
 
+</script>
+<script id="hdr-compacta-js">
+(function(){
+  var h=document.querySelector('header.top'); if(!h) return;
+  var bw=h.querySelector('.brandwrap'), tools=h.querySelector('.tools'), btn=null;
+  function cerrar(){ h.classList.remove('tools-open'); if(btn) btn.setAttribute('aria-expanded','false'); }
+  if(bw && tools){
+    btn=document.createElement('button'); btn.type='button'; btn.className='hdr-more noprint';
+    btn.setAttribute('aria-label','Herramientas: buscar, vista, tamaño de letra, tema'); btn.setAttribute('aria-expanded','false');
+    btn.innerHTML='<span aria-hidden="true">⋯</span>'; bw.appendChild(btn);
+    btn.addEventListener('click',function(e){ e.stopPropagation(); var o=h.classList.toggle('tools-open'); btn.setAttribute('aria-expanded',o?'true':'false'); });
+    document.addEventListener('click',function(e){ if(h.classList.contains('tools-open') && !h.contains(e.target)) cerrar(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape' && h.classList.contains('tools-open')){ cerrar(); btn.focus(); } });
+  }
+  var compacta=false;
+  /* el hueco que deja la cabecera al encogerse se compensa con margen: el texto no salta */
+  function compensar(){ h.style.marginBottom=''; h.classList.remove('is-compact'); var alta=h.offsetHeight;
+    h.classList.add('is-compact'); h.style.marginBottom=Math.max(0,alta-h.offsetHeight)+'px'; }
+  function poner(c){ if(c===compacta) return; compacta=c;
+    if(c) compensar(); else { h.classList.remove('is-compact'); h.style.marginBottom=''; cerrar(); } }
+  var pendiente=false;
+  function alDesplazar(){ if(pendiente) return; pendiente=true;
+    requestAnimationFrame(function(){ pendiente=false; var y=window.pageYOffset||document.documentElement.scrollTop;
+      if(!compacta && y>90) poner(true); else if(compacta && y<30) poner(false); }); }
+  window.addEventListener('scroll',alDesplazar,{passive:true});
+  window.addEventListener('resize',function(){ if(compacta) compensar(); });
+  alDesplazar();
+})();
 </script>
 </body>
 </html>
